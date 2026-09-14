@@ -8,7 +8,7 @@ import { router } from '../router.js';
 
 const CACHE_KEY = 'election_results_cache';
 const CACHE_TIME_KEY = 'election_results_last_fetch';
-const REFRESH_INTERVAL = 30 * 1000; // 30 seconds auto-refresh (no 5-minute wait)
+const REFRESH_INTERVAL = 5 * 60 * 1000; // 5 minutes
 
 export async function renderResults(container) {
   container.innerHTML = `
@@ -63,8 +63,9 @@ export async function renderResults(container) {
         }
       }
     } else {
-      const secs = Math.ceil(remaining / 1000);
-      timerEl.textContent = `Auto-update in ${secs}s`;
+      const mins = Math.floor(remaining / 60000);
+      const secs = Math.floor((remaining % 60000) / 1000);
+      timerEl.textContent = `Auto-update in ${mins}:${secs.toString().padStart(2, '0')}`;
       timerEl.classList.remove('text-green-400');
     }
   };

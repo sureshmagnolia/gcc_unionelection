@@ -154,7 +154,14 @@ export async function renderAdminBallots(container) {
     try {
       [posts, candidatesResponse, schedule, settings] = await Promise.all([
         api.adminGetPosts(pwd),
-        api.getFinalNominations(),
+        api.adminGetFinalNominations(pwd).catch(async () => {
+          const all = await api.adminGetNominations(pwd).catch(() => []);
+          return {
+            active: all.filter(n => n.status !== 'Rejected' && n.withdrawalStatus !== 'Approved'),
+            withdrawn: all.filter(n => n.withdrawalStatus === 'Approved'),
+            isPublished: false
+          };
+        }),
         api.getPublicSchedule(),
         api.adminGetSettings(pwd).catch(() => ({}))
       ]);

@@ -103,16 +103,17 @@ async function fetchAndRender(main, force = false) {
         api.invalidateCache('getPublicSchedule');
       }
 
-      let schedule;
-      [posts, results, schedule] = await Promise.all([
+      let schedule, sets;
+      [posts, results, schedule, sets] = await Promise.all([
         api.getPosts(),
         api.getResults().catch(() => []),
-        api.getPublicSchedule().catch(() => ({}))
+        api.getPublicSchedule().catch(() => ({})),
+        api.getSettings().catch(() => ({}))
       ]);
       
       // Save to cache
       localStorage.setItem(CACHE_TIME_KEY, Date.now().toString());
-      localStorage.setItem(CACHE_KEY, JSON.stringify({ posts, results, schedule }));
+      localStorage.setItem(CACHE_KEY, JSON.stringify({ posts, results, schedule, sets }));
       
       const year = schedule.electionYear || new Date().getFullYear();
       updateHeader(main, year);
@@ -127,8 +128,8 @@ function updateHeader(main, year) {
       main.innerHTML = `
         <div class="text-center py-20 bg-white/5 rounded-2xl border border-white/10">
           <div class="text-5xl mb-4">📊</div>
-          <h2 class="text-2xl font-bold text-white mb-2">Counting in Progress</h2>
-          <p class="text-slate-400">No results have been published yet. Please check back later.</p>
+          <h2 class="text-2xl font-bold text-white mb-2">Results Counting in Progress</h2>
+          <p class="text-slate-400 max-w-md mx-auto">The official election results have not been published for public viewing yet. Please check back later.</p>
         </div>
       `;
       return;

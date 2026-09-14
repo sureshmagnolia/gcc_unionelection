@@ -349,6 +349,25 @@ function doGet(e) {
       });
     }
 
+    if (action === 'adminGetFinalNominations') {
+      checkAdmin(e.parameter.password, e.parameter.sessionToken);
+      const isPublished = getSetting('finalListPublished') === 'true';
+      let all = getAllNominations(SHEET_FINAL);
+      if (all.length === 0) {
+        // Before final list is officially published, derive candidates from all nominations
+        const noms = getAllNominations();
+        all = noms.filter(n => (n.status === 'Valid' || n.status === 'Pending') && n.withdrawalStatus !== 'Approved');
+        if (all.length === 0) {
+          all = noms.filter(n => n.withdrawalStatus !== 'Approved');
+        }
+      }
+      return jsonOut({
+        active:    all.filter(n => n.withdrawalStatus !== 'Approved'),
+        withdrawn: all.filter(n => n.withdrawalStatus === 'Approved'),
+        isPublished: isPublished
+      });
+    }
+
     if (action === 'adminGetNominations') {
       checkAdmin(e.parameter.password, e.parameter.sessionToken);
       return jsonOut(getAllNominations());
@@ -359,6 +378,8 @@ function doGet(e) {
       return jsonOut({
         validListPublished: getSetting('validListPublished'),
         finalListPublished: getSetting('finalListPublished'),
+        resultsPublished: getSetting('resultsPublished') || 'false',
+        resultsLocked: getSetting('resultsLocked') || 'false',
         collegeName: getSetting('collegeName') || 'GOVERNMENT VICTORIA COLLEGE PALAKKAD',
         collegeShortName: getSetting('collegeShortName') || 'GVC',
         notificationDate: getSetting('notificationDate') || '2026-04-20',
@@ -385,15 +406,31 @@ function doGet(e) {
 
     if (action === 'adminGetLocations') {
       checkAdmin(e.parameter.password, e.parameter.sessionToken);
-      const locStr = getSetting('availableLocations');
       try {
+        const locStr = getSetting('availableLocations');
         return jsonOut(locStr ? JSON.parse(locStr) : []);
       } catch (e) {
         return jsonOut([]);
       }
     }
 
+    if (action === 'adminGetResults') {
+      checkAdmin(e.parameter.password, e.parameter.sessionToken);
+      const s = getSheet(SHEET_RESULTS);
+      const d = s.getDataRange().getValues();
+      if (d.length < 2) return jsonOut([]);
+      const headers = d[0];
+      return jsonOut(d.slice(1).map(r => {
+        let obj = {};
+        headers.forEach((h, i) => obj[h] = r[i]);
+        return obj;
+      }));
+    }
+
     if (action === 'getResults') {
+      if (getSetting('resultsPublished') !== 'true') {
+        return jsonOut([]);
+      }
       return cachedJsonOut('public_results', () => {
         const s = getSheet(SHEET_RESULTS);
         const d = s.getDataRange().getValues();
@@ -422,6 +459,8 @@ function doGet(e) {
       return jsonOut({
         validListPublished: getSetting('validListPublished'),
         finalListPublished: getSetting('finalListPublished'),
+        resultsPublished: getSetting('resultsPublished') || 'false',
+        resultsLocked: getSetting('resultsLocked') || 'false',
         isRollFinalized: getSetting('isRollFinalized'),
         collegeName: getSetting('collegeName'),
         collegeShortName: getSetting('collegeShortName'),
@@ -883,8 +922,29 @@ function doPost(e) {
       return errOut('Invalid locations data.');
     }
 
+    if (action === 'adminToggleLockResults') {
+      checkAdmin(body.password, body.sessionToken);
+      const current = getSetting('resultsLocked') === 'true';
+      const nextVal = current ? 'false' : 'true';
+      setSetting('resultsLocked', nextVal);
+      return jsonOut({ ok: true, locked: nextVal === 'true' });
+    }
+
+    if (action === 'adminTogglePublishResults') {
+      checkAdmin(body.password, body.sessionToken);
+      const current = getSetting('resultsPublished') === 'true';
+      const nextVal = current ? 'false' : 'true';
+      setSetting('resultsPublished', nextVal);
+      CacheService.getScriptCache().remove('public_results');
+      CacheService.getScriptCache().remove('public_settings');
+      return jsonOut({ ok: true, published: nextVal === 'true' });
+    }
+
     if (action === 'adminSaveResults') {
       checkAdmin(body.password, body.sessionToken);
+      if (getSetting('resultsLocked') === 'true') {
+        return errOut('Results are locked and frozen. No further vote entries are allowed.');
+      }
       // body.results = [{ TableNumber, RoundNumber, Post, CandidateId, CandidateName, Votes, FormSerial }]
       const s = getSheet(SHEET_RESULTS);
       const headers = ['TableNumber', 'RoundNumber', 'Post', 'CandidateId', 'CandidateName', 'Votes', 'FormSerial'];

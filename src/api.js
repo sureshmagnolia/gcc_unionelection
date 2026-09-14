@@ -214,6 +214,7 @@ export const api = {
   adminSendOTP: (password) => post({ action: 'adminSendOTP', password }),
   adminVerifyOTP: (password, otp) => post({ action: 'adminVerifyOTP', password, otp }),
   adminGetNominations: (password) => get({ action: 'adminGetNominations', password }),
+  adminGetFinalNominations: (password) => get({ action: 'adminGetFinalNominations', password }),
 
   adminVerifyNomination: (password, id, status) => {
     updateCache({ action: 'adminGetNominations', password }, (noms) => {
@@ -345,11 +346,30 @@ export const api = {
   // ─── Results Management ──────────────────────────────────────────────────────
 
   getResults: () => get({ action: 'getResults' }),
+  adminGetResults: (password) => get({ action: 'adminGetResults', password }),
 
   adminSaveResults: (password, results) => {
     // We queue the network save, invalidate the results cache since it's hard to append optimally here
-    bgPost({ action: 'adminSaveResults', password, results }).then(() => invalidateCache('getResults'));
+    bgPost({ action: 'adminSaveResults', password, results }).then(() => {
+      invalidateCache('getResults');
+      invalidateCache('adminGetResults');
+    });
     return Promise.resolve({ ok: true });
+  },
+
+  adminToggleLockResults: async (password) => {
+    const res = await post({ action: 'adminToggleLockResults', password });
+    invalidateCache('adminGetSettings');
+    invalidateCache('getSettings');
+    return res;
+  },
+
+  adminTogglePublishResults: async (password) => {
+    const res = await post({ action: 'adminTogglePublishResults', password });
+    invalidateCache('adminGetSettings');
+    invalidateCache('getSettings');
+    invalidateCache('getResults');
+    return res;
   },
 
   adminInjectTestData: (password) => post({ action: 'adminInjectTestData', password }),

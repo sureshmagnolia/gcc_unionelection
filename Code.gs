@@ -7,6 +7,7 @@
 
 // CONFIGURATION ΓÇö NO SECRETS HERE (Stored in Script Properties)
 const SHEET_NOMINAL  = 'NominalRoll';
+const SHEET_ROLL     = 'NominalRoll';
 const SHEET_NOMS     = 'Nominations'; // All submissions
 const SHEET_VALID    = 'ValidList';   // Verified by admin
 const SHEET_FINAL    = 'FinalList';   // Published after withdrawals
@@ -781,6 +782,27 @@ function doPost(e) {
       const s = getSheet(SHEET_ROLL);
       s.appendRow([body.serial, body.name, body.class, body.admission, body.dept]);
       return jsonOut({ ok: true });
+    }
+
+    if (action === 'adminUpdateStudent') {
+      checkAdmin(body.password, body.sessionToken);
+      if (getSetting('nominalRollFinalized') === 'true') return errOut('Roll is finalized. No changes allowed.');
+      const s = getSheet(SHEET_ROLL);
+      const d = s.getDataRange().getValues();
+      const targetSerial = String(body.originalSerial || body.serial);
+      for (let i = 1; i < d.length; i++) {
+        if (String(d[i][0]) === targetSerial) {
+          s.getRange(i + 1, 1, 1, 5).setValues([[
+            body.serial !== undefined && body.serial !== '' ? body.serial : d[i][0],
+            body.name !== undefined ? body.name : d[i][1],
+            body.class !== undefined ? body.class : d[i][2],
+            body.admission !== undefined ? body.admission : d[i][3],
+            body.dept !== undefined ? body.dept : d[i][4]
+          ]]);
+          return jsonOut({ ok: true });
+        }
+      }
+      return errOut('Student not found.');
     }
 
     if (action === 'adminFinalizeRoll') {

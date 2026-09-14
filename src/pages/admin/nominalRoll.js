@@ -169,8 +169,11 @@ function renderNominalRollUI(main, pwd, nominalRoll, settings) {
                     <td class="text-slate-300 text-sm">${esc(s['CLASS'])}</td>
                     <td class="text-slate-400 text-xs">${esc(s['Dept'] || '–')}</td>
                     ${!isFinal ? `
-                      <td>
-                        <button class="text-rose-400 hover:text-rose-300 delete-student" data-serial="${s['Nominal Roll Serial Number']}">Delete</button>
+                      <td class="whitespace-nowrap">
+                        <div class="flex items-center gap-2">
+                          <button class="px-2.5 py-1 text-xs font-semibold rounded bg-indigo-500/20 text-indigo-300 hover:bg-indigo-500/30 hover:text-white transition-colors edit-student" data-serial="${esc(s['Nominal Roll Serial Number'])}">✏️ Edit</button>
+                          <button class="px-2.5 py-1 text-xs font-semibold rounded bg-rose-500/20 text-rose-300 hover:bg-rose-500/30 hover:text-white transition-colors delete-student" data-serial="${esc(s['Nominal Roll Serial Number'])}">🗑️ Delete</button>
+                        </div>
                       </td>
                     ` : ''}
                   </tr>
@@ -220,6 +223,49 @@ function renderNominalRollUI(main, pwd, nominalRoll, settings) {
           </div>
         </div>
       </div>
+
+      <!-- Edit Student Modal -->
+      <div id="editModal" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-[100] hidden flex items-center justify-center p-4">
+        <div class="glass w-full max-w-md rounded-2xl p-6 shadow-2xl border border-white/10">
+          <div class="flex items-center justify-between mb-4">
+            <h4 class="text-xl font-bold text-white">Edit Student</h4>
+            <span id="editModalSubtitle" class="text-xs font-mono text-indigo-400 bg-indigo-500/10 px-2 py-1 rounded"></span>
+          </div>
+          <input type="hidden" id="editOriginalSerial">
+          <div class="space-y-4">
+            <div>
+              <label class="block text-xs font-bold text-slate-400 uppercase mb-1">Serial Number</label>
+              <input type="text" id="editSerial" class="field" placeholder="e.g. 1001">
+            </div>
+            <div>
+              <label class="block text-xs font-bold text-slate-400 uppercase mb-1">Full Name</label>
+              <input type="text" id="editName" class="field" placeholder="Student Name">
+            </div>
+            <div>
+              <label class="block text-xs font-bold text-slate-400 uppercase mb-1">Class Name</label>
+              <select id="editClass" class="field">
+                <option value="">-- Select Class --</option>
+                ${allClasses.map(c => `<option value="${esc(c)}">${esc(c)}</option>`).join('')}
+              </select>
+            </div>
+            <div>
+              <label class="block text-xs font-bold text-slate-400 uppercase mb-1">Admission No</label>
+              <input type="text" id="editAdm" class="field" placeholder="Adm No">
+            </div>
+            <div>
+              <label class="block text-xs font-bold text-slate-400 uppercase mb-1">Department</label>
+              <select id="editDept" class="field">
+                <option value="">-- Select Department --</option>
+                ${allDepts.map(d => `<option value="${esc(d)}">${esc(d)}</option>`).join('')}
+              </select>
+            </div>
+          </div>
+          <div class="flex gap-2 mt-8">
+            <button id="btnCancelEdit" class="btn btn-secondary flex-1">Cancel</button>
+            <button id="btnConfirmEdit" class="btn btn-primary flex-1">Update Student</button>
+          </div>
+        </div>
+      </div>
     `;
 
     // Search
@@ -239,11 +285,11 @@ function renderNominalRollUI(main, pwd, nominalRoll, settings) {
       main.querySelector('#btnCancelAdd').onclick = () => main.querySelector('#addModal').classList.add('hidden');
       main.querySelector('#btnConfirmAdd').onclick = async (e) => {
         const payload = {
-          serial: main.querySelector('#addSerial').value,
-          name: main.querySelector('#addName').value,
-          class: main.querySelector('#addClass').value,
-          admission: main.querySelector('#addAdm').value,
-          dept: main.querySelector('#addDept').value
+          serial: main.querySelector('#addSerial').value.trim(),
+          name: main.querySelector('#addName').value.trim(),
+          class: main.querySelector('#addClass').value.trim(),
+          admission: main.querySelector('#addAdm').value.trim(),
+          dept: main.querySelector('#addDept').value.trim()
         };
         if (!payload.serial || !payload.name || !payload.class) return showToast('Please fill required fields.', 'warning');
         
@@ -251,11 +297,96 @@ function renderNominalRollUI(main, pwd, nominalRoll, settings) {
         try {
           await api.adminAddStudent(pwd, payload);
           showToast('Student added to roll.', 'success');
-          // Reload page
-          renderAdminNominalRoll(main.closest('#appContainer') || main.parentElement);
+          students.push({
+            'Nominal Roll Serial Number': payload.serial,
+            'NAME': payload.name,
+            'CLASS': payload.class,
+            'ADMISION NO': payload.admission,
+            'Dept': payload.dept
+          });
+          refreshTable();
         } catch (err) {
           showToast(err.message, 'error');
           setLoading(e.target, false, 'Save Student');
+        }
+      };
+
+      // Edit Student
+      main.querySelector('#btnCancelEdit').onclick = () => main.querySelector('#editModal').classList.add('hidden');
+
+      main.querySelectorAll('.edit-student').forEach(btn => {
+        btn.onclick = () => {
+          const serial = btn.dataset.serial;
+          const student = students.find(s => String(s['Nominal Roll Serial Number']) === String(serial));
+          if (!student) return showToast('Student not found.', 'error');
+
+          main.querySelector('#editOriginalSerial').value = serial;
+          main.querySelector('#editModalSubtitle').textContent = `Serial #${serial}`;
+          main.querySelector('#editSerial').value = student['Nominal Roll Serial Number'] || '';
+          main.querySelector('#editName').value = student['NAME'] || '';
+          
+          const classVal = String(student['CLASS'] || '').trim();
+          const classSelect = main.querySelector('#editClass');
+          if (classVal && !allClasses.includes(classVal)) {
+            const opt = document.createElement('option');
+            opt.value = classVal;
+            opt.textContent = classVal;
+            classSelect.appendChild(opt);
+          }
+          classSelect.value = classVal;
+
+          main.querySelector('#editAdm').value = student['ADMISION NO'] || student['ADMISSION NO'] || '';
+
+          const deptVal = String(student['Dept'] || '').trim();
+          const deptSelect = main.querySelector('#editDept');
+          if (deptVal && !allDepts.includes(deptVal)) {
+            const opt = document.createElement('option');
+            opt.value = deptVal;
+            opt.textContent = deptVal;
+            deptSelect.appendChild(opt);
+          }
+          deptSelect.value = deptVal;
+
+          main.querySelector('#editModal').classList.remove('hidden');
+        };
+      });
+
+      main.querySelector('#btnConfirmEdit').onclick = async (e) => {
+        const originalSerial = main.querySelector('#editOriginalSerial').value;
+        const payload = {
+          originalSerial,
+          serial: main.querySelector('#editSerial').value.trim(),
+          name: main.querySelector('#editName').value.trim(),
+          class: main.querySelector('#editClass').value.trim(),
+          admission: main.querySelector('#editAdm').value.trim(),
+          dept: main.querySelector('#editDept').value.trim()
+        };
+
+        if (!payload.serial || !payload.name || !payload.class) {
+          return showToast('Please fill required fields (Serial, Name, Class).', 'warning');
+        }
+
+        setLoading(e.target, true, 'Update Student');
+        try {
+          await api.adminUpdateStudent(pwd, payload);
+          showToast('Student updated successfully.', 'success');
+          main.querySelector('#editModal').classList.add('hidden');
+
+          const idx = students.findIndex(s => String(s['Nominal Roll Serial Number']) === String(originalSerial));
+          if (idx !== -1) {
+            students[idx] = {
+              ...students[idx],
+              'Nominal Roll Serial Number': payload.serial,
+              'NAME': payload.name,
+              'CLASS': payload.class,
+              'ADMISION NO': payload.admission,
+              'Dept': payload.dept
+            };
+          }
+          refreshTable();
+        } catch (err) {
+          showToast(err.message, 'error');
+          setLoading(e.target, false, 'Update Student');
         }
       };
 
@@ -265,7 +396,8 @@ function renderNominalRollUI(main, pwd, nominalRoll, settings) {
           try {
             await api.adminDeleteStudent(pwd, btn.dataset.serial);
             showToast('Student removed.', 'success');
-            renderAdminNominalRoll(main.closest('#appContainer') || main.parentElement);
+            students = students.filter(s => String(s['Nominal Roll Serial Number']) !== String(btn.dataset.serial));
+            refreshTable();
           } catch (err) { showToast(err.message, 'error'); }
         };
       });

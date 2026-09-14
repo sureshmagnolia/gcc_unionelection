@@ -1,32 +1,30 @@
 /**
- * api.js
- * All communication with the Google Apps Script Web App backend.
- * Includes in-memory caching and background sync queue for instant UI response.
+ * api.js (V2 - Vercel Postgres Primary API with Secondary Google Sheets Sync)
+ * Communicates directly with Vercel Serverless Functions (/api/*).
  */
 import { CONFIG } from './config.js';
 
-const BASE_URL = CONFIG.APPS_SCRIPT_URL;
+const API_BASE = CONFIG.API_BASE_URL || '/api';
+const APPS_SCRIPT_URL = CONFIG.APPS_SCRIPT_URL;
 
-// --- Background Sync & Cache Infrastructure ---
 let _cache = {};
 const _syncQueue = [];
 let _isSyncing = false;
 let _statusCallback = null;
 
-// ─── Session Helpers ──────────────────────────────────────────────────────────
-function getSessionToken() {
-  // sessionStorage is kept in sync with localStorage by layout.js on every admin page load
-  return sessionStorage.getItem('adminSessionToken') || localStorage.getItem('adminSessionToken');
+// Helper to retrieve stored admin JWT session token
+function getAdminAuthHeader() {
+  const token = sessionStorage.getItem('adminSessionToken') || localStorage.getItem('adminSessionToken');
+  return token ? { 'Authorization': `Bearer ${token}` } : {};
 }
 
 function handleSessionExpired() {
-  // Clear ALL admin session data from both storage locations
   localStorage.removeItem('adminPwd');
   localStorage.removeItem('adminLoginDate');
   localStorage.removeItem('adminSessionToken');
   sessionStorage.removeItem('adminSessionToken');
   _cache = {};
-  alert('⚠️ Another admin has logged in from a different device. You have been logged out.');
+  alert('⚠️ Session expired or invalid admin credentials. Please login again.');
   window.location.hash = '/admin';
 }
 
@@ -38,393 +36,218 @@ function updateStatus(status) {
   if (_statusCallback) _statusCallback(status);
 }
 
-function setupUnloadGuard() {
-  if (window._unloadGuardAdded) return;
-  window._unloadGuardAdded = true;
-  window.addEventListener('beforeunload', (e) => {
-    if (_syncQueue.length > 0 || _isSyncing) {
-      e.returnValue = "Changes are still saving. Are you sure you want to leave?";
-      return e.returnValue;
-    }
-  });
-}
-
-async function processQueue() {
-  if (_isSyncing || _syncQueue.length === 0) return;
-  _isSyncing = true;
-  setupUnloadGuard();
-  updateStatus('saving');
-
-  while (_syncQueue.length > 0) {
-    const task = _syncQueue[0];
-    try {
-      const res = await fetch(BASE_URL, {
-        method: 'POST',
-        headers: { 'Content-Type': 'text/plain;charset=utf-8' },
-        body: JSON.stringify(task.body),
-      });
-      if (!res.ok) throw new Error(`Network error: ${res.status}`);
-      const data = await res.json();
-      if (data.error === 'SESSION_EXPIRED') { handleSessionExpired(); _syncQueue.length = 0; break; }
-      if (data.error) throw new Error(data.error);
-      if (task.resolve) task.resolve(data);
-    } catch (err) {
-      console.error("Background sync failed for", task.body.action, err);
-      if (task.reject) task.reject(err);
-    }
-    _syncQueue.shift();
-  }
-
-  _isSyncing = false;
-  updateStatus('saved');
-  setTimeout(() => {
-    if (!_isSyncing && _syncQueue.length === 0) {
-      updateStatus('idle');
-    }
-  }, 3000);
-}
-
-async function get(params) {
-  // Inject session token for admin requests
-  const token = getSessionToken();
-  if (token && params.password) params = { ...params, sessionToken: token };
-
-  const cacheKey = JSON.stringify(params);
-  if (_cache[cacheKey] !== undefined) return _cache[cacheKey];
-
-  const url = new URL(BASE_URL);
-  Object.entries(params).forEach(([k, v]) => url.searchParams.append(k, v));
-  url.searchParams.append('_t', Date.now());
-  const res = await fetch(url.toString());
-  if (!res.ok) throw new Error(`Network error: ${res.status}`);
-  const data = await res.json();
-  if (data.error === 'SESSION_EXPIRED') { handleSessionExpired(); throw new Error('SESSION_EXPIRED'); }
-  if (data.error) throw new Error(data.error);
-
-  _cache[cacheKey] = data;
-  return data;
-}
-
-// Direct synchronous post (blocks UI until server responds)
-async function post(body) {
-  // Inject session token for admin requests
-  const token = getSessionToken();
-  if (token && body.password) body = { ...body, sessionToken: token };
-
-  const res = await fetch(BASE_URL, {
-    method: 'POST',
-    headers: { 'Content-Type': 'text/plain;charset=utf-8' },
-    body: JSON.stringify(body),
-  });
-  if (!res.ok) throw new Error(`Network error: ${res.status}`);
-  const data = await res.json();
-  if (data.error === 'SESSION_EXPIRED') { handleSessionExpired(); throw new Error('SESSION_EXPIRED'); }
-  if (data.error) throw new Error(data.error);
-  return data;
-}
-
-// Background queued post (resolves when server finishes)
-function bgPost(body) {
-  // Inject session token for admin requests
-  const token = getSessionToken();
-  if (token && body.password) body = { ...body, sessionToken: token };
-
-  return new Promise((resolve, reject) => {
-    _syncQueue.push({ body, resolve, reject });
-    processQueue();
-  });
-}
-
-function updateCache(params, newDataOrUpdater) {
-  const key = JSON.stringify(params);
-  if (typeof newDataOrUpdater === 'function') {
-    if (_cache[key] !== undefined) _cache[key] = newDataOrUpdater(_cache[key]);
-  } else {
-    _cache[key] = newDataOrUpdater;
-  }
-}
-
-// Clear specific caches based on substring action match
 function invalidateCache(actionSubstring) {
   Object.keys(_cache).forEach(k => {
     if (k.includes(actionSubstring)) delete _cache[k];
   });
 }
 
+function updateCache(key, updater) {
+  if (typeof updater === 'function') {
+    if (_cache[key] !== undefined) _cache[key] = updater(_cache[key]);
+  } else {
+    _cache[key] = updater;
+  }
+}
+
+// Background sync to Google Sheets secondary backup
+async function processBackupSync(payload) {
+  if (!APPS_SCRIPT_URL) return;
+  try {
+    fetch(APPS_SCRIPT_URL, {
+      method: 'POST',
+      headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+      body: JSON.stringify(payload)
+    }).catch(e => console.warn('[Secondary Sheets Backup Sync warning]', e.message));
+  } catch (err) {
+    console.warn('[Secondary Sheets Backup Sync error]', err.message);
+  }
+}
+
+// Universal fetch handler for Vercel API endpoints
+async function apiFetch(endpoint, options = {}) {
+  const headers = {
+    'Content-Type': 'application/json',
+    ...getAdminAuthHeader(),
+    ...(options.headers || {})
+  };
+
+  const res = await fetch(`${API_BASE}${endpoint}`, {
+    ...options,
+    headers
+  });
+
+  if (res.status === 401) {
+    handleSessionExpired();
+    throw new Error('UNAUTHORIZED');
+  }
+
+  if (!res.ok) {
+    const errData = await res.json().catch(() => ({}));
+    throw new Error(errData.error || `HTTP ${res.status}`);
+  }
+
+  return await res.json();
+}
+
 // ─── Public API ────────────────────────────────────────────────────────────────
 
 export const api = {
   invalidateCache,
-  
-  // Pre-fetchers
+
   initPublicData: async () => {
     const promises = [
-      api.getPublicSchedule().catch(()=>null),
-      api.getSettings().catch(()=>null),
-      api.getPosts().catch(()=>null),
-      api.getResults().catch(()=>null),
-      api.getNominalRoll().catch(()=>null),
-      api.getPublicNominations().catch(()=>null),
-      api.getValidNominations().catch(()=>null),
-      api.getFinalNominations().catch(()=>null)
+      api.getSettings().catch(() => null),
+      api.getPosts().catch(() => null),
+      api.getValidNominations().catch(() => null),
+      api.getFinalNominations().catch(() => null)
     ];
     await Promise.all(promises);
   },
 
   initAdminData: async (password) => {
     const promises = [
-      api.adminGetNominations(password).catch(()=>null),
-      api.adminGetSettings(password).catch(()=>null),
-      api.adminGetPosts(password).catch(()=>null),
-      api.adminGetBooths(password).catch(()=>null),
-      api.adminGetLocations(password).catch(()=>null),
-      api.adminGetBallotPlan(password).catch(()=>null),
-      api.adminGetCountingMatrix(password).catch(()=>null)
+      api.adminGetNominations(password).catch(() => null),
+      api.adminGetSettings(password).catch(() => null),
+      api.adminGetPosts(password).catch(() => null)
     ];
     await Promise.all(promises);
   },
 
-  /** Fetch the full nominal roll */
-  getNominalRoll: () => get({ action: 'getNominalRoll' }),
-  getPosts: () => get({ action: 'getPosts' }),
-  getPublicNominations: () => get({ action: 'getPublicNominations' }),
-  getNomination: (id) => get({ action: 'getNomination', id }),
-  getValidNominations: () => get({ action: 'getValidNominations' }),
-  getFinalNominations: () => get({ action: 'getFinalNominations' }),
-  submitNomination: (payload) => post({ action: 'submitNomination', ...payload }),
-  submitWithdrawal: (id) => post({ action: 'submitWithdrawal', id }),
+  getNominalRoll: () => apiFetch('/nominal-roll'),
+
+  getStudentBySerial: (serial) => apiFetch(`/nominal-roll?serial=${serial}`),
+
+  getPosts: async () => {
+    const cacheKey = 'getPosts';
+    if (_cache[cacheKey]) return _cache[cacheKey];
+    const data = await apiFetch('/admin/posts');
+    _cache[cacheKey] = data;
+    return data;
+  },
+
+  getNomination: (id) => apiFetch(`/find-nomination?id=${id}`),
+
+  getPublicNominations: () => apiFetch('/admin/verify'),
+
+  getValidNominations: async () => {
+    const all = await apiFetch('/admin/verify').catch(() => []);
+    return all.filter(n => n.status === 'Valid');
+  },
+
+  getFinalNominations: async () => {
+    const all = await apiFetch('/admin/verify').catch(() => []);
+    return all.filter(n => n.status === 'Valid' && n.withdrawalStatus !== 'Approved');
+  },
+
+  submitNomination: async (payload) => {
+    const res = await apiFetch('/submit-nomination', {
+      method: 'POST',
+      body: JSON.stringify(payload)
+    });
+    // Fire-and-forget secondary backup sync to Google Sheets
+    processBackupSync({ action: 'submitNomination', ...payload, id: res.id });
+    return res;
+  },
+
+  submitWithdrawal: async (id, reason) => {
+    const res = await apiFetch('/withdraw-nomination', {
+      method: 'POST',
+      body: JSON.stringify({ id, reason })
+    });
+    processBackupSync({ action: 'submitWithdrawal', id, reason });
+    return res;
+  },
 
   // ─── Admin API ──────────────────────────────────────────────────────────────
 
   adminLogin: async (password) => {
-    // Login does NOT send a sessionToken — it creates a new one
-    const res = await fetch(BASE_URL, {
+    const res = await apiFetch('/admin/login', {
       method: 'POST',
-      headers: { 'Content-Type': 'text/plain;charset=utf-8' },
-      body: JSON.stringify({ action: 'adminLogin', password }),
+      body: JSON.stringify({ password })
     });
-    if (!res.ok) throw new Error(`Network error: ${res.status}`);
-    const data = await res.json();
-    if (data.error) throw new Error(data.error);
-    if (data.sessionToken) {
-      sessionStorage.setItem('adminSessionToken', data.sessionToken);
+    if (res.token) {
+      sessionStorage.setItem('adminSessionToken', res.token);
+      localStorage.setItem('adminSessionToken', res.token);
     }
-    return data;
+    return res;
   },
-  adminSendOTP: (password) => post({ action: 'adminSendOTP', password }),
-  adminVerifyOTP: (password, otp) => post({ action: 'adminVerifyOTP', password, otp }),
-  adminGetNominations: (password) => get({ action: 'adminGetNominations', password }),
 
-  adminVerifyNomination: (password, id, status) => {
-    updateCache({ action: 'adminGetNominations', password }, (noms) => {
-      const n = noms.find(x => x.id === id);
-      if (n) n.status = status;
-      return noms;
+  adminGetNominations: (password) => apiFetch('/admin/verify'),
+
+  adminVerifyNomination: async (password, id, status, remarks) => {
+    const res = await apiFetch('/admin/verify', {
+      method: 'POST',
+      body: JSON.stringify({ id, status, remarks })
     });
-    bgPost({ action: 'adminVerifyNomination', password, id, status });
-    return Promise.resolve({ ok: true });
+    processBackupSync({ action: 'adminVerifyNomination', id, status, remarks });
+    return { ok: true, res };
   },
 
-  adminApproveWithdrawal: (password, id) => {
-    updateCache({ action: 'adminGetNominations', password }, (noms) => {
-      const n = noms.find(x => x.id === id);
-      if (n) n.withdrawalStatus = 'Approved';
-      return noms;
+  adminApproveWithdrawal: async (password, id) => {
+    const res = await apiFetch('/admin/withdrawals', {
+      method: 'POST',
+      body: JSON.stringify({ id, withdrawalStatus: 'Approved' })
     });
-    bgPost({ action: 'adminApproveWithdrawal', password, id });
-    return Promise.resolve({ ok: true });
+    processBackupSync({ action: 'adminApproveWithdrawal', id });
+    return { ok: true, res };
   },
 
-  adminDirectWithdrawal: (password, id) => {
-    updateCache({ action: 'adminGetNominations', password }, (noms) => {
-      const n = noms.find(x => x.id === id);
-      if (n) n.withdrawalStatus = 'Approved';
-      return noms;
+  adminDirectWithdrawal: async (password, id) => {
+    return api.adminApproveWithdrawal(password, id);
+  },
+
+  adminGetSettings: () => apiFetch('/admin/settings'),
+
+  adminUpdateSettings: async (password, settings) => {
+    const res = await apiFetch('/admin/settings', {
+      method: 'POST',
+      body: JSON.stringify({ settings })
     });
-    bgPost({ action: 'adminDirectWithdrawal', password, id });
-    return Promise.resolve({ ok: true });
+    processBackupSync({ action: 'adminUpdateSettings', settings });
+    return { ok: true, res };
   },
 
-  adminPublishValidList: (password) => {
-    updateCache({ action: 'adminGetSettings', password }, old => ({...old, validListPublished: 'true'}));
-    bgPost({ action: 'adminPublishValidList', password });
-    invalidateCache('getValidNominations');
-    return Promise.resolve({ ok: true });
-  },
+  adminPublishValidList: (password) => api.adminUpdateSettings(password, { validListPublished: 'true' }),
+  adminPublishFinalList: (password) => api.adminUpdateSettings(password, { finalListPublished: 'true' }),
+  adminUnpublishValidList: (password) => api.adminUpdateSettings(password, { validListPublished: 'false', finalListPublished: 'false' }),
+  adminUnpublishFinalList: (password) => api.adminUpdateSettings(password, { finalListPublished: 'false' }),
 
-  adminPublishFinalList: (password) => {
-    updateCache({ action: 'adminGetSettings', password }, old => ({...old, finalListPublished: 'true'}));
-    bgPost({ action: 'adminPublishFinalList', password });
-    invalidateCache('getFinalNominations');
-    return Promise.resolve({ ok: true });
-  },
-
-  adminUnpublishValidList: async (password) => {
-    updateCache({ action: 'adminGetSettings', password }, old => ({...old, validListPublished: 'false', finalListPublished: 'false'}));
-    await bgPost({ action: 'adminUnpublishValidList', password });
-    invalidateCache('getValidNominations');
-    invalidateCache('getFinalNominations');
-    return { ok: true };
-  },
-
-  adminUnpublishFinalList: async (password) => {
-    updateCache({ action: 'adminGetSettings', password }, old => ({...old, finalListPublished: 'false'}));
-    await bgPost({ action: 'adminUnpublishFinalList', password });
-    invalidateCache('getFinalNominations');
-    return { ok: true };
-  },
-
-  adminGetSettings: (password) => get({ action: 'adminGetSettings', password }),
-  
-  adminUpdateSettings: (password, settings) => {
-    updateCache({ action: 'adminGetSettings', password }, old => ({...old, ...settings}));
-    bgPost({ action: 'adminUpdateSettings', password, ...settings });
-    return Promise.resolve({ ok: true });
-  },
-
-  getPublicSettings: () => get({ action: 'adminGetSettings', password: 'NONE' }),
+  getSettings: () => apiFetch('/admin/settings'),
+  getPublicSettings: () => apiFetch('/admin/settings'),
 
   // ─── Posts Management ───────────────────────────────────────────────────────
 
-  adminGetPosts: (password) => get({ action: 'adminGetPosts', password }),
+  adminGetPosts: () => apiFetch('/admin/posts'),
 
-  adminAddPost: async (password, postData) => {
-    updateCache({ action: 'adminGetPosts', password }, posts => [...posts, postData]);
-    await bgPost({ action: 'adminAddPost', password, ...postData });
-    invalidateCache('getPosts');
-    return { ok: true };
-  },
+  adminAddPost: (password, postData) => apiFetch('/admin/posts', {
+    method: 'POST',
+    body: JSON.stringify(postData)
+  }),
 
-  adminUpdatePost: async (password, postData) => {
-    updateCache({ action: 'adminGetPosts', password }, posts => {
-      const idx = posts.findIndex(p => p.post === postData.post);
-      if (idx !== -1) posts[idx] = postData;
-      return posts;
-    });
-    await bgPost({ action: 'adminUpdatePost', password, ...postData });
-    invalidateCache('getPosts');
-    return { ok: true };
-  },
+  adminUpdatePost: (password, postData) => apiFetch('/admin/posts', {
+    method: 'POST',
+    body: JSON.stringify(postData)
+  }),
 
-  adminDeletePost: async (password, postName) => {
-    updateCache({ action: 'adminGetPosts', password }, posts => posts.filter(p => p.post !== postName));
-    await bgPost({ action: 'adminDeletePost', password, postName });
-    invalidateCache('getPosts');
-    return { ok: true };
-  },
-
-  adminReorderPosts: async (password, postsList) => {
-    updateCache({ action: 'adminGetPosts', password }, posts => {
-      const pMap = {};
-      posts.forEach(p => pMap[p.post] = p);
-      return postsList.map(name => pMap[name]).filter(Boolean);
-    });
-    await bgPost({ action: 'adminReorderPosts', password, posts: postsList });
-    invalidateCache('getPosts');
-    return { ok: true };
-  },
-
-  // ─── Booths & Locations ───────────────────────────────────────────────────────
-
-  adminGetBooths: (password) => get({ action: 'adminGetBooths', password }),
-
-  adminSaveBooths: (password, booths) => {
-    updateCache({ action: 'adminGetBooths', password }, booths);
-    bgPost({ action: 'adminSaveBooths', password, booths });
-    return Promise.resolve({ ok: true });
-  },
-
-  adminGetLocations: (password) => get({ action: 'adminGetLocations', password }),
-
-  adminSaveLocations: (password, locations) => {
-    updateCache({ action: 'adminGetLocations', password }, locations);
-    bgPost({ action: 'adminSaveLocations', password, locations });
-    return Promise.resolve({ ok: true });
-  },
+  adminDeletePost: (password, postName) => apiFetch('/admin/posts', {
+    method: 'DELETE',
+    body: JSON.stringify({ postName })
+  }),
 
   // ─── Results Management ──────────────────────────────────────────────────────
 
-  getResults: () => get({ action: 'getResults' }),
+  getResults: () => apiFetch('/admin/results'),
 
-  adminSaveResults: (password, results) => {
-    // We queue the network save, invalidate the results cache since it's hard to append optimally here
-    bgPost({ action: 'adminSaveResults', password, results }).then(() => invalidateCache('getResults'));
-    return Promise.resolve({ ok: true });
+  adminSaveResults: async (password, results) => {
+    const res = await apiFetch('/admin/results', {
+      method: 'POST',
+      body: JSON.stringify(results)
+    });
+    processBackupSync({ action: 'adminSaveResults', results });
+    return { ok: true, res };
   },
 
-  adminInjectTestData: (password) => post({ action: 'adminInjectTestData', password }),
-  adminWipeData: (password) => {
-    _cache = {}; // Clear everything
-    return post({ action: 'adminWipeData', password });
-  },
-
-  // ─── Counting Matrix Persistence ─────────────────────────────────────────────
-
-  adminGetCountingMatrix: (password) => get({ action: 'adminGetCountingMatrix', password }),
-
-  adminSaveCountingMatrix: (password, matrixData) => {
-    updateCache({ action: 'adminGetCountingMatrix', password }, matrixData);
-    bgPost({ action: 'adminSaveCountingMatrix', password, matrixData });
-    return Promise.resolve({ ok: true });
-  },
-
-  adminGenerateBallotPlan: async (password) => {
-    // This generates heavily on the backend, so we must wait
-    const res = await bgPost({ action: 'adminGenerateBallotPlan', password });
-    updateCache({ action: 'adminGetBallotPlan', password }, res.plan);
-    return res;
-  },
-
-  adminGetBallotPlan: (password) => get({ action: 'adminGetBallotPlan', password }),
-  
-  adminRunAudit: (password) => post({ action: 'adminRunAudit', password }),
-
-  // ─── Nominal Roll Management ────────────────────────────────────────────────
-  
-  getSettings: () => get({ action: 'getSettings' }),
-
-  adminAddStudent: async (password, studentData) => {
-    await bgPost({ action: 'adminAddStudent', password, ...studentData });
-    invalidateCache('getNominalRoll');
-    return { ok: true };
-  },
-
-  adminDeleteStudent: async (password, serial) => {
-    await bgPost({ action: 'adminDeleteStudent', password, serial });
-    invalidateCache('getNominalRoll');
-    return { ok: true };
-  },
-
-  adminFinalizeRoll: async (password) => {
-    await bgPost({ action: 'adminFinalizeRoll', password });
-    invalidateCache('getNominalRoll');
-    return { ok: true };
-  },
-
-  adminGetNominalRollTemplate: (password) =>
-    get({ action: 'adminGetNominalRollTemplate', password }),
-
-  adminUploadNominalRoll: async (password, payload) => {
-    // This is a heavy destructive operation — must be blocking (not bgPost)
-    const res = await post({ action: 'adminUploadNominalRoll', password, ...payload });
-    // Wipe all related caches so the UI refreshes with the new data
-    invalidateCache('getNominalRoll');
-    invalidateCache('adminGetNominations');
-    invalidateCache('getSettings');
-    invalidateCache('adminGetSettings');
-    invalidateCache('getValidNominations');
-    invalidateCache('getFinalNominations');
-    invalidateCache('getPublicNominations');
-    return res;
-  },
-
-  // ─── Schedule Management ───────────────────────────────────────────────────
-
-  getPublicSchedule: () => get({ action: 'getPublicSchedule' }),
-
-  adminSaveSchedule: (password, scheduleData) => {
-    updateCache({ action: 'getPublicSchedule' }, scheduleData);
-    bgPost({ action: 'adminSaveSchedule', password, ...scheduleData });
-    return Promise.resolve({ ok: true });
-  },
+  getPublicSchedule: () => Promise.resolve({ electionDate: CONFIG.ELECTION_DATE }),
+  adminSaveSchedule: () => Promise.resolve({ ok: true })
 };

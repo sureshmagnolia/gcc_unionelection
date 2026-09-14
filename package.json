@@ -7,12 +7,20 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "tw": "tailwindcss init -p"
+    "tw": "tailwindcss init -p",
+    "prisma:generate": "prisma generate",
+    "prisma:push": "prisma db push"
+  },
+  "dependencies": {
+    "@prisma/client": "^5.22.0",
+    "@vercel/postgres": "^0.10.0",
+    "jsonwebtoken": "^9.0.2"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4.2.4",
     "autoprefixer": "^10.5.0",
     "postcss": "^8.5.12",
+    "prisma": "^5.22.0",
     "tailwindcss": "^4.2.4",
     "vite": "^8.0.10"
   }

@@ -4,7 +4,7 @@
  */
 
 export const CONFIG = {
-  // ⚠️ REPLACE THIS with your deployed Google Apps Script Web App URL
+  API_BASE_URL: '/api',
   APPS_SCRIPT_URL: 'https://script.google.com/macros/s/AKfycbw29XuhvNI4cV-tlAWz5IaRrWPY1T9P7ZiQJbu-7za9226PyEqlhuLOrOMTG2QulzzOog/exec',
 
   // Election date for age cutoff (YYYY-MM-DD)

@@ -1,0 +1,93 @@
+// Prisma Schema for Vercel Postgres
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider  = "postgresql"
+  url       = env("POSTGRES_PRISMA_URL")
+  directUrl = env("POSTGRES_URL_NON_POOLING")
+}
+
+model NominalRoll {
+  serialNo          Int           @id @map("serial_no")
+  name              String
+  className         String        @map("class_name")
+  admissionNo       String        @unique @map("admission_no")
+  dept              String
+  gender            String
+  dob               String?
+
+  candidateFor      Nomination[]  @relation("CandidateRelation")
+  proposerFor       Nomination[]  @relation("ProposerRelation")
+  seconderFor       Nomination[]  @relation("SeconderRelation")
+
+  @@map("nominal_roll")
+}
+
+model Post {
+  id                   Int          @id @default(autoincrement())
+  postName             String       @unique @map("post_name")
+  femaleOnly           Boolean      @default(false) @map("female_only")
+  finalYearIneligible  Boolean      @default(false) @map("final_year_ineligible")
+  yearRestriction      String?      @map("year_restriction")
+  deptRestriction      Boolean      @default(false) @map("dept_restriction")
+
+  nominations          Nomination[]
+  boothResults         BoothResult[]
+
+  @@map("posts")
+}
+
+model Nomination {
+  id               String       @id // 10-digit unique tracking ID
+  postName         String       @map("post_name")
+  candidateSerial  Int          @map("candidate_serial")
+  proposerSerial   Int          @map("proposer_serial")
+  seconderSerial   Int          @map("seconder_serial")
+  status           String       @default("Pending") // Pending, Valid, Rejected
+  withdrawalStatus String       @default("None")    // None, Requested, Approved, Rejected
+  remarks          String?
+  createdAt        DateTime     @default(now()) @map("created_at")
+
+  post             Post         @relation(fields: [postName], references: [postName], onDelete: Cascade)
+  candidate        NominalRoll  @relation("CandidateRelation", fields: [candidateSerial], references: [serialNo])
+  proposer         NominalRoll  @relation("ProposerRelation", fields: [proposerSerial], references: [serialNo])
+  seconder         NominalRoll  @relation("SeconderRelation", fields: [seconderSerial], references: [serialNo])
+
+  boothResults     BoothResult[]
+
+  @@map("nominations")
+}
+
+model BoothResult {
+  id          Int        @id @default(autoincrement())
+  postName    String     @map("post_name")
+  candidateId String     @map("candidate_id")
+  boothId     String     @map("booth_id")
+  voteCount   Int        @default(0) @map("vote_count")
+
+  post        Post       @relation(fields: [postName], references: [postName], onDelete: Cascade)
+  candidate   Nomination @relation(fields: [candidateId], references: [id], onDelete: Cascade)
+
+  @@unique([postName, candidateId, boothId])
+  @@map("booth_results")
+}
+
+model Setting {
+  key   String @id
+  value String
+
+  @@map("settings")
+}
+
+model AuditLog {
+  id        Int      @id @default(autoincrement())
+  timestamp DateTime @default(now())
+  action    String
+  userInfo  String?  @map("user_info")
+  details   String?
+
+  @@map("audit_logs")
+}

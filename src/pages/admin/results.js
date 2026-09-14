@@ -12,28 +12,45 @@ export async function renderAdminResults(container) {
     <div class="text-center py-16"><span class="spinner" style="width:2.5rem;height:2.5rem;border-width:4px;"></span><p class="text-slate-400 mt-4 text-sm">Aggregating results...</p></div>
   `);
 
-  try {
-    const [posts, candidatesResp, results, schedule, sets] = await Promise.all([
-      api.getPosts(),
-      api.adminGetFinalNominations(pwd).catch(async () => {
-        const all = await api.adminGetNominations(pwd).catch(() => []);
-        return {
-          active: all.filter(n => n.status !== 'Rejected' && n.withdrawalStatus !== 'Approved'),
-          withdrawn: all.filter(n => n.withdrawalStatus === 'Approved'),
-          isPublished: false
-        };
-      }),
-      api.adminGetResults(pwd).catch(() => api.getResults().catch(() => [])),
-      api.getPublicSchedule().catch(() => ({})),
-      api.adminGetSettings(pwd).catch(() => ({}))
-    ]);
-    renderResultsUI(container.querySelector('#adminMain'), pwd, posts, candidatesResp.active || [], results, schedule, sets, candidatesResp.isPublished, container);
-  } catch (e) {
-    container.querySelector('#adminMain').innerHTML = `<div class="alert alert-error">❌ ${esc(e.message)}</div>`;
+  async function loadData(force = false) {
+    const main = container.querySelector('#adminMain');
+    if (!main) return;
+    if (force) {
+      api.invalidateCache('adminGetResults');
+      api.invalidateCache('getResults');
+      api.invalidateCache('adminGetFinalNominations');
+      api.invalidateCache('adminGetNominations');
+      api.invalidateCache('adminGetSettings');
+      api.invalidateCache('getSettings');
+      api.invalidateCache('getPosts');
+      api.invalidateCache('getPublicSchedule');
+    }
+
+    try {
+      const [posts, candidatesResp, results, schedule, sets] = await Promise.all([
+        api.getPosts(),
+        api.adminGetFinalNominations(pwd).catch(async () => {
+          const all = await api.adminGetNominations(pwd).catch(() => []);
+          return {
+            active: all.filter(n => n.status !== 'Rejected' && n.withdrawalStatus !== 'Approved'),
+            withdrawn: all.filter(n => n.withdrawalStatus === 'Approved'),
+            isPublished: false
+          };
+        }),
+        api.adminGetResults(pwd, force).catch(() => api.getResults(force).catch(() => [])),
+        api.getPublicSchedule().catch(() => ({})),
+        api.adminGetSettings(pwd).catch(() => ({}))
+      ]);
+      renderResultsUI(main, pwd, posts, candidatesResp.active || [], results, schedule, sets, candidatesResp.isPublished, loadData);
+    } catch (e) {
+      main.innerHTML = `<div class="alert alert-error">❌ ${esc(e.message)}</div>`;
+    }
   }
+
+  await loadData(false);
 }
 
-function renderResultsUI(main, pwd, posts, candidates, results, schedule, sets, isFinalPublished = false, container = null) {
+function renderResultsUI(main, pwd, posts, candidates, results, schedule, sets, isFinalPublished = false, reloadData = null) {
   const year = schedule.electionYear || new Date().getFullYear();
   const collegeName = sets.collegeName || 'GOVERNMENT VICTORIA COLLEGE PALAKKAD';
   const shortName = sets.collegeShortName || 'GVC';
@@ -135,9 +152,14 @@ function renderResultsUI(main, pwd, posts, candidates, results, schedule, sets, 
           <h3 class="text-2xl font-bold text-white">Election Results Summary</h3>
           <p class="text-slate-400 text-sm">Post-wise breakdown of votes and winning candidates.</p>
         </div>
-        <button id="btnPrintOfficial" class="btn btn-primary px-8 flex items-center gap-2">
-          <span>🖨️</span> Print Official Result Sheet
-        </button>
+        <div class="flex flex-wrap items-center gap-3">
+          <button id="btnAdminRefreshResults" class="btn btn-secondary px-5 flex items-center gap-2">
+            <span>🔄</span> Refresh Results
+          </button>
+          <button id="btnPrintOfficial" class="btn btn-primary px-6 flex items-center gap-2">
+            <span>🖨️</span> Print Official Result Sheet
+          </button>
+        </div>
       </div>
 
       <div class="grid grid-cols-1 gap-6">
@@ -338,6 +360,23 @@ function renderResultsUI(main, pwd, posts, candidates, results, schedule, sets, 
     printWin.document.close();
   });
 
+  // ── Admin Refresh Results ──────────────────────────────────────────────────
+  const btnAdminRefresh = main.querySelector('#btnAdminRefreshResults');
+  if (btnAdminRefresh && reloadData) {
+    btnAdminRefresh.onclick = async () => {
+      btnAdminRefresh.disabled = true;
+      btnAdminRefresh.innerHTML = '<span>⏳</span> Refreshing...';
+      try {
+        await reloadData(true);
+        showToast('Election results refreshed with latest counts.', 'success');
+      } catch (err) {
+        showToast(`Refresh failed: ${err.message}`, 'error');
+        btnAdminRefresh.disabled = false;
+        btnAdminRefresh.innerHTML = '<span>🔄</span> Refresh Results';
+      }
+    };
+  }
+
   // ── Toggle Lock / Freeze ────────────────────────────────────────────────────
   const btnLock = main.querySelector('#btnToggleLock');
   if (btnLock) {
@@ -355,7 +394,11 @@ function renderResultsUI(main, pwd, posts, candidates, results, schedule, sets, 
         isLocked = res.locked;
         sets.resultsLocked = isLocked ? 'true' : 'false';
         showToast(isLocked ? '🔒 Results locked and frozen.' : '🔓 Results unlocked for editing.', 'success');
-        renderResultsUI(main, pwd, posts, candidates, results, schedule, sets, isFinalPublished, container);
+        if (reloadData) {
+          await reloadData(true);
+        } else {
+          renderResultsUI(main, pwd, posts, candidates, results, schedule, sets, isFinalPublished, reloadData);
+        }
       } catch (err) {
         showToast(err.message, 'error');
         btnLock.disabled = false;
@@ -381,7 +424,11 @@ function renderResultsUI(main, pwd, posts, candidates, results, schedule, sets, 
         isPublic = res.published;
         sets.resultsPublished = isPublic ? 'true' : 'false';
         showToast(isPublic ? '📢 Results published to public portal!' : '👁️‍🗨️ Results hidden from public view.', 'success');
-        renderResultsUI(main, pwd, posts, candidates, results, schedule, sets, isFinalPublished, container);
+        if (reloadData) {
+          await reloadData(true);
+        } else {
+          renderResultsUI(main, pwd, posts, candidates, results, schedule, sets, isFinalPublished, reloadData);
+        }
       } catch (err) {
         showToast(err.message, 'error');
         btnPublic.disabled = false;

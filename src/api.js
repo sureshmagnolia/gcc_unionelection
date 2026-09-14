@@ -345,10 +345,25 @@ export const api = {
 
   // ─── Results Management ──────────────────────────────────────────────────────
 
-  getResults: () => get({ action: 'getResults' }),
-  adminGetResults: (password) => get({ action: 'adminGetResults', password }),
+  getResults: async (force = false) => {
+    if (force) invalidateCache('getResults');
+    const data = await get({ action: 'getResults' });
+    // If results array is empty, don't leave it in memory cache so future calls re-check
+    if (Array.isArray(data) && data.length === 0) {
+      invalidateCache('getResults');
+    }
+    return data;
+  },
+  adminGetResults: (password, force = false) => {
+    if (force) invalidateCache('adminGetResults');
+    return get({ action: 'adminGetResults', password });
+  },
 
   adminSaveResults: (password, results) => {
+    try {
+      localStorage.removeItem('election_results_cache');
+      localStorage.removeItem('election_results_last_fetch');
+    } catch (e) {}
     // We queue the network save, invalidate the results cache since it's hard to append optimally here
     bgPost({ action: 'adminSaveResults', password, results }).then(() => {
       invalidateCache('getResults');
@@ -369,6 +384,11 @@ export const api = {
     invalidateCache('adminGetSettings');
     invalidateCache('getSettings');
     invalidateCache('getResults');
+    invalidateCache('adminGetResults');
+    try {
+      localStorage.removeItem('election_results_cache');
+      localStorage.removeItem('election_results_last_fetch');
+    } catch (e) {}
     return res;
   },
 

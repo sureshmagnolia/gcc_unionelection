@@ -394,11 +394,7 @@ function renderResultsUI(main, pwd, posts, candidates, results, schedule, sets, 
         isLocked = res.locked;
         sets.resultsLocked = isLocked ? 'true' : 'false';
         showToast(isLocked ? '🔒 Results locked and frozen.' : '🔓 Results unlocked for editing.', 'success');
-        if (reloadData) {
-          await reloadData(true);
-        } else {
-          renderResultsUI(main, pwd, posts, candidates, results, schedule, sets, isFinalPublished, reloadData);
-        }
+        renderResultsUI(main, pwd, posts, candidates, results, schedule, sets, isFinalPublished, reloadData);
       } catch (err) {
         showToast(err.message, 'error');
         btnLock.disabled = false;
@@ -424,11 +420,7 @@ function renderResultsUI(main, pwd, posts, candidates, results, schedule, sets, 
         isPublic = res.published;
         sets.resultsPublished = isPublic ? 'true' : 'false';
         showToast(isPublic ? '📢 Results published to public portal!' : '👁️‍🗨️ Results hidden from public view.', 'success');
-        if (reloadData) {
-          await reloadData(true);
-        } else {
-          renderResultsUI(main, pwd, posts, candidates, results, schedule, sets, isFinalPublished, reloadData);
-        }
+        renderResultsUI(main, pwd, posts, candidates, results, schedule, sets, isFinalPublished, reloadData);
       } catch (err) {
         showToast(err.message, 'error');
         btnPublic.disabled = false;

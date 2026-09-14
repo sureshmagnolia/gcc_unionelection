@@ -21,10 +21,8 @@ export async function renderResults(container) {
             <h1 class="font-bold text-white text-sm">Live Election Results</h1>
           </div>
           <div class="flex items-center gap-3">
-            <span id="cacheTimer" class="text-[11px] text-slate-400 font-mono"></span>
-            <button id="btnRefresh" class="btn btn-secondary btn-sm flex items-center gap-1.5">
-              <span>🔄</span> Refresh
-            </button>
+            <span id="cacheTimer" class="text-[10px] text-slate-500 font-mono"></span>
+            <button id="btnRefresh" class="btn btn-secondary btn-sm">🔄 Refresh</button>
           </div>
         </div>
       </header>
@@ -36,58 +34,45 @@ export async function renderResults(container) {
 
   const timerEl = container.querySelector('#cacheTimer');
   const btnRefresh = container.querySelector('#btnRefresh');
-  const main = container.querySelector('#resultsMain');
-  let isFetching = false;
-
-  const updateTimer = async () => {
-    if (!document.body.contains(container)) {
-      clearInterval(timerInterval);
-      return;
-    }
+  const updateTimer = () => {
     const lastFetch = localStorage.getItem(CACHE_TIME_KEY);
     if (!lastFetch) { 
-      timerEl.textContent = 'Live'; 
+      timerEl.textContent = ''; 
+      btnRefresh.disabled = false;
+      btnRefresh.classList.remove('opacity-50', 'cursor-not-allowed');
       return; 
     }
     const nextUpdate = parseInt(lastFetch, 10) + REFRESH_INTERVAL;
     const remaining = Math.max(0, nextUpdate - Date.now());
     if (remaining <= 0) {
-      timerEl.textContent = 'Live • Updating...';
+      timerEl.textContent = 'Live Update Available';
       timerEl.classList.add('text-green-400');
-      if (!isFetching) {
-        isFetching = true;
-        try {
-          await fetchAndRender(main, true);
-        } finally {
-          isFetching = false;
-        }
-      }
+      btnRefresh.disabled = false;
+      btnRefresh.classList.remove('opacity-50', 'cursor-not-allowed', 'pointer-events-none');
     } else {
       const mins = Math.floor(remaining / 60000);
       const secs = Math.floor((remaining % 60000) / 1000);
-      timerEl.textContent = `Auto-update in ${mins}:${secs.toString().padStart(2, '0')}`;
+      timerEl.textContent = `Update in ${mins}:${secs.toString().padStart(2, '0')}`;
       timerEl.classList.remove('text-green-400');
+      btnRefresh.disabled = true;
+      btnRefresh.classList.add('opacity-50', 'cursor-not-allowed', 'pointer-events-none');
     }
   };
 
-  const timerInterval = setInterval(updateTimer, 1000);
+  setInterval(updateTimer, 1000);
   updateTimer();
 
   container.querySelector('#backToHome').addEventListener('click', () => router.navigate('/'));
   
-  btnRefresh.addEventListener('click', async () => {
-    if (btnRefresh.disabled) return;
-    btnRefresh.disabled = true;
-    btnRefresh.innerHTML = '<span>⏳</span> Refreshing...';
-    try {
-      await fetchAndRender(main, true);
-    } finally {
-      btnRefresh.disabled = false;
-      btnRefresh.innerHTML = '<span>🔄</span> Refresh';
+  btnRefresh.addEventListener('click', (e) => {
+    if (btnRefresh.disabled || btnRefresh.classList.contains('pointer-events-none')) {
+      e.preventDefault();
+      return;
     }
+    fetchAndRender(container.querySelector('#resultsMain'), true);
   });
 
-  await fetchAndRender(main);
+  await fetchAndRender(container.querySelector('#resultsMain'));
 }
 
 async function fetchAndRender(main, force = false) {
@@ -97,85 +82,58 @@ async function fetchAndRender(main, force = false) {
     
     let posts, results;
 
-    if (!force && lastFetch && cachedData) {
-      try {
-        const parsed = JSON.parse(cachedData);
-        // Only use cache if it actually contains results and is within the 30s interval
-        if (parsed.results && parsed.results.length > 0 && (Date.now() - parseInt(lastFetch, 10) < REFRESH_INTERVAL)) {
-          posts = parsed.posts;
-          results = parsed.results;
-          const schedule = parsed.schedule || {};
-          const year = schedule.electionYear || new Date().getFullYear();
-          updateHeader(main, year);
-        }
-      } catch (e) {
-        posts = null;
-        results = null;
-      }
-    }
-
-    if (!results) {
+    if (!force && lastFetch && cachedData && (Date.now() - parseInt(lastFetch, 10) < REFRESH_INTERVAL)) {
+      // Use cache
+      const parsed = JSON.parse(cachedData);
+      posts = parsed.posts;
+      results = parsed.results;
+      const schedule = parsed.schedule || {};
+      const year = schedule.electionYear || new Date().getFullYear();
+      updateHeader(main, year);
+    } else {
       // Fetch fresh
+      main.innerHTML = `
+        <div class="text-center py-16"><span class="spinner" style="width:2.5rem;height:2.5rem;border-width:4px;"></span><p class="text-slate-400 mt-4 text-sm">Fetching Live Results...</p></div>
+      `;
       if (force) {
-        // Bypass all in-memory and local caches for a true live network request
+        // If the user manually clicked refresh, we must bypass the api.js in-memory cache
+        // to guarantee a true network request to the backend.
         api.invalidateCache('getResults');
         api.invalidateCache('getPosts');
         api.invalidateCache('getPublicSchedule');
-        api.invalidateCache('getSettings');
-        try {
-          localStorage.removeItem(CACHE_KEY);
-          localStorage.removeItem(CACHE_TIME_KEY);
-        } catch (e) {}
       }
 
       let schedule, sets;
       [posts, results, schedule, sets] = await Promise.all([
         api.getPosts(),
-        api.getResults(true).catch(() => []),
+        api.getResults().catch(() => []),
         api.getPublicSchedule().catch(() => ({})),
         api.getSettings().catch(() => ({}))
       ]);
+      
+      // Save to cache
+      localStorage.setItem(CACHE_TIME_KEY, Date.now().toString());
+      localStorage.setItem(CACHE_KEY, JSON.stringify({ posts, results, schedule, sets }));
       
       const year = schedule.electionYear || new Date().getFullYear();
       updateHeader(main, year);
     }
 
-    function updateHeader(main, year) {
-      const header = main.closest('.page-enter')?.querySelector('h1');
-      if (header) header.textContent = `Live Election Results ${year}`;
-    }
+function updateHeader(main, year) {
+  const header = main.closest('.page-enter')?.querySelector('h1');
+  if (header) header.textContent = `Live Election Results ${year}`;
+}
 
-    if (!results || results.length === 0) {
-      // Clear cache so subsequent visits or reloads don't get stuck on empty state
-      try {
-        localStorage.removeItem(CACHE_KEY);
-        localStorage.removeItem(CACHE_TIME_KEY);
-      } catch (e) {}
-
+    if (results.length === 0) {
       main.innerHTML = `
         <div class="text-center py-20 bg-white/5 rounded-2xl border border-white/10">
           <div class="text-5xl mb-4">📊</div>
           <h2 class="text-2xl font-bold text-white mb-2">Results Counting in Progress</h2>
-          <p class="text-slate-400 max-w-md mx-auto mb-6">The official election results have not been published for public viewing yet, or vote counting is actively in progress. Please check back shortly.</p>
-          <button id="btnCheckNow" class="btn btn-primary btn-sm inline-flex items-center gap-2">
-            <span>🔄</span> Check for Updates Now
-          </button>
+          <p class="text-slate-400 max-w-md mx-auto">The official election results have not been published for public viewing yet. Please check back later.</p>
         </div>
       `;
-      main.querySelector('#btnCheckNow')?.addEventListener('click', async (e) => {
-        const btn = e.currentTarget;
-        btn.disabled = true;
-        btn.innerHTML = '<span>⏳</span> Checking...';
-        await fetchAndRender(main, true);
-      });
       return;
     }
-
-    // Save valid results to cache
-    try {
-      localStorage.setItem(CACHE_TIME_KEY, Date.now().toString());
-      localStorage.setItem(CACHE_KEY, JSON.stringify({ posts, results }));
-    } catch (e) {}
 
     const agg = {};
     posts.forEach(p => {

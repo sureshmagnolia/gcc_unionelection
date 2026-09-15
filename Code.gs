@@ -1349,8 +1349,8 @@ function doPost(e) {
       nomSheet.getRange(1, 1, 1, headers.length).setFontWeight('bold');
       nomSheet.getRange(2, 1, rows.length, headers.length).setValues(rows);
 
-      // 2. Wipe ALL transactional sheets
-      const sheetsToWipe = [SHEET_NOMS, SHEET_VALID, SHEET_FINAL, SHEET_RESULTS, SHEET_MATRIX];
+      // 2. Wipe downstream transactional sheets (do NOT wipe SHEET_NOMS!)
+      const sheetsToWipe = [SHEET_VALID, SHEET_FINAL, SHEET_RESULTS, SHEET_MATRIX];
       sheetsToWipe.forEach(name => {
         const s = getSheet(name);
         s.clear();
@@ -1373,9 +1373,60 @@ function doPost(e) {
       setSetting('validListPublished', 'false');
       setSetting('finalListPublished', 'false');
       setSetting('nominalRollFinalized', 'false');
+      setSetting('isRollFinalized', 'false');
+      setSetting('draftRollPublished', 'false');
 
-      return jsonOut({ ok: true, count: rows.length });
+      // 4. Automatically re-map existing nominations against newly uploaded roll
+      const remapResult = remapNominationsWithSheet();
+
+      return jsonOut({ ok: true, count: rows.length, remappedNominations: remapResult.remapped, totalNominations: remapResult.total });
     }
+
+    if (action === 'adminClearNominalRoll') {
+      checkAdmin(body.password, body.sessionToken);
+
+      const isRollFinal = getSetting('nominalRollFinalized') || getSetting('isRollFinalized');
+      if (isRollFinal === 'true') {
+        return errOut('Nominal Roll is finalized and locked. Please unfinalize with admin password before clearing.');
+      }
+
+      const nomSheet = getSheet(SHEET_NOMINAL);
+      const totalRows = nomSheet.getLastRow();
+      const clearedCount = totalRows > 1 ? totalRows - 1 : 0;
+
+      // Clear Nominal Roll data alone (keep header row)
+      nomSheet.clear();
+      nomSheet.appendRow(NOMINAL_ROLL_HEADERS);
+      nomSheet.getRange(1, 1, 1, NOMINAL_ROLL_HEADERS.length).setFontWeight('bold');
+
+      // Serials in SHEET_NOMS reset to empty, preserving all student details and admission numbers
+      const nomsSheet = getSheet(SHEET_NOMS);
+      const nomsData = nomsSheet.getDataRange().getValues();
+      let preservedNoms = 0;
+      if (nomsData.length > 1) {
+        preservedNoms = nomsData.length - 1;
+        for (let i = 1; i < nomsData.length; i++) {
+          nomsData[i][5] = '';  // CandidateSerial
+          nomsData[i][10] = ''; // ProposerSerial
+          nomsData[i][15] = ''; // SeconderSerial
+        }
+        nomsSheet.getRange(1, 1, nomsData.length, nomsData[0].length).setValues(nomsData);
+      }
+
+      // Reset publication and finalized flags
+      setSetting('draftRollPublished', 'false');
+      setSetting('nominalRollFinalized', 'false');
+      setSetting('isRollFinalized', 'false');
+
+      return jsonOut({ ok: true, clearedCount, preservedNominations: preservedNoms });
+    }
+
+    if (action === 'adminRemapNominations') {
+      checkAdmin(body.password, body.sessionToken);
+      const res = remapNominationsWithSheet();
+      return jsonOut({ ok: true, ...res });
+    }
+
 
     if (action === 'adminWipeData') {
       checkAdmin(body);
@@ -1669,3 +1720,65 @@ function cachedJsonOut(key, dataFetcher, seconds = 30) {
   cache.put(key, json, seconds);
   return ContentService.createTextOutput(json).setMimeType(ContentService.MimeType.JSON);
 }
+
+/**
+ * Re-maps existing nominations against the NominalRoll sheet using Admission Numbers (with name fallback).
+ * Updates serial numbers, names, classes, and departments while preserving existing submissions.
+ */
+function remapNominationsWithSheet() {
+  const nomSheet = getSheet(SHEET_NOMS);
+  const nomData = nomSheet.getDataRange().getValues();
+  if (nomData.length <= 1) return { total: 0, remapped: 0 };
+
+  const rollSheet = getSheet(SHEET_NOMINAL);
+  const rollData = rollSheet.getDataRange().getValues();
+  
+  const admMap = {};
+  const nameMap = {};
+
+  if (rollData.length > 1) {
+    for (let r = 1; r < rollData.length; r++) {
+      const row = rollData[r];
+      const serial = String(row[0] || '').trim();
+      const name = String(row[1] || '').trim();
+      const cls = String(row[2] || '').trim();
+      const adm = String(row[3] || '').trim();
+      const dept = String(row[4] || '').trim();
+
+      const st = { serial, name, cls, adm, dept };
+      if (adm) admMap[adm.toLowerCase()] = st;
+      if (name && !nameMap[name.toLowerCase()]) nameMap[name.toLowerCase()] = st;
+    }
+  }
+
+  const findStudent = (adm, name) => {
+    const a = String(adm || '').trim().toLowerCase();
+    if (a && admMap[a]) return admMap[a];
+    const n = String(name || '').trim().toLowerCase();
+    if (n && nameMap[n]) return nameMap[n];
+    return null;
+  };
+
+  let remapped = 0;
+  for (let i = 1; i < nomData.length; i++) {
+    const row = nomData[i];
+    const cand = findStudent(row[8], row[6]);   // CandidateAdmission, CandidateName
+    const prop = findStudent(row[13], row[11]); // ProposerAdmission, ProposerName
+    const sec = findStudent(row[18], row[16]);  // SeconderAdmission, SeconderName
+
+    row[5] = cand ? cand.serial : '';
+    if (cand) { row[6] = cand.name; row[7] = cand.cls; row[9] = cand.dept; }
+
+    row[10] = prop ? prop.serial : '';
+    if (prop) { row[11] = prop.name; row[12] = prop.cls; row[14] = prop.dept; }
+
+    row[15] = sec ? sec.serial : '';
+    if (sec) { row[16] = sec.name; row[17] = sec.cls; row[19] = sec.dept; }
+
+    if (cand || prop || sec) remapped++;
+  }
+
+  nomSheet.getRange(1, 1, nomData.length, nomData[0].length).setValues(nomData);
+  return { total: nomData.length - 1, remapped };
+}
+

@@ -1,7 +1,7 @@
 /**
- * pages/submitNomination.js
- * Multi-step nomination form with auto-fill, eligibility checks, captcha, and print preview.
- * Posts are loaded dynamically from the Google Sheet via the API.
+ * submitNomination.js
+ * Renders the nomination form for students.
+ * Posts are loaded dynamically from the database via the API.
  */
 import { api } from '../api.js';
 import { CONFIG } from '../config.js';
@@ -20,13 +20,17 @@ let captchaAnswer = '';
 
 export async function renderSubmitNomination(container) {
   let year = new Date().getFullYear();
+  let collegeName = CONFIG.COLLEGE_NAME;
+  let shortName = CONFIG.COLLEGE_SHORT_NAME;
   try {
     const [s, sets] = await Promise.all([
-      api.getPublicSchedule(),
+      api.getPublicSchedule().catch(() => ({})),
       api.getSettings().catch(() => ({}))
     ]);
     if (s.electionYear) year = s.electionYear;
     if (sets.electionYear) year = sets.electionYear;
+    if (sets.collegeName) collegeName = sets.collegeName;
+    if (sets.collegeShortName) shortName = sets.collegeShortName;
   } catch(e) {}
 
   container.innerHTML = publicLayout('Submit Nomination', `
@@ -35,17 +39,18 @@ export async function renderSubmitNomination(container) {
       <p class="text-slate-400 text-sm">Loading data...</p>
     </div>
     <div id="formArea" class="hidden"></div>
-  `, year);
+  `, year, shortName);
 
   container.querySelector('#backToHome').addEventListener('click', () => router.navigate('/'));
 
   try {
-    // Load nominal roll, posts, existing nominations, and schedule in parallel
-    const [rollData, postsData, nomsData, scheduleData] = await Promise.all([
+    // Load nominal roll, posts, existing nominations, schedule, and settings in parallel
+    const [rollData, postsData, nomsData, scheduleData, setsData] = await Promise.all([
       api.getNominalRoll(),
       api.getPosts().catch(() => null),
       api.getPublicNominations().catch(() => []),
       api.getPublicSchedule().catch(() => ({})),
+      api.getSettings().catch(() => ({}))
     ]);
 
     nominalRoll = Array.isArray(rollData) ? rollData : [];
@@ -54,12 +59,12 @@ export async function renderSubmitNomination(container) {
 
     if (nominalRoll.length === 0) throw new Error('Nominal roll is empty. Please contact the admin.');
 
-    // Use sheet posts if available, otherwise fall back to config defaults
+    // Use database posts if available, otherwise fall back to config defaults
     allPosts = Array.isArray(postsData) && postsData.length > 0
       ? postsData
       : CONFIG.DEFAULT_POSTS;
 
-    renderForm(container, year);
+    renderForm(container, year, collegeName, setsData || {});
   } catch (e) {
     container.querySelector('#loadingState').innerHTML = `
       <div class="alert alert-error">${esc(e.message)}</div>
@@ -68,7 +73,7 @@ export async function renderSubmitNomination(container) {
   }
 }
 
-function renderForm(container, year) {
+function renderForm(container, year, collegeName, setsData = {}) {
   const captcha = generateCaptcha();
   captchaAnswer = captcha.answer;
 
@@ -76,16 +81,65 @@ function renderForm(container, year) {
   const formArea = container.querySelector('#formArea');
   formArea.classList.remove('hidden');
 
+  // 1. Enforce Final Nominal Roll publication
+  const isRollFinal = setsData.nominalRollFinalized === 'true' || setsData.isRollFinalized === 'true';
+  const isDraft = !isRollFinal && setsData.draftRollPublished === 'true';
+
+  if (!window.ADMIN_BYPASS_PWD && !isRollFinal) {
+    formArea.innerHTML = `
+      <div class="glass p-12 text-center rounded-2xl border border-amber-500/20 max-w-2xl mx-auto page-enter">
+        <div class="text-6xl mb-6">📜</div>
+        <div class="badge bg-amber-500/20 text-amber-300 border border-amber-500/40 px-3 py-1 text-xs font-bold uppercase tracking-widest mb-3 inline-block">
+          ${isDraft ? 'Draft Nominal Roll Live' : 'Nominal Roll Unpublished'}
+        </div>
+        <h3 class="text-2xl font-bold text-white mb-3">Nominations Not Open Yet</h3>
+        <p class="text-slate-400 mb-6 leading-relaxed">
+          Nomination submission will become active only after the <strong>Final Nominal Roll</strong> is officially published by the Returning Officer.
+          ${isDraft ? '<br/><span class="text-xs text-amber-400/90 mt-2 block">Currently, only the Draft Voter List is published for verification & claims.</span>' : ''}
+        </p>
+        <div class="flex justify-center gap-3">
+          <button id="viewRollBtn" class="btn btn-primary">📜 View Nominal Roll</button>
+          <button id="backBtn" class="btn btn-secondary">← Back to Home</button>
+        </div>
+      </div>
+    `;
+    formArea.querySelector('#viewRollBtn').onclick = () => router.navigate('/nominal-roll');
+    formArea.querySelector('#backBtn').onclick = () => router.navigate('/');
+    return;
+  }
+
+  // 2. Enforce Schedule Windows (Start and End)
   const now = new Date();
+  const start = electionSchedule.nominationStart ? new Date(electionSchedule.nominationStart) : null;
   const deadline = electionSchedule.nominationDeadline ? new Date(electionSchedule.nominationDeadline) : null;
 
-  // Skip deadline check if admin is doing direct entry
-  if (!window.ADMIN_BYPASS_PWD && deadline && now > deadline) {
+  if (!window.ADMIN_BYPASS_PWD && start && !isNaN(start.getTime()) && now < start) {
+    formArea.innerHTML = `
+      <div class="glass p-12 text-center rounded-2xl border border-amber-500/20 max-w-2xl mx-auto page-enter">
+        <div class="text-6xl mb-6">📅</div>
+        <div class="badge bg-amber-500/20 text-amber-300 border border-amber-500/40 px-3 py-1 text-xs font-bold uppercase tracking-widest mb-3 inline-block">
+          Scheduled Opening
+        </div>
+        <h3 class="text-2xl font-bold text-white mb-3">Nomination Filing Not Started</h3>
+        <p class="text-slate-400 mb-6 leading-relaxed">
+          Nomination submissions are scheduled to open on <strong>${start.toLocaleString('en-IN', { dateStyle: 'full', timeStyle: 'short' })}</strong>.
+        </p>
+        <button id="pendingBackBtn" class="btn btn-secondary">← Back to Home</button>
+      </div>
+    `;
+    formArea.querySelector('#pendingBackBtn').onclick = () => router.navigate('/');
+    return;
+  }
+
+  if (!window.ADMIN_BYPASS_PWD && deadline && !isNaN(deadline.getTime()) && now > deadline) {
     formArea.innerHTML = `
       <div class="glass p-12 text-center rounded-2xl border border-rose-500/20 max-w-2xl mx-auto page-enter">
         <div class="text-6xl mb-6">⏳</div>
-        <h3 class="text-2xl font-bold text-white mb-3">Nomination Filing Ended</h3>
-        <p class="text-slate-400 mb-6">The official deadline for filing nominations was <strong>${new Date(deadline).toLocaleString()}</strong>.</p>
+        <div class="badge bg-rose-500/20 text-rose-300 border border-rose-500/40 px-3 py-1 text-xs font-bold uppercase tracking-widest mb-3 inline-block">
+          Filing Ended
+        </div>
+        <h3 class="text-2xl font-bold text-white mb-3">Nomination Window Closed</h3>
+        <p class="text-slate-400 mb-6 leading-relaxed">The official deadline for filing nominations was <strong>${deadline.toLocaleString('en-IN', { dateStyle: 'full', timeStyle: 'short' })}</strong>.</p>
         <button id="expiredBackBtn" class="btn btn-secondary">← Back to Home</button>
       </div>
     `;
@@ -103,6 +157,7 @@ function renderForm(container, year) {
       <div>
         <label class="block text-sm font-semibold text-slate-300 mb-1">Post Applied For</label>
         <select id="postSelect" class="field">${postOptions}</select>
+        <div id="postRuleBadgeStrip" class="mt-2.5 flex flex-wrap items-center gap-2"></div>
       </div>
 
       <!-- Three columns: Candidate / Proposer / Seconder -->
@@ -142,6 +197,49 @@ function renderForm(container, year) {
     </div>
   `;
 
+  // Helper to show eligibility badges for selected post
+  function updatePostBadgeStrip(area) {
+    const pName = area.querySelector('#postSelect')?.value;
+    const strip = area.querySelector('#postRuleBadgeStrip');
+    if (!strip || !pName) return;
+
+    const rule = allPosts.find(p => p.post === pName) || {};
+    const badges = [];
+
+    if (rule.femaleOnly) {
+      badges.push('<span class="badge bg-pink-500/20 text-pink-300 border border-pink-500/30 text-xs">♀ Female Candidates Only</span>');
+    }
+
+    const deptName = rule.restrictedDept || (rule.deptRestriction && String(rule.post || '').startsWith('Association Secretary ') ? rule.post.replace('Association Secretary ', '').trim() : '');
+    if (rule.deptRestriction || deptName) {
+      badges.push(`<span class="badge bg-amber-500/20 text-amber-300 border border-amber-500/30 text-xs font-semibold">🏢 ${esc(deptName || 'Dept')} Only (Candidate & Supporters)</span>`);
+    }
+
+    if (rule.yearRestriction === '1') {
+      badges.push('<span class="badge bg-blue-500/20 text-blue-300 border border-blue-500/30 text-xs">🎓 1st Year Only</span>');
+    } else if (rule.yearRestriction === '2') {
+      badges.push('<span class="badge bg-blue-500/20 text-blue-300 border border-blue-500/30 text-xs">🎓 2nd Year Only</span>');
+    } else if (rule.yearRestriction === '3') {
+      badges.push('<span class="badge bg-blue-500/20 text-blue-300 border border-blue-500/30 text-xs">🎓 3rd Year Only</span>');
+    } else if (rule.yearRestriction === 'PG') {
+      badges.push('<span class="badge bg-purple-500/20 text-purple-300 border border-purple-500/30 text-xs">🎓 PG Only (MA / MSc / MCom)</span>');
+    } else if (rule.yearRestriction === 'UG') {
+      badges.push('<span class="badge bg-cyan-500/20 text-cyan-300 border border-cyan-500/30 text-xs">🎓 UG Students Only</span>');
+    } else if (rule.yearRestriction === '1,2') {
+      badges.push('<span class="badge bg-indigo-500/20 text-indigo-300 border border-indigo-500/30 text-xs">🎓 1st &amp; 2nd Year Only</span>');
+    }
+
+    if (rule.finalYearIneligible) {
+      badges.push('<span class="badge bg-rose-500/20 text-rose-300 border border-rose-500/30 text-xs font-semibold">🚫 3rd UG &amp; 2nd PG Ineligible</span>');
+    }
+
+    if (badges.length === 0) {
+      badges.push('<span class="badge bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 text-xs">✓ Open to all eligible students</span>');
+    }
+
+    strip.innerHTML = badges.join('');
+  }
+
   // Populate DOB dropdowns
   populateDobSelects(
     formArea.querySelector('#dob-day'),
@@ -149,26 +247,34 @@ function renderForm(container, year) {
     formArea.querySelector('#dob-year')
   );
 
-  // Auto-fill listeners
+  // Auto-fill listeners on BOTH input and change so typing serial immediately populates details!
   ['candidate','proposer','seconder'].forEach(role => {
-    formArea.querySelector(`#serial-${role}`).addEventListener('change', () => fillDetails(formArea, role));
+    const el = formArea.querySelector(`#serial-${role}`);
+    if (el) {
+      el.addEventListener('input', () => fillDetails(formArea, role));
+      el.addEventListener('change', () => fillDetails(formArea, role));
+    }
   });
 
   // Revalidate on any change
-  formArea.querySelector('#postSelect').addEventListener('change', () => runValidation(formArea));
+  formArea.querySelector('#postSelect')?.addEventListener('change', () => {
+    updatePostBadgeStrip(formArea);
+    runValidation(formArea);
+  });
+  updatePostBadgeStrip(formArea);
   formArea.querySelectorAll('[name="gender"]').forEach(r => r.addEventListener('change', () => runValidation(formArea)));
   formArea.querySelectorAll('.dob-sel').forEach(s => s.addEventListener('change', () => runValidation(formArea)));
 
   // Captcha refresh
-  formArea.querySelector('#refreshCaptcha').addEventListener('click', () => {
+  formArea.querySelector('#refreshCaptcha')?.addEventListener('click', () => {
     const c = generateCaptcha();
     captchaAnswer = c.answer;
     formArea.querySelector('#captchaInput').value = '';
     formArea.querySelector('#captchaQuestion').textContent = c.question;
   });
 
-  formArea.querySelector('#backHomeBtn').addEventListener('click', () => router.navigate('/'));
-  formArea.querySelector('#nomForm').addEventListener('submit', (e) => handleSubmit(e, formArea, year));
+  formArea.querySelector('#backHomeBtn')?.addEventListener('click', () => router.navigate('/'));
+  formArea.querySelector('#nomForm')?.addEventListener('submit', (e) => handleSubmit(e, formArea, year, collegeName));
 }
 
 function personBlock(role, label, isCandidate) {
@@ -181,7 +287,11 @@ function personBlock(role, label, isCandidate) {
     </div>
     <div id="details-${role}" class="text-xs text-slate-400 space-y-1 min-h-[3rem]"></div>
     ${isCandidate ? `
-    <div>
+    <div class="mt-4 pt-4 border-t border-white/10">
+      <label class="text-xs font-semibold text-indigo-300 block mb-1">Your Admission Number (Auth)</label>
+      <input id="auth-candidate" type="text" class="field mt-1 border-indigo-500/30 bg-indigo-900/20" placeholder="Required for submission" />
+    </div>
+    <div class="mt-4">
       <label class="text-xs text-slate-400 block mb-1">Gender</label>
       <div class="flex gap-4">
         <label class="flex items-center gap-2 text-sm text-slate-300 cursor-pointer">
@@ -204,28 +314,29 @@ function personBlock(role, label, isCandidate) {
 }
 
 function fillDetails(formArea, role) {
-  const serial = formArea.querySelector(`#serial-${role}`).value.trim();
+  const serial = formArea.querySelector(`#serial-${role}`)?.value.trim();
   const box = formArea.querySelector(`#details-${role}`);
-  const student = nominalRoll.find(s => String(s['Nominal Roll Serial Number']) === serial);
+  if (!box) return;
+  const student = nominalRoll.find(s => String(s['Nominal Roll Serial Number'] || s.serial_number || '') === serial);
   if (!student) {
     box.innerHTML = serial ? `<span class="text-red-400">⚠ Student not found</span>` : '';
     return;
   }
   box.innerHTML = `
-    <p><span class="text-slate-500">Name:</span> <strong class="text-slate-200">${esc(student['NAME'])}</strong></p>
-    <p><span class="text-slate-500">Class:</span> ${esc(student['CLASS'])}</p>
-    <p><span class="text-slate-500">Dept:</span> ${esc(student['Dept'] || 'N/A')}</p>`;
+    <p><span class="text-slate-500">Name:</span> <strong class="text-slate-200">${esc(student['NAME'] || student.name || '')}</strong></p>
+    <p><span class="text-slate-500">Class:</span> ${esc(student['CLASS'] || student.class || '')}</p>
+    <p><span class="text-slate-500">Dept:</span> ${esc(student['Dept'] || student.dept || 'N/A')}</p>`;
   runValidation(formArea);
 }
 
 function runValidation(formArea) {
   const warnings = [];
-  const postName = formArea.querySelector('#postSelect').value;
+  const postName = formArea.querySelector('#postSelect')?.value;
   const gender = formArea.querySelector('[name="gender"]:checked')?.value || null;
 
   const roles = ['candidate','proposer','seconder'];
-  const serials = roles.map(r => formArea.querySelector(`#serial-${r}`).value.trim());
-  const students = serials.map(s => s ? nominalRoll.find(st => String(st['Nominal Roll Serial Number']) === s) : null);
+  const serials = roles.map(r => formArea.querySelector(`#serial-${r}`)?.value.trim() || '');
+  const students = serials.map(s => s ? nominalRoll.find(st => String(st['Nominal Roll Serial Number'] || st.serial_number || '') === s) : null);
 
   // Uniqueness
   const [cS, pS, sS] = serials;
@@ -240,47 +351,55 @@ function runValidation(formArea) {
   });
 
   const box = formArea.querySelector('#warningBox');
-  if (warnings.length) {
-    box.innerHTML = '<strong class="block mb-1">⚠ Eligibility Warnings</strong>' + warnings.map(w => `<p class="text-sm">• ${esc(w)}</p>`).join('');
-    box.classList.remove('hidden');
-  } else {
-    box.classList.add('hidden');
+  if (box) {
+    if (warnings.length) {
+      box.innerHTML = '<strong class="block mb-1">⚠ Eligibility Warnings</strong>' + warnings.map(w => `<p class="text-sm">• ${esc(w)}</p>`).join('');
+      box.classList.remove('hidden');
+    } else {
+      box.classList.add('hidden');
+    }
   }
   return warnings;
 }
 
-async function handleSubmit(e, formArea, yearValue) {
+async function handleSubmit(e, formArea, yearValue, collegeName) {
   e.preventDefault();
   const warnings = runValidation(formArea);
   if (warnings.length) { showToast('Please resolve all eligibility warnings first.', 'error'); return; }
 
-  const captchaVal = formArea.querySelector('#captchaInput').value.trim();
+  const captchaVal = formArea.querySelector('#captchaInput')?.value.trim();
   if (captchaVal !== captchaAnswer) { showToast('Captcha answer is incorrect.', 'error'); return; }
 
-  const post = formArea.querySelector('#postSelect').value;
+  const post = formArea.querySelector('#postSelect')?.value;
   const gender = formArea.querySelector('[name="gender"]:checked')?.value;
-  const day = formArea.querySelector('#dob-day').value;
-  const month = formArea.querySelector('#dob-month').value;
-  const year = formArea.querySelector('#dob-year').value;
+  const day = formArea.querySelector('#dob-day')?.value;
+  const month = formArea.querySelector('#dob-month')?.value;
+  const year = formArea.querySelector('#dob-year')?.value;
 
   if (!gender) { showToast('Please select a gender for the candidate.', 'error'); return; }
-  if (!day || !month || !year) { showToast('Please enter a complete date of birth.', 'error'); return; }
+  if (!day || !month || !year) { showToast('Please select a complete Date of Birth (Day, Month, Year).', 'error'); return; }
 
   const roles = ['candidate','proposer','seconder'];
-  const serials = roles.map(r => formArea.querySelector(`#serial-${r}`).value.trim());
-  const students = serials.map(s => nominalRoll.find(st => String(st['Nominal Roll Serial Number']) === s));
+  const serials = roles.map(r => formArea.querySelector(`#serial-${r}`)?.value.trim() || '');
+  const students = serials.map(s => nominalRoll.find(st => String(st['Nominal Roll Serial Number'] || st.serial_number || '') === s));
   if (students.some(s => !s)) { showToast('One or more serial numbers are invalid.', 'error'); return; }
 
+  const candidateAdmission = formArea.querySelector('#auth-candidate')?.value.trim();
+  if (!candidateAdmission) { showToast('Please enter the Candidate Admission Number.', 'error'); return; }
+
   const submitBtn = formArea.querySelector('#submitBtn');
-  setLoading(submitBtn, true, 'Generate &amp; Preview Nomination');
+  setLoading(submitBtn, true, 'Generating & Previewing...');
 
   try {
+    const formattedDob = buildDobString(day, month, year); // YYYY-MM-DD
+
     const payload = {
       post, gender,
-      dob: buildDobString(day, month, year),
+      dob: formattedDob,
       candidateSerial: serials[0],
       proposerSerial:  serials[1],
       seconderSerial:  serials[2],
+      candidateAdmission
     };
 
     // If admin is doing direct entry, include password to bypass deadline
@@ -290,7 +409,7 @@ async function handleSubmit(e, formArea, yearValue) {
 
     const result = await api.submitNomination(payload);
 
-    showPreview(formArea, result.id, { post, gender, day, month, year, students }, yearValue);
+    showPreview(formArea, result.id, { post, gender, day, month, year, dob: formattedDob, students }, yearValue, collegeName);
     showToast(`Nomination submitted! ID: ${result.id}`, 'success');
   } catch (err) {
     showToast(`Submission failed: ${err.message}`, 'error');
@@ -299,31 +418,31 @@ async function handleSubmit(e, formArea, yearValue) {
   }
 }
 
-function showPreview(formArea, id, { post, gender, day, month, year, students }, yearValue) {
+function showPreview(formArea, id, { post, gender, day, month, year, dob, students }, yearValue, collegeName) {
   const [candidate, proposer, seconder] = students;
-  const dob = buildDobString(day, month, year);
   const dobDisplay = displayDob(day, month, year);
   const age = calculateAge(dob);
 
   const preview = formArea.querySelector('#previewSection');
   formArea.querySelector('#printZone').innerHTML =
-    buildNominationPaper(id, post, gender, dobDisplay, age, candidate, proposer, seconder, '', yearValue);
+    buildNominationPaper(id, post, gender, dobDisplay, age, candidate, proposer, seconder, 'Pending', yearValue, collegeName);
 
   preview.classList.remove('hidden');
   preview.scrollIntoView({ behavior: 'smooth' });
-  preview.querySelector('#printBtn').addEventListener('click', () => {
+  preview.querySelector('#printBtn')?.addEventListener('click', () => {
     triggerPrint(formArea.querySelector('#printZone').innerHTML);
   });
-  preview.querySelector('#newNomBtn').addEventListener('click', () => renderSubmitNomination(formArea.closest('#app')));
+  preview.querySelector('#newNomBtn')?.addEventListener('click', () => renderSubmitNomination(formArea.closest('#app')));
 }
 
-export function buildNominationPaper(id, post, gender, dobDisplay, age, candidate, proposer, seconder, status = '', yearValue = '2026') {
+export function buildNominationPaper(id, post, gender, dobDisplay, age, candidate, proposer, seconder, status = '', yearValue = '2026', collegeName = null) {
   const today = todayFormatted();
+  const cName = collegeName || CONFIG.COLLEGE_NAME;
   return `
   <div class="print-paper border border-slate-700 rounded-xl p-8 bg-slate-900 text-slate-200 space-y-4">
     <div class="flex justify-between items-start text-sm">
       <div>
-        <p class="font-bold text-white text-base">${CONFIG.COLLEGE_NAME}</p>
+        <p class="font-bold text-white text-base">${esc(cName)}</p>
         <p class="text-slate-400">College Union Election ${yearValue}</p>
       </div>
       <div class="text-right">
@@ -359,10 +478,10 @@ function sectionBlock(label, s, gender = null, dob = null, age = null) {
   <div class="glass rounded-lg p-4 text-sm space-y-1">
     <h3 class="font-bold text-white uppercase text-xs tracking-widest mb-2 border-b border-white/10 pb-1">${label} Details</h3>
     <div class="grid grid-cols-2 gap-x-4 gap-y-1">
-      <p><span class="text-slate-500">Name:</span> <strong class="text-slate-200">${esc(s['NAME'])}</strong></p>
-      <p><span class="text-slate-500">Class:</span> ${esc(s['CLASS'])}</p>
-      <p><span class="text-slate-500">Dept:</span> ${esc(s['Dept'] || 'N/A')}</p>
-      <p><span class="text-slate-500">Electoral Roll No:</span> ${esc(s['Nominal Roll Serial Number'])}</p>
+      <p><span class="text-slate-500">Name:</span> <strong class="text-slate-200">${esc(s['NAME'] || s.name || '')}</strong></p>
+      <p><span class="text-slate-500">Class:</span> ${esc(s['CLASS'] || s.class || '')}</p>
+      <p><span class="text-slate-500">Dept:</span> ${esc(s['Dept'] || s.dept || 'N/A')}</p>
+      <p><span class="text-slate-500">Electoral Roll No:</span> ${esc(s['Nominal Roll Serial Number'] || s.serial_number || '')}</p>
       ${gender ? `<p><span class="text-slate-500">Gender:</span> ${esc(gender)}</p>` : ''}
       ${dob ? `<p><span class="text-slate-500">Date of Birth:</span> ${esc(dob)}</p>` : ''}
       ${age ? `<p class="col-span-2"><span class="text-slate-500">Age as on Notification Date:</span> ${esc(age)}</p>` : ''}
@@ -375,7 +494,8 @@ function sectionBlock(label, s, gender = null, dob = null, age = null) {
   </div>`;
 }
 
-function publicLayout(title, bodyHtml, yearValue = '2026') {
+function publicLayout(title, bodyHtml, yearValue = '2026', shortName = null) {
+  const brandShort = shortName || CONFIG.COLLEGE_SHORT_NAME;
   return `
   <div class="page-enter min-h-screen">
     <header class="no-print sticky top-0 z-50 border-b border-white/10 glass">
@@ -388,7 +508,7 @@ function publicLayout(title, bodyHtml, yearValue = '2026') {
           <h1 class="font-bold text-white text-lg tracking-tight">${esc(title)}</h1>
         </div>
         <div class="text-xs text-slate-500 font-medium hidden md:block uppercase tracking-widest">
-          ${CONFIG.COLLEGE_SHORT_NAME} Election Portal ${yearValue}
+          ${esc(brandShort)} Election Portal ${yearValue}
         </div>
       </div>
     </header>

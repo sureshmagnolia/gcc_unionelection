@@ -1,11 +1,11 @@
 /**
  * api.js
- * All communication with the Google Apps Script Web App backend.
+ * All communication with the Vercel backend.
  * Includes in-memory caching and background sync queue for instant UI response.
  */
 import { CONFIG } from './config.js';
 
-const BASE_URL = CONFIG.APPS_SCRIPT_URL;
+const BASE_URL = CONFIG.API_BASE_URL;
 
 // --- Background Sync & Cache Infrastructure ---
 let _cache = {};
@@ -60,10 +60,14 @@ async function processQueue() {
     try {
       const res = await fetch(BASE_URL, {
         method: 'POST',
-        headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(task.body),
       });
-      if (!res.ok) throw new Error(`Network error: ${res.status}`);
+      if (!res.ok) {
+        let errMessage = `Network error: ${res.status}`;
+        try { const errData = await res.json(); if (errData.error) errMessage = errData.error; } catch(e) {}
+        throw new Error(errMessage);
+      }
       const data = await res.json();
       if (data.error === 'SESSION_EXPIRED') { handleSessionExpired(); _syncQueue.length = 0; break; }
       if (data.error) throw new Error(data.error);
@@ -85,18 +89,31 @@ async function processQueue() {
 }
 
 async function get(params) {
-  // Inject session token for admin requests
   const token = getSessionToken();
-  if (token && params.password) params = { ...params, sessionToken: token };
+  const headers = {};
+  const queryParams = { ...params };
+  
+  if (queryParams.password) {
+    headers['X-Admin-Password'] = queryParams.password;
+    delete queryParams.password;
+  }
+  if (token) {
+    headers['X-Session-Token'] = token;
+    delete queryParams.sessionToken;
+  }
 
+  // Use the original params for the cache key to maintain compatibility with updateCache
   const cacheKey = JSON.stringify(params);
   if (_cache[cacheKey] !== undefined) return _cache[cacheKey];
 
-  const url = new URL(BASE_URL);
-  Object.entries(params).forEach(([k, v]) => url.searchParams.append(k, v));
-  url.searchParams.append('_t', Date.now());
-  const res = await fetch(url.toString());
-  if (!res.ok) throw new Error(`Network error: ${res.status}`);
+  const url = new URL(BASE_URL, window.location.origin);
+  Object.entries(queryParams).forEach(([k, v]) => url.searchParams.append(k, v));
+  const res = await fetch(url.toString(), { headers });
+  if (!res.ok) {
+    let errMessage = `Network error: ${res.status}`;
+    try { const errData = await res.json(); if (errData.error) errMessage = errData.error; } catch(e) {}
+    throw new Error(errMessage);
+  }
   const data = await res.json();
   if (data.error === 'SESSION_EXPIRED') { handleSessionExpired(); throw new Error('SESSION_EXPIRED'); }
   if (data.error) throw new Error(data.error);
@@ -113,10 +130,14 @@ async function post(body) {
 
   const res = await fetch(BASE_URL, {
     method: 'POST',
-    headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+    headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(body),
   });
-  if (!res.ok) throw new Error(`Network error: ${res.status}`);
+  if (!res.ok) {
+    let errMessage = `Network error: ${res.status}`;
+    try { const errData = await res.json(); if (errData.error) errMessage = errData.error; } catch(e) {}
+    throw new Error(errMessage);
+  }
   const data = await res.json();
   if (data.error === 'SESSION_EXPIRED') { handleSessionExpired(); throw new Error('SESSION_EXPIRED'); }
   if (data.error) throw new Error(data.error);
@@ -188,11 +209,11 @@ export const api = {
   getNominalRoll: () => get({ action: 'getNominalRoll' }),
   getPosts: () => get({ action: 'getPosts' }),
   getPublicNominations: () => get({ action: 'getPublicNominations' }),
-  getNomination: (id) => get({ action: 'getNomination', id }),
+  getNomination: (id, admissionNo) => get({ action: 'getNomination', id, admissionNo }),
   getValidNominations: () => get({ action: 'getValidNominations' }),
   getFinalNominations: () => get({ action: 'getFinalNominations' }),
   submitNomination: (payload) => post({ action: 'submitNomination', ...payload }),
-  submitWithdrawal: (id) => post({ action: 'submitWithdrawal', id }),
+  submitWithdrawal: (id, admissionNo) => post({ action: 'submitWithdrawal', id, admissionNo }),
 
   // ─── Admin API ──────────────────────────────────────────────────────────────
 
@@ -200,7 +221,7 @@ export const api = {
     // Login does NOT send a sessionToken — it creates a new one
     const res = await fetch(BASE_URL, {
       method: 'POST',
-      headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+      headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ action: 'adminLogin', password }),
     });
     if (!res.ok) throw new Error(`Network error: ${res.status}`);
@@ -211,6 +232,7 @@ export const api = {
     }
     return data;
   },
+  adminLogout: (password) => post({ action: 'adminLogout', password }),
   adminSendOTP: (password) => post({ action: 'adminSendOTP', password }),
   adminVerifyOTP: (password, otp) => post({ action: 'adminVerifyOTP', password, otp }),
   adminGetNominations: (password) => get({ action: 'adminGetNominations', password }),
@@ -224,6 +246,15 @@ export const api = {
     });
     bgPost({ action: 'adminVerifyNomination', password, id, status });
     return Promise.resolve({ ok: true });
+  },
+
+  adminDeleteNomination: async (password, id) => {
+    const res = await post({ action: 'adminDeleteNomination', password, confirmPassword: password, id });
+    invalidateCache('adminGetNominations');
+    invalidateCache('getPublicNominations');
+    invalidateCache('getValidNominations');
+    invalidateCache('getFinalNominations');
+    return res;
   },
 
   adminApproveWithdrawal: (password, id) => {
@@ -246,33 +277,65 @@ export const api = {
     return Promise.resolve({ ok: true });
   },
 
-  adminPublishValidList: (password) => {
-    updateCache({ action: 'adminGetSettings', password }, old => ({...old, validListPublished: 'true'}));
-    bgPost({ action: 'adminPublishValidList', password });
-    invalidateCache('getValidNominations');
+  adminRestoreWithdrawal: (password, id, targetStatus = 'None') => {
+    updateCache({ action: 'adminGetNominations', password }, (noms) => {
+      const n = noms.find(x => x.id === id);
+      if (n) n.withdrawalStatus = targetStatus;
+      return noms;
+    });
+    bgPost({ action: 'adminRestoreWithdrawal', password, id, targetStatus });
+    invalidateCache('getFinalNominations');
+    invalidateCache('adminGetFinalNominations');
     return Promise.resolve({ ok: true });
   },
 
-  adminPublishFinalList: (password) => {
-    updateCache({ action: 'adminGetSettings', password }, old => ({...old, finalListPublished: 'true'}));
-    bgPost({ action: 'adminPublishFinalList', password });
+  adminRejectWithdrawal: (password, id) => {
+    updateCache({ action: 'adminGetNominations', password }, (noms) => {
+      const n = noms.find(x => x.id === id);
+      if (n) n.withdrawalStatus = 'Rejected';
+      return noms;
+    });
+    bgPost({ action: 'adminRejectWithdrawal', password, id });
     invalidateCache('getFinalNominations');
+    invalidateCache('adminGetFinalNominations');
     return Promise.resolve({ ok: true });
+  },
+
+  adminPublishValidList: async (password) => {
+    updateCache({ action: 'adminGetSettings', password }, old => ({...old, validListPublished: 'true'}));
+    const res = await post({ action: 'adminPublishValidList', password });
+    invalidateCache('getValidNominations');
+    invalidateCache('getSettings');
+    invalidateCache('adminGetSettings');
+    return res;
+  },
+
+  adminPublishFinalList: async (password) => {
+    updateCache({ action: 'adminGetSettings', password }, old => ({...old, finalListPublished: 'true'}));
+    const res = await post({ action: 'adminPublishFinalList', password });
+    invalidateCache('getFinalNominations');
+    invalidateCache('getSettings');
+    invalidateCache('adminGetSettings');
+    return res;
   },
 
   adminUnpublishValidList: async (password) => {
     updateCache({ action: 'adminGetSettings', password }, old => ({...old, validListPublished: 'false', finalListPublished: 'false'}));
-    await bgPost({ action: 'adminUnpublishValidList', password });
+    const res = await post({ action: 'adminUnpublishValidList', password });
     invalidateCache('getValidNominations');
     invalidateCache('getFinalNominations');
-    return { ok: true };
+    invalidateCache('getSettings');
+    invalidateCache('adminGetSettings');
+    return res;
   },
 
   adminUnpublishFinalList: async (password) => {
     updateCache({ action: 'adminGetSettings', password }, old => ({...old, finalListPublished: 'false'}));
-    await bgPost({ action: 'adminUnpublishFinalList', password });
+    const res = await post({ action: 'adminUnpublishFinalList', password });
     invalidateCache('getFinalNominations');
-    return { ok: true };
+    invalidateCache('getSettings');
+    invalidateCache('adminGetSettings');
+    return res;
   },
 
   adminGetSettings: (password) => get({ action: 'adminGetSettings', password }),
@@ -283,6 +346,10 @@ export const api = {
     return Promise.resolve({ ok: true });
   },
 
+  adminUpdateCredentials: (password, credentials) => {
+    return post({ action: 'adminUpdateCredentials', password, ...credentials });
+  },
+
   getPublicSettings: () => get({ action: 'adminGetSettings', password: 'NONE' }),
 
   // ─── Posts Management ───────────────────────────────────────────────────────
@@ -290,20 +357,27 @@ export const api = {
   adminGetPosts: (password) => get({ action: 'adminGetPosts', password }),
 
   adminAddPost: async (password, postData) => {
-    updateCache({ action: 'adminGetPosts', password }, posts => [...posts, postData]);
-    await bgPost({ action: 'adminAddPost', password, ...postData });
+    const formatted = { ...postData, post: postData.post || postData.postName };
+    updateCache({ action: 'adminGetPosts', password }, posts => [...(Array.isArray(posts) ? posts : []), formatted]);
+    await bgPost({ action: 'adminAddPost', password, ...formatted });
     invalidateCache('getPosts');
+    invalidateCache('adminGetPosts');
     return { ok: true };
   },
 
   adminUpdatePost: async (password, postData) => {
+    const formatted = { ...postData, post: postData.post || postData.postName };
+    const orig = postData.originalName || formatted.post;
     updateCache({ action: 'adminGetPosts', password }, posts => {
-      const idx = posts.findIndex(p => p.post === postData.post);
-      if (idx !== -1) posts[idx] = postData;
+      if (!Array.isArray(posts)) return [formatted];
+      const idx = posts.findIndex(p => p.post === orig || p.post === formatted.post);
+      if (idx !== -1) posts[idx] = formatted;
+      else posts.push(formatted);
       return posts;
     });
-    await bgPost({ action: 'adminUpdatePost', password, ...postData });
+    await bgPost({ action: 'adminUpdatePost', password, ...formatted });
     invalidateCache('getPosts');
+    invalidateCache('adminGetPosts');
     return { ok: true };
   },
 
@@ -345,25 +419,89 @@ export const api = {
 
   // ─── Results Management ──────────────────────────────────────────────────────
 
-  getResults: async (force = false) => {
+  getResults: (force = false) => {
     if (force) invalidateCache('getResults');
-    const data = await get({ action: 'getResults' });
-    // If results array is empty, don't leave it in memory cache so future calls re-check
-    if (Array.isArray(data) && data.length === 0) {
-      invalidateCache('getResults');
-    }
-    return data;
+    return get({ action: 'getResults' });
   },
+
   adminGetResults: (password, force = false) => {
     if (force) invalidateCache('adminGetResults');
     return get({ action: 'adminGetResults', password });
   },
 
+  adminToggleLockResults: async (password) => {
+    const res = await post({ action: 'adminToggleLockResults', password });
+    updateCache({ action: 'adminGetSettings', password }, old => ({ ...old, resultsLocked: res.locked ? 'true' : 'false' }));
+    invalidateCache('getSettings');
+    invalidateCache('adminGetSettings');
+    return res;
+  },
+
+  adminTogglePublishResults: async (password) => {
+    const res = await post({ action: 'adminTogglePublishResults', password });
+    updateCache({ action: 'adminGetSettings', password }, old => ({ ...old, resultsPublished: res.published ? 'true' : 'false' }));
+    invalidateCache('getResults');
+    invalidateCache('adminGetResults');
+    invalidateCache('getSettings');
+    invalidateCache('adminGetSettings');
+    return res;
+  },
+
+  adminLockResults: async (password) => {
+    const res = await post({ action: 'adminLockResults', password });
+    updateCache({ action: 'adminGetSettings', password }, old => ({ ...old, resultsLocked: 'true' }));
+    invalidateCache('getSettings');
+    invalidateCache('adminGetSettings');
+    return res;
+  },
+
+  adminUnlockResults: async (password) => {
+    const res = await post({ action: 'adminUnlockResults', password });
+    updateCache({ action: 'adminGetSettings', password }, old => ({ ...old, resultsLocked: 'false' }));
+    invalidateCache('getSettings');
+    invalidateCache('adminGetSettings');
+    return res;
+  },
+
+  adminPublishResults: async (password) => {
+    const res = await post({ action: 'adminPublishResults', password });
+    updateCache({ action: 'adminGetSettings', password }, old => ({ ...old, resultsPublished: 'true' }));
+    invalidateCache('getResults');
+    invalidateCache('adminGetResults');
+    invalidateCache('getSettings');
+    invalidateCache('adminGetSettings');
+    return res;
+  },
+
+  adminUnpublishResults: async (password) => {
+    const res = await post({ action: 'adminUnpublishResults', password });
+    updateCache({ action: 'adminGetSettings', password }, old => ({ ...old, resultsPublished: 'false' }));
+    invalidateCache('getResults');
+    invalidateCache('adminGetResults');
+    invalidateCache('getSettings');
+    invalidateCache('adminGetSettings');
+    return res;
+  },
+
+  adminToggleCounting: async (password) => {
+    const res = await post({ action: 'adminToggleCounting', password });
+    invalidateCache('getResults');
+    invalidateCache('getSettings');
+    invalidateCache('adminGetSettings');
+    invalidateCache('getPublicSchedule');
+    return res;
+  },
+
+  adminSetCountingActive: async (password, active) => {
+    const res = await post({ action: 'adminSetCountingActive', password, active });
+    invalidateCache('getResults');
+    invalidateCache('getSettings');
+    invalidateCache('adminGetSettings');
+    invalidateCache('getPublicSchedule');
+    return res;
+  },
+
   adminSaveResults: (password, results) => {
-    try {
-      localStorage.removeItem('election_results_cache');
-      localStorage.removeItem('election_results_last_fetch');
-    } catch (e) {}
     // We queue the network save, invalidate the results cache since it's hard to append optimally here
     bgPost({ action: 'adminSaveResults', password, results }).then(() => {
       invalidateCache('getResults');
@@ -372,27 +510,10 @@ export const api = {
     return Promise.resolve({ ok: true });
   },
 
-  adminToggleLockResults: async (password) => {
-    const res = await post({ action: 'adminToggleLockResults', password });
-    invalidateCache('adminGetSettings');
-    invalidateCache('getSettings');
-    return res;
+  adminInjectTestData: (password) => {
+    _cache = {}; // Clear everything so fresh nominations and results show immediately
+    return post({ action: 'adminInjectTestData', password });
   },
-
-  adminTogglePublishResults: async (password) => {
-    const res = await post({ action: 'adminTogglePublishResults', password });
-    invalidateCache('adminGetSettings');
-    invalidateCache('getSettings');
-    invalidateCache('getResults');
-    invalidateCache('adminGetResults');
-    try {
-      localStorage.removeItem('election_results_cache');
-      localStorage.removeItem('election_results_last_fetch');
-    } catch (e) {}
-    return res;
-  },
-
-  adminInjectTestData: (password) => post({ action: 'adminInjectTestData', password }),
   adminWipeData: (password) => {
     _cache = {}; // Clear everything
     return post({ action: 'adminWipeData', password });
@@ -441,10 +562,42 @@ export const api = {
     return { ok: true };
   },
 
-  adminFinalizeRoll: async (password) => {
-    await bgPost({ action: 'adminFinalizeRoll', password });
+  adminPublishDraftRoll: async (password) => {
+    const res = await post({ action: 'adminPublishDraftRoll', password });
+    invalidateCache('getSettings');
+    invalidateCache('adminGetSettings');
+    return res;
+  },
+
+  adminUnpublishDraftRoll: async (password) => {
+    const res = await post({ action: 'adminUnpublishDraftRoll', password });
+    invalidateCache('getSettings');
+    invalidateCache('adminGetSettings');
+    return res;
+  },
+
+  submitRollCorrection: (payload) => post({ action: 'submitRollCorrection', ...payload }),
+
+  adminGetRollCorrections: (password) => get({ action: 'adminGetRollCorrections', password }),
+
+  adminUpdateRollCorrection: (password, id, status, notes = '') => 
+    post({ action: 'adminUpdateRollCorrection', password, id, status, notes }),
+
+  adminFinalizeRoll: async (password, options = {}) => {
+    const res = await post({ action: 'adminFinalizeRoll', password, ...options });
+    if (res && res.requiresMatching) return res;
+    invalidateCache('getSettings');
+    invalidateCache('adminGetSettings');
     invalidateCache('getNominalRoll');
-    return { ok: true };
+    return res || { ok: true };
+  },
+
+  adminUnfinalizeRoll: async (password) => {
+    const res = await post({ action: 'adminUnfinalizeRoll', password, confirmPassword: password });
+    invalidateCache('getSettings');
+    invalidateCache('adminGetSettings');
+    invalidateCache('getNominalRoll');
+    return res || { ok: true };
   },
 
   adminGetNominalRollTemplate: (password) =>
@@ -464,13 +617,59 @@ export const api = {
     return res;
   },
 
+  adminClearNominalRoll: async (password) => {
+    const res = await post({ action: 'adminClearNominalRoll', password, confirmPassword: password });
+    invalidateCache('getNominalRoll');
+    invalidateCache('getSettings');
+    invalidateCache('adminGetSettings');
+    invalidateCache('adminGetNominations');
+    invalidateCache('getValidNominations');
+    invalidateCache('getFinalNominations');
+    invalidateCache('getPublicNominations');
+    return res;
+  },
+
+  adminRemapNominations: async (password) => {
+    const res = await post({ action: 'adminRemapNominations', password });
+    invalidateCache('adminGetNominations');
+    invalidateCache('getPublicNominations');
+    invalidateCache('getValidNominations');
+    invalidateCache('getFinalNominations');
+    return res;
+  },
+
+
   // ─── Schedule Management ───────────────────────────────────────────────────
 
   getPublicSchedule: () => get({ action: 'getPublicSchedule' }),
 
-  adminSaveSchedule: (password, scheduleData) => {
+  adminSaveSchedule: async (password, scheduleData) => {
     updateCache({ action: 'getPublicSchedule' }, scheduleData);
-    bgPost({ action: 'adminSaveSchedule', password, ...scheduleData });
-    return Promise.resolve({ ok: true });
+    const res = await post({ action: 'adminSaveSchedule', password, ...scheduleData });
+    invalidateCache('getPublicSchedule');
+    invalidateCache('getSettings');
+    invalidateCache('adminGetSettings');
+    return res || { ok: true };
+  },
+
+  // ─── Backup & Restore Suite ─────────────────────────────────────────────────
+
+  adminExportBackup: (password) => post({ action: 'adminExportBackup', password }),
+
+  adminGetSnapshots: (password) => get({ action: 'adminGetSnapshots', password }),
+
+  adminDownloadSnapshot: (password, snapshotId) =>
+    post({ action: 'adminDownloadSnapshot', password, snapshotId }),
+
+  adminRestoreBackup: async (password, payload) => {
+    const res = await post({ action: 'adminRestoreBackup', password, ...payload });
+    _cache = {}; // Clear all cache so fresh state reflects across UI
+    return res;
+  },
+
+  adminRevertSnapshot: async (password, snapshotId) => {
+    const res = await post({ action: 'adminRevertSnapshot', password, snapshotId });
+    _cache = {};
+    return res;
   },
 };

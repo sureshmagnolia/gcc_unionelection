@@ -271,13 +271,20 @@ function getPostsData() {
   const s = getSheet(SHEET_POSTS);
   const v = s.getDataRange().getValues();
   if (v.length < 2) return [];
-  return v.slice(1).map(row => ({
-    post:               String(row[0]),
-    femaleOnly:         row[1] === true || String(row[1]).toLowerCase() === 'true',
-    finalYearIneligible:row[2] === true || String(row[2]).toLowerCase() === 'true',
-    yearRestriction:    String(row[3] || ''),
-    deptRestriction:    row[4] === true || String(row[4]).toLowerCase() === 'true',
-  }));
+  return v.slice(1).map(row => {
+    const post = String(row[0] || '');
+    const deptRestr = row[4] === true || String(row[4]).toLowerCase() === 'true';
+    const rawDept = String(row[5] || '').trim();
+    const fallbackDept = deptRestr && post.startsWith('Association Secretary ') ? post.replace('Association Secretary ', '').trim() : '';
+    return {
+      post:                post,
+      femaleOnly:          row[1] === true || String(row[1]).toLowerCase() === 'true',
+      finalYearIneligible: row[2] === true || String(row[2]).toLowerCase() === 'true',
+      yearRestriction:     String(row[3] || ''),
+      deptRestriction:     deptRestr,
+      restrictedDept:      rawDept || fallbackDept,
+    };
+  });
 }
 
 /**
@@ -823,7 +830,9 @@ function doPost(e) {
     if (action === 'adminAddPost') {
       checkAdmin(body.password, body.sessionToken);
       const s = getSheet(SHEET_POSTS);
-      s.appendRow([body.post, body.femaleOnly, body.finalYearIneligible, body.yearRestriction, body.deptRestriction]);
+      const pName = (body.post || body.postName || '').trim();
+      const rDept = (body.restrictedDept || (body.deptRestriction && pName.startsWith('Association Secretary ') ? pName.replace('Association Secretary ', '').trim() : '')).trim();
+      s.appendRow([pName, !!body.femaleOnly, !!body.finalYearIneligible, body.yearRestriction || '', !!body.deptRestriction, rDept]);
       CacheService.getScriptCache().remove('public_posts');
       return jsonOut({ ok: true });
     }
@@ -832,9 +841,12 @@ function doPost(e) {
       checkAdmin(body.password, body.sessionToken);
       const s = getSheet(SHEET_POSTS);
       const d = s.getDataRange().getValues();
+      const newName = (body.post || body.postName || '').trim();
+      const origName = (body.originalName || newName).trim();
+      const rDept = (body.restrictedDept || (body.deptRestriction && newName.startsWith('Association Secretary ') ? newName.replace('Association Secretary ', '').trim() : '')).trim();
       for (let i = 1; i < d.length; i++) {
-        if (d[i][0] === body.post) {
-          s.getRange(i + 1, 1, 1, 5).setValues([[body.post, body.femaleOnly, body.finalYearIneligible, body.yearRestriction, body.deptRestriction]]);
+        if (d[i][0] === origName || d[i][0] === newName) {
+          s.getRange(i + 1, 1, 1, 6).setValues([[newName, !!body.femaleOnly, !!body.finalYearIneligible, body.yearRestriction || '', !!body.deptRestriction, rDept]]);
           CacheService.getScriptCache().remove('public_posts');
           return jsonOut({ ok: true });
         }

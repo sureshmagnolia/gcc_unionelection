@@ -273,16 +273,38 @@ function getPostsData() {
   if (v.length < 2) return [];
   return v.slice(1).map(row => {
     const post = String(row[0] || '');
+    const femaleOnly = row[1] === true || String(row[1]).toLowerCase() === 'true';
+    const finalYearIneligible = row[2] === true || String(row[2]).toLowerCase() === 'true';
+    const yearRestriction = String(row[3] || '');
     const deptRestr = row[4] === true || String(row[4]).toLowerCase() === 'true';
     const rawDept = String(row[5] || '').trim();
     const fallbackDept = deptRestr && post.startsWith('Association Secretary ') ? post.replace('Association Secretary ', '').trim() : '';
+
+    const rawMode = String(row[6] || '').trim();
+    const rawYears = String(row[7] || '').trim();
+    let yrYears = [];
+    if (rawYears) {
+      yrYears = rawYears.split(',').map(y => y.trim()).filter(Boolean);
+    } else {
+      if (finalYearIneligible) yrYears = ['3_UG', '2_PG'];
+      else if (yearRestriction === '1') yrYears = ['1_UG'];
+      else if (yearRestriction === '2') yrYears = ['2_UG'];
+      else if (yearRestriction === '3') yrYears = ['3_UG'];
+      else if (yearRestriction === 'PG') yrYears = ['1_PG', '2_PG'];
+      else if (yearRestriction === 'UG') yrYears = ['1_UG', '2_UG', '3_UG'];
+      else if (yearRestriction === '1,2') yrYears = ['1_UG', '2_UG'];
+    }
+    const yrMode = rawMode || (finalYearIneligible ? 'EXCLUDE' : (yearRestriction ? 'INCLUDE' : 'ALL'));
+
     return {
       post:                post,
-      femaleOnly:          row[1] === true || String(row[1]).toLowerCase() === 'true',
-      finalYearIneligible: row[2] === true || String(row[2]).toLowerCase() === 'true',
-      yearRestriction:     String(row[3] || ''),
+      femaleOnly:          femaleOnly,
+      finalYearIneligible: finalYearIneligible,
+      yearRestriction:     yearRestriction,
       deptRestriction:     deptRestr,
       restrictedDept:      rawDept || fallbackDept,
+      yearRuleMode:        yrMode,
+      yearRuleYears:       yrYears
     };
   });
 }
@@ -832,7 +854,20 @@ function doPost(e) {
       const s = getSheet(SHEET_POSTS);
       const pName = (body.post || body.postName || '').trim();
       const rDept = (body.restrictedDept || (body.deptRestriction && pName.startsWith('Association Secretary ') ? pName.replace('Association Secretary ', '').trim() : '')).trim();
-      s.appendRow([pName, !!body.femaleOnly, !!body.finalYearIneligible, body.yearRestriction || '', !!body.deptRestriction, rDept]);
+      const yrMode = body.yearRuleMode || (body.finalYearIneligible ? 'EXCLUDE' : (body.yearRestriction ? 'INCLUDE' : 'ALL'));
+      const yrYears = Array.isArray(body.yearRuleYears) ? body.yearRuleYears.join(',') : (body.yearRuleYears || '');
+      const isFinalIneligible = yrMode === 'EXCLUDE' && yrYears.includes('3_UG') && yrYears.includes('2_PG');
+      let yrRestr = body.yearRestriction || '';
+      if (yrMode === 'INCLUDE') {
+        if (yrYears === '1_UG') yrRestr = '1';
+        else if (yrYears === '2_UG') yrRestr = '2';
+        else if (yrYears === '3_UG') yrRestr = '3';
+        else if (yrYears === '1_PG,2_PG' || yrYears === '2_PG,1_PG') yrRestr = 'PG';
+        else if (yrYears === '1_UG,2_UG,3_UG') yrRestr = 'UG';
+        else if (yrYears === '1_UG,2_UG') yrRestr = '1,2';
+      }
+
+      s.appendRow([pName, !!body.femaleOnly, isFinalIneligible || !!body.finalYearIneligible, yrRestr, !!body.deptRestriction, rDept, yrMode, yrYears]);
       CacheService.getScriptCache().remove('public_posts');
       return jsonOut({ ok: true });
     }
@@ -844,9 +879,22 @@ function doPost(e) {
       const newName = (body.post || body.postName || '').trim();
       const origName = (body.originalName || newName).trim();
       const rDept = (body.restrictedDept || (body.deptRestriction && newName.startsWith('Association Secretary ') ? newName.replace('Association Secretary ', '').trim() : '')).trim();
+      const yrMode = body.yearRuleMode || (body.finalYearIneligible ? 'EXCLUDE' : (body.yearRestriction ? 'INCLUDE' : 'ALL'));
+      const yrYears = Array.isArray(body.yearRuleYears) ? body.yearRuleYears.join(',') : (body.yearRuleYears || '');
+      const isFinalIneligible = yrMode === 'EXCLUDE' && yrYears.includes('3_UG') && yrYears.includes('2_PG');
+      let yrRestr = body.yearRestriction || '';
+      if (yrMode === 'INCLUDE') {
+        if (yrYears === '1_UG') yrRestr = '1';
+        else if (yrYears === '2_UG') yrRestr = '2';
+        else if (yrYears === '3_UG') yrRestr = '3';
+        else if (yrYears === '1_PG,2_PG' || yrYears === '2_PG,1_PG') yrRestr = 'PG';
+        else if (yrYears === '1_UG,2_UG,3_UG') yrRestr = 'UG';
+        else if (yrYears === '1_UG,2_UG') yrRestr = '1,2';
+      }
+
       for (let i = 1; i < d.length; i++) {
         if (d[i][0] === origName || d[i][0] === newName) {
-          s.getRange(i + 1, 1, 1, 6).setValues([[newName, !!body.femaleOnly, !!body.finalYearIneligible, body.yearRestriction || '', !!body.deptRestriction, rDept]]);
+          s.getRange(i + 1, 1, 1, 8).setValues([[newName, !!body.femaleOnly, isFinalIneligible || !!body.finalYearIneligible, yrRestr, !!body.deptRestriction, rDept, yrMode, yrYears]]);
           CacheService.getScriptCache().remove('public_posts');
           return jsonOut({ ok: true });
         }
@@ -1591,6 +1639,62 @@ function setupSecureSpreadsheet() {
  * High-performance JSON output with server-side caching.
  * Prevents multiple spreadsheet reads during high traffic.
  */
+function getStudentYearLevelServer(cls) {
+  const c = String(cls || '').toUpperCase().trim();
+  const isPG = /\b(MA|MSC|MCOM|M\.SC|M\.COM|M\.A|MBA|MCA|MSW)\b/.test(c) || c.includes('POST GRADUATE') || c.includes('PG');
+  const isYr1 = c.includes('1ST') || /^\s*(1|1ST|I)\b/.test(c) || /\b1ST\s+YEAR\b/.test(c) || /\bI\s+(YEAR|UG|PG|DC|DEG|BA|BSC|BCOM|MA|MSC|MCOM)\b/.test(c);
+  const isYr2 = c.includes('2ND') || /^\s*(2|2ND|II)\b/.test(c) || /\b2ND\s+YEAR\b/.test(c) || /\bII\s+(YEAR|UG|PG|DC|DEG|BA|BSC|BCOM|MA|MSC|MCOM)\b/.test(c);
+  const isYr3 = c.includes('3RD') || /^\s*(3|3RD|III)\b/.test(c) || /\b3RD\s+YEAR\b/.test(c) || /\bIII\s+(YEAR|UG|DC|DEG|BA|BSC|BCOM)\b/.test(c);
+
+  if (isPG) {
+    if (isYr2) return '2_PG';
+    return '1_PG';
+  } else {
+    if (isYr3) return '3_UG';
+    if (isYr2) return '2_UG';
+    return '1_UG';
+  }
+}
+
+function isYearEligibleServer(cls, rule) {
+  if (!rule) return true;
+  const studentLvl = getStudentYearLevelServer(cls);
+  const mode = rule.yearRuleMode || (rule.finalYearIneligible ? 'EXCLUDE' : (rule.yearRestriction ? 'INCLUDE' : 'ALL'));
+
+  let targetYears = [];
+  if (Array.isArray(rule.yearRuleYears)) targetYears = rule.yearRuleYears;
+  else if (typeof rule.yearRuleYears === 'string' && rule.yearRuleYears.trim()) {
+    targetYears = rule.yearRuleYears.split(',').map(y => y.trim()).filter(Boolean);
+  } else {
+    if (rule.finalYearIneligible) targetYears = ['3_UG', '2_PG'];
+    else if (rule.yearRestriction === '1') targetYears = ['1_UG'];
+    else if (rule.yearRestriction === '2') targetYears = ['2_UG'];
+    else if (rule.yearRestriction === '3') targetYears = ['3_UG'];
+    else if (rule.yearRestriction === 'PG') targetYears = ['1_PG', '2_PG'];
+    else if (rule.yearRestriction === 'UG') targetYears = ['1_UG', '2_UG', '3_UG'];
+    else if (rule.yearRestriction === '1,2') targetYears = ['1_UG', '2_UG'];
+  }
+
+  if (mode === 'ALL' || targetYears.length === 0) {
+    if (rule.finalYearIneligible && (studentLvl === '3_UG' || studentLvl === '2_PG')) return false;
+    return true;
+  }
+
+  const matches = (lvl, list) => {
+    if (list.includes(lvl)) return true;
+    if (lvl.endsWith('_UG') && list.includes('UG')) return true;
+    if (lvl.endsWith('_PG') && list.includes('PG')) return true;
+    if (lvl.startsWith('1_') && list.includes('1')) return true;
+    if (lvl.startsWith('2_') && list.includes('2')) return true;
+    if (lvl.startsWith('3_') && list.includes('3')) return true;
+    return false;
+  };
+
+  if (mode === 'INCLUDE') return matches(studentLvl, targetYears);
+  if (mode === 'EXCLUDE') return !matches(studentLvl, targetYears);
+  return true;
+}
+
 /**
  * Centralized Ballot Master Plan Calculation (Server-Side)
  * This logic is the SINGLE SOURCE OF TRUTH for all ballot serial ranges and Book IDs.
@@ -1697,21 +1801,14 @@ function calculateBallotPlanServer() {
 
   // 2. Reps
   const repResults = [];
-  const yrPosts = contestablePosts.filter(isYear);
+  const yrPosts = contestablePosts.filter(p => isYear(p) && !isAssoc(p));
   yrPosts.forEach(p => {
-    const yr = String(p.yearRestriction || '').trim().toUpperCase();
     booths.forEach(b => {
       const boothStudents = students.filter(s => b.classes.includes(String(s.CLASS).trim()));
       const targetStudents = boothStudents.filter(s => {
         const cls = String(s.CLASS || '').toUpperCase();
         if (cls.includes('PH D') || cls.includes('PH.D')) return false; 
-        const isPG = /\b(MA|MSC|MCOM|M\.SC|M\.COM|M\.A)\b/i.test(cls);
-        if (yr === 'PG') return isPG;
-        if (isPG) return false; 
-        if (yr === '1') return cls.startsWith('1ST YEAR');
-        if (yr === '2') return cls.startsWith('2ND YEAR');
-        if (yr === '3') return cls.startsWith('3RD YEAR');
-        return false;
+        return isYearEligibleServer(cls, p);
       });
 
       if (targetStudents.length > 0) {

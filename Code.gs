@@ -428,43 +428,59 @@ function doGet(e) {
     }
 
     if (action === 'getResults') {
-      if (getSetting('resultsPublished') !== 'true') {
-        return jsonOut([]);
+      const isPublished = getSetting('resultsPublished') === 'true';
+      const isCountingActive = getSetting('countingActive') === 'true';
+      if (!isPublished) {
+        return jsonOut({ results: [], published: false, countingActive: isCountingActive });
       }
       return cachedJsonOut('public_results', () => {
         const s = getSheet(SHEET_RESULTS);
         const d = s.getDataRange().getValues();
-        if (d.length < 2) return [];
+        if (d.length < 2) return { results: [], published: true, countingActive: isCountingActive };
         const headers = d[0];
-        return d.slice(1).map(r => {
+        const resList = d.slice(1).map(r => {
           let obj = {};
           headers.forEach((h, i) => obj[h] = r[i]);
           return obj;
         });
+        return { results: resList, published: true, countingActive: isCountingActive };
       }, 30);
     }
 
     if (action === 'getPublicSchedule') {
       return cachedJsonOut('public_schedule', () => ({
-        nominationDeadline: getSetting('nominationDeadline'),
-        withdrawalStart: getSetting('withdrawalStart'),
-        withdrawalEnd: getSetting('withdrawalEnd'),
+        nominationStart: getSetting('nominationStart') || '',
+        nominationDeadline: getSetting('nominationDeadline') || '',
+        withdrawalStart: getSetting('withdrawalStart') || '',
+        withdrawalEnd: getSetting('withdrawalEnd') || '',
         notificationDate: getSetting('notificationDate') || '2026-04-20',
-        electionYear: getSetting('electionYear') || new Date().getFullYear().toString()
+        electionYear: getSetting('electionYear') || new Date().getFullYear().toString(),
+        countingActive: getSetting('countingActive') || 'false',
+        resultsPublished: getSetting('resultsPublished') || 'false',
+        isRollFinalized: getSetting('isRollFinalized') || 'false',
+        draftRollPublished: getSetting('draftRollPublished') || 'false',
+        validListPublished: getSetting('validListPublished') || 'false',
+        finalListPublished: getSetting('finalListPublished') || 'false'
       }), 30);
     }
 
     if (action === 'getSettings') {
       // Only return non-sensitive public flags by default
       return jsonOut({
-        validListPublished: getSetting('validListPublished'),
-        finalListPublished: getSetting('finalListPublished'),
+        validListPublished: getSetting('validListPublished') || 'false',
+        finalListPublished: getSetting('finalListPublished') || 'false',
         resultsPublished: getSetting('resultsPublished') || 'false',
         resultsLocked: getSetting('resultsLocked') || 'false',
-        isRollFinalized: getSetting('isRollFinalized'),
-        collegeName: getSetting('collegeName'),
-        collegeShortName: getSetting('collegeShortName'),
-        electionYear: getSetting('electionYear')
+        countingActive: getSetting('countingActive') || 'false',
+        nominationStart: getSetting('nominationStart') || '',
+        nominationDeadline: getSetting('nominationDeadline') || '',
+        withdrawalStart: getSetting('withdrawalStart') || '',
+        withdrawalEnd: getSetting('withdrawalEnd') || '',
+        isRollFinalized: getSetting('isRollFinalized') || 'false',
+        draftRollPublished: getSetting('draftRollPublished') || 'false',
+        collegeName: getSetting('collegeName') || 'Government Victoria College, Palakkad',
+        collegeShortName: getSetting('collegeShortName') || 'GVC',
+        electionYear: getSetting('electionYear') || new Date().getFullYear().toString()
       });
     }
 
@@ -530,11 +546,17 @@ function doPost(e) {
 
     if (action === 'adminSaveSchedule') {
       checkAdmin(body.password, body.sessionToken);
-      setSetting('nominationDeadline', body.nominationDeadline);
-      setSetting('withdrawalStart', body.withdrawalStart);
-      setSetting('withdrawalEnd', body.withdrawalEnd);
-      setSetting('notificationDate', body.notificationDate);
+      setSetting('nominationStart', body.nominationStart || '');
+      setSetting('nominationDeadline', body.nominationDeadline || '');
+      setSetting('withdrawalStart', body.withdrawalStart || '');
+      setSetting('withdrawalEnd', body.withdrawalEnd || '');
+      setSetting('notificationDate', body.notificationDate || '');
       setSetting('electionYear', body.electionYear || new Date().getFullYear().toString());
+      if (body.countingActive !== undefined) {
+        setSetting('countingActive', body.countingActive === true || body.countingActive === 'true' ? 'true' : 'false');
+      }
+      CacheService.getScriptCache().remove('public_schedule');
+      CacheService.getScriptCache().remove('public_settings');
       return jsonOut({ ok: true });
     }
 
@@ -599,10 +621,21 @@ function doPost(e) {
         let isAdmin = false;
         if (body.password) { try { checkAdmin(body); isAdmin = true; } catch(e) {} }
 
+        const isRollFinal = getSetting('isRollFinalized') === 'true' || getSetting('nominalRollFinalized') === 'true';
+        if (!isAdmin && !isRollFinal) {
+          return errOut('Nominations can only be submitted after the Final Nominal Roll is published by the Returning Officer.');
+        }
+
+        const now = new Date();
+        const startStr = getSetting('nominationStart');
+        const startDate = (startStr && startStr.trim()) ? new Date(startStr) : null;
+        if (!isAdmin && startDate && !isNaN(startDate.getTime()) && now < startDate) {
+          return errOut(`Nomination filing has not opened yet (Opens on ${startDate.toLocaleString()}).`);
+        }
+
         const deadline = getSetting('nominationDeadline');
         const deadlineDate = (deadline && deadline.trim()) ? new Date(deadline) : null;
-        
-        if (!isAdmin && deadlineDate && !isNaN(deadlineDate.getTime()) && new Date() > deadlineDate) {
+        if (!isAdmin && deadlineDate && !isNaN(deadlineDate.getTime()) && now > deadlineDate) {
           return errOut('Nomination filing period has ended.');
         }
         
@@ -651,6 +684,11 @@ function doPost(e) {
         let isAdmin = false;
         if (body.password) { try { checkAdmin(body); isAdmin = true; } catch(e) {} }
         
+        const isValidPub = getSetting('validListPublished') === 'true';
+        if (!isAdmin && !isValidPub) {
+          return errOut('Withdrawals can only be submitted after the Valid Nominations List is published.');
+        }
+
         const start = getSetting('withdrawalStart'), end = getSetting('withdrawalEnd'), now = new Date();
         const startDate = (start && start.trim()) ? new Date(start) : null;
         const endDate = (end && end.trim()) ? new Date(end) : null;
@@ -938,6 +976,17 @@ function doPost(e) {
       CacheService.getScriptCache().remove('public_results');
       CacheService.getScriptCache().remove('public_settings');
       return jsonOut({ ok: true, published: nextVal === 'true' });
+    }
+
+    if (action === 'adminToggleCounting') {
+      checkAdmin(body.password, body.sessionToken);
+      const current = getSetting('countingActive') === 'true';
+      const nextVal = current ? 'false' : 'true';
+      setSetting('countingActive', nextVal);
+      CacheService.getScriptCache().remove('public_results');
+      CacheService.getScriptCache().remove('public_settings');
+      CacheService.getScriptCache().remove('public_schedule');
+      return jsonOut({ ok: true, active: nextVal === 'true', countingActive: nextVal });
     }
 
     if (action === 'adminSaveResults') {

@@ -537,6 +537,12 @@ function doGet(e) {
       return jsonOut({ headers: d[0], rows: d.slice(1) });
     }
 
+    if (action === 'adminGetBallotConfig') {
+      checkAdmin(e.parameter.password, e.parameter.sessionToken);
+      const conf = getSetting('general_ballot_config');
+      return jsonOut(conf ? JSON.parse(conf) : null);
+    }
+
     return errOut(`Unknown action: ${action}`);
   } catch (err) {
     return errOut(err.message);
@@ -1258,6 +1264,12 @@ function doPost(e) {
       return jsonOut({ ok: true, report: { rollCheck, serialCheck, resultsCheck, formsCheck } });
     }
 
+    if (action === 'adminSaveBallotConfig') {
+      checkAdmin(body.password, body.sessionToken);
+      setSetting('general_ballot_config', JSON.stringify(body.config));
+      return jsonOut({ ok: true });
+    }
+
     if (action === 'adminGenerateBallotPlan') {
       checkAdmin(body.password, body.sessionToken);
       const plan = calculateBallotPlanServer();
@@ -1715,8 +1727,19 @@ function calculateBallotPlanServer() {
 
   const students = getNominalRollData();
 
-  const isYear = (p) => p.post.toLowerCase().includes('representative') || p.post.toLowerCase().includes('year');
-  const isAssoc = (p) => p.post.toLowerCase().includes('association') || p.post.toLowerCase().includes('assoc');
+  const isAssoc = (p) => {
+    const name = String(p.post || '').toUpperCase();
+    return name.includes('ASSOCIATION') || name.includes('ASSOC') || !!p.deptRestriction;
+  };
+  const isUUC = (p) => {
+    const name = String(p.post || '').toUpperCase();
+    return name.includes('UUC') || name.includes('UNIVERSITY UNION COUNCILLOR');
+  };
+  const isYear = (p) => {
+    if (isAssoc(p) || isUUC(p)) return false;
+    const name = String(p.post || '').toUpperCase();
+    return name.includes('REPRESENTATIVE') || name.includes('REP');
+  };
   const isGeneral = (p) => !isYear(p) && !isAssoc(p);
 
   const contestablePosts = posts.filter(p => {
@@ -1724,26 +1747,73 @@ function calculateBallotPlanServer() {
     return pCands.length > 1;
   });
 
+  const genContestablePosts = contestablePosts.filter(isGeneral);
+
+  // Retrieve Ballot Configuration for General Posts (Split or Unified)
+  const rawBallotConfig = getSetting('general_ballot_config');
+  const ballotConfig = rawBallotConfig ? JSON.parse(rawBallotConfig) : null;
+  const isSplit = !!(ballotConfig && ballotConfig.isSplit && Array.isArray(ballotConfig.ballots) && ballotConfig.ballots.length > 1);
+
+  let generalParts = [];
+  if (isSplit) {
+    generalParts = ballotConfig.ballots.map((b, idx) => ({
+      id: b.id || `gen_${idx + 1}`,
+      partNumber: idx + 1,
+      title: b.title || `General Union Posts - Part ${idx + 1}`,
+      shortCode: b.shortCode || `G${idx + 1}`,
+      bookPrefix: b.bookPrefix || `GB${idx + 1}-`,
+      paperSize: b.paperSize || 'A3',
+      posts: Array.isArray(b.posts) ? [...b.posts] : []
+    }));
+  } else {
+    generalParts = [{
+      id: 'gen_main',
+      partNumber: 1,
+      title: 'General Union Posts',
+      shortCode: 'G',
+      bookPrefix: 'GB',
+      paperSize: 'A3',
+      posts: genContestablePosts.map(p => p.post)
+    }];
+  }
+
+  // Ensure any unassigned general contestable posts are allocated to Part 1
+  const allAssigned = new Set();
+  generalParts.forEach(gp => gp.posts.forEach(p => allAssigned.add(p)));
+  genContestablePosts.forEach(p => {
+    if (!allAssigned.has(p.post)) {
+      generalParts[0].posts.push(p.post);
+      allAssigned.add(p.post);
+    }
+  });
+
   // Master counters
-  let genSl = 1, repSl = 1, assocSl = 1;
-  let gbCount = 0, rbCount = 0, abCount = 0;
+  let repSl = 1, assocSl = 1;
+  let rbCount = 0, abCount = 0;
 
   const standard = 50;
   const threshold = 15;
 
-  const calcBooks = (count, start, prefix, currentGlobalBookCount) => {
-    if (!count || count <= 0) return { books: [], ids: '-', count: 0 };
+  const calcBooks = (count, start, prefix, currentGlobalBookCount, customBookPrefix = null) => {
+    if (!count || count <= 0) return { books: [], ids: '-', count: 0, nextCounter: currentGlobalBookCount };
     let current = start;
     let books = [];
-    const idPrefix = prefix === 'G' ? 'GB' : (prefix === 'R' ? 'RB' : 'AB');
+    const idPrefix = customBookPrefix || (prefix === 'G' ? 'GB' : (prefix === 'R' ? 'RB' : 'AB'));
     let counter = currentGlobalBookCount;
     let ids = [];
 
+    const formatSlip = (num) => {
+      if (prefix === 'G' || prefix === 'R' || prefix === 'A') {
+        return `${prefix}${num}`;
+      }
+      return `${prefix}-${num}`;
+    };
+
     const createRange = (size) => {
       counter++;
-      const id = idPrefix + counter;
+      const id = (idPrefix.endsWith('-') ? idPrefix : idPrefix) + counter;
       ids.push(id);
-      const range = `${prefix}${current}-${current + size - 1}`;
+      const range = `${formatSlip(current)} - ${formatSlip(current + size - 1)}`;
       current += size;
       return { id, range };
     };
@@ -1780,23 +1850,58 @@ function calculateBallotPlanServer() {
 
   const boothMap = {};
   booths.forEach(b => {
-    boothMap[b.boothNumber] = { general: null, reps: [], assocs: [] };
+    boothMap[b.boothNumber] = { general: null, generalParts: [], reps: [], assocs: [] };
   });
 
-  // 1. General
-  const genResults = [];
-  booths.forEach(b => {
-    const boothStudents = students.filter(s => b.classes.includes(String(s.CLASS).trim()));
-    const count = boothStudents.length;
-    const start = genSl;
-    const end = start + count - 1;
-    const bookData = calcBooks(count, start, 'G', gbCount);
-    gbCount = bookData.nextCounter;
+  // 1. General Posts (Single or Split Parts)
+  const genPartsResults = [];
+  generalParts.forEach(gp => {
+    let partSl = 1;
+    let partBookCount = 0;
+    const partBoothResults = [];
 
-    const data = { booth: b.boothNumber, count, start, end, books: bookData.books, bookIds: bookData.ids };
-    genResults.push(data);
-    boothMap[b.boothNumber].general = data;
-    genSl += count;
+    booths.forEach(b => {
+      const boothStudents = students.filter(s => b.classes.includes(String(s.CLASS).trim()));
+      const count = boothStudents.length;
+      const start = partSl;
+      const end = start + count - 1;
+      const bookData = calcBooks(count, start, gp.shortCode, partBookCount, gp.bookPrefix);
+      partBookCount = bookData.nextCounter;
+
+      const data = {
+        partId: gp.id,
+        partNumber: gp.partNumber,
+        title: gp.title,
+        prefix: gp.shortCode,
+        booth: b.boothNumber,
+        count,
+        start,
+        end,
+        books: bookData.books,
+        bookIds: bookData.ids
+      };
+      partBoothResults.push(data);
+      boothMap[b.boothNumber].generalParts.push(data);
+      partSl += count;
+    });
+
+    const partSummary = {
+      id: gp.id,
+      partNumber: gp.partNumber,
+      title: gp.title,
+      shortCode: gp.shortCode,
+      bookPrefix: gp.bookPrefix,
+      paperSize: gp.paperSize,
+      posts: gp.posts,
+      results: partBoothResults,
+      total: partSl - 1
+    };
+    genPartsResults.push(partSummary);
+  });
+
+  // Backward compatibility: boothMap[b.boothNumber].general points to Part 1
+  booths.forEach(b => {
+    boothMap[b.boothNumber].general = boothMap[b.boothNumber].generalParts[0] || null;
   });
 
   // 2. Reps
@@ -1859,7 +1964,9 @@ function calculateBallotPlanServer() {
   });
 
   return {
-    general: { results: genResults, total: genSl - 1 },
+    isSplit,
+    general: genPartsResults[0] || { results: [], total: 0 },
+    generalParts: genPartsResults,
     reps: { results: repResults, total: repSl - 1 },
     assocs: { results: assocResults, total: assocSl - 1 },
     boothAssignments: boothMap

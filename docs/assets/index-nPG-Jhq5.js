@@ -1,4 +1,4 @@
-var e=Object.defineProperty,t=(t,n)=>{let r={};for(var i in t)e(r,i,{get:t[i],enumerable:!0});return n||e(r,Symbol.toStringTag,{value:`Module`}),r};(function(){let e=document.createElement(`link`).relList;if(e&&e.supports&&e.supports(`modulepreload`))return;for(let e of document.querySelectorAll(`link[rel="modulepreload"]`))n(e);new MutationObserver(e=>{for(let t of e)if(t.type===`childList`)for(let e of t.addedNodes)e.tagName===`LINK`&&e.rel===`modulepreload`&&n(e)}).observe(document,{childList:!0,subtree:!0});function t(e){let t={};return e.integrity&&(t.integrity=e.integrity),e.referrerPolicy&&(t.referrerPolicy=e.referrerPolicy),e.crossOrigin===`use-credentials`?t.credentials=`include`:e.crossOrigin===`anonymous`?t.credentials=`omit`:t.credentials=`same-origin`,t}function n(e){if(e.ep)return;e.ep=!0;let n=t(e);fetch(e.href,n)}})();var n={API_BASE_URL:`/api/main`,ELECTION_DATE:`2026-10-12`,COLLEGE_NAME:`Government Victoria College, Palakkad`,COLLEGE_SHORT_NAME:`GVC`,DEFAULT_POSTS:[{post:`The Chairman`,femaleOnly:!1,finalYearIneligible:!1,yearRestriction:``,yearRuleMode:`ALL`,yearRuleYears:[],deptRestriction:!1,restrictedDept:``},{post:`The Vice Chairman`,femaleOnly:!0,finalYearIneligible:!1,yearRestriction:``,yearRuleMode:`ALL`,yearRuleYears:[],deptRestriction:!1,restrictedDept:``},{post:`The Secretary`,femaleOnly:!1,finalYearIneligible:!1,yearRestriction:``,yearRuleMode:`ALL`,yearRuleYears:[],deptRestriction:!1,restrictedDept:``},{post:`The Joint Secretary`,femaleOnly:!0,finalYearIneligible:!1,yearRestriction:``,yearRuleMode:`ALL`,yearRuleYears:[],deptRestriction:!1,restrictedDept:``},{post:`The Chief Student Editor`,femaleOnly:!1,finalYearIneligible:!0,yearRestriction:``,yearRuleMode:`EXCLUDE`,yearRuleYears:[`3_UG`,`2_PG`],deptRestriction:!1,restrictedDept:``},{post:`The Secretary Fine Arts`,femaleOnly:!1,finalYearIneligible:!1,yearRestriction:``,yearRuleMode:`ALL`,yearRuleYears:[],deptRestriction:!1,restrictedDept:``},{post:`The General Captain For Sports And Games`,femaleOnly:!1,finalYearIneligible:!1,yearRestriction:``,yearRuleMode:`ALL`,yearRuleYears:[],deptRestriction:!1,restrictedDept:``},{post:`The University Union Councillor`,femaleOnly:!1,finalYearIneligible:!1,yearRestriction:``,yearRuleMode:`ALL`,yearRuleYears:[],deptRestriction:!1,restrictedDept:``},{post:`I UG Representative`,femaleOnly:!1,finalYearIneligible:!1,yearRestriction:`1`,yearRuleMode:`INCLUDE`,yearRuleYears:[`1_UG`],deptRestriction:!1,restrictedDept:``},{post:`II UG Representative`,femaleOnly:!1,finalYearIneligible:!1,yearRestriction:`2`,yearRuleMode:`INCLUDE`,yearRuleYears:[`2_UG`],deptRestriction:!1,restrictedDept:``},{post:`III UG Representative`,femaleOnly:!1,finalYearIneligible:!1,yearRestriction:`3`,yearRuleMode:`INCLUDE`,yearRuleYears:[`3_UG`],deptRestriction:!1,restrictedDept:``},{post:`PG Representative`,femaleOnly:!1,finalYearIneligible:!1,yearRestriction:`PG`,yearRuleMode:`INCLUDE`,yearRuleYears:[`1_PG`,`2_PG`],deptRestriction:!1,restrictedDept:``},{post:`Association Secretary Botany`,femaleOnly:!1,finalYearIneligible:!1,yearRestriction:``,yearRuleMode:`ALL`,yearRuleYears:[],deptRestriction:!0,restrictedDept:`Botany`},{post:`Association Secretary Chemistry`,femaleOnly:!1,finalYearIneligible:!1,yearRestriction:``,yearRuleMode:`ALL`,yearRuleYears:[],deptRestriction:!0,restrictedDept:`Chemistry`},{post:`Association Secretary Commerce`,femaleOnly:!1,finalYearIneligible:!1,yearRestriction:``,yearRuleMode:`ALL`,yearRuleYears:[],deptRestriction:!0,restrictedDept:`Commerce`},{post:`Association Secretary Computer Science`,femaleOnly:!1,finalYearIneligible:!1,yearRestriction:``,yearRuleMode:`ALL`,yearRuleYears:[],deptRestriction:!0,restrictedDept:`Computer Science`},{post:`Association Secretary Economics`,femaleOnly:!1,finalYearIneligible:!1,yearRestriction:``,yearRuleMode:`ALL`,yearRuleYears:[],deptRestriction:!0,restrictedDept:`Economics`},{post:`Association Secretary English`,femaleOnly:!1,finalYearIneligible:!1,yearRestriction:``,yearRuleMode:`ALL`,yearRuleYears:[],deptRestriction:!0,restrictedDept:`English`},{post:`Association Secretary Hindi`,femaleOnly:!1,finalYearIneligible:!1,yearRestriction:``,yearRuleMode:`ALL`,yearRuleYears:[],deptRestriction:!0,restrictedDept:`Hindi`},{post:`Association Secretary History`,femaleOnly:!1,finalYearIneligible:!1,yearRestriction:``,yearRuleMode:`ALL`,yearRuleYears:[],deptRestriction:!0,restrictedDept:`History`},{post:`Association Secretary Malayalam`,femaleOnly:!1,finalYearIneligible:!1,yearRestriction:``,yearRuleMode:`ALL`,yearRuleYears:[],deptRestriction:!0,restrictedDept:`Malayalam`},{post:`Association Secretary Mathematics`,femaleOnly:!1,finalYearIneligible:!1,yearRestriction:``,yearRuleMode:`ALL`,yearRuleYears:[],deptRestriction:!0,restrictedDept:`Mathematics`},{post:`Association Secretary Physics`,femaleOnly:!1,finalYearIneligible:!1,yearRestriction:``,yearRuleMode:`ALL`,yearRuleYears:[],deptRestriction:!0,restrictedDept:`Physics`},{post:`Association Secretary Psychology`,femaleOnly:!1,finalYearIneligible:!1,yearRestriction:``,yearRuleMode:`ALL`,yearRuleYears:[],deptRestriction:!0,restrictedDept:`Psychology`},{post:`Association Secretary Sanskrit`,femaleOnly:!1,finalYearIneligible:!1,yearRestriction:``,yearRuleMode:`ALL`,yearRuleYears:[],deptRestriction:!0,restrictedDept:`Sanskrit`},{post:`Association Secretary Tamil`,femaleOnly:!1,finalYearIneligible:!1,yearRestriction:``,yearRuleMode:`ALL`,yearRuleYears:[],deptRestriction:!0,restrictedDept:`Tamil`},{post:`Association Secretary Zoology`,femaleOnly:!1,finalYearIneligible:!1,yearRestriction:``,yearRuleMode:`ALL`,yearRuleYears:[],deptRestriction:!0,restrictedDept:`Zoology`}]},r=t({router:()=>o}),i={},a=`/`,o={on(e,t){return i[e]=t,this},setDefault(e){return a=e,this},navigate(e,t={}){window.history.pushState({path:e,params:t},``,`#${e}`),this._resolve(e,t)},start(){window.addEventListener(`popstate`,e=>{let{path:t,params:n}=e.state||{path:a,params:{}};this._resolve(t,n)});let e=window.location.hash.replace(`#`,``)||a;this._resolve(e,{})},_resolve(e,t){let n=i[e]||i[a];n&&n(t)}},s=n.API_BASE_URL,c={},l=[],u=!1,d=null;function f(){return sessionStorage.getItem(`adminSessionToken`)||localStorage.getItem(`adminSessionToken`)}function p(){localStorage.removeItem(`adminPwd`),localStorage.removeItem(`adminLoginDate`),localStorage.removeItem(`adminSessionToken`),sessionStorage.removeItem(`adminSessionToken`),c={},alert(`⚠️ Another admin has logged in from a different device. You have been logged out.`),window.location.hash=`/admin`}function m(e){d=e}function h(e){d&&d(e)}function g(){window._unloadGuardAdded||(window._unloadGuardAdded=!0,window.addEventListener(`beforeunload`,e=>{if(l.length>0||u)return e.returnValue=`Changes are still saving. Are you sure you want to leave?`,e.returnValue}))}async function _(){if(!(u||l.length===0)){for(u=!0,g(),h(`saving`);l.length>0;){let e=l[0];try{let t=await fetch(s,{method:`POST`,headers:{"Content-Type":`application/json`},body:JSON.stringify(e.body)});if(!t.ok){let e=`Network error: ${t.status}`;try{let n=await t.json();n.error&&(e=n.error)}catch{}throw Error(e)}let n=await t.json();if(n.error===`SESSION_EXPIRED`){p(),l.length=0;break}if(n.error)throw Error(n.error);e.resolve&&e.resolve(n)}catch(t){console.error(`Background sync failed for`,e.body.action,t),e.reject&&e.reject(t)}l.shift()}u=!1,h(`saved`),setTimeout(()=>{!u&&l.length===0&&h(`idle`)},3e3)}}async function v(e){let t=f(),n={},r={...e};r.password&&(n[`X-Admin-Password`]=r.password,delete r.password),t&&(n[`X-Session-Token`]=t,delete r.sessionToken);let i=JSON.stringify(e);if(c[i]!==void 0)return c[i];let a=new URL(s,window.location.origin);Object.entries(r).forEach(([e,t])=>a.searchParams.append(e,t));let o=await fetch(a.toString(),{headers:n});if(!o.ok){let e=`Network error: ${o.status}`;try{let t=await o.json();t.error&&(e=t.error)}catch{}throw Error(e)}let l=await o.json();if(l.error===`SESSION_EXPIRED`)throw p(),Error(`SESSION_EXPIRED`);if(l.error)throw Error(l.error);return c[i]=l,l}async function y(e){let t=f();t&&e.password&&(e={...e,sessionToken:t});let n=await fetch(s,{method:`POST`,headers:{"Content-Type":`application/json`},body:JSON.stringify(e)});if(!n.ok){let e=`Network error: ${n.status}`;try{let t=await n.json();t.error&&(e=t.error)}catch{}throw Error(e)}let r=await n.json();if(r.error===`SESSION_EXPIRED`)throw p(),Error(`SESSION_EXPIRED`);if(r.error)throw Error(r.error);return r}function b(e){let t=f();return t&&e.password&&(e={...e,sessionToken:t}),new Promise((t,n)=>{l.push({body:e,resolve:t,reject:n}),_()})}function x(e,t){let n=JSON.stringify(e);typeof t==`function`?c[n]!==void 0&&(c[n]=t(c[n])):c[n]=t}function S(e){Object.keys(c).forEach(t=>{t.includes(e)&&delete c[t]})}var C={invalidateCache:S,initPublicData:async()=>{let e=[C.getPublicSchedule().catch(()=>null),C.getSettings().catch(()=>null),C.getPosts().catch(()=>null),C.getResults().catch(()=>null),C.getNominalRoll().catch(()=>null),C.getPublicNominations().catch(()=>null),C.getValidNominations().catch(()=>null),C.getFinalNominations().catch(()=>null)];await Promise.all(e)},initAdminData:async e=>{let t=[C.adminGetNominations(e).catch(()=>null),C.adminGetSettings(e).catch(()=>null),C.adminGetPosts(e).catch(()=>null),C.adminGetBooths(e).catch(()=>null),C.adminGetLocations(e).catch(()=>null),C.adminGetBallotPlan(e).catch(()=>null),C.adminGetCountingMatrix(e).catch(()=>null)];await Promise.all(t)},getNominalRoll:()=>v({action:`getNominalRoll`}),getPosts:()=>v({action:`getPosts`}),getPublicNominations:()=>v({action:`getPublicNominations`}),getNomination:(e,t)=>v({action:`getNomination`,id:e,admissionNo:t}),getValidNominations:()=>v({action:`getValidNominations`}),getFinalNominations:()=>v({action:`getFinalNominations`}),submitNomination:e=>y({action:`submitNomination`,...e}),submitWithdrawal:(e,t)=>y({action:`submitWithdrawal`,id:e,admissionNo:t}),adminLogin:async e=>{let t=await fetch(s,{method:`POST`,headers:{"Content-Type":`application/json`},body:JSON.stringify({action:`adminLogin`,password:e})});if(!t.ok)throw Error(`Network error: ${t.status}`);let n=await t.json();if(n.error)throw Error(n.error);return n.sessionToken&&sessionStorage.setItem(`adminSessionToken`,n.sessionToken),n},adminLogout:e=>y({action:`adminLogout`,password:e}),adminSendOTP:e=>y({action:`adminSendOTP`,password:e}),adminVerifyOTP:(e,t)=>y({action:`adminVerifyOTP`,password:e,otp:t}),adminGetNominations:e=>v({action:`adminGetNominations`,password:e}),adminGetFinalNominations:e=>v({action:`adminGetFinalNominations`,password:e}),adminVerifyNomination:(e,t,n)=>(x({action:`adminGetNominations`,password:e},e=>{let r=e.find(e=>e.id===t);return r&&(r.status=n),e}),b({action:`adminVerifyNomination`,password:e,id:t,status:n}),Promise.resolve({ok:!0})),adminDeleteNomination:async(e,t)=>{let n=await y({action:`adminDeleteNomination`,password:e,confirmPassword:e,id:t});return S(`adminGetNominations`),S(`getPublicNominations`),S(`getValidNominations`),S(`getFinalNominations`),n},adminApproveWithdrawal:(e,t)=>(x({action:`adminGetNominations`,password:e},e=>{let n=e.find(e=>e.id===t);return n&&(n.withdrawalStatus=`Approved`),e}),b({action:`adminApproveWithdrawal`,password:e,id:t}),Promise.resolve({ok:!0})),adminDirectWithdrawal:(e,t)=>(x({action:`adminGetNominations`,password:e},e=>{let n=e.find(e=>e.id===t);return n&&(n.withdrawalStatus=`Approved`),e}),b({action:`adminDirectWithdrawal`,password:e,id:t}),Promise.resolve({ok:!0})),adminRestoreWithdrawal:(e,t,n=`None`)=>(x({action:`adminGetNominations`,password:e},e=>{let r=e.find(e=>e.id===t);return r&&(r.withdrawalStatus=n),e}),b({action:`adminRestoreWithdrawal`,password:e,id:t,targetStatus:n}),S(`getFinalNominations`),S(`adminGetFinalNominations`),Promise.resolve({ok:!0})),adminRejectWithdrawal:(e,t)=>(x({action:`adminGetNominations`,password:e},e=>{let n=e.find(e=>e.id===t);return n&&(n.withdrawalStatus=`Rejected`),e}),b({action:`adminRejectWithdrawal`,password:e,id:t}),S(`getFinalNominations`),S(`adminGetFinalNominations`),Promise.resolve({ok:!0})),adminPublishValidList:async e=>{x({action:`adminGetSettings`,password:e},e=>({...e,validListPublished:`true`}));let t=await y({action:`adminPublishValidList`,password:e});return S(`getValidNominations`),S(`getSettings`),S(`adminGetSettings`),t},adminPublishFinalList:async e=>{x({action:`adminGetSettings`,password:e},e=>({...e,finalListPublished:`true`}));let t=await y({action:`adminPublishFinalList`,password:e});return S(`getFinalNominations`),S(`getSettings`),S(`adminGetSettings`),t},adminUnpublishValidList:async e=>{x({action:`adminGetSettings`,password:e},e=>({...e,validListPublished:`false`,finalListPublished:`false`}));let t=await y({action:`adminUnpublishValidList`,password:e});return S(`getValidNominations`),S(`getFinalNominations`),S(`getSettings`),S(`adminGetSettings`),t},adminUnpublishFinalList:async e=>{x({action:`adminGetSettings`,password:e},e=>({...e,finalListPublished:`false`}));let t=await y({action:`adminUnpublishFinalList`,password:e});return S(`getFinalNominations`),S(`getSettings`),S(`adminGetSettings`),t},adminGetSettings:e=>v({action:`adminGetSettings`,password:e}),adminUpdateSettings:(e,t)=>(x({action:`adminGetSettings`,password:e},e=>({...e,...t})),b({action:`adminUpdateSettings`,password:e,...t}),Promise.resolve({ok:!0})),adminUpdateCredentials:(e,t)=>y({action:`adminUpdateCredentials`,password:e,...t}),getPublicSettings:()=>v({action:`adminGetSettings`,password:`NONE`}),adminGetPosts:e=>v({action:`adminGetPosts`,password:e}),adminAddPost:async(e,t)=>{let n={...t,post:t.post||t.postName};return x({action:`adminGetPosts`,password:e},e=>[...Array.isArray(e)?e:[],n]),await b({action:`adminAddPost`,password:e,...n}),S(`getPosts`),S(`adminGetPosts`),{ok:!0}},adminUpdatePost:async(e,t)=>{let n={...t,post:t.post||t.postName},r=t.originalName||n.post;return x({action:`adminGetPosts`,password:e},e=>{if(!Array.isArray(e))return[n];let t=e.findIndex(e=>e.post===r||e.post===n.post);return t===-1?e.push(n):e[t]=n,e}),await b({action:`adminUpdatePost`,password:e,...n}),S(`getPosts`),S(`adminGetPosts`),{ok:!0}},adminDeletePost:async(e,t)=>(x({action:`adminGetPosts`,password:e},e=>e.filter(e=>e.post!==t)),await b({action:`adminDeletePost`,password:e,postName:t}),S(`getPosts`),{ok:!0}),adminReorderPosts:async(e,t)=>(x({action:`adminGetPosts`,password:e},e=>{let n={};return e.forEach(e=>n[e.post]=e),t.map(e=>n[e]).filter(Boolean)}),await b({action:`adminReorderPosts`,password:e,posts:t}),S(`getPosts`),{ok:!0}),adminGetBooths:e=>v({action:`adminGetBooths`,password:e}),adminSaveBooths:(e,t)=>(x({action:`adminGetBooths`,password:e},t),b({action:`adminSaveBooths`,password:e,booths:t}),Promise.resolve({ok:!0})),adminGetLocations:e=>v({action:`adminGetLocations`,password:e}),adminSaveLocations:(e,t)=>(x({action:`adminGetLocations`,password:e},t),b({action:`adminSaveLocations`,password:e,locations:t}),Promise.resolve({ok:!0})),getResults:(e=!1)=>(e&&S(`getResults`),v({action:`getResults`})),adminGetResults:(e,t=!1)=>(t&&S(`adminGetResults`),v({action:`adminGetResults`,password:e})),adminToggleLockResults:async e=>{let t=await y({action:`adminToggleLockResults`,password:e});return x({action:`adminGetSettings`,password:e},e=>({...e,resultsLocked:t.locked?`true`:`false`})),S(`getSettings`),S(`adminGetSettings`),t},adminTogglePublishResults:async e=>{let t=await y({action:`adminTogglePublishResults`,password:e});return x({action:`adminGetSettings`,password:e},e=>({...e,resultsPublished:t.published?`true`:`false`})),S(`getResults`),S(`adminGetResults`),S(`getSettings`),S(`adminGetSettings`),t},adminLockResults:async e=>{let t=await y({action:`adminLockResults`,password:e});return x({action:`adminGetSettings`,password:e},e=>({...e,resultsLocked:`true`})),S(`getSettings`),S(`adminGetSettings`),t},adminUnlockResults:async e=>{let t=await y({action:`adminUnlockResults`,password:e});return x({action:`adminGetSettings`,password:e},e=>({...e,resultsLocked:`false`})),S(`getSettings`),S(`adminGetSettings`),t},adminPublishResults:async e=>{let t=await y({action:`adminPublishResults`,password:e});return x({action:`adminGetSettings`,password:e},e=>({...e,resultsPublished:`true`})),S(`getResults`),S(`adminGetResults`),S(`getSettings`),S(`adminGetSettings`),t},adminUnpublishResults:async e=>{let t=await y({action:`adminUnpublishResults`,password:e});return x({action:`adminGetSettings`,password:e},e=>({...e,resultsPublished:`false`})),S(`getResults`),S(`adminGetResults`),S(`getSettings`),S(`adminGetSettings`),t},adminToggleCounting:async e=>{let t=await y({action:`adminToggleCounting`,password:e});return S(`getResults`),S(`getSettings`),S(`adminGetSettings`),S(`getPublicSchedule`),t},adminSetCountingActive:async(e,t)=>{let n=await y({action:`adminSetCountingActive`,password:e,active:t});return S(`getResults`),S(`getSettings`),S(`adminGetSettings`),S(`getPublicSchedule`),n},adminSaveResults:(e,t)=>(b({action:`adminSaveResults`,password:e,results:t}).then(()=>{S(`getResults`),S(`adminGetResults`)}),Promise.resolve({ok:!0})),adminInjectTestData:e=>(c={},y({action:`adminInjectTestData`,password:e})),adminWipeData:e=>(c={},y({action:`adminWipeData`,password:e})),adminGetCountingMatrix:e=>v({action:`adminGetCountingMatrix`,password:e}),adminSaveCountingMatrix:(e,t)=>(x({action:`adminGetCountingMatrix`,password:e},t),b({action:`adminSaveCountingMatrix`,password:e,matrixData:t}),Promise.resolve({ok:!0})),adminGenerateBallotPlan:async e=>{let t=await b({action:`adminGenerateBallotPlan`,password:e});return x({action:`adminGetBallotPlan`,password:e},t.plan),t},adminGetBallotPlan:e=>v({action:`adminGetBallotPlan`,password:e}),adminRunAudit:e=>y({action:`adminRunAudit`,password:e}),getSettings:()=>v({action:`getSettings`}),adminAddStudent:async(e,t)=>(await b({action:`adminAddStudent`,password:e,...t}),S(`getNominalRoll`),{ok:!0}),adminUpdateStudent:async(e,t)=>(await b({action:`adminUpdateStudent`,password:e,...t}),S(`getNominalRoll`),{ok:!0}),adminDeleteStudent:async(e,t)=>(await b({action:`adminDeleteStudent`,password:e,serial:t}),S(`getNominalRoll`),{ok:!0}),adminPublishDraftRoll:async e=>{let t=await y({action:`adminPublishDraftRoll`,password:e});return S(`getSettings`),S(`adminGetSettings`),t},adminUnpublishDraftRoll:async e=>{let t=await y({action:`adminUnpublishDraftRoll`,password:e});return S(`getSettings`),S(`adminGetSettings`),t},submitRollCorrection:e=>y({action:`submitRollCorrection`,...e}),adminGetRollCorrections:e=>v({action:`adminGetRollCorrections`,password:e}),adminUpdateRollCorrection:(e,t,n,r=``)=>y({action:`adminUpdateRollCorrection`,password:e,id:t,status:n,notes:r}),adminFinalizeRoll:async(e,t={})=>{let n=await y({action:`adminFinalizeRoll`,password:e,...t});return n&&n.requiresMatching?n:(S(`getSettings`),S(`adminGetSettings`),S(`getNominalRoll`),n||{ok:!0})},adminUnfinalizeRoll:async e=>{let t=await y({action:`adminUnfinalizeRoll`,password:e,confirmPassword:e});return S(`getSettings`),S(`adminGetSettings`),S(`getNominalRoll`),t||{ok:!0}},adminGetNominalRollTemplate:e=>v({action:`adminGetNominalRollTemplate`,password:e}),adminUploadNominalRoll:async(e,t)=>{let n=await y({action:`adminUploadNominalRoll`,password:e,...t});return S(`getNominalRoll`),S(`adminGetNominations`),S(`getSettings`),S(`adminGetSettings`),S(`getValidNominations`),S(`getFinalNominations`),S(`getPublicNominations`),n},adminClearNominalRoll:async e=>{let t=await y({action:`adminClearNominalRoll`,password:e,confirmPassword:e});return S(`getNominalRoll`),S(`getSettings`),S(`adminGetSettings`),S(`adminGetNominations`),S(`getValidNominations`),S(`getFinalNominations`),S(`getPublicNominations`),t},adminRemapNominations:async e=>{let t=await y({action:`adminRemapNominations`,password:e});return S(`adminGetNominations`),S(`getPublicNominations`),S(`getValidNominations`),S(`getFinalNominations`),t},getPublicSchedule:()=>v({action:`getPublicSchedule`}),adminSaveSchedule:async(e,t)=>{x({action:`getPublicSchedule`},t);let n=await y({action:`adminSaveSchedule`,password:e,...t});return S(`getPublicSchedule`),S(`getSettings`),S(`adminGetSettings`),n||{ok:!0}},adminExportBackup:e=>y({action:`adminExportBackup`,password:e}),adminGetSnapshots:e=>v({action:`adminGetSnapshots`,password:e}),adminDownloadSnapshot:(e,t)=>y({action:`adminDownloadSnapshot`,password:e,snapshotId:t}),adminRestoreBackup:async(e,t)=>{let n=await y({action:`adminRestoreBackup`,password:e,...t});return c={},n},adminRevertSnapshot:async(e,t)=>{let n=await y({action:`adminRevertSnapshot`,password:e,snapshotId:t});return c={},n}};function ee(e,t=n.ELECTION_DATE){if(!e)return`N/A`;let r;if(typeof e==`string`&&e.includes(`-`)){let t=e.split(`-`);r=t[0].length===4?new Date(parseInt(t[0],10),parseInt(t[1],10)-1,parseInt(t[2],10)):new Date(parseInt(t[2],10),parseInt(t[1],10)-1,parseInt(t[0],10))}else r=new Date(e);if(isNaN(r.getTime()))return`N/A`;let i=new Date(t),a=i.getFullYear()-r.getFullYear(),o=i.getMonth()-r.getMonth(),s=i.getDate()-r.getDate();return s<0&&(o--,s+=new Date(i.getFullYear(),i.getMonth(),0).getDate()),o<0&&(a--,o+=12),`${a} Years, ${o} Months, ${s} Days`}var te=[{id:`1_UG`,label:`1st Year UG (I UG)`,short:`I UG`},{id:`2_UG`,label:`2nd Year UG (II UG)`,short:`II UG`},{id:`3_UG`,label:`3rd Year UG (III UG)`,short:`III UG`},{id:`1_PG`,label:`1st Year PG (I PG)`,short:`I PG`},{id:`2_PG`,label:`2nd Year PG (II PG)`,short:`II PG`}];function ne(e){let t=String(e||``).toUpperCase().trim(),n=/\b(MA|MSC|MCOM|M\.SC|M\.COM|M\.A|MBA|MCA|MSW)\b/.test(t)||t.includes(`POST GRADUATE`)||t.includes(`PG`);t.includes(`1ST`)||/^\s*(1|1ST|I)\b/.test(t)||/\b1ST\s+YEAR\b/.test(t)||/\bI\s+(YEAR|UG|PG|DC|DEG|BA|BSC|BCOM|MA|MSC|MCOM)\b/.test(t);let r=t.includes(`2ND`)||/^\s*(2|2ND|II)\b/.test(t)||/\b2ND\s+YEAR\b/.test(t)||/\bII\s+(YEAR|UG|PG|DC|DEG|BA|BSC|BCOM|MA|MSC|MCOM)\b/.test(t),i=t.includes(`3RD`)||/^\s*(3|3RD|III)\b/.test(t)||/\b3RD\s+YEAR\b/.test(t)||/\bIII\s+(YEAR|UG|DC|DEG|BA|BSC|BCOM)\b/.test(t);return n?r?`2_PG`:`1_PG`:i?`3_UG`:r?`2_UG`:`1_UG`}function re(e,t){if(!t)return!0;let n=ne(e),r=t.yearRuleMode||(t.finalYearIneligible?`EXCLUDE`:t.yearRestriction?`INCLUDE`:`ALL`),i=[];if(Array.isArray(t.yearRuleYears)?i=t.yearRuleYears:typeof t.yearRuleYears==`string`&&t.yearRuleYears.trim()?i=t.yearRuleYears.split(`,`).map(e=>e.trim()).filter(Boolean):t.finalYearIneligible?i=[`3_UG`,`2_PG`]:t.yearRestriction===`1`?i=[`1_UG`]:t.yearRestriction===`2`?i=[`2_UG`]:t.yearRestriction===`3`?i=[`3_UG`]:t.yearRestriction===`PG`?i=[`1_PG`,`2_PG`]:t.yearRestriction===`UG`?i=[`1_UG`,`2_UG`,`3_UG`]:t.yearRestriction===`1,2`&&(i=[`1_UG`,`2_UG`]),r===`ALL`||i.length===0)return!(t.finalYearIneligible&&(n===`3_UG`||n===`2_PG`));let a=(e,t)=>!!(t.includes(e)||e.endsWith(`_UG`)&&t.includes(`UG`)||e.endsWith(`_PG`)&&t.includes(`PG`)||e.startsWith(`1_`)&&t.includes(`1`)||e.startsWith(`2_`)&&t.includes(`2`)||e.startsWith(`3_`)&&t.includes(`3`));return r===`INCLUDE`?a(n,i):r===`EXCLUDE`?!a(n,i):!0}function w(e){if(!e)return`All Years Eligible`;let t=e.yearRuleMode||(e.finalYearIneligible?`EXCLUDE`:e.yearRestriction?`INCLUDE`:`ALL`),n=[];if(Array.isArray(e.yearRuleYears)?n=e.yearRuleYears:typeof e.yearRuleYears==`string`&&e.yearRuleYears.trim()?n=e.yearRuleYears.split(`,`).map(e=>e.trim()).filter(Boolean):e.finalYearIneligible?n=[`3_UG`,`2_PG`]:e.yearRestriction===`1`?n=[`1_UG`]:e.yearRestriction===`2`?n=[`2_UG`]:e.yearRestriction===`3`?n=[`3_UG`]:e.yearRestriction===`PG`?n=[`1_PG`,`2_PG`]:e.yearRestriction===`UG`?n=[`1_UG`,`2_UG`,`3_UG`]:e.yearRestriction===`1,2`&&(n=[`1_UG`,`2_UG`]),t===`ALL`||n.length===0)return e.finalYearIneligible?`Final Years Barred (3rd UG & 2nd PG)`:`All Years Eligible`;let r=n.map(e=>{let t=te.find(t=>t.id===e);return t?t.short:e}).join(`, `);return t===`INCLUDE`?`Only: ${r}`:t===`EXCLUDE`?`Barred: ${r}`:`All Years`}function ie(e,t,n,r=null,i=[],a=[]){if(!e)return[];let o=[],s=String(e.CLASS||``).toUpperCase(),c=String(e.Dept||``).toUpperCase(),l=String(e[`Nominal Roll Serial Number`]),u=i.find(e=>e.post===t)||{};if((n===`Proposer`||n===`Seconder`)&&a.some(e=>e.post===t&&e.status!==`Rejected`&&(String(e.proposerSerial)===l||String(e.seconderSerial)===l))&&o.push(`Student #${l} has already proposed or seconded a candidate for "${t}". They cannot endorse multiple candidates for the same post.`),u.deptRestriction){let r=(u.restrictedDept||(t.startsWith(`Association Secretary `)?t.replace(`Association Secretary `,``):``)).trim();if(r){let i=e=>String(e||``).toUpperCase().replace(/[^A-Z0-9]/g,``),a=i(c),s=i(r);a===s||a.includes(s)||s.includes(a)||o.push(`${n} for "${t}" must belong to the ${r} department (current student: ${e.Dept||`N/A`}).`)}}if(!re(s,u)){let e=w(u);o.push(`${n} (${s||`Unspecified`}) is not eligible under year restriction for "${t}" (${e}).`)}return n===`Candidate`&&u.femaleOnly&&r&&r!==`Female`&&o.push(`The post of "${t}" is reserved for female candidates only.`),o}function ae(){let e=Math.floor(Math.random()*10)+1,t=Math.floor(Math.random()*10)+1;return{question:`${e} + ${t}`,answer:String(e+t)}}function oe(){return new Date().toLocaleDateString(`en-GB`)}function se(e,t,n){if(!e||!t||!n)return;let r=[`January`,`February`,`March`,`April`,`May`,`June`,`July`,`August`,`September`,`October`,`November`,`December`];for(let t=1;t<=31;t++)e.innerHTML+=`<option value="${t}">${t}</option>`;r.forEach((e,n)=>t.innerHTML+=`<option value="${n+1}">${e}</option>`);for(let e=2015;e>=1950;e--)n.innerHTML+=`<option value="${e}">${e}</option>`}function ce(e,t,n){return`${n}-${String(t).padStart(2,`0`)}-${String(e).padStart(2,`0`)}`}function le(e,t,n){return`${String(e).padStart(2,`0`)}/${String(t).padStart(2,`0`)}/${n}`}function T(e,t=`Nomination Form`){let n=window.open(``,`_blank`);n.document.write(`
+var e=Object.defineProperty,t=(t,n)=>{let r={};for(var i in t)e(r,i,{get:t[i],enumerable:!0});return n||e(r,Symbol.toStringTag,{value:`Module`}),r};(function(){let e=document.createElement(`link`).relList;if(e&&e.supports&&e.supports(`modulepreload`))return;for(let e of document.querySelectorAll(`link[rel="modulepreload"]`))n(e);new MutationObserver(e=>{for(let t of e)if(t.type===`childList`)for(let e of t.addedNodes)e.tagName===`LINK`&&e.rel===`modulepreload`&&n(e)}).observe(document,{childList:!0,subtree:!0});function t(e){let t={};return e.integrity&&(t.integrity=e.integrity),e.referrerPolicy&&(t.referrerPolicy=e.referrerPolicy),e.crossOrigin===`use-credentials`?t.credentials=`include`:e.crossOrigin===`anonymous`?t.credentials=`omit`:t.credentials=`same-origin`,t}function n(e){if(e.ep)return;e.ep=!0;let n=t(e);fetch(e.href,n)}})();var n={API_BASE_URL:`/api/main`,ELECTION_DATE:`2026-10-12`,COLLEGE_NAME:`Government Victoria College, Palakkad`,COLLEGE_SHORT_NAME:`GVC`,DEFAULT_POSTS:[{post:`The Chairman`,femaleOnly:!1,finalYearIneligible:!1,yearRestriction:``,yearRuleMode:`ALL`,yearRuleYears:[],deptRestriction:!1,restrictedDept:``},{post:`The Vice Chairman`,femaleOnly:!0,finalYearIneligible:!1,yearRestriction:``,yearRuleMode:`ALL`,yearRuleYears:[],deptRestriction:!1,restrictedDept:``},{post:`The Secretary`,femaleOnly:!1,finalYearIneligible:!1,yearRestriction:``,yearRuleMode:`ALL`,yearRuleYears:[],deptRestriction:!1,restrictedDept:``},{post:`The Joint Secretary`,femaleOnly:!0,finalYearIneligible:!1,yearRestriction:``,yearRuleMode:`ALL`,yearRuleYears:[],deptRestriction:!1,restrictedDept:``},{post:`The Chief Student Editor`,femaleOnly:!1,finalYearIneligible:!0,yearRestriction:``,yearRuleMode:`EXCLUDE`,yearRuleYears:[`3_UG`,`2_PG`],deptRestriction:!1,restrictedDept:``},{post:`The Secretary Fine Arts`,femaleOnly:!1,finalYearIneligible:!1,yearRestriction:``,yearRuleMode:`ALL`,yearRuleYears:[],deptRestriction:!1,restrictedDept:``},{post:`The General Captain For Sports And Games`,femaleOnly:!1,finalYearIneligible:!1,yearRestriction:``,yearRuleMode:`ALL`,yearRuleYears:[],deptRestriction:!1,restrictedDept:``},{post:`The University Union Councillor`,femaleOnly:!1,finalYearIneligible:!1,yearRestriction:``,yearRuleMode:`ALL`,yearRuleYears:[],deptRestriction:!1,restrictedDept:``},{post:`I UG Representative`,femaleOnly:!1,finalYearIneligible:!1,yearRestriction:`1`,yearRuleMode:`INCLUDE`,yearRuleYears:[`1_UG`],deptRestriction:!1,restrictedDept:``},{post:`II UG Representative`,femaleOnly:!1,finalYearIneligible:!1,yearRestriction:`2`,yearRuleMode:`INCLUDE`,yearRuleYears:[`2_UG`],deptRestriction:!1,restrictedDept:``},{post:`III UG Representative`,femaleOnly:!1,finalYearIneligible:!1,yearRestriction:`3`,yearRuleMode:`INCLUDE`,yearRuleYears:[`3_UG`],deptRestriction:!1,restrictedDept:``},{post:`PG Representative`,femaleOnly:!1,finalYearIneligible:!1,yearRestriction:`PG`,yearRuleMode:`INCLUDE`,yearRuleYears:[`1_PG`,`2_PG`],deptRestriction:!1,restrictedDept:``},{post:`Association Secretary Botany`,femaleOnly:!1,finalYearIneligible:!1,yearRestriction:``,yearRuleMode:`ALL`,yearRuleYears:[],deptRestriction:!0,restrictedDept:`Botany`},{post:`Association Secretary Chemistry`,femaleOnly:!1,finalYearIneligible:!1,yearRestriction:``,yearRuleMode:`ALL`,yearRuleYears:[],deptRestriction:!0,restrictedDept:`Chemistry`},{post:`Association Secretary Commerce`,femaleOnly:!1,finalYearIneligible:!1,yearRestriction:``,yearRuleMode:`ALL`,yearRuleYears:[],deptRestriction:!0,restrictedDept:`Commerce`},{post:`Association Secretary Computer Science`,femaleOnly:!1,finalYearIneligible:!1,yearRestriction:``,yearRuleMode:`ALL`,yearRuleYears:[],deptRestriction:!0,restrictedDept:`Computer Science`},{post:`Association Secretary Economics`,femaleOnly:!1,finalYearIneligible:!1,yearRestriction:``,yearRuleMode:`ALL`,yearRuleYears:[],deptRestriction:!0,restrictedDept:`Economics`},{post:`Association Secretary English`,femaleOnly:!1,finalYearIneligible:!1,yearRestriction:``,yearRuleMode:`ALL`,yearRuleYears:[],deptRestriction:!0,restrictedDept:`English`},{post:`Association Secretary Hindi`,femaleOnly:!1,finalYearIneligible:!1,yearRestriction:``,yearRuleMode:`ALL`,yearRuleYears:[],deptRestriction:!0,restrictedDept:`Hindi`},{post:`Association Secretary History`,femaleOnly:!1,finalYearIneligible:!1,yearRestriction:``,yearRuleMode:`ALL`,yearRuleYears:[],deptRestriction:!0,restrictedDept:`History`},{post:`Association Secretary Malayalam`,femaleOnly:!1,finalYearIneligible:!1,yearRestriction:``,yearRuleMode:`ALL`,yearRuleYears:[],deptRestriction:!0,restrictedDept:`Malayalam`},{post:`Association Secretary Mathematics`,femaleOnly:!1,finalYearIneligible:!1,yearRestriction:``,yearRuleMode:`ALL`,yearRuleYears:[],deptRestriction:!0,restrictedDept:`Mathematics`},{post:`Association Secretary Physics`,femaleOnly:!1,finalYearIneligible:!1,yearRestriction:``,yearRuleMode:`ALL`,yearRuleYears:[],deptRestriction:!0,restrictedDept:`Physics`},{post:`Association Secretary Psychology`,femaleOnly:!1,finalYearIneligible:!1,yearRestriction:``,yearRuleMode:`ALL`,yearRuleYears:[],deptRestriction:!0,restrictedDept:`Psychology`},{post:`Association Secretary Sanskrit`,femaleOnly:!1,finalYearIneligible:!1,yearRestriction:``,yearRuleMode:`ALL`,yearRuleYears:[],deptRestriction:!0,restrictedDept:`Sanskrit`},{post:`Association Secretary Tamil`,femaleOnly:!1,finalYearIneligible:!1,yearRestriction:``,yearRuleMode:`ALL`,yearRuleYears:[],deptRestriction:!0,restrictedDept:`Tamil`},{post:`Association Secretary Zoology`,femaleOnly:!1,finalYearIneligible:!1,yearRestriction:``,yearRuleMode:`ALL`,yearRuleYears:[],deptRestriction:!0,restrictedDept:`Zoology`}]},r=t({router:()=>o}),i={},a=`/`,o={on(e,t){return i[e]=t,this},setDefault(e){return a=e,this},navigate(e,t={}){window.history.pushState({path:e,params:t},``,`#${e}`),this._resolve(e,t)},start(){window.addEventListener(`popstate`,e=>{let{path:t,params:n}=e.state||{path:a,params:{}};this._resolve(t,n)});let e=window.location.hash.replace(`#`,``)||a;this._resolve(e,{})},_resolve(e,t){let n=i[e]||i[a];n&&n(t)}},s=n.API_BASE_URL,c={},l=[],u=!1,d=null;function f(){return sessionStorage.getItem(`adminSessionToken`)||localStorage.getItem(`adminSessionToken`)}function p(){localStorage.removeItem(`adminPwd`),localStorage.removeItem(`adminLoginDate`),localStorage.removeItem(`adminSessionToken`),sessionStorage.removeItem(`adminSessionToken`),c={},alert(`⚠️ Another admin has logged in from a different device. You have been logged out.`),window.location.hash=`/admin`}function m(e){d=e}function h(e){d&&d(e)}function g(){window._unloadGuardAdded||(window._unloadGuardAdded=!0,window.addEventListener(`beforeunload`,e=>{if(l.length>0||u)return e.returnValue=`Changes are still saving. Are you sure you want to leave?`,e.returnValue}))}async function _(){if(!(u||l.length===0)){for(u=!0,g(),h(`saving`);l.length>0;){let e=l[0];try{let t=await fetch(s,{method:`POST`,headers:{"Content-Type":`application/json`},body:JSON.stringify(e.body)});if(!t.ok){let e=`Network error: ${t.status}`;try{let n=await t.json();n.error&&(e=n.error)}catch{}throw Error(e)}let n=await t.json();if(n.error===`SESSION_EXPIRED`){p(),l.length=0;break}if(n.error)throw Error(n.error);e.resolve&&e.resolve(n)}catch(t){console.error(`Background sync failed for`,e.body.action,t),e.reject&&e.reject(t)}l.shift()}u=!1,h(`saved`),setTimeout(()=>{!u&&l.length===0&&h(`idle`)},3e3)}}async function v(e){let t=f(),n={},r={...e};r.password&&(n[`X-Admin-Password`]=r.password,delete r.password),t&&(n[`X-Session-Token`]=t,delete r.sessionToken);let i=JSON.stringify(e);if(c[i]!==void 0)return c[i];let a=new URL(s,window.location.origin);Object.entries(r).forEach(([e,t])=>a.searchParams.append(e,t));let o=await fetch(a.toString(),{headers:n});if(!o.ok){let e=`Network error: ${o.status}`;try{let t=await o.json();t.error&&(e=t.error)}catch{}throw Error(e)}let l=await o.json();if(l.error===`SESSION_EXPIRED`)throw p(),Error(`SESSION_EXPIRED`);if(l.error)throw Error(l.error);return c[i]=l,l}async function y(e){let t=f();t&&e.password&&(e={...e,sessionToken:t});let n=await fetch(s,{method:`POST`,headers:{"Content-Type":`application/json`},body:JSON.stringify(e)});if(!n.ok){let e=`Network error: ${n.status}`;try{let t=await n.json();t.error&&(e=t.error)}catch{}throw Error(e)}let r=await n.json();if(r.error===`SESSION_EXPIRED`)throw p(),Error(`SESSION_EXPIRED`);if(r.error)throw Error(r.error);return r}function b(e){let t=f();return t&&e.password&&(e={...e,sessionToken:t}),new Promise((t,n)=>{l.push({body:e,resolve:t,reject:n}),_()})}function x(e,t){let n=JSON.stringify(e);typeof t==`function`?c[n]!==void 0&&(c[n]=t(c[n])):c[n]=t}function S(e){Object.keys(c).forEach(t=>{t.includes(e)&&delete c[t]})}var C={invalidateCache:S,initPublicData:async()=>{let e=[C.getPublicSchedule().catch(()=>null),C.getSettings().catch(()=>null),C.getPosts().catch(()=>null),C.getResults().catch(()=>null),C.getNominalRoll().catch(()=>null),C.getPublicNominations().catch(()=>null),C.getValidNominations().catch(()=>null),C.getFinalNominations().catch(()=>null)];await Promise.all(e)},initAdminData:async e=>{let t=[C.adminGetNominations(e).catch(()=>null),C.adminGetSettings(e).catch(()=>null),C.adminGetPosts(e).catch(()=>null),C.adminGetBooths(e).catch(()=>null),C.adminGetLocations(e).catch(()=>null),C.adminGetBallotPlan(e).catch(()=>null),C.adminGetCountingMatrix(e).catch(()=>null)];await Promise.all(t)},getNominalRoll:()=>v({action:`getNominalRoll`}),getPosts:()=>v({action:`getPosts`}),getPublicNominations:()=>v({action:`getPublicNominations`}),getNomination:(e,t)=>v({action:`getNomination`,id:e,admissionNo:t}),getValidNominations:()=>v({action:`getValidNominations`}),getFinalNominations:()=>v({action:`getFinalNominations`}),submitNomination:e=>y({action:`submitNomination`,...e}),submitWithdrawal:(e,t)=>y({action:`submitWithdrawal`,id:e,admissionNo:t}),adminLogin:async e=>{let t=await fetch(s,{method:`POST`,headers:{"Content-Type":`application/json`},body:JSON.stringify({action:`adminLogin`,password:e})});if(!t.ok)throw Error(`Network error: ${t.status}`);let n=await t.json();if(n.error)throw Error(n.error);return n.sessionToken&&sessionStorage.setItem(`adminSessionToken`,n.sessionToken),n},adminLogout:e=>y({action:`adminLogout`,password:e}),adminSendOTP:e=>y({action:`adminSendOTP`,password:e}),adminVerifyOTP:(e,t)=>y({action:`adminVerifyOTP`,password:e,otp:t}),adminGetNominations:e=>v({action:`adminGetNominations`,password:e}),adminGetFinalNominations:e=>v({action:`adminGetFinalNominations`,password:e}),adminVerifyNomination:(e,t,n)=>(x({action:`adminGetNominations`,password:e},e=>{let r=e.find(e=>e.id===t);return r&&(r.status=n),e}),b({action:`adminVerifyNomination`,password:e,id:t,status:n}),Promise.resolve({ok:!0})),adminDeleteNomination:async(e,t)=>{let n=await y({action:`adminDeleteNomination`,password:e,confirmPassword:e,id:t});return S(`adminGetNominations`),S(`getPublicNominations`),S(`getValidNominations`),S(`getFinalNominations`),n},adminApproveWithdrawal:(e,t)=>(x({action:`adminGetNominations`,password:e},e=>{let n=e.find(e=>e.id===t);return n&&(n.withdrawalStatus=`Approved`),e}),b({action:`adminApproveWithdrawal`,password:e,id:t}),Promise.resolve({ok:!0})),adminDirectWithdrawal:(e,t)=>(x({action:`adminGetNominations`,password:e},e=>{let n=e.find(e=>e.id===t);return n&&(n.withdrawalStatus=`Approved`),e}),b({action:`adminDirectWithdrawal`,password:e,id:t}),Promise.resolve({ok:!0})),adminRestoreWithdrawal:(e,t,n=`None`)=>(x({action:`adminGetNominations`,password:e},e=>{let r=e.find(e=>e.id===t);return r&&(r.withdrawalStatus=n),e}),b({action:`adminRestoreWithdrawal`,password:e,id:t,targetStatus:n}),S(`getFinalNominations`),S(`adminGetFinalNominations`),Promise.resolve({ok:!0})),adminRejectWithdrawal:(e,t)=>(x({action:`adminGetNominations`,password:e},e=>{let n=e.find(e=>e.id===t);return n&&(n.withdrawalStatus=`Rejected`),e}),b({action:`adminRejectWithdrawal`,password:e,id:t}),S(`getFinalNominations`),S(`adminGetFinalNominations`),Promise.resolve({ok:!0})),adminPublishValidList:async e=>{x({action:`adminGetSettings`,password:e},e=>({...e,validListPublished:`true`}));let t=await y({action:`adminPublishValidList`,password:e});return S(`getValidNominations`),S(`getSettings`),S(`adminGetSettings`),t},adminPublishFinalList:async e=>{x({action:`adminGetSettings`,password:e},e=>({...e,finalListPublished:`true`}));let t=await y({action:`adminPublishFinalList`,password:e});return S(`getFinalNominations`),S(`getSettings`),S(`adminGetSettings`),t},adminUnpublishValidList:async e=>{x({action:`adminGetSettings`,password:e},e=>({...e,validListPublished:`false`,finalListPublished:`false`}));let t=await y({action:`adminUnpublishValidList`,password:e});return S(`getValidNominations`),S(`getFinalNominations`),S(`getSettings`),S(`adminGetSettings`),t},adminUnpublishFinalList:async e=>{x({action:`adminGetSettings`,password:e},e=>({...e,finalListPublished:`false`}));let t=await y({action:`adminUnpublishFinalList`,password:e});return S(`getFinalNominations`),S(`getSettings`),S(`adminGetSettings`),t},adminGetSettings:e=>v({action:`adminGetSettings`,password:e}),adminUpdateSettings:(e,t)=>(x({action:`adminGetSettings`,password:e},e=>({...e,...t})),b({action:`adminUpdateSettings`,password:e,...t}),Promise.resolve({ok:!0})),adminUpdateCredentials:(e,t)=>y({action:`adminUpdateCredentials`,password:e,...t}),getPublicSettings:()=>v({action:`adminGetSettings`,password:`NONE`}),adminGetPosts:e=>v({action:`adminGetPosts`,password:e}),adminAddPost:async(e,t)=>{let n={...t,post:t.post||t.postName};return x({action:`adminGetPosts`,password:e},e=>[...Array.isArray(e)?e:[],n]),await b({action:`adminAddPost`,password:e,...n}),S(`getPosts`),S(`adminGetPosts`),{ok:!0}},adminUpdatePost:async(e,t)=>{let n={...t,post:t.post||t.postName},r=t.originalName||n.post;return x({action:`adminGetPosts`,password:e},e=>{if(!Array.isArray(e))return[n];let t=e.findIndex(e=>e.post===r||e.post===n.post);return t===-1?e.push(n):e[t]=n,e}),await b({action:`adminUpdatePost`,password:e,...n}),S(`getPosts`),S(`adminGetPosts`),{ok:!0}},adminDeletePost:async(e,t)=>(x({action:`adminGetPosts`,password:e},e=>e.filter(e=>e.post!==t)),await b({action:`adminDeletePost`,password:e,postName:t}),S(`getPosts`),{ok:!0}),adminReorderPosts:async(e,t)=>(x({action:`adminGetPosts`,password:e},e=>{let n={};return e.forEach(e=>n[e.post]=e),t.map(e=>n[e]).filter(Boolean)}),await b({action:`adminReorderPosts`,password:e,posts:t}),S(`getPosts`),{ok:!0}),adminGetBooths:e=>v({action:`adminGetBooths`,password:e}),adminSaveBooths:(e,t)=>(x({action:`adminGetBooths`,password:e},t),b({action:`adminSaveBooths`,password:e,booths:t}),Promise.resolve({ok:!0})),adminGetLocations:e=>v({action:`adminGetLocations`,password:e}),adminSaveLocations:(e,t)=>(x({action:`adminGetLocations`,password:e},t),b({action:`adminSaveLocations`,password:e,locations:t}),Promise.resolve({ok:!0})),getResults:(e=!1)=>(e&&S(`getResults`),v({action:`getResults`})),adminGetResults:(e,t=!1)=>(t&&S(`adminGetResults`),v({action:`adminGetResults`,password:e})),adminToggleLockResults:async e=>{let t=await y({action:`adminToggleLockResults`,password:e});return x({action:`adminGetSettings`,password:e},e=>({...e,resultsLocked:t.locked?`true`:`false`})),S(`getSettings`),S(`adminGetSettings`),t},adminTogglePublishResults:async e=>{let t=await y({action:`adminTogglePublishResults`,password:e});return x({action:`adminGetSettings`,password:e},e=>({...e,resultsPublished:t.published?`true`:`false`})),S(`getResults`),S(`adminGetResults`),S(`getSettings`),S(`adminGetSettings`),t},adminLockResults:async e=>{let t=await y({action:`adminLockResults`,password:e});return x({action:`adminGetSettings`,password:e},e=>({...e,resultsLocked:`true`})),S(`getSettings`),S(`adminGetSettings`),t},adminUnlockResults:async e=>{let t=await y({action:`adminUnlockResults`,password:e});return x({action:`adminGetSettings`,password:e},e=>({...e,resultsLocked:`false`})),S(`getSettings`),S(`adminGetSettings`),t},adminPublishResults:async e=>{let t=await y({action:`adminPublishResults`,password:e});return x({action:`adminGetSettings`,password:e},e=>({...e,resultsPublished:`true`})),S(`getResults`),S(`adminGetResults`),S(`getSettings`),S(`adminGetSettings`),t},adminUnpublishResults:async e=>{let t=await y({action:`adminUnpublishResults`,password:e});return x({action:`adminGetSettings`,password:e},e=>({...e,resultsPublished:`false`})),S(`getResults`),S(`adminGetResults`),S(`getSettings`),S(`adminGetSettings`),t},adminToggleCounting:async e=>{let t=await y({action:`adminToggleCounting`,password:e});return S(`getResults`),S(`getSettings`),S(`adminGetSettings`),S(`getPublicSchedule`),t},adminSetCountingActive:async(e,t)=>{let n=await y({action:`adminSetCountingActive`,password:e,active:t});return S(`getResults`),S(`getSettings`),S(`adminGetSettings`),S(`getPublicSchedule`),n},adminSaveResults:(e,t)=>(b({action:`adminSaveResults`,password:e,results:t}).then(()=>{S(`getResults`),S(`adminGetResults`)}),Promise.resolve({ok:!0})),adminInjectTestData:e=>(c={},y({action:`adminInjectTestData`,password:e})),adminWipeData:e=>(c={},y({action:`adminWipeData`,password:e})),adminGetCountingMatrix:e=>v({action:`adminGetCountingMatrix`,password:e}),adminSaveCountingMatrix:(e,t)=>(x({action:`adminGetCountingMatrix`,password:e},t),b({action:`adminSaveCountingMatrix`,password:e,matrixData:t}),Promise.resolve({ok:!0})),adminGenerateBallotPlan:async e=>{let t=await b({action:`adminGenerateBallotPlan`,password:e});return x({action:`adminGetBallotPlan`,password:e},t.plan),t},adminGetBallotPlan:e=>v({action:`adminGetBallotPlan`,password:e}),adminGetBallotConfig:e=>v({action:`adminGetBallotConfig`,password:e}),adminSaveBallotConfig:async(e,t)=>{let n=await y({action:`adminSaveBallotConfig`,password:e,config:t});return S(`adminGetBallotConfig`),S(`adminGetBallotPlan`),n},adminRunAudit:e=>y({action:`adminRunAudit`,password:e}),getSettings:()=>v({action:`getSettings`}),adminAddStudent:async(e,t)=>(await b({action:`adminAddStudent`,password:e,...t}),S(`getNominalRoll`),{ok:!0}),adminUpdateStudent:async(e,t)=>(await b({action:`adminUpdateStudent`,password:e,...t}),S(`getNominalRoll`),{ok:!0}),adminDeleteStudent:async(e,t)=>(await b({action:`adminDeleteStudent`,password:e,serial:t}),S(`getNominalRoll`),{ok:!0}),adminPublishDraftRoll:async e=>{let t=await y({action:`adminPublishDraftRoll`,password:e});return S(`getSettings`),S(`adminGetSettings`),t},adminUnpublishDraftRoll:async e=>{let t=await y({action:`adminUnpublishDraftRoll`,password:e});return S(`getSettings`),S(`adminGetSettings`),t},submitRollCorrection:e=>y({action:`submitRollCorrection`,...e}),adminGetRollCorrections:e=>v({action:`adminGetRollCorrections`,password:e}),adminUpdateRollCorrection:(e,t,n,r=``)=>y({action:`adminUpdateRollCorrection`,password:e,id:t,status:n,notes:r}),adminFinalizeRoll:async(e,t={})=>{let n=await y({action:`adminFinalizeRoll`,password:e,...t});return n&&n.requiresMatching?n:(S(`getSettings`),S(`adminGetSettings`),S(`getNominalRoll`),n||{ok:!0})},adminUnfinalizeRoll:async e=>{let t=await y({action:`adminUnfinalizeRoll`,password:e,confirmPassword:e});return S(`getSettings`),S(`adminGetSettings`),S(`getNominalRoll`),t||{ok:!0}},adminGetNominalRollTemplate:e=>v({action:`adminGetNominalRollTemplate`,password:e}),adminUploadNominalRoll:async(e,t)=>{let n=await y({action:`adminUploadNominalRoll`,password:e,...t});return S(`getNominalRoll`),S(`adminGetNominations`),S(`getSettings`),S(`adminGetSettings`),S(`getValidNominations`),S(`getFinalNominations`),S(`getPublicNominations`),n},adminClearNominalRoll:async e=>{let t=await y({action:`adminClearNominalRoll`,password:e,confirmPassword:e});return S(`getNominalRoll`),S(`getSettings`),S(`adminGetSettings`),S(`adminGetNominations`),S(`getValidNominations`),S(`getFinalNominations`),S(`getPublicNominations`),t},adminRemapNominations:async e=>{let t=await y({action:`adminRemapNominations`,password:e});return S(`adminGetNominations`),S(`getPublicNominations`),S(`getValidNominations`),S(`getFinalNominations`),t},getPublicSchedule:()=>v({action:`getPublicSchedule`}),adminSaveSchedule:async(e,t)=>{x({action:`getPublicSchedule`},t);let n=await y({action:`adminSaveSchedule`,password:e,...t});return S(`getPublicSchedule`),S(`getSettings`),S(`adminGetSettings`),n||{ok:!0}},adminExportBackup:e=>y({action:`adminExportBackup`,password:e}),adminGetSnapshots:e=>v({action:`adminGetSnapshots`,password:e}),adminDownloadSnapshot:(e,t)=>y({action:`adminDownloadSnapshot`,password:e,snapshotId:t}),adminRestoreBackup:async(e,t)=>{let n=await y({action:`adminRestoreBackup`,password:e,...t});return c={},n},adminRevertSnapshot:async(e,t)=>{let n=await y({action:`adminRevertSnapshot`,password:e,snapshotId:t});return c={},n}};function ee(e,t=n.ELECTION_DATE){if(!e)return`N/A`;let r;if(typeof e==`string`&&e.includes(`-`)){let t=e.split(`-`);r=t[0].length===4?new Date(parseInt(t[0],10),parseInt(t[1],10)-1,parseInt(t[2],10)):new Date(parseInt(t[2],10),parseInt(t[1],10)-1,parseInt(t[0],10))}else r=new Date(e);if(isNaN(r.getTime()))return`N/A`;let i=new Date(t),a=i.getFullYear()-r.getFullYear(),o=i.getMonth()-r.getMonth(),s=i.getDate()-r.getDate();return s<0&&(o--,s+=new Date(i.getFullYear(),i.getMonth(),0).getDate()),o<0&&(a--,o+=12),`${a} Years, ${o} Months, ${s} Days`}var te=[{id:`1_UG`,label:`1st Year UG (I UG)`,short:`I UG`},{id:`2_UG`,label:`2nd Year UG (II UG)`,short:`II UG`},{id:`3_UG`,label:`3rd Year UG (III UG)`,short:`III UG`},{id:`1_PG`,label:`1st Year PG (I PG)`,short:`I PG`},{id:`2_PG`,label:`2nd Year PG (II PG)`,short:`II PG`}];function ne(e){let t=String(e||``).toUpperCase().trim(),n=/\b(MA|MSC|MCOM|M\.SC|M\.COM|M\.A|MBA|MCA|MSW)\b/.test(t)||t.includes(`POST GRADUATE`)||t.includes(`PG`);t.includes(`1ST`)||/^\s*(1|1ST|I)\b/.test(t)||/\b1ST\s+YEAR\b/.test(t)||/\bI\s+(YEAR|UG|PG|DC|DEG|BA|BSC|BCOM|MA|MSC|MCOM)\b/.test(t);let r=t.includes(`2ND`)||/^\s*(2|2ND|II)\b/.test(t)||/\b2ND\s+YEAR\b/.test(t)||/\bII\s+(YEAR|UG|PG|DC|DEG|BA|BSC|BCOM|MA|MSC|MCOM)\b/.test(t),i=t.includes(`3RD`)||/^\s*(3|3RD|III)\b/.test(t)||/\b3RD\s+YEAR\b/.test(t)||/\bIII\s+(YEAR|UG|DC|DEG|BA|BSC|BCOM)\b/.test(t);return n?r?`2_PG`:`1_PG`:i?`3_UG`:r?`2_UG`:`1_UG`}function re(e,t){if(!t)return!0;let n=ne(e),r=t.yearRuleMode||(t.finalYearIneligible?`EXCLUDE`:t.yearRestriction?`INCLUDE`:`ALL`),i=[];if(Array.isArray(t.yearRuleYears)?i=t.yearRuleYears:typeof t.yearRuleYears==`string`&&t.yearRuleYears.trim()?i=t.yearRuleYears.split(`,`).map(e=>e.trim()).filter(Boolean):t.finalYearIneligible?i=[`3_UG`,`2_PG`]:t.yearRestriction===`1`?i=[`1_UG`]:t.yearRestriction===`2`?i=[`2_UG`]:t.yearRestriction===`3`?i=[`3_UG`]:t.yearRestriction===`PG`?i=[`1_PG`,`2_PG`]:t.yearRestriction===`UG`?i=[`1_UG`,`2_UG`,`3_UG`]:t.yearRestriction===`1,2`&&(i=[`1_UG`,`2_UG`]),r===`ALL`||i.length===0)return!(t.finalYearIneligible&&(n===`3_UG`||n===`2_PG`));let a=(e,t)=>!!(t.includes(e)||e.endsWith(`_UG`)&&t.includes(`UG`)||e.endsWith(`_PG`)&&t.includes(`PG`)||e.startsWith(`1_`)&&t.includes(`1`)||e.startsWith(`2_`)&&t.includes(`2`)||e.startsWith(`3_`)&&t.includes(`3`));return r===`INCLUDE`?a(n,i):r===`EXCLUDE`?!a(n,i):!0}function w(e){if(!e)return`All Years Eligible`;let t=e.yearRuleMode||(e.finalYearIneligible?`EXCLUDE`:e.yearRestriction?`INCLUDE`:`ALL`),n=[];if(Array.isArray(e.yearRuleYears)?n=e.yearRuleYears:typeof e.yearRuleYears==`string`&&e.yearRuleYears.trim()?n=e.yearRuleYears.split(`,`).map(e=>e.trim()).filter(Boolean):e.finalYearIneligible?n=[`3_UG`,`2_PG`]:e.yearRestriction===`1`?n=[`1_UG`]:e.yearRestriction===`2`?n=[`2_UG`]:e.yearRestriction===`3`?n=[`3_UG`]:e.yearRestriction===`PG`?n=[`1_PG`,`2_PG`]:e.yearRestriction===`UG`?n=[`1_UG`,`2_UG`,`3_UG`]:e.yearRestriction===`1,2`&&(n=[`1_UG`,`2_UG`]),t===`ALL`||n.length===0)return e.finalYearIneligible?`Final Years Barred (3rd UG & 2nd PG)`:`All Years Eligible`;let r=n.map(e=>{let t=te.find(t=>t.id===e);return t?t.short:e}).join(`, `);return t===`INCLUDE`?`Only: ${r}`:t===`EXCLUDE`?`Barred: ${r}`:`All Years`}function ie(e,t,n,r=null,i=[],a=[]){if(!e)return[];let o=[],s=String(e.CLASS||``).toUpperCase(),c=String(e.Dept||``).toUpperCase(),l=String(e[`Nominal Roll Serial Number`]),u=i.find(e=>e.post===t)||{};if((n===`Proposer`||n===`Seconder`)&&a.some(e=>e.post===t&&e.status!==`Rejected`&&(String(e.proposerSerial)===l||String(e.seconderSerial)===l))&&o.push(`Student #${l} has already proposed or seconded a candidate for "${t}". They cannot endorse multiple candidates for the same post.`),u.deptRestriction){let r=(u.restrictedDept||(t.startsWith(`Association Secretary `)?t.replace(`Association Secretary `,``):``)).trim();if(r){let i=e=>String(e||``).toUpperCase().replace(/[^A-Z0-9]/g,``),a=i(c),s=i(r);a===s||a.includes(s)||s.includes(a)||o.push(`${n} for "${t}" must belong to the ${r} department (current student: ${e.Dept||`N/A`}).`)}}if(!re(s,u)){let e=w(u);o.push(`${n} (${s||`Unspecified`}) is not eligible under year restriction for "${t}" (${e}).`)}return n===`Candidate`&&u.femaleOnly&&r&&r!==`Female`&&o.push(`The post of "${t}" is reserved for female candidates only.`),o}function ae(){let e=Math.floor(Math.random()*10)+1,t=Math.floor(Math.random()*10)+1;return{question:`${e} + ${t}`,answer:String(e+t)}}function oe(){return new Date().toLocaleDateString(`en-GB`)}function se(e,t,n){if(!e||!t||!n)return;let r=[`January`,`February`,`March`,`April`,`May`,`June`,`July`,`August`,`September`,`October`,`November`,`December`];for(let t=1;t<=31;t++)e.innerHTML+=`<option value="${t}">${t}</option>`;r.forEach((e,n)=>t.innerHTML+=`<option value="${n+1}">${e}</option>`);for(let e=2015;e>=1950;e--)n.innerHTML+=`<option value="${e}">${e}</option>`}function ce(e,t,n){return`${n}-${String(t).padStart(2,`0`)}-${String(e).padStart(2,`0`)}`}function le(e,t,n){return`${String(e).padStart(2,`0`)}/${String(t).padStart(2,`0`)}/${n}`}function T(e,t=`Nomination Form`){let n=window.open(``,`_blank`);n.document.write(`
     <!DOCTYPE html>
     <html>
       <head>
@@ -1566,10 +1566,18 @@ This will remove the final candidate list from public view.`)){D(n,!0,`🚫 Unpu
                 </tr>
               </thead>
               <tbody>
-                ${a.general?`
+                ${a.generalParts&&a.generalParts.length>1?a.generalParts.map(e=>`
                   <tr style="font-weight:bold">
-                    <td style="font-size:12px;">General Union Posts</td>
-                    <td style="font-size:12px;">G${a.general.start} - G${a.general.end}</td>
+                    <td style="font-size:12px;">${E(e.title||`General Union Posts`)}</td>
+                    <td style="font-size:12px;">${e.prefix===`G`?`G`:e.prefix+`-`}${e.start} - ${e.prefix===`G`?`G`:e.prefix+`-`}${e.end}</td>
+                    <td style="text-align:center; font-size:13px;">${e.count}</td>
+                    <td style="font-size:11px;">${e.bookIds}</td>
+                    <td></td><td></td><td></td>
+                  </tr>
+                `).join(``):a.general?`
+                  <tr style="font-weight:bold">
+                    <td style="font-size:12px;">${E(a.general.title||`General Union Posts`)}</td>
+                    <td style="font-size:12px;">${a.general.prefix&&a.general.prefix!==`G`?a.general.prefix+`-`:`G`}${a.general.start} - ${a.general.prefix&&a.general.prefix!==`G`?a.general.prefix+`-`:`G`}${a.general.end}</td>
                     <td style="text-align:center; font-size:13px;">${a.general.count}</td>
                     <td style="font-size:11px;">${a.general.bookIds}</td>
                     <td></td><td></td><td></td>
@@ -1971,61 +1979,259 @@ This will remove the final candidate list from public view.`)){D(n,!0,`🚫 Unpu
       <span class="spinner" style="width:2.5rem;height:2.5rem;border-width:4px;"></span>
       <p class="text-slate-400 mt-4 text-sm">Preparing ballot generator...</p>
     </div>
-  `);let r=e.querySelector(`#adminMain`);r.innerHTML=`
-    <div class="space-y-6 page-enter">
-      <div class="flex justify-between items-center bg-white/5 p-6 rounded-2xl border border-white/10 backdrop-blur-md">
+  `);let r=e.querySelector(`#adminMain`),i=[],a=null;try{let[e,n,r]=await Promise.all([C.adminGetPosts(t).catch(()=>[]),C.adminGetBallotConfig(t).catch(()=>null),C.adminGetBallotPlan(t).catch(()=>null)]);i=e,a=n}catch(e){console.warn(`Error fetching initial ballot data:`,e)}let o=e=>{let t=String(e.post||e.name||``).toUpperCase();return t.includes(`ASSOCIATION`)||t.includes(`ASSOC`)||!!e.deptRestriction},s=e=>{let t=String(e.post||e.name||``).toUpperCase();return t.includes(`UUC`)||t.includes(`UNIVERSITY UNION COUNCILLOR`)},c=e=>{if(o(e)||s(e))return!1;let t=String(e.post||e.name||``).toUpperCase();return t.includes(`REPRESENTATIVE`)||t.includes(`REP`)},l=e=>!o(e)&&!c(e),u=i.filter(l),d=[{id:`gen_1`,partNumber:1,title:`General Union Posts - Part 1 (Major Executive)`,shortCode:`G1`,bookPrefix:`GB1-`,paperSize:`A3`,posts:[`The Chairman`,`The Vice Chairman`,`The Secretary`,`The Joint Secretary`,`The University Union Councillor`]},{id:`gen_2`,partNumber:2,title:`General Union Posts - Part 2 (Arts, Sports & Editorial)`,shortCode:`G2`,bookPrefix:`GB2-`,paperSize:`A3`,posts:[`The Chief Student Editor`,`The Secretary Fine Arts`,`The General Captain For Sports And Games`]}],f=a||{isSplit:!1,ballots:d};(!Array.isArray(f.ballots)||f.ballots.length===0)&&(f.ballots=d);let p=()=>{let e=!!f.isSplit;r.innerHTML=`
+      <div class="space-y-6 page-enter">
+        <!-- Header -->
+        <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 bg-white/5 p-6 rounded-2xl border border-white/10 backdrop-blur-md">
+          <div>
+            <h2 class="text-2xl font-bold text-white flex items-center gap-3">
+              <span class="w-10 h-10 rounded-xl bg-indigo-500/20 flex items-center justify-center text-indigo-400">🗳️</span>
+              Ballot Planning & Printing
+            </h2>
+            <p class="text-slate-400 mt-1 text-sm">
+              Configure ballot layout, split general posts if needed, and generate print-ready ballots & PO accounts.
+            </p>
+          </div>
+          <div class="flex items-center gap-3">
+            <button id="btnRegenPlanTop" class="btn btn-secondary py-2.5 px-4 text-xs font-semibold flex items-center gap-2 border-indigo-500/30 text-indigo-300 hover:bg-indigo-500 hover:text-white">
+              🔄 Finalize Master Plan
+            </button>
+          </div>
+        </div>
+
+        <!-- Ballot Planning & Post Split Panel -->
+        <div class="glass p-6 rounded-2xl border border-white/10 space-y-5 bg-gradient-to-b from-indigo-950/20 to-transparent">
+          <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-3 border-b border-white/10 pb-4">
+            <div>
+              <h3 class="text-lg font-bold text-white flex items-center gap-2">
+                <span>⚙️</span> General Ballot Layout &amp; Post Splitter
+              </h3>
+              <p class="text-xs text-slate-400 mt-0.5">
+                Keep all general posts on a single A3 master ballot or split into separate numbered ballots (e.g. Executive and Arts/Sports).
+              </p>
+            </div>
+            
+            <!-- Mode Switcher -->
+            <div class="flex items-center bg-slate-900/80 p-1.5 rounded-xl border border-white/10 text-xs font-medium">
+              <button id="btnModeSingle" class="px-4 py-2 rounded-lg transition-all ${e?`text-slate-400 hover:text-white`:`bg-indigo-600 text-white shadow-lg font-bold`}">
+                📄 Single Unified Ballot
+              </button>
+              <button id="btnModeSplit" class="px-4 py-2 rounded-lg transition-all ${e?`bg-indigo-600 text-white shadow-lg font-bold`:`text-slate-400 hover:text-white`}">
+                🔀 Split into Multiple Ballots
+              </button>
+            </div>
+          </div>
+
+          ${e?`
+            <!-- Split Configuration Controls -->
+            <div class="space-y-4">
+              <div class="flex flex-wrap items-center justify-between gap-3 text-xs">
+                <div class="flex items-center gap-2">
+                  <span class="text-slate-400">Quick Presets:</span>
+                  <button id="btnPresetExec" class="px-3 py-1.5 rounded-lg bg-white/5 hover:bg-white/10 border border-white/10 text-indigo-300 transition-all">
+                    ⚡ Executive + Activities Split
+                  </button>
+                  <button id="btnPreset3Way" class="px-3 py-1.5 rounded-lg bg-white/5 hover:bg-white/10 border border-white/10 text-emerald-300 transition-all">
+                    ⚡ 3-Way Split (Exec / Council / Sports)
+                  </button>
+                </div>
+                <button id="btnAddPart" class="btn btn-secondary py-1.5 px-3 text-xs border-dashed border-white/20 text-slate-300 hover:text-white hover:border-indigo-400">
+                  ➕ Add Additional Ballot Part
+                </button>
+              </div>
+
+              <!-- Parts Grid -->
+              <div class="grid grid-cols-1 lg:grid-cols-${Math.min(f.ballots.length,3)} gap-4" id="partsGrid">
+                ${f.ballots.map((e,t)=>`
+                  <div class="bg-slate-900/60 p-4 rounded-xl border border-indigo-500/20 space-y-3 relative group" data-part-index="${t}">
+                    <div class="flex justify-between items-center">
+                      <span class="text-xs font-bold px-2 py-0.5 rounded bg-indigo-500/20 text-indigo-300 uppercase tracking-wider">
+                        Part ${t+1} (${E(e.shortCode||`G`+(t+1))})
+                      </span>
+                      ${f.ballots.length>2?`
+                        <button class="text-red-400 hover:text-red-300 text-xs px-2 py-0.5 rounded hover:bg-red-500/10 btn-remove-part" data-part-index="${t}" title="Remove Part">
+                          ✕ Remove
+                        </button>
+                      `:``}
+                    </div>
+
+                    <div class="space-y-2">
+                      <div>
+                        <label class="text-[11px] font-semibold text-slate-400 block mb-1">Ballot Title (Printed on Paper):</label>
+                        <input type="text" class="input input-sm w-full bg-slate-800/80 border-white/10 text-xs text-white part-title-input" data-part-index="${t}" value="${E(e.title)}" placeholder="e.g. General Union - Part 1" />
+                      </div>
+
+                      <div class="grid grid-cols-3 gap-2 text-[11px]">
+                        <div>
+                          <label class="text-slate-400 block mb-0.5">Series Code</label>
+                          <input type="text" class="input input-sm w-full bg-slate-800/80 border-white/10 text-xs text-white font-mono part-code-input" data-part-index="${t}" value="${E(e.shortCode||`G`+(t+1))}" placeholder="G1" />
+                        </div>
+                        <div>
+                          <label class="text-slate-400 block mb-0.5">Book Prefix</label>
+                          <input type="text" class="input input-sm w-full bg-slate-800/80 border-white/10 text-xs text-white font-mono part-book-input" data-part-index="${t}" value="${E(e.bookPrefix||`GB`+(t+1)+`-`)}" placeholder="GB1-" />
+                        </div>
+                        <div>
+                          <label class="text-slate-400 block mb-0.5">Paper Size</label>
+                          <select class="input input-sm w-full bg-slate-800/80 border-white/10 text-xs text-white part-size-select" data-part-index="${t}">
+                            <option value="A3" ${e.paperSize===`A3`?`selected`:``}>A3 (2-Col)</option>
+                            <option value="A4" ${e.paperSize===`A4`?`selected`:``}>A4 Sheet</option>
+                            <option value="A5" ${e.paperSize===`A5`?`selected`:``}>A5 Sheet</option>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- Assigned Posts List -->
+                    <div class="pt-2 border-t border-white/5 space-y-1.5">
+                      <label class="text-[11px] font-semibold text-slate-400 block">Assigned Posts (${e.posts?e.posts.length:0}):</label>
+                      <div class="space-y-1 max-h-48 overflow-y-auto pr-1">
+                        ${(e.posts||[]).map(e=>`
+                          <div class="flex items-center justify-between p-2 rounded bg-slate-800/60 border border-white/5 text-xs">
+                            <span class="text-slate-200 font-medium truncate" title="${E(e)}">${E(e)}</span>
+                            <select class="bg-slate-900 border border-white/10 text-[10px] text-slate-300 rounded px-1.5 py-0.5 move-post-select" data-post="${E(e)}" data-from-part="${t}">
+                              ${f.ballots.map((e,n)=>`
+                                <option value="${n}" ${n===t?`selected`:``}>Part ${n+1}</option>
+                              `).join(``)}
+                            </select>
+                          </div>
+                        `).join(``)}
+                        ${!e.posts||e.posts.length===0?`
+                          <div class="text-[11px] text-amber-400/80 italic p-2 text-center bg-amber-500/5 rounded">
+                            No posts assigned. Move posts here from other parts.
+                          </div>
+                        `:``}
+                      </div>
+                    </div>
+                  </div>
+                `).join(``)}
+              </div>
+
+              <!-- Unassigned Posts Warning if any -->
+              ${(()=>{let e=new Set;f.ballots.forEach(t=>(t.posts||[]).forEach(t=>e.add(t)));let t=u.filter(t=>!e.has(t.post));return t.length===0?``:`
+                  <div class="p-3 rounded-xl bg-amber-500/10 border border-amber-500/20 text-xs text-amber-300 flex items-center justify-between">
+                    <div>
+                      <strong>⚠️ Unassigned General Posts (${t.length}):</strong> ${t.map(e=>E(e.post)).join(`, `)}
+                    </div>
+                    <button id="btnAutoAssign" class="px-2.5 py-1 rounded bg-amber-500/20 hover:bg-amber-500/30 text-amber-200 font-semibold text-[11px]">
+                      Assign to Part 1
+                    </button>
+                  </div>
+                `})()}
+
+              <div class="flex justify-end pt-2">
+                <button id="btnSaveConfig" class="btn btn-primary py-2.5 px-6 text-xs font-bold shadow-lg shadow-indigo-500/20 flex items-center gap-2">
+                  💾 Save Structure &amp; Finalize Master Plan
+                </button>
+              </div>
+            </div>
+          `:`
+            <!-- Single Mode Summary -->
+            <div class="flex flex-col sm:flex-row items-center justify-between gap-4 p-4 rounded-xl bg-slate-900/60 border border-white/5">
+              <div class="space-y-1">
+                <div class="text-sm font-semibold text-slate-200 flex items-center gap-2">
+                  <span>📄</span> All ${u.length} General Union Posts are printed on a single <strong>A3 Master Ballot Sheet</strong>.
+                </div>
+                <div class="text-xs text-slate-400">
+                  Continuous sequential numbering: <code>G1, G2, G3...</code> | Standard 50-slip booklets: <code>GB1, GB2...</code>
+                </div>
+              </div>
+              <button id="btnSaveConfig" class="btn btn-secondary py-2 px-4 text-xs whitespace-nowrap border-indigo-500/30 text-indigo-300 hover:bg-indigo-500 hover:text-white">
+                💾 Confirm Single Mode &amp; Finalize
+              </button>
+            </div>
+          `}
+        </div>
+
+        <!-- Ballot Generation Action Cards -->
         <div>
-          <h2 class="text-2xl font-bold text-white flex items-center gap-3">
-            <span class="w-10 h-10 rounded-xl bg-indigo-500/20 flex items-center justify-center text-indigo-400">🗳️</span>
-            Ballot Printing
-          </h2>
-          <p class="text-slate-400 mt-1">Generate official ballots by category. Each opens in a dedicated tab.</p>
+          <h3 class="text-sm font-bold text-slate-400 uppercase tracking-wider mb-4 flex items-center gap-2">
+            <span>🖨️</span> Official Ballot Generation
+          </h3>
+          
+          <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+            ${e?`
+              <!-- Split General Ballots Cards -->
+              ${f.ballots.map((e,t)=>`
+                <div class="glass p-6 rounded-2xl border border-white/10 space-y-4 hover:border-indigo-500/50 transition-all">
+                  <div class="text-indigo-400 font-bold flex items-center justify-between">
+                    <span class="flex items-center gap-2"><span>🏆</span> Part ${t+1} (${E(e.shortCode||`G`+(t+1))})</span>
+                    <span class="text-[10px] px-2 py-0.5 rounded bg-indigo-500/20 text-indigo-300 font-mono">${e.paperSize||`A3`}</span>
+                  </div>
+                  <p class="text-xs text-slate-400 leading-relaxed truncate" title="${E(e.title)}">
+                    ${E(e.title)}
+                  </p>
+                  <div class="text-[11px] text-slate-500">
+                    ${(e.posts||[]).length} Posts (${E(e.posts?e.posts.slice(0,2).join(`, `)+(e.posts.length>2?`...`:``):`None`)})
+                  </div>
+                  <button data-type="general_part:${e.id||`gen_`+(t+1)}" class="btn btn-primary w-full py-2.5 text-xs preview-btn">
+                    🖨️ Generate Part ${t+1}
+                  </button>
+                </div>
+              `).join(``)}
+
+              <div class="glass p-6 rounded-2xl border border-white/10 space-y-4 hover:border-indigo-500/50 transition-all bg-indigo-500/5">
+                <div class="text-indigo-300 font-bold flex items-center gap-2">
+                  <span>📑</span> All General Ballots
+                </div>
+                <p class="text-xs text-slate-400 leading-relaxed">
+                  Batch generates all ${f.ballots.length} General Ballot parts in sequence with page breaks.
+                </p>
+                <div class="text-[11px] text-indigo-400/80">
+                  Combined print run for press
+                </div>
+                <button data-type="general" class="btn btn-secondary w-full py-2.5 text-xs border-indigo-500/30 text-indigo-200 hover:bg-indigo-600 hover:text-white preview-btn">
+                  🖨️ Generate All Parts
+                </button>
+              </div>
+            `:`
+              <!-- Single General Ballot Card -->
+              <div class="glass p-6 rounded-2xl border border-white/10 space-y-4 hover:border-indigo-500/50 transition-all">
+                <div class="text-indigo-400 font-bold flex items-center gap-2">
+                  <span>🏆</span> General Union (A3)
+                </div>
+                <p class="text-xs text-slate-400 leading-relaxed">
+                  All executive union posts in 2 columns. Designed for A3 paper. Chairman &amp; Vice Chairman on top.
+                </p>
+                <button data-type="general" class="btn btn-primary w-full py-3 preview-btn">🖨️ Generate General Ballot</button>
+              </div>
+            `}
+
+            <!-- Year Reps -->
+            <div class="glass p-6 rounded-2xl border border-white/10 space-y-4 hover:border-emerald-500/50 transition-all">
+              <div class="text-emerald-400 font-bold flex items-center gap-2">
+                <span>📅</span> Year Reps (A5)
+              </div>
+              <p class="text-xs text-slate-400 leading-relaxed">
+                1st, 2nd, 3rd Year &amp; PG Reps. Designed for A5 paper (one post per page).
+              </p>
+              <button data-type="year" class="btn btn-primary w-full py-3 preview-btn">🖨️ Generate Year Reps</button>
+            </div>
+
+            <!-- Association Reps -->
+            <div class="glass p-6 rounded-2xl border border-white/10 space-y-4 hover:border-amber-500/50 transition-all">
+              <div class="text-amber-400 font-bold flex items-center gap-2">
+                <span>🤝</span> Association Reps (A5)
+              </div>
+              <p class="text-xs text-slate-400 leading-relaxed">
+                Departmental Association Secretaries. Designed for A5 paper (one post per page).
+              </p>
+              <button data-type="assoc" class="btn btn-primary w-full py-3 preview-btn">🖨️ Generate Associations</button>
+            </div>
+
+            <!-- Summary Report -->
+            <div class="glass p-6 rounded-2xl border border-white/10 space-y-4 hover:border-purple-500/50 transition-all bg-purple-500/5">
+              <div class="text-purple-400 font-bold flex items-center gap-2">
+                <span>📊</span> Printing Summary
+              </div>
+              <p class="text-xs text-slate-400 leading-relaxed">
+                Detailed serial number ranges, part splits, and book counts for the printing company.
+              </p>
+              <button id="btnGenSummary" class="btn btn-secondary w-full py-3 border-purple-500/30 text-purple-300 hover:bg-purple-500 hover:text-white">📑 View Summary Report</button>
+            </div>
+          </div>
         </div>
       </div>
-
-      <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
-        <div class="glass p-6 rounded-2xl border border-white/10 space-y-4 hover:border-indigo-500/50 transition-all">
-          <div class="text-indigo-400 font-bold flex items-center gap-2">
-            <span>🏆</span> General Union (A3)
-          </div>
-          <p class="text-xs text-slate-400 leading-relaxed">
-            Main union posts in 2 columns. Designed for A3 paper. Chairman & Vice Chairman on top.
-          </p>
-          <button data-type="general" class="btn btn-primary w-full py-3 preview-btn">🖨️ Generate General Ballot</button>
-        </div>
-
-        <div class="glass p-6 rounded-2xl border border-white/10 space-y-4 hover:border-emerald-500/50 transition-all">
-          <div class="text-emerald-400 font-bold flex items-center gap-2">
-            <span>📅</span> Year Representatives (A5)
-          </div>
-          <p class="text-xs text-slate-400 leading-relaxed">
-            1st, 2nd, 3rd Year & PG Reps. Designed for A5 paper (one post per page).
-          </p>
-          <button data-type="year" class="btn btn-primary w-full py-3 preview-btn">🖨️ Generate Year Reps</button>
-        </div>
-
-        <div class="glass p-6 rounded-2xl border border-white/10 space-y-4 hover:border-amber-500/50 transition-all">
-          <div class="text-amber-400 font-bold flex items-center gap-2">
-            <span>🤝</span> Association Reps (A5)
-          </div>
-          <p class="text-xs text-slate-400 leading-relaxed">
-            Departmental Association Secretaries. Designed for A5 paper (one post per page).
-          </p>
-          <button data-type="assoc" class="btn btn-primary w-full py-3 preview-btn">🖨️ Generate Association Ballots</button>
-        </div>
-
-        <div class="glass p-6 rounded-2xl border border-white/10 space-y-4 hover:border-purple-500/50 transition-all bg-purple-500/5">
-          <div class="text-purple-400 font-bold flex items-center gap-2">
-            <span>📊</span> Printing Summary
-          </div>
-          <p class="text-xs text-slate-400 leading-relaxed">
-            Detailed serial number ranges and book counts for the printing company.
-          </p>
-          <button id="btnGenSummary" class="btn btn-secondary w-full py-3 border-purple-500/30 text-purple-300 hover:bg-purple-500 hover:text-white">📑 View Summary Report</button>
-        </div>
-      </div>
-    </div>
-  `;let i=e=>{let t=window.open(``,`_blank`);t.document.write(`
+    `,m()},m=()=>{let e=r.querySelector(`#btnModeSingle`),n=r.querySelector(`#btnModeSplit`);e&&(e.onclick=()=>{f.isSplit=!1,p()}),n&&(n.onclick=()=>{f.isSplit=!0,p()});let i=r.querySelector(`#btnPresetExec`);i&&(i.onclick=()=>{f.isSplit=!0,f.ballots=[{id:`gen_1`,partNumber:1,title:`General Union Posts - Part 1 (Major Executive)`,shortCode:`G1`,bookPrefix:`GB1-`,paperSize:`A3`,posts:[`The Chairman`,`The Vice Chairman`,`The Secretary`,`The Joint Secretary`,`The University Union Councillor`]},{id:`gen_2`,partNumber:2,title:`General Union Posts - Part 2 (Arts, Sports & Editorial)`,shortCode:`G2`,bookPrefix:`GB2-`,paperSize:`A3`,posts:[`The Chief Student Editor`,`The Secretary Fine Arts`,`The General Captain For Sports And Games`]}],p(),O(`Applied Executive + Activities Split Preset`,`info`)});let a=r.querySelector(`#btnPreset3Way`);a&&(a.onclick=()=>{f.isSplit=!0,f.ballots=[{id:`gen_1`,partNumber:1,title:`General Union Posts - Part 1 (Executive Officers)`,shortCode:`G1`,bookPrefix:`GB1-`,paperSize:`A4`,posts:[`The Chairman`,`The Vice Chairman`,`The Secretary`,`The Joint Secretary`]},{id:`gen_2`,partNumber:2,title:`General Union Posts - Part 2 (University Councillors)`,shortCode:`G2`,bookPrefix:`GB2-`,paperSize:`A4`,posts:[`The University Union Councillor`]},{id:`gen_3`,partNumber:3,title:`General Union Posts - Part 3 (Arts, Sports & Editor)`,shortCode:`G3`,bookPrefix:`GB3-`,paperSize:`A4`,posts:[`The Chief Student Editor`,`The Secretary Fine Arts`,`The General Captain For Sports And Games`]}],p(),O(`Applied 3-Way Split Preset`,`info`)});let o=r.querySelector(`#btnAddPart`);o&&(o.onclick=()=>{let e=f.ballots.length+1;f.ballots.push({id:`gen_${e}`,partNumber:e,title:`General Union Posts - Part ${e}`,shortCode:`G${e}`,bookPrefix:`GB${e}-`,paperSize:`A3`,posts:[]}),p()}),r.querySelectorAll(`.btn-remove-part`).forEach(e=>{e.onclick=()=>{let t=parseInt(e.dataset.partIndex,10);if(f.ballots.length<=2){O(`At least 2 parts are required for split mode. To keep all in one, switch to Single Unified Ballot.`,`warning`);return}let n=f.ballots.splice(t,1)[0];n&&n.posts&&n.posts.length>0&&f.ballots[0].posts.push(...n.posts),f.ballots.forEach((e,t)=>{e.partNumber=t+1}),p()}}),r.querySelectorAll(`.part-title-input`).forEach(e=>{e.onchange=()=>{let t=parseInt(e.dataset.partIndex,10);f.ballots[t]&&(f.ballots[t].title=e.value.trim())}}),r.querySelectorAll(`.part-code-input`).forEach(e=>{e.onchange=()=>{let t=parseInt(e.dataset.partIndex,10);f.ballots[t]&&(f.ballots[t].shortCode=e.value.trim().toUpperCase())}}),r.querySelectorAll(`.part-book-input`).forEach(e=>{e.onchange=()=>{let t=parseInt(e.dataset.partIndex,10);f.ballots[t]&&(f.ballots[t].bookPrefix=e.value.trim().toUpperCase())}}),r.querySelectorAll(`.part-size-select`).forEach(e=>{e.onchange=()=>{let t=parseInt(e.dataset.partIndex,10);f.ballots[t]&&(f.ballots[t].paperSize=e.value)}}),r.querySelectorAll(`.move-post-select`).forEach(e=>{e.onchange=()=>{let t=e.dataset.post,n=parseInt(e.dataset.fromPart,10),r=parseInt(e.value,10);n!==r&&(f.ballots[n].posts=f.ballots[n].posts.filter(e=>e!==t),f.ballots[r].posts.includes(t)||f.ballots[r].posts.push(t),p())}});let s=r.querySelector(`#btnAutoAssign`);s&&(s.onclick=()=>{let e=new Set;f.ballots.forEach(t=>(t.posts||[]).forEach(t=>e.add(t))),u.forEach(t=>{e.has(t.post)||(f.ballots[0].posts.push(t.post),e.add(t.post))}),p()}),r.querySelectorAll(`#btnSaveConfig`).forEach(e=>{e.onclick=async()=>{let n=e.innerHTML;try{D(e,!0,n),O(`Saving ballot structure & regenerating plan...`,`info`),await C.adminSaveBallotConfig(t,f),(await C.adminGenerateBallotPlan(t)).plan,O(`Ballot structure saved & Master Plan finalized!`,`success`),p()}catch(e){O(`Error: ${e.message}`,`error`)}finally{D(e,!1,n)}}});let c=r.querySelector(`#btnRegenPlanTop`);c&&(c.onclick=async()=>{let e=`🔄 Finalize Master Plan`;try{D(c,!0,e),O(`Calculating and saving Master Plan on server...`,`info`),await C.adminGenerateBallotPlan(t),await C.adminGetBallotPlan(t).catch(()=>null),O(`Master Plan finalized successfully!`,`success`)}catch(e){O(e.message,`error`)}finally{D(c,!1,e)}});let l=r.querySelector(`#btnGenSummary`);l&&(l.onclick=v),r.querySelectorAll(`.preview-btn`).forEach(e=>{e.onclick=()=>_(e.dataset.type)})},h=e=>{let t=window.open(``,`_blank`);t.document.write(`
       <html>
         <head>
           <title>Official Ballots - ${n.COLLEGE_SHORT_NAME} Election</title>
@@ -2048,17 +2254,25 @@ This will remove the final candidate list from public view.`)){D(n,!0,`🚫 Unpu
               overflow: hidden;
             }
 
-            .a3 { width: 297mm; min-height: 420mm; padding: 50px; }
+            .a3 { width: 297mm; min-height: 420mm; padding: 45px; }
+            .a4 { width: 210mm; min-height: 297mm; padding: 30px; }
             .a5 { width: 148mm; min-height: 210mm; padding: 25px; }
 
             .ballot-header { text-align: center; border-bottom: 3px double #000; margin-bottom: 25px; padding-bottom: 10px; }
-            .ballot-header h1 { font-size: 22px; margin: 0; text-transform: uppercase; }
-            .ballot-header h2 { font-size: 18px; margin: 5px 0 0 0; }
+            .ballot-header h1 { font-size: 20px; margin: 0; text-transform: uppercase; }
+            .ballot-header h2 { font-size: 16px; margin: 5px 0 0 0; }
             
             .a3 .ballot-grid { 
               display: grid; 
               grid-template-columns: 1fr 1fr; 
               gap: 30px; 
+              width: 100%;
+              align-items: flex-start;
+            }
+            .a4 .ballot-grid { 
+              display: grid; 
+              grid-template-columns: 1fr 1fr; 
+              gap: 20px; 
               width: 100%;
               align-items: flex-start;
             }
@@ -2069,78 +2283,78 @@ This will remove the final candidate list from public view.`)){D(n,!0,`🚫 Unpu
               padding: 0; 
               display: flex; 
               flex-direction: column; 
-              margin-bottom: 25px; 
+              margin-bottom: 22px; 
               break-inside: avoid; 
               -webkit-column-break-inside: avoid;
               page-break-inside: avoid;
               width: 100%;
             }
-            .post-title { background: #ccc; color: #000; text-align: center; padding: 8px; font-weight: bold; font-size: 14px; text-transform: uppercase; border-bottom: 1px solid #000; }
+            .post-title { background: #ccc; color: #000; text-align: center; padding: 7px; font-weight: bold; font-size: 13px; text-transform: uppercase; border-bottom: 1px solid #000; }
             
-            .candidate-row { display: flex; align-items: center; border-bottom: 1px solid #000; height: 55px; }
+            .candidate-row { display: flex; align-items: center; border-bottom: 1px solid #000; height: 50px; }
             .candidate-row:last-child { border-bottom: none; }
             
-            .sl-no { width: 40px; text-align: center; border-right: 1px solid #000; height: 100%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 16px; }
+            .sl-no { width: 40px; text-align: center; border-right: 1px solid #000; height: 100%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 15px; }
             .c-name { flex-grow: 1; padding: 0 15px; font-weight: bold; display: flex; flex-direction: column; justify-content: center; }
-            .stamp-box { width: 75px; height: 100%; border-left: 1px solid #000; display: flex; align-items: center; justify-content: center; position: relative; }
-            .stamp-box::after { content: ""; width: 35px; height: 35px; border: 1px dashed #ccc; border-radius: 4px; }
+            .stamp-box { width: 70px; height: 100%; border-left: 1px solid #000; display: flex; align-items: center; justify-content: center; position: relative; }
+            .stamp-box::after { content: ""; width: 32px; height: 32px; border: 1px dashed #ccc; border-radius: 4px; }
             
-            .instr-box { text-align: center; border: 1px solid #000; padding: 8px; margin-bottom: 25px; font-weight: bold; font-size: 13px; text-transform: uppercase; }
-            .meta-row { display: flex; justify-content: space-between; margin-bottom: 10px; font-weight: bold; font-size: 14px; }
+            .instr-box { text-align: center; border: 1px solid #000; padding: 7px; margin-bottom: 20px; font-weight: bold; font-size: 12px; text-transform: uppercase; }
+            .meta-row { display: flex; justify-content: space-between; margin-bottom: 10px; font-weight: bold; font-size: 13px; }
           </style>
         </head>
         <body>
           ${e}
         </body>
       </html>
-    `),t.document.close()},a=async(e=`all`)=>{let r,i,a,o;try{[r,i,a,o]=await Promise.all([C.adminGetPosts(t),C.adminGetFinalNominations(t).catch(async()=>{let e=await C.adminGetNominations(t).catch(()=>[]);return{active:e.filter(e=>e.status!==`Rejected`&&e.withdrawalStatus!==`Approved`),withdrawn:e.filter(e=>e.withdrawalStatus===`Approved`),isPublished:!1}}),C.getPublicSchedule(),C.adminGetSettings(t).catch(()=>({}))])}catch(e){throw Error(e.message.includes(`not published`)?`Final List Not Published. Please finalize and publish the list first.`:e.message)}let s=o.collegeName||n.COLLEGE_NAME,c=o.collegeShortName||n.COLLEGE_SHORT_NAME,l=a.electionYear||new Date().getFullYear().toString(),u=Array.isArray(i)?i:i?.active||[];if(u.length===0)throw Error(`No active candidates found. Please ensure candidates are nominated and verified.`);let d=e=>{let t=String(e.post||e.name||``).toUpperCase();return t.includes(`ASSOCIATION`)||t.includes(`ASSOC`)||!!e.deptRestriction},f=e=>{let t=String(e.post||e.name||``).toUpperCase();return t.includes(`UUC`)||t.includes(`UNIVERSITY UNION COUNCILLOR`)},p=e=>{if(d(e)||f(e))return!1;let t=String(e.post||e.name||``).toUpperCase();return t.includes(`REPRESENTATIVE`)||t.includes(`REP`)},m=e=>!d(e)&&!p(e),h=r.filter(e=>u.filter(t=>t.post===e.post).length>1),g=``;if(e===`all`||e===`general`){let e=h.filter(m);if(e.length>0){g+=`
-          <div class="ballot-container a3 page-break">
-            <!-- Counterfoil -->
-            <div style="border-bottom: 2px dotted #000; padding-bottom: 20px; margin-bottom: 30px; text-align: center;">
-              <h1 style="font-size: 16px; margin: 0;">COLLEGE UNION ELECTION ${l}</h1>
-              <h1 style="font-size: 18px; margin: 5px 0;">${E(s)}</h1>
-              <h2 style="font-size: 14px; margin: 0;">OFFICIAL BALLOT PAPER (GENERAL) - COUNTERFOIL</h2>
-              <div style="margin-top: 15px; font-weight: bold; text-align: left; display: flex; flex-direction: column; gap: 8px;">
-                <div style="display: flex; justify-content: space-between;">
-                  <span>SL.NO. G____________</span>
-                  <span style="font-size: 10px; color: #666; font-style: italic;">(To be detached before voting)</span>
+    `),t.document.close()},g=async(e=`all`)=>{let r,i,a,s;try{[r,i,a,s]=await Promise.all([C.adminGetPosts(t),C.adminGetFinalNominations(t).catch(async()=>{let e=await C.adminGetNominations(t).catch(()=>[]);return{active:e.filter(e=>e.status!==`Rejected`&&e.withdrawalStatus!==`Approved`),withdrawn:e.filter(e=>e.withdrawalStatus===`Approved`),isPublished:!1}}),C.getPublicSchedule(),C.adminGetSettings(t).catch(()=>({}))])}catch(e){throw Error(e.message.includes(`not published`)?`Final List Not Published. Please finalize and publish the list first.`:e.message)}let u=s.collegeName||n.COLLEGE_NAME,d=s.collegeShortName||n.COLLEGE_SHORT_NAME,p=a.electionYear||new Date().getFullYear().toString(),m=Array.isArray(i)?i:i?.active||[];if(m.length===0)throw Error(`No active candidates found. Please ensure candidates are nominated and verified.`);let h=r.filter(e=>m.filter(t=>t.post===e.post).length>1),g=!!f.isSplit,_=``,v=(e,t)=>{if(!t||t.length===0)return``;let n=(e.paperSize||`A3`).toLowerCase(),r=e.shortCode===`G`?`G`:(e.shortCode||`G1`)+`-`,i=e.title||`OFFICIAL BALLOT PAPER (GENERAL)`,a=[...t].sort((e,t)=>{let n=e.post.toLowerCase(),r=t.post.toLowerCase();return n.includes(`chairman`)&&!n.includes(`vice`)?-1:r.includes(`chairman`)&&!r.includes(`vice`)?1:n.includes(`vice chairman`)?-1:r.includes(`vice chairman`)||n.includes(`university union councillor`)||n.includes(`uuc`)?1:r.includes(`university union councillor`)||r.includes(`uuc`)?-1:0}),o=``,s=``;return a.forEach((e,t)=>{let n=m.filter(t=>t.post===e.post),r=`
+          <div class="post-box">
+            <div class="post-title">${E(e.post.toUpperCase())}</div>
+            ${n.map((e,t)=>`
+              <div class="candidate-row">
+                <div class="sl-no">${t+1}</div>
+                <div class="c-name">
+                  <div style="font-size: 13px; text-transform: uppercase;">${E(e.candidateName)}</div>
+                  <div style="font-size: 10px; font-weight: normal; color: #444;">${E(e.candidateClass)}</div>
                 </div>
-                <div style="font-size: 13px;">Sl. No of Voter in Marked Copy: ____________</div>
+                <div class="stamp-box"></div>
               </div>
-            </div>
-
-            <div class="ballot-header">
-              <h1>COLLEGE UNION ELECTION ${l}</h1>
-              <h1>${E(s)}</h1>
-              <h2>OFFICIAL BALLOT PAPER (GENERAL)</h2>
-            </div>
-            <div class="meta-row"><div>SL.NO. G____________</div><div>Signature of PRO</div></div>
-            <div class="instr-box">MARK THE VOTER'S CHOICE WITH THE MARKING SEAL IN THE SPACE PROVIDED</div>
-            <div class="ballot-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px; align-items: flex-start;">
-              <div class="ballot-col" id="col1"></div>
-              <div class="ballot-col" id="col2"></div>
+            `).join(``)}
+            <div class="candidate-row"><div class="sl-no">${n.length+1}</div><div class="c-name">NOTA</div><div class="stamp-box"></div></div>
+          </div>
+        `;t%2==0?o+=r:s+=r}),`
+        <div class="ballot-container ${n} page-break">
+          <!-- Counterfoil -->
+          <div style="border-bottom: 2px dotted #000; padding-bottom: 18px; margin-bottom: 25px; text-align: center;">
+            <h1 style="font-size: 15px; margin: 0;">COLLEGE UNION ELECTION ${p}</h1>
+            <h1 style="font-size: 17px; margin: 4px 0;">${E(u)}</h1>
+            <h2 style="font-size: 13px; margin: 0;">${E(i.toUpperCase())} - COUNTERFOIL</h2>
+            <div style="margin-top: 12px; font-weight: bold; text-align: left; display: flex; flex-direction: column; gap: 6px;">
+              <div style="display: flex; justify-content: space-between;">
+                <span>SL.NO. ${r}____________</span>
+                <span style="font-size: 10px; color: #666; font-style: italic;">(To be detached before voting)</span>
+              </div>
+              <div style="font-size: 12px;">Sl. No of Voter in Marked Copy: ____________</div>
             </div>
           </div>
-        `;let t=[...e].sort((e,t)=>{let n=e.post.toLowerCase(),r=t.post.toLowerCase();return n.includes(`chairman`)&&!n.includes(`vice`)?-1:r.includes(`chairman`)&&!r.includes(`vice`)?1:n.includes(`vice chairman`)?-1:r.includes(`vice chairman`)||n.includes(`university union councillor`)||n.includes(`uuc`)?1:r.includes(`university union councillor`)||r.includes(`uuc`)?-1:0}),n=``,r=``;t.forEach((e,t)=>{let i=u.filter(t=>t.post===e.post),a=`
-            <div class="post-box">
-              <div class="post-title">${E(e.post.toUpperCase())}</div>
-              ${i.map((e,t)=>`
-                <div class="candidate-row">
-                  <div class="sl-no">${t+1}</div>
-                  <div class="c-name">
-                    <div style="font-size: 13px; text-transform: uppercase;">${E(e.candidateName)}</div>
-                    <div style="font-size: 10px; font-weight: normal; color: #444;">${E(e.candidateClass)}</div>
-                  </div>
-                  <div class="stamp-box"></div>
-                </div>
-              `).join(``)}
-              <div class="candidate-row"><div class="sl-no">${i.length+1}</div><div class="c-name">NOTA</div><div class="stamp-box"></div></div>
-            </div>
-          `;t%2==0?n+=a:r+=a}),g=g.replace(`<div class="ballot-col" id="col1"></div>`,`<div class="ballot-col" id="col1">${n}</div>`),g=g.replace(`<div class="ballot-col" id="col2"></div>`,`<div class="ballot-col" id="col2">${r}</div>`)}}let _=h.filter(e=>p(e)||d(e));return(e===`all`||e===`year`||e===`assoc`)&&_.filter(t=>e===`all`||e===`year`&&p(t)||e===`assoc`&&d(t)).forEach(e=>{let t=u.filter(t=>t.post===e.post),n=p(e)?`R`:`A`;g+=`
+
+          <div class="ballot-header">
+            <h1>COLLEGE UNION ELECTION ${p}</h1>
+            <h1>${E(u)}</h1>
+            <h2>${E(i.toUpperCase())}</h2>
+          </div>
+          <div class="meta-row"><div>SL.NO. ${r}____________</div><div>Signature of PRO</div></div>
+          <div class="instr-box">MARK THE VOTER'S CHOICE WITH THE MARKING SEAL IN THE SPACE PROVIDED</div>
+          <div class="ballot-grid">
+            <div class="ballot-col">${o}</div>
+            <div class="ballot-col">${s}</div>
+          </div>
+        </div>
+      `};if(e===`all`||e===`general`||e.startsWith(`general_part:`)){let t=h.filter(l);if(g){let n=f.ballots;if(e.startsWith(`general_part:`)){let t=e.replace(`general_part:`,``);n=f.ballots.filter(e=>e.id===t)}n.forEach(e=>{let n=t.filter(t=>(e.posts||[]).includes(t.post));_+=v(e,n)})}else _+=v({title:`OFFICIAL BALLOT PAPER (GENERAL)`,shortCode:`G`,paperSize:`A3`},t)}let y=h.filter(e=>c(e)||o(e));return(e===`all`||e===`year`||e===`assoc`)&&y.filter(t=>e===`all`||e===`year`&&c(t)||e===`assoc`&&o(t)).forEach(e=>{let t=m.filter(t=>t.post===e.post),n=c(e)?`R`:`A`;_+=`
           <div class="ballot-container a5 page-break">
             <!-- Counterfoil -->
             <div style="border-bottom: 2px dotted #000; padding-bottom: 15px; margin-bottom: 20px; text-align: center;">
-              <h1 style="font-size: 14px; margin: 0;">${E(c)} ELECTION ${l}</h1>
+              <h1 style="font-size: 14px; margin: 0;">${E(d)} ELECTION ${p}</h1>
               <h2 style="font-size: 12px; margin: 2px 0;">OFFICIAL BALLOT (${n}) - COUNTERFOIL</h2>
               <div style="margin-top: 10px; font-weight: bold; text-align: left; display: flex; flex-direction: column; gap: 5px; font-size: 11px;">
                 <div style="display: flex; justify-content: space-between;">
@@ -2152,7 +2366,7 @@ This will remove the final candidate list from public view.`)){D(n,!0,`🚫 Unpu
             </div>
 
             <div class="ballot-header">
-              <h1>${E(c)} ELECTION ${l}</h1>
+              <h1>${E(d)} ELECTION ${p}</h1>
               <h2 style="font-size: 15px; margin-top: 5px; font-weight: bold;">BALLOT PAPER (${n})</h2>
             </div>
             <div class="meta-row" style="font-size: 12px;"><div>SL.NO. ${n}____________</div><div>PRO Sign</div></div>
@@ -2171,7 +2385,7 @@ This will remove the final candidate list from public view.`)){D(n,!0,`🚫 Unpu
               <div class="candidate-row"><div class="sl-no">${t.length+1}</div><div class="c-name">NOTA</div><div class="stamp-box"></div></div>
             </div>
           </div>
-        `}),g},o=async e=>{try{O(`Generating ballots...`,`info`),i(await a(e))}catch(e){O(e.message,`error`)}},s=async()=>{try{O(`Calculating Master Plan...`,`info`);let[e,r,a]=await Promise.all([C.getPublicSchedule(),C.adminGetSettings(t).catch(()=>({})),C.adminGetBallotPlan(t).catch(()=>null)]);if(!a)return confirm(`No Master Plan found. Generate it now based on current final list and booths?`)?(await c(),s()):void 0;let o=a,l=e.electionYear||new Date().getFullYear(),u=r.collegeName||`Government Victoria College Palakkad`,d=e=>!e||Array.isArray(e)&&e.length===0?`-`:typeof e==`string`?e:`
+        `}),_},_=async e=>{try{O(`Generating ballots...`,`info`),h(await g(e))}catch(e){O(e.message,`error`)}},v=async()=>{try{O(`Calculating Master Plan...`,`info`);let[e,r,i]=await Promise.all([C.getPublicSchedule(),C.adminGetSettings(t).catch(()=>({})),C.adminGetBallotPlan(t).catch(()=>null)]),a=i;if(!a)if(confirm(`No Master Plan found. Generate it now based on current final list and booths?`))await C.adminGenerateBallotPlan(t),a=await C.adminGetBallotPlan(t).catch(()=>null);else return;let o=e.electionYear||new Date().getFullYear(),s=r.collegeName||`Government Victoria College Palakkad`,c=e=>!e||Array.isArray(e)&&e.length===0?`-`:typeof e==`string`?e:`
           <table style="width:100%; border-collapse:collapse; font-size:10px; background:rgba(0,0,0,0.02);">
             ${e.map(e=>`
               <tr>
@@ -2182,50 +2396,92 @@ This will remove the final candidate list from public view.`)){D(n,!0,`🚫 Unpu
               </tr>
             `).join(``)}
           </table>
-        `;i(`
+        `,l=!!(a.isSplit&&Array.isArray(a.generalParts)&&a.generalParts.length>1);h(`
         <div style="padding: 40px; font-family: sans-serif; color: #333;">
           <div style="text-align: center; border-bottom: 2px solid #000; padding-bottom: 20px; margin-bottom: 30px;">
-            <h1 style="margin: 0; font-size: 24px;">BALLOT PRINTING SUMMARY - ${l}</h1>
-            <h2 style="margin: 5px 0 0 0; font-size: 18px; color: #666;">${E(u)}</h2>
+            <h1 style="margin: 0; font-size: 24px;">BALLOT PRINTING SUMMARY - ${o}</h1>
+            <h2 style="margin: 5px 0 0 0; font-size: 18px; color: #666;">${E(s)}</h2>
           </div>
 
           <p style="font-size: 14px; margin-bottom: 20px;">
-            This document provides the sequential serial number ranges for each ballot category. 
-            <strong>Note:</strong> Rep and Association ballots are numbered <strong>Post-wise</strong> (one post is completed across all assigned booths before starting the next).
+            This document provides the sequential serial number ranges and booklet packaging for each ballot category.
+            ${l?`<br><strong>Note:</strong> General Union posts are split into <strong>`+a.generalParts.length+` separate ballot papers</strong> with distinct series numbering and booklet codes.`:``}
           </p>
 
-          <h3 style="background: #eee; padding: 8px 15px; border-left: 5px solid #4f46e5;">1. General Union Ballots (Series: G1, G2, G3...)</h3>
-          <table style="width: 100%; border-collapse: collapse; margin-bottom: 30px; border: 2px solid #000;">
-            <thead>
-              <tr style="background: #f8fafc;">
-                <th style="border: 1px solid #ddd; padding: 10px; text-align: left; width: 15%;">Booth No</th>
-                <th style="border: 1px solid #ddd; padding: 10px; text-align: center; width: 10%;">Voters</th>
-                <th style="border: 1px solid #ddd; padding: 10px; text-align: center; width: 15%;">Sl No From</th>
-                <th style="border: 1px solid #ddd; padding: 10px; text-align: center; width: 15%;">Sl No To</th>
-                <th style="border: 1px solid #ddd; padding: 10px; text-align: left; width: 45%;">Book Breakdowns</th>
-              </tr>
-            </thead>
-            <tbody>
-              ${o.general.results.map(e=>`
-                <tr>
-                  <td style="border: 1px solid #ddd; padding: 10px;">Booth ${e.booth}</td>
-                  <td style="border: 1px solid #ddd; padding: 10px; text-align: center;">${e.count}</td>
-                  <td style="border: 1px solid #ddd; padding: 10px; text-align: center; font-weight: bold;">G${e.start}</td>
-                  <td style="border: 1px solid #ddd; padding: 10px; text-align: center; font-weight: bold;">G${e.end}</td>
-                  <td style="border: 1px solid #ddd; padding: 4px;">${d(e.books||e.bookHtml)}</td>
+          ${l?`
+            <!-- Split General Parts Tables -->
+            ${a.generalParts.map((e,t)=>`
+              <h3 style="background: #eee; padding: 8px 15px; border-left: 5px solid #4f46e5; margin-top: 25px;">
+                1.${t+1} ${E(e.title)} (Series: ${e.shortCode}-1, ${e.shortCode}-2... / Books: ${e.bookPrefix}1...)
+              </h3>
+              <div style="font-size: 12px; margin-bottom: 8px; color: #555;">
+                <strong>Assigned Posts:</strong> ${(e.posts||[]).map(e=>E(e)).join(`, `)}
+              </div>
+              <table style="width: 100%; border-collapse: collapse; margin-bottom: 25px; border: 2px solid #000;">
+                <thead>
+                  <tr style="background: #f8fafc;">
+                    <th style="border: 1px solid #ddd; padding: 8px; text-align: left; width: 15%;">Booth No</th>
+                    <th style="border: 1px solid #ddd; padding: 8px; text-align: center; width: 10%;">Voters</th>
+                    <th style="border: 1px solid #ddd; padding: 8px; text-align: center; width: 15%;">Sl No From</th>
+                    <th style="border: 1px solid #ddd; padding: 8px; text-align: center; width: 15%;">Sl No To</th>
+                    <th style="border: 1px solid #ddd; padding: 8px; text-align: left; width: 45%;">Book Breakdowns</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  ${e.results.map(t=>`
+                    <tr>
+                      <td style="border: 1px solid #ddd; padding: 8px;">Booth ${t.booth}</td>
+                      <td style="border: 1px solid #ddd; padding: 8px; text-align: center;">${t.count}</td>
+                      <td style="border: 1px solid #ddd; padding: 8px; text-align: center; font-weight: bold;">${e.shortCode}-${t.start}</td>
+                      <td style="border: 1px solid #ddd; padding: 8px; text-align: center; font-weight: bold;">${e.shortCode}-${t.end}</td>
+                      <td style="border: 1px solid #ddd; padding: 4px;">${c(t.books)}</td>
+                    </tr>
+                  `).join(``)}
+                  <tr style="background: #f1f5f9; font-weight: bold;">
+                    <td style="border: 1px solid #ddd; padding: 8px;">TOTAL PART ${t+1}</td>
+                    <td style="border: 1px solid #ddd; padding: 8px; text-align: center;">${e.total}</td>
+                    <td style="border: 1px solid #ddd; padding: 8px; text-align: center;">${e.shortCode}-1</td>
+                    <td style="border: 1px solid #ddd; padding: 8px; text-align: center;">${e.shortCode}-${e.total}</td>
+                    <td style="border: 1px solid #ddd; padding: 8px; text-align: center;">—</td>
+                  </tr>
+                </tbody>
+              </table>
+            `).join(``)}
+          `:`
+            <!-- Single General Ballots Table -->
+            <h3 style="background: #eee; padding: 8px 15px; border-left: 5px solid #4f46e5;">1. General Union Ballots (Series: G1, G2, G3...)</h3>
+            <table style="width: 100%; border-collapse: collapse; margin-bottom: 30px; border: 2px solid #000;">
+              <thead>
+                <tr style="background: #f8fafc;">
+                  <th style="border: 1px solid #ddd; padding: 10px; text-align: left; width: 15%;">Booth No</th>
+                  <th style="border: 1px solid #ddd; padding: 10px; text-align: center; width: 10%;">Voters</th>
+                  <th style="border: 1px solid #ddd; padding: 10px; text-align: center; width: 15%;">Sl No From</th>
+                  <th style="border: 1px solid #ddd; padding: 10px; text-align: center; width: 15%;">Sl No To</th>
+                  <th style="border: 1px solid #ddd; padding: 10px; text-align: left; width: 45%;">Book Breakdowns</th>
                 </tr>
-              `).join(``)}
-              <tr style="background: #f1f5f9; font-weight: bold;">
-                <td style="border: 1px solid #ddd; padding: 10px;">TOTAL GENERAL</td>
-                <td style="border: 1px solid #ddd; padding: 10px; text-align: center;">${o.general.total}</td>
-                <td style="border: 1px solid #ddd; padding: 10px; text-align: center;">G1</td>
-                <td style="border: 1px solid #ddd; padding: 10px; text-align: center;">G${o.general.total}</td>
-                <td style="border: 1px solid #ddd; padding: 10px; text-align: center;">—</td>
-              </tr>
-            </tbody>
-          </table>
+              </thead>
+              <tbody>
+                ${(a.general?.results||[]).map(e=>`
+                  <tr>
+                    <td style="border: 1px solid #ddd; padding: 10px;">Booth ${e.booth}</td>
+                    <td style="border: 1px solid #ddd; padding: 10px; text-align: center;">${e.count}</td>
+                    <td style="border: 1px solid #ddd; padding: 10px; text-align: center; font-weight: bold;">G${e.start}</td>
+                    <td style="border: 1px solid #ddd; padding: 10px; text-align: center; font-weight: bold;">G${e.end}</td>
+                    <td style="border: 1px solid #ddd; padding: 4px;">${c(e.books||e.bookHtml)}</td>
+                  </tr>
+                `).join(``)}
+                <tr style="background: #f1f5f9; font-weight: bold;">
+                  <td style="border: 1px solid #ddd; padding: 10px;">TOTAL GENERAL</td>
+                  <td style="border: 1px solid #ddd; padding: 10px; text-align: center;">${a.general?.total||0}</td>
+                  <td style="border: 1px solid #ddd; padding: 10px; text-align: center;">G1</td>
+                  <td style="border: 1px solid #ddd; padding: 10px; text-align: center;">G${a.general?.total||0}</td>
+                  <td style="border: 1px solid #ddd; padding: 10px; text-align: center;">—</td>
+                </tr>
+              </tbody>
+            </table>
+          `}
 
-          <h3 style="background: #eee; padding: 8px 15px; border-left: 5px solid #10b981;">2. Year Representative Ballots (Series: R1, R2, R3...)</h3>
+          <h3 style="background: #eee; padding: 8px 15px; border-left: 5px solid #10b981; margin-top: 30px;">2. Year Representative Ballots (Series: R1, R2, R3...)</h3>
           <table style="width: 100%; border-collapse: collapse; margin-bottom: 30px; border: 2px solid #000;">
             <thead>
               <tr style="background: #f8fafc;">
@@ -2238,21 +2494,21 @@ This will remove the final candidate list from public view.`)){D(n,!0,`🚫 Unpu
               </tr>
             </thead>
             <tbody>
-              ${o.reps.results.map(e=>`
+              ${(a.reps?.results||[]).map(e=>`
                 <tr>
                   <td style="border: 1px solid #ddd; padding: 10px; font-size: 11px;">${E(e.post)}</td>
                   <td style="border: 1px solid #ddd; padding: 10px; text-align: center;">B${e.booth}</td>
                   <td style="border: 1px solid #ddd; padding: 10px; text-align: center;">${e.count}</td>
                   <td style="border: 1px solid #ddd; padding: 10px; text-align: center; font-weight: bold;">R${e.start}</td>
                   <td style="border: 1px solid #ddd; padding: 10px; text-align: center; font-weight: bold;">R${e.end}</td>
-                  <td style="border: 1px solid #ddd; padding: 4px;">${d(e.books||e.bookHtml)}</td>
+                  <td style="border: 1px solid #ddd; padding: 4px;">${c(e.books||e.bookHtml)}</td>
                 </tr>
               `).join(``)}
               <tr style="background: #f1f5f9; font-weight: bold;">
                 <td colspan="2" style="border: 1px solid #ddd; padding: 10px;">TOTAL REPRESENTATIVE</td>
-                <td style="border: 1px solid #ddd; padding: 10px; text-align: center;">${o.reps.total}</td>
+                <td style="border: 1px solid #ddd; padding: 10px; text-align: center;">${a.reps?.total||0}</td>
                 <td style="border: 1px solid #ddd; padding: 10px; text-align: center;">R1</td>
-                <td style="border: 1px solid #ddd; padding: 10px; text-align: center;">R${o.reps.total}</td>
+                <td style="border: 1px solid #ddd; padding: 10px; text-align: center;">R${a.reps?.total||0}</td>
                 <td style="border: 1px solid #ddd; padding: 10px; text-align: center;">—</td>
               </tr>
             </tbody>
@@ -2271,21 +2527,21 @@ This will remove the final candidate list from public view.`)){D(n,!0,`🚫 Unpu
               </tr>
             </thead>
             <tbody>
-              ${o.assocs.results.map(e=>`
+              ${(a.assocs?.results||[]).map(e=>`
                 <tr>
                   <td style="border: 1px solid #ddd; padding: 10px; font-size: 11px;">${E(e.post)}</td>
                   <td style="border: 1px solid #ddd; padding: 10px; text-align: center;">B${e.booth}</td>
                   <td style="border: 1px solid #ddd; padding: 10px; text-align: center;">${e.count}</td>
                   <td style="border: 1px solid #ddd; padding: 10px; text-align: center; font-weight: bold;">A${e.start}</td>
                   <td style="border: 1px solid #ddd; padding: 10px; text-align: center; font-weight: bold;">A${e.end}</td>
-                  <td style="border: 1px solid #ddd; padding: 4px;">${d(e.books||e.bookHtml)}</td>
+                  <td style="border: 1px solid #ddd; padding: 4px;">${c(e.books||e.bookHtml)}</td>
                 </tr>
               `).join(``)}
               <tr style="background: #f1f5f9; font-weight: bold;">
                 <td colspan="2" style="border: 1px solid #ddd; padding: 10px;">TOTAL ASSOCIATION</td>
-                <td style="border: 1px solid #ddd; padding: 10px; text-align: center;">${o.assocs.total}</td>
+                <td style="border: 1px solid #ddd; padding: 10px; text-align: center;">${a.assocs?.total||0}</td>
                 <td style="border: 1px solid #ddd; padding: 10px; text-align: center;">A1</td>
-                <td style="border: 1px solid #ddd; padding: 10px; text-align: center;">A${o.assocs.total}</td>
+                <td style="border: 1px solid #ddd; padding: 10px; text-align: center;">A${a.assocs?.total||0}</td>
                 <td style="border: 1px solid #ddd; padding: 10px; text-align: center;">—</td>
               </tr>
             </tbody>
@@ -2295,7 +2551,7 @@ This will remove the final candidate list from public view.`)){D(n,!0,`🚫 Unpu
             Generated on ${new Date().toLocaleString()} | Official ${n.COLLEGE_SHORT_NAME} Election Portal
           </div>
         </div>
-      `)}catch(e){O(e.message,`error`)}},c=async e=>{let n=e?.target,r=`🔄 Finalize Master Plan`;try{n&&D(n,!0,r),O(`Calculating and saving Master Plan on server...`,`info`),await C.adminGenerateBallotPlan(t),O(`Master Plan finalized successfully!`,`success`),n&&D(n,!1,r)}catch(e){n&&D(n,!1,r),O(e.message,`error`)}};r.querySelector(`#btnGenSummary`).onclick=s,r.querySelectorAll(`.preview-btn`).forEach(e=>{e.onclick=()=>o(e.dataset.type)})}function nt(e){let t=I();if(!t)return;L(e,`testing`,`
+      `)}catch(e){O(e.message,`error`)}};p()}function nt(e){let t=I();if(!t)return;L(e,`testing`,`
     <div class="page-enter space-y-8 max-w-3xl mx-auto">
 
       <!-- Warning Banner -->

@@ -54,7 +54,7 @@ export async function renderAdminResultsEntry(container) {
       api.adminGetBooths(pwd).catch(() => []),
       api.getPosts(),
       api.adminGetNominations(pwd).catch(() => []),
-      api.getResults().catch(() => []),
+      api.adminGetResults(pwd).catch(() => []),
       api.adminGetCountingMatrix(pwd).catch(() => null),
       api.adminGetSettings(pwd).catch(() => ({}))
     ]);
@@ -101,6 +101,12 @@ function renderEntryUI(main, pwd, booths, posts, finalList, allResults, savedMat
 
   main.innerHTML = `
     <div class="page-enter w-full max-w-[1500px] mx-auto">
+      ${isLocked ? `
+        <div class="alert alert-warning text-xs flex items-center justify-between mb-4">
+          <span>🔒 <strong>Results are Locked & Frozen:</strong> Vote entries cannot be added or edited. Unlock results from the Results or Publish page if changes are needed.</span>
+          <button data-nav="/admin/results" class="btn btn-secondary btn-sm">Go to Results</button>
+        </div>
+      ` : ''}
       <div class="grid grid-cols-1 xl:grid-cols-12 gap-6">
 
         <!-- LEFT: Entry Panel -->
@@ -198,8 +204,8 @@ function renderEntryUI(main, pwd, booths, posts, finalList, allResults, savedMat
     
     try {
       setLoading(btnSerial, true, 'Loading...');
-      api.invalidateCache('getResults');
-      const freshResults = await api.getResults().catch(() => []);
+      api.invalidateCache('adminGetResults');
+      const freshResults = await api.adminGetResults(pwd, true).catch(() => []);
       allResults.length = 0;
       allResults.push(...freshResults);
       // Re-apply any optimistic updates from the sync queue on top of server data
@@ -236,8 +242,8 @@ function renderEntryUI(main, pwd, booths, posts, finalList, allResults, savedMat
 
     try {
       setLoading(main.querySelector('#btnLoadForm'), true, '...');
-      api.invalidateCache('getResults');
-      const freshResults = await api.getResults().catch(() => []);
+      api.invalidateCache('adminGetResults');
+      const freshResults = await api.adminGetResults(pwd, true).catch(() => []);
       allResults.length = 0;
       allResults.push(...freshResults);
       mergeQueueIntoResults(allResults);
@@ -331,6 +337,10 @@ function renderEntryUI(main, pwd, booths, posts, finalList, allResults, savedMat
     updateGrandTotal();
 
     area.querySelector('#btnSaveVotes').addEventListener('click', async () => {
+      if (isLocked) {
+        showToast('Results are locked and frozen. No further vote entries are allowed.', 'error');
+        return;
+      }
       const inputs = area.querySelectorAll('.vote-input');
       const resultsToSave = [];
       
@@ -489,7 +499,7 @@ function renderLedger(main, allResults, allFormSerialsMeta) {
       return `${base} | ❌ Failed${action} (${item?.errorMsg || ''})`;
     }
     if (st === 'pending') return `${base} | ⏳ Not entered yet${action}`;
-    if (st === 'server') return `${base} | ☁️ In Sheet${action}`;
+    if (st === 'server') return `${base} | ☁️ In DB${action}`;
     if (st === 'success') return `${base} | ✅ Saved${action}`;
     if (st === 'syncing') return `${base} | 🔵 Syncing...`;
     return base + action;

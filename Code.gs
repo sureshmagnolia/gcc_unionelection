@@ -17,6 +17,8 @@ const SHEET_BOOTHS   = 'Booths';
 const SHEET_RESULTS  = 'Results';
 const SHEET_MATRIX   = 'CountingMatrix';
 const SHEET_BALLOT_PLAN = 'BallotPlan';
+const SHEET_ROLL_CORRECTIONS = 'RollCorrections';
+const SHEET_BACKUP_SNAPSHOTS = 'BackupSnapshots';
 
 // Expanded columns to store full details of candidate, proposer, and seconder
 const NOM_COLS = [
@@ -28,7 +30,7 @@ const NOM_COLS = [
 ];
 
 const POST_COLS = [
-  'Post', 'FemaleOnly', 'FinalYearIneligible', 'YearRestriction', 'DeptRestriction',
+  'Post', 'FemaleOnly', 'FinalYearIneligible', 'YearRestriction', 'DeptRestriction', 'RestrictedDept', 'YearRuleMode', 'YearRuleYears'
 ];
 
 // Exact 5-column header for the Nominal Roll sheet
@@ -104,9 +106,11 @@ function ensureAll() {
   ensureSheet(SHEET_FINAL, NOM_COLS);
   ensureSheet(SHEET_POSTS, POST_COLS);
   ensureSheet(SHEET_BOOTHS, ['BoothNumber', 'RoomName', 'AllocatedClasses']);
-  ensureSheet(SHEET_RESULTS, ['TableNumber', 'Post', 'CandidateId', 'CandidateName', 'Votes']);
+  ensureSheet(SHEET_RESULTS, ['TableNumber', 'RoundNumber', 'Post', 'CandidateId', 'CandidateName', 'Votes', 'FormSerial']);
   ensureSheet(SHEET_SETTINGS, ['Key', 'Value']);
   ensureSheet(SHEET_BALLOT_PLAN, ['PlanJSON']);
+  ensureSheet(SHEET_ROLL_CORRECTIONS, ['ID', 'AdmissionNo', 'StudentName', 'Department', 'ClassName', 'CorrectionType', 'Details', 'ContactInfo', 'Status', 'AdminNotes', 'Timestamp']);
+  ensureSheet(SHEET_BACKUP_SNAPSHOTS, ['ID', 'SnapshotName', 'TriggerType', 'CreatedAt', 'SummaryJSON', 'DataJSON']);
   
   const s = getSheet(SHEET_SETTINGS);
   if (s.getLastRow() <= 1) {
@@ -541,6 +545,35 @@ function doGet(e) {
       checkAdmin(e.parameter.password, e.parameter.sessionToken);
       const conf = getSetting('general_ballot_config');
       return jsonOut(conf ? JSON.parse(conf) : null);
+    }
+
+    if (action === 'adminGetSnapshots') {
+      checkAdmin(e.parameter.password, e.parameter.sessionToken);
+      const s = getSheet(SHEET_BACKUP_SNAPSHOTS);
+      const d = s.getDataRange().getValues();
+      if (d.length < 2) return jsonOut([]);
+      const snapshots = d.slice(1).map(r => ({
+        id: String(r[0]),
+        snapshotName: String(r[1]),
+        triggerType: String(r[2]),
+        createdAt: String(r[3]),
+        summary: r[4] ? JSON.parse(r[4]) : {}
+      })).reverse().slice(0, 10);
+      return jsonOut(snapshots);
+    }
+
+    if (action === 'adminGetRollCorrections') {
+      checkAdmin(e.parameter.password, e.parameter.sessionToken);
+      const s = getSheet(SHEET_ROLL_CORRECTIONS);
+      const d = s.getDataRange().getValues();
+      if (d.length < 2) return jsonOut([]);
+      const headers = ['id', 'admission_no', 'student_name', 'department', 'class_name', 'correction_type', 'details', 'contact_info', 'status', 'admin_notes', 'timestamp'];
+      const rows = d.slice(1).map(r => {
+        const obj = {};
+        headers.forEach((h, i) => obj[h] = r[i] !== undefined ? r[i] : '');
+        return obj;
+      }).reverse();
+      return jsonOut(rows);
     }
 
     return errOut(`Unknown action: ${action}`);
@@ -1576,10 +1609,713 @@ function doPost(e) {
       return jsonOut({ ok: true });
     }
 
+    if (action === 'adminUpdateCredentials') {
+      checkAdmin(body.password, body.sessionToken);
+      if (body.newEmail) {
+        setSetting('adminEmail', body.newEmail);
+      }
+      return jsonOut({ ok: true });
+    }
+
+    if (action === 'adminDeleteNomination') {
+      checkAdmin(body.password, body.sessionToken);
+      const id = body.id;
+      if (!id) return errOut('Nomination ID is required.');
+      const nomSheet = getSheet(SHEET_NOMS);
+      const d = nomSheet.getDataRange().getValues();
+      let found = false;
+      for (let i = 1; i < d.length; i++) {
+        if (String(d[i][0]) === String(id)) {
+          nomSheet.deleteRow(i + 1);
+          found = true;
+          break;
+        }
+      }
+      syncToSheet(SHEET_VALID, id, [], false);
+      syncToSheet(SHEET_FINAL, id, [], false);
+      if (found) return jsonOut({ ok: true, deletedId: id });
+      return errOut('Nomination not found.');
+    }
+
+    if (action === 'submitRollCorrection') {
+      const draftPub = getSetting('draftRollPublished');
+      const isFinal = getSetting('isRollFinalized') === 'true' || getSetting('nominalRollFinalized') === 'true';
+      if (isFinal) {
+        return errOut('The Nominal Roll has been finalized. Correction requests are no longer accepted.');
+      }
+      if (draftPub !== 'true') {
+        return errOut('The Draft Nominal Roll is not currently open for correction requests.');
+      }
+      if (!body.admissionNo || !body.studentName || !body.details) {
+        return errOut('Admission number, student name, and details are required.');
+      }
+
+      const s = getSheet(SHEET_ROLL_CORRECTIONS);
+      const id = 'CORR_' + Date.now() + '_' + Math.floor(Math.random() * 1000);
+      const ts = new Date().toISOString();
+      s.appendRow([
+        id,
+        body.admissionNo,
+        body.studentName,
+        body.department || '',
+        body.className || '',
+        body.correctionType || 'General',
+        body.details,
+        body.contactInfo || '',
+        'Pending',
+        '',
+        ts
+      ]);
+      return jsonOut({ ok: true, id });
+    }
+
+    if (action === 'adminUpdateRollCorrection') {
+      checkAdmin(body.password, body.sessionToken);
+      const s = getSheet(SHEET_ROLL_CORRECTIONS);
+      const d = s.getDataRange().getValues();
+      for (let i = 1; i < d.length; i++) {
+        if (String(d[i][0]) === String(body.id)) {
+          if (body.status) s.getRange(i + 1, 9).setValue(body.status);
+          if (body.notes !== undefined) s.getRange(i + 1, 10).setValue(body.notes);
+          return jsonOut({ ok: true });
+        }
+      }
+      return errOut('Correction request not found.');
+    }
+
+    if (action === 'adminExportBackup') {
+      checkAdmin(body.password, body.sessionToken);
+      const backupPackage = assembleBackupPackage();
+      
+      // Save internal snapshot to SHEET_BACKUP_SNAPSHOTS (retain top 10)
+      try {
+        const sSnap = getSheet(SHEET_BACKUP_SNAPSHOTS);
+        const snapId = 'SNAP_' + Date.now();
+        const nowIso = backupPackage.metadata.exportedAt;
+        sSnap.appendRow([
+          snapId,
+          'Export Snapshot (' + nowIso.slice(0, 16).replace('T', ' ') + ')',
+          'export',
+          nowIso,
+          JSON.stringify(backupPackage.metadata.counts),
+          JSON.stringify(backupPackage)
+        ]);
+
+        const totalRows = sSnap.getLastRow();
+        if (totalRows > 11) {
+          sSnap.deleteRows(2, totalRows - 11);
+        }
+      } catch (err) {
+        Logger.log('Snapshot store warning: ' + err.message);
+      }
+
+      return jsonOut(backupPackage);
+    }
+
+    if (action === 'adminGetSnapshots') {
+      checkAdmin(body.password, body.sessionToken);
+      const s = getSheet(SHEET_BACKUP_SNAPSHOTS);
+      const d = s.getDataRange().getValues();
+      if (d.length < 2) return jsonOut([]);
+      const snapshots = d.slice(1).map(r => ({
+        id: String(r[0]),
+        snapshotName: String(r[1]),
+        triggerType: String(r[2]),
+        createdAt: String(r[3]),
+        summary: r[4] ? JSON.parse(r[4]) : {}
+      })).reverse().slice(0, 10);
+      return jsonOut(snapshots);
+    }
+
+    if (action === 'adminDownloadSnapshot') {
+      checkAdmin(body.password, body.sessionToken);
+      const snapId = body.snapshotId;
+      if (!snapId) return errOut('Snapshot ID is required.');
+      const s = getSheet(SHEET_BACKUP_SNAPSHOTS);
+      const d = s.getDataRange().getValues();
+      for (let i = 1; i < d.length; i++) {
+        if (String(d[i][0]) === String(snapId)) {
+          return jsonOut(JSON.parse(d[i][5]));
+        }
+      }
+      return errOut('Snapshot not found.');
+    }
+
+    if (action === 'adminRestoreBackup') {
+      checkAdmin(body.password, body.sessionToken);
+
+      if (body.confirmPhrase !== 'CONFIRM RESTORE') {
+        return errOut('Security validation failed: Confirmation phrase "CONFIRM RESTORE" is required.');
+      }
+
+      const backupData = body.backupData;
+      if (!backupData || !backupData.data) {
+        return errOut('Invalid backup format: Missing data payload.');
+      }
+
+      // Pre-Restore Safety Snapshot
+      const preRestoreSnapId = 'PRE_RESTORE_' + Date.now();
+      const nowIso = new Date().toISOString();
+      try {
+        const curPackage = assembleBackupPackage();
+        curPackage.metadata.type = 'pre_restore_safety_snapshot';
+        const sSnap = getSheet(SHEET_BACKUP_SNAPSHOTS);
+        sSnap.appendRow([
+          preRestoreSnapId,
+          'Pre-Restore Safety Snapshot (' + nowIso.slice(0, 16).replace('T', ' ') + ')',
+          'pre_restore',
+          nowIso,
+          JSON.stringify(curPackage.metadata.counts),
+          JSON.stringify(curPackage)
+        ]);
+
+        const totalRows = sSnap.getLastRow();
+        if (totalRows > 11) {
+          sSnap.deleteRows(2, totalRows - 11);
+        }
+      } catch (snapErr) {
+        Logger.log('Failed to create pre-restore snapshot: ' + snapErr.message);
+      }
+
+      const restoredCounts = restoreDatabasePayloadGas(backupData, {
+        selectedModules: body.selectedModules,
+        restoreMode: body.restoreMode
+      });
+
+      return jsonOut({
+        ok: true,
+        message: 'System restore completed successfully.',
+        restoredCounts: restoredCounts,
+        preRestoreSnapshotId: preRestoreSnapId
+      });
+    }
+
+    if (action === 'adminRevertSnapshot') {
+      checkAdmin(body.password, body.sessionToken);
+      const snapId = body.snapshotId;
+      if (!snapId) return errOut('Snapshot ID is required.');
+      const s = getSheet(SHEET_BACKUP_SNAPSHOTS);
+      const d = s.getDataRange().getValues();
+      let backupPackage = null;
+      for (let i = 1; i < d.length; i++) {
+        if (String(d[i][0]) === String(snapId)) {
+          backupPackage = JSON.parse(d[i][5]);
+          break;
+        }
+      }
+      if (!backupPackage) return errOut('Snapshot record not found.');
+
+      const restoredCounts = restoreDatabasePayloadGas(backupPackage, {
+        selectedModules: { nominalRoll: true, rollCorrections: true, posts: true, nominations: true, settings: true },
+        restoreMode: 'full_wipe_and_replace'
+      });
+
+      return jsonOut({
+        ok: true,
+        message: 'System successfully reverted to snapshot.',
+        restoredCounts: restoredCounts
+      });
+    }
+
     return errOut(`Unknown action: ${action}`);
   } catch (err) {
     return errOut(err.message);
   }
+}
+
+// ─── BACKUP & RESTORE HELPERS ──────────────────────────────────────────────────
+function computeSha256(str) {
+  const digest = Utilities.computeDigest(Utilities.DigestAlgorithm.SHA_256, str, Utilities.Charset.UTF_8);
+  let hex = '';
+  for (let i = 0; i < digest.length; i++) {
+    const b = (digest[i] < 0 ? digest[i] + 256 : digest[i]).toString(16);
+    hex += (b.length === 1 ? '0' : '') + b;
+  }
+  return hex;
+}
+
+function assembleBackupPackage() {
+  const rollRows = getNominalRollData().map(s => ({
+    serial_number: String(s['Nominal Roll Serial Number'] || s.serial_number || s.SL_NO || ''),
+    name: String(s['NAME'] || s.name || ''),
+    class: String(s['CLASS'] || s.class || ''),
+    admission_no: String(s['ADMISION NO'] || s['ADMISSION NO'] || s.admission_no || ''),
+    dept: String(s['Dept'] || s.dept || '')
+  }));
+
+  const corrSheet = getSheet(SHEET_ROLL_CORRECTIONS);
+  const corrData = corrSheet.getDataRange().getValues();
+  const correctionRows = corrData.length > 1 ? corrData.slice(1).map(r => ({
+    id: String(r[0]),
+    admission_no: String(r[1]),
+    student_name: String(r[2]),
+    department: String(r[3] || ''),
+    class_name: String(r[4] || ''),
+    correction_type: String(r[5] || ''),
+    details: String(r[6] || ''),
+    contact_info: String(r[7] || ''),
+    status: String(r[8] || 'Pending'),
+    admin_notes: String(r[9] || ''),
+    timestamp: String(r[10] || '')
+  })) : [];
+
+  const postRows = getPostsData();
+
+  const nomRows = getAllNominations().map(n => ({
+    id: n.id,
+    post: n.post,
+    gender: n.gender,
+    dob: n.dob,
+    timestamp: n.timestamp,
+    candidate_serial: n.candidateSerial,
+    candidateSerial: n.candidateSerial,
+    proposer_serial: n.proposerSerial,
+    proposerSerial: n.proposerSerial,
+    seconder_serial: n.seconderSerial,
+    seconderSerial: n.seconderSerial,
+    status: n.status,
+    withdrawal_status: n.withdrawalStatus,
+    withdrawalStatus: n.withdrawalStatus,
+    candidate_name: n.candidateName,
+    candidateName: n.candidateName,
+    candidate_class: n.candidateClass,
+    candidateClass: n.candidateClass,
+    candidate_admission: n.candidate ? (n.candidate['ADMISION NO'] || n.candidate['ADMISSION NO'] || '') : '',
+    candidateAdmission: n.candidate ? (n.candidate['ADMISION NO'] || n.candidate['ADMISSION NO'] || '') : '',
+    candidate_dept: n.candidateDept,
+    candidateDept: n.candidateDept,
+    proposer_name: n.proposerName,
+    proposerName: n.proposerName,
+    proposer_class: n.proposer ? (n.proposer['CLASS'] || '') : '',
+    proposerClass: n.proposer ? (n.proposer['CLASS'] || '') : '',
+    proposer_admission: n.proposer ? (n.proposer['ADMISION NO'] || n.proposer['ADMISSION NO'] || '') : '',
+    proposerAdmission: n.proposer ? (n.proposer['ADMISION NO'] || n.proposer['ADMISSION NO'] || '') : '',
+    proposer_dept: n.proposer ? (n.proposer['Dept'] || '') : '',
+    proposerDept: n.proposer ? (n.proposer['Dept'] || '') : '',
+    seconder_name: n.seconderName,
+    seconderName: n.seconderName,
+    seconder_class: n.seconder ? (n.seconder['CLASS'] || '') : '',
+    seconderClass: n.seconder ? (n.seconder['CLASS'] || '') : '',
+    seconder_admission: n.seconder ? (n.seconder['ADMISION NO'] || n.seconder['ADMISSION NO'] || '') : '',
+    seconderAdmission: n.seconder ? (n.seconder['ADMISION NO'] || n.seconder['ADMISSION NO'] || '') : '',
+    seconder_dept: n.seconder ? (n.seconder['Dept'] || '') : '',
+    seconderDept: n.seconder ? (n.seconder['Dept'] || '') : '',
+    rejection_reason: ''
+  }));
+
+  // Settings
+  const setSheet = getSheet(SHEET_SETTINGS);
+  const setData = setSheet.getDataRange().getValues();
+  const settingMap = {};
+  if (setData.length > 1) {
+    for (let i = 1; i < setData.length; i++) {
+      const k = String(setData[i][0]);
+      if (k === 'adminPassword' || k === 'adminOTP') continue;
+      settingMap[k] = String(setData[i][1]);
+    }
+  }
+
+  // Ensure booths_data is populated from SHEET_BOOTHS if not in settings
+  const boothSheet = getSheet(SHEET_BOOTHS);
+  const boothData = boothSheet.getDataRange().getValues();
+  if (boothData.length > 1) {
+    const boothsList = boothData.slice(1).map(r => ({
+      boothNumber: r[0],
+      roomName: String(r[1] || ''),
+      classes: JSON.parse(r[2] || '[]')
+    }));
+    settingMap['booths_data'] = JSON.stringify(boothsList);
+  }
+
+  // Ensure results_data is populated from SHEET_RESULTS
+  const resSheet = getSheet(SHEET_RESULTS);
+  const resData = resSheet.getDataRange().getValues();
+  if (resData.length > 1) {
+    const headers = resData[0];
+    const resList = resData.slice(1).map(r => {
+      let obj = {};
+      headers.forEach((h, idx) => obj[h] = r[idx]);
+      return obj;
+    });
+    settingMap['results_data'] = JSON.stringify(resList);
+  }
+
+  // Ensure countingMatrix from SHEET_MATRIX
+  const matSheet = getSheet(SHEET_MATRIX);
+  const matData = matSheet.getDataRange().getValues();
+  if (matData.length > 1 && matData[1][0]) {
+    settingMap['countingMatrix'] = String(matData[1][0]);
+  }
+
+  // Ensure ballotPlan from SHEET_BALLOT_PLAN
+  const bpSheet = getSheet(SHEET_BALLOT_PLAN);
+  const bpData = bpSheet.getDataRange().getValues();
+  if (bpData.length > 1 && bpData[1][0]) {
+    settingMap['ballotPlan'] = String(bpData[1][0]);
+  }
+
+  const settingRows = Object.keys(settingMap).map(k => ({ key: k, value: settingMap[k] }));
+
+  const nowIso = new Date().toISOString();
+  const cName = getSetting('collegeName') || 'Government Victoria College, Palakkad';
+  const cShort = getSetting('collegeShortName') || 'GVC';
+  const eYear = getSetting('electionYear') || new Date().getFullYear().toString();
+
+  const counts = {
+    nominalRoll: rollRows.length,
+    rollCorrections: correctionRows.length,
+    posts: postRows.length,
+    nominations: nomRows.length,
+    settingsCount: settingRows.length,
+    isRollFinalized: getSetting('isRollFinalized') === 'true' || getSetting('nominalRollFinalized') === 'true',
+    draftRollPublished: getSetting('draftRollPublished') === 'true',
+    resultsRecorded: !!settingMap['results_data']
+  };
+
+  const dataPayload = {
+    nominal_roll: rollRows,
+    roll_corrections: correctionRows,
+    posts: postRows,
+    nominations: nomRows,
+    settings: settingRows
+  };
+
+  const dataStr = JSON.stringify(dataPayload);
+  const checksum = computeSha256(dataStr);
+
+  return {
+    metadata: {
+      app: 'College Union Election Portal',
+      schemaVersion: '2.0',
+      exportedAt: nowIso,
+      collegeName: cName,
+      collegeShortName: cShort,
+      electionYear: eYear,
+      counts: counts,
+      checksum: checksum
+    },
+    data: dataPayload
+  };
+}
+
+function restoreDatabasePayloadGas(backupData, options) {
+  options = options || {};
+  const modules = options.selectedModules || {
+    nominalRoll: true,
+    rollCorrections: true,
+    posts: true,
+    nominations: true,
+    settings: true
+  };
+  const restoreMode = options.restoreMode || 'full_wipe_and_replace';
+  const restoredCounts = {
+    nominalRoll: 0,
+    rollCorrections: 0,
+    posts: 0,
+    nominations: 0,
+    settings: 0
+  };
+  const nowIso = new Date().toISOString();
+
+  // 1. Nominal Roll
+  if (modules.nominalRoll && Array.isArray(backupData.data && backupData.data.nominal_roll)) {
+    const rollItems = backupData.data.nominal_roll;
+    const sRoll = getSheet(SHEET_NOMINAL);
+    if (restoreMode === 'full_wipe_and_replace') {
+      sRoll.clear();
+      sRoll.appendRow(NOMINAL_ROLL_HEADERS);
+      sRoll.getRange(1, 1, 1, NOMINAL_ROLL_HEADERS.length).setFontWeight('bold');
+    }
+    
+    const rows = rollItems.map(r => [
+      String(r.serial_number || r['Nominal Roll Serial Number'] || r.SL_NO || r['SL NO'] || r['Serial Number'] || ''),
+      String(r.name || r['NAME'] || r.Name || ''),
+      String(r.class || r['CLASS'] || r.Class || ''),
+      String(r.admission_no || r['ADMISION NO'] || r['ADMISSION NO'] || r['Admission No'] || ''),
+      String(r.dept || r['Dept'] || r.DEPT || '')
+    ]);
+
+    if (restoreMode === 'full_wipe_and_replace') {
+      if (rows.length > 0) {
+        sRoll.getRange(2, 1, rows.length, 5).setValues(rows);
+      }
+    } else {
+      const curData = sRoll.getDataRange().getValues();
+      const rowMap = {};
+      for (let i = 1; i < curData.length; i++) {
+        rowMap[String(curData[i][0])] = i + 1;
+      }
+      const toAppend = [];
+      rows.forEach(rw => {
+        const sl = rw[0];
+        if (rowMap[sl]) {
+          sRoll.getRange(rowMap[sl], 1, 1, 5).setValues([rw]);
+        } else {
+          toAppend.push(rw);
+        }
+      });
+      if (toAppend.length > 0) {
+        sRoll.getRange(sRoll.getLastRow() + 1, 1, toAppend.length, 5).setValues(toAppend);
+      }
+    }
+    restoredCounts.nominalRoll = rollItems.length;
+  }
+
+  // 2. Roll Corrections
+  if (modules.rollCorrections && Array.isArray(backupData.data && backupData.data.roll_corrections)) {
+    const corrItems = backupData.data.roll_corrections;
+    const sCorr = getSheet(SHEET_ROLL_CORRECTIONS);
+    const corrHeaders = ['ID', 'AdmissionNo', 'StudentName', 'Department', 'ClassName', 'CorrectionType', 'Details', 'ContactInfo', 'Status', 'AdminNotes', 'Timestamp'];
+    if (restoreMode === 'full_wipe_and_replace') {
+      sCorr.clear();
+      sCorr.appendRow(corrHeaders);
+      sCorr.getRange(1, 1, 1, corrHeaders.length).setFontWeight('bold');
+    }
+    const rows = corrItems.map(c => [
+      String(c.id || ''),
+      String(c.admission_no || c.admissionNo || ''),
+      String(c.student_name || c.studentName || ''),
+      String(c.department || ''),
+      String(c.class_name || c.className || ''),
+      String(c.correction_type || c.correctionType || ''),
+      String(c.details || ''),
+      String(c.contact_info || c.contactInfo || ''),
+      String(c.status || 'Pending'),
+      String(c.admin_notes || c.adminNotes || ''),
+      String(c.timestamp || nowIso)
+    ]);
+    if (rows.length > 0) {
+      if (restoreMode === 'full_wipe_and_replace') {
+        sCorr.getRange(2, 1, rows.length, corrHeaders.length).setValues(rows);
+      } else {
+        const curData = sCorr.getDataRange().getValues();
+        const idMap = {};
+        for (let i = 1; i < curData.length; i++) idMap[String(curData[i][0])] = i + 1;
+        const toAppend = [];
+        rows.forEach(rw => {
+          if (idMap[rw[0]]) sCorr.getRange(idMap[rw[0]], 1, 1, corrHeaders.length).setValues([rw]);
+          else toAppend.push(rw);
+        });
+        if (toAppend.length > 0) sCorr.getRange(sCorr.getLastRow() + 1, 1, toAppend.length, corrHeaders.length).setValues(toAppend);
+      }
+    }
+    restoredCounts.rollCorrections = corrItems.length;
+  }
+
+  // 3. Posts
+  if (modules.posts && Array.isArray(backupData.data && backupData.data.posts)) {
+    const postItems = backupData.data.posts;
+    const sPosts = getSheet(SHEET_POSTS);
+    const postHeaders = ['Post', 'FemaleOnly', 'FinalYearIneligible', 'YearRestriction', 'DeptRestriction', 'RestrictedDept', 'YearRuleMode', 'YearRuleYears'];
+    if (restoreMode === 'full_wipe_and_replace') {
+      sPosts.clear();
+      sPosts.appendRow(postHeaders);
+      sPosts.getRange(1, 1, 1, postHeaders.length).setFontWeight('bold');
+    }
+
+    const rows = postItems.map(p => {
+      const pName = String(p.post || p.postName || '').trim();
+      const femOnly = p.femaleOnly === true || String(p.femaleOnly) === 'true';
+      const finInel = p.finalYearIneligible === true || String(p.finalYearIneligible) === 'true';
+      const yrRestr = String(p.yearRestriction || '');
+      const deptRestr = p.deptRestriction === true || String(p.deptRestriction) === 'true';
+      const rDept = String(p.restrictedDept || '');
+      const yrMode = String(p.yearRuleMode || (finInel ? 'EXCLUDE' : (yrRestr ? 'INCLUDE' : 'ALL')));
+      const yrYears = Array.isArray(p.yearRuleYears) ? p.yearRuleYears.join(',') : String(p.yearRuleYears || '');
+      return [pName, femOnly, finInel, yrRestr, deptRestr, rDept, yrMode, yrYears];
+    });
+
+    if (restoreMode === 'full_wipe_and_replace') {
+      if (rows.length > 0) {
+        sPosts.getRange(2, 1, rows.length, postHeaders.length).setValues(rows);
+      }
+    } else {
+      const curData = sPosts.getDataRange().getValues();
+      const postMap = {};
+      for (let i = 1; i < curData.length; i++) postMap[String(curData[i][0])] = i + 1;
+      const toAppend = [];
+      rows.forEach(rw => {
+        if (postMap[rw[0]]) sPosts.getRange(postMap[rw[0]], 1, 1, postHeaders.length).setValues([rw]);
+        else toAppend.push(rw);
+      });
+      if (toAppend.length > 0) sPosts.getRange(sPosts.getLastRow() + 1, 1, toAppend.length, postHeaders.length).setValues(toAppend);
+    }
+    CacheService.getScriptCache().remove('public_posts');
+    restoredCounts.posts = postItems.length;
+  }
+
+  // 4. Nominations
+  if (modules.nominations && Array.isArray(backupData.data && backupData.data.nominations)) {
+    const nomItems = backupData.data.nominations;
+    const sNoms = getSheet(SHEET_NOMS);
+    if (restoreMode === 'full_wipe_and_replace') {
+      sNoms.clear();
+      sNoms.appendRow(NOM_COLS);
+      sNoms.getRange(1, 1, 1, NOM_COLS.length).setFontWeight('bold');
+    }
+
+    const rows = nomItems.map(n => [
+      String(n.id || ''),
+      String(n.post || ''),
+      String(n.gender || 'Male'),
+      String(n.dob || ''),
+      String(n.timestamp || nowIso),
+      String(n.candidate_serial || n.candidateSerial || (n.candidate && n.candidate['Nominal Roll Serial Number']) || ''),
+      String(n.candidate_name || n.candidateName || (n.candidate && n.candidate.NAME) || ''),
+      String(n.candidate_class || n.candidateClass || (n.candidate && n.candidate.CLASS) || ''),
+      String(n.candidate_admission || n.candidateAdmission || (n.candidate && (n.candidate['ADMISION NO'] || n.candidate['ADMISSION NO'])) || ''),
+      String(n.candidate_dept || n.candidateDept || (n.candidate && n.candidate.Dept) || ''),
+      String(n.proposer_serial || n.proposerSerial || (n.proposer && n.proposer['Nominal Roll Serial Number']) || ''),
+      String(n.proposer_name || n.proposerName || (n.proposer && n.proposer.NAME) || ''),
+      String(n.proposer_class || n.proposerClass || (n.proposer && n.proposer.CLASS) || ''),
+      String(n.proposer_admission || n.proposerAdmission || (n.proposer && (n.proposer['ADMISION NO'] || n.proposer['ADMISSION NO'])) || ''),
+      String(n.proposer_dept || n.proposerDept || (n.proposer && n.proposer.Dept) || ''),
+      String(n.seconder_serial || n.seconderSerial || (n.seconder && n.seconder['Nominal Roll Serial Number']) || ''),
+      String(n.seconder_name || n.seconderName || (n.seconder && n.seconder.NAME) || ''),
+      String(n.seconder_class || n.seconderClass || (n.seconder && n.seconder.CLASS) || ''),
+      String(n.seconder_admission || n.seconderAdmission || (n.seconder && (n.seconder['ADMISION NO'] || n.seconder['ADMISSION NO'])) || ''),
+      String(n.seconder_dept || n.seconderDept || (n.seconder && n.seconder.Dept) || ''),
+      String(n.status || 'Pending'),
+      String(n.withdrawal_status || n.withdrawalStatus || 'None')
+    ]);
+
+    if (restoreMode === 'full_wipe_and_replace') {
+      if (rows.length > 0) {
+        sNoms.getRange(2, 1, rows.length, NOM_COLS.length).setValues(rows);
+      }
+    } else {
+      const curData = sNoms.getDataRange().getValues();
+      const idMap = {};
+      for (let i = 1; i < curData.length; i++) idMap[String(curData[i][0])] = i + 1;
+      const toAppend = [];
+      rows.forEach(rw => {
+        if (idMap[rw[0]]) sNoms.getRange(idMap[rw[0]], 1, 1, NOM_COLS.length).setValues([rw]);
+        else toAppend.push(rw);
+      });
+      if (toAppend.length > 0) sNoms.getRange(sNoms.getLastRow() + 1, 1, toAppend.length, NOM_COLS.length).setValues(toAppend);
+    }
+
+    // Resync valid and final lists
+    const isValPub = getSetting('validListPublished') === 'true';
+    const isFinPub = getSetting('finalListPublished') === 'true';
+    if (isValPub) {
+      const allValid = getAllNominations().filter(n => n.status === 'Valid');
+      const sVal = getSheet(SHEET_VALID);
+      sVal.clear().appendRow(NOM_COLS);
+      sVal.getRange(1, 1, 1, NOM_COLS.length).setFontWeight('bold');
+      if (allValid.length > 0) {
+        const vRows = allValid.map(n => [
+          n.id, n.post, n.gender, n.dob, n.timestamp,
+          n.candidateSerial, n.candidateName, n.candidateClass, n.candidateAdmission, n.candidateDept,
+          n.proposerSerial,  n.proposerName,  n.proposerClass,  n.proposerAdmission,  n.proposerDept,
+          n.seconderSerial,  n.seconderName,  n.seconderClass,  n.seconderAdmission,  n.seconderDept,
+          n.status, n.withdrawalStatus
+        ]);
+        sVal.getRange(2, 1, vRows.length, NOM_COLS.length).setValues(vRows);
+      }
+    }
+    if (isFinPub) {
+      const allFinal = getAllNominations().filter(n => n.status === 'Valid' && n.withdrawalStatus !== 'Approved');
+      const sFin = getSheet(SHEET_FINAL);
+      sFin.clear().appendRow(NOM_COLS);
+      sFin.getRange(1, 1, 1, NOM_COLS.length).setFontWeight('bold');
+      if (allFinal.length > 0) {
+        const fRows = allFinal.map(n => [
+          n.id, n.post, n.gender, n.dob, n.timestamp,
+          n.candidateSerial, n.candidateName, n.candidateClass, n.candidateAdmission, n.candidateDept,
+          n.proposerSerial,  n.proposerName,  n.proposerClass,  n.proposerAdmission,  n.proposerDept,
+          n.seconderSerial,  n.seconderName,  n.seconderClass,  n.seconderAdmission,  n.seconderDept,
+          n.status, n.withdrawalStatus
+        ]);
+        sFin.getRange(2, 1, fRows.length, NOM_COLS.length).setValues(fRows);
+      }
+    }
+
+    restoredCounts.nominations = nomItems.length;
+  }
+
+  // 5. Settings (including Booths, Ballots, Counting Matrix & Results)
+  if (modules.settings && Array.isArray(backupData.data && backupData.data.settings)) {
+    const settingItems = backupData.data.settings;
+    const backupKeys = {};
+    settingItems.forEach(s => backupKeys[s.key] = true);
+
+    if (restoreMode === 'full_wipe_and_replace') {
+      const sSet = getSheet(SHEET_SETTINGS);
+      const curData = sSet.getDataRange().getValues();
+      for (let i = curData.length - 1; i >= 1; i--) {
+        const k = String(curData[i][0]);
+        if (k === 'adminPassword' || k === 'adminOTP' || k === 'adminEmail') continue;
+        if (!backupKeys[k]) {
+          sSet.deleteRow(i + 1);
+        }
+      }
+    }
+
+    for (let i = 0; i < settingItems.length; i++) {
+      const s = settingItems[i];
+      if (s.key === 'adminPassword' || s.key === 'adminOTP') continue;
+      setSetting(s.key, s.value);
+
+      // Synchronize sheets
+      if (s.key === 'booths_data' && s.value) {
+        try {
+          const booths = JSON.parse(s.value);
+          const sBooth = getSheet(SHEET_BOOTHS);
+          const boothHeaders = ['BoothNumber', 'RoomName', 'AllocatedClasses'];
+          sBooth.clear();
+          sBooth.appendRow(boothHeaders);
+          sBooth.getRange(1, 1, 1, boothHeaders.length).setFontWeight('bold');
+          if (Array.isArray(booths) && booths.length > 0) {
+            const bRows = booths.map(b => [b.boothNumber, b.roomName, JSON.stringify(b.classes || [])]);
+            sBooth.getRange(2, 1, bRows.length, boothHeaders.length).setValues(bRows);
+          }
+        } catch (e) {}
+      }
+
+      if (s.key === 'results_data' && s.value) {
+        try {
+          const results = JSON.parse(s.value);
+          const sRes = getSheet(SHEET_RESULTS);
+          const resHeaders = ['TableNumber', 'RoundNumber', 'Post', 'CandidateId', 'CandidateName', 'Votes', 'FormSerial'];
+          sRes.clear();
+          sRes.appendRow(resHeaders);
+          sRes.getRange(1, 1, 1, resHeaders.length).setFontWeight('bold');
+          if (Array.isArray(results) && results.length > 0) {
+            const rRows = results.map(r => [
+              r.TableNumber, r.RoundNumber || 'N/A', r.Post, r.CandidateId, r.CandidateName, Number(r.Votes) || 0, r.FormSerial || 'N/A'
+            ]);
+            sRes.getRange(2, 1, rRows.length, resHeaders.length).setValues(rRows);
+          }
+        } catch (e) {}
+      }
+
+      if (s.key === 'countingMatrix' && s.value) {
+        try {
+          const sMat = getSheet(SHEET_MATRIX);
+          sMat.clear();
+          sMat.appendRow(['MatrixDataJSON']);
+          sMat.appendRow([s.value]);
+        } catch (e) {}
+      }
+
+      if (s.key === 'ballotPlan' && s.value) {
+        try {
+          const sBp = getSheet(SHEET_BALLOT_PLAN);
+          sBp.clear();
+          sBp.appendRow(['PlanJSON']);
+          sBp.appendRow([s.value]);
+        } catch (e) {}
+      }
+    }
+
+    CacheService.getScriptCache().remove('public_results');
+    CacheService.getScriptCache().remove('public_settings');
+    CacheService.getScriptCache().remove('public_schedule');
+    restoredCounts.settings = settingItems.length;
+  }
+
+  return restoredCounts;
 }
 
 /**

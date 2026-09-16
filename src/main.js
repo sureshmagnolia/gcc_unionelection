@@ -30,6 +30,8 @@ import { renderAdminNominalRoll }   from './pages/admin/nominalRoll.js';
 import { renderAdminSchedule }      from './pages/admin/schedule.js';
 import { renderAdminDirectNomination } from './pages/admin/directNomination.js';
 import { renderAdminAudit }          from './pages/admin/audit.js';
+import { renderSettings }            from './pages/admin/settings.js';
+import { renderAdminBackup }         from './pages/admin/backup.js';
 
 // ─── Background decoration ────────────────────────────────────────────────────
 const app = document.getElementById('app');
@@ -87,6 +89,8 @@ router
   .on('/admin/direct-nomination', render(renderAdminDirectNomination))
   .on('/admin/testing',     render(renderAdminTesting))
   .on('/admin/audit',       render(renderAdminAudit))
+  .on('/admin/settings',    render(renderSettings))
+  .on('/admin/backup',      render(renderAdminBackup))
   .setDefault('/');
 
 // Handle clicks on data-nav attributes globally (delegation)

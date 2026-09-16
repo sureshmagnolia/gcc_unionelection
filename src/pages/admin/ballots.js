@@ -175,18 +175,23 @@ export async function renderAdminBallots(container) {
     const shortName = settings.collegeShortName || CONFIG.COLLEGE_SHORT_NAME;
 
     const year = schedule.electionYear || new Date().getFullYear().toString();
-    const candidates = candidatesResponse.active || [];
-    if (candidates.length === 0) throw new Error('No active candidates found.');
+    const candidates = Array.isArray(candidatesResponse) ? candidatesResponse : (candidatesResponse?.active || []);
+    if (candidates.length === 0) throw new Error('No active candidates found. Please ensure candidates are nominated and verified.');
 
-    const isYear = (p) => {
-      const name = p.post.toLowerCase();
-      return name.includes('representative') || name.includes('year');
-    };
     const isAssoc = (p) => {
-      const name = p.post.toLowerCase();
-      return name.includes('association') || name.includes('assoc');
+      const name = String(p.post || p.name || '').toUpperCase();
+      return name.includes('ASSOCIATION') || name.includes('ASSOC') || !!p.deptRestriction;
     };
-    const isGeneral = (p) => !isYear(p) && !isAssoc(p);
+    const isUUC = (p) => {
+      const name = String(p.post || p.name || '').toUpperCase();
+      return name.includes('UUC') || name.includes('UNIVERSITY UNION COUNCILLOR');
+    };
+    const isYear = (p) => {
+      if (isAssoc(p) || isUUC(p)) return false;
+      const name = String(p.post || p.name || '').toUpperCase();
+      return name.includes('REPRESENTATIVE') || name.includes('REP');
+    };
+    const isGeneral = (p) => !isAssoc(p) && !isYear(p);
 
     // Filter out Unanimous Winners (Posts with only 1 candidate)
     const contestablePosts = posts.filter(p => {

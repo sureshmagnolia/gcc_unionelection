@@ -1979,17 +1979,17 @@ This will remove the final candidate list from public view.`)){D(n,!0,`🚫 Unpu
       <span class="spinner" style="width:2.5rem;height:2.5rem;border-width:4px;"></span>
       <p class="text-slate-400 mt-4 text-sm">Preparing ballot generator...</p>
     </div>
-  `);let r=e.querySelector(`#adminMain`),i=[],a=null;try{let[e,n,r]=await Promise.all([C.adminGetPosts(t).catch(()=>[]),C.adminGetBallotConfig(t).catch(()=>null),C.adminGetBallotPlan(t).catch(()=>null)]);i=e,a=n}catch(e){console.warn(`Error fetching initial ballot data:`,e)}let o=e=>{let t=String(e.post||e.name||``).toUpperCase();return t.includes(`ASSOCIATION`)||t.includes(`ASSOC`)||!!e.deptRestriction},s=e=>{let t=String(e.post||e.name||``).toUpperCase();return t.includes(`UUC`)||t.includes(`UNIVERSITY UNION COUNCILLOR`)},c=e=>{if(o(e)||s(e))return!1;let t=String(e.post||e.name||``).toUpperCase();return t.includes(`REPRESENTATIVE`)||t.includes(`REP`)},l=e=>!o(e)&&!c(e),u=i.filter(l),d=[{id:`gen_1`,partNumber:1,title:`General Union Posts - Part 1 (Major Executive)`,shortCode:`G1`,bookPrefix:`GB1-`,paperSize:`A3`,posts:[`The Chairman`,`The Vice Chairman`,`The Secretary`,`The Joint Secretary`,`The University Union Councillor`]},{id:`gen_2`,partNumber:2,title:`General Union Posts - Part 2 (Arts, Sports & Editorial)`,shortCode:`G2`,bookPrefix:`GB2-`,paperSize:`A3`,posts:[`The Chief Student Editor`,`The Secretary Fine Arts`,`The General Captain For Sports And Games`]}],f=a||{isSplit:!1,ballots:d};(!Array.isArray(f.ballots)||f.ballots.length===0)&&(f.ballots=d);let p=()=>{let e=!!f.isSplit;r.innerHTML=`
+  `);let r=e.querySelector(`#adminMain`),i=[],a=null;try{let[e,n,r]=await Promise.all([C.adminGetPosts(t).catch(()=>[]),C.adminGetBallotConfig(t).catch(()=>null),C.adminGetBallotPlan(t).catch(()=>null)]);i=e,a=n}catch(e){console.warn(`Error fetching initial ballot data:`,e)}let o=e=>{let t=String(e.post||e.name||``).toUpperCase();return t.includes(`ASSOCIATION`)||t.includes(`ASSOC`)||!!e.deptRestriction},s=e=>{let t=String(e.post||e.name||``).toUpperCase();return t.includes(`UUC`)||t.includes(`UNIVERSITY UNION COUNCILLOR`)},c=e=>{if(o(e)||s(e))return!1;let t=String(e.post||e.name||``).toUpperCase();return t.includes(`REPRESENTATIVE`)||t.includes(`REP`)},l=e=>!o(e)&&!c(e),u=i.filter(l),d=e=>{let t=String(e||``).toLowerCase();return t.includes(`chairman`)&&!t.includes(`vice`)?`🏆`:t.includes(`vice chairman`)?`🥈`:t.includes(`joint secretary`)?`🤝`:t.includes(`secretary`)&&!t.includes(`fine arts`)?`📝`:t.includes(`councillor`)||t.includes(`uuc`)?`🏛️`:t.includes(`editor`)?`📰`:t.includes(`fine arts`)||t.includes(`arts`)?`🎨`:t.includes(`captain`)||t.includes(`sports`)?`⚽`:`🎖️`},f=[{id:`gen_1`,partNumber:1,title:`General Union Posts - Main`,shortCode:`G1`,bookPrefix:`GB1-`,paperSize:`A3`,posts:[]},{id:`gen_2`,partNumber:2,title:`Additional General Ballot (Arts, Sports & Editorial)`,shortCode:`G2`,bookPrefix:`GB2-`,paperSize:`A3`,posts:[]}],p=a||{isSplit:!1,ballots:f};(!Array.isArray(p.ballots)||p.ballots.length===0)&&(p.ballots=f),p.ballots.length===1&&p.ballots.push({id:`gen_2`,partNumber:2,title:`Additional General Ballot (Arts, Sports & Editorial)`,shortCode:`G2`,bookPrefix:`GB2-`,paperSize:`A3`,posts:[]});let m=new Set;p.isSplit&&p.ballots[1]&&Array.isArray(p.ballots[1].posts)&&p.ballots[1].posts.forEach(e=>m.add(e));let h=()=>{let e=m.size>0;p.isSplit=e;let t=u.map(e=>e.post),n=t.filter(e=>m.has(e)),r=t.filter(e=>!m.has(e));p.ballots[0].posts=r,p.ballots[0].shortCode=e?`G1`:`G`,p.ballots[0].bookPrefix=e?`GB1-`:`GB`,p.ballots[1]||(p.ballots[1]={id:`gen_2`,partNumber:2,title:`Additional General Ballot (Arts, Sports & Editorial)`,shortCode:`G2`,bookPrefix:`GB2-`,paperSize:`A3`,posts:[]}),p.ballots[1].posts=n,p.ballots[1].shortCode=`G2`,p.ballots[1].bookPrefix=`GB2-`};h();let g=()=>{let e=!!p.isSplit,t=p.ballots[0].posts||[],n=p.ballots[1]&&p.ballots[1].posts||[];r.innerHTML=`
       <div class="space-y-6 page-enter">
         <!-- Header -->
         <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 bg-white/5 p-6 rounded-2xl border border-white/10 backdrop-blur-md">
           <div>
             <h2 class="text-2xl font-bold text-white flex items-center gap-3">
               <span class="w-10 h-10 rounded-xl bg-indigo-500/20 flex items-center justify-center text-indigo-400">🗳️</span>
-              Ballot Planning & Printing
+              Ballot Planning &amp; Printing
             </h2>
             <p class="text-slate-400 mt-1 text-sm">
-              Configure ballot layout, split general posts if needed, and generate print-ready ballots & PO accounts.
+              Select which posts to split in ballots, configure paper formats, and generate print-ready ballots &amp; PO accounts.
             </p>
           </div>
           <div class="flex items-center gap-3">
@@ -2000,146 +2000,208 @@ This will remove the final candidate list from public view.`)){D(n,!0,`🚫 Unpu
         </div>
 
         <!-- Ballot Planning & Post Split Panel -->
-        <div class="glass p-6 rounded-2xl border border-white/10 space-y-5 bg-gradient-to-b from-indigo-950/20 to-transparent">
-          <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-3 border-b border-white/10 pb-4">
+        <div class="glass p-6 rounded-2xl border border-white/10 space-y-6 bg-gradient-to-b from-indigo-950/20 to-transparent">
+          <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 border-b border-white/10 pb-4">
             <div>
               <h3 class="text-lg font-bold text-white flex items-center gap-2">
-                <span>⚙️</span> General Ballot Layout &amp; Post Splitter
+                <span>⚙️</span> General Ballot Post Selection &amp; Splitter
               </h3>
-              <p class="text-xs text-slate-400 mt-0.5">
-                Keep all general posts on a single A3 master ballot or split into separate numbered ballots (e.g. Executive and Arts/Sports).
+              <p class="text-xs text-slate-400 mt-1">
+                Select the specific posts you want to detach into an <strong>Additional Ballot (Part 2)</strong>. Unselected posts remain on the <strong>Main Ballot (Part 1)</strong>.
               </p>
             </div>
             
-            <!-- Mode Switcher -->
-            <div class="flex items-center bg-slate-900/80 p-1.5 rounded-xl border border-white/10 text-xs font-medium">
-              <button id="btnModeSingle" class="px-4 py-2 rounded-lg transition-all ${e?`text-slate-400 hover:text-white`:`bg-indigo-600 text-white shadow-lg font-bold`}">
-                📄 Single Unified Ballot
+            <div class="flex items-center gap-2">
+              <span class="text-xs px-3 py-1.5 rounded-xl border ${e?`bg-emerald-500/15 text-emerald-300 border-emerald-500/30 font-bold`:`bg-slate-800 text-slate-400 border-white/10`}">
+                ${e?`🔀 Split Ballot Active (`+t.length+` Main + `+n.length+` Split)`:`📄 Single Unified Ballot (`+t.length+` Posts)`}
+              </span>
+            </div>
+          </div>
+
+          <!-- Quick Selection Helper Actions -->
+          <div class="flex flex-wrap items-center justify-between gap-3 text-xs">
+            <div class="flex flex-wrap items-center gap-2">
+              <span class="text-slate-400 font-semibold mr-1">Quick Select:</span>
+              <button id="btnQuickArtsSports" class="px-3 py-1.5 rounded-lg bg-white/5 hover:bg-white/10 border border-white/10 text-indigo-300 transition-all flex items-center gap-1.5">
+                <span>🎨</span> Fine Arts, Sports &amp; Editor
               </button>
-              <button id="btnModeSplit" class="px-4 py-2 rounded-lg transition-all ${e?`bg-indigo-600 text-white shadow-lg font-bold`:`text-slate-400 hover:text-white`}">
-                🔀 Split into Multiple Ballots
+              <button id="btnQuickCouncil" class="px-3 py-1.5 rounded-lg bg-white/5 hover:bg-white/10 border border-white/10 text-emerald-300 transition-all flex items-center gap-1.5">
+                <span>🏛️</span> Council &amp; Activities
+              </button>
+              <button id="btnInvertSelect" class="px-3 py-1.5 rounded-lg bg-white/5 hover:bg-white/10 border border-white/10 text-slate-300 transition-all">
+                ☑️ Invert Selection
+              </button>
+            </div>
+            <div>
+              <button id="btnClearSplit" class="px-3 py-1.5 rounded-lg bg-red-500/10 hover:bg-red-500/20 border border-red-500/20 text-red-300 transition-all flex items-center gap-1.5">
+                <span>🔄</span> Reset to Single Ballot (Clear Selection)
               </button>
             </div>
           </div>
 
-          ${e?`
-            <!-- Split Configuration Controls -->
-            <div class="space-y-4">
-              <div class="flex flex-wrap items-center justify-between gap-3 text-xs">
-                <div class="flex items-center gap-2">
-                  <span class="text-slate-400">Quick Presets:</span>
-                  <button id="btnPresetExec" class="px-3 py-1.5 rounded-lg bg-white/5 hover:bg-white/10 border border-white/10 text-indigo-300 transition-all">
-                    ⚡ Executive + Activities Split
-                  </button>
-                  <button id="btnPreset3Way" class="px-3 py-1.5 rounded-lg bg-white/5 hover:bg-white/10 border border-white/10 text-emerald-300 transition-all">
-                    ⚡ 3-Way Split (Exec / Council / Sports)
-                  </button>
+          <!-- Post Selection Checklist -->
+          <div class="space-y-2">
+            <div class="text-xs font-bold text-slate-300 uppercase tracking-wider mb-2 flex items-center justify-between">
+              <span>General Union Posts (${u.length})</span>
+              <span class="text-slate-400 font-normal">Click a post or check the box to toggle between Main &amp; Additional ballot</span>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+              ${u.map(e=>{let t=m.has(e.post),n=d(e.post);return`
+                  <div class="p-3.5 rounded-xl border transition-all cursor-pointer post-select-card flex items-center justify-between select-none ${t?`bg-gradient-to-r from-emerald-950/40 via-slate-900 to-slate-900 border-emerald-500/50 ring-1 ring-emerald-500/30 shadow-lg shadow-emerald-950/20`:`bg-slate-900/60 border-white/5 hover:border-white/20 hover:bg-slate-900/90`}" data-post-name="${E(e.post)}">
+                    <div class="flex items-center gap-3 min-w-0">
+                      <input type="checkbox" class="w-5 h-5 rounded cursor-pointer accent-emerald-500 post-checkbox pointer-events-none" ${t?`checked`:``} />
+                      <div class="min-w-0">
+                        <div class="font-bold text-sm text-white flex items-center gap-2 truncate">
+                          <span>${n}</span>
+                          <span class="truncate">${E(e.post)}</span>
+                        </div>
+                        <div class="text-[11px] text-slate-400 mt-0.5">
+                          ${t?`Split off to Additional Ballot (Part 2)`:`Included on Main Ballot (Part 1)`}
+                        </div>
+                      </div>
+                    </div>
+                    
+                    <div class="flex-shrink-0 ml-3">
+                      ${t?`
+                        <span class="px-2.5 py-1 rounded-full text-[11px] font-bold bg-emerald-500/15 text-emerald-300 border border-emerald-500/30 flex items-center gap-1 shadow-sm">
+                          📑 Part 2 (G2)
+                        </span>
+                      `:`
+                        <span class="px-2.5 py-1 rounded-full text-[11px] font-semibold bg-indigo-500/10 text-indigo-300 border border-indigo-500/20 flex items-center gap-1">
+                          📄 Main (G1)
+                        </span>
+                      `}
+                    </div>
+                  </div>
+                `}).join(``)}
+            </div>
+            ${u.length===0?`
+              <div class="p-4 rounded-xl bg-slate-800/50 text-center text-xs text-slate-400 italic">
+                No general posts found. Ensure posts are created under Post Settings.
+              </div>
+            `:``}
+          </div>
+
+          <!-- Live Ballot Partition Preview -->
+          <div class="pt-4 border-t border-white/10 space-y-4">
+            <div class="text-xs font-bold text-slate-300 uppercase tracking-wider flex items-center justify-between">
+              <span>Live Ballot Partition Preview</span>
+              <span class="text-xs text-slate-400 font-normal">Continuous serial numbers &amp; 50-slip booklets</span>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <!-- Part 1: Main Ballot Card -->
+              <div class="bg-slate-900/70 p-4 rounded-xl border border-indigo-500/30 space-y-3">
+                <div class="flex items-center justify-between">
+                  <div class="flex items-center gap-2">
+                    <span class="px-2.5 py-0.5 rounded text-xs font-bold bg-indigo-500/20 text-indigo-300 uppercase tracking-wider">
+                      ${e?`Ballot Part 1 (G1)`:`Single Unified Ballot (G)`}
+                    </span>
+                    <span class="text-xs text-slate-400">(${t.length} posts)</span>
+                  </div>
+                  <div class="text-[11px] text-slate-400 font-mono">
+                    ${e?`Serial: G1-1... | Books: GB1-...`:`Serial: G1... | Books: GB1...`}
+                  </div>
                 </div>
-                <button id="btnAddPart" class="btn btn-secondary py-1.5 px-3 text-xs border-dashed border-white/20 text-slate-300 hover:text-white hover:border-indigo-400">
-                  ➕ Add Additional Ballot Part
-                </button>
-              </div>
 
-              <!-- Parts Grid -->
-              <div class="grid grid-cols-1 lg:grid-cols-${Math.min(f.ballots.length,3)} gap-4" id="partsGrid">
-                ${f.ballots.map((e,t)=>`
-                  <div class="bg-slate-900/60 p-4 rounded-xl border border-indigo-500/20 space-y-3 relative group" data-part-index="${t}">
-                    <div class="flex justify-between items-center">
-                      <span class="text-xs font-bold px-2 py-0.5 rounded bg-indigo-500/20 text-indigo-300 uppercase tracking-wider">
-                        Part ${t+1} (${E(e.shortCode||`G`+(t+1))})
+                <div>
+                  <label class="text-[11px] font-semibold text-slate-400 block mb-1">Printed Title on Ballot:</label>
+                  <input type="text" id="inputPart1Title" class="input input-sm w-full bg-slate-800 border-white/10 text-xs text-white" value="${E(p.ballots[0].title)}" placeholder="e.g. General Union Posts - Main" />
+                </div>
+
+                <div class="flex items-center justify-between text-xs">
+                  <div class="flex items-center gap-2">
+                    <span class="text-slate-400 text-[11px]">Paper:</span>
+                    <select id="selectPart1Size" class="input input-sm bg-slate-800 border-white/10 text-xs text-white py-0 px-2 h-7">
+                      <option value="A3" ${p.ballots[0].paperSize===`A3`?`selected`:``}>A3 (2-Column Standard)</option>
+                      <option value="A4" ${p.ballots[0].paperSize===`A4`?`selected`:``}>A4 Sheet</option>
+                    </select>
+                  </div>
+                  <div class="text-[11px] text-indigo-300 font-medium">
+                    All voters receive this ballot
+                  </div>
+                </div>
+
+                <div class="pt-2 border-t border-white/5">
+                  <div class="text-[11px] font-semibold text-slate-400 mb-1.5">Included Posts:</div>
+                  <div class="flex flex-wrap gap-1.5 max-h-28 overflow-y-auto pr-1">
+                    ${t.map(e=>`
+                      <span class="px-2 py-0.5 rounded bg-slate-800 border border-white/10 text-[11px] text-slate-200 flex items-center gap-1">
+                        <span>${d(e)}</span> ${E(e)}
                       </span>
-                      ${f.ballots.length>2?`
-                        <button class="text-red-400 hover:text-red-300 text-xs px-2 py-0.5 rounded hover:bg-red-500/10 btn-remove-part" data-part-index="${t}" title="Remove Part">
-                          ✕ Remove
-                        </button>
-                      `:``}
-                    </div>
-
-                    <div class="space-y-2">
-                      <div>
-                        <label class="text-[11px] font-semibold text-slate-400 block mb-1">Ballot Title (Printed on Paper):</label>
-                        <input type="text" class="input input-sm w-full bg-slate-800/80 border-white/10 text-xs text-white part-title-input" data-part-index="${t}" value="${E(e.title)}" placeholder="e.g. General Union - Part 1" />
-                      </div>
-
-                      <div class="grid grid-cols-3 gap-2 text-[11px]">
-                        <div>
-                          <label class="text-slate-400 block mb-0.5">Series Code</label>
-                          <input type="text" class="input input-sm w-full bg-slate-800/80 border-white/10 text-xs text-white font-mono part-code-input" data-part-index="${t}" value="${E(e.shortCode||`G`+(t+1))}" placeholder="G1" />
-                        </div>
-                        <div>
-                          <label class="text-slate-400 block mb-0.5">Book Prefix</label>
-                          <input type="text" class="input input-sm w-full bg-slate-800/80 border-white/10 text-xs text-white font-mono part-book-input" data-part-index="${t}" value="${E(e.bookPrefix||`GB`+(t+1)+`-`)}" placeholder="GB1-" />
-                        </div>
-                        <div>
-                          <label class="text-slate-400 block mb-0.5">Paper Size</label>
-                          <select class="input input-sm w-full bg-slate-800/80 border-white/10 text-xs text-white part-size-select" data-part-index="${t}">
-                            <option value="A3" ${e.paperSize===`A3`?`selected`:``}>A3 (2-Col)</option>
-                            <option value="A4" ${e.paperSize===`A4`?`selected`:``}>A4 Sheet</option>
-                            <option value="A5" ${e.paperSize===`A5`?`selected`:``}>A5 Sheet</option>
-                          </select>
-                        </div>
-                      </div>
-                    </div>
-
-                    <!-- Assigned Posts List -->
-                    <div class="pt-2 border-t border-white/5 space-y-1.5">
-                      <label class="text-[11px] font-semibold text-slate-400 block">Assigned Posts (${e.posts?e.posts.length:0}):</label>
-                      <div class="space-y-1 max-h-48 overflow-y-auto pr-1">
-                        ${(e.posts||[]).map(e=>`
-                          <div class="flex items-center justify-between p-2 rounded bg-slate-800/60 border border-white/5 text-xs">
-                            <span class="text-slate-200 font-medium truncate" title="${E(e)}">${E(e)}</span>
-                            <select class="bg-slate-900 border border-white/10 text-[10px] text-slate-300 rounded px-1.5 py-0.5 move-post-select" data-post="${E(e)}" data-from-part="${t}">
-                              ${f.ballots.map((e,n)=>`
-                                <option value="${n}" ${n===t?`selected`:``}>Part ${n+1}</option>
-                              `).join(``)}
-                            </select>
-                          </div>
-                        `).join(``)}
-                        ${!e.posts||e.posts.length===0?`
-                          <div class="text-[11px] text-amber-400/80 italic p-2 text-center bg-amber-500/5 rounded">
-                            No posts assigned. Move posts here from other parts.
-                          </div>
-                        `:``}
-                      </div>
-                    </div>
+                    `).join(``)}
+                    ${t.length===0?`<span class="text-xs text-amber-400 italic">No posts assigned to Part 1.</span>`:``}
                   </div>
-                `).join(``)}
+                </div>
               </div>
 
-              <!-- Unassigned Posts Warning if any -->
-              ${(()=>{let e=new Set;f.ballots.forEach(t=>(t.posts||[]).forEach(t=>e.add(t)));let t=u.filter(t=>!e.has(t.post));return t.length===0?``:`
-                  <div class="p-3 rounded-xl bg-amber-500/10 border border-amber-500/20 text-xs text-amber-300 flex items-center justify-between">
-                    <div>
-                      <strong>⚠️ Unassigned General Posts (${t.length}):</strong> ${t.map(e=>E(e.post)).join(`, `)}
-                    </div>
-                    <button id="btnAutoAssign" class="px-2.5 py-1 rounded bg-amber-500/20 hover:bg-amber-500/30 text-amber-200 font-semibold text-[11px]">
-                      Assign to Part 1
-                    </button>
+              <!-- Part 2: Additional Ballot Card -->
+              <div class="bg-slate-900/70 p-4 rounded-xl border ${e?`border-emerald-500/30`:`border-white/10 opacity-70`} space-y-3">
+                <div class="flex items-center justify-between">
+                  <div class="flex items-center gap-2">
+                    <span class="px-2.5 py-0.5 rounded text-xs font-bold ${e?`bg-emerald-500/20 text-emerald-300`:`bg-slate-800 text-slate-500`} uppercase tracking-wider">
+                      Ballot Part 2 (G2)
+                    </span>
+                    <span class="text-xs ${e?`text-slate-300 font-semibold`:`text-slate-500`}">
+                      (${n.length} posts)
+                    </span>
                   </div>
-                `})()}
+                  <div class="text-[11px] font-mono ${e?`text-emerald-400`:`text-slate-500`}">
+                    ${e?`Serial: G2-1... | Books: GB2-...`:`Inactive`}
+                  </div>
+                </div>
 
-              <div class="flex justify-end pt-2">
-                <button id="btnSaveConfig" class="btn btn-primary py-2.5 px-6 text-xs font-bold shadow-lg shadow-indigo-500/20 flex items-center gap-2">
-                  💾 Save Structure &amp; Finalize Master Plan
-                </button>
+                ${e?`
+                  <div>
+                    <label class="text-[11px] font-semibold text-slate-400 block mb-1">Printed Title on Ballot:</label>
+                    <input type="text" id="inputPart2Title" class="input input-sm w-full bg-slate-800 border-white/10 text-xs text-white" value="${E(p.ballots[1]?.title||`Additional General Ballot`)}" placeholder="e.g. Additional General Ballot" />
+                  </div>
+
+                  <div class="flex items-center justify-between text-xs">
+                    <div class="flex items-center gap-2">
+                      <span class="text-slate-400 text-[11px]">Paper:</span>
+                      <select id="selectPart2Size" class="input input-sm bg-slate-800 border-white/10 text-xs text-white py-0 px-2 h-7">
+                        <option value="A3" ${(p.ballots[1]?.paperSize||`A3`)===`A3`?`selected`:``}>A3 (2-Column Standard)</option>
+                        <option value="A4" ${p.ballots[1]?.paperSize===`A4`?`selected`:``}>A4 Sheet</option>
+                        <option value="A5" ${p.ballots[1]?.paperSize===`A5`?`selected`:``}>A5 Sheet</option>
+                      </select>
+                    </div>
+                    <div class="text-[11px] text-emerald-300 font-medium">
+                      All voters receive this ballot
+                    </div>
+                  </div>
+
+                  <div class="pt-2 border-t border-white/5">
+                    <div class="text-[11px] font-semibold text-slate-400 mb-1.5">Split Posts:</div>
+                    <div class="flex flex-wrap gap-1.5 max-h-28 overflow-y-auto pr-1">
+                      ${n.map(e=>`
+                        <span class="px-2 py-0.5 rounded bg-emerald-950/40 border border-emerald-500/30 text-[11px] text-emerald-200 flex items-center gap-1">
+                          <span>${d(e)}</span> ${E(e)}
+                        </span>
+                      `).join(``)}
+                    </div>
+                  </div>
+                `:`
+                  <div class="py-8 px-4 text-center rounded-lg bg-slate-800/30 border border-dashed border-white/10 text-slate-400 text-xs space-y-1.5">
+                    <div class="text-sm font-semibold text-slate-300 flex items-center justify-center gap-1.5">
+                      <span>📄</span> All Posts on Single Master Ballot
+                    </div>
+                    <p class="text-[11px] text-slate-500 max-w-sm mx-auto">
+                      No posts selected to split. To detach posts into an Additional Ballot, check any of the posts above.
+                    </p>
+                  </div>
+                `}
               </div>
             </div>
-          `:`
-            <!-- Single Mode Summary -->
-            <div class="flex flex-col sm:flex-row items-center justify-between gap-4 p-4 rounded-xl bg-slate-900/60 border border-white/5">
-              <div class="space-y-1">
-                <div class="text-sm font-semibold text-slate-200 flex items-center gap-2">
-                  <span>📄</span> All ${u.length} General Union Posts are printed on a single <strong>A3 Master Ballot Sheet</strong>.
-                </div>
-                <div class="text-xs text-slate-400">
-                  Continuous sequential numbering: <code>G1, G2, G3...</code> | Standard 50-slip booklets: <code>GB1, GB2...</code>
-                </div>
-              </div>
-              <button id="btnSaveConfig" class="btn btn-secondary py-2 px-4 text-xs whitespace-nowrap border-indigo-500/30 text-indigo-300 hover:bg-indigo-500 hover:text-white">
-                💾 Confirm Single Mode &amp; Finalize
+
+            <!-- Save Action Button -->
+            <div class="flex justify-end pt-2">
+              <button id="btnSaveConfig" class="btn btn-primary py-2.5 px-6 text-xs font-bold shadow-lg shadow-indigo-500/20 flex items-center gap-2">
+                💾 Save Selection &amp; Finalize Master Plan
               </button>
             </div>
-          `}
+          </div>
         </div>
 
         <!-- Ballot Generation Action Cards -->
@@ -2148,33 +2210,49 @@ This will remove the final candidate list from public view.`)){D(n,!0,`🚫 Unpu
             <span>🖨️</span> Official Ballot Generation
           </h3>
           
-          <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             ${e?`
-              <!-- Split General Ballots Cards -->
-              ${f.ballots.map((e,t)=>`
-                <div class="glass p-6 rounded-2xl border border-white/10 space-y-4 hover:border-indigo-500/50 transition-all">
-                  <div class="text-indigo-400 font-bold flex items-center justify-between">
-                    <span class="flex items-center gap-2"><span>🏆</span> Part ${t+1} (${E(e.shortCode||`G`+(t+1))})</span>
-                    <span class="text-[10px] px-2 py-0.5 rounded bg-indigo-500/20 text-indigo-300 font-mono">${e.paperSize||`A3`}</span>
-                  </div>
-                  <p class="text-xs text-slate-400 leading-relaxed truncate" title="${E(e.title)}">
-                    ${E(e.title)}
-                  </p>
-                  <div class="text-[11px] text-slate-500">
-                    ${(e.posts||[]).length} Posts (${E(e.posts?e.posts.slice(0,2).join(`, `)+(e.posts.length>2?`...`:``):`None`)})
-                  </div>
-                  <button data-type="general_part:${e.id||`gen_`+(t+1)}" class="btn btn-primary w-full py-2.5 text-xs preview-btn">
-                    🖨️ Generate Part ${t+1}
-                  </button>
+              <!-- Part 1 Ballot -->
+              <div class="glass p-6 rounded-2xl border border-white/10 space-y-4 hover:border-indigo-500/50 transition-all">
+                <div class="text-indigo-400 font-bold flex items-center justify-between">
+                  <span class="flex items-center gap-2"><span>🏆</span> Part 1 (G1)</span>
+                  <span class="text-[10px] px-2 py-0.5 rounded bg-indigo-500/20 text-indigo-300 font-mono">${p.ballots[0].paperSize||`A3`}</span>
                 </div>
-              `).join(``)}
+                <p class="text-xs text-slate-400 leading-relaxed truncate" title="${E(p.ballots[0].title)}">
+                  ${E(p.ballots[0].title)}
+                </p>
+                <div class="text-[11px] text-slate-500">
+                  ${t.length} Posts (${E(t.slice(0,2).join(`, `)+(t.length>2?`...`:``))})
+                </div>
+                <button data-type="general_part:gen_1" class="btn btn-primary w-full py-2.5 text-xs preview-btn">
+                  🖨️ Generate Part 1 (G1)
+                </button>
+              </div>
 
+              <!-- Part 2 Ballot -->
+              <div class="glass p-6 rounded-2xl border border-white/10 space-y-4 hover:border-emerald-500/50 transition-all">
+                <div class="text-emerald-400 font-bold flex items-center justify-between">
+                  <span class="flex items-center gap-2"><span>📑</span> Part 2 (G2)</span>
+                  <span class="text-[10px] px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-300 font-mono">${p.ballots[1]?.paperSize||`A3`}</span>
+                </div>
+                <p class="text-xs text-slate-400 leading-relaxed truncate" title="${E(p.ballots[1]?.title||`Additional General Ballot`)}">
+                  ${E(p.ballots[1]?.title||`Additional General Ballot`)}
+                </p>
+                <div class="text-[11px] text-slate-500">
+                  ${n.length} Posts (${E(n.slice(0,2).join(`, `)+(n.length>2?`...`:``))})
+                </div>
+                <button data-type="general_part:gen_2" class="btn btn-primary w-full py-2.5 text-xs preview-btn">
+                  🖨️ Generate Part 2 (G2)
+                </button>
+              </div>
+
+              <!-- All General Parts Combined -->
               <div class="glass p-6 rounded-2xl border border-white/10 space-y-4 hover:border-indigo-500/50 transition-all bg-indigo-500/5">
                 <div class="text-indigo-300 font-bold flex items-center gap-2">
-                  <span>📑</span> All General Ballots
+                  <span>📚</span> All General Ballots
                 </div>
                 <p class="text-xs text-slate-400 leading-relaxed">
-                  Batch generates all ${f.ballots.length} General Ballot parts in sequence with page breaks.
+                  Batch generates both Part 1 and Part 2 in sequence with page breaks.
                 </p>
                 <div class="text-[11px] text-indigo-400/80">
                   Combined print run for press
@@ -2190,9 +2268,12 @@ This will remove the final candidate list from public view.`)){D(n,!0,`🚫 Unpu
                   <span>🏆</span> General Union (A3)
                 </div>
                 <p class="text-xs text-slate-400 leading-relaxed">
-                  All executive union posts in 2 columns. Designed for A3 paper. Chairman &amp; Vice Chairman on top.
+                  All executive union posts in 2 columns. Designed for A3 paper.
                 </p>
-                <button data-type="general" class="btn btn-primary w-full py-3 preview-btn">🖨️ Generate General Ballot</button>
+                <div class="text-[11px] text-slate-500">
+                  ${t.length} Posts (Single Master Sheet)
+                </div>
+                <button data-type="general" class="btn btn-primary w-full py-2.5 text-xs preview-btn">🖨️ Generate General Ballot</button>
               </div>
             `}
 
@@ -2204,7 +2285,7 @@ This will remove the final candidate list from public view.`)){D(n,!0,`🚫 Unpu
               <p class="text-xs text-slate-400 leading-relaxed">
                 1st, 2nd, 3rd Year &amp; PG Reps. Designed for A5 paper (one post per page).
               </p>
-              <button data-type="year" class="btn btn-primary w-full py-3 preview-btn">🖨️ Generate Year Reps</button>
+              <button data-type="year" class="btn btn-primary w-full py-2.5 text-xs preview-btn">🖨️ Generate Year Reps</button>
             </div>
 
             <!-- Association Reps -->
@@ -2215,7 +2296,7 @@ This will remove the final candidate list from public view.`)){D(n,!0,`🚫 Unpu
               <p class="text-xs text-slate-400 leading-relaxed">
                 Departmental Association Secretaries. Designed for A5 paper (one post per page).
               </p>
-              <button data-type="assoc" class="btn btn-primary w-full py-3 preview-btn">🖨️ Generate Associations</button>
+              <button data-type="assoc" class="btn btn-primary w-full py-2.5 text-xs preview-btn">🖨️ Generate Associations</button>
             </div>
 
             <!-- Summary Report -->
@@ -2224,14 +2305,14 @@ This will remove the final candidate list from public view.`)){D(n,!0,`🚫 Unpu
                 <span>📊</span> Printing Summary
               </div>
               <p class="text-xs text-slate-400 leading-relaxed">
-                Detailed serial number ranges, part splits, and book counts for the printing company.
+                Detailed serial number ranges, book counts, and packaging breakdown for printing press.
               </p>
-              <button id="btnGenSummary" class="btn btn-secondary w-full py-3 border-purple-500/30 text-purple-300 hover:bg-purple-500 hover:text-white">📑 View Summary Report</button>
+              <button id="btnGenSummary" class="btn btn-secondary w-full py-2.5 text-xs border-purple-500/30 text-purple-300 hover:bg-purple-500 hover:text-white">📑 View Summary Report</button>
             </div>
           </div>
         </div>
       </div>
-    `,m()},m=()=>{let e=r.querySelector(`#btnModeSingle`),n=r.querySelector(`#btnModeSplit`);e&&(e.onclick=()=>{f.isSplit=!1,p()}),n&&(n.onclick=()=>{f.isSplit=!0,p()});let i=r.querySelector(`#btnPresetExec`);i&&(i.onclick=()=>{f.isSplit=!0,f.ballots=[{id:`gen_1`,partNumber:1,title:`General Union Posts - Part 1 (Major Executive)`,shortCode:`G1`,bookPrefix:`GB1-`,paperSize:`A3`,posts:[`The Chairman`,`The Vice Chairman`,`The Secretary`,`The Joint Secretary`,`The University Union Councillor`]},{id:`gen_2`,partNumber:2,title:`General Union Posts - Part 2 (Arts, Sports & Editorial)`,shortCode:`G2`,bookPrefix:`GB2-`,paperSize:`A3`,posts:[`The Chief Student Editor`,`The Secretary Fine Arts`,`The General Captain For Sports And Games`]}],p(),O(`Applied Executive + Activities Split Preset`,`info`)});let a=r.querySelector(`#btnPreset3Way`);a&&(a.onclick=()=>{f.isSplit=!0,f.ballots=[{id:`gen_1`,partNumber:1,title:`General Union Posts - Part 1 (Executive Officers)`,shortCode:`G1`,bookPrefix:`GB1-`,paperSize:`A4`,posts:[`The Chairman`,`The Vice Chairman`,`The Secretary`,`The Joint Secretary`]},{id:`gen_2`,partNumber:2,title:`General Union Posts - Part 2 (University Councillors)`,shortCode:`G2`,bookPrefix:`GB2-`,paperSize:`A4`,posts:[`The University Union Councillor`]},{id:`gen_3`,partNumber:3,title:`General Union Posts - Part 3 (Arts, Sports & Editor)`,shortCode:`G3`,bookPrefix:`GB3-`,paperSize:`A4`,posts:[`The Chief Student Editor`,`The Secretary Fine Arts`,`The General Captain For Sports And Games`]}],p(),O(`Applied 3-Way Split Preset`,`info`)});let o=r.querySelector(`#btnAddPart`);o&&(o.onclick=()=>{let e=f.ballots.length+1;f.ballots.push({id:`gen_${e}`,partNumber:e,title:`General Union Posts - Part ${e}`,shortCode:`G${e}`,bookPrefix:`GB${e}-`,paperSize:`A3`,posts:[]}),p()}),r.querySelectorAll(`.btn-remove-part`).forEach(e=>{e.onclick=()=>{let t=parseInt(e.dataset.partIndex,10);if(f.ballots.length<=2){O(`At least 2 parts are required for split mode. To keep all in one, switch to Single Unified Ballot.`,`warning`);return}let n=f.ballots.splice(t,1)[0];n&&n.posts&&n.posts.length>0&&f.ballots[0].posts.push(...n.posts),f.ballots.forEach((e,t)=>{e.partNumber=t+1}),p()}}),r.querySelectorAll(`.part-title-input`).forEach(e=>{e.onchange=()=>{let t=parseInt(e.dataset.partIndex,10);f.ballots[t]&&(f.ballots[t].title=e.value.trim())}}),r.querySelectorAll(`.part-code-input`).forEach(e=>{e.onchange=()=>{let t=parseInt(e.dataset.partIndex,10);f.ballots[t]&&(f.ballots[t].shortCode=e.value.trim().toUpperCase())}}),r.querySelectorAll(`.part-book-input`).forEach(e=>{e.onchange=()=>{let t=parseInt(e.dataset.partIndex,10);f.ballots[t]&&(f.ballots[t].bookPrefix=e.value.trim().toUpperCase())}}),r.querySelectorAll(`.part-size-select`).forEach(e=>{e.onchange=()=>{let t=parseInt(e.dataset.partIndex,10);f.ballots[t]&&(f.ballots[t].paperSize=e.value)}}),r.querySelectorAll(`.move-post-select`).forEach(e=>{e.onchange=()=>{let t=e.dataset.post,n=parseInt(e.dataset.fromPart,10),r=parseInt(e.value,10);n!==r&&(f.ballots[n].posts=f.ballots[n].posts.filter(e=>e!==t),f.ballots[r].posts.includes(t)||f.ballots[r].posts.push(t),p())}});let s=r.querySelector(`#btnAutoAssign`);s&&(s.onclick=()=>{let e=new Set;f.ballots.forEach(t=>(t.posts||[]).forEach(t=>e.add(t))),u.forEach(t=>{e.has(t.post)||(f.ballots[0].posts.push(t.post),e.add(t.post))}),p()}),r.querySelectorAll(`#btnSaveConfig`).forEach(e=>{e.onclick=async()=>{let n=e.innerHTML;try{D(e,!0,n),O(`Saving ballot structure & regenerating plan...`,`info`),await C.adminSaveBallotConfig(t,f),(await C.adminGenerateBallotPlan(t)).plan,O(`Ballot structure saved & Master Plan finalized!`,`success`),p()}catch(e){O(`Error: ${e.message}`,`error`)}finally{D(e,!1,n)}}});let c=r.querySelector(`#btnRegenPlanTop`);c&&(c.onclick=async()=>{let e=`🔄 Finalize Master Plan`;try{D(c,!0,e),O(`Calculating and saving Master Plan on server...`,`info`),await C.adminGenerateBallotPlan(t),await C.adminGetBallotPlan(t).catch(()=>null),O(`Master Plan finalized successfully!`,`success`)}catch(e){O(e.message,`error`)}finally{D(c,!1,e)}});let l=r.querySelector(`#btnGenSummary`);l&&(l.onclick=v),r.querySelectorAll(`.preview-btn`).forEach(e=>{e.onclick=()=>_(e.dataset.type)})},h=e=>{let t=window.open(``,`_blank`);t.document.write(`
+    `,_()},_=()=>{r.querySelectorAll(`.post-select-card`).forEach(e=>{e.onclick=()=>{let t=e.dataset.postName;t&&(m.has(t)?m.delete(t):m.add(t),h(),g())}});let e=r.querySelector(`#btnQuickArtsSports`);e&&(e.onclick=()=>{m.clear(),u.forEach(e=>{let t=e.post.toLowerCase();(t.includes(`editor`)||t.includes(`arts`)||t.includes(`captain`)||t.includes(`sports`))&&m.add(e.post)}),h(),g(),O(`Selected Arts, Sports & Editorial for Additional Ballot`,`info`)});let n=r.querySelector(`#btnQuickCouncil`);n&&(n.onclick=()=>{m.clear(),u.forEach(e=>{let t=e.post.toLowerCase();(t.includes(`uuc`)||t.includes(`councillor`)||t.includes(`editor`)||t.includes(`arts`)||t.includes(`captain`)||t.includes(`sports`))&&m.add(e.post)}),h(),g(),O(`Selected Council & Activities for Additional Ballot`,`info`)});let i=r.querySelector(`#btnInvertSelect`);i&&(i.onclick=()=>{u.forEach(e=>{m.has(e.post)?m.delete(e.post):m.add(e.post)}),h(),g()});let a=r.querySelector(`#btnClearSplit`);a&&(a.onclick=()=>{m.clear(),h(),g(),O(`Selection cleared. Reset to Single Unified Ballot.`,`info`)});let o=r.querySelector(`#inputPart1Title`);o&&(o.onchange=()=>{p.ballots[0].title=o.value.trim()||`General Union Posts - Main`});let s=r.querySelector(`#selectPart1Size`);s&&(s.onchange=()=>{p.ballots[0].paperSize=s.value});let c=r.querySelector(`#inputPart2Title`);c&&(c.onchange=()=>{p.ballots[1]&&(p.ballots[1].title=c.value.trim()||`Additional General Ballot`)});let l=r.querySelector(`#selectPart2Size`);l&&(l.onchange=()=>{p.ballots[1]&&(p.ballots[1].paperSize=l.value)});let d=r.querySelector(`#btnSaveConfig`);d&&(d.onclick=async()=>{let e=d.innerHTML;try{D(d,!0,e),O(`Saving ballot selection & calculating Master Plan...`,`info`),await C.adminSaveBallotConfig(t,p),(await C.adminGenerateBallotPlan(t)).plan,O(`Ballot selection saved & Master Plan finalized!`,`success`),g()}catch(e){O(`Error: ${e.message}`,`error`)}finally{D(d,!1,e)}});let f=r.querySelector(`#btnRegenPlanTop`);f&&(f.onclick=async()=>{let e=`🔄 Finalize Master Plan`;try{D(f,!0,e),O(`Calculating and saving Master Plan on server...`,`info`),await C.adminGenerateBallotPlan(t),await C.adminGetBallotPlan(t).catch(()=>null),O(`Master Plan finalized successfully!`,`success`)}catch(e){O(e.message,`error`)}finally{D(f,!1,e)}});let _=r.querySelector(`#btnGenSummary`);_&&(_.onclick=x),r.querySelectorAll(`.preview-btn`).forEach(e=>{e.onclick=()=>b(e.dataset.type)})},v=e=>{let t=window.open(``,`_blank`);t.document.write(`
       <html>
         <head>
           <title>Official Ballots - ${n.COLLEGE_SHORT_NAME} Election</title>
@@ -2307,7 +2388,7 @@ This will remove the final candidate list from public view.`)){D(n,!0,`🚫 Unpu
           ${e}
         </body>
       </html>
-    `),t.document.close()},g=async(e=`all`)=>{let r,i,a,s;try{[r,i,a,s]=await Promise.all([C.adminGetPosts(t),C.adminGetFinalNominations(t).catch(async()=>{let e=await C.adminGetNominations(t).catch(()=>[]);return{active:e.filter(e=>e.status!==`Rejected`&&e.withdrawalStatus!==`Approved`),withdrawn:e.filter(e=>e.withdrawalStatus===`Approved`),isPublished:!1}}),C.getPublicSchedule(),C.adminGetSettings(t).catch(()=>({}))])}catch(e){throw Error(e.message.includes(`not published`)?`Final List Not Published. Please finalize and publish the list first.`:e.message)}let u=s.collegeName||n.COLLEGE_NAME,d=s.collegeShortName||n.COLLEGE_SHORT_NAME,p=a.electionYear||new Date().getFullYear().toString(),m=Array.isArray(i)?i:i?.active||[];if(m.length===0)throw Error(`No active candidates found. Please ensure candidates are nominated and verified.`);let h=r.filter(e=>m.filter(t=>t.post===e.post).length>1),g=!!f.isSplit,_=``,v=(e,t)=>{if(!t||t.length===0)return``;let n=(e.paperSize||`A3`).toLowerCase(),r=e.shortCode===`G`?`G`:(e.shortCode||`G1`)+`-`,i=e.title||`OFFICIAL BALLOT PAPER (GENERAL)`,a=[...t].sort((e,t)=>{let n=e.post.toLowerCase(),r=t.post.toLowerCase();return n.includes(`chairman`)&&!n.includes(`vice`)?-1:r.includes(`chairman`)&&!r.includes(`vice`)?1:n.includes(`vice chairman`)?-1:r.includes(`vice chairman`)||n.includes(`university union councillor`)||n.includes(`uuc`)?1:r.includes(`university union councillor`)||r.includes(`uuc`)?-1:0}),o=``,s=``;return a.forEach((e,t)=>{let n=m.filter(t=>t.post===e.post),r=`
+    `),t.document.close()},y=async(e=`all`)=>{let r,i,a,s;try{[r,i,a,s]=await Promise.all([C.adminGetPosts(t),C.adminGetFinalNominations(t).catch(async()=>{let e=await C.adminGetNominations(t).catch(()=>[]);return{active:e.filter(e=>e.status!==`Rejected`&&e.withdrawalStatus!==`Approved`),withdrawn:e.filter(e=>e.withdrawalStatus===`Approved`),isPublished:!1}}),C.getPublicSchedule(),C.adminGetSettings(t).catch(()=>({}))])}catch(e){throw Error(e.message.includes(`not published`)?`Final List Not Published. Please finalize and publish the list first.`:e.message)}let u=s.collegeName||n.COLLEGE_NAME,d=s.collegeShortName||n.COLLEGE_SHORT_NAME,f=a.electionYear||new Date().getFullYear().toString(),m=Array.isArray(i)?i:i?.active||[];if(m.length===0)throw Error(`No active candidates found. Please ensure candidates are nominated and verified.`);let h=r.filter(e=>m.filter(t=>t.post===e.post).length>1),g=!!p.isSplit,_=``,v=(e,t)=>{if(!t||t.length===0)return``;let n=(e.paperSize||`A3`).toLowerCase(),r=e.shortCode===`G`?`G`:(e.shortCode||`G1`)+`-`,i=e.title||`OFFICIAL BALLOT PAPER (GENERAL)`,a=[...t].sort((e,t)=>{let n=e.post.toLowerCase(),r=t.post.toLowerCase();return n.includes(`chairman`)&&!n.includes(`vice`)?-1:r.includes(`chairman`)&&!r.includes(`vice`)?1:n.includes(`vice chairman`)?-1:r.includes(`vice chairman`)||n.includes(`university union councillor`)||n.includes(`uuc`)?1:r.includes(`university union councillor`)||r.includes(`uuc`)?-1:0}),o=``,s=``;return a.forEach((e,t)=>{let n=m.filter(t=>t.post===e.post),r=`
           <div class="post-box">
             <div class="post-title">${E(e.post.toUpperCase())}</div>
             ${n.map((e,t)=>`
@@ -2326,7 +2407,7 @@ This will remove the final candidate list from public view.`)){D(n,!0,`🚫 Unpu
         <div class="ballot-container ${n} page-break">
           <!-- Counterfoil -->
           <div style="border-bottom: 2px dotted #000; padding-bottom: 18px; margin-bottom: 25px; text-align: center;">
-            <h1 style="font-size: 15px; margin: 0;">COLLEGE UNION ELECTION ${p}</h1>
+            <h1 style="font-size: 15px; margin: 0;">COLLEGE UNION ELECTION ${f}</h1>
             <h1 style="font-size: 17px; margin: 4px 0;">${E(u)}</h1>
             <h2 style="font-size: 13px; margin: 0;">${E(i.toUpperCase())} - COUNTERFOIL</h2>
             <div style="margin-top: 12px; font-weight: bold; text-align: left; display: flex; flex-direction: column; gap: 6px;">
@@ -2339,7 +2420,7 @@ This will remove the final candidate list from public view.`)){D(n,!0,`🚫 Unpu
           </div>
 
           <div class="ballot-header">
-            <h1>COLLEGE UNION ELECTION ${p}</h1>
+            <h1>COLLEGE UNION ELECTION ${f}</h1>
             <h1>${E(u)}</h1>
             <h2>${E(i.toUpperCase())}</h2>
           </div>
@@ -2350,11 +2431,11 @@ This will remove the final candidate list from public view.`)){D(n,!0,`🚫 Unpu
             <div class="ballot-col">${s}</div>
           </div>
         </div>
-      `};if(e===`all`||e===`general`||e.startsWith(`general_part:`)){let t=h.filter(l);if(g){let n=f.ballots;if(e.startsWith(`general_part:`)){let t=e.replace(`general_part:`,``);n=f.ballots.filter(e=>e.id===t)}n.forEach(e=>{let n=t.filter(t=>(e.posts||[]).includes(t.post));_+=v(e,n)})}else _+=v({title:`OFFICIAL BALLOT PAPER (GENERAL)`,shortCode:`G`,paperSize:`A3`},t)}let y=h.filter(e=>c(e)||o(e));return(e===`all`||e===`year`||e===`assoc`)&&y.filter(t=>e===`all`||e===`year`&&c(t)||e===`assoc`&&o(t)).forEach(e=>{let t=m.filter(t=>t.post===e.post),n=c(e)?`R`:`A`;_+=`
+      `};if(e===`all`||e===`general`||e.startsWith(`general_part:`)){let t=h.filter(l);if(g){let n=p.ballots;if(e.startsWith(`general_part:`)){let t=e.replace(`general_part:`,``);n=p.ballots.filter(e=>e.id===t)}n.forEach(e=>{let n=t.filter(t=>(e.posts||[]).includes(t.post));_+=v(e,n)})}else _+=v({title:`OFFICIAL BALLOT PAPER (GENERAL)`,shortCode:`G`,paperSize:`A3`},t)}let y=h.filter(e=>c(e)||o(e));return(e===`all`||e===`year`||e===`assoc`)&&y.filter(t=>e===`all`||e===`year`&&c(t)||e===`assoc`&&o(t)).forEach(e=>{let t=m.filter(t=>t.post===e.post),n=c(e)?`R`:`A`;_+=`
           <div class="ballot-container a5 page-break">
             <!-- Counterfoil -->
             <div style="border-bottom: 2px dotted #000; padding-bottom: 15px; margin-bottom: 20px; text-align: center;">
-              <h1 style="font-size: 14px; margin: 0;">${E(d)} ELECTION ${p}</h1>
+              <h1 style="font-size: 14px; margin: 0;">${E(d)} ELECTION ${f}</h1>
               <h2 style="font-size: 12px; margin: 2px 0;">OFFICIAL BALLOT (${n}) - COUNTERFOIL</h2>
               <div style="margin-top: 10px; font-weight: bold; text-align: left; display: flex; flex-direction: column; gap: 5px; font-size: 11px;">
                 <div style="display: flex; justify-content: space-between;">
@@ -2366,7 +2447,7 @@ This will remove the final candidate list from public view.`)){D(n,!0,`🚫 Unpu
             </div>
 
             <div class="ballot-header">
-              <h1>${E(d)} ELECTION ${p}</h1>
+              <h1>${E(d)} ELECTION ${f}</h1>
               <h2 style="font-size: 15px; margin-top: 5px; font-weight: bold;">BALLOT PAPER (${n})</h2>
             </div>
             <div class="meta-row" style="font-size: 12px;"><div>SL.NO. ${n}____________</div><div>PRO Sign</div></div>
@@ -2385,7 +2466,7 @@ This will remove the final candidate list from public view.`)){D(n,!0,`🚫 Unpu
               <div class="candidate-row"><div class="sl-no">${t.length+1}</div><div class="c-name">NOTA</div><div class="stamp-box"></div></div>
             </div>
           </div>
-        `}),_},_=async e=>{try{O(`Generating ballots...`,`info`),h(await g(e))}catch(e){O(e.message,`error`)}},v=async()=>{try{O(`Calculating Master Plan...`,`info`);let[e,r,i]=await Promise.all([C.getPublicSchedule(),C.adminGetSettings(t).catch(()=>({})),C.adminGetBallotPlan(t).catch(()=>null)]),a=i;if(!a)if(confirm(`No Master Plan found. Generate it now based on current final list and booths?`))await C.adminGenerateBallotPlan(t),a=await C.adminGetBallotPlan(t).catch(()=>null);else return;let o=e.electionYear||new Date().getFullYear(),s=r.collegeName||`Government Victoria College Palakkad`,c=e=>!e||Array.isArray(e)&&e.length===0?`-`:typeof e==`string`?e:`
+        `}),_},b=async e=>{try{O(`Generating ballots...`,`info`),v(await y(e))}catch(e){O(e.message,`error`)}},x=async()=>{try{O(`Calculating Master Plan...`,`info`);let[e,r,i]=await Promise.all([C.getPublicSchedule(),C.adminGetSettings(t).catch(()=>({})),C.adminGetBallotPlan(t).catch(()=>null)]),a=i;if(!a)if(confirm(`No Master Plan found. Generate it now based on current final list and booths?`))await C.adminGenerateBallotPlan(t),a=await C.adminGetBallotPlan(t).catch(()=>null);else return;let o=e.electionYear||new Date().getFullYear(),s=r.collegeName||`Government Victoria College Palakkad`,c=e=>!e||Array.isArray(e)&&e.length===0?`-`:typeof e==`string`?e:`
           <table style="width:100%; border-collapse:collapse; font-size:10px; background:rgba(0,0,0,0.02);">
             ${e.map(e=>`
               <tr>
@@ -2396,7 +2477,7 @@ This will remove the final candidate list from public view.`)){D(n,!0,`🚫 Unpu
               </tr>
             `).join(``)}
           </table>
-        `,l=!!(a.isSplit&&Array.isArray(a.generalParts)&&a.generalParts.length>1);h(`
+        `,l=!!(a.isSplit&&Array.isArray(a.generalParts)&&a.generalParts.length>1);v(`
         <div style="padding: 40px; font-family: sans-serif; color: #333;">
           <div style="text-align: center; border-bottom: 2px solid #000; padding-bottom: 20px; margin-bottom: 30px;">
             <h1 style="margin: 0; font-size: 24px;">BALLOT PRINTING SUMMARY - ${o}</h1>
@@ -2551,7 +2632,7 @@ This will remove the final candidate list from public view.`)){D(n,!0,`🚫 Unpu
             Generated on ${new Date().toLocaleString()} | Official ${n.COLLEGE_SHORT_NAME} Election Portal
           </div>
         </div>
-      `)}catch(e){O(e.message,`error`)}};p()}function nt(e){let t=I();if(!t)return;L(e,`testing`,`
+      `)}catch(e){O(e.message,`error`)}};g()}function nt(e){let t=I();if(!t)return;L(e,`testing`,`
     <div class="page-enter space-y-8 max-w-3xl mx-auto">
 
       <!-- Warning Banner -->

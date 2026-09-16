@@ -1142,7 +1142,14 @@ function doPost(e) {
       // Check 1: Nominal Roll vs Ballot Plan
       if (plan) {
         let expectedGeneral = students.length;
-        if (plan.general && plan.general.total !== expectedGeneral) {
+        if (plan.isSplit && Array.isArray(plan.generalParts) && plan.generalParts.length > 1) {
+          plan.generalParts.forEach(gp => {
+            if (gp.total !== expectedGeneral) {
+              rollCheck.pass = false;
+              rollCheck.details.push(`${gp.title || 'General Part'}: Expected ${expectedGeneral} voters, Planned ${gp.total}`);
+            }
+          });
+        } else if (plan.general && plan.general.total !== expectedGeneral) {
            rollCheck.pass = false;
            rollCheck.details.push(`General Ballots mismatch: Expected ${expectedGeneral}, Planned ${plan.general.total}`);
         }
@@ -1152,7 +1159,7 @@ function doPost(e) {
       }
 
       // Check 2: Serial Number Integrity
-      const getStudent = (sl) => students.find(s => s.SL_NO == sl);
+      const getStudent = (sl) => students.find(s => String(s['Nominal Roll Serial Number'] || s.SL_NO || s['SL NO'] || s['Serial Number'] || s['serial_number'] || '').trim() === String(sl || '').trim());
       noms.forEach(n => {
         if (!n.candidateSerial) return;
         const c = getStudent(n.candidateSerial);

@@ -264,7 +264,7 @@ function renderBoothsUI(main, pwd, nominalRoll, initialBooths, initialLocations,
               @page { size: A4 portrait; margin: 10mm; }
               body { font-family: sans-serif; color: #333; margin: 0; padding: 0; }
               .page-break { page-break-after: always; }
-              .account-page { padding: 20px; display: flex; flex-direction: column; box-sizing: border-box; border: 1px solid #ccc; margin: 5px; height: 250mm; position: relative; }
+              .account-page { padding: 20px; display: flex; flex-direction: column; box-sizing: border-box; border: 1px solid #ccc; margin: 5px; min-height: 250mm; position: relative; }
               .header { text-align: center; border-bottom: 2px solid #000; padding-bottom: 10px; margin-bottom: 15px; }
               .college-name { font-size: 20px; font-weight: bold; margin-bottom: 3px; }
               .title { font-size: 15px; font-weight: bold; text-transform: uppercase; letter-spacing: 1px; }
@@ -548,7 +548,7 @@ function renderBoothsUI(main, pwd, nominalRoll, initialBooths, initialLocations,
             <tbody>
               ${classStudents.map(s => `
                 <tr>
-                  <td style="text-align:center; font-weight:bold;">${esc(String(s['Nominal Roll Serial Number'] || '–'))}</td>
+                  <td style="text-align:center; font-weight:bold;">${esc(String(s['Nominal Roll Serial Number'] || s['SL_NO'] || s['SL NO'] || s['Serial Number'] || s['serial_number'] || '–'))}</td>
                   <td style="font-family:monospace; font-size:9px; white-space:nowrap;">${esc(s['ADMISION NO'] || s['ADMISSION NO'] || '–')}</td>
                   <td style="font-weight:bold; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">${esc(s['NAME'])}</td>
                   <td style="font-size:9px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">${esc(s['CLASS'])}</td>
@@ -557,6 +557,10 @@ function renderBoothsUI(main, pwd, nominalRoll, initialBooths, initialLocations,
               `).join('')}
             </tbody>
           </table>
+          <div style="display:flex; justify-content:space-between; margin-top:14px; padding:6px 12px; font-size:10px; font-weight:bold; border-top:1.5px solid #000;">
+            <div>Verified by Polling Officer: ___________________</div>
+            <div>Signature of Presiding Officer: ___________________</div>
+          </div>
         </div>`;
       });
     });

@@ -197,11 +197,11 @@ function renderResultsUI(main, pwd, posts, candidates, results, schedule, sets, 
                     </thead>
                     <tbody class="divide-y divide-white/5">
                       ${res.candidates.map((c, i) => {
-                        const isWinning = i < seats && c.votes > 0;
-                        const lead = isWinning ? (c.votes - leadThreshold) : 0;
+                        const isLeading = i < seats && c.votes > 0;
+                        const lead = isLeading ? (c.votes - leadThreshold) : 0;
                         
                         return `
-                          <tr class="${isWinning ? 'bg-white/[0.02]' : ''}">
+                          <tr class="${isLeading ? 'bg-white/[0.02]' : ''}">
                             <td class="py-4">
                               <div class="flex items-center gap-2">
                                 <span class="font-bold text-white">${esc(c.candidateName)}</span>
@@ -209,13 +209,15 @@ function renderResultsUI(main, pwd, posts, candidates, results, schedule, sets, 
                               </div>
                             </td>
                             <td class="py-4 text-slate-400 text-center text-[11px]">${esc(c.candidateClass)}</td>
-                            <td class="py-4 text-right font-mono text-lg ${isWinning ? 'text-emerald-400' : 'text-slate-300'}">
+                            <td class="py-4 text-right font-mono text-lg ${isLeading ? 'text-amber-400' : 'text-slate-300'}">
                               ${res.type === 'unanimous' ? '—' : c.votes}
                             </td>
                             <td class="py-4 text-center">
-                              ${isWinning ? 
-                                `<span class="text-emerald-400 text-[10px] font-black border border-emerald-400/30 px-2 py-0.5 rounded bg-emerald-500/10">WINNING</span>` : 
-                                ''
+                              ${isLeading ? 
+                                (isLocked ? 
+                                  `<span class="text-emerald-400 text-[10px] font-black border border-emerald-400/30 px-2 py-0.5 rounded bg-emerald-500/10 tracking-wider">ELECTED</span>` : 
+                                  `<span class="text-amber-400 text-[10px] font-black border border-amber-400/30 px-2 py-0.5 rounded bg-amber-500/10 tracking-wider">LEADING</span>`
+                                ) : ''
                               }
                             </td>
                           </tr>

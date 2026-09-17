@@ -256,19 +256,24 @@ function updateHeader(main, year) {
             ${valids.map((c, i) => {
               const percentage = grandTotal > 0 ? ((c.votes / grandTotal) * 100).toFixed(1) : 0;
               const barWidth = maxVotes > 0 ? (c.votes / maxVotes) * 100 : 0;
-              const isWinning = i < seats && c.votes > 0;
-              const lead = isWinning ? (c.votes - leadThreshold) : 0;
+              const isLeading = i < seats && c.votes > 0;
+              const lead = isLeading ? (c.votes - leadThreshold) : 0;
+              const isLocked = sets?.resultsLocked === 'true';
 
               return `
                 <div class="relative">
                   <div class="flex justify-between items-end mb-2 relative z-10">
                     <div class="flex items-center gap-3">
-                      <div class="w-8 h-8 rounded-full ${isWinning ? 'bg-amber-500 text-amber-950' : 'bg-white/10 text-white'} flex items-center justify-center font-bold text-sm shadow-lg">
-                        ${isWinning ? '🏆' : i + 1}
+                      <div class="w-8 h-8 rounded-full ${isLeading ? (isLocked ? 'bg-emerald-500 text-emerald-950' : 'bg-amber-500 text-amber-950') : 'bg-white/10 text-white'} flex items-center justify-center font-bold text-sm shadow-lg">
+                        ${isLeading ? (isLocked ? '🏆' : '★') : i + 1}
                       </div>
                       <div>
                         <div class="flex items-center gap-2">
                           <span class="font-bold text-white text-lg">${esc(c.name)}</span>
+                          ${isLeading ? (isLocked ? 
+                            `<span class="bg-emerald-500/20 text-emerald-300 text-[10px] px-2 py-0.5 rounded-full font-black border border-emerald-500/30 tracking-wider">ELECTED</span>` : 
+                            `<span class="bg-amber-500/20 text-amber-300 text-[10px] px-2 py-0.5 rounded-full font-black border border-amber-500/30 tracking-wider">LEADING</span>`
+                          ) : ''}
                           ${lead > 0 ? `<span class="bg-green-500/20 text-green-400 text-[10px] px-2 py-0.5 rounded-full font-bold border border-green-500/30">LEAD: ${lead}</span>` : ''}
                         </div>
                       </div>
@@ -279,7 +284,7 @@ function updateHeader(main, year) {
                     </div>
                   </div>
                   <div class="h-4 w-full bg-slate-800 rounded-full overflow-hidden relative">
-                    <div class="h-full rounded-full transition-all duration-1000 ease-out ${isWinning ? 'bg-gradient-to-r from-amber-400 to-amber-600' : 'bg-gradient-to-r from-indigo-500 to-purple-600'}" style="width: ${barWidth}%"></div>
+                    <div class="h-full rounded-full transition-all duration-1000 ease-out ${isLeading ? (isLocked ? 'bg-gradient-to-r from-emerald-400 to-emerald-600' : 'bg-gradient-to-r from-amber-400 to-amber-600') : 'bg-gradient-to-r from-indigo-500 to-purple-600'}" style="width: ${barWidth}%"></div>
                   </div>
                 </div>
               `;

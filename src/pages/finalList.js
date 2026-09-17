@@ -5,18 +5,20 @@
 import { api } from '../api.js';
 import { router } from '../router.js';
 import { esc } from '../utils.js';
+import { CONFIG } from '../config.js';
 
 export async function renderFinalList(container) {
   let year = new Date().getFullYear();
-  let shortName = 'GVC';
+  let shortName = CONFIG.COLLEGE_SHORT_NAME;
   try {
     const [s, sets] = await Promise.all([
-      api.getPublicSchedule(),
+      api.getPublicSchedule().catch(() => ({})),
       api.getSettings().catch(() => ({}))
     ]);
     if (s.electionYear) year = s.electionYear;
     if (sets.electionYear) year = sets.electionYear;
-    if (sets.shortName) shortName = sets.shortName;
+    if (sets.collegeShortName) shortName = sets.collegeShortName;
+    else if (sets.shortName) shortName = sets.shortName;
   } catch(e) {}
 
   container.innerHTML = publicLayout('Final Candidates List', `
@@ -27,9 +29,9 @@ export async function renderFinalList(container) {
   try {
     const data = await api.getFinalNominations();
     // getFinalNominations returns { active: [], withdrawn: [] }
-    renderList(container.querySelector('main'), data.active || [], year);
+    renderList(container.querySelector('main'), data?.active || [], year);
   } catch (e) {
-    container.querySelector('main').innerHTML = `<div class="alert alert-warning text-center py-10 shadow-xl">${esc(e.message)}</div>`;
+    renderList(container.querySelector('main'), [], year);
   }
 }
 
@@ -87,8 +89,14 @@ function renderList(main, nominations, year) {
                     <tr class="hover:bg-white/[0.02] transition-colors">
                       <td class="text-slate-600 font-mono text-xs text-center">${i + 1}</td>
                       <td>
-                        <div class="font-bold text-white text-base">${esc(n.candidateName)}</div>
-                        <div class="text-xs text-slate-500 mt-0.5">${esc(n.candidateClass)}</div>
+                        <div class="font-bold text-white text-base flex items-center gap-2">
+                          <span>${esc(n.candidateName)}</span>
+                          ${n.candidateSerial ? `<span class="inline-flex items-center px-1.5 py-0.5 rounded text-[10px] font-mono font-semibold bg-emerald-500/20 text-emerald-300 border border-emerald-500/30" title="Electoral Roll Serial Number">Roll Sl. #${esc(n.candidateSerial)}</span>` : ''}
+                        </div>
+                        <div class="text-xs text-slate-400 mt-0.5 flex items-center gap-2">
+                          <span>${esc(n.candidateClass)}</span>
+                          ${n.candidateAdmission ? `<span class="text-slate-500 font-mono">Adm: ${esc(n.candidateAdmission)}</span>` : ''}
+                        </div>
                       </td>
                       <td class="text-sm text-slate-400">${esc(n.candidateDept)}</td>
                     </tr>
@@ -102,7 +110,8 @@ function renderList(main, nominations, year) {
     </div>`;
 }
 
-function publicLayout(title, bodyHtml, yearValue = '2026', shortName = 'GVC') {
+function publicLayout(title, bodyHtml, yearValue = '2026', shortName = null) {
+  const brandShort = shortName || CONFIG.COLLEGE_SHORT_NAME;
   return `
   <div class="page-enter min-h-screen">
     <header class="no-print sticky top-0 z-10 border-b border-white/10 glass">
@@ -112,7 +121,7 @@ function publicLayout(title, bodyHtml, yearValue = '2026', shortName = 'GVC') {
           <span class="text-slate-600">|</span>
           <h1 class="font-bold text-white text-sm tracking-tight">${esc(title)}</h1>
         </div>
-        <div class="text-[10px] text-slate-500 font-mono hidden sm:block">${esc(shortName || 'GVC').toUpperCase()} ELECTION PORTAL ${yearValue}</div>
+        <div class="text-[10px] text-slate-500 font-mono hidden sm:block">${esc(brandShort).toUpperCase()} ELECTION PORTAL ${yearValue}</div>
       </div>
     </header>
     <main class="max-w-5xl mx-auto px-4 py-12">${bodyHtml}</main>

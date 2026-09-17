@@ -6,34 +6,70 @@ import { api } from '../../api.js';
 import { renderAdminLayout, getAdminPassword } from './layout.js';
 import { esc, showToast, setLoading } from '../../utils.js';
 import { CONFIG } from '../../config.js';
+import { openPrintRollModal } from '../../rollPrinter.js';
 
 export async function renderAdminNominalRoll(container) {
   const pwd = getAdminPassword(); if (!pwd) return;
-  renderAdminLayout(container, 'nominalRoll', `
+  renderAdminLayout(container, 'nominal-roll', `
     <div class="text-center py-16"><span class="spinner" style="width:2.5rem;height:2.5rem;border-width:4px;"></span><p class="text-slate-400 mt-4 text-sm">Loading nominal roll...</p></div>
   `);
 
+  const adminMain = container.querySelector('#adminMain');
+  await reloadRollData(adminMain, pwd);
+}
+
+async function reloadRollData(main, pwd) {
+  if (!main) return;
+  main.innerHTML = `
+    <div class="text-center py-16"><span class="spinner" style="width:2.5rem;height:2.5rem;border-width:4px;"></span><p class="text-slate-400 mt-4 text-sm">Loading nominal roll...</p></div>
+  `;
+
   try {
-    const [nominalRoll, settings] = await Promise.all([
-      api.getNominalRoll(),
-      api.getSettings()
+    const [nominalRoll, settings, corrections] = await Promise.all([
+      api.getNominalRoll().catch(() => []),
+      api.adminGetSettings(pwd),
+      api.adminGetRollCorrections(pwd).catch(() => [])
     ]);
-    renderNominalRollUI(container.querySelector('#adminMain'), pwd, nominalRoll, settings);
+    renderNominalRollUI(main, pwd, nominalRoll, settings, corrections);
   } catch (e) {
-    container.querySelector('#adminMain').innerHTML = `<div class="alert alert-error">❌ ${esc(e.message)}</div>`;
+    main.innerHTML = `<div class="alert alert-error">❌ ${esc(e.message)}</div>`;
   }
 }
 
-function renderNominalRollUI(main, pwd, nominalRoll, settings) {
-  const isFinal = settings.nominalRollFinalized === 'true';
+function renderNominalRollUI(main, pwd, nominalRoll, settings, corrections = []) {
+  const isFinal = settings.nominalRollFinalized === 'true' || settings.isRollFinalized === 'true';
+  const isDraft = !isFinal && settings.draftRollPublished === 'true';
+  const isUnpublished = !isFinal && !isDraft;
   let students = [...nominalRoll];
+  const parseSl = (s) => {
+    const raw = String(s['Nominal Roll Serial Number'] || s.serial_number || s.SL_NO || s['SL. NO'] || '');
+    const num = parseInt(raw.replace(/\D/g, ''), 10);
+    return isNaN(num) ? 999999999 : num;
+  };
+  students.sort((a, b) => parseSl(a) - parseSl(b));
   let filterText = '';
+  let showCorrections = false;
 
   const allClasses = [...new Set(nominalRoll.map(s => String(s['CLASS']).trim()))].sort();
   const allDepts = [...new Set(nominalRoll.map(s => String(s['Dept'] || '–').trim()))].sort();
 
   // ── Upload Panel (injected above the table) ───────────────────────────────
-  const uploadPanelHtml = `
+  const uploadPanelHtml = isFinal ? `
+    <div id="uploadPanel" class="glass rounded-2xl border border-white/10 shadow-2xl overflow-hidden">
+      <div class="w-full flex items-center justify-between px-6 py-4 bg-white/5 opacity-80 cursor-not-allowed">
+        <div class="flex items-center gap-3">
+          <span class="text-2xl">🔒</span>
+          <div class="text-left">
+            <div class="text-slate-300 font-bold text-sm flex items-center gap-2">
+              Upload New Nominal Roll
+              <span class="badge bg-amber-500/20 text-amber-300 border border-amber-500/30 text-[10px] py-0.5 px-2">LOCKED</span>
+            </div>
+            <div class="text-slate-400 text-xs">Uploading or replacing the roll is disabled while Nominal Roll is finalized. Unfinalize first to upload new data.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  ` : `
     <div id="uploadPanel" class="glass rounded-2xl border border-white/10 shadow-2xl overflow-hidden">
       <button id="toggleUploadPanel" class="w-full flex items-center justify-between px-6 py-4 hover:bg-white/5 transition-colors">
         <div class="flex items-center gap-3">
@@ -79,15 +115,14 @@ function renderNominalRollUI(main, pwd, nominalRoll, settings) {
               <div id="csvSummary" class="text-slate-300 space-y-1 text-xs"></div>
             </div>
 
-            <!-- Danger Warning -->
-            <div class="bg-red-500/10 border border-red-500/30 rounded-xl p-4">
-              <div class="text-red-300 font-bold text-sm mb-2">⚠️ DESTRUCTIVE OPERATION — Read Before Proceeding</div>
-              <ul class="text-red-200/80 text-xs space-y-1 list-disc list-inside">
-                <li>The entire current Nominal Roll will be <strong>permanently replaced</strong></li>
-                <li>All submitted <strong>Nominations</strong> will be deleted</li>
-                <li>The <strong>Valid List</strong> and <strong>Final List</strong> will be cleared</li>
-                <li>All <strong>Results</strong> and <strong>Ballot Plans</strong> will be wiped</li>
-                <li>Election flags (finalized, published) will be <strong>reset to false</strong></li>
+            <!-- Roll Update Notice -->
+            <div class="bg-indigo-500/10 border border-indigo-500/30 rounded-xl p-4">
+              <div class="text-indigo-300 font-bold text-sm mb-2">🔄 Nominal Roll Update & Automatic Re-mapping</div>
+              <ul class="text-indigo-200/90 text-xs space-y-1.5 list-disc list-inside">
+                <li>The Nominal Roll student voter records will be <strong>replaced</strong> with the uploaded CSV data</li>
+                <li><strong>Existing Nominations are SAFELY PRESERVED:</strong> All candidates, proposers, and seconders will be <strong>automatically re-mapped</strong> using their Admission Numbers!</li>
+                <li>Serial numbers for candidates, proposers, and seconders will be recalculated based on the new roll</li>
+                <li>Draft and finalized roll publication flags will be reset so you can review before publishing</li>
               </ul>
             </div>
 
@@ -95,17 +130,17 @@ function renderNominalRollUI(main, pwd, nominalRoll, settings) {
             <div class="space-y-3">
               <div>
                 <label class="block text-xs font-bold text-slate-400 uppercase tracking-widest mb-2">
-                  Type <span class="text-red-400 font-mono">RESET</span> to confirm
+                  Type <span class="text-indigo-400 font-mono">CONFIRM</span> to upload
                 </label>
-                <input type="text" id="confirmResetText" class="field font-mono tracking-widest uppercase" placeholder="RESET" autocomplete="off">
+                <input type="text" id="confirmResetText" class="field font-mono tracking-widest uppercase" placeholder="CONFIRM" autocomplete="off">
               </div>
               <div>
                 <label class="block text-xs font-bold text-slate-400 uppercase tracking-widest mb-2">Re-enter Admin Password</label>
                 <input type="password" id="confirmPwd" class="field" placeholder="Admin password" autocomplete="current-password">
               </div>
               <button id="btnUploadRoll" class="btn w-full py-3 text-sm font-bold opacity-50 cursor-not-allowed" disabled
-                style="background: linear-gradient(135deg, #dc2626, #b91c1c); color: white; border: none;">
-                🚨 Upload & Reset Entire System
+                style="background: linear-gradient(135deg, #4f46e5, #4338ca); color: white; border: none;">
+                📤 Upload Roll & Auto-Remap Nominations
               </button>
             </div>
           </div>
@@ -126,16 +161,104 @@ function renderNominalRollUI(main, pwd, nominalRoll, settings) {
     main.innerHTML = `
       <div class="page-enter space-y-6">
         ${uploadPanelHtml}
+
+        <!-- Publication Stage Status Banner -->
+        <div class="glass rounded-xl p-4 border ${isFinal ? 'border-emerald-500/30 bg-emerald-500/10' : (isDraft ? 'border-amber-500/30 bg-amber-500/10' : 'border-slate-700 bg-slate-800/40')} flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 shadow-lg">
+          <div class="flex items-center gap-3">
+            <span class="text-2xl">${isFinal ? '🔒' : (isDraft ? '📋' : '⏳')}</span>
+            <div>
+              <div class="font-bold text-sm flex items-center gap-2 ${isFinal ? 'text-emerald-300' : (isDraft ? 'text-amber-300' : 'text-slate-300')}">
+                ${isFinal ? 'Nominal Roll Finalized & Locked' : (isDraft ? 'Draft Nominal Roll Published' : 'Nominal Roll Unpublished')}
+                <span class="badge ${isFinal ? 'badge-valid' : (isDraft ? 'badge-pending' : 'bg-slate-700 text-slate-300')} text-[10px] py-0.5 px-2">
+                  ${isFinal ? 'PUBLIC (1, 2, 3...)' : (isDraft ? 'PUBLIC (D1, D2, D3...)' : 'HIDDEN FROM PUBLIC')}
+                </span>
+              </div>
+              <div class="text-slate-400 text-xs mt-0.5">
+                ${isFinal ? 'Voter list is locked and read-only. Standard 1, 2, 3... serial numbers are active.' : (isDraft ? 'Draft list is live to students with provisional D1, D2... Sl. numbers. Editing is enabled and student correction requests can be submitted.' : 'The voter list is currently not published to the public. Publish draft when ready for student review.')}
+              </div>
+            </div>
+          </div>
+          <div class="flex items-center gap-2 shrink-0">
+            ${isUnpublished ? `
+              <button id="btnPublishDraft" class="btn btn-sm btn-primary bg-amber-600 hover:bg-amber-500 text-white font-medium">📢 Publish Draft Roll</button>
+            ` : ''}
+            ${isDraft ? `
+              <button id="btnUnpublishDraft" class="btn btn-sm btn-secondary border-rose-500/30 text-rose-300 hover:bg-rose-500/20">🚫 Unpublish Draft</button>
+            ` : ''}
+            ${isFinal ? `
+              <button id="btnUnfinalizeBanner" class="btn bg-rose-500/20 text-rose-300 border border-rose-500/50 hover:bg-rose-500/30 text-xs py-2 px-3">🔓 Unfinalize Roll</button>
+            ` : ''}
+          </div>
+        </div>
+
+        <!-- Student Correction Requests (if any exist) -->
+        ${corrections && corrections.length > 0 ? `
+          <div class="glass rounded-xl border border-amber-500/30 overflow-hidden shadow-lg">
+            <div class="flex items-center justify-between p-4 bg-amber-500/10 cursor-pointer select-none" id="toggleCorrectionsPanel">
+              <div class="flex items-center gap-2.5">
+                <span class="text-xl">📝</span>
+                <div>
+                  <strong class="text-white text-sm">Student Correction Requests</strong>
+                  <span class="text-xs text-amber-300 ml-2">(${corrections.filter(c => c.status === 'Pending').length} Pending / ${corrections.length} Total)</span>
+                </div>
+              </div>
+              <span id="corrChevron" class="text-slate-400 text-sm">▼ View Requests</span>
+            </div>
+            <div id="correctionsPanelBody" class="p-4 space-y-3 bg-black/20 border-t border-amber-500/20 hidden">
+              <div class="overflow-x-auto">
+                <table class="data-table text-xs">
+                  <thead><tr>
+                    <th>Date</th>
+                    <th>Adm. No</th>
+                    <th>Student Name</th>
+                    <th>Class / Dept</th>
+                    <th>Issue Type</th>
+                    <th>Details</th>
+                    <th>Contact</th>
+                    <th>Status</th>
+                    <th>Action</th>
+                  </tr></thead>
+                  <tbody>
+                    ${corrections.map(c => `
+                      <tr>
+                        <td class="whitespace-nowrap text-slate-400 font-mono text-[10px]">${c.timestamp ? new Date(c.timestamp).toLocaleDateString() : '–'}</td>
+                        <td class="font-mono text-indigo-300 font-bold">${esc(c.admission_no)}</td>
+                        <td class="font-bold text-white">${esc(c.student_name)}</td>
+                        <td class="text-slate-300">${esc(c.class_name || '–')} / ${esc(c.department || '–')}</td>
+                        <td><span class="badge badge-pending text-[10px]">${esc(c.correction_type)}</span></td>
+                        <td class="max-w-xs text-slate-300">${esc(c.details)}</td>
+                        <td class="text-slate-400 text-[10px]">${esc(c.contact_info || '–')}</td>
+                        <td><span class="badge ${c.status === 'Resolved' ? 'badge-valid' : (c.status === 'Dismissed' ? 'bg-slate-700 text-slate-400' : 'badge-pending')} text-[10px]">${esc(c.status)}</span></td>
+                        <td>
+                          <div class="flex gap-1.5">
+                            ${c.status !== 'Resolved' ? `<button class="btn btn-xs btn-success resolve-corr" data-id="${esc(c.id)}">Resolve</button>` : ''}
+                            ${c.status !== 'Dismissed' ? `<button class="btn btn-xs btn-secondary dismiss-corr" data-id="${esc(c.id)}">Dismiss</button>` : ''}
+                          </div>
+                        </td>
+                      </tr>
+                    `).join('')}
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        ` : ''}
+
         <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
           <div>
             <h3 class="text-xl font-bold text-white">Nominal Roll Management</h3>
-            <p class="text-slate-400 text-sm">Manage student data and finalize the official voter list.</p>
+            <p class="text-slate-400 text-sm">Manage student data, review draft edits, and finalize the official voter list.</p>
           </div>
           <div class="flex flex-wrap gap-2">
+            ${isUnpublished ? `<button id="btnPublishDraftTop" class="btn btn-warning bg-amber-600 hover:bg-amber-500 text-white">📢 Publish Draft Roll</button>` : ''}
+            ${isDraft ? `<button id="btnUnpublishDraftTop" class="btn btn-secondary border-rose-500/30 text-rose-300 hover:bg-rose-500/20">🚫 Unpublish Draft</button>` : ''}
             ${!isFinal ? `<button id="btnAddNew" class="btn btn-success">➕ Add Student</button>` : ''}
             <button id="btnPrintRoll" class="btn btn-secondary">🖨️ Print Roll</button>
+            ${!isFinal ? `<button id="btnRemapNoms" class="btn bg-indigo-500/20 text-indigo-300 border border-indigo-500/40 hover:bg-indigo-500/30 text-xs py-2 px-3">🔄 Re-map Nominations</button>` : ''}
+            ${!isFinal && students.length > 0 ? `<button id="btnClearRoll" class="btn bg-rose-500/10 text-rose-400 border border-rose-500/30 hover:bg-rose-500/20 text-xs py-2 px-3">🗑️ Clear Roll Data</button>` : ''}
             ${!isFinal ? `<button id="btnFinalize" class="btn btn-primary">🔒 Finalize & Lock Roll</button>` : ''}
-            ${isFinal ? `<span class="badge badge-valid py-2 px-4">✅ ROLL FINALIZED</span>` : ''}
+            ${isFinal ? `<span class="badge badge-valid py-2 px-4 flex items-center gap-2">✅ ROLL FINALIZED</span>` : ''}
+            ${isFinal ? `<button id="btnUnfinalize" class="btn bg-rose-500/20 text-rose-300 border border-rose-500/50 hover:bg-rose-500/30">🔓 Unfinalize</button>` : ''}
           </div>
         </div>
 
@@ -153,7 +276,7 @@ function renderNominalRollUI(main, pwd, nominalRoll, settings) {
           <div class="overflow-x-auto">
             <table class="data-table">
               <thead><tr>
-                <th>Sl. No</th>
+                <th class="w-24 text-center">${isDraft ? 'Draft Sl. No' : 'Sl. No'}</th>
                 <th>Admission No</th>
                 <th>Name</th>
                 <th>Class</th>
@@ -163,37 +286,32 @@ function renderNominalRollUI(main, pwd, nominalRoll, settings) {
               <tbody>
                 ${filtered.length ? filtered.map(s => `
                   <tr>
-                    <td class="font-bold text-indigo-400">${esc(s['Nominal Roll Serial Number'])}</td>
+                    <td class="text-center font-bold font-mono ${isDraft ? 'text-amber-400' : 'text-indigo-400'}">${isDraft ? 'D' : ''}${esc(s['Nominal Roll Serial Number'])}</td>
                     <td class="font-mono text-xs">${esc(s['ADMISION NO'] || s['ADMISSION NO'] || '–')}</td>
                     <td class="text-white font-medium">${esc(s['NAME'])}</td>
                     <td class="text-slate-300 text-sm">${esc(s['CLASS'])}</td>
                     <td class="text-slate-400 text-xs">${esc(s['Dept'] || '–')}</td>
                     ${!isFinal ? `
-                      <td class="whitespace-nowrap">
-                        <div class="flex items-center gap-2">
-                          <button class="px-2.5 py-1 text-xs font-semibold rounded bg-indigo-500/20 text-indigo-300 hover:bg-indigo-500/30 hover:text-white transition-colors edit-student" data-serial="${esc(s['Nominal Roll Serial Number'])}">✏️ Edit</button>
-                          <button class="px-2.5 py-1 text-xs font-semibold rounded bg-rose-500/20 text-rose-300 hover:bg-rose-500/30 hover:text-white transition-colors delete-student" data-serial="${esc(s['Nominal Roll Serial Number'])}">🗑️ Delete</button>
-                        </div>
+                      <td>
+                        <button class="text-indigo-400 hover:text-indigo-300 edit-student mr-3" data-serial="${esc(s['Nominal Roll Serial Number'])}" data-name="${esc(s['NAME'])}" data-class="${esc(s['CLASS'])}" data-adm="${esc(s['ADMISION NO'] || s['ADMISSION NO'] || '')}" data-dept="${esc(s['Dept'] || '')}">Edit</button>
+                        <button class="text-rose-400 hover:text-rose-300 delete-student" data-serial="${s['Nominal Roll Serial Number']}">Delete</button>
                       </td>
                     ` : ''}
                   </tr>
-                `).join('') : '<tr><td colspan="6" class="text-center py-10 text-slate-500">No students found matching your search.</td></tr>'}
+                `).join('') : `<tr><td colspan="${!isFinal ? '6' : '5'}" class="text-center py-10 text-slate-500">No students found matching your search.</td></tr>`}
               </tbody>
             </table>
           </div>
         </div>
       </div>
 
-      <!-- Add Student Modal -->
+      <!-- Add / Edit Student Modal -->
+      ${!isFinal ? `
       <div id="addModal" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-[100] hidden flex items-center justify-center p-4">
         <div class="glass w-full max-w-md rounded-2xl p-6 shadow-2xl border border-white/10">
-          <h4 class="text-xl font-bold text-white mb-4">Add New Student</h4>
+          <h4 id="modalTitle" class="text-xl font-bold text-white mb-4">Add New Student</h4>
           <div class="space-y-4">
-            <div>
-              <label class="block text-xs font-bold text-slate-400 uppercase mb-1">Serial Number (Draft)</label>
-              <input type="text" id="addSerial" class="field" placeholder="e.g. 1001 or 1001a">
-              <p class="text-[10px] text-slate-500 mt-1">Use suffixes like 'a' to insert between numbers.</p>
-            </div>
+            <input type="hidden" id="editOldSerial" value="">
             <div>
               <label class="block text-xs font-bold text-slate-400 uppercase mb-1">Full Name</label>
               <input type="text" id="addName" class="field" placeholder="Student Name">
@@ -223,46 +341,71 @@ function renderNominalRollUI(main, pwd, nominalRoll, settings) {
           </div>
         </div>
       </div>
+      ` : ''}
 
-      <!-- Edit Student Modal -->
-      <div id="editModal" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-[100] hidden flex items-center justify-center p-4">
+      <!-- Unfinalize Modal -->
+      <div id="unfinalizeModal" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-[100] hidden flex items-center justify-center p-4">
         <div class="glass w-full max-w-md rounded-2xl p-6 shadow-2xl border border-white/10">
-          <div class="flex items-center justify-between mb-4">
-            <h4 class="text-xl font-bold text-white">Edit Student</h4>
-            <span id="editModalSubtitle" class="text-xs font-mono text-indigo-400 bg-indigo-500/10 px-2 py-1 rounded"></span>
+          <div class="flex items-center gap-3 mb-3">
+            <div class="w-10 h-10 rounded-xl bg-rose-500/20 text-rose-400 flex items-center justify-center text-xl font-bold border border-rose-500/30">🔓</div>
+            <div>
+              <h4 class="text-xl font-bold text-white">Unfinalize Nominal Roll</h4>
+              <p class="text-slate-400 text-xs">Unlock roll for editing, adding, or deleting</p>
+            </div>
           </div>
-          <input type="hidden" id="editOriginalSerial">
+          <div class="bg-amber-500/10 border border-amber-500/30 rounded-xl p-3 my-4 text-xs text-amber-200 leading-relaxed">
+            ⚠️ <strong>Admin Verification:</strong> Enter your Admin Password below to unlock the Nominal Roll. (No OTP required).
+          </div>
           <div class="space-y-4">
             <div>
-              <label class="block text-xs font-bold text-slate-400 uppercase mb-1">Serial Number</label>
-              <input type="text" id="editSerial" class="field" placeholder="e.g. 1001">
+              <label class="block text-xs font-bold text-slate-400 uppercase mb-1">Admin Password</label>
+              <input type="password" id="unfinalizePwdInput" class="field w-full" placeholder="Enter Admin Password" autocomplete="current-password">
             </div>
+            <div id="unfinalizeError" class="text-rose-400 text-xs font-medium hidden"></div>
+          </div>
+          <div class="flex gap-2 mt-6">
+            <button type="button" id="btnCancelUnfinalize" class="btn btn-secondary flex-1">Cancel</button>
+            <button type="button" id="btnConfirmUnfinalize" class="btn bg-rose-600 hover:bg-rose-500 text-white flex-1 font-bold">Confirm & Unlock</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Clear Nominal Roll Modal -->
+      <div id="clearRollModal" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-[100] hidden flex items-center justify-center p-4">
+        <div class="glass w-full max-w-md rounded-2xl p-6 shadow-2xl border border-rose-500/30">
+          <div class="flex items-center gap-3 mb-3">
+            <div class="w-10 h-10 rounded-xl bg-rose-500/20 text-rose-400 flex items-center justify-center text-xl font-bold border border-rose-500/30">🗑️</div>
             <div>
-              <label class="block text-xs font-bold text-slate-400 uppercase mb-1">Full Name</label>
-              <input type="text" id="editName" class="field" placeholder="Student Name">
-            </div>
-            <div>
-              <label class="block text-xs font-bold text-slate-400 uppercase mb-1">Class Name</label>
-              <select id="editClass" class="field">
-                <option value="">-- Select Class --</option>
-                ${allClasses.map(c => `<option value="${esc(c)}">${esc(c)}</option>`).join('')}
-              </select>
-            </div>
-            <div>
-              <label class="block text-xs font-bold text-slate-400 uppercase mb-1">Admission No</label>
-              <input type="text" id="editAdm" class="field" placeholder="Adm No">
-            </div>
-            <div>
-              <label class="block text-xs font-bold text-slate-400 uppercase mb-1">Department</label>
-              <select id="editDept" class="field">
-                <option value="">-- Select Department --</option>
-                ${allDepts.map(d => `<option value="${esc(d)}">${esc(d)}</option>`).join('')}
-              </select>
+              <h4 class="text-xl font-bold text-white">Clear Nominal Roll Alone</h4>
+              <p class="text-slate-400 text-xs">Delete student records without deleting nominations</p>
             </div>
           </div>
-          <div class="flex gap-2 mt-8">
-            <button id="btnCancelEdit" class="btn btn-secondary flex-1">Cancel</button>
-            <button id="btnConfirmEdit" class="btn btn-primary flex-1">Update Student</button>
+          
+          <div class="bg-indigo-500/10 border border-indigo-500/30 rounded-xl p-3 my-3 text-xs text-indigo-200 leading-relaxed space-y-1.5">
+            <div class="font-bold text-indigo-300 flex items-center gap-1.5">
+              <span>🛡️</span> Nominations Safety Guarantee
+            </div>
+            <div>This will clear all <strong>${students.length}</strong> student records from the Nominal Roll <strong>alone</strong>.</div>
+            <div class="text-indigo-200/80">Existing nominations will <strong>NOT</strong> be deleted. When you upload a new nominal roll or add students, the system will <strong>automatically re-map</strong> candidate, proposer, and seconder serial numbers using their Admission Numbers.</div>
+          </div>
+
+          <div class="space-y-3">
+            <div>
+              <label class="block text-xs font-bold text-slate-400 uppercase tracking-wider mb-1">
+                Type <span class="text-rose-400 font-mono">CLEAR</span> to confirm
+              </label>
+              <input type="text" id="clearRollConfirmText" class="field w-full font-mono uppercase" placeholder="CLEAR" autocomplete="off">
+            </div>
+            <div>
+              <label class="block text-xs font-bold text-slate-400 uppercase tracking-wider mb-1">Admin Password</label>
+              <input type="password" id="clearRollPwdInput" class="field w-full" placeholder="Enter Admin Password" autocomplete="current-password">
+            </div>
+            <div id="clearRollError" class="text-rose-400 text-xs font-medium hidden"></div>
+          </div>
+
+          <div class="flex gap-2 mt-6">
+            <button type="button" id="btnCancelClearRoll" class="btn btn-secondary flex-1">Cancel</button>
+            <button type="button" id="btnConfirmClearRoll" class="btn bg-rose-600 hover:bg-rose-500 text-white flex-1 font-bold">🗑️ Clear Roll Data</button>
           </div>
         </div>
       </div>
@@ -279,116 +422,60 @@ function renderNominalRollUI(main, pwd, nominalRoll, settings) {
       main.querySelector('#searchInput').value = val;
     };
 
-    // Actions
+    // Actions when NOT finalized (add, edit, delete, CSV upload)
     if (!isFinal) {
-      main.querySelector('#btnAddNew').onclick = () => main.querySelector('#addModal').classList.remove('hidden');
-      main.querySelector('#btnCancelAdd').onclick = () => main.querySelector('#addModal').classList.add('hidden');
-      main.querySelector('#btnConfirmAdd').onclick = async (e) => {
-        const payload = {
-          serial: main.querySelector('#addSerial').value.trim(),
-          name: main.querySelector('#addName').value.trim(),
-          class: main.querySelector('#addClass').value.trim(),
-          admission: main.querySelector('#addAdm').value.trim(),
-          dept: main.querySelector('#addDept').value.trim()
-        };
-        if (!payload.serial || !payload.name || !payload.class) return showToast('Please fill required fields.', 'warning');
-        
-        setLoading(e.target, true, 'Save Student');
-        try {
-          await api.adminAddStudent(pwd, payload);
-          showToast('Student added to roll.', 'success');
-          students.push({
-            'Nominal Roll Serial Number': payload.serial,
-            'NAME': payload.name,
-            'CLASS': payload.class,
-            'ADMISION NO': payload.admission,
-            'Dept': payload.dept
-          });
-          refreshTable();
-        } catch (err) {
-          showToast(err.message, 'error');
-          setLoading(e.target, false, 'Save Student');
-        }
+      const openModal = (isEdit, data = {}) => {
+        main.querySelector('#modalTitle').textContent = isEdit ? 'Edit Student' : 'Add New Student';
+        main.querySelector('#editOldSerial').value = isEdit ? data.serial : '';
+        main.querySelector('#addName').value = data.name || '';
+        main.querySelector('#addClass').value = data.class || '';
+        main.querySelector('#addAdm').value = data.adm || '';
+        main.querySelector('#addDept').value = data.dept || '';
+        main.querySelector('#addModal').classList.remove('hidden');
       };
 
-      // Edit Student
-      main.querySelector('#btnCancelEdit').onclick = () => main.querySelector('#editModal').classList.add('hidden');
+      if (main.querySelector('#btnAddNew')) main.querySelector('#btnAddNew').onclick = () => openModal(false);
+      if (main.querySelector('#btnCancelAdd')) main.querySelector('#btnCancelAdd').onclick = () => main.querySelector('#addModal').classList.add('hidden');
+      if (main.querySelector('#btnConfirmAdd')) {
+        main.querySelector('#btnConfirmAdd').onclick = async (e) => {
+          const payload = {
+            old_serial: main.querySelector('#editOldSerial').value,
+            name: main.querySelector('#addName').value,
+            class: main.querySelector('#addClass').value,
+            admission_no: main.querySelector('#addAdm').value,
+            dept: main.querySelector('#addDept').value
+          };
+          if (!payload.name || !payload.class) return showToast('Please fill required fields.', 'warning');
+          
+          setLoading(e.target, true, 'Save Student');
+          try {
+            if (payload.old_serial) {
+              await api.adminUpdateStudent(pwd, payload);
+              showToast('Student updated.', 'success');
+            } else {
+              await api.adminAddStudent(pwd, payload);
+              showToast('Student added.', 'success');
+            }
+            main.querySelector('#addModal').classList.add('hidden');
+            await reloadRollData(main, pwd);
+          } catch (err) {
+            showToast(err.message, 'error');
+            setLoading(e.target, false, 'Save Student');
+          }
+        };
+      }
 
       main.querySelectorAll('.edit-student').forEach(btn => {
         btn.onclick = () => {
-          const serial = btn.dataset.serial;
-          const student = students.find(s => String(s['Nominal Roll Serial Number']) === String(serial));
-          if (!student) return showToast('Student not found.', 'error');
-
-          main.querySelector('#editOriginalSerial').value = serial;
-          main.querySelector('#editModalSubtitle').textContent = `Serial #${serial}`;
-          main.querySelector('#editSerial').value = student['Nominal Roll Serial Number'] || '';
-          main.querySelector('#editName').value = student['NAME'] || '';
-          
-          const classVal = String(student['CLASS'] || '').trim();
-          const classSelect = main.querySelector('#editClass');
-          if (classVal && !allClasses.includes(classVal)) {
-            const opt = document.createElement('option');
-            opt.value = classVal;
-            opt.textContent = classVal;
-            classSelect.appendChild(opt);
-          }
-          classSelect.value = classVal;
-
-          main.querySelector('#editAdm').value = student['ADMISION NO'] || student['ADMISSION NO'] || '';
-
-          const deptVal = String(student['Dept'] || '').trim();
-          const deptSelect = main.querySelector('#editDept');
-          if (deptVal && !allDepts.includes(deptVal)) {
-            const opt = document.createElement('option');
-            opt.value = deptVal;
-            opt.textContent = deptVal;
-            deptSelect.appendChild(opt);
-          }
-          deptSelect.value = deptVal;
-
-          main.querySelector('#editModal').classList.remove('hidden');
+          openModal(true, {
+            serial: btn.dataset.serial,
+            name: btn.dataset.name,
+            class: btn.dataset.class,
+            adm: btn.dataset.adm,
+            dept: btn.dataset.dept
+          });
         };
       });
-
-      main.querySelector('#btnConfirmEdit').onclick = async (e) => {
-        const originalSerial = main.querySelector('#editOriginalSerial').value;
-        const payload = {
-          originalSerial,
-          serial: main.querySelector('#editSerial').value.trim(),
-          name: main.querySelector('#editName').value.trim(),
-          class: main.querySelector('#editClass').value.trim(),
-          admission: main.querySelector('#editAdm').value.trim(),
-          dept: main.querySelector('#editDept').value.trim()
-        };
-
-        if (!payload.serial || !payload.name || !payload.class) {
-          return showToast('Please fill required fields (Serial, Name, Class).', 'warning');
-        }
-
-        setLoading(e.target, true, 'Update Student');
-        try {
-          await api.adminUpdateStudent(pwd, payload);
-          showToast('Student updated successfully.', 'success');
-          main.querySelector('#editModal').classList.add('hidden');
-
-          const idx = students.findIndex(s => String(s['Nominal Roll Serial Number']) === String(originalSerial));
-          if (idx !== -1) {
-            students[idx] = {
-              ...students[idx],
-              'Nominal Roll Serial Number': payload.serial,
-              'NAME': payload.name,
-              'CLASS': payload.class,
-              'ADMISION NO': payload.admission,
-              'Dept': payload.dept
-            };
-          }
-          refreshTable();
-        } catch (err) {
-          showToast(err.message, 'error');
-          setLoading(e.target, false, 'Update Student');
-        }
-      };
 
       main.querySelectorAll('.delete-student').forEach(btn => {
         btn.onclick = async () => {
@@ -396,178 +483,460 @@ function renderNominalRollUI(main, pwd, nominalRoll, settings) {
           try {
             await api.adminDeleteStudent(pwd, btn.dataset.serial);
             showToast('Student removed.', 'success');
-            students = students.filter(s => String(s['Nominal Roll Serial Number']) !== String(btn.dataset.serial));
-            refreshTable();
+            await reloadRollData(main, pwd);
           } catch (err) { showToast(err.message, 'error'); }
         };
       });
 
-      main.querySelector('#btnFinalize').onclick = async (e) => {
-        if (!confirm('FINALIZATION WARNING:\n\n1. All students will be sorted by Class and Name.\n2. NEW Serial Numbers will be generated sequentially (1, 2, 3...).\n3. The roll will be LOCKED for all future edits.\n\nAre you absolutely sure?')) return;
-        setLoading(e.target, true, 'Finalizing...');
-        try {
-          await api.adminFinalizeRoll(pwd);
-          showToast('Nominal Roll Finalized Successfully!', 'success');
-          renderAdminNominalRoll(main.closest('#appContainer') || main.parentElement);
-        } catch (err) {
-          showToast(err.message, 'error');
-          setLoading(e.target, false, 'Finalize & Lock Roll');
+      // ── Upload Panel Handlers (only active when not finalized) ────────────
+      if (main.querySelector('#toggleUploadPanel')) {
+        main.querySelector('#toggleUploadPanel').onclick = () => {
+          const body = main.querySelector('#uploadPanelBody');
+          const chevron = main.querySelector('#uploadChevron');
+          if (body) body.classList.toggle('hidden');
+          if (chevron) chevron.style.transform = body && body.classList.contains('hidden') ? '' : 'rotate(180deg)';
+        };
+      }
+
+      if (main.querySelector('#btnDownloadTemplate')) {
+        main.querySelector('#btnDownloadTemplate').onclick = async (e) => {
+          const btn = e.currentTarget;
+          setLoading(btn, true, 'Downloading...');
+          try {
+            const data = await api.adminGetNominalRollTemplate(pwd);
+            const csvRows = [data.headers.join(',')];
+            data.rows.forEach(row => {
+              csvRows.push(row.map(cell => {
+                const s = String(cell ?? '');
+                return s.includes(',') || s.includes('"') ? `"${s.replace(/"/g, '""')}"` : s;
+              }).join(','));
+            });
+            const blob = new Blob([csvRows.join('\r\n')], { type: 'text/csv;charset=utf-8;' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url; a.download = 'NominalRoll_Template.csv'; a.click();
+            URL.revokeObjectURL(url);
+            showToast('Template downloaded!', 'success');
+          } catch (err) {
+            showToast(err.message, 'error');
+          } finally {
+            setLoading(btn, false, '⬇️ Download Template');
+          }
+        };
+      }
+
+      // CSV File Parsing
+      let parsedRows = null;
+      let usedHeaders = [];
+      const legacyHeaders = ['Nominal Roll Serial Number', 'NAME', 'CLASS', 'ADMISION NO', 'Dept'];
+      const explicitHeaders = ['Nominal Roll Serial Number', 'NAME', 'YEAR', 'STREAM', 'ADMISION NO', 'Dept'];
+
+      if (main.querySelector('#csvFileInput')) {
+        main.querySelector('#csvFileInput').onchange = (e) => {
+          const file = e.target.files[0];
+          if (!file) return;
+          main.querySelector('#filePickerLabel').textContent = `📄 ${file.name}`;
+
+          const reader = new FileReader();
+          reader.onload = (ev) => {
+            const text = ev.target.result;
+            const lines = text.replace(/\r\n/g, '\n').replace(/\r/g, '\n').split('\n').filter(l => l.trim());
+            if (lines.length < 2) {
+              showToast('CSV file appears empty.', 'error'); return;
+            }
+
+            let headerRowIndex = -1;
+            let detectedDelimiter = ',';
+            const normCol = c => String(c || '').trim().replace(/^"|"$/g, '').toUpperCase().replace(/\s+/g, ' ');
+            const isAdmCol = c => {
+              const u = normCol(c);
+              return u === 'ADMISION NO' || u === 'ADMISSION NO' || u === 'ADMISION NUMBER' || u === 'ADMISSION NUMBER' || u === 'ADM NO';
+            };
+
+            for (let i = 0; i < Math.min(lines.length, 20); i++) {
+              const delim = lines[i].includes('\t') && !lines[i].includes(',') ? '\t' : ',';
+              const cols = lines[i].split(delim).map(normCol);
+
+              const hasSerial = cols.some(c => c === 'NOMINAL ROLL SERIAL NUMBER' || c === 'SERIAL NUMBER' || c === 'SL. NO' || c === 'SL NO');
+              const hasName = cols.includes('NAME');
+              const hasDept = cols.includes('DEPT') || cols.includes('DEPARTMENT');
+              const hasAdm = cols.some(isAdmCol);
+              const hasClass = cols.includes('CLASS');
+              const hasYear = cols.includes('YEAR');
+              const hasStream = cols.includes('STREAM');
+
+              if (hasSerial && hasName && hasDept && hasAdm) {
+                headerRowIndex = i;
+                detectedDelimiter = delim;
+                usedHeaders = (hasYear && hasStream) ? explicitHeaders : legacyHeaders;
+                break;
+              }
+            }
+
+            if (headerRowIndex === -1) {
+              showToast('Missing required columns. Please use one of the standard templates.', 'error');
+              main.querySelector('#csvPreview')?.classList.add('hidden');
+              return;
+            }
+
+            const rawHeaders = lines[headerRowIndex].split(detectedDelimiter).map(h => h.trim().replace(/^"|"$/g, ''));
+            const normHeaders = rawHeaders.map(normCol);
+            
+            let idxMap;
+            if (usedHeaders === explicitHeaders) {
+              const sIdx = normHeaders.findIndex(c => c === 'NOMINAL ROLL SERIAL NUMBER' || c === 'SERIAL NUMBER' || c === 'SL. NO' || c === 'SL NO');
+              const nIdx = normHeaders.indexOf('NAME');
+              const yIdx = normHeaders.indexOf('YEAR');
+              const stIdx = normHeaders.indexOf('STREAM');
+              const aIdx = normHeaders.findIndex(isAdmCol);
+              const dIdx = normHeaders.findIndex(c => c === 'DEPT' || c === 'DEPARTMENT');
+              idxMap = [sIdx, nIdx, yIdx, stIdx, aIdx, dIdx];
+            } else {
+              const sIdx = normHeaders.findIndex(c => c === 'NOMINAL ROLL SERIAL NUMBER' || c === 'SERIAL NUMBER' || c === 'SL. NO' || c === 'SL NO');
+              const nIdx = normHeaders.indexOf('NAME');
+              const cIdx = normHeaders.indexOf('CLASS');
+              const aIdx = normHeaders.findIndex(isAdmCol);
+              const dIdx = normHeaders.findIndex(c => c === 'DEPT' || c === 'DEPARTMENT');
+              idxMap = [sIdx, nIdx, cIdx, aIdx, dIdx];
+            }
+            
+            parsedRows = lines.slice(headerRowIndex + 1).map(line => {
+              const cells = [];
+              let cur = '', inQ = false;
+              for (const ch of line + detectedDelimiter) {
+                if (ch === '"') { inQ = !inQ; }
+                else if (ch === detectedDelimiter && !inQ) { cells.push(cur.trim()); cur = ''; }
+                else cur += ch;
+              }
+              return idxMap.map(i => (i >= 0 ? cells[i] ?? '' : ''));
+            }).filter(r => r[1] && r[1].trim() !== '' && r[1].toUpperCase() !== 'NAME');
+
+            const deptIdx = usedHeaders.indexOf('Dept');
+            
+            let classes = [];
+            if (usedHeaders === legacyHeaders) {
+              classes = [...new Set(parsedRows.map(r => r[usedHeaders.indexOf('CLASS')]))].sort();
+            } else {
+              const formatYearPrefix = (y) => {
+                const u = String(y || '').trim().toUpperCase();
+                if (u === '1' || u === '1ST' || u === 'I') return '1ST YEAR';
+                if (u === '2' || u === '2ND' || u === 'II') return '2ND YEAR';
+                if (u === '3' || u === '3RD' || u === 'III') return '3RD YEAR';
+                if (u && !u.includes('YEAR')) return `${u} YEAR`;
+                return u;
+              };
+              classes = [...new Set(parsedRows.map(r => `${formatYearPrefix(r[usedHeaders.indexOf('YEAR')])} ${r[usedHeaders.indexOf('STREAM')]} ${r[deptIdx]}`.replace(/\s+/g, ' ').trim()))].sort();
+            }
+            const depts = [...new Set(parsedRows.map(r => r[deptIdx]))].sort();
+
+            main.querySelector('#csvSummary').innerHTML = `
+              <div>👥 <strong class="text-white">${parsedRows.length}</strong> students detected using <strong>${usedHeaders === legacyHeaders ? 'Legacy Format' : 'Explicit Format'}</strong></div>
+              <div>🏛️ <strong class="text-white">${depts.length}</strong> departments: ${depts.map(d => `<span class="text-indigo-300">${esc(d)}</span>`).join(', ')}</div>
+              <div>📚 <strong class="text-white">${classes.length}</strong> unique classes found</div>
+            `;
+            main.querySelector('#csvPreview')?.classList.remove('hidden');
+            checkUploadReady();
+          };
+          reader.readAsText(file);
+        };
+      }
+
+      const checkUploadReady = () => {
+        const resetVal = main.querySelector('#confirmResetText')?.value.trim().toUpperCase() || '';
+        const resetOk = resetVal === 'RESET' || resetVal === 'CONFIRM';
+        const pwdOk = (main.querySelector('#confirmPwd')?.value.trim() || '') !== '';
+        const btn = main.querySelector('#btnUploadRoll');
+        if (!btn) return;
+        const ready = resetOk && pwdOk && parsedRows && parsedRows.length > 0;
+        btn.disabled = !ready;
+        btn.classList.toggle('opacity-50', !ready);
+        btn.classList.toggle('cursor-not-allowed', !ready);
+      };
+
+      main.querySelector('#confirmResetText')?.addEventListener('input', checkUploadReady);
+      main.querySelector('#confirmPwd')?.addEventListener('input', checkUploadReady);
+
+      if (main.querySelector('#btnUploadRoll')) {
+        main.querySelector('#btnUploadRoll').onclick = async (e) => {
+          const confirmPwd = main.querySelector('#confirmPwd').value.trim();
+          if (!parsedRows || parsedRows.length === 0) return showToast('No data to upload.', 'error');
+          if (!confirm(`CONFIRMATION\n\nYou are about to update the Nominal Roll with ${parsedRows.length} students.\nExisting nominations will be preserved and automatically re-mapped by Admission Number.\n\nProceed?`)) return;
+
+          setLoading(e.target, true, 'Uploading & Re-mapping...');
+          try {
+            const res = await api.adminUploadNominalRoll(confirmPwd, { headers: usedHeaders, rows: parsedRows });
+            const remapMsg = res.remappedNominations !== undefined ? ` Re-mapped ${res.remappedNominations} existing nominations.` : '';
+            showToast(`✅ Nominal Roll updated with ${res.count || parsedRows.length} students.${remapMsg}`, 'success');
+            await reloadRollData(main, pwd);
+          } catch (err) {
+            showToast(err.message, 'error');
+            setLoading(e.target, false, '📤 Upload Roll & Auto-Remap Nominations');
+          }
+        };
+      }
+
+      // Clear Nominal Roll Alone Modal & Handlers
+      const openClearRollModal = () => {
+        const modal = main.querySelector('#clearRollModal');
+        const confirmTxt = main.querySelector('#clearRollConfirmText');
+        const pwdInp = main.querySelector('#clearRollPwdInput');
+        const errEl = main.querySelector('#clearRollError');
+        if (confirmTxt) confirmTxt.value = '';
+        if (pwdInp) pwdInp.value = '';
+        if (errEl) { errEl.textContent = ''; errEl.classList.add('hidden'); }
+        if (modal) {
+          modal.classList.remove('hidden');
+          if (confirmTxt) setTimeout(() => confirmTxt.focus(), 50);
+        }
+      };
+
+      if (main.querySelector('#btnClearRoll')) {
+        main.querySelector('#btnClearRoll').onclick = openClearRollModal;
+      }
+      if (main.querySelector('#btnCancelClearRoll')) {
+        main.querySelector('#btnCancelClearRoll').onclick = () => {
+          main.querySelector('#clearRollModal')?.classList.add('hidden');
+        };
+      }
+
+      if (main.querySelector('#btnConfirmClearRoll')) {
+        main.querySelector('#btnConfirmClearRoll').onclick = async (e) => {
+          const confirmTxt = (main.querySelector('#clearRollConfirmText')?.value || '').trim().toUpperCase();
+          const enteredPwd = (main.querySelector('#clearRollPwdInput')?.value || '').trim();
+          const errEl = main.querySelector('#clearRollError');
+          const btn = e.target;
+
+          if (confirmTxt !== 'CLEAR') {
+            if (errEl) {
+              errEl.textContent = '❌ Please type CLEAR to confirm deletion.';
+              errEl.classList.remove('hidden');
+            }
+            main.querySelector('#clearRollConfirmText')?.focus();
+            return;
+          }
+
+          if (!enteredPwd) {
+            if (errEl) {
+              errEl.textContent = '❌ Please enter your admin password.';
+              errEl.classList.remove('hidden');
+            }
+            main.querySelector('#clearRollPwdInput')?.focus();
+            return;
+          }
+
+          setLoading(btn, true, 'Clearing Roll Data...');
+          if (errEl) errEl.classList.add('hidden');
+
+          try {
+            const res = await api.adminClearNominalRoll(enteredPwd);
+            showToast(`🗑️ Cleared ${res.clearedCount} students from Nominal Roll. ${res.preservedNominations || 0} nominations remain preserved.`, 'success');
+            main.querySelector('#clearRollModal')?.classList.add('hidden');
+            await reloadRollData(main, pwd);
+          } catch (err) {
+            if (errEl) {
+              errEl.textContent = `❌ ${err.message}`;
+              errEl.classList.remove('hidden');
+            }
+            setLoading(btn, false, '🗑️ Clear Roll Data');
+          }
+        };
+      }
+
+      // Re-map Nominations On-Demand
+      if (main.querySelector('#btnRemapNoms')) {
+        main.querySelector('#btnRemapNoms').onclick = async (e) => {
+          setLoading(e.target, true, 'Re-mapping...');
+          try {
+            const res = await api.adminRemapNominations(pwd);
+            showToast(`🔄 Re-mapping complete: ${res.remapped || 0} of ${res.total || 0} nominations re-linked to Nominal Roll.`, 'success');
+            await reloadRollData(main, pwd);
+          } catch (err) {
+            showToast(err.message, 'error');
+            setLoading(e.target, false, '🔄 Re-map Nominations');
+          }
+        };
+      }
+    } // end if (!isFinal)
+
+    // Publish Draft handlers
+    const handlePublishDraft = async (e) => {
+      setLoading(e.target, true, 'Publishing Draft...');
+      try {
+        await api.adminPublishDraftRoll(pwd);
+        showToast('Draft Nominal Roll published! Serial numbers are set to D1, D2...', 'success');
+        await reloadRollData(main, pwd);
+      } catch (err) {
+        showToast(err.message, 'error');
+        setLoading(e.target, false, '📢 Publish Draft Roll');
+      }
+    };
+    if (main.querySelector('#btnPublishDraft')) main.querySelector('#btnPublishDraft').onclick = handlePublishDraft;
+    if (main.querySelector('#btnPublishDraftTop')) main.querySelector('#btnPublishDraftTop').onclick = handlePublishDraft;
+
+    // Unpublish Draft handlers
+    const handleUnpublishDraft = async (e) => {
+      if (!confirm('Unpublish the Draft Nominal Roll? Public visitors will no longer be able to see it.')) return;
+      setLoading(e.target, true, 'Unpublishing...');
+      try {
+        await api.adminUnpublishDraftRoll(pwd);
+        showToast('Draft Nominal Roll unpublished.', 'success');
+        await reloadRollData(main, pwd);
+      } catch (err) {
+        showToast(err.message, 'error');
+        setLoading(e.target, false, '🚫 Unpublish Draft');
+      }
+    };
+    if (main.querySelector('#btnUnpublishDraft')) main.querySelector('#btnUnpublishDraft').onclick = handleUnpublishDraft;
+    if (main.querySelector('#btnUnpublishDraftTop')) main.querySelector('#btnUnpublishDraftTop').onclick = handleUnpublishDraft;
+
+    // Corrections Panel Toggle
+    const togglePanel = main.querySelector('#toggleCorrectionsPanel');
+    if (togglePanel) {
+      togglePanel.onclick = () => {
+        const body = main.querySelector('#correctionsPanelBody');
+        const chev = main.querySelector('#corrChevron');
+        if (body) {
+          const isHidden = body.classList.toggle('hidden');
+          if (chev) chev.textContent = isHidden ? '▼ View Requests' : '▲ Hide Requests';
         }
       };
     }
 
-    // Printing
-    main.querySelector('#btnPrintRoll').onclick = () => triggerRollPrint(students, isFinal, settings.collegeName);
-
-    // ── Upload Panel Handlers ────────────────────────────────────────────────
-
-    // Toggle collapse
-    main.querySelector('#toggleUploadPanel').onclick = () => {
-      const body = main.querySelector('#uploadPanelBody');
-      const chevron = main.querySelector('#uploadChevron');
-      body.classList.toggle('hidden');
-      chevron.style.transform = body.classList.contains('hidden') ? '' : 'rotate(180deg)';
-    };
-
-    // Download Template
-    main.querySelector('#btnDownloadTemplate').onclick = async (e) => {
-      const btn = e.currentTarget;
-      setLoading(btn, true, 'Downloading...');
-      try {
-        const data = await api.adminGetNominalRollTemplate(pwd);
-        // Build CSV string
-        const csvRows = [data.headers.join(',')];
-        data.rows.forEach(row => {
-          csvRows.push(row.map(cell => {
-            const s = String(cell ?? '');
-            return s.includes(',') || s.includes('"') ? `"${s.replace(/"/g, '""')}"` : s;
-          }).join(','));
-        });
-        const blob = new Blob([csvRows.join('\r\n')], { type: 'text/csv;charset=utf-8;' });
-        const url = URL.createObjectURL(blob);
-        const a = document.createElement('a');
-        a.href = url; a.download = 'NominalRoll_Template.csv'; a.click();
-        URL.revokeObjectURL(url);
-        showToast('Template downloaded!', 'success');
-      } catch (err) {
-        showToast(err.message, 'error');
-      } finally {
-        setLoading(btn, false, '⬇️ Download Template');
-      }
-    };
-
-    // CSV File Parsing
-    let parsedRows = null;
-    let usedHeaders = [];
-    const legacyHeaders = ['Nominal Roll Serial Number', 'NAME', 'CLASS', 'ADMISION NO', 'Dept'];
-    const explicitHeaders = ['Nominal Roll Serial Number', 'NAME', 'YEAR', 'STREAM', 'ADMISION NO', 'Dept'];
-
-    main.querySelector('#csvFileInput').onchange = (e) => {
-      const file = e.target.files[0];
-      if (!file) return;
-      main.querySelector('#filePickerLabel').textContent = `📄 ${file.name}`;
-
-      const reader = new FileReader();
-      reader.onload = (ev) => {
-        const text = ev.target.result;
-        const lines = text.replace(/\r\n/g, '\n').replace(/\r/g, '\n').split('\n').filter(l => l.trim());
-        if (lines.length < 2) {
-          showToast('CSV file appears empty.', 'error'); return;
-        }
-
-        // Find the header row dynamically (in case they left the "FORMAT 1:" title above it)
-        let headerRowIndex = -1;
-        for (let i = 0; i < Math.min(lines.length, 20); i++) {
-          const cols = lines[i].split(',').map(h => h.trim().replace(/^"|"$/g, ''));
-          if (legacyHeaders.every(h => cols.includes(h))) {
-            headerRowIndex = i;
-            usedHeaders = legacyHeaders;
-            break;
-          }
-          if (explicitHeaders.every(h => cols.includes(h))) {
-            headerRowIndex = i;
-            usedHeaders = explicitHeaders;
-            break;
-          }
-        }
-
-        if (headerRowIndex === -1) {
-          showToast('Missing required columns. Please use one of the standard templates.', 'error');
-          main.querySelector('#csvPreview').classList.add('hidden');
-          return;
-        }
-
-        const headers = lines[headerRowIndex].split(',').map(h => h.trim().replace(/^"|"$/g, ''));
-        const idxMap = usedHeaders.map(h => headers.indexOf(h));
-        
-        parsedRows = lines.slice(headerRowIndex + 1).map(line => {
-          // Simple CSV parse (handles quoted commas)
-          const cells = [];
-          let cur = '', inQ = false;
-          for (const ch of line + ',') {
-            if (ch === '"') { inQ = !inQ; }
-            else if (ch === ',' && !inQ) { cells.push(cur.trim()); cur = ''; }
-            else cur += ch;
-          }
-          return idxMap.map(i => cells[i] ?? '');
-        }).filter(r => r[1] && r[1].trim() !== '' && r[1] !== 'NAME'); // filter blank rows and accidental header dupes
-
-        // Summary
-        const nameIdx = usedHeaders.indexOf('NAME');
-        const deptIdx = usedHeaders.indexOf('Dept');
-        
-        let classes = [];
-        if (usedHeaders === legacyHeaders) {
-          classes = [...new Set(parsedRows.map(r => r[usedHeaders.indexOf('CLASS')]))].sort();
-        } else {
-          classes = [...new Set(parsedRows.map(r => `${r[usedHeaders.indexOf('YEAR')]} ${r[usedHeaders.indexOf('STREAM')]} ${r[deptIdx]}`.trim()))].sort();
-        }
-        const depts = [...new Set(parsedRows.map(r => r[deptIdx]))].sort();
-
-        main.querySelector('#csvSummary').innerHTML = `
-          <div>👥 <strong class="text-white">${parsedRows.length}</strong> students detected using <strong>${usedHeaders === legacyHeaders ? 'Legacy Format' : 'Explicit Format'}</strong></div>
-          <div>🏛️ <strong class="text-white">${depts.length}</strong> departments: ${depts.map(d => `<span class="text-indigo-300">${esc(d)}</span>`).join(', ')}</div>
-          <div>📚 <strong class="text-white">${classes.length}</strong> unique classes found</div>
-        `;
-        main.querySelector('#csvPreview').classList.remove('hidden');
-        checkUploadReady();
+    // Resolve / Dismiss Correction Requests
+    main.querySelectorAll('.resolve-corr').forEach(btn => {
+      btn.onclick = async () => {
+        const id = btn.dataset.id;
+        try {
+          await api.adminUpdateRollCorrection(pwd, id, 'Resolved');
+          showToast('Correction marked as Resolved.', 'success');
+          await reloadRollData(main, pwd);
+        } catch (err) { showToast(err.message, 'error'); }
       };
-      reader.readAsText(file);
+    });
+
+    main.querySelectorAll('.dismiss-corr').forEach(btn => {
+      btn.onclick = async () => {
+        const id = btn.dataset.id;
+        try {
+          await api.adminUpdateRollCorrection(pwd, id, 'Dismissed');
+          showToast('Correction marked as Dismissed.', 'success');
+          await reloadRollData(main, pwd);
+        } catch (err) { showToast(err.message, 'error'); }
+      };
+    });
+
+    // Finalize button handler
+    const handleFinalize = async (e) => {
+      if (!confirm('Are you sure you want to finalize the Nominal Roll?\n\nThis will lock the list and prevent any further additions, edits, or deletions.')) return;
+      
+      const doFinalize = async (matchNominations = false) => {
+        setLoading(e.target, true, 'Finalizing...');
+        try {
+          const res = await api.adminFinalizeRoll(pwd, { matchNominations });
+          if (res && res.requiresMatching) {
+            setLoading(e.target, false, '🔒 Finalize & Lock Roll');
+            if (confirm(`⚠️ ${res.count} existing nominations found!\n\nBecause you edited the Nominal Roll, their Serial Numbers have shifted.\n\nWould you like the system to automatically remap them using their Admission Numbers?`)) {
+              return await doFinalize(true);
+            } else {
+              return; // Admin cancelled the remap, so we don't finalize.
+            }
+          }
+          showToast('Nominal Roll Finalized & Locked Successfully!', 'success');
+          await reloadRollData(main, pwd);
+        } catch (err) {
+          showToast(err.message, 'error');
+          setLoading(e.target, false, '🔒 Finalize & Lock Roll');
+        }
+      };
+      await doFinalize(false);
     };
 
-    // Enable/disable upload button based on RESET text + password
-    const checkUploadReady = () => {
-      const resetOk = main.querySelector('#confirmResetText')?.value.trim().toUpperCase() === 'RESET';
-      const pwdOk = (main.querySelector('#confirmPwd')?.value.trim() || '') !== '';
-      const btn = main.querySelector('#btnUploadRoll');
-      if (!btn) return;
-      const ready = resetOk && pwdOk && parsedRows && parsedRows.length > 0;
-      btn.disabled = !ready;
-      btn.classList.toggle('opacity-50', !ready);
-      btn.classList.toggle('cursor-not-allowed', !ready);
-    };
+    if (main.querySelector('#btnFinalize')) main.querySelector('#btnFinalize').onclick = handleFinalize;
+    if (main.querySelector('#btnFinalizeTop')) main.querySelector('#btnFinalizeTop').onclick = handleFinalize;
 
-    main.querySelector('#confirmResetText').addEventListener('input', checkUploadReady);
-    main.querySelector('#confirmPwd').addEventListener('input', checkUploadReady);
-
-    // Upload action
-    main.querySelector('#btnUploadRoll').onclick = async (e) => {
-      const confirmPwd = main.querySelector('#confirmPwd').value.trim();
-      if (!parsedRows || parsedRows.length === 0) return showToast('No data to upload.', 'error');
-      if (!confirm(`FINAL CONFIRMATION\n\nYou are about to replace the Nominal Roll with ${parsedRows.length} students.\nAll nominations, results, and election data will be permanently deleted.\n\nThis CANNOT be undone. Proceed?`)) return;
-
-      setLoading(e.target, true, 'Uploading & Resetting...');
-      try {
-        const res = await api.adminUploadNominalRoll(confirmPwd, { headers: usedHeaders, rows: parsedRows });
-        showToast(`✅ Nominal Roll updated with ${res.count || parsedRows.length} students. All election data has been reset.`, 'success');
-        // Reload the whole page to reflect fresh data
-        const appContainer = main.closest('#appContainer') || main.parentElement;
-        renderAdminNominalRoll(appContainer);
-      } catch (err) {
-        showToast(err.message, 'error');
-        setLoading(e.target, false, '🚨 Upload & Reset Entire System');
+    // Unfinalize handlers (modal with admin password, no OTP)
+    const openUnfinalizeModal = () => {
+      const modal = main.querySelector('#unfinalizeModal');
+      const input = main.querySelector('#unfinalizePwdInput');
+      const errEl = main.querySelector('#unfinalizeError');
+      if (input) input.value = '';
+      if (errEl) { errEl.textContent = ''; errEl.classList.add('hidden'); }
+      if (modal) {
+        modal.classList.remove('hidden');
+        if (input) setTimeout(() => input.focus(), 50);
       }
     };
+
+    if (main.querySelector('#btnUnfinalize')) {
+      main.querySelector('#btnUnfinalize').onclick = openUnfinalizeModal;
+    }
+    if (main.querySelector('#btnUnfinalizeBanner')) {
+      main.querySelector('#btnUnfinalizeBanner').onclick = openUnfinalizeModal;
+    }
+
+    if (main.querySelector('#btnCancelUnfinalize')) {
+      main.querySelector('#btnCancelUnfinalize').onclick = () => {
+        main.querySelector('#unfinalizeModal')?.classList.add('hidden');
+      };
+    }
+
+    const doUnfinalize = async () => {
+      const input = main.querySelector('#unfinalizePwdInput');
+      const enteredPwd = (input?.value || '').trim();
+      const errEl = main.querySelector('#unfinalizeError');
+      const btn = main.querySelector('#btnConfirmUnfinalize');
+
+      if (!enteredPwd) {
+        if (errEl) {
+          errEl.textContent = '❌ Please enter your admin password.';
+          errEl.classList.remove('hidden');
+        }
+        input?.focus();
+        return;
+      }
+
+      setLoading(btn, true, 'Unlocking...');
+      if (errEl) errEl.classList.add('hidden');
+
+      try {
+        await api.adminUnfinalizeRoll(enteredPwd);
+        showToast('Nominal Roll Unlocked! You can now add, edit, or delete students.', 'success');
+        main.querySelector('#unfinalizeModal')?.classList.add('hidden');
+        await reloadRollData(main, pwd);
+      } catch (err) {
+        const msg = (err.message && (err.message.includes('UNAUTHORIZED') || err.message.includes('password')))
+          ? 'Incorrect admin password. Please try again.'
+          : (err.message || 'Incorrect password');
+        if (errEl) {
+          errEl.textContent = `❌ ${msg}`;
+          errEl.classList.remove('hidden');
+        }
+        showToast(msg, 'error');
+        setLoading(btn, false, 'Confirm & Unlock');
+        input?.focus();
+      }
+    };
+
+    if (main.querySelector('#btnConfirmUnfinalize')) {
+      main.querySelector('#btnConfirmUnfinalize').onclick = doUnfinalize;
+    }
+    if (main.querySelector('#unfinalizePwdInput')) {
+      main.querySelector('#unfinalizePwdInput').onkeydown = (e) => {
+        if (e.key === 'Enter') doUnfinalize();
+      };
+    }
+
+    // Printing via interactive Print Modal (All, Department, Class filtering)
+    if (main.querySelector('#btnPrintRoll')) {
+      main.querySelector('#btnPrintRoll').onclick = () => {
+        openPrintRollModal({
+          students,
+          isFinal,
+          isDraft,
+          collegeName: settings.collegeName
+        });
+      };
+    }
 
   }; // end refreshTable
 
@@ -575,156 +944,3 @@ function renderNominalRollUI(main, pwd, nominalRoll, settings) {
 }
 
 
-function triggerRollPrint(students, isFinal, collegeName) {
-  const getClassWeight = (className) => {
-    const cls = String(className).toUpperCase();
-    if (cls.includes('PH D') || cls.includes('PHD')) return 3000;
-    
-    let typeWeight = 4000;
-    if (cls.match(/\b(BA|BSC|BCOM|BBA|BCA)\b/)) typeWeight = 1000;
-    else if (cls.match(/\b(MA|MSC|MCOM|MBA|MCA)\b/)) typeWeight = 2000;
-
-    let yearWeight = 900;
-    if (cls.includes('1ST YEAR') || cls.match(/\bI\b/)) yearWeight = 100;
-    else if (cls.includes('2ND YEAR') || cls.match(/\bII\b/)) yearWeight = 200;
-    else if (cls.includes('3RD YEAR') || cls.match(/\bIII\b/)) yearWeight = 300;
-
-    return typeWeight + yearWeight;
-  };
-
-  // Sort primarily by Dept, then Class (custom), then Name
-  const data = [...students].sort((a, b) => {
-    const dA = String(a['Dept'] || '').toUpperCase();
-    const dB = String(b['Dept'] || '').toUpperCase();
-    if (dA !== dB) return dA.localeCompare(dB);
-
-    const cA = String(a['CLASS']).toUpperCase();
-    const cB = String(b['CLASS']).toUpperCase();
-    if (cA !== cB) {
-      const wA = getClassWeight(cA);
-      const wB = getClassWeight(cB);
-      if (wA !== wB) return wA - wB;
-      return cA.localeCompare(cB);
-    }
-    
-    return String(a['NAME']).toUpperCase().localeCompare(String(b['NAME']).toUpperCase());
-  });
-
-  // Group by Class
-  const classes = {};
-  data.forEach(s => {
-    const cls = String(s['CLASS']).toUpperCase() || 'UNKNOWN CLASS';
-    if (!classes[cls]) classes[cls] = [];
-    classes[cls].push(s);
-  });
-
-  const fallbackCollege = CONFIG.COLLEGE_NAME || 'GOVERNMENT VICTORIA COLLEGE, PALAKKAD';
-  const cName = collegeName || fallbackCollege;
-  const watermark = isFinal ? 'FINAL NOMINAL ROLL' : 'DRAFT NOMINAL ROLL';
-  const timestamp = new Date().toLocaleString();
-
-  let htmlContent = '';
-  
-  // Render each class as a separate page
-  Object.keys(classes).forEach(cls => {
-    const studentsInClass = classes[cls];
-    // Attempt to extract Department (assume they share the same department in the class)
-    const dept = esc(studentsInClass[0]['Dept'] || 'UNKNOWN DEPARTMENT');
-
-    const len = studentsInClass.length;
-    let squishClass = '';
-    // A4 usually fits ~35 students on page 1, and ~40 on subsequent pages.
-    // If the overflow onto the last page is 6 students or fewer, applying tighter padding pulls them into the previous page.
-    const spill = len <= 35 ? 0 : ((len - 35) % 40);
-    if (spill > 0 && spill <= 6) squishClass = 'squish';
-
-    htmlContent += `
-      <div class="page-break">
-        <div class="watermark">${watermark}</div>
-        <table class="${squishClass}">
-          <thead>
-            <tr>
-              <th colspan="3" class="table-header">
-                <div class="college">${esc(cName)}</div>
-                <div class="title">Department of ${dept}</div>
-                <div class="title" style="margin-top: 5px;">${esc(cls)} — ${watermark}</div>
-                <div class="meta">
-                  <div>Printed on: ${timestamp}</div>
-                  <div>Students in Class: ${studentsInClass.length}</div>
-                </div>
-              </th>
-            </tr>
-            <tr>
-              <th class="sl">Sl. No</th>
-              <th class="adm">Adm. No</th>
-              <th>Name</th>
-            </tr>
-          </thead>
-          <tbody>
-            ${studentsInClass.map(s => `
-              <tr>
-                <td class="sl">${esc(s['Nominal Roll Serial Number'])}</td>
-                <td class="adm">${esc(s['ADMISION NO'] || s['ADMISSION NO'] || '–')}</td>
-                <td>${esc(s['NAME'])}</td>
-              </tr>
-            `).join('')}
-          </tbody>
-          <tfoot>
-            <tr>
-              <td colspan="3" class="table-footer">
-                <div class="footer-content">Returning Officer</div>
-              </td>
-            </tr>
-          </tfoot>
-        </table>
-      </div>
-    `;
-  });
-
-  const printWin = window.open('', '_blank');
-  printWin.document.write(`
-    <html>
-      <head>
-        <title>${watermark}</title>
-        <style>
-          @page { margin: 15mm; }
-          body { font-family: sans-serif; color: #000; line-height: 1.4; font-size: 11px; margin: 0; padding: 0; }
-          .watermark { 
-            position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%) rotate(-45deg);
-            font-size: 80px; color: #f1f5f9; font-weight: bold; pointer-events: none; z-index: -1;
-            white-space: nowrap; text-transform: uppercase;
-            -webkit-print-color-adjust: exact; print-color-adjust: exact;
-          }
-          .page-break { page-break-after: always; position: relative; }
-          .page-break:last-child { page-break-after: auto; }
-          
-          .table-header { background: transparent; border: none; text-align: center; padding: 0 0 10px 0; }
-          .table-header .college { font-size: 18px; font-weight: bold; text-transform: uppercase; color: #000; }
-          .table-header .title { font-size: 14px; font-weight: bold; text-transform: uppercase; margin-top: 2px; color: #000; }
-          .table-header .meta { display: flex; justify-content: space-between; font-size: 10px; margin-top: 10px; border-bottom: 2px solid #000; padding-bottom: 5px; color: #000; font-weight: normal; text-transform: none; }
-          
-          .table-footer { border: none; padding: 40px 40px 0 0; }
-          .footer-content { text-align: right; font-weight: bold; font-size: 11px; }
-
-          table { width: 100%; border-collapse: collapse; margin-bottom: 20px; }
-          th, td { border: 1px solid #000; padding: 3px 5px; text-align: left; }
-          th { background: #eee; font-weight: bold; text-transform: uppercase; font-size: 10px; }
-          .sl { width: 50px; text-align: center; }
-          .adm { width: 65px; font-family: monospace; }
-
-          .squish th, .squish td { padding: 1px 4px !important; }
-          .squish table { margin-bottom: 5px !important; }
-          .squish .table-header { padding: 0 0 2px 0 !important; }
-          .squish .table-footer { padding: 10px 40px 0 0 !important; }
-
-          .no-print { display: none; }
-        </style>
-      </head>
-      <body>
-        ${htmlContent}
-        <script>window.print();</script>
-      </body>
-    </html>
-  `);
-  printWin.document.close();
-}

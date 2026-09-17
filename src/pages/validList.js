@@ -5,18 +5,31 @@
 import { api } from '../api.js';
 import { router } from '../router.js';
 import { esc } from '../utils.js';
+import { CONFIG } from '../config.js';
 
 export async function renderValidList(container) {
+  let year = new Date().getFullYear();
+  let shortName = CONFIG.COLLEGE_SHORT_NAME;
+  try {
+    const [s, sets] = await Promise.all([
+      api.getPublicSchedule().catch(() => ({})),
+      api.getSettings().catch(() => ({}))
+    ]);
+    if (s.electionYear) year = s.electionYear;
+    if (sets.electionYear) year = sets.electionYear;
+    if (sets.collegeShortName) shortName = sets.collegeShortName;
+  } catch(e) {}
+
   container.innerHTML = publicLayout('Valid Nominations List', `
     <div class="text-center py-20"><span class="spinner" style="width:2.5rem;height:2.5rem;border-width:4px;"></span><p class="text-slate-400 mt-4 text-sm">Loading Valid Nominations...</p></div>
-  `);
+  `, year, shortName);
   container.querySelector('#backToHome').addEventListener('click', () => router.navigate('/'));
 
   try {
     const data = await api.getValidNominations();
     renderList(container.querySelector('main'), data);
   } catch (e) {
-    container.querySelector('main').innerHTML = `<div class="alert alert-warning text-center py-10 shadow-xl">${esc(e.message)}</div>`;
+    renderList(container.querySelector('main'), []);
   }
 }
 
@@ -60,7 +73,6 @@ function renderList(main, nominations) {
                     <th class="w-16">#</th>
                     <th>Candidate Details</th>
                     <th>Department</th>
-                    <th class="text-right">Nomination ID</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -68,11 +80,16 @@ function renderList(main, nominations) {
                     <tr class="hover:bg-white/[0.02] transition-colors">
                       <td class="text-slate-600 font-mono text-xs text-center">${i + 1}</td>
                       <td>
-                        <div class="font-bold text-white text-base">${esc(n.candidateName)}</div>
-                        <div class="text-xs text-slate-500 mt-0.5">${esc(n.candidateClass)}</div>
+                        <div class="font-bold text-white text-base flex items-center gap-2">
+                          <span>${esc(n.candidateName)}</span>
+                          ${n.candidateSerial ? `<span class="inline-flex items-center px-1.5 py-0.5 rounded text-[10px] font-mono font-semibold bg-indigo-500/20 text-indigo-300 border border-indigo-500/30" title="Electoral Roll Serial Number">Roll Sl. #${esc(n.candidateSerial)}</span>` : ''}
+                        </div>
+                        <div class="text-xs text-slate-400 mt-0.5 flex items-center gap-2">
+                          <span>${esc(n.candidateClass)}</span>
+                          ${n.candidateAdmission ? `<span class="text-slate-500 font-mono">Adm: ${esc(n.candidateAdmission)}</span>` : ''}
+                        </div>
                       </td>
                       <td class="text-sm text-slate-400">${esc(n.candidateDept)}</td>
-                      <td class="text-right font-mono text-indigo-400/70 text-[10px]">${esc(n.id)}</td>
                     </tr>
                   `).join('')}
                 </tbody>
@@ -84,7 +101,8 @@ function renderList(main, nominations) {
     </div>`;
 }
 
-function publicLayout(title, bodyHtml) {
+function publicLayout(title, bodyHtml, yearValue = '2026', shortName = null) {
+  const brandShort = shortName || CONFIG.COLLEGE_SHORT_NAME;
   return `
   <div class="page-enter min-h-screen">
     <header class="no-print sticky top-0 z-10 border-b border-white/10 glass">
@@ -94,7 +112,7 @@ function publicLayout(title, bodyHtml) {
           <span class="text-slate-600">|</span>
           <h1 class="font-bold text-white text-sm tracking-tight">${esc(title)}</h1>
         </div>
-        <div class="text-[10px] text-slate-500 font-mono hidden sm:block">OFFICIAL ELECTION PORTAL</div>
+        <div class="text-[10px] text-slate-500 font-mono hidden sm:block">${esc(brandShort).toUpperCase()} ELECTION PORTAL ${yearValue}</div>
       </div>
     </header>
     <main class="max-w-5xl mx-auto px-4 py-12">${bodyHtml}</main>

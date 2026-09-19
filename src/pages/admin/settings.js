@@ -1,6 +1,6 @@
 /**
  * pages/admin/settings.js
- * Admin settings page for college info, security, and quick-link to Backup Center.
+ * Admin settings page for college info and security.
  */
 import { api } from '../../api.js';
 import { renderAdminLayout, getAdminPassword } from './layout.js';
@@ -58,12 +58,12 @@ export async function renderSettings(container) {
 
               <div>
                 <label class="text-xs text-slate-400 uppercase tracking-wider block mb-2">Full College Name</label>
-                <input type="text" id="inputCollegeName" class="field text-sm py-2.5" value="${esc(settings.collegeName || '')}">
+                <input type="text" id="inputCollegeName" class="field text-sm py-2.5" value="${esc(settings.collegeName)}">
               </div>
               <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
                   <label class="text-xs text-slate-400 uppercase tracking-wider block mb-2">Short Form (Abbreviation)</label>
-                  <input type="text" id="inputCollegeShort" class="field text-sm py-2.5" value="${esc(settings.collegeShortName || '')}">
+                  <input type="text" id="inputCollegeShort" class="field text-sm py-2.5" value="${esc(settings.collegeShortName)}">
                 </div>
                 <div>
                   <label class="text-xs text-slate-400 uppercase tracking-wider block mb-2">Election Year</label>
@@ -83,16 +83,14 @@ export async function renderSettings(container) {
             
             <div class="space-y-5">
               <div>
+                <label class="text-xs text-slate-400 uppercase tracking-wider block mb-2">New Admin Password</label>
+                <input type="password" id="inputAdminPassword" class="field text-sm py-2.5" placeholder="Leave blank to keep current">
+              </div>
+              <div>
                 <label class="text-xs text-slate-400 uppercase tracking-wider block mb-2">Admin Email (For OTP)</label>
                 <input type="email" id="inputAdminEmail" class="field text-sm py-2.5" value="${esc(settings.adminEmail || '')}" placeholder="admin@college.edu">
               </div>
-              <div>
-                <label class="text-xs text-slate-400 uppercase tracking-wider block mb-2">Security Notice</label>
-                <p class="text-xs text-slate-400 leading-relaxed">
-                  Daily admin passwords rotate based on dynamic date calculation for security.
-                </p>
-              </div>
-              <button id="btnUpdateSecurity" class="btn bg-rose-500/20 text-rose-300 hover:bg-rose-500/30 w-full py-3 mt-2">Update Security Email</button>
+              <button id="btnUpdateSecurity" class="btn bg-rose-500/20 text-rose-300 hover:bg-rose-500/30 w-full py-3 mt-2">Update Credentials</button>
             </div>
           </div>
         </div>
@@ -102,7 +100,7 @@ export async function renderSettings(container) {
           <div class="flex items-start gap-4">
             <div class="text-3xl">💾</div>
             <div>
-              <h4 class="font-bold text-sky-400 text-lg">Full Data Backup &amp; Disaster Recovery</h4>
+              <h4 class="font-bold text-sky-400 text-lg">Full Data Backup & Disaster Recovery</h4>
               <p class="text-sky-200/70 text-sm mt-1">Export or restore the entire election database: Nominal Roll, Corrections, Nominations, Booths, Ballots, Counting Matrices, and Certified Results. Includes automatic pre-restore safety snapshots and 1-click rollbacks.</p>
             </div>
           </div>
@@ -117,7 +115,7 @@ export async function renderSettings(container) {
             <div class="text-3xl">⚠️</div>
             <div class="flex-1">
               <h4 class="font-bold text-rose-400 text-lg">Danger Zone: New Election Year</h4>
-              <p class="text-rose-200/60 text-sm mt-1">This action permanently deletes all Nominations, Results, and resets election state flags. Your configuration (Nominal Roll, Posts, Booths) will be kept intact.</p>
+              <p class="text-rose-200/60 text-sm mt-1">This action permanently deletes all Nominal Roll students, Nominations, and resets election state flags. Your configuration (Posts, Booths, Passwords) will be kept.</p>
               
               <div class="mt-5 space-y-4 max-w-md">
                 <button id="btnInitReset" class="btn bg-rose-600 text-white hover:bg-rose-700 w-full">🚨 Start Factory Reset</button>
@@ -231,11 +229,13 @@ export async function renderSettings(container) {
 
     // Handle security update
     container.querySelector('#btnUpdateSecurity').addEventListener('click', async () => {
+      const newPassword = container.querySelector('#inputAdminPassword').value.trim();
       const newEmail = container.querySelector('#inputAdminEmail').value.trim();
       
       try {
-        await api.adminUpdateCredentials(pwd, { newEmail });
+        await api.adminUpdateCredentials(pwd, { newPassword, newEmail });
         showToast('Security credentials updated successfully!', 'success');
+        container.querySelector('#inputAdminPassword').value = '';
       } catch (e) {
         showToast(e.message, 'error');
       }
@@ -261,7 +261,7 @@ export async function renderSettings(container) {
       btn.textContent = 'Sending...';
       btn.disabled = true;
       try {
-        await api.adminSendOTP(resetPwd);
+        await api.post({ action: 'adminSendOTP', password: resetPwd });
         showToast('OTP sent to your admin email!', 'success');
         resetStep1.classList.add('hidden');
         resetStep2.classList.remove('hidden');
@@ -275,17 +275,16 @@ export async function renderSettings(container) {
     container.querySelector('#btnResetConfirm').addEventListener('click', async (e) => {
       const resetPwd = container.querySelector('#resetPwd').value;
       const otp = container.querySelector('#resetOTP').value.trim();
-      const confirmText = container.querySelector('#resetConfirmText').value.trim().toUpperCase();
+      const confirm = container.querySelector('#resetConfirmText').value.trim().toUpperCase();
       
       if (!otp || otp.length !== 6) return showToast('Enter 6-digit OTP', 'error');
-      if (confirmText !== 'RESET') return showToast('Type RESET to confirm', 'error');
+      if (confirm !== 'RESET') return showToast('Type RESET to confirm', 'error');
       
       const btn = e.target;
       btn.textContent = 'WIPING DATA...';
       btn.disabled = true;
       try {
-        await api.adminVerifyOTP(resetPwd, otp);
-        await api.adminWipeData(resetPwd);
+        await api.post({ action: 'adminFactoryReset', password: resetPwd, otp });
         showToast('✅ System Reset Successful! Reloading...', 'success');
         setTimeout(() => window.location.reload(), 2000);
       } catch (err) {

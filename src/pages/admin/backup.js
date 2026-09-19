@@ -285,7 +285,7 @@ function renderBackupPage(main, pwd, { settings, rollCount, postsCount, nomsCoun
             </div>
             <div>
               <h4 class="font-bold text-white text-lg">3. Internal Database Checkpoints &amp; Rollbacks</h4>
-              <p class="text-slate-400 text-xs mt-0.5">Automatic snapshots preserved inside database. Revert state instantly with one click.</p>
+              <p class="text-slate-400 text-xs mt-0.5">Automatic snapshots preserved inside PostgreSQL. Revert state instantly with one click.</p>
             </div>
           </div>
           <span class="text-xs text-slate-400 font-mono">${snapshots.length} Snapshots Saved</span>

@@ -8,25 +8,61 @@ import { esc, setLoading, showToast, triggerPrint, todayFormatted } from '../uti
 import { CONFIG } from '../config.js';
 
 export async function renderWithdraw(container) {
+  let year = new Date().getFullYear();
+  let shortName = CONFIG.COLLEGE_SHORT_NAME;
+  let collegeName = CONFIG.COLLEGE_NAME;
+  try {
+    const [schedule, sets] = await Promise.all([
+      api.getPublicSchedule().catch(() => ({})),
+      api.getSettings().catch(() => ({}))
+    ]);
+    if (schedule.electionYear) year = schedule.electionYear;
+    if (sets.electionYear) year = sets.electionYear;
+    if (sets.collegeName) collegeName = sets.collegeName;
+    if (sets.collegeShortName) shortName = sets.collegeShortName;
+  } catch(e) {}
+
   container.innerHTML = publicLayout('Withdrawal Form', `
     <div id="loadingState" class="flex flex-col items-center justify-center py-24 gap-4">
       <span class="spinner" style="width:2.5rem;height:2.5rem;border-width:4px;"></span>
       <p class="text-slate-400 text-sm">Checking schedule...</p>
     </div>
     <div id="withdrawArea" class="hidden"></div>
-  `);
+  `, year, shortName);
 
   container.querySelector('#backToHome').addEventListener('click', () => router.navigate('/'));
 
   try {
-    const schedule = await api.getPublicSchedule().catch(() => ({}));
+    const [schedule, sets] = await Promise.all([
+      api.getPublicSchedule().catch(() => ({})),
+      api.getSettings().catch(() => ({}))
+    ]);
     const now = new Date();
     const start = schedule.withdrawalStart ? new Date(schedule.withdrawalStart) : null;
     const end = schedule.withdrawalEnd ? new Date(schedule.withdrawalEnd) : null;
+    const isValidPublished = sets?.validListPublished === 'true' || schedule?.validListPublished === 'true';
 
     const area = container.querySelector('#withdrawArea');
     container.querySelector('#loadingState').classList.add('hidden');
     area.classList.remove('hidden');
+
+    if (!isValidPublished) {
+      area.innerHTML = `
+        <div class="glass p-12 text-center rounded-2xl border border-amber-500/20 max-w-2xl mx-auto page-enter">
+          <div class="text-6xl mb-6">⏳</div>
+          <div class="badge bg-amber-500/20 text-amber-300 border border-amber-500/40 px-3 py-1 text-xs font-bold uppercase tracking-widest mb-3 inline-block">
+            Awaiting Scrutiny
+          </div>
+          <h3 class="text-2xl font-bold text-white mb-3">Withdrawals Not Open Yet</h3>
+          <p class="text-slate-400 mb-6 leading-relaxed">
+            Withdrawal of candidature will open only after the <strong>Valid Nominations List</strong> is officially published by the Returning Officer.
+          </p>
+          <button id="expiredBackBtn" class="btn btn-secondary">← Back to Home</button>
+        </div>
+      `;
+      area.querySelector('#expiredBackBtn').onclick = () => router.navigate('/');
+      return;
+    }
 
     if (start && now < start) {
       area.innerHTML = `
@@ -58,12 +94,16 @@ export async function renderWithdraw(container) {
         <div class="text-center mb-8">
           <div class="text-5xl mb-3">↩️</div>
           <h2 class="text-xl font-bold text-white">Submit Withdrawal</h2>
-          <p class="text-slate-400 text-sm mt-2">Enter your 10-digit nomination ID to fetch your details and submit a withdrawal request.</p>
+          <p class="text-slate-400 text-sm mt-2">Enter your 10-digit nomination ID and Admission Number to securely fetch your details and submit a withdrawal request.</p>
         </div>
         <div class="space-y-4">
           <div>
             <label class="block text-sm font-semibold text-slate-300 mb-1">Nomination ID (10 digits)</label>
             <input id="withdrawId" type="text" maxlength="10" class="field text-center text-xl tracking-widest font-mono" placeholder="0000000000" />
+          </div>
+          <div>
+            <label class="block text-sm font-semibold text-slate-300 mb-1">Your Admission Number (Authentication)</label>
+            <input id="authAdm" type="text" class="field text-center text-xl tracking-widest font-mono" placeholder="12345" />
           </div>
           <button id="fetchBtn" class="btn btn-primary w-full">Fetch Nomination Details</button>
         </div>
@@ -74,13 +114,17 @@ export async function renderWithdraw(container) {
     const fetchBtn = area.querySelector('#fetchBtn');
     fetchBtn.addEventListener('click', async () => {
       const id = area.querySelector('#withdrawId').value.trim();
+      const adm = area.querySelector('#authAdm').value.trim();
       if (id.length !== 10 || !/^\d+$/.test(id)) {
         showToast('Please enter a valid 10-digit numeric ID.', 'error'); return;
       }
+      if (!adm) {
+        showToast('Please enter your Admission Number.', 'error'); return;
+      }
       setLoading(fetchBtn, true, 'Fetch Nomination Details');
       try {
-        const nom = await api.getNomination(id);
-        showDetails(area.querySelector('#nominationDetails'), nom, id);
+        const nom = await api.getNomination(id, adm);
+        showDetails(area.querySelector('#nominationDetails'), nom, id, adm, collegeName);
       } catch (e) {
         area.querySelector('#nominationDetails').innerHTML = `<div class="alert alert-error">❌ ${esc(e.message)}</div>`;
       } finally {
@@ -93,13 +137,14 @@ export async function renderWithdraw(container) {
   }
 }
 
-function showDetails(area, nom, id) {
+function showDetails(area, nom, id, adm, collegeName = null) {
   if (nom.status !== 'Valid') {
     area.innerHTML = `<div class="alert alert-warning">⚠ This nomination has status <strong>${esc(nom.status)}</strong>. Only <strong>Valid</strong> nominations can be withdrawn.</div>`;
     return;
   }
-  if (nom.withdrawalStatus === 'Requested' || nom.withdrawalStatus === 'Approved') {
-    area.innerHTML = `<div class="alert alert-info">ℹ A withdrawal has already been ${esc(nom.withdrawalStatus.toLowerCase())} for this nomination.</div>`;
+  if (nom.withdrawalStatus === 'Requested' || nom.withdrawalStatus === 'Pending' || nom.withdrawalStatus === 'Approved') {
+    const stText = nom.withdrawalStatus === 'Approved' ? 'approved' : 'submitted and is currently under review by the Returning Officer';
+    area.innerHTML = `<div class="alert alert-info">ℹ A withdrawal request has already been ${stText} for this nomination.</div>`;
     return;
   }
 
@@ -125,14 +170,14 @@ function showDetails(area, nom, id) {
     const btn = area.querySelector('#withdrawBtn');
     setLoading(btn, true, 'Submit Withdrawal Request');
     try {
-      await api.submitWithdrawal(id);
+      await api.submitWithdrawal(id, adm);
       area.innerHTML = `
         <div class="alert alert-success">✅ Withdrawal request submitted successfully! The Returning Officer will review your request.</div>
         <div class="mt-4 no-print">
           <button id="printWithdrawal" class="btn btn-secondary">🖨️ Print Withdrawal Form</button>
         </div>
         <div class="print-zone mt-4">
-          ${buildWithdrawalPaper(id, nom)}
+          ${buildWithdrawalPaper(id, nom, collegeName)}
         </div>`;
       area.querySelector('#printWithdrawal').addEventListener('click', triggerPrint);
       showToast('Withdrawal request submitted!', 'success');
@@ -145,17 +190,18 @@ function showDetails(area, nom, id) {
 
 }
 
-function buildWithdrawalPaper(id, nom) {
+function buildWithdrawalPaper(id, nom, collegeName = null) {
   const today = todayFormatted();
   const name = nom.candidate?.NAME || nom.candidateName || 'N/A';
   const cls  = nom.candidate?.CLASS || nom.candidateClass || 'N/A';
   const dept = nom.candidate?.Dept || nom.candidateDept || 'N/A';
+  const cName = collegeName || CONFIG.COLLEGE_NAME;
 
   return `
   <div class="print-paper border border-slate-700 rounded-xl p-8 bg-slate-900 text-slate-200 space-y-5">
     <div class="flex justify-between text-sm">
       <div>
-        <p class="font-bold text-white text-base">${esc(CONFIG.COLLEGE_NAME)}</p>
+        <p class="font-bold text-white text-base">${esc(cName)}</p>
         <p class="text-slate-400">College Union Election — Withdrawal Form</p>
       </div>
       <p class="text-slate-400 text-xs">Date: ${today}</p>
@@ -188,14 +234,22 @@ function buildWithdrawalPaper(id, nom) {
   </div>`;
 }
 
-function publicLayout(title, bodyHtml) {
+function publicLayout(title, bodyHtml, yearValue = '2026', shortName = null) {
+  const brandShort = shortName || CONFIG.COLLEGE_SHORT_NAME;
   return `
   <div class="page-enter min-h-screen">
-    <header class="no-print sticky top-0 z-10 border-b border-white/10 glass">
-      <div class="max-w-4xl mx-auto px-6 py-3 flex items-center gap-4">
-        <button id="backToHome" class="text-slate-400 hover:text-white transition text-sm">← Home</button>
-        <span class="text-slate-600">|</span>
-        <h1 class="font-bold text-white text-sm">${esc(title)}</h1>
+    <header class="no-print sticky top-0 z-50 border-b border-white/10 glass">
+      <div class="max-w-4xl mx-auto px-6 py-4 flex items-center justify-between gap-4">
+        <div class="flex items-center gap-4">
+          <button id="backToHome" class="btn btn-secondary btn-sm flex items-center gap-2">
+            <span class="text-lg">←</span> Home
+          </button>
+          <div class="h-6 w-px bg-white/10 mx-2"></div>
+          <h1 class="font-bold text-white text-lg tracking-tight">${esc(title)}</h1>
+        </div>
+        <div class="text-xs text-slate-500 font-medium hidden md:block uppercase tracking-widest">
+          ${esc(brandShort)} Election Portal ${yearValue}
+        </div>
       </div>
     </header>
     <main class="max-w-4xl mx-auto px-4 py-8">${bodyHtml}</main>

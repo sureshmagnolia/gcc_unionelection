@@ -22,7 +22,7 @@ export async function renderAdminDashboard(container) {
     const pending   = noms.filter(n => n.status === 'Pending').length;
     const valid     = noms.filter(n => n.status === 'Valid').length;
     const rejected  = noms.filter(n => n.status === 'Rejected').length;
-    const withdrawn = noms.filter(n => n.withdrawalStatus === 'Requested').length;
+    const withdrawn = noms.filter(n => n.withdrawalStatus === 'Requested' || n.withdrawalStatus === 'Pending').length;
 
     const main = container.querySelector('#adminMain');
     main.innerHTML = `
@@ -66,19 +66,6 @@ export async function renderAdminDashboard(container) {
             </div>
           </div>
           
-          <div class="glass rounded-2xl p-6 space-y-4">
-            <h4 class="font-bold text-white text-sm">College Information</h4>
-            <div class="space-y-4">
-              <div>
-                <label class="text-[10px] text-slate-500 uppercase tracking-wider block mb-1">Full College Name</label>
-                <input type="text" id="inputCollegeName" class="field text-xs py-1.5" value="${esc(settings.collegeName)}">
-              </div>
-              <div>
-                <label class="text-[10px] text-slate-500 uppercase tracking-wider block mb-1">Short Form (Abbreviation)</label>
-                <input type="text" id="inputCollegeShort" class="field text-xs py-1.5" value="${esc(settings.collegeShortName)}">
-              </div>
-              <button id="btnUpdateBranding" class="btn btn-primary w-full text-xs py-2">Update Branding</button>
-            </div>
           </div>
         </div>
 
@@ -126,20 +113,6 @@ export async function renderAdminDashboard(container) {
       btn.addEventListener('click', () => {
         import('../../router.js').then(({ router }) => router.navigate(`/admin/${btn.dataset.adminNav}`));
       });
-    });
-
-    // Handle branding update
-    container.querySelector('#btnUpdateBranding').addEventListener('click', async () => {
-      const collegeName = container.querySelector('#inputCollegeName').value.trim();
-      const collegeShortName = container.querySelector('#inputCollegeShort').value.trim();
-      if (!collegeName || !collegeShortName) return showToast('Please fill all branding fields.', 'error');
-
-      try {
-        await api.adminUpdateSettings(pwd, { collegeName, collegeShortName });
-        showToast('College branding updated successfully! Refresh to see changes system-wide.', 'success');
-      } catch (e) {
-        showToast(e.message, 'error');
-      }
     });
   } catch (e) {
     container.querySelector('#adminMain').innerHTML = `<div class="alert alert-error">❌ ${esc(e.message)}</div>`;

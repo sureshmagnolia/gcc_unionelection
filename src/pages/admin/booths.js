@@ -19,7 +19,7 @@ export async function renderAdminBooths(container) {
       api.adminGetBooths(pwd).catch(() => []),
       api.adminGetLocations(pwd).catch(() => []),
       api.adminGetPosts(pwd).catch(() => []),
-      api.getFinalNominations().catch(() => ({ active: [] })),
+      api.adminGetFinalNominations(pwd).catch(() => api.getFinalNominations()).catch(() => ({ active: [] })),
       api.adminGetBallotPlan(pwd).catch(() => null),
       api.adminGetSettings(pwd).catch(() => ({}))
     ]);
@@ -110,7 +110,7 @@ function renderBoothsUI(main, pwd, nominalRoll, initialBooths, initialLocations,
             <button id="btnManageLocations" class="btn btn-secondary border-purple-500/30 text-purple-300 hover:bg-purple-500 hover:text-white">📍 Manage Locations</button>
             <button id="btnSaveBooths" class="btn btn-primary">💾 Save Configuration</button>
             <button id="btnRegenPlan" class="btn btn-primary border-indigo-500 bg-indigo-600 hover:bg-indigo-500 text-white shadow-lg shadow-indigo-500/30 px-4">🔄 Finalize Master Plan</button>
-            <button id="btnPrintRolls" class="btn btn-secondary">🖨️ Print Electoral Rolls</button>
+            <button id="btnPrintRolls" class="btn btn-secondary">🖨️ Print Marked Copy (Electoral Rolls)</button>
             <button id="btnPrintBallotAccounts" class="btn btn-secondary border-indigo-500/30 text-indigo-300 hover:bg-indigo-500 hover:text-white">📑 Print Ballot Accounts</button>
           </div>
         </div>
@@ -610,6 +610,8 @@ function renderBoothsUI(main, pwd, nominalRoll, initialBooths, initialLocations,
 
   const buildElectoralRollHtml = (booths, students, posts, classStats, nominationsResponse, plan) => {
     const collegeName = settings?.collegeName || CONFIG.COLLEGE_NAME || 'COLLEGE UNION ELECTION';
+    const electionYear = settings?.electionYear || new Date().getFullYear().toString();
+    const collegeLogo = settings?.collegeLogo || '';
     let html = '';
     
     if (!plan) {
@@ -629,8 +631,9 @@ function renderBoothsUI(main, pwd, nominalRoll, initialBooths, initialLocations,
       html += `
       <div class="facing-sheet">
           <div class="header">
+            ${collegeLogo ? `<img src="${collegeLogo}" style="max-height:50px;max-width:130px;margin:0 auto 6px auto;display:block;object-fit:contain" alt="College Logo">` : ''}
             <div class="college-name">${esc(collegeName)}</div>
-            <div class="title">Electoral Roll — Booth Facing Sheet</div>
+            <div class="title">College Union Election ${esc(electionYear)} — Booth Facing Sheet</div>
           </div>
           
           <div style="font-size: 14px; margin-bottom: 12px; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px dashed #ccc; padding-bottom: 8px;">
@@ -733,7 +736,7 @@ function renderBoothsUI(main, pwd, nominalRoll, initialBooths, initialLocations,
         <div class="roll-page">
           <div class="roll-header">
             <div><strong>BOOTH ${b.boothNumber}</strong> | ${esc(b.roomName || 'No Room')}</div>
-            <div style="text-align:center; flex-grow:1; font-weight:bold; font-size:13px;">ELECTORAL ROLL — ${esc(cls.name)}</div>
+            <div style="text-align:center; flex-grow:1; font-weight:bold; font-size:13px;">College Union Election ${esc(electionYear)} — MARKED COPY (${esc(cls.name)})</div>
             <div>Dept: ${esc(cls.dept)}</div>
           </div>
           <table class="roll-table">
@@ -742,8 +745,8 @@ function renderBoothsUI(main, pwd, nominalRoll, initialBooths, initialLocations,
                 <th style="width:38px">Sl.No</th>
                 <th style="width:70px">Adm. No</th>
                 <th>Student Name</th>
-                <th style="width:180px">Class</th>
-                <th style="width:80px">Signature</th>
+                <th style="width:160px">Class</th>
+                <th style="width:100px">Voter Signature</th>
               </tr>
             </thead>
             <tbody>
@@ -770,6 +773,8 @@ function renderBoothsUI(main, pwd, nominalRoll, initialBooths, initialLocations,
 
   const buildBallotAccountHtml = (booths, students, posts, classStats, nominationsResponse, plan) => {
     const collegeName = settings?.collegeName || CONFIG.COLLEGE_NAME || 'COLLEGE UNION ELECTION';
+    const electionYear = settings?.electionYear || new Date().getFullYear().toString();
+    const collegeLogo = settings?.collegeLogo || '';
     let html = '';
     if (!plan) return `<div class="alert alert-error">❌ Master Ballot Plan not generated.</div>`;
 
@@ -791,8 +796,9 @@ function renderBoothsUI(main, pwd, nominalRoll, initialBooths, initialLocations,
         <div class="account-page">
           <div>
             <div class="header">
+              ${collegeLogo ? `<img src="${collegeLogo}" style="max-height:50px;max-width:130px;margin:0 auto 6px auto;display:block;object-fit:contain" alt="College Logo">` : ''}
               <div class="college-name">${esc(collegeName)}</div>
-              <div class="title">Ballots & Books Account (To be filled by PO)</div>
+              <div class="title">College Union Election ${esc(electionYear)} — Ballots &amp; Books Account</div>
             </div>
             
             <div style="font-size: 16px; margin-bottom: 15px; display: flex; justify-content: space-between; align-items: center; background: #f9f9f9; padding: 10px; border: 1px solid #ddd;">

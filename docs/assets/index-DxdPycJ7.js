@@ -259,28 +259,28 @@ var e=Object.defineProperty,t=(t,n)=>{let r={};for(var i in t)e(r,i,{get:t[i],en
         <p class="text-slate-500 text-xs text-center py-6">Type a student name or admission number to search ${F.length} students.</p>
       </div>
     </div>
-  `,document.body.appendChild(i);let a=i.querySelector(`#serialSearchInput`),o=i.querySelector(`#serialSearchResults`),s=i.querySelector(`#closeSerialModalBtn`),c=()=>i.remove();s.onclick=c,i.onclick=e=>{e.target===i&&c()},a.oninput=()=>{let t=a.value.trim().toLowerCase();if(!t){o.innerHTML=`<p class="text-slate-500 text-xs text-center py-6">Type a student name or admission number to search ${F.length} students.</p>`;return}let r=F.filter(e=>{let n=String(e.NAME||e.name||``).toLowerCase(),r=String(e[`ADMISION NO`]||e[`ADMISSION NO`]||e.admission_no||``).toLowerCase(),i=String(e.CLASS||e.class||``).toLowerCase(),a=String(e[`Nominal Roll Serial Number`]||e.serial_number||``);return n.includes(t)||r.includes(t)||i.includes(t)||a===t}).slice(0,30);if(r.length===0){o.innerHTML=`<p class="text-rose-400 text-xs text-center py-6">No matching student found in the published Nominal Roll for "${j(t)}".</p>`;return}o.innerHTML=r.map(t=>{let n=String(t[`Nominal Roll Serial Number`]||t.serial_number||``),r=String(t.NAME||t.name||``),i=String(t.CLASS||t.class||``),a=String(t.Dept||t.dept||`N/A`),o=i.toUpperCase().includes(`RESEARCH`)||i.toUpperCase().includes(`SCHOLAR`),s=e===`candidate`&&o;return`
-        <div class="glass hover:bg-white/[0.04] p-3 rounded-xl border border-white/5 flex items-center justify-between gap-3 transition-colors ${s?`opacity-70`:``}">
+  `,document.body.appendChild(i);let a=i.querySelector(`#serialSearchInput`),o=i.querySelector(`#serialSearchResults`),s=i.querySelector(`#closeSerialModalBtn`),c=()=>i.remove();s.onclick=c,i.onclick=e=>{e.target===i&&c()},a.oninput=()=>{let t=a.value.trim().toLowerCase();if(!t){o.innerHTML=`<p class="text-slate-500 text-xs text-center py-6">Type a student name or admission number to search ${F.length} students.</p>`;return}let r=F.filter(e=>{let n=String(e.NAME||e.name||``).toLowerCase(),r=String(e[`ADMISION NO`]||e[`ADMISSION NO`]||e.admission_no||e[`Admission No`]||e[`Adm No`]||``).toLowerCase(),i=String(e.CLASS||e.class||``).toLowerCase(),a=String(e.Dept||e.dept||``).toLowerCase(),o=String(e[`Nominal Roll Serial Number`]||e.serial_number||``);return n.includes(t)||r.includes(t)||i.includes(t)||a.includes(t)||o===t||o.includes(t)}).slice(0,30);if(r.length===0){o.innerHTML=`<p class="text-rose-400 text-xs text-center py-6">No matching student found in the published Nominal Roll for "${j(t)}".</p>`;return}o.innerHTML=r.map(t=>{let n=String(t[`Nominal Roll Serial Number`]||t.serial_number||``),r=String(t.NAME||t.name||``),i=String(t[`ADMISION NO`]||t[`ADMISSION NO`]||t.admission_no||t[`Admission No`]||t[`Adm No`]||`–`),a=String(t.CLASS||t.class||``),o=String(t.Dept||t.dept||`N/A`),s=a.toUpperCase().includes(`RESEARCH`)||a.toUpperCase().includes(`SCHOLAR`),c=e===`candidate`&&s;return`
+        <div class="glass hover:bg-white/[0.04] p-3 rounded-xl border border-white/5 flex items-center justify-between gap-3 transition-colors ${c?`opacity-70`:``}">
           <div class="min-w-0">
             <div class="flex items-center gap-2">
               <span class="badge bg-indigo-500/20 text-indigo-300 border border-indigo-500/40 font-mono font-bold text-xs px-2 py-0.5">
                 Sl. #${j(n)}
               </span>
               <span class="font-bold text-white text-sm truncate">${j(r)}</span>
-              ${s?`<span class="badge bg-rose-500/20 text-rose-300 border border-rose-500/40 text-[10px] px-1.5 py-0.2">Cannot Contest</span>`:``}
+              ${c?`<span class="badge bg-rose-500/20 text-rose-300 border border-rose-500/40 text-[10px] px-1.5 py-0.2">Cannot Contest</span>`:``}
             </div>
             <div class="text-[11px] text-slate-400 mt-1 flex flex-wrap gap-x-3">
-              <span>Adm: <strong class="text-slate-300 font-mono">${j(adm)}</strong></span>
-              <span>Class: ${j(i)}</span>
-              <span>Dept: ${j(a)}</span>
+              <span>Adm: <strong class="text-slate-300 font-mono">${j(i)}</strong></span>
+              <span>Class: ${j(a)}</span>
+              <span>Dept: ${j(o)}</span>
             </div>
           </div>
-          ${s?`
+          ${c?`
             <button type="button" disabled class="btn btn-secondary btn-xs shrink-0 px-2.5 py-1 text-xs font-medium opacity-40 cursor-not-allowed" title="Research Scholars are not eligible to contest">
               Ineligible
             </button>
           `:`
-            <button type="button" class="btn btn-primary btn-xs shrink-0 select-serial-btn px-3 py-1 text-xs font-semibold" data-serial="${j(n)}" data-adm="${j(adm)}">
+            <button type="button" class="btn btn-primary btn-xs shrink-0 select-serial-btn px-3 py-1 text-xs font-semibold" data-serial="${j(n)}" data-adm="${j(i)}">
               Select #${j(n)}
             </button>
           `}

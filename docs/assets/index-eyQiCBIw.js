@@ -3736,7 +3736,7 @@ This will remove the final candidate list from public view.`)){F(n,!0,`Unpublish
               <div class="candidate-row"><div class="sl-no">${t.length+1}</div><div class="c-name">NOTA</div><div class="stamp-box"></div></div>
             </div>
           </div>
-        `}),_},b=async e=>{try{I(`Generating ballots...`,`info`),v(await y(e))}catch(e){I(e.message,`error`)}},x=async()=>{try{I(`Calculating Master Plan...`,`info`);let[e,r,i]=await Promise.all([C.getPublicSchedule(),C.adminGetSettings(t).catch(()=>({})),C.adminGetBallotPlan(t).catch(()=>null)]),a=i;if(!a)if(confirm(`No Master Plan found. Generate it now based on current final list and booths?`))await C.adminGenerateBallotPlan(t),a=await C.adminGetBallotPlan(t).catch(()=>null);else return;let o=e.electionYear||new Date().getFullYear(),s=r.collegeName||`Government Victoria College Palakkad`,c=e=>!e||Array.isArray(e)&&e.length===0?`-`:typeof e==`string`?e:`
+        `}),_},b=async e=>{try{I(`Generating ballots...`,`info`),v(await y(e))}catch(e){I(e.message,`error`)}},x=async()=>{try{I(`Calculating Master Plan...`,`info`);let[e,r,i]=await Promise.all([C.getPublicSchedule(),C.adminGetSettings(t).catch(()=>({})),C.adminGetBallotPlan(t).catch(()=>null)]),a=i;if(!a)if(confirm(`No Master Plan found. Generate it now based on current final list and booths?`))await C.adminGenerateBallotPlan(t),a=await C.adminGetBallotPlan(t).catch(()=>null);else return;let o=r.electionYear||e.electionYear||new Date().getFullYear().toString(),s=r.collegeName||n.COLLEGE_NAME,c=r.collegeLogo||``,l=e=>!e||Array.isArray(e)&&e.length===0?`-`:typeof e==`string`?e:`
           <table style="width:100%; border-collapse:collapse; font-size:10px; background:rgba(0,0,0,0.02);">
             ${e.map(e=>`
               <tr>
@@ -3747,20 +3747,20 @@ This will remove the final candidate list from public view.`)){F(n,!0,`Unpublish
               </tr>
             `).join(``)}
           </table>
-        `,l=!!(a.isSplit&&Array.isArray(a.generalParts)&&a.generalParts.length>1);v(`
+        `,u=!!(a.isSplit&&Array.isArray(a.generalParts)&&a.generalParts.length>1);v(`
         <div style="padding: 40px; font-family: sans-serif; color: #333;">
           <div style="text-align: center; border-bottom: 2px solid #000; padding-bottom: 20px; margin-bottom: 30px;">
-            ${collegeLogo?`<img src="${collegeLogo}" style="max-height:55px;max-width:130px;margin:0 auto 6px auto;display:block;object-fit:contain" alt="College Logo">`:``}
+            ${c?`<img src="${c}" style="max-height:55px;max-width:130px;margin:0 auto 6px auto;display:block;object-fit:contain" alt="College Logo">`:``}
             <h2 style="margin: 0; font-size: 18px; color: #333; font-weight: bold;">${P(s)}</h2>
             <h1 style="margin: 6px 0 0 0; font-size: 22px;">College Union Election ${o} — Ballot Printing Summary</h1>
           </div>
 
           <p style="font-size: 14px; margin-bottom: 20px;">
             This document provides the sequential serial number ranges and booklet packaging for each ballot category.
-            ${l?`<br><strong>Note:</strong> General Union posts are split into <strong>`+a.generalParts.length+` separate ballot papers</strong> with distinct series numbering and booklet codes.`:``}
+            ${u?`<br><strong>Note:</strong> General Union posts are split into <strong>`+a.generalParts.length+` separate ballot papers</strong> with distinct series numbering and booklet codes.`:``}
           </p>
 
-          ${l?`
+          ${u?`
             <!-- Split General Parts Tables -->
             ${a.generalParts.map((e,t)=>`
               <h3 style="background: #eee; padding: 8px 15px; border-left: 5px solid #4f46e5; margin-top: 25px;">
@@ -3786,7 +3786,7 @@ This will remove the final candidate list from public view.`)){F(n,!0,`Unpublish
                       <td style="border: 1px solid #ddd; padding: 8px; text-align: center;">${t.count}</td>
                       <td style="border: 1px solid #ddd; padding: 8px; text-align: center; font-weight: bold;">${e.shortCode}-${t.start}</td>
                       <td style="border: 1px solid #ddd; padding: 8px; text-align: center; font-weight: bold;">${e.shortCode}-${t.end}</td>
-                      <td style="border: 1px solid #ddd; padding: 4px;">${c(t.books)}</td>
+                      <td style="border: 1px solid #ddd; padding: 4px;">${l(t.books)}</td>
                     </tr>
                   `).join(``)}
                   <tr style="background: #f1f5f9; font-weight: bold;">
@@ -3819,7 +3819,7 @@ This will remove the final candidate list from public view.`)){F(n,!0,`Unpublish
                     <td style="border: 1px solid #ddd; padding: 10px; text-align: center;">${e.count}</td>
                     <td style="border: 1px solid #ddd; padding: 10px; text-align: center; font-weight: bold;">G${e.start}</td>
                     <td style="border: 1px solid #ddd; padding: 10px; text-align: center; font-weight: bold;">G${e.end}</td>
-                    <td style="border: 1px solid #ddd; padding: 4px;">${c(e.books||e.bookHtml)}</td>
+                    <td style="border: 1px solid #ddd; padding: 4px;">${l(e.books||e.bookHtml)}</td>
                   </tr>
                 `).join(``)}
                 <tr style="background: #f1f5f9; font-weight: bold;">
@@ -3853,7 +3853,7 @@ This will remove the final candidate list from public view.`)){F(n,!0,`Unpublish
                   <td style="border: 1px solid #ddd; padding: 10px; text-align: center;">${e.count}</td>
                   <td style="border: 1px solid #ddd; padding: 10px; text-align: center; font-weight: bold;">R${e.start}</td>
                   <td style="border: 1px solid #ddd; padding: 10px; text-align: center; font-weight: bold;">R${e.end}</td>
-                  <td style="border: 1px solid #ddd; padding: 4px;">${c(e.books||e.bookHtml)}</td>
+                  <td style="border: 1px solid #ddd; padding: 4px;">${l(e.books||e.bookHtml)}</td>
                 </tr>
               `).join(``)}
               <tr style="background: #f1f5f9; font-weight: bold;">
@@ -3886,7 +3886,7 @@ This will remove the final candidate list from public view.`)){F(n,!0,`Unpublish
                   <td style="border: 1px solid #ddd; padding: 10px; text-align: center;">${e.count}</td>
                   <td style="border: 1px solid #ddd; padding: 10px; text-align: center; font-weight: bold;">A${e.start}</td>
                   <td style="border: 1px solid #ddd; padding: 10px; text-align: center; font-weight: bold;">A${e.end}</td>
-                  <td style="border: 1px solid #ddd; padding: 4px;">${c(e.books||e.bookHtml)}</td>
+                  <td style="border: 1px solid #ddd; padding: 4px;">${l(e.books||e.bookHtml)}</td>
                 </tr>
               `).join(``)}
               <tr style="background: #f1f5f9; font-weight: bold;">

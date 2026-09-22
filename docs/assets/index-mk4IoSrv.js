@@ -1,4 +1,4 @@
-var e=Object.defineProperty,t=(t,n)=>{let r={};for(var i in t)e(r,i,{get:t[i],enumerable:!0});return n||e(r,Symbol.toStringTag,{value:`Module`}),r};(function(){let e=document.createElement(`link`).relList;if(e&&e.supports&&e.supports(`modulepreload`))return;for(let e of document.querySelectorAll(`link[rel="modulepreload"]`))n(e);new MutationObserver(e=>{for(let t of e)if(t.type===`childList`)for(let e of t.addedNodes)e.tagName===`LINK`&&e.rel===`modulepreload`&&n(e)}).observe(document,{childList:!0,subtree:!0});function t(e){let t={};return e.integrity&&(t.integrity=e.integrity),e.referrerPolicy&&(t.referrerPolicy=e.referrerPolicy),e.crossOrigin===`use-credentials`?t.credentials=`include`:e.crossOrigin===`anonymous`?t.credentials=`omit`:t.credentials=`same-origin`,t}function n(e){if(e.ep)return;e.ep=!0;let n=t(e);fetch(e.href,n)}})();var n={API_BASE_URL:`/api/main`,ELECTION_DATE:`2026-10-12`,COLLEGE_NAME:`Government Victoria College, Palakkad`,COLLEGE_SHORT_NAME:`GVC`,DEFAULT_POSTS:[{post:`The Chairman`,femaleOnly:!1,finalYearIneligible:!1,yearRestriction:``,yearRuleMode:`ALL`,yearRuleYears:[],deptRestriction:!1,restrictedDept:``},{post:`The Vice Chairman`,femaleOnly:!0,finalYearIneligible:!1,yearRestriction:``,yearRuleMode:`ALL`,yearRuleYears:[],deptRestriction:!1,restrictedDept:``},{post:`The Secretary`,femaleOnly:!1,finalYearIneligible:!1,yearRestriction:``,yearRuleMode:`ALL`,yearRuleYears:[],deptRestriction:!1,restrictedDept:``},{post:`The Joint Secretary`,femaleOnly:!0,finalYearIneligible:!1,yearRestriction:``,yearRuleMode:`ALL`,yearRuleYears:[],deptRestriction:!1,restrictedDept:``},{post:`The Chief Student Editor`,femaleOnly:!1,finalYearIneligible:!0,yearRestriction:``,yearRuleMode:`EXCLUDE`,yearRuleYears:[`3_UG`,`2_PG`],deptRestriction:!1,restrictedDept:``},{post:`The Secretary Fine Arts`,femaleOnly:!1,finalYearIneligible:!1,yearRestriction:``,yearRuleMode:`ALL`,yearRuleYears:[],deptRestriction:!1,restrictedDept:``},{post:`The General Captain For Sports And Games`,femaleOnly:!1,finalYearIneligible:!1,yearRestriction:``,yearRuleMode:`ALL`,yearRuleYears:[],deptRestriction:!1,restrictedDept:``},{post:`The University Union Councillor`,femaleOnly:!1,finalYearIneligible:!1,yearRestriction:``,yearRuleMode:`ALL`,yearRuleYears:[],deptRestriction:!1,restrictedDept:``},{post:`I UG Representative`,femaleOnly:!1,finalYearIneligible:!1,yearRestriction:`1`,yearRuleMode:`INCLUDE`,yearRuleYears:[`1_UG`],deptRestriction:!1,restrictedDept:``},{post:`II UG Representative`,femaleOnly:!1,finalYearIneligible:!1,yearRestriction:`2`,yearRuleMode:`INCLUDE`,yearRuleYears:[`2_UG`],deptRestriction:!1,restrictedDept:``},{post:`III UG Representative`,femaleOnly:!1,finalYearIneligible:!1,yearRestriction:`3`,yearRuleMode:`INCLUDE`,yearRuleYears:[`3_UG`],deptRestriction:!1,restrictedDept:``},{post:`PG Representative`,femaleOnly:!1,finalYearIneligible:!1,yearRestriction:`PG`,yearRuleMode:`INCLUDE`,yearRuleYears:[`1_PG`,`2_PG`],deptRestriction:!1,restrictedDept:``},{post:`Association Secretary Botany`,femaleOnly:!1,finalYearIneligible:!1,yearRestriction:``,yearRuleMode:`ALL`,yearRuleYears:[],deptRestriction:!0,restrictedDept:`Botany`},{post:`Association Secretary Chemistry`,femaleOnly:!1,finalYearIneligible:!1,yearRestriction:``,yearRuleMode:`ALL`,yearRuleYears:[],deptRestriction:!0,restrictedDept:`Chemistry`},{post:`Association Secretary Commerce`,femaleOnly:!1,finalYearIneligible:!1,yearRestriction:``,yearRuleMode:`ALL`,yearRuleYears:[],deptRestriction:!0,restrictedDept:`Commerce`},{post:`Association Secretary Computer Science`,femaleOnly:!1,finalYearIneligible:!1,yearRestriction:``,yearRuleMode:`ALL`,yearRuleYears:[],deptRestriction:!0,restrictedDept:`Computer Science`},{post:`Association Secretary Economics`,femaleOnly:!1,finalYearIneligible:!1,yearRestriction:``,yearRuleMode:`ALL`,yearRuleYears:[],deptRestriction:!0,restrictedDept:`Economics`},{post:`Association Secretary English`,femaleOnly:!1,finalYearIneligible:!1,yearRestriction:``,yearRuleMode:`ALL`,yearRuleYears:[],deptRestriction:!0,restrictedDept:`English`},{post:`Association Secretary Hindi`,femaleOnly:!1,finalYearIneligible:!1,yearRestriction:``,yearRuleMode:`ALL`,yearRuleYears:[],deptRestriction:!0,restrictedDept:`Hindi`},{post:`Association Secretary History`,femaleOnly:!1,finalYearIneligible:!1,yearRestriction:``,yearRuleMode:`ALL`,yearRuleYears:[],deptRestriction:!0,restrictedDept:`History`},{post:`Association Secretary Malayalam`,femaleOnly:!1,finalYearIneligible:!1,yearRestriction:``,yearRuleMode:`ALL`,yearRuleYears:[],deptRestriction:!0,restrictedDept:`Malayalam`},{post:`Association Secretary Mathematics`,femaleOnly:!1,finalYearIneligible:!1,yearRestriction:``,yearRuleMode:`ALL`,yearRuleYears:[],deptRestriction:!0,restrictedDept:`Mathematics`},{post:`Association Secretary Physics`,femaleOnly:!1,finalYearIneligible:!1,yearRestriction:``,yearRuleMode:`ALL`,yearRuleYears:[],deptRestriction:!0,restrictedDept:`Physics`},{post:`Association Secretary Psychology`,femaleOnly:!1,finalYearIneligible:!1,yearRestriction:``,yearRuleMode:`ALL`,yearRuleYears:[],deptRestriction:!0,restrictedDept:`Psychology`},{post:`Association Secretary Sanskrit`,femaleOnly:!1,finalYearIneligible:!1,yearRestriction:``,yearRuleMode:`ALL`,yearRuleYears:[],deptRestriction:!0,restrictedDept:`Sanskrit`},{post:`Association Secretary Tamil`,femaleOnly:!1,finalYearIneligible:!1,yearRestriction:``,yearRuleMode:`ALL`,yearRuleYears:[],deptRestriction:!0,restrictedDept:`Tamil`},{post:`Association Secretary Zoology`,femaleOnly:!1,finalYearIneligible:!1,yearRestriction:``,yearRuleMode:`ALL`,yearRuleYears:[],deptRestriction:!0,restrictedDept:`Zoology`}]},r=t({router:()=>o}),i={},a=`/`,o={on(e,t){return i[e]=t,this},setDefault(e){return a=e,this},navigate(e,t={}){window.history.pushState({path:e,params:t},``,`#${e}`),this._resolve(e,t)},start(){let e=(e={})=>{let t=(window.location.hash.replace(/^#/,``).trim()||a).split(`?`)[0]||a;this._resolve(t,e)};window.addEventListener(`popstate`,e=>{let t=window.location.hash.replace(/^#/,``).trim().split(`?`)[0],n=e.state?.path||t||a,r=e.state?.params||{};this._resolve(n,r)}),window.addEventListener(`hashchange`,()=>{e({})}),e({})},_resolve(e,t){let n=i[e]||i[a];n&&n(t)}},s=n.API_BASE_URL,c={},l=[],u=!1,d=null;function f(){return sessionStorage.getItem(`adminSessionToken`)||localStorage.getItem(`adminSessionToken`)}function p(){localStorage.removeItem(`adminPwd`),localStorage.removeItem(`adminLoginDate`),localStorage.removeItem(`adminSessionToken`),sessionStorage.removeItem(`adminSessionToken`),c={},alert(`⚠️ Another admin has logged in from a different device. You have been logged out.`),window.location.hash=`/admin`}function m(e){d=e}function h(e){d&&d(e)}function g(){window._unloadGuardAdded||(window._unloadGuardAdded=!0,window.addEventListener(`beforeunload`,e=>{if(l.length>0||u)return e.returnValue=`Changes are still saving. Are you sure you want to leave?`,e.returnValue}))}async function _(){if(!(u||l.length===0)){for(u=!0,g(),h(`saving`);l.length>0;){let e=l[0];try{let t=await fetch(s,{method:`POST`,headers:{"Content-Type":`application/json`},body:JSON.stringify(e.body)});if(!t.ok){let e=`Network error: ${t.status}`;try{let n=await t.json();n.error&&(e=n.error)}catch{}throw(e.includes(`UNAUTHORIZED_SESSION`)||e===`SESSION_EXPIRED`)&&(p(),l.length=0),Error(e)}let n=await t.json();if(n.error===`SESSION_EXPIRED`||n.error&&n.error.includes(`UNAUTHORIZED_SESSION`)){p(),l.length=0;break}if(n.error)throw Error(n.error);e.resolve&&e.resolve(n)}catch(t){console.error(`Background sync failed for`,e.body.action,t),e.reject&&e.reject(t)}l.shift()}u=!1,h(`saved`),setTimeout(()=>{!u&&l.length===0&&h(`idle`)},3e3)}}async function v(e){let t=f(),n={},r={...e};r.password&&(n[`X-Admin-Password`]=r.password,delete r.password),t&&(n[`X-Session-Token`]=t,delete r.sessionToken);let i=JSON.stringify(e);if(c[i]!==void 0)return c[i];let a=new URL(s,window.location.origin);Object.entries(r).forEach(([e,t])=>a.searchParams.append(e,t));let o=await fetch(a.toString(),{headers:n});if(!o.ok){let e=`Network error: ${o.status}`;try{let t=await o.json();t.error&&(e=t.error)}catch{}throw(e.includes(`UNAUTHORIZED_SESSION`)||e===`SESSION_EXPIRED`)&&p(),Error(e)}let l=await o.json();if(l.error===`SESSION_EXPIRED`||l.error&&l.error.includes(`UNAUTHORIZED_SESSION`))throw p(),Error(`SESSION_EXPIRED`);if(l.error)throw Error(l.error);return c[i]=l,l}async function y(e){let t=f();t&&e.password&&(e={...e,sessionToken:t});let n=await fetch(s,{method:`POST`,headers:{"Content-Type":`application/json`},body:JSON.stringify(e)});if(!n.ok){let e=`Network error: ${n.status}`;try{let t=await n.json();t.error&&(e=t.error)}catch{}throw(e.includes(`UNAUTHORIZED_SESSION`)||e===`SESSION_EXPIRED`)&&p(),Error(e)}let r=await n.json();if(r.error===`SESSION_EXPIRED`||r.error&&r.error.includes(`UNAUTHORIZED_SESSION`))throw p(),Error(`SESSION_EXPIRED`);if(r.error)throw Error(r.error);return r}function b(e){let t=f();return t&&e.password&&(e={...e,sessionToken:t}),new Promise((t,n)=>{l.push({body:e,resolve:t,reject:n}),_()})}function x(e,t){let n=JSON.stringify(e);typeof t==`function`?c[n]!==void 0&&(c[n]=t(c[n])):c[n]=t}function S(e){Object.keys(c).forEach(t=>{t.includes(e)&&delete c[t]})}var C={invalidateCache:S,initPublicData:async()=>{let e=[C.getPublicSchedule().catch(()=>null),C.getSettings().catch(()=>null),C.getPosts().catch(()=>null),C.getResults().catch(()=>null),C.getNominalRoll().catch(()=>null),C.getPublicNominations().catch(()=>null),C.getValidNominations().catch(()=>null),C.getFinalNominations().catch(()=>null)];await Promise.all(e)},initAdminData:async e=>{let t=[C.adminGetNominations(e).catch(()=>null),C.adminGetSettings(e).catch(()=>null),C.adminGetPosts(e).catch(()=>null),C.adminGetBooths(e).catch(()=>null),C.adminGetLocations(e).catch(()=>null),C.adminGetBallotPlan(e).catch(()=>null),C.adminGetCountingMatrix(e).catch(()=>null)];await Promise.all(t)},getNominalRoll:()=>v({action:`getNominalRoll`}),getPosts:()=>v({action:`getPosts`}),getPublicNominations:()=>v({action:`getPublicNominations`}),getNomination:(e,t)=>v({action:`getNomination`,id:e,admissionNo:t}),getValidNominations:()=>v({action:`getValidNominations`}),getFinalNominations:()=>v({action:`getFinalNominations`}),submitNomination:async e=>{let t=await y({action:`submitNomination`,...e});return S(`adminGetNominations`),S(`getPublicNominations`),S(`getValidNominations`),S(`getFinalNominations`),t},submitWithdrawal:async(e,t)=>{let n=await y({action:`submitWithdrawal`,id:e,admissionNo:t});return S(`adminGetNominations`),S(`getPublicNominations`),n},adminLogin:async e=>{let t=await fetch(s,{method:`POST`,headers:{"Content-Type":`application/json`},body:JSON.stringify({action:`adminLogin`,password:e})});if(!t.ok)throw Error(`Network error: ${t.status}`);let n=await t.json();if(n.error)throw Error(n.error);return n.sessionToken&&sessionStorage.setItem(`adminSessionToken`,n.sessionToken),n},adminLogout:e=>y({action:`adminLogout`,password:e}),adminSendOTP:e=>y({action:`adminSendOTP`,password:e}),adminVerifyOTP:(e,t)=>y({action:`adminVerifyOTP`,password:e,otp:t}),adminGetNominations:(e,t=!1)=>(t&&S(`adminGetNominations`),v({action:`adminGetNominations`,password:e})),adminGetFinalNominations:e=>v({action:`adminGetFinalNominations`,password:e}),adminVerifyNomination:(e,t,n,r=null)=>(x({action:`adminGetNominations`,password:e},e=>{let i=e.find(e=>e.id===t);return i&&(i.status=n,r&&(i.rejectionReason=r)),e}),b({action:`adminVerifyNomination`,password:e,id:t,status:n,reason:r}),Promise.resolve({ok:!0})),adminDeleteNomination:async(e,t)=>{let n=await y({action:`adminDeleteNomination`,password:e,confirmPassword:e,id:t});return S(`adminGetNominations`),S(`getPublicNominations`),S(`getValidNominations`),S(`getFinalNominations`),n},adminApproveWithdrawal:(e,t)=>(x({action:`adminGetNominations`,password:e},e=>{let n=e.find(e=>e.id===t);return n&&(n.withdrawalStatus=`Approved`),e}),b({action:`adminApproveWithdrawal`,password:e,id:t}),Promise.resolve({ok:!0})),adminDirectWithdrawal:(e,t)=>(x({action:`adminGetNominations`,password:e},e=>{let n=e.find(e=>e.id===t);return n&&(n.withdrawalStatus=`Approved`),e}),b({action:`adminDirectWithdrawal`,password:e,id:t}),Promise.resolve({ok:!0})),adminRestoreWithdrawal:(e,t,n=`None`)=>(x({action:`adminGetNominations`,password:e},e=>{let r=e.find(e=>e.id===t);return r&&(r.withdrawalStatus=n),e}),b({action:`adminRestoreWithdrawal`,password:e,id:t,targetStatus:n}),S(`getFinalNominations`),S(`adminGetFinalNominations`),Promise.resolve({ok:!0})),adminRejectWithdrawal:(e,t)=>(x({action:`adminGetNominations`,password:e},e=>{let n=e.find(e=>e.id===t);return n&&(n.withdrawalStatus=`Rejected`),e}),b({action:`adminRejectWithdrawal`,password:e,id:t}),S(`getFinalNominations`),S(`adminGetFinalNominations`),Promise.resolve({ok:!0})),adminPublishValidList:async e=>{x({action:`adminGetSettings`,password:e},e=>({...e,validListPublished:`true`}));let t=await y({action:`adminPublishValidList`,password:e});return S(`getValidNominations`),S(`getSettings`),S(`adminGetSettings`),t},adminPublishFinalList:async e=>{x({action:`adminGetSettings`,password:e},e=>({...e,finalListPublished:`true`}));let t=await y({action:`adminPublishFinalList`,password:e});return S(`getFinalNominations`),S(`getSettings`),S(`adminGetSettings`),t},adminUnpublishValidList:async e=>{x({action:`adminGetSettings`,password:e},e=>({...e,validListPublished:`false`,finalListPublished:`false`}));let t=await y({action:`adminUnpublishValidList`,password:e});return S(`getValidNominations`),S(`getFinalNominations`),S(`getSettings`),S(`adminGetSettings`),t},adminUnpublishFinalList:async e=>{x({action:`adminGetSettings`,password:e},e=>({...e,finalListPublished:`false`}));let t=await y({action:`adminUnpublishFinalList`,password:e});return S(`getFinalNominations`),S(`getSettings`),S(`adminGetSettings`),t},adminGetSettings:e=>v({action:`adminGetSettings`,password:e}),adminUpdateSettings:(e,t)=>(x({action:`adminGetSettings`,password:e},e=>({...e,...t})),S(`getSettings`),S(`adminGetSettings`),b({action:`adminUpdateSettings`,password:e,...t}),Promise.resolve({ok:!0})),adminUpdateCredentials:(e,t)=>y({action:`adminUpdateCredentials`,password:e,...t}),getPublicSettings:()=>v({action:`adminGetSettings`,password:`NONE`}),adminGetPosts:e=>v({action:`adminGetPosts`,password:e}),adminAddPost:async(e,t)=>{let n={...t,post:t.post||t.postName};return x({action:`adminGetPosts`,password:e},e=>[...Array.isArray(e)?e:[],n]),await b({action:`adminAddPost`,password:e,...n}),S(`getPosts`),S(`adminGetPosts`),{ok:!0}},adminUpdatePost:async(e,t)=>{let n={...t,post:t.post||t.postName},r=t.originalName||n.post;return x({action:`adminGetPosts`,password:e},e=>{if(!Array.isArray(e))return[n];let t=e.findIndex(e=>e.post===r||e.post===n.post);return t===-1?e.push(n):e[t]=n,e}),await b({action:`adminUpdatePost`,password:e,...n}),S(`getPosts`),S(`adminGetPosts`),{ok:!0}},adminDeletePost:async(e,t)=>(x({action:`adminGetPosts`,password:e},e=>e.filter(e=>e.post!==t)),await b({action:`adminDeletePost`,password:e,postName:t}),S(`getPosts`),{ok:!0}),adminReorderPosts:async(e,t)=>(x({action:`adminGetPosts`,password:e},e=>{let n={};return e.forEach(e=>n[e.post]=e),t.map(e=>n[e]).filter(Boolean)}),await b({action:`adminReorderPosts`,password:e,posts:t}),S(`getPosts`),{ok:!0}),adminGetBooths:(e,t=!1)=>(t&&S(`adminGetBooths`),v({action:`adminGetBooths`,password:e})),adminSaveBooths:async(e,t)=>{let n=await y({action:`adminSaveBooths`,password:e,booths:t});return S(`adminGetBooths`),S(`adminGetBallotPlan`),n},adminGetLocations:(e,t=!1)=>(t&&S(`adminGetLocations`),v({action:`adminGetLocations`,password:e})),adminSaveLocations:async(e,t)=>{let n=await y({action:`adminSaveLocations`,password:e,locations:t});return S(`adminGetLocations`),n},getResults:(e=!1)=>(e&&S(`getResults`),v({action:`getResults`})),adminGetResults:(e,t=!1)=>(t&&S(`adminGetResults`),v({action:`adminGetResults`,password:e})),adminToggleLockResults:async e=>{let t=await y({action:`adminToggleLockResults`,password:e});return x({action:`adminGetSettings`,password:e},e=>({...e,resultsLocked:t.locked?`true`:`false`})),S(`getSettings`),S(`adminGetSettings`),t},adminTogglePublishResults:async e=>{let t=await y({action:`adminTogglePublishResults`,password:e});return x({action:`adminGetSettings`,password:e},e=>({...e,resultsPublished:t.published?`true`:`false`})),S(`getResults`),S(`adminGetResults`),S(`getSettings`),S(`adminGetSettings`),t},adminLockResults:async e=>{let t=await y({action:`adminLockResults`,password:e});return x({action:`adminGetSettings`,password:e},e=>({...e,resultsLocked:`true`})),S(`getSettings`),S(`adminGetSettings`),t},adminUnlockResults:async e=>{let t=await y({action:`adminUnlockResults`,password:e});return x({action:`adminGetSettings`,password:e},e=>({...e,resultsLocked:`false`})),S(`getSettings`),S(`adminGetSettings`),t},adminPublishResults:async e=>{let t=await y({action:`adminPublishResults`,password:e});return x({action:`adminGetSettings`,password:e},e=>({...e,resultsPublished:`true`})),S(`getResults`),S(`adminGetResults`),S(`getSettings`),S(`adminGetSettings`),t},adminUnpublishResults:async e=>{let t=await y({action:`adminUnpublishResults`,password:e});return x({action:`adminGetSettings`,password:e},e=>({...e,resultsPublished:`false`})),S(`getResults`),S(`adminGetResults`),S(`getSettings`),S(`adminGetSettings`),t},adminToggleCounting:async e=>{let t=await y({action:`adminToggleCounting`,password:e});return S(`getResults`),S(`getSettings`),S(`adminGetSettings`),S(`getPublicSchedule`),t},adminSetCountingActive:async(e,t)=>{let n=await y({action:`adminSetCountingActive`,password:e,active:t});return S(`getResults`),S(`getSettings`),S(`adminGetSettings`),S(`getPublicSchedule`),n},adminSaveResults:(e,t)=>b({action:`adminSaveResults`,password:e,results:t}).then(e=>(S(`getResults`),S(`adminGetResults`),e)),adminInjectTestData:e=>(c={},y({action:`adminInjectTestData`,password:e})),adminWipeData:e=>(c={},y({action:`adminWipeData`,password:e})),adminGetCountingMatrix:(e,t=!1)=>(t&&S(`adminGetCountingMatrix`),v({action:`adminGetCountingMatrix`,password:e})),adminSaveCountingMatrix:async(e,t)=>{x({action:`adminGetCountingMatrix`,password:e},t);let n=await y({action:`adminSaveCountingMatrix`,password:e,matrixData:t,matrix:t});return S(`adminGetCountingMatrix`),x({action:`adminGetCountingMatrix`,password:e},t),n},adminGenerateBallotPlan:async e=>{let t=await b({action:`adminGenerateBallotPlan`,password:e});return x({action:`adminGetBallotPlan`,password:e},t.plan),t},adminGetBallotPlan:e=>v({action:`adminGetBallotPlan`,password:e}),adminGetBallotConfig:e=>v({action:`adminGetBallotConfig`,password:e}),adminSaveBallotConfig:async(e,t)=>{let n=await y({action:`adminSaveBallotConfig`,password:e,config:t});return S(`adminGetBallotConfig`),S(`adminGetBallotPlan`),n},adminRunAudit:e=>y({action:`adminRunAudit`,password:e}),getSettings:()=>v({action:`getSettings`}),adminAddStudent:async(e,t)=>(await b({action:`adminAddStudent`,password:e,...t}),S(`getNominalRoll`),{ok:!0}),adminUpdateStudent:async(e,t)=>(await b({action:`adminUpdateStudent`,password:e,...t}),S(`getNominalRoll`),{ok:!0}),adminDeleteStudent:async(e,t)=>(await b({action:`adminDeleteStudent`,password:e,serial:t}),S(`getNominalRoll`),{ok:!0}),adminPublishDraftRoll:async e=>{let t=await y({action:`adminPublishDraftRoll`,password:e});return S(`getSettings`),S(`adminGetSettings`),t},adminUnpublishDraftRoll:async e=>{let t=await y({action:`adminUnpublishDraftRoll`,password:e});return S(`getSettings`),S(`adminGetSettings`),t},submitRollCorrection:e=>y({action:`submitRollCorrection`,...e}),adminGetRollCorrections:e=>v({action:`adminGetRollCorrections`,password:e}),adminUpdateRollCorrection:(e,t,n,r=``)=>y({action:`adminUpdateRollCorrection`,password:e,id:t,status:n,notes:r}),adminFinalizeRoll:async(e,t={})=>{let n=await y({action:`adminFinalizeRoll`,password:e,...t});return n&&n.requiresMatching?n:(S(`getSettings`),S(`adminGetSettings`),S(`getNominalRoll`),n||{ok:!0})},adminUnfinalizeRoll:async e=>{let t=await y({action:`adminUnfinalizeRoll`,password:e,confirmPassword:e});return S(`getSettings`),S(`adminGetSettings`),S(`getNominalRoll`),t||{ok:!0}},adminGetNominalRollTemplate:e=>v({action:`adminGetNominalRollTemplate`,password:e}),adminUploadNominalRoll:async(e,t)=>{let n=await y({action:`adminUploadNominalRoll`,password:e,...t});return S(`getNominalRoll`),S(`adminGetNominations`),S(`getSettings`),S(`adminGetSettings`),S(`getValidNominations`),S(`getFinalNominations`),S(`getPublicNominations`),n},adminClearNominalRoll:async e=>{let t=await y({action:`adminClearNominalRoll`,password:e,confirmPassword:e});return S(`getNominalRoll`),S(`getSettings`),S(`adminGetSettings`),S(`adminGetNominations`),S(`getValidNominations`),S(`getFinalNominations`),S(`getPublicNominations`),t},adminRemapNominations:async e=>{let t=await y({action:`adminRemapNominations`,password:e});return S(`adminGetNominations`),S(`getPublicNominations`),S(`getValidNominations`),S(`getFinalNominations`),t},adminFixSerialNumbersDeptWise:async e=>{let t=await y({action:`adminFixSerialNumbersDeptWise`,password:e});return S(`getNominalRoll`),S(`adminGetNominations`),S(`getSettings`),S(`adminGetSettings`),S(`getValidNominations`),S(`getFinalNominations`),S(`getPublicNominations`),t},getPublicSchedule:()=>v({action:`getPublicSchedule`}),adminSaveSchedule:async(e,t)=>{x({action:`getPublicSchedule`},t);let n=await y({action:`adminSaveSchedule`,password:e,...t});return S(`getPublicSchedule`),S(`getSettings`),S(`adminGetSettings`),S(`getValidNominations`),S(`getFinalNominations`),S(`getResults`),n||{ok:!0}},adminSetStageOverride:async(e,t,n)=>{let r=await y({action:`adminSetStageOverride`,password:e,stage:t,mode:n});return S(`getPublicSchedule`),S(`getSettings`),S(`adminGetSettings`),S(`getValidNominations`),S(`getFinalNominations`),S(`getResults`),r},adminExportBackup:e=>y({action:`adminExportBackup`,password:e}),adminGetSnapshots:e=>v({action:`adminGetSnapshots`,password:e}),adminDownloadSnapshot:(e,t)=>y({action:`adminDownloadSnapshot`,password:e,snapshotId:t}),adminRestoreBackup:async(e,t)=>{let n=await y({action:`adminRestoreBackup`,password:e,...t});return c={},n},adminRevertSnapshot:async(e,t)=>{let n=await y({action:`adminRevertSnapshot`,password:e,snapshotId:t});return c={},n}};function w(e,t=n.ELECTION_DATE){if(!e)return`N/A`;let r;if(typeof e==`string`&&e.includes(`-`)){let t=e.split(`-`);r=t[0].length===4?new Date(parseInt(t[0],10),parseInt(t[1],10)-1,parseInt(t[2],10)):new Date(parseInt(t[2],10),parseInt(t[1],10)-1,parseInt(t[0],10))}else r=new Date(e);if(isNaN(r.getTime()))return`N/A`;let i=new Date(t),a=i.getFullYear()-r.getFullYear(),o=i.getMonth()-r.getMonth(),s=i.getDate()-r.getDate();return s<0&&(o--,s+=new Date(i.getFullYear(),i.getMonth(),0).getDate()),o<0&&(a--,o+=12),`${a} Years, ${o} Months, ${s} Days`}var T=[{id:`1_UG`,label:`1st Year UG (I UG)`,short:`I UG`},{id:`2_UG`,label:`2nd Year UG (II UG)`,short:`II UG`},{id:`3_UG`,label:`3rd Year UG (III UG)`,short:`III UG`},{id:`1_PG`,label:`1st Year PG (I PG)`,short:`I PG`},{id:`2_PG`,label:`2nd Year PG (II PG)`,short:`II PG`},{id:`RS`,label:`Research Scholar (Ph.D)`,short:`RS`}];function E(e){let t=String(e||``).toUpperCase().trim();if(t.includes(`RESEARCH`)||t.includes(`SCHOLAR`)||t.includes(`PHD`))return`RS`;let n=/\b(MA|MSC|MCOM|M\.SC|M\.COM|M\.A|MBA|MCA|MSW)\b/.test(t)||t.includes(`POST GRADUATE`)||t.includes(`PG`);t.includes(`1ST`)||/^\s*(1|1ST|I)\b/.test(t)||/\b1ST\s+YEAR\b/.test(t)||/\bI\s+(YEAR|UG|PG|DC|DEG|BA|BSC|BCOM|MA|MSC|MCOM)\b/.test(t);let r=t.includes(`2ND`)||/^\s*(2|2ND|II)\b/.test(t)||/\b2ND\s+YEAR\b/.test(t)||/\bII\s+(YEAR|UG|PG|DC|DEG|BA|BSC|BCOM|MA|MSC|MCOM)\b/.test(t),i=t.includes(`3RD`)||/^\s*(3|3RD|III)\b/.test(t)||/\b3RD\s+YEAR\b/.test(t)||/\bIII\s+(YEAR|UG|DC|DEG|BA|BSC|BCOM)\b/.test(t);return n?r?`2_PG`:`1_PG`:i?`3_UG`:r?`2_UG`:`1_UG`}function D(e,t){if(!t)return!0;let n=E(e),r=t.yearRuleMode||(t.finalYearIneligible?`EXCLUDE`:t.yearRestriction?`INCLUDE`:`ALL`),i=[];if(Array.isArray(t.yearRuleYears)?i=t.yearRuleYears:typeof t.yearRuleYears==`string`&&t.yearRuleYears.trim()?i=t.yearRuleYears.split(`,`).map(e=>e.trim()).filter(Boolean):t.finalYearIneligible?i=[`3_UG`,`2_PG`]:t.yearRestriction===`1`?i=[`1_UG`]:t.yearRestriction===`2`?i=[`2_UG`]:t.yearRestriction===`3`?i=[`3_UG`]:t.yearRestriction===`PG`?i=[`1_PG`,`2_PG`]:t.yearRestriction===`UG`?i=[`1_UG`,`2_UG`,`3_UG`]:t.yearRestriction===`1,2`&&(i=[`1_UG`,`2_UG`]),r===`ALL`||i.length===0)return!(t.finalYearIneligible&&(n===`3_UG`||n===`2_PG`));let a=(e,t)=>!!(t.includes(e)||e.endsWith(`_UG`)&&t.includes(`UG`)||e.endsWith(`_PG`)&&t.includes(`PG`)||e.startsWith(`1_`)&&t.includes(`1`)||e.startsWith(`2_`)&&t.includes(`2`)||e.startsWith(`3_`)&&t.includes(`3`));return r===`INCLUDE`?a(n,i):r===`EXCLUDE`?!a(n,i):!0}function O(e){if(!e)return`All Years Eligible`;let t=e.yearRuleMode||(e.finalYearIneligible?`EXCLUDE`:e.yearRestriction?`INCLUDE`:`ALL`),n=[];if(Array.isArray(e.yearRuleYears)?n=e.yearRuleYears:typeof e.yearRuleYears==`string`&&e.yearRuleYears.trim()?n=e.yearRuleYears.split(`,`).map(e=>e.trim()).filter(Boolean):e.finalYearIneligible?n=[`3_UG`,`2_PG`]:e.yearRestriction===`1`?n=[`1_UG`]:e.yearRestriction===`2`?n=[`2_UG`]:e.yearRestriction===`3`?n=[`3_UG`]:e.yearRestriction===`PG`?n=[`1_PG`,`2_PG`]:e.yearRestriction===`UG`?n=[`1_UG`,`2_UG`,`3_UG`]:e.yearRestriction===`1,2`&&(n=[`1_UG`,`2_UG`]),t===`ALL`||n.length===0)return e.finalYearIneligible?`Final Years Barred (3rd UG & 2nd PG)`:`All Years Eligible`;let r=n.map(e=>{let t=T.find(t=>t.id===e);return t?t.short:e}).join(`, `);return t===`INCLUDE`?`Only: ${r}`:t===`EXCLUDE`?`Barred: ${r}`:`All Years`}function k(e,t,n,r=null,i=[],a=[]){if(!e)return[];let o=[],s=String(e.CLASS||``).toUpperCase(),c=String(e.Dept||``).toUpperCase(),l=String(e[`Nominal Roll Serial Number`]),u=i.find(e=>e.post===t)||{};if((n===`Proposer`||n===`Seconder`)&&a.some(e=>e.post===t&&e.status!==`Rejected`&&(String(e.proposerSerial)===l||String(e.seconderSerial)===l))&&o.push(`Student #${l} has already proposed or seconded a candidate for "${t}". They cannot endorse multiple candidates for the same post.`),u.deptRestriction){let r=(u.restrictedDept||(t.startsWith(`Association Secretary `)?t.replace(`Association Secretary `,``):``)).trim();if(r){let i=e=>String(e||``).toUpperCase().replace(/[^A-Z0-9]/g,``),a=i(c),s=i(r);a===s||a.includes(s)||s.includes(a)||o.push(`${n} for "${t}" must belong to the ${r} department (current student: ${e.Dept||`N/A`}).`)}}if(!D(s,u)){let e=O(u);o.push(`${n} (${s||`Unspecified`}) is not eligible under year restriction for "${t}" (${e}).`)}return n===`Candidate`&&(E(s)===`RS`&&o.push(`Research Scholars are not eligible to contest in College Union Elections.`),u.femaleOnly&&r&&r!==`Female`&&o.push(`The post of "${t}" is reserved for female candidates only.`)),o}function A(){let e=Math.floor(Math.random()*10)+1,t=Math.floor(Math.random()*10)+1;return{question:`${e} + ${t}`,answer:String(e+t)}}function j(){return new Date().toLocaleDateString(`en-GB`)}function M(e,t,n){if(!e||!t||!n)return;let r=[`January`,`February`,`March`,`April`,`May`,`June`,`July`,`August`,`September`,`October`,`November`,`December`];for(let t=1;t<=31;t++)e.innerHTML+=`<option value="${t}">${t}</option>`;r.forEach((e,n)=>t.innerHTML+=`<option value="${n+1}">${e}</option>`);for(let e=2015;e>=1950;e--)n.innerHTML+=`<option value="${e}">${e}</option>`}function N(e,t,n){return`${n}-${String(t).padStart(2,`0`)}-${String(e).padStart(2,`0`)}`}function P(e,t,n){return`${String(e).padStart(2,`0`)}/${String(t).padStart(2,`0`)}/${n}`}function ee(e,t=`Nomination Form`){let n=window.open(``,`_blank`);if(!n){alert(`Popup blocked! Please allow popups for this site to print.`);return}n.document.write(`
+var e=Object.defineProperty,t=(t,n)=>{let r={};for(var i in t)e(r,i,{get:t[i],enumerable:!0});return n||e(r,Symbol.toStringTag,{value:`Module`}),r};(function(){let e=document.createElement(`link`).relList;if(e&&e.supports&&e.supports(`modulepreload`))return;for(let e of document.querySelectorAll(`link[rel="modulepreload"]`))n(e);new MutationObserver(e=>{for(let t of e)if(t.type===`childList`)for(let e of t.addedNodes)e.tagName===`LINK`&&e.rel===`modulepreload`&&n(e)}).observe(document,{childList:!0,subtree:!0});function t(e){let t={};return e.integrity&&(t.integrity=e.integrity),e.referrerPolicy&&(t.referrerPolicy=e.referrerPolicy),e.crossOrigin===`use-credentials`?t.credentials=`include`:e.crossOrigin===`anonymous`?t.credentials=`omit`:t.credentials=`same-origin`,t}function n(e){if(e.ep)return;e.ep=!0;let n=t(e);fetch(e.href,n)}})();var n={API_BASE_URL:`/api/main`,ELECTION_DATE:`2026-10-12`,COLLEGE_NAME:`Government Victoria College, Palakkad`,COLLEGE_SHORT_NAME:`GVC`,DEFAULT_POSTS:[{post:`The Chairman`,femaleOnly:!1,finalYearIneligible:!1,yearRestriction:``,yearRuleMode:`ALL`,yearRuleYears:[],deptRestriction:!1,restrictedDept:``},{post:`The Vice Chairman`,femaleOnly:!0,finalYearIneligible:!1,yearRestriction:``,yearRuleMode:`ALL`,yearRuleYears:[],deptRestriction:!1,restrictedDept:``},{post:`The Secretary`,femaleOnly:!1,finalYearIneligible:!1,yearRestriction:``,yearRuleMode:`ALL`,yearRuleYears:[],deptRestriction:!1,restrictedDept:``},{post:`The Joint Secretary`,femaleOnly:!0,finalYearIneligible:!1,yearRestriction:``,yearRuleMode:`ALL`,yearRuleYears:[],deptRestriction:!1,restrictedDept:``},{post:`The Chief Student Editor`,femaleOnly:!1,finalYearIneligible:!0,yearRestriction:``,yearRuleMode:`EXCLUDE`,yearRuleYears:[`3_UG`,`2_PG`],deptRestriction:!1,restrictedDept:``},{post:`The Secretary Fine Arts`,femaleOnly:!1,finalYearIneligible:!1,yearRestriction:``,yearRuleMode:`ALL`,yearRuleYears:[],deptRestriction:!1,restrictedDept:``},{post:`The General Captain For Sports And Games`,femaleOnly:!1,finalYearIneligible:!1,yearRestriction:``,yearRuleMode:`ALL`,yearRuleYears:[],deptRestriction:!1,restrictedDept:``},{post:`The University Union Councillor`,femaleOnly:!1,finalYearIneligible:!1,yearRestriction:``,yearRuleMode:`ALL`,yearRuleYears:[],deptRestriction:!1,restrictedDept:``},{post:`I UG Representative`,femaleOnly:!1,finalYearIneligible:!1,yearRestriction:`1`,yearRuleMode:`INCLUDE`,yearRuleYears:[`1_UG`],deptRestriction:!1,restrictedDept:``},{post:`II UG Representative`,femaleOnly:!1,finalYearIneligible:!1,yearRestriction:`2`,yearRuleMode:`INCLUDE`,yearRuleYears:[`2_UG`],deptRestriction:!1,restrictedDept:``},{post:`III UG Representative`,femaleOnly:!1,finalYearIneligible:!1,yearRestriction:`3`,yearRuleMode:`INCLUDE`,yearRuleYears:[`3_UG`],deptRestriction:!1,restrictedDept:``},{post:`PG Representative`,femaleOnly:!1,finalYearIneligible:!1,yearRestriction:`PG`,yearRuleMode:`INCLUDE`,yearRuleYears:[`1_PG`,`2_PG`],deptRestriction:!1,restrictedDept:``},{post:`Association Secretary Botany`,femaleOnly:!1,finalYearIneligible:!1,yearRestriction:``,yearRuleMode:`ALL`,yearRuleYears:[],deptRestriction:!0,restrictedDept:`Botany`},{post:`Association Secretary Chemistry`,femaleOnly:!1,finalYearIneligible:!1,yearRestriction:``,yearRuleMode:`ALL`,yearRuleYears:[],deptRestriction:!0,restrictedDept:`Chemistry`},{post:`Association Secretary Commerce`,femaleOnly:!1,finalYearIneligible:!1,yearRestriction:``,yearRuleMode:`ALL`,yearRuleYears:[],deptRestriction:!0,restrictedDept:`Commerce`},{post:`Association Secretary Computer Science`,femaleOnly:!1,finalYearIneligible:!1,yearRestriction:``,yearRuleMode:`ALL`,yearRuleYears:[],deptRestriction:!0,restrictedDept:`Computer Science`},{post:`Association Secretary Economics`,femaleOnly:!1,finalYearIneligible:!1,yearRestriction:``,yearRuleMode:`ALL`,yearRuleYears:[],deptRestriction:!0,restrictedDept:`Economics`},{post:`Association Secretary English`,femaleOnly:!1,finalYearIneligible:!1,yearRestriction:``,yearRuleMode:`ALL`,yearRuleYears:[],deptRestriction:!0,restrictedDept:`English`},{post:`Association Secretary Hindi`,femaleOnly:!1,finalYearIneligible:!1,yearRestriction:``,yearRuleMode:`ALL`,yearRuleYears:[],deptRestriction:!0,restrictedDept:`Hindi`},{post:`Association Secretary History`,femaleOnly:!1,finalYearIneligible:!1,yearRestriction:``,yearRuleMode:`ALL`,yearRuleYears:[],deptRestriction:!0,restrictedDept:`History`},{post:`Association Secretary Malayalam`,femaleOnly:!1,finalYearIneligible:!1,yearRestriction:``,yearRuleMode:`ALL`,yearRuleYears:[],deptRestriction:!0,restrictedDept:`Malayalam`},{post:`Association Secretary Mathematics`,femaleOnly:!1,finalYearIneligible:!1,yearRestriction:``,yearRuleMode:`ALL`,yearRuleYears:[],deptRestriction:!0,restrictedDept:`Mathematics`},{post:`Association Secretary Physics`,femaleOnly:!1,finalYearIneligible:!1,yearRestriction:``,yearRuleMode:`ALL`,yearRuleYears:[],deptRestriction:!0,restrictedDept:`Physics`},{post:`Association Secretary Psychology`,femaleOnly:!1,finalYearIneligible:!1,yearRestriction:``,yearRuleMode:`ALL`,yearRuleYears:[],deptRestriction:!0,restrictedDept:`Psychology`},{post:`Association Secretary Sanskrit`,femaleOnly:!1,finalYearIneligible:!1,yearRestriction:``,yearRuleMode:`ALL`,yearRuleYears:[],deptRestriction:!0,restrictedDept:`Sanskrit`},{post:`Association Secretary Tamil`,femaleOnly:!1,finalYearIneligible:!1,yearRestriction:``,yearRuleMode:`ALL`,yearRuleYears:[],deptRestriction:!0,restrictedDept:`Tamil`},{post:`Association Secretary Zoology`,femaleOnly:!1,finalYearIneligible:!1,yearRestriction:``,yearRuleMode:`ALL`,yearRuleYears:[],deptRestriction:!0,restrictedDept:`Zoology`}]},r=t({router:()=>o}),i={},a=`/`,o={on(e,t){return i[e]=t,this},setDefault(e){return a=e,this},navigate(e,t={}){window.history.pushState({path:e,params:t},``,`#${e}`),this._resolve(e,t)},start(){let e=(e={})=>{let t=(window.location.hash.replace(/^#/,``).trim()||a).split(`?`)[0]||a;this._resolve(t,e)};window.addEventListener(`popstate`,e=>{let t=window.location.hash.replace(/^#/,``).trim().split(`?`)[0],n=e.state?.path||t||a,r=e.state?.params||{};this._resolve(n,r)}),window.addEventListener(`hashchange`,()=>{e({})}),e({})},_resolve(e,t){let n=i[e]||i[a];n&&n(t)}},s=n.API_BASE_URL,c={},l=[],u=!1,d=null;function f(){return sessionStorage.getItem(`adminSessionToken`)||localStorage.getItem(`adminSessionToken`)}function p(){localStorage.removeItem(`adminPwd`),localStorage.removeItem(`adminLoginDate`),localStorage.removeItem(`adminSessionToken`),sessionStorage.removeItem(`adminSessionToken`),c={},alert(`⚠️ Another admin has logged in from a different device. You have been logged out.`),window.location.hash=`/admin`}function m(e){d=e}function h(e){d&&d(e)}function g(){window._unloadGuardAdded||(window._unloadGuardAdded=!0,window.addEventListener(`beforeunload`,e=>{if(l.length>0||u)return e.returnValue=`Changes are still saving. Are you sure you want to leave?`,e.returnValue}))}async function _(){if(!(u||l.length===0)){for(u=!0,g(),h(`saving`);l.length>0;){let e=l[0];try{let t=await fetch(s,{method:`POST`,headers:{"Content-Type":`application/json`},body:JSON.stringify(e.body)});if(!t.ok){let e=`Network error: ${t.status}`;try{let n=await t.json();n.error&&(e=n.error)}catch{}throw(e.includes(`UNAUTHORIZED_SESSION`)||e===`SESSION_EXPIRED`)&&(p(),l.length=0),Error(e)}let n=await t.json();if(n.error===`SESSION_EXPIRED`||n.error&&n.error.includes(`UNAUTHORIZED_SESSION`)){p(),l.length=0;break}if(n.error)throw Error(n.error);e.resolve&&e.resolve(n)}catch(t){console.error(`Background sync failed for`,e.body.action,t),e.reject&&e.reject(t)}l.shift()}u=!1,h(`saved`),setTimeout(()=>{!u&&l.length===0&&h(`idle`)},3e3)}}async function v(e){let t=f(),n={},r={...e};r.password&&(n[`X-Admin-Password`]=r.password,delete r.password),t&&(n[`X-Session-Token`]=t,delete r.sessionToken);let i=JSON.stringify(e);if(c[i]!==void 0)return c[i];let a=new URL(s,window.location.origin);Object.entries(r).forEach(([e,t])=>a.searchParams.append(e,t));let o=await fetch(a.toString(),{headers:n});if(!o.ok){let e=`Network error: ${o.status}`;try{let t=await o.json();t.error&&(e=t.error)}catch{}throw(e.includes(`UNAUTHORIZED_SESSION`)||e===`SESSION_EXPIRED`)&&p(),Error(e)}let l=await o.json();if(l.error===`SESSION_EXPIRED`||l.error&&l.error.includes(`UNAUTHORIZED_SESSION`))throw p(),Error(`SESSION_EXPIRED`);if(l.error)throw Error(l.error);return c[i]=l,l}async function y(e){let t=f();t&&e.password&&(e={...e,sessionToken:t});let n=await fetch(s,{method:`POST`,headers:{"Content-Type":`application/json`},body:JSON.stringify(e)});if(!n.ok){let e=`Network error: ${n.status}`;try{let t=await n.json();t.error&&(e=t.error)}catch{}throw(e.includes(`UNAUTHORIZED_SESSION`)||e===`SESSION_EXPIRED`)&&p(),Error(e)}let r=await n.json();if(r.error===`SESSION_EXPIRED`||r.error&&r.error.includes(`UNAUTHORIZED_SESSION`))throw p(),Error(`SESSION_EXPIRED`);if(r.error)throw Error(r.error);return r}function b(e){let t=f();return t&&e.password&&(e={...e,sessionToken:t}),new Promise((t,n)=>{l.push({body:e,resolve:t,reject:n}),_()})}function x(e,t){let n=JSON.stringify(e);typeof t==`function`?c[n]!==void 0&&(c[n]=t(c[n])):c[n]=t}function S(e){Object.keys(c).forEach(t=>{t.includes(e)&&delete c[t]})}var C={invalidateCache:S,initPublicData:async()=>{let e=[C.getPublicSchedule().catch(()=>null),C.getSettings().catch(()=>null),C.getPosts().catch(()=>null),C.getResults().catch(()=>null),C.getNominalRoll().catch(()=>null),C.getPublicNominations().catch(()=>null),C.getValidNominations().catch(()=>null),C.getFinalNominations().catch(()=>null)];await Promise.all(e)},initAdminData:async e=>{let t=[C.adminGetNominations(e).catch(()=>null),C.adminGetSettings(e).catch(()=>null),C.adminGetPosts(e).catch(()=>null),C.adminGetBooths(e).catch(()=>null),C.adminGetLocations(e).catch(()=>null),C.adminGetBallotPlan(e).catch(()=>null),C.adminGetCountingMatrix(e).catch(()=>null)];await Promise.all(t)},getNominalRoll:()=>v({action:`getNominalRoll`}),getPosts:()=>v({action:`getPosts`}),getPublicNominations:()=>v({action:`getPublicNominations`}),getNomination:(e,t)=>v({action:`getNomination`,id:e,admissionNo:t}),getValidNominations:()=>v({action:`getValidNominations`}),getFinalNominations:()=>v({action:`getFinalNominations`}),submitNomination:async e=>{let t=await y({action:`submitNomination`,...e});return S(`adminGetNominations`),S(`getPublicNominations`),S(`getValidNominations`),S(`getFinalNominations`),t},submitWithdrawal:async(e,t)=>{let n=await y({action:`submitWithdrawal`,id:e,admissionNo:t});return S(`adminGetNominations`),S(`getPublicNominations`),n},adminLogin:async e=>{let t=await fetch(s,{method:`POST`,headers:{"Content-Type":`application/json`},body:JSON.stringify({action:`adminLogin`,password:e})});if(!t.ok)throw Error(`Network error: ${t.status}`);let n=await t.json();if(n.error)throw Error(n.error);return n.sessionToken&&sessionStorage.setItem(`adminSessionToken`,n.sessionToken),n},adminLogout:e=>y({action:`adminLogout`,password:e}),adminSendOTP:e=>y({action:`adminSendOTP`,password:e}),adminVerifyOTP:(e,t)=>y({action:`adminVerifyOTP`,password:e,otp:t}),adminGetNominations:(e,t=!1)=>(t&&S(`adminGetNominations`),v({action:`adminGetNominations`,password:e})),adminGetFinalNominations:e=>v({action:`adminGetFinalNominations`,password:e}),adminVerifyNomination:(e,t,n,r=null)=>(x({action:`adminGetNominations`,password:e},e=>{let i=e.find(e=>e.id===t);return i&&(i.status=n,r&&(i.rejectionReason=r)),e}),b({action:`adminVerifyNomination`,password:e,id:t,status:n,reason:r}),Promise.resolve({ok:!0})),adminDeleteNomination:async(e,t)=>{let n=await y({action:`adminDeleteNomination`,password:e,confirmPassword:e,id:t});return S(`adminGetNominations`),S(`getPublicNominations`),S(`getValidNominations`),S(`getFinalNominations`),n},adminApproveWithdrawal:(e,t)=>(x({action:`adminGetNominations`,password:e},e=>{let n=e.find(e=>e.id===t);return n&&(n.withdrawalStatus=`Approved`),e}),b({action:`adminApproveWithdrawal`,password:e,id:t}),Promise.resolve({ok:!0})),adminDirectWithdrawal:(e,t)=>(x({action:`adminGetNominations`,password:e},e=>{let n=e.find(e=>e.id===t);return n&&(n.withdrawalStatus=`Approved`),e}),b({action:`adminDirectWithdrawal`,password:e,id:t}),Promise.resolve({ok:!0})),adminRestoreWithdrawal:(e,t,n=`None`)=>(x({action:`adminGetNominations`,password:e},e=>{let r=e.find(e=>e.id===t);return r&&(r.withdrawalStatus=n),e}),b({action:`adminRestoreWithdrawal`,password:e,id:t,targetStatus:n}),S(`getFinalNominations`),S(`adminGetFinalNominations`),Promise.resolve({ok:!0})),adminRejectWithdrawal:(e,t)=>(x({action:`adminGetNominations`,password:e},e=>{let n=e.find(e=>e.id===t);return n&&(n.withdrawalStatus=`Rejected`),e}),b({action:`adminRejectWithdrawal`,password:e,id:t}),S(`getFinalNominations`),S(`adminGetFinalNominations`),Promise.resolve({ok:!0})),adminPublishValidList:async e=>{x({action:`adminGetSettings`,password:e},e=>({...e,validListPublished:`true`}));let t=await y({action:`adminPublishValidList`,password:e});return S(`getValidNominations`),S(`getSettings`),S(`adminGetSettings`),t},adminPublishFinalList:async e=>{x({action:`adminGetSettings`,password:e},e=>({...e,finalListPublished:`true`}));let t=await y({action:`adminPublishFinalList`,password:e});return S(`getFinalNominations`),S(`getSettings`),S(`adminGetSettings`),t},adminUnpublishValidList:async e=>{x({action:`adminGetSettings`,password:e},e=>({...e,validListPublished:`false`,finalListPublished:`false`}));let t=await y({action:`adminUnpublishValidList`,password:e});return S(`getValidNominations`),S(`getFinalNominations`),S(`getSettings`),S(`adminGetSettings`),t},adminUnpublishFinalList:async e=>{x({action:`adminGetSettings`,password:e},e=>({...e,finalListPublished:`false`}));let t=await y({action:`adminUnpublishFinalList`,password:e});return S(`getFinalNominations`),S(`getSettings`),S(`adminGetSettings`),t},adminGetSettings:e=>v({action:`adminGetSettings`,password:e}),adminUpdateSettings:(e,t)=>(x({action:`adminGetSettings`,password:e},e=>({...e,...t})),S(`getSettings`),S(`adminGetSettings`),b({action:`adminUpdateSettings`,password:e,...t}),Promise.resolve({ok:!0})),adminUpdateCredentials:(e,t)=>y({action:`adminUpdateCredentials`,password:e,...t}),getPublicSettings:()=>v({action:`adminGetSettings`,password:`NONE`}),adminGetPosts:e=>v({action:`adminGetPosts`,password:e}),adminAddPost:async(e,t)=>{let n={...t,post:t.post||t.postName};return x({action:`adminGetPosts`,password:e},e=>[...Array.isArray(e)?e:[],n]),await b({action:`adminAddPost`,password:e,...n}),S(`getPosts`),S(`adminGetPosts`),{ok:!0}},adminUpdatePost:async(e,t)=>{let n={...t,post:t.post||t.postName},r=t.originalName||n.post;return x({action:`adminGetPosts`,password:e},e=>{if(!Array.isArray(e))return[n];let t=e.findIndex(e=>e.post===r||e.post===n.post);return t===-1?e.push(n):e[t]=n,e}),await b({action:`adminUpdatePost`,password:e,...n}),S(`getPosts`),S(`adminGetPosts`),{ok:!0}},adminDeletePost:async(e,t)=>(x({action:`adminGetPosts`,password:e},e=>e.filter(e=>e.post!==t)),await b({action:`adminDeletePost`,password:e,postName:t}),S(`getPosts`),{ok:!0}),adminReorderPosts:async(e,t)=>(x({action:`adminGetPosts`,password:e},e=>{let n={};return e.forEach(e=>n[e.post]=e),t.map(e=>n[e]).filter(Boolean)}),await b({action:`adminReorderPosts`,password:e,posts:t}),S(`getPosts`),{ok:!0}),adminGetBooths:(e,t=!1)=>(t&&S(`adminGetBooths`),v({action:`adminGetBooths`,password:e})),adminSaveBooths:async(e,t)=>{let n=await y({action:`adminSaveBooths`,password:e,booths:t});return S(`adminGetBooths`),S(`adminGetBallotPlan`),n},adminGetLocations:(e,t=!1)=>(t&&S(`adminGetLocations`),v({action:`adminGetLocations`,password:e})),adminSaveLocations:async(e,t)=>{let n=await y({action:`adminSaveLocations`,password:e,locations:t});return S(`adminGetLocations`),n},getResults:(e=!1)=>(e&&S(`getResults`),v({action:`getResults`})),adminGetResults:(e,t=!1)=>(t&&S(`adminGetResults`),v({action:`adminGetResults`,password:e})),adminToggleLockResults:async e=>{let t=await y({action:`adminToggleLockResults`,password:e});return x({action:`adminGetSettings`,password:e},e=>({...e,resultsLocked:t.locked?`true`:`false`})),S(`getSettings`),S(`adminGetSettings`),t},adminTogglePublishResults:async e=>{let t=await y({action:`adminTogglePublishResults`,password:e});return x({action:`adminGetSettings`,password:e},e=>({...e,resultsPublished:t.published?`true`:`false`})),S(`getResults`),S(`adminGetResults`),S(`getSettings`),S(`adminGetSettings`),t},adminLockResults:async e=>{let t=await y({action:`adminLockResults`,password:e});return x({action:`adminGetSettings`,password:e},e=>({...e,resultsLocked:`true`})),S(`getSettings`),S(`adminGetSettings`),t},adminUnlockResults:async e=>{let t=await y({action:`adminUnlockResults`,password:e});return x({action:`adminGetSettings`,password:e},e=>({...e,resultsLocked:`false`})),S(`getSettings`),S(`adminGetSettings`),t},adminPublishResults:async e=>{let t=await y({action:`adminPublishResults`,password:e});return x({action:`adminGetSettings`,password:e},e=>({...e,resultsPublished:`true`})),S(`getResults`),S(`adminGetResults`),S(`getSettings`),S(`adminGetSettings`),t},adminUnpublishResults:async e=>{let t=await y({action:`adminUnpublishResults`,password:e});return x({action:`adminGetSettings`,password:e},e=>({...e,resultsPublished:`false`})),S(`getResults`),S(`adminGetResults`),S(`getSettings`),S(`adminGetSettings`),t},adminToggleCounting:async e=>{let t=await y({action:`adminToggleCounting`,password:e});return S(`getResults`),S(`getSettings`),S(`adminGetSettings`),S(`getPublicSchedule`),t},adminSetCountingActive:async(e,t)=>{let n=await y({action:`adminSetCountingActive`,password:e,active:t});return S(`getResults`),S(`getSettings`),S(`adminGetSettings`),S(`getPublicSchedule`),n},adminSaveResults:(e,t)=>b({action:`adminSaveResults`,password:e,results:t}).then(e=>(S(`getResults`),S(`adminGetResults`),e)),adminInjectTestData:e=>(c={},y({action:`adminInjectTestData`,password:e})),adminWipeData:e=>(c={},y({action:`adminWipeData`,password:e})),adminGetCountingMatrix:(e,t=!1)=>(t&&S(`adminGetCountingMatrix`),v({action:`adminGetCountingMatrix`,password:e})),adminSaveCountingMatrix:async(e,t)=>{x({action:`adminGetCountingMatrix`,password:e},t);let n=await y({action:`adminSaveCountingMatrix`,password:e,matrixData:t,matrix:t});return S(`adminGetCountingMatrix`),x({action:`adminGetCountingMatrix`,password:e},t),n},adminGenerateBallotPlan:async e=>{let t=await b({action:`adminGenerateBallotPlan`,password:e});return x({action:`adminGetBallotPlan`,password:e},t.plan),t},adminGetBallotPlan:e=>v({action:`adminGetBallotPlan`,password:e}),adminGetBallotConfig:e=>v({action:`adminGetBallotConfig`,password:e}),adminSaveBallotConfig:async(e,t)=>{let n=await y({action:`adminSaveBallotConfig`,password:e,config:t});return S(`adminGetBallotConfig`),S(`adminGetBallotPlan`),n},adminRunAudit:e=>y({action:`adminRunAudit`,password:e}),getPublicNotices:(e=!1)=>(e&&S(`getPublicNotices`),v({action:`getPublicNotices`})),adminGetNotices:(e,t=!1)=>(t&&S(`adminGetNotices`),v({action:`adminGetNotices`,password:e})),adminSaveNotices:async(e,t)=>{let n=await y({action:`adminSaveNotices`,password:e,notices:t});return S(`adminGetNotices`),S(`getPublicNotices`),n},adminSaveNotice:async(e,t)=>{let n=await y({action:`adminSaveNotice`,password:e,notice:t});return S(`adminGetNotices`),S(`getPublicNotices`),n},adminDeleteNotice:async(e,t)=>{let n=await y({action:`adminDeleteNotice`,password:e,id:t});return S(`adminGetNotices`),S(`getPublicNotices`),n},getSettings:()=>v({action:`getSettings`}),adminAddStudent:async(e,t)=>(await b({action:`adminAddStudent`,password:e,...t}),S(`getNominalRoll`),{ok:!0}),adminUpdateStudent:async(e,t)=>(await b({action:`adminUpdateStudent`,password:e,...t}),S(`getNominalRoll`),{ok:!0}),adminDeleteStudent:async(e,t)=>(await b({action:`adminDeleteStudent`,password:e,serial:t}),S(`getNominalRoll`),{ok:!0}),adminPublishDraftRoll:async e=>{let t=await y({action:`adminPublishDraftRoll`,password:e});return S(`getSettings`),S(`adminGetSettings`),t},adminUnpublishDraftRoll:async e=>{let t=await y({action:`adminUnpublishDraftRoll`,password:e});return S(`getSettings`),S(`adminGetSettings`),t},submitRollCorrection:e=>y({action:`submitRollCorrection`,...e}),adminGetRollCorrections:e=>v({action:`adminGetRollCorrections`,password:e}),adminUpdateRollCorrection:(e,t,n,r=``)=>y({action:`adminUpdateRollCorrection`,password:e,id:t,status:n,notes:r}),adminFinalizeRoll:async(e,t={})=>{let n=await y({action:`adminFinalizeRoll`,password:e,...t});return n&&n.requiresMatching?n:(S(`getSettings`),S(`adminGetSettings`),S(`getNominalRoll`),n||{ok:!0})},adminUnfinalizeRoll:async e=>{let t=await y({action:`adminUnfinalizeRoll`,password:e,confirmPassword:e});return S(`getSettings`),S(`adminGetSettings`),S(`getNominalRoll`),t||{ok:!0}},adminGetNominalRollTemplate:e=>v({action:`adminGetNominalRollTemplate`,password:e}),adminUploadNominalRoll:async(e,t)=>{let n=await y({action:`adminUploadNominalRoll`,password:e,...t});return S(`getNominalRoll`),S(`adminGetNominations`),S(`getSettings`),S(`adminGetSettings`),S(`getValidNominations`),S(`getFinalNominations`),S(`getPublicNominations`),n},adminClearNominalRoll:async e=>{let t=await y({action:`adminClearNominalRoll`,password:e,confirmPassword:e});return S(`getNominalRoll`),S(`getSettings`),S(`adminGetSettings`),S(`adminGetNominations`),S(`getValidNominations`),S(`getFinalNominations`),S(`getPublicNominations`),t},adminRemapNominations:async e=>{let t=await y({action:`adminRemapNominations`,password:e});return S(`adminGetNominations`),S(`getPublicNominations`),S(`getValidNominations`),S(`getFinalNominations`),t},adminFixSerialNumbersDeptWise:async e=>{let t=await y({action:`adminFixSerialNumbersDeptWise`,password:e});return S(`getNominalRoll`),S(`adminGetNominations`),S(`getSettings`),S(`adminGetSettings`),S(`getValidNominations`),S(`getFinalNominations`),S(`getPublicNominations`),t},getPublicSchedule:()=>v({action:`getPublicSchedule`}),adminSaveSchedule:async(e,t)=>{x({action:`getPublicSchedule`},t);let n=await y({action:`adminSaveSchedule`,password:e,...t});return S(`getPublicSchedule`),S(`getSettings`),S(`adminGetSettings`),S(`getValidNominations`),S(`getFinalNominations`),S(`getResults`),n||{ok:!0}},adminSetStageOverride:async(e,t,n)=>{let r=await y({action:`adminSetStageOverride`,password:e,stage:t,mode:n});return S(`getPublicSchedule`),S(`getSettings`),S(`adminGetSettings`),S(`getValidNominations`),S(`getFinalNominations`),S(`getResults`),r},adminExportBackup:e=>y({action:`adminExportBackup`,password:e}),adminGetSnapshots:e=>v({action:`adminGetSnapshots`,password:e}),adminDownloadSnapshot:(e,t)=>y({action:`adminDownloadSnapshot`,password:e,snapshotId:t}),adminRestoreBackup:async(e,t)=>{let n=await y({action:`adminRestoreBackup`,password:e,...t});return c={},n},adminRevertSnapshot:async(e,t)=>{let n=await y({action:`adminRevertSnapshot`,password:e,snapshotId:t});return c={},n}};function w(e,t=n.ELECTION_DATE){if(!e)return`N/A`;let r;if(typeof e==`string`&&e.includes(`-`)){let t=e.split(`-`);r=t[0].length===4?new Date(parseInt(t[0],10),parseInt(t[1],10)-1,parseInt(t[2],10)):new Date(parseInt(t[2],10),parseInt(t[1],10)-1,parseInt(t[0],10))}else r=new Date(e);if(isNaN(r.getTime()))return`N/A`;let i=new Date(t),a=i.getFullYear()-r.getFullYear(),o=i.getMonth()-r.getMonth(),s=i.getDate()-r.getDate();return s<0&&(o--,s+=new Date(i.getFullYear(),i.getMonth(),0).getDate()),o<0&&(a--,o+=12),`${a} Years, ${o} Months, ${s} Days`}var T=[{id:`1_UG`,label:`1st Year UG (I UG)`,short:`I UG`},{id:`2_UG`,label:`2nd Year UG (II UG)`,short:`II UG`},{id:`3_UG`,label:`3rd Year UG (III UG)`,short:`III UG`},{id:`1_PG`,label:`1st Year PG (I PG)`,short:`I PG`},{id:`2_PG`,label:`2nd Year PG (II PG)`,short:`II PG`},{id:`RS`,label:`Research Scholar (Ph.D)`,short:`RS`}];function E(e){let t=String(e||``).toUpperCase().trim();if(t.includes(`RESEARCH`)||t.includes(`SCHOLAR`)||t.includes(`PHD`))return`RS`;let n=/\b(MA|MSC|MCOM|M\.SC|M\.COM|M\.A|MBA|MCA|MSW)\b/.test(t)||t.includes(`POST GRADUATE`)||t.includes(`PG`);t.includes(`1ST`)||/^\s*(1|1ST|I)\b/.test(t)||/\b1ST\s+YEAR\b/.test(t)||/\bI\s+(YEAR|UG|PG|DC|DEG|BA|BSC|BCOM|MA|MSC|MCOM)\b/.test(t);let r=t.includes(`2ND`)||/^\s*(2|2ND|II)\b/.test(t)||/\b2ND\s+YEAR\b/.test(t)||/\bII\s+(YEAR|UG|PG|DC|DEG|BA|BSC|BCOM|MA|MSC|MCOM)\b/.test(t),i=t.includes(`3RD`)||/^\s*(3|3RD|III)\b/.test(t)||/\b3RD\s+YEAR\b/.test(t)||/\bIII\s+(YEAR|UG|DC|DEG|BA|BSC|BCOM)\b/.test(t);return n?r?`2_PG`:`1_PG`:i?`3_UG`:r?`2_UG`:`1_UG`}function D(e,t){if(!t)return!0;let n=E(e),r=t.yearRuleMode||(t.finalYearIneligible?`EXCLUDE`:t.yearRestriction?`INCLUDE`:`ALL`),i=[];if(Array.isArray(t.yearRuleYears)?i=t.yearRuleYears:typeof t.yearRuleYears==`string`&&t.yearRuleYears.trim()?i=t.yearRuleYears.split(`,`).map(e=>e.trim()).filter(Boolean):t.finalYearIneligible?i=[`3_UG`,`2_PG`]:t.yearRestriction===`1`?i=[`1_UG`]:t.yearRestriction===`2`?i=[`2_UG`]:t.yearRestriction===`3`?i=[`3_UG`]:t.yearRestriction===`PG`?i=[`1_PG`,`2_PG`]:t.yearRestriction===`UG`?i=[`1_UG`,`2_UG`,`3_UG`]:t.yearRestriction===`1,2`&&(i=[`1_UG`,`2_UG`]),r===`ALL`||i.length===0)return!(t.finalYearIneligible&&(n===`3_UG`||n===`2_PG`));let a=(e,t)=>!!(t.includes(e)||e.endsWith(`_UG`)&&t.includes(`UG`)||e.endsWith(`_PG`)&&t.includes(`PG`)||e.startsWith(`1_`)&&t.includes(`1`)||e.startsWith(`2_`)&&t.includes(`2`)||e.startsWith(`3_`)&&t.includes(`3`));return r===`INCLUDE`?a(n,i):r===`EXCLUDE`?!a(n,i):!0}function O(e){if(!e)return`All Years Eligible`;let t=e.yearRuleMode||(e.finalYearIneligible?`EXCLUDE`:e.yearRestriction?`INCLUDE`:`ALL`),n=[];if(Array.isArray(e.yearRuleYears)?n=e.yearRuleYears:typeof e.yearRuleYears==`string`&&e.yearRuleYears.trim()?n=e.yearRuleYears.split(`,`).map(e=>e.trim()).filter(Boolean):e.finalYearIneligible?n=[`3_UG`,`2_PG`]:e.yearRestriction===`1`?n=[`1_UG`]:e.yearRestriction===`2`?n=[`2_UG`]:e.yearRestriction===`3`?n=[`3_UG`]:e.yearRestriction===`PG`?n=[`1_PG`,`2_PG`]:e.yearRestriction===`UG`?n=[`1_UG`,`2_UG`,`3_UG`]:e.yearRestriction===`1,2`&&(n=[`1_UG`,`2_UG`]),t===`ALL`||n.length===0)return e.finalYearIneligible?`Final Years Barred (3rd UG & 2nd PG)`:`All Years Eligible`;let r=n.map(e=>{let t=T.find(t=>t.id===e);return t?t.short:e}).join(`, `);return t===`INCLUDE`?`Only: ${r}`:t===`EXCLUDE`?`Barred: ${r}`:`All Years`}function k(e,t,n,r=null,i=[],a=[]){if(!e)return[];let o=[],s=String(e.CLASS||``).toUpperCase(),c=String(e.Dept||``).toUpperCase(),l=String(e[`Nominal Roll Serial Number`]),u=i.find(e=>e.post===t)||{};if((n===`Proposer`||n===`Seconder`)&&a.some(e=>e.post===t&&e.status!==`Rejected`&&(String(e.proposerSerial)===l||String(e.seconderSerial)===l))&&o.push(`Student #${l} has already proposed or seconded a candidate for "${t}". They cannot endorse multiple candidates for the same post.`),u.deptRestriction){let r=(u.restrictedDept||(t.startsWith(`Association Secretary `)?t.replace(`Association Secretary `,``):``)).trim();if(r){let i=e=>String(e||``).toUpperCase().replace(/[^A-Z0-9]/g,``),a=i(c),s=i(r);a===s||a.includes(s)||s.includes(a)||o.push(`${n} for "${t}" must belong to the ${r} department (current student: ${e.Dept||`N/A`}).`)}}if(!D(s,u)){let e=O(u);o.push(`${n} (${s||`Unspecified`}) is not eligible under year restriction for "${t}" (${e}).`)}return n===`Candidate`&&(E(s)===`RS`&&o.push(`Research Scholars are not eligible to contest in College Union Elections.`),u.femaleOnly&&r&&r!==`Female`&&o.push(`The post of "${t}" is reserved for female candidates only.`)),o}function A(){let e=Math.floor(Math.random()*10)+1,t=Math.floor(Math.random()*10)+1;return{question:`${e} + ${t}`,answer:String(e+t)}}function j(){return new Date().toLocaleDateString(`en-GB`)}function M(e,t,n){if(!e||!t||!n)return;let r=[`January`,`February`,`March`,`April`,`May`,`June`,`July`,`August`,`September`,`October`,`November`,`December`];for(let t=1;t<=31;t++)e.innerHTML+=`<option value="${t}">${t}</option>`;r.forEach((e,n)=>t.innerHTML+=`<option value="${n+1}">${e}</option>`);for(let e=2015;e>=1950;e--)n.innerHTML+=`<option value="${e}">${e}</option>`}function N(e,t,n){return`${n}-${String(t).padStart(2,`0`)}-${String(e).padStart(2,`0`)}`}function P(e,t,n){return`${String(e).padStart(2,`0`)}/${String(t).padStart(2,`0`)}/${n}`}function ee(e,t=`Nomination Form`){let n=window.open(``,`_blank`);if(!n){alert(`Popup blocked! Please allow popups for this site to print.`);return}n.document.write(`
     <!DOCTYPE html>
     <html>
       <head>
@@ -104,7 +104,8 @@ var e=Object.defineProperty,t=(t,n)=>{let r={};for(var i in t)e(r,i,{get:t[i],en
           </p>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          ${R(`/notices`,`📢`,`Notices & Booth Info`,`Find where to vote, polling booth allotments, and official notifications.`,`<span class="badge bg-indigo-500/20 text-indigo-300 border border-indigo-500/30 text-[10px]">📢 Official Board</span>`)}
           ${R(`/nominal-roll`,`📜`,`Nominal Roll`,u,l)}
           ${R(`/submit`,`📝`,`Submit Nomination`,m,p)}
           ${R(`/find`,`🔍`,`Find My Nomination`,`Retrieve and print your submitted nomination form.`,`<span class="badge bg-indigo-500/20 text-indigo-300 border border-indigo-500/30 text-[10px]">🔍 Lookup</span>`)}
@@ -820,6 +821,7 @@ var e=Object.defineProperty,t=(t,n)=>{let r={};for(var i in t)e(r,i,{get:t[i],en
         ${W(`publish`,`📢`,`Publish Lists`,t)}
         ${W(`booths`,`🏫`,`Polling Booths`,t)}
         ${W(`ballots`,`🗳️`,`Ballot Printing`,t)}
+        ${W(`notices`,`📢`,`Notices & Posters`,t)}
         <div class="border-t border-white/10 my-2"></div>
         ${W(`counting`,`🧮`,`Counting Setup`,t)}
         ${W(`results-entry`,`📥`,`Results Entry`,t)}
@@ -6120,13 +6122,1501 @@ This will lock the list and prevent any further additions, edits, or deletions.`
             <input type="checkbox" id="${e.id}" checked class="accent-indigo-500 w-4 h-4 cursor-pointer" />
           </td>
         </tr>
-      `}).join(``)};e.querySelector(`#btnRemoveFile`)?.addEventListener(`click`,()=>{c=null,i.value=``,s.classList.add(`hidden`),o.classList.remove(`hidden`)});let d=e.querySelector(`#btnExecuteRestore`);d?.addEventListener(`click`,async()=>{if(!c){L(`No backup file loaded.`,`error`);return}let t=e.querySelector(`#restoreAdminPwd`).value.trim(),n=e.querySelector(`#restoreConfirmPhrase`).value.trim();if(!t){L(`Please enter your Admin Password.`,`error`);return}if(n!==`CONFIRM RESTORE`){L(`Please type "CONFIRM RESTORE" exactly to verify safety.`,`error`);return}let r={nominalRoll:e.querySelector(`#modRoll`)?.checked??!0,rollCorrections:e.querySelector(`#modCorr`)?.checked??!0,posts:e.querySelector(`#modPosts`)?.checked??!0,nominations:e.querySelector(`#modNoms`)?.checked??!0,settings:e.querySelector(`#modSets`)?.checked??!0},i=e.querySelector(`[name="restoreMode"]:checked`)?.value||`full_wipe_and_replace`;I(d,!0,`Restoring System State...`);try{let a=await C.adminRestoreBackup(t,{confirmPhrase:n,restoreMode:i,selectedModules:r,backupData:c});L(`🎉 System restore completed successfully!`,`success`),alert(`System restore successful!\n\nRestored:\n• Voters: ${a.restoredCounts?.nominalRoll||0}\n• Posts: ${a.restoredCounts?.posts||0}\n• Nominations: ${a.restoredCounts?.nominations||0}\n• Settings: ${a.restoredCounts?.settings||0}\n\nPre-Restore snapshot saved: ${a.preRestoreSnapshotId}`),Q(e.closest(`#app`))}catch(e){L(`Restore failed: ${e.message}`,`error`),I(d,!1,`⚠️ Execute System Restore`)}}),e.querySelectorAll(`[data-download-snap]`).forEach(e=>{e.addEventListener(`click`,async()=>{let n=e.getAttribute(`data-download-snap`);I(e,!0,`...`);try{let e=await C.adminDownloadSnapshot(t,n),r=new Blob([JSON.stringify(e,null,2)],{type:`application/json`}),i=URL.createObjectURL(r),a=document.createElement(`a`);a.href=i,a.download=`${n}.json`,document.body.appendChild(a),a.click(),document.body.removeChild(a),URL.revokeObjectURL(i),L(`Snapshot downloaded!`,`success`)}catch(e){L(`Download failed: ${e.message}`,`error`)}finally{I(e,!1,`📥 Download`)}})}),e.querySelectorAll(`[data-revert-snap]`).forEach(t=>{t.addEventListener(`click`,async()=>{let n=t.getAttribute(`data-revert-snap`),r=t.getAttribute(`data-name`);if(!confirm(`Are you sure you want to REVERT the database to:\n"${r}"?\n\nThis will restore all records to this checkpoint.`))return;let i=prompt(`Please enter your Admin Password to confirm reversion:`);if(i){I(t,!0,`Reverting...`);try{await C.adminRevertSnapshot(i,n),L(`Database reverted to snapshot successfully!`,`success`),alert(`System successfully reverted to checkpoint:\n${r}`),Q(e.closest(`#app`))}catch(e){L(`Revert failed: ${e.message}`,`error`),I(t,!1,`🔄 Revert`)}}})})}var Tt=document.getElementById(`app`);document.body.insertAdjacentHTML(`afterbegin`,`
+      `}).join(``)};e.querySelector(`#btnRemoveFile`)?.addEventListener(`click`,()=>{c=null,i.value=``,s.classList.add(`hidden`),o.classList.remove(`hidden`)});let d=e.querySelector(`#btnExecuteRestore`);d?.addEventListener(`click`,async()=>{if(!c){L(`No backup file loaded.`,`error`);return}let t=e.querySelector(`#restoreAdminPwd`).value.trim(),n=e.querySelector(`#restoreConfirmPhrase`).value.trim();if(!t){L(`Please enter your Admin Password.`,`error`);return}if(n!==`CONFIRM RESTORE`){L(`Please type "CONFIRM RESTORE" exactly to verify safety.`,`error`);return}let r={nominalRoll:e.querySelector(`#modRoll`)?.checked??!0,rollCorrections:e.querySelector(`#modCorr`)?.checked??!0,posts:e.querySelector(`#modPosts`)?.checked??!0,nominations:e.querySelector(`#modNoms`)?.checked??!0,settings:e.querySelector(`#modSets`)?.checked??!0},i=e.querySelector(`[name="restoreMode"]:checked`)?.value||`full_wipe_and_replace`;I(d,!0,`Restoring System State...`);try{let a=await C.adminRestoreBackup(t,{confirmPhrase:n,restoreMode:i,selectedModules:r,backupData:c});L(`🎉 System restore completed successfully!`,`success`),alert(`System restore successful!\n\nRestored:\n• Voters: ${a.restoredCounts?.nominalRoll||0}\n• Posts: ${a.restoredCounts?.posts||0}\n• Nominations: ${a.restoredCounts?.nominations||0}\n• Settings: ${a.restoredCounts?.settings||0}\n\nPre-Restore snapshot saved: ${a.preRestoreSnapshotId}`),Q(e.closest(`#app`))}catch(e){L(`Restore failed: ${e.message}`,`error`),I(d,!1,`⚠️ Execute System Restore`)}}),e.querySelectorAll(`[data-download-snap]`).forEach(e=>{e.addEventListener(`click`,async()=>{let n=e.getAttribute(`data-download-snap`);I(e,!0,`...`);try{let e=await C.adminDownloadSnapshot(t,n),r=new Blob([JSON.stringify(e,null,2)],{type:`application/json`}),i=URL.createObjectURL(r),a=document.createElement(`a`);a.href=i,a.download=`${n}.json`,document.body.appendChild(a),a.click(),document.body.removeChild(a),URL.revokeObjectURL(i),L(`Snapshot downloaded!`,`success`)}catch(e){L(`Download failed: ${e.message}`,`error`)}finally{I(e,!1,`📥 Download`)}})}),e.querySelectorAll(`[data-revert-snap]`).forEach(t=>{t.addEventListener(`click`,async()=>{let n=t.getAttribute(`data-revert-snap`),r=t.getAttribute(`data-name`);if(!confirm(`Are you sure you want to REVERT the database to:\n"${r}"?\n\nThis will restore all records to this checkpoint.`))return;let i=prompt(`Please enter your Admin Password to confirm reversion:`);if(i){I(t,!0,`Reverting...`);try{await C.adminRevertSnapshot(i,n),L(`Database reverted to snapshot successfully!`,`success`),alert(`System successfully reverted to checkpoint:\n${r}`),Q(e.closest(`#app`))}catch(e){L(`Revert failed: ${e.message}`,`error`),I(t,!1,`🔄 Revert`)}}})})}function Tt(e){if(!e)return``;let t=F(e);t=t.replace(/^### (.*$)/gim,`<h3 style="font-size:16px;font-weight:bold;margin:14px 0 6px 0;color:#111827;border-bottom:1px solid #e5e7eb;padding-bottom:4px;">$1</h3>`),t=t.replace(/^#### (.*$)/gim,`<h4 style="font-size:14px;font-weight:bold;margin:12px 0 4px 0;color:#374151;">$1</h4>`),t=t.replace(/^## (.*$)/gim,`<h2 style="font-size:18px;font-weight:bold;margin:16px 0 8px 0;color:#111827;">$1</h2>`),t=t.replace(/\*\*(.*?)\*\*/gim,`<strong>$1</strong>`),t=t.replace(/\*(.*?)\*/gim,`<em>$1</em>`),t=t.replace(/^---$/gim,`<hr style="border:none;border-top:1px dashed #d1d5db;margin:12px 0;">`),t=t.replace(/^\s*• (.*$)/gim,`<li style="margin-left:20px;margin-bottom:4px;">$1</li>`),t=t.replace(/^\s*\- (.*$)/gim,`<li style="margin-left:20px;margin-bottom:4px;">$1</li>`),t=t.replace(/^\s*(\d+)\.\s+(.*$)/gim,`<div style="margin-left:15px;margin-bottom:4px;"><strong>$1.</strong> $2</div>`);let n=t.split(`
+`),r=!1,i=``,a=[];for(let e=0;e<n.length;e++){let t=n[e].trim();if(t.startsWith(`|`)&&t.endsWith(`|`)){if(r||(r=!0,i=`<table style="width:100%;border-collapse:collapse;margin:12px 0;font-size:12px;">`),t.includes(`:---`)||t.includes(`---:`))continue;let e=t.split(`|`).slice(1,-1).map(e=>e.trim());!i.includes(`<tbody>`)&&!i.includes(`<thead>`)?i+=`<thead><tr style="background:#f3f4f6;border-bottom:1.5px solid #000;">`+e.map(e=>`<th style="border:1px solid #9ca3af;padding:6px 8px;text-align:left;">${e}</th>`).join(``)+`</tr></thead><tbody>`:i+=`<tr style="border-bottom:1px solid #e5e7eb;">`+e.map(e=>`<td style="border:1px solid #d1d5db;padding:5px 8px;">${e}</td>`).join(``)+`</tr>`}else r&&(i+=`</tbody></table>`,a.push(i),r=!1,i=``),a.push(t)}return r&&(i+=`</tbody></table>`,a.push(i)),a.map(e=>e.startsWith(`<h`)||e.startsWith(`<hr`)||e.startsWith(`<li`)||e.startsWith(`<div`)||e.startsWith(`<table`)?e:e.trim()?`<p style="margin:6px 0;line-height:1.5;">${e}</p>`:`<div style="height:8px;"></div>`).join(`
+`)}function Et(e,t={}){let r=t.collegeName||n.COLLEGE_NAME;t.collegeShortName||n.COLLEGE_SHORT_NAME;let i=t.electionYear||new Date().getFullYear(),a=t.collegeLogo||``,o=window.open(``,`_blank`);if(!o){alert(`Pop-up blocker prevented opening the print window. Please allow pop-ups for this site.`);return}let s=Tt(e.content||``);o.document.write(`<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>${F(e.refNo||`Notice`)} - ${F(e.title)}</title>
+  <style>
+    @page { size: A4; margin: 15mm; }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Times New Roman', Times, Georgia, serif;
+      color: #111;
+      background: #fff;
+      font-size: 13px;
+      line-height: 1.5;
+    }
+    .page-container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 10px;
+    }
+    .header-table {
+      width: 100%;
+      border-collapse: collapse;
+      border-bottom: 2px solid #000;
+      padding-bottom: 8px;
+      margin-bottom: 12px;
+    }
+    .college-name {
+      font-size: 19px;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin: 0;
+      color: #000;
+    }
+    .sub-header {
+      font-size: 12px;
+      font-weight: bold;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      color: #374151;
+      margin-top: 3px;
+    }
+    .meta-bar {
+      display: flex;
+      justify-content: space-between;
+      border-bottom: 1px solid #ccc;
+      padding: 6px 0;
+      margin-bottom: 14px;
+      font-family: Arial, sans-serif;
+      font-size: 11px;
+      color: #333;
+    }
+    .notice-title-box {
+      text-align: center;
+      margin: 14px 0 18px 0;
+      border: 1.5px solid #000;
+      padding: 8px 12px;
+      background: #fafafa;
+    }
+    .notice-title {
+      font-size: 15px;
+      font-weight: bold;
+      text-transform: uppercase;
+      margin: 0;
+      letter-spacing: 0.5px;
+    }
+    .category-tag {
+      font-family: Arial, sans-serif;
+      font-size: 10px;
+      font-weight: bold;
+      text-transform: uppercase;
+      color: #4b5563;
+      margin-top: 3px;
+    }
+    .content-area {
+      font-size: 13px;
+      text-align: justify;
+      margin-bottom: 30px;
+    }
+    .signature-area {
+      margin-top: 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      page-break-inside: avoid;
+    }
+    .seal-box {
+      width: 130px;
+      height: 80px;
+      border: 1px dashed #999;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: Arial, sans-serif;
+      font-size: 10px;
+      color: #777;
+      text-align: center;
+    }
+    .signatory-box {
+      text-align: right;
+      font-family: 'Times New Roman', Times, serif;
+    }
+    .signatory-name {
+      font-size: 14px;
+      font-weight: bold;
+      margin: 0;
+    }
+    .signatory-title {
+      font-size: 12px;
+      color: #333;
+      margin-top: 3px;
+      max-width: 320px;
+    }
+    .footer-note {
+      margin-top: 25px;
+      border-top: 1px solid #e5e7eb;
+      padding-top: 6px;
+      font-family: Arial, sans-serif;
+      font-size: 9px;
+      color: #6b7280;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="page-container">
+    <table class="header-table">
+      <tr>
+        ${a?`
+          <td style="width: 70px; vertical-align: middle; text-align: left; padding-right: 12px;">
+            <img src="${a}" style="max-width: 65px; max-height: 65px; object-fit: contain;" alt="College Logo">
+          </td>
+        `:``}
+        <td style="vertical-align: middle; text-align: center;">
+          <h1 class="college-name">${F(r)}</h1>
+          <div class="sub-header">Office of the Returning Officer — College Union Elections ${F(i)}</div>
+        </td>
+      </tr>
+    </table>
+
+    <div class="meta-bar">
+      <div><strong>Ref No:</strong> ${F(e.refNo||`N/A`)}</div>
+      <div><strong>Date of Issue:</strong> ${F(e.date||new Date().toISOString().split(`T`)[0])}</div>
+    </div>
+
+    <div class="notice-title-box">
+      <h2 class="notice-title">${F(e.title)}</h2>
+      <div class="category-tag">Official Publication • ${F(e.category||`General Notice`)}</div>
+    </div>
+
+    <div class="content-area">
+      ${s}
+    </div>
+
+    <div class="signature-area">
+      <div class="seal-box">
+        [ College Official Seal ]
+      </div>
+      <div class="signatory-box">
+        <div style="height: 35px;"></div>
+        <p class="signatory-name">${F(e.signatoryName||`Returning Officer`)}</p>
+        <p class="signatory-title">${F(e.signatoryTitle||`Returning Officer, ${r}`)}</p>
+      </div>
+    </div>
+
+    <div class="footer-note">
+      This is an official election document published by authority of the Returning Officer under University Statutes.
+    </div>
+  </div>
+
+  <script>
+    window.onload = function() {
+      setTimeout(function() {
+        window.print();
+      }, 400);
+    };
+  <\/script>
+</body>
+</html>`),o.document.close()}function Dt(e,t={},n={}){Ot([e],t,n)}function Ot(e,t={},r={}){let i=t.collegeName||n.COLLEGE_NAME,a=t.collegeShortName||n.COLLEGE_SHORT_NAME,o=t.electionYear||new Date().getFullYear(),s=t.collegeLogo||``,c=window.open(``,`_blank`);if(!c){alert(`Pop-up blocker prevented opening the print window. Please allow pop-ups for this site.`);return}let l=e=>{if(!e)return``;let t=new Date(e);return isNaN(t.getTime())?``:t.toLocaleTimeString(`en-IN`,{hour:`2-digit`,minute:`2-digit`})},u=l(r.pollingStart)||`9:30 AM`,d=l(r.pollingEnd)||`1:30 PM`,f=e.map((t,n)=>{let r=Array.isArray(t.classes)?t.classes:[],a=t.totalStudents||0;return`
+      <div class="poster-page ${n<e.length-1?`page-break`:``}">
+        <!-- Outer High-Contrast Border -->
+        <div class="poster-border">
+          
+          <!-- Top Header -->
+          <div class="poster-header">
+            ${s?`<img src="${s}" class="poster-logo" alt="Logo">`:``}
+            <div>
+              <div class="college-title">${F(i)}</div>
+              <div class="election-title">College Union Elections ${F(o)} — Official Polling Station</div>
+            </div>
+          </div>
+
+          <!-- Giant Booth Number Banner -->
+          <div class="booth-giant-banner">
+            <div class="booth-sub-label">DESIGNATED POLLING BOOTH</div>
+            <div class="booth-main-number">BOOTH NO. ${F(t.boothNumber)}</div>
+          </div>
+
+          <!-- Room Location Callout -->
+          <div class="location-banner">
+            <span class="location-icon">📍</span>
+            <span class="location-label">POLLING STATION VENUE:</span>
+            <span class="location-name">${F(t.roomName||`Classroom / Designated Hall`)}</span>
+          </div>
+
+          <!-- Allotted Classes Section -->
+          <div class="classes-container">
+            <div class="classes-heading">
+              <span>📋 CLASSES ALLOTTED TO VOTE AT THIS BOOTH:</span>
+              <span class="voter-badge">${a?`${a} Registered Electors`:`Electors as Per Roll`}</span>
+            </div>
+
+            <div class="classes-grid">
+              ${r.length?r.map(e=>`
+                <div class="class-card">
+                  <span class="check-icon">✔</span>
+                  <span class="class-text">${F(e)}</span>
+                </div>
+              `).join(``):`
+                <div class="class-card" style="grid-column: 1 / -1; text-align: center; color: #666;">
+                  Allotted as per Department Electoral Schedule
+                </div>
+              `}
+            </div>
+          </div>
+
+          <!-- Ballots Issued Bar -->
+          <div class="ballots-bar">
+            <div class="ballot-chip"><strong>Ballot 1:</strong> General Union Posts</div>
+            <div class="ballot-chip"><strong>Ballot 2:</strong> Dept Association Secretary</div>
+            <div class="ballot-chip"><strong>Ballot 3:</strong> Year Representative</div>
+          </div>
+
+          <!-- Voter Directives Warning Box -->
+          <div class="rules-box">
+            <div class="rule-item">
+              <span class="rule-icon">🪪</span>
+              <span><strong>MANDATORY:</strong> Must produce College ID Card to Polling Officer</span>
+            </div>
+            <div class="rule-item">
+              <span class="rule-icon">⏰</span>
+              <span><strong>POLLING HOURS:</strong> ${F(u)} to ${F(d)} strictly</span>
+            </div>
+            <div class="rule-item">
+              <span class="rule-icon">🚫</span>
+              <span><strong>PROHIBITED:</strong> Mobile phones / Cameras strictly barred inside booth</span>
+            </div>
+          </div>
+
+          <!-- Bottom Footer with Seal and Presiding Officer Line -->
+          <div class="poster-footer">
+            <div class="footer-seal">
+              [ OFFICIAL ELECTION SEAL ]
+            </div>
+            <div class="footer-sign">
+              <div class="sign-line"></div>
+              <div class="sign-text">By Order of the Returning Officer</div>
+              <div class="sign-sub">${F(i)}</div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    `}).join(``);c.document.write(`<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Polling Booth Door Posters - ${F(a)} Election ${F(o)}</title>
+  <style>
+    @page {
+      size: A4 portrait;
+      margin: 8mm;
+    }
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: #fff;
+      color: #000;
+    }
+    .poster-page {
+      width: 100%;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      padding: 4px;
+    }
+    .page-break {
+      page-break-after: always;
+      break-after: page;
+    }
+    .poster-border {
+      border: 4px solid #000;
+      border-radius: 8px;
+      padding: 14px;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .poster-header {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      text-align: center;
+      border-bottom: 2px solid #000;
+      padding-bottom: 8px;
+    }
+    .poster-logo {
+      max-height: 50px;
+      max-width: 50px;
+      object-fit: contain;
+    }
+    .college-title {
+      font-size: 16px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .election-title {
+      font-size: 12px;
+      font-weight: 600;
+      color: #333;
+      margin-top: 2px;
+    }
+    .booth-giant-banner {
+      background: #000;
+      color: #fff;
+      text-align: center;
+      padding: 14px 10px;
+      margin: 10px 0;
+      border-radius: 6px;
+    }
+    .booth-sub-label {
+      font-size: 13px;
+      font-weight: bold;
+      letter-spacing: 2px;
+      opacity: 0.9;
+    }
+    .booth-main-number {
+      font-size: 38px;
+      font-weight: 900;
+      letter-spacing: 1px;
+      margin-top: 2px;
+    }
+    .location-banner {
+      border: 2px solid #000;
+      background: #f3f4f6;
+      border-radius: 6px;
+      padding: 10px 14px;
+      text-align: center;
+      font-size: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+    .location-icon {
+      font-size: 20px;
+    }
+    .location-label {
+      font-weight: bold;
+      color: #4b5563;
+      font-size: 12px;
+    }
+    .location-name {
+      font-size: 19px;
+      font-weight: 900;
+      color: #111;
+      text-transform: uppercase;
+    }
+    .classes-container {
+      flex: 1;
+      margin: 10px 0;
+      border: 2px solid #000;
+      border-radius: 6px;
+      padding: 10px;
+      display: flex;
+      flex-direction: column;
+    }
+    .classes-heading {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 13px;
+      font-weight: 800;
+      border-bottom: 2px solid #000;
+      padding-bottom: 6px;
+      margin-bottom: 8px;
+    }
+    .voter-badge {
+      background: #e5e7eb;
+      padding: 2px 8px;
+      border-radius: 4px;
+      font-size: 11px;
+      font-weight: bold;
+    }
+    .classes-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 6px;
+      overflow: hidden;
+    }
+    .class-card {
+      border: 1.5px solid #374151;
+      border-radius: 4px;
+      padding: 6px 8px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      background: #fafafa;
+    }
+    .check-icon {
+      font-size: 12px;
+      font-weight: bold;
+      color: #059669;
+    }
+    .class-text {
+      font-size: 13px;
+      font-weight: 700;
+      color: #111;
+      line-height: 1.2;
+    }
+    .ballots-bar {
+      display: flex;
+      justify-content: space-around;
+      gap: 6px;
+      margin-bottom: 8px;
+    }
+    .ballot-chip {
+      flex: 1;
+      border: 1.5px solid #000;
+      border-radius: 4px;
+      padding: 5px 6px;
+      font-size: 11px;
+      text-align: center;
+      background: #fff;
+    }
+    .rules-box {
+      border: 1.5px solid #b91c1c;
+      background: #fef2f2;
+      border-radius: 6px;
+      padding: 8px 10px;
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+      margin-bottom: 10px;
+      font-size: 11px;
+    }
+    .rule-item {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+    .rule-icon {
+      font-size: 14px;
+    }
+    .poster-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      border-top: 2px solid #000;
+      padding-top: 8px;
+    }
+    .footer-seal {
+      width: 140px;
+      height: 48px;
+      border: 1px dashed #666;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 9px;
+      color: #666;
+      font-weight: bold;
+      text-align: center;
+    }
+    .footer-sign {
+      text-align: right;
+    }
+    .sign-line {
+      width: 180px;
+      border-bottom: 1px solid #000;
+      margin-bottom: 4px;
+      margin-left: auto;
+    }
+    .sign-text {
+      font-size: 12px;
+      font-weight: bold;
+    }
+    .sign-sub {
+      font-size: 10px;
+      color: #444;
+    }
+  </style>
+</head>
+<body>
+  ${f}
+  <script>
+    window.onload = function() {
+      setTimeout(function() {
+        window.print();
+      }, 400);
+    };
+  <\/script>
+</body>
+</html>`),c.document.close()}function kt(e,t={},r={}){let i=t.collegeName||n.COLLEGE_NAME,a=t.collegeShortName||n.COLLEGE_SHORT_NAME,o=t.electionYear||new Date().getFullYear(),s=t.collegeLogo||``,c=window.open(``,`_blank`);if(!c){alert(`Pop-up blocker prevented opening the print window. Please allow pop-ups for this site.`);return}let l=e=>{if(!e)return``;let t=new Date(e);return isNaN(t.getTime())?``:t.toLocaleTimeString(`en-IN`,{hour:`2-digit`,minute:`2-digit`})},u=r.pollingStart?new Date(r.pollingStart).toLocaleDateString(`en-IN`,{weekday:`long`,day:`numeric`,month:`long`,year:`numeric`}):`Election Day`,d=l(r.pollingStart)||`9:30 AM`,f=l(r.pollingEnd)||`1:30 PM`,p=e.reduce((e,t)=>e+(t.totalStudents||0),0),m=e.map(e=>{let t=(Array.isArray(e.classes)?e.classes:[]).join(`, `)||`Classes as designated`;return`
+      <tr>
+        <td style="text-align: center; font-weight: 900; font-size: 14px; background: #f9fafb;">${e.boothNumber}</td>
+        <td style="font-weight: bold; font-size: 13px; text-transform: uppercase;">${F(e.roomName||`Designated Hall`)}</td>
+        <td style="font-size: 12px; line-height: 1.4;">${F(t)}</td>
+        <td style="text-align: center; font-weight: bold; font-size: 13px;">${e.totalStudents||`–`}</td>
+      </tr>
+    `}).join(``);c.document.write(`<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Campus Master Polling Directory - ${F(a)} Election ${F(o)}</title>
+  <style>
+    @page {
+      size: A4 portrait;
+      margin: 10mm;
+    }
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: #fff;
+      color: #000;
+      font-size: 12px;
+    }
+    .master-container {
+      border: 3px solid #000;
+      padding: 12px;
+      min-height: 98vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .master-header {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 14px;
+      text-align: center;
+      border-bottom: 2px solid #000;
+      padding-bottom: 8px;
+      margin-bottom: 10px;
+    }
+    .master-logo {
+      max-height: 60px;
+      max-width: 60px;
+      object-fit: contain;
+    }
+    .college-name {
+      font-size: 18px;
+      font-weight: 900;
+      text-transform: uppercase;
+      margin: 0;
+    }
+    .election-title {
+      font-size: 13px;
+      font-weight: 700;
+      color: #333;
+      margin-top: 2px;
+    }
+    .directory-banner {
+      background: #000;
+      color: #fff;
+      text-align: center;
+      padding: 8px;
+      font-size: 15px;
+      font-weight: 900;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      border-radius: 4px;
+      margin-bottom: 10px;
+    }
+    .info-bar {
+      display: flex;
+      justify-content: space-between;
+      background: #f3f4f6;
+      border: 1px solid #d1d5db;
+      padding: 6px 12px;
+      border-radius: 4px;
+      font-size: 11px;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+    .directory-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 12px;
+    }
+    .directory-table th {
+      background: #111;
+      color: #fff;
+      border: 1.5px solid #000;
+      padding: 8px 6px;
+      font-size: 11px;
+      text-transform: uppercase;
+      font-weight: bold;
+    }
+    .directory-table td {
+      border: 1.5px solid #000;
+      padding: 6px 8px;
+    }
+    .rules-grid {
+      border: 1.5px solid #000;
+      padding: 8px 10px;
+      border-radius: 4px;
+      background: #fff;
+      margin-bottom: 12px;
+    }
+    .rules-title {
+      font-weight: 800;
+      font-size: 11px;
+      text-transform: uppercase;
+      border-bottom: 1px solid #e5e7eb;
+      padding-bottom: 3px;
+      margin-bottom: 4px;
+    }
+    .rules-list {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 6px;
+      font-size: 10px;
+    }
+    .master-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      border-top: 2px solid #000;
+      padding-top: 8px;
+    }
+    .footer-seal {
+      width: 130px;
+      height: 45px;
+      border: 1px dashed #666;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 9px;
+      color: #666;
+      font-weight: bold;
+      text-align: center;
+    }
+    .footer-sign {
+      text-align: right;
+    }
+    .sign-line {
+      width: 180px;
+      border-bottom: 1px solid #000;
+      margin-bottom: 4px;
+      margin-left: auto;
+    }
+  </style>
+</head>
+<body>
+  <div class="master-container">
+    <div>
+      <div class="master-header">
+        ${s?`<img src="${s}" class="master-logo" alt="Logo">`:``}
+        <div>
+          <h1 class="college-name">${F(i)}</h1>
+          <div class="election-title">College Union Elections ${F(o)} — Office of the Returning Officer</div>
+        </div>
+      </div>
+
+      <div class="directory-banner">
+        CAMPUS POLLING STATIONS &amp; BOOTH ALLOTMENT DIRECTORY
+      </div>
+
+      <div class="info-bar">
+        <div>📅 <strong>Polling Date:</strong> ${F(u)}</div>
+        <div>⏰ <strong>Polling Hours:</strong> ${F(d)} to ${F(f)}</div>
+        <div>👥 <strong>Total Registered Electors:</strong> ${p?`${p} Students`:`All Bona Fide Students`}</div>
+      </div>
+
+      <table class="directory-table">
+        <thead>
+          <tr>
+            <th style="width: 75px;">Booth</th>
+            <th style="width: 150px;">Station / Room Location</th>
+            <th>Departments &amp; Classes Allotted to Vote</th>
+            <th style="width: 75px;">Electors</th>
+          </tr>
+        </thead>
+        <tbody>
+          ${m}
+        </tbody>
+      </table>
+    </div>
+
+    <div>
+      <div class="rules-grid">
+        <div class="rules-title">⚠️ Mandatory Directives for All Voters:</div>
+        <div class="rules-list">
+          <div>• <strong>Compulsory Identity Card:</strong> Every voter must present their College ID Card with photo.</div>
+          <div>• <strong>No Electronic Gadgets:</strong> Mobile phones and cameras are prohibited inside voting booths.</div>
+          <div>• <strong>Ballots Issued:</strong> General Executive Ballot (White), Dept Association (Colored), Year Rep.</div>
+          <div>• <strong>Queue Discipline:</strong> Verify your nominal roll serial number at the door before entering.</div>
+        </div>
+      </div>
+
+      <div class="master-footer">
+        <div class="footer-seal">[ RETURNING OFFICER OFFICIAL SEAL ]</div>
+        <div class="footer-sign">
+          <div class="sign-line"></div>
+          <div style="font-weight: bold; font-size: 12px;">Returning Officer</div>
+          <div style="font-size: 10px; color: #444;">${F(i)}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    window.onload = function() {
+      setTimeout(function() {
+        window.print();
+      }, 400);
+    };
+  <\/script>
+</body>
+</html>`),c.document.close()}function At(e={},t={},n=[]){let r=e.electionYear||new Date().getFullYear().toString(),i=e.collegeName||`Government Victoria College, Palakkad`,a=e.collegeShortName||`GVC`,o=new Date().toISOString().split(`T`)[0],s=(e,t=`To be notified`)=>{if(!e)return t;let n=new Date(e);return isNaN(n.getTime())?t:n.toLocaleDateString(`en-IN`,{weekday:`short`,day:`numeric`,month:`short`,year:`numeric`,hour:`2-digit`,minute:`2-digit`})},c=(e,t=`To be notified`)=>{if(!e)return t;let n=new Date(e);return isNaN(n.getTime())?t:n.toLocaleDateString(`en-IN`,{day:`numeric`,month:`long`,year:`numeric`})},l=``;return l=n&&n.length?n.map(e=>{let t=(e.classes||[]).join(`, `)||`Classes as designated`;return`• **Polling Booth No. ${e.boothNumber}** [Location: ${e.roomName||`Designated Hall`}]\n  Allotted Classes: ${t}`}).join(`
+
+`):`• Polling Booths and Station allotments will be published as per the official booth allocation chart.`,[{id:`statutory_notice_election_notification`,title:`Official Election Notification — College Union Elections ${r}`,refNo:`${a}/ELEC/${r}/NOTIF-01`,date:t.notificationDate?c(t.notificationDate):o,category:`Statutory Notification`,pinned:!0,isPublished:!0,signatoryName:`Returning Officer`,signatoryTitle:`Returning Officer & Principal / Associate Professor, ${i}`,content:`### ELECTION NOTIFICATION
+**Sub:** Conduct of College Union Elections for the Academic Year ${r} — reg.
+
+It is hereby notified under the provisions of the University Statutes and the guidelines framed by the Lyngdoh Committee as accepted by the Hon'ble Supreme Court of India, that the elections to the **College Union and its affiliated Departmental Associations of ${i}** for the academic year **${r}** will be conducted as per the schedule below:
+
+---
+
+#### 📅 Official Election Calendar & Timings
+
+| Sl. No. | Stage of Election | Date & Time |
+| :---: | :--- | :--- |
+| **1** | Publication of Preliminary Electoral Roll (Draft Nominal Roll) | ${s(t.draftRollStart,`As scheduled`)} |
+| **2** | Last date and hour for filing Claims & Objections | ${s(t.draftRollEnd,`As scheduled`)} |
+| **3** | Publication of Final Electoral Roll (Final Nominal Roll) | ${s(t.finalRollStart,`As scheduled`)} |
+| **4** | Commencing of Filing of Nominations | ${s(t.nominationStart,`As scheduled`)} |
+| **5** | Last date and hour for Receipt of Nomination Papers | ${s(t.nominationDeadline,`As scheduled`)} |
+| **6** | Scrutiny of Nominations & Publication of Valid List | ${s(t.validListStart,`As scheduled`)} |
+| **7** | Last date and hour for Withdrawal of Candidature | ${s(t.withdrawalEnd,`As scheduled`)} |
+| **8** | Publication of Final List of Contesting Candidates | ${s(t.finalListStart,`As scheduled`)} |
+| **9** | **Date and Hours of Polling** | **${s(t.pollingStart,`To be announced`)} to ${s(t.pollingEnd,`To be announced`)}** |
+| **10** | **Scrutiny & Counting of Votes / Declaration of Results** | **${s(t.resultsStart,`Immediately following poll`)}** |
+
+---
+
+#### ⚖️ Statutory Eligibility Norms (Lyngdoh Committee Guidelines)
+1. **Age Limit**:
+   - Undergraduate (UG) students must be between **17 and 22 years** of age as on the date of notification.
+   - Postgraduate (PG) students must not exceed **24–25 years** of age.
+   - **Research Scholars are barred from contesting** for any College Union or Departmental post under statutory university election rules.
+2. **Academic Standing**: The candidate must be a regular full-time enrolled student of the college, having no academic arrears and with a minimum aggregate attendance of **75%**.
+3. **Disciplinary Clearance**: Candidates must not have any previous criminal records, disciplinary proceedings, or campus trial sanctions pending against them.
+4. **Election Expenditure**: Election expenses for every candidate shall strictly not exceed the permissible ceiling of ₹5,000/- as mandated by Supreme Court directives.`},{id:`statutory_notice_booth_allotment`,title:`Notice on Polling Booths, Station Locations & Class Allotments`,refNo:`${a}/ELEC/${r}/NOTIF-02`,date:o,category:`Polling Booth Info`,pinned:!0,isPublished:!0,signatoryName:`Returning Officer`,signatoryTitle:`Returning Officer, ${i}`,content:`### POLLING BOOTHS & STATIONS ALLOTMENT NOTICE
+
+Notice is hereby given to all students and electors of **${i}** regarding the designated **Polling Stations and Booth Allotments** for the College Union Elections ${r}.
+
+Voting shall take place strictly at the designated polling booths between the official polling hours:
+**${s(t.pollingStart,`9:30 AM`)} to ${s(t.pollingEnd,`1:30 PM`)}**.
+
+---
+
+#### 🏫 Designated Polling Booths & Allotted Classes
+
+${l}
+
+---
+
+#### 🗳️ Ballots Issued at Polling Booths:
+Every eligible elector registered on the Final Nominal Roll will receive the following official ballot papers from the Presiding Officer:
+1. **White / Main General Ballot Paper**: For General Union Executive Posts (Chairman, Vice Chairman, Secretary, Joint Secretary, UUC, Chief Student Editor, General Captain, Fine Arts Secretary).
+2. **Colored Departmental Ballot Paper**: For your respective Department Association Secretary.
+3. **Year Representative Ballot Paper**: For your respective Year Representative (I UG / II UG / III UG / PG Representative).
+
+*Electors are requested to verify their names on the Nominal Roll facing sheet outside their respective booth before joining the queue.*`},{id:`statutory_notice_code_of_conduct`,title:`Model Code of Conduct & Campus Campaigning Directives`,refNo:`${a}/ELEC/${r}/MCC-03`,date:o,category:`Code of Conduct`,pinned:!1,isPublished:!0,signatoryName:`Returning Officer`,signatoryTitle:`Returning Officer & Principal, ${i}`,content:`### MODEL CODE OF CONDUCT FOR CANDIDATES AND STUDENT GROUPS
+
+With the announcement of the College Union Election ${r}, the **Model Code of Conduct (MCC)** comes into force with immediate effect across the entire campus. All contesting candidates, election agents, proposers, seconders, and students must strictly adhere to the following:
+
+1. **Defacement of Campus Property Strictly Prohibited**:
+   - No student or candidate shall indulge in defacing walls, doors, desks, trees, or campus infrastructure with graffiti, paint, chalk, or pasted posters.
+   - Use only the earmarked bulletin and notice boards approved by the Returning Officer for displaying printed/handwritten manifestos.
+2. **Prohibition of External Influence**:
+   - No political parties, outside organizations, or non-students shall be permitted inside the college campus for canvassing or campaigning under any circumstances.
+   - Use of vehicles, motorcades, bike rallies, loudspeakers, or musical sound systems on campus is strictly forbidden.
+3. **Eco-Friendly Campaigning**:
+   - No non-biodegradable plastics, banners, flex boards, or toxic materials shall be used. Candidates are encouraged to use recycled paper, digital social notices, or verbal presentations.
+4. **Decorum & Mutual Respect**:
+   - No candidate shall indulge in any activity that creates mutual hatred or causes tension between different religions, castes, linguistic groups, or departments.
+   - Criticism of opponents shall be strictly confined to their policies, manifesto, and work, and shall avoid personal attacks.
+5. **Silence Period**:
+   - All physical canvassing and campaigning shall cease 24 hours prior to the commencement of polling.`},{id:`statutory_notice_voter_instructions`,title:`Voter Guidelines & Mandatory Identity Verification Instructions`,refNo:`${a}/ELEC/${r}/VOTE-04`,date:o,category:`Voter Instructions`,pinned:!1,isPublished:!0,signatoryName:`Returning Officer`,signatoryTitle:`Returning Officer, ${i}`,content:`### GUIDELINES FOR VOTERS ON POLLING DAY
+
+All bona fide regular students whose names appear in the Final Nominal Roll of **${i}** are requested to note the following crucial voting guidelines:
+
+---
+
+#### 🪪 Mandatory Identification:
+- Every voter **MUST produce their official College Identity Card with photograph** before the Polling Officer at the entrance of their designated Polling Station.
+- If an ID card has been lost or damaged, the student must obtain a bona fide temporary voter slip attested by their Head of Department (HOD) and the Principal in advance.
+
+#### 🚫 Electronic Devices Strictly Banned:
+- **Mobile phones, smartwatches, cameras, recording equipment, and digital transmitters are strictly forbidden inside the Polling Booth and Voting Compartment.**
+- Any elector found taking photos or videos of marked ballot papers will face immediate cancellation of their vote and strict disciplinary proceedings.
+
+#### 📝 Manner of Voting:
+1. Report to your designated Polling Booth (see the Booth Allotment Directory).
+2. The Polling Officer will verify your name in the Marked Copy of the Electoral Roll and mark your left index finger with indelible ink.
+3. Receive your official stamped Ballot Papers and proceed to the secret voting compartment.
+4. Mark your vote using the official stamp provided by the Presiding Officer.
+5. Fold the ballot paper vertically and horizontally as instructed and drop it into the sealed Ballot Box.
+6. Vacate the polling station premises immediately to maintain smooth queue movement.`},{id:`statutory_notice_counting_and_results`,title:`Notice on Scrutiny, Counting of Ballots & Results Declaration`,refNo:`${a}/ELEC/${r}/COUNT-05`,date:o,category:`Counting & Results`,pinned:!1,isPublished:!0,signatoryName:`Returning Officer`,signatoryTitle:`Returning Officer, ${i}`,content:`### COUNTING OF VOTES AND DECLARATION OF RESULTS
+
+Notice is hereby given that the scrutiny and counting of votes polled in the College Union Elections ${r} will commence at the **Central Counting Hall (Auditorium)** as per the schedule below:
+
+- **Counting Commences**: ${s(t.resultsStart,`Immediately following closure of poll`)}
+- **Venue**: Central Counting Hall / College Auditorium
+- **Table Allocation**: Numbered counting tables corresponding to Polling Booths.
+
+---
+
+#### 👥 Entry & Admission to Counting Hall:
+1. Only the contesting candidates and their authorized Counting Agents (one agent per candidate per counting table, bearing official ID cards and signed credentials) will be permitted inside the Counting Hall.
+2. Mobile phones and electronic communication devices are completely prohibited inside the counting hall.
+3. The Returning Officer will announce the booth-wise round tally and the final combined score upon completion of each post.
+4. The candidate securing the highest number of valid votes will be declared elected and presented with the Certificate of Election.
+5. In the event of an equality of votes between two candidates, the result shall be decided by the Returning Officer drawing lots in the presence of the candidates.`}]}async function jt(e){e.innerHTML=`
+    <div class="min-h-screen flex items-center justify-center">
+      <div class="text-center">
+        <span class="spinner" style="width:2.5rem;height:2.5rem;border-width:4px;"></span>
+        <p class="text-slate-400 mt-4 text-sm">Loading notices and polling booth allotments...</p>
+      </div>
+    </div>
+  `;try{let[t,n]=await Promise.all([C.getPublicNotices(!0).catch(()=>({})),C.getNominalRoll().catch(()=>[])]),r=t.settings||{},i=t.schedule||{},a=Array.isArray(t.notices)?t.notices:[],o=Array.isArray(t.booths)?t.booths:[];Array.isArray(t.locations)&&t.locations,a.length||(a=At(r,i,o)),a.sort((e,t)=>e.pinned&&!t.pinned?-1:!e.pinned&&t.pinned?1:String(t.date||``).localeCompare(String(e.date||``))),Mt(e,r,i,a,o,n)}catch(t){console.error(`Error rendering public notices:`,t),e.innerHTML=`
+      <div class="min-h-screen flex flex-col items-center justify-center p-6 text-center">
+        <div class="glass p-8 rounded-2xl max-w-lg border border-red-500/20">
+          <div class="text-4xl mb-3">⚠️</div>
+          <h2 class="text-xl font-bold text-white mb-2">Unable to Load Notices</h2>
+          <p class="text-slate-400 text-sm mb-6">${F(t.message||`Please check your connection.`)}</p>
+          <button data-nav="/" class="btn btn-primary">Return to Home</button>
+        </div>
+      </div>
+    `}}function Mt(e,t,r,i,a,o){let s=t.collegeName||n.COLLEGE_NAME,c=t.collegeShortName||n.COLLEGE_SHORT_NAME,l=t.electionYear||new Date().getFullYear(),u=t.collegeLogo||``,d={};o.forEach(e=>{let t=String(e.CLASS||``).trim(),n=String(e.Dept||``).trim(),r=t.toUpperCase().includes(`RESEARCH`)||t.toUpperCase().includes(`SCHOLAR`)||t.toUpperCase().includes(`PHD`)?`RESEARCH SCHOLAR - ${n}`:t;r&&(d[r]||(d[r]={name:r,dept:n,count:0}),d[r].count++)});let f=Object.values(d).sort((e,t)=>e.dept.localeCompare(t.dept)||e.name.localeCompare(t.name));a.forEach(e=>{let t=Array.isArray(e.classes)?e.classes:[];e.totalStudents=0,t.forEach(t=>{d[t]&&(e.totalStudents+=d[t].count)})});let p=e=>{if(!e)return``;let t=new Date(e);return isNaN(t.getTime())?``:t.toLocaleTimeString(`en-IN`,{hour:`2-digit`,minute:`2-digit`})},m=p(r.pollingStart)||`9:30 AM`,h=p(r.pollingEnd)||`1:30 PM`;e.innerHTML=`
+    <div class="page-enter min-h-screen flex flex-col">
+      
+      <!-- Top Navigation Bar -->
+      <header class="glass sticky top-0 z-40 border-b border-white/10">
+        <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+          <div class="flex items-center gap-3">
+            ${u?`
+              <img src="${u}" class="w-8 h-8 rounded-lg object-contain bg-white/10 p-0.5" alt="Logo">
+            `:`
+              <div class="w-8 h-8 bg-indigo-600 rounded-lg flex items-center justify-center text-white font-bold">${c.charAt(0)}</div>
+            `}
+            <div>
+              <h1 class="text-base sm:text-lg font-bold text-white tracking-tight leading-tight">${F(c)} Election Notices</h1>
+              <p class="text-[11px] text-slate-400">Official Notifications &amp; Polling Booth Allotments ${l}</p>
+            </div>
+          </div>
+          <div class="flex items-center gap-2">
+            <button data-nav="/" class="btn btn-secondary btn-sm flex items-center gap-1.5">
+              <span>🏠</span> <span class="hidden sm:inline">Home</span>
+            </button>
+            <button data-nav="/admin" class="btn btn-secondary btn-sm flex items-center gap-1.5">
+              <span>🔒</span> <span class="hidden sm:inline">Admin</span>
+            </button>
+          </div>
+        </div>
+      </header>
+
+      <!-- Main Container -->
+      <main class="flex-1 max-w-6xl mx-auto px-4 sm:px-6 py-8 w-full space-y-8">
+        
+        <!-- Hero Banner -->
+        <div class="text-center max-w-3xl mx-auto space-y-3">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-500/10 border border-indigo-500/30 text-indigo-300 text-xs font-semibold">
+            <span>📢</span> Official Publication Board
+          </div>
+          <h2 class="text-2xl sm:text-4xl font-extrabold text-white tracking-tight">
+            Notices &amp; Polling Station Directory
+          </h2>
+          <p class="text-slate-400 text-sm leading-relaxed">
+            Find where you need to vote on election day, look up your assigned booth and classroom, and read formal statutory notifications issued by the Returning Officer.
+          </p>
+        </div>
+
+        <!-- 🔍 FIND MY POLLING BOOTH (Interactive Widget) -->
+        <div class="glass rounded-2xl p-6 sm:p-8 border border-indigo-500/30 shadow-2xl relative overflow-hidden">
+          <div class="absolute -right-10 -bottom-10 w-48 h-48 bg-indigo-600/10 rounded-full blur-3xl pointer-events-none"></div>
+
+          <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-4 mb-6 border-b border-white/10 pb-4">
+            <div>
+              <div class="flex items-center gap-2">
+                <span class="text-2xl">🗳️</span>
+                <h3 class="text-xl font-bold text-white">Find My Polling Booth</h3>
+              </div>
+              <p class="text-slate-400 text-xs mt-1">Instant voter lookup: Enter your Admission Number or select your Class to find your designated voting room.</p>
+            </div>
+            <div class="text-xs bg-indigo-500/20 text-indigo-300 px-3 py-1.5 rounded-full border border-indigo-500/30 font-semibold flex items-center gap-1.5 shrink-0">
+              <span>⏰</span> Polling Hours: ${F(m)} – ${F(h)}
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-12 gap-4 items-end">
+            <!-- Search by Admission / Name -->
+            <div class="md:col-span-6 space-y-1.5">
+              <label class="block text-xs font-semibold uppercase tracking-wider text-slate-300">Option 1: Search by Admission No. or Name</label>
+              <div class="relative">
+                <input type="text" id="boothSearchInput" class="field text-sm w-full pl-9 pr-4 py-2.5" placeholder="e.g. 12345 or Priya...">
+                <span class="absolute left-3 top-2.5 text-slate-500 text-sm">🔍</span>
+              </div>
+            </div>
+
+            <!-- Dropdown: Select Class -->
+            <div class="md:col-span-4 space-y-1.5">
+              <label class="block text-xs font-semibold uppercase tracking-wider text-slate-300">Option 2: Or Select Your Class</label>
+              <select id="boothClassSelect" class="field text-sm w-full py-2.5">
+                <option value="">-- Choose Class / Department --</option>
+                ${f.map(e=>`<option value="${F(e.name)}">${F(e.name)} (${e.dept})</option>`).join(``)}
+              </select>
+            </div>
+
+            <!-- Clear button -->
+            <div class="md:col-span-2">
+              <button id="btnClearLookup" class="btn btn-secondary w-full py-2.5 text-xs">Clear</button>
+            </div>
+          </div>
+
+          <!-- Booth Result Card Container -->
+          <div id="boothLookupResult" class="mt-6"></div>
+        </div>
+
+        <!-- Campus Polling Directory & Notice Board Tabs -->
+        <div class="space-y-6">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-white/10 pb-4">
+            <div class="flex gap-2 bg-slate-900/60 p-1 rounded-xl border border-white/10">
+              <button id="tabNotices" class="px-4 py-2 text-xs font-bold rounded-lg transition bg-indigo-600 text-white shadow-lg">
+                📢 Official Notifications (${i.length})
+              </button>
+              <button id="tabDirectory" class="px-4 py-2 text-xs font-bold rounded-lg transition text-slate-400 hover:text-white">
+                🏫 Campus Booths Directory (${a.length})
+              </button>
+            </div>
+
+            <div id="noticesActionTools" class="flex items-center gap-2">
+              <button id="btnPrintMasterDir" class="btn btn-secondary btn-sm flex items-center gap-1.5">
+                <span>🖨️</span> Print Master Directory
+              </button>
+            </div>
+          </div>
+
+          <!-- TAB 1: NOTICES BOARD -->
+          <div id="panelNotices" class="space-y-4">
+            <!-- Category Filter Pills -->
+            <div class="flex flex-wrap gap-2 pt-1 pb-2">
+              <button class="notice-filter-btn active-pill text-xs px-3 py-1.5 rounded-full font-semibold transition" data-cat="ALL">All Notices</button>
+              <button class="notice-filter-btn text-xs px-3 py-1.5 rounded-full font-semibold transition bg-white/5 text-slate-400 hover:text-white hover:bg-white/10" data-cat="Statutory Notification">Statutory Notifications</button>
+              <button class="notice-filter-btn text-xs px-3 py-1.5 rounded-full font-semibold transition bg-white/5 text-slate-400 hover:text-white hover:bg-white/10" data-cat="Polling Booth Info">Polling Booth Info</button>
+              <button class="notice-filter-btn text-xs px-3 py-1.5 rounded-full font-semibold transition bg-white/5 text-slate-400 hover:text-white hover:bg-white/10" data-cat="Code of Conduct">Code of Conduct</button>
+              <button class="notice-filter-btn text-xs px-3 py-1.5 rounded-full font-semibold transition bg-white/5 text-slate-400 hover:text-white hover:bg-white/10" data-cat="Voter Instructions">Voter Instructions</button>
+              <button class="notice-filter-btn text-xs px-3 py-1.5 rounded-full font-semibold transition bg-white/5 text-slate-400 hover:text-white hover:bg-white/10" data-cat="Counting & Results">Counting &amp; Results</button>
+            </div>
+
+            <!-- Notices Grid -->
+            <div id="noticesGrid" class="grid grid-cols-1 md:grid-cols-2 gap-4"></div>
+          </div>
+
+          <!-- TAB 2: MASTER CAMPUS BOOTHS DIRECTORY -->
+          <div id="panelDirectory" class="hidden space-y-4">
+            <div class="glass rounded-2xl p-6 border border-white/10 space-y-4">
+              <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-white/10 pb-4">
+                <div>
+                  <h4 class="font-bold text-white text-base">Campus Polling Stations Master Directory</h4>
+                  <p class="text-slate-400 text-xs mt-0.5">Comprehensive list of all active polling booths and their assigned classes.</p>
+                </div>
+                <div class="text-xs text-slate-400 bg-white/5 px-3 py-1.5 rounded-lg border border-white/10">
+                  Total Campus Booths: <strong class="text-white">${a.length}</strong>
+                </div>
+              </div>
+
+              <div class="overflow-x-auto">
+                <table class="w-full text-left text-xs border-collapse">
+                  <thead>
+                    <tr class="border-b border-white/10 bg-slate-900/50 text-slate-300 font-semibold uppercase tracking-wider">
+                      <th class="p-3 w-16 text-center">Booth</th>
+                      <th class="p-3 w-48">Station / Room</th>
+                      <th class="p-3">Allotted Classes &amp; Departments</th>
+                      <th class="p-3 w-28 text-center">Voters</th>
+                    </tr>
+                  </thead>
+                  <tbody class="divide-y divide-white/5">
+                    ${a.length?a.map(e=>{let t=Array.isArray(e.classes)?e.classes:[];return`
+                        <tr class="hover:bg-white/5 transition">
+                          <td class="p-3 text-center font-bold text-indigo-300 text-sm">
+                            #${F(e.boothNumber)}
+                          </td>
+                          <td class="p-3 font-semibold text-white">
+                            <div class="flex items-center gap-1.5">
+                              <span>📍</span>
+                              <span>${F(e.roomName||`Designated Hall`)}</span>
+                            </div>
+                          </td>
+                          <td class="p-3">
+                            <div class="flex flex-wrap gap-1.5">
+                              ${t.map(e=>`
+                                <span class="px-2 py-0.5 rounded bg-white/5 border border-white/10 text-slate-300 text-[11px]">
+                                  ${F(e)}
+                                </span>
+                              `).join(``)}
+                            </div>
+                          </td>
+                          <td class="p-3 text-center font-mono font-bold text-slate-300">
+                            ${e.totalStudents||`–`}
+                          </td>
+                        </tr>
+                      `}).join(``):`
+                      <tr>
+                        <td colspan="4" class="p-8 text-center text-slate-500 italic">No polling booths configured yet.</td>
+                      </tr>
+                    `}
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </main>
+
+      <!-- Full Notice Reader Modal -->
+      <div id="noticeModal" class="fixed inset-0 z-50 flex items-center justify-center p-4 hidden">
+        <div class="absolute inset-0 bg-slate-900/80 backdrop-blur-sm" id="noticeModalOverlay"></div>
+        <div class="relative bg-slate-900 rounded-2xl border border-slate-700 shadow-2xl w-full max-w-2xl max-h-[90vh] flex flex-col overflow-hidden z-10">
+          <div class="p-5 border-b border-white/10 flex items-center justify-between bg-slate-800/50">
+            <div>
+              <span id="modalCategory" class="text-[10px] uppercase font-bold tracking-wider text-indigo-400 bg-indigo-500/10 px-2 py-0.5 rounded border border-indigo-500/20"></span>
+              <h3 id="modalTitle" class="text-lg font-bold text-white mt-1 leading-snug"></h3>
+              <p id="modalRefDate" class="text-xs text-slate-400 mt-0.5"></p>
+            </div>
+            <button id="modalCloseBtn" class="text-slate-400 hover:text-white text-xl p-1">&times;</button>
+          </div>
+          <div id="modalBody" class="p-6 overflow-y-auto text-sm text-slate-300 space-y-3 leading-relaxed"></div>
+          <div class="p-4 border-t border-white/10 bg-slate-800/50 flex justify-between items-center">
+            <button id="modalPrintBtn" class="btn btn-primary btn-sm flex items-center gap-1.5">
+              <span>🖨️</span> Print Official Document
+            </button>
+            <button id="modalDismissBtn" class="btn btn-secondary btn-sm">Close</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Footer -->
+      <footer class="py-8 border-t border-white/5 text-center text-slate-500 text-xs mt-12">
+        <p>&copy; ${F(s)} — College Union Election Portal ${F(l)}</p>
+      </footer>
+    </div>
+  `,Nt(e,t,r,i,a,o,d)}function Nt(e,t,n,r,i,a,o){let s=e.querySelector(`#boothSearchInput`),c=e.querySelector(`#boothClassSelect`),l=e.querySelector(`#btnClearLookup`),u=e.querySelector(`#boothLookupResult`),d=()=>{let e=String(s.value||``).trim().toLowerCase(),t=String(c.value||``).trim();if(!e&&!t){u.innerHTML=``;return}let n=null,r=``;if(e){if(n=a.find(t=>{let n=String(t[`ADMISION NO`]||t.admission_no||``).toLowerCase().trim(),r=String(t.NAME||t.name||``).toLowerCase().trim(),i=String(t[`Nominal Roll Serial Number`]||t.serial_number||``).toLowerCase().trim();return n===e||r===e||i===e||e.length>=3&&r.includes(e)}),n){let e=String(n.CLASS||n.class||``).trim(),t=String(n.Dept||n.dept||``).trim();r=e.toUpperCase().includes(`RESEARCH`)||e.toUpperCase().includes(`SCHOLAR`)||e.toUpperCase().includes(`PHD`)?`RESEARCH SCHOLAR - ${t}`:e}}else t&&(r=t);if(!r&&e){u.innerHTML=`
+        <div class="p-4 rounded-xl bg-rose-500/10 border border-rose-500/30 text-rose-300 text-sm flex items-center gap-3">
+          <span class="text-xl">⚠️</span>
+          <div>
+            <strong>No matching student found for "${F(e)}"</strong>
+            <p class="text-xs text-rose-200/70 mt-0.5">Please check your admission number or select your department/class from the dropdown.</p>
+          </div>
+        </div>
+      `;return}let o=i.find(e=>(Array.isArray(e.classes)?e.classes:[]).includes(r));o?u.innerHTML=`
+        <div class="p-5 rounded-xl bg-gradient-to-br from-emerald-950/40 to-indigo-950/40 border border-emerald-500/40 shadow-xl space-y-3">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-white/10 pb-3">
+            <div class="flex items-center gap-2">
+              <span class="text-2xl">🎉</span>
+              <div>
+                <h4 class="text-base font-bold text-white">
+                  ${n?`Voter Found: ${F(n.NAME||n.name)}`:`Class Allotment Confirmed`}
+                </h4>
+                <p class="text-xs text-emerald-300 font-medium">
+                  Class: <strong>${F(r)}</strong>
+                  ${n?` • Adm No: <strong>${F(n[`ADMISION NO`]||n.admission_no)}</strong> • Sl. No: <strong>#${F(n[`Nominal Roll Serial Number`]||n.serial_number)}</strong>`:``}
+                </p>
+              </div>
+            </div>
+            <span class="text-xs bg-emerald-500/20 text-emerald-300 px-3 py-1 rounded-full border border-emerald-500/30 font-bold self-start sm:self-auto">
+              Ready to Vote
+            </span>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+            <div class="p-3 bg-white/5 rounded-lg border border-white/10 text-center">
+              <div class="text-[10px] text-slate-400 font-bold uppercase tracking-wider">Your Polling Booth</div>
+              <div class="text-2xl font-extrabold text-indigo-300 mt-1">BOOTH NO. ${F(o.boothNumber)}</div>
+            </div>
+
+            <div class="p-3 bg-white/5 rounded-lg border border-white/10 text-center">
+              <div class="text-[10px] text-slate-400 font-bold uppercase tracking-wider">Station / Room Venue</div>
+              <div class="text-base font-bold text-white mt-1">📍 ${F(o.roomName||`Designated Hall`)}</div>
+            </div>
+
+            <div class="p-3 bg-white/5 rounded-lg border border-white/10 text-center">
+              <div class="text-[10px] text-slate-400 font-bold uppercase tracking-wider">Electors at Booth</div>
+              <div class="text-base font-bold text-slate-300 mt-1">${o.totalStudents||`–`} Voters</div>
+            </div>
+          </div>
+
+          <div class="text-xs text-slate-300 bg-slate-900/60 p-3 rounded-lg border border-white/5 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2">
+            <span>🗳️ <strong>Ballots to receive:</strong> 1. General Union Ballot &bull; 2. Dept Association Ballot &bull; 3. Year Rep Ballot</span>
+            <span class="text-emerald-400 font-semibold shrink-0">✔ Bring your College ID Card</span>
+          </div>
+        </div>
+      `:u.innerHTML=`
+        <div class="p-4 rounded-xl bg-amber-500/10 border border-amber-500/30 text-amber-300 text-sm flex items-center gap-3">
+          <span class="text-xl">⏳</span>
+          <div>
+            <strong>Class "${F(r)}" is currently unassigned to any booth.</strong>
+            <p class="text-xs text-amber-200/70 mt-0.5">The Returning Officer will finalize the booth allocation shortly. Please check back soon.</p>
+          </div>
+        </div>
+      `};s?.addEventListener(`input`,()=>{s.value.trim()&&(c.value=``),d()}),c?.addEventListener(`change`,()=>{c.value&&(s.value=``),d()}),l?.addEventListener(`click`,()=>{s.value=``,c.value=``,u.innerHTML=``});let f=e.querySelector(`#noticesGrid`),p=`ALL`,m=()=>{let n=p===`ALL`?r:r.filter(e=>(e.category||``).toLowerCase()===p.toLowerCase());if(!n.length){f.innerHTML=`
+        <div class="col-span-full text-center py-12 text-slate-500 italic bg-white/5 rounded-2xl border border-white/5">
+          No notices found under this category.
+        </div>
+      `;return}f.innerHTML=n.map(e=>{let t=(e.content||``).replace(/[#*`_>\[\]]/g,``).slice(0,160)+`...`;return`
+        <div class="glass p-5 rounded-2xl border border-white/10 hover:border-indigo-500/30 transition flex flex-col justify-between space-y-4 group">
+          <div class="space-y-2">
+            <div class="flex items-center justify-between gap-2">
+              <span class="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded bg-indigo-500/10 text-indigo-300 border border-indigo-500/20">
+                ${F(e.category||`Official Notice`)}
+              </span>
+              ${e.pinned?`<span class="text-xs text-amber-400 font-bold flex items-center gap-1">📌 Pinned</span>`:``}
+              <span class="text-[11px] text-slate-400">${F(e.date||``)}</span>
+            </div>
+
+            <h4 class="font-bold text-white text-base leading-snug group-hover:text-indigo-300 transition cursor-pointer read-notice-trigger" data-id="${F(e.id)}">
+              ${F(e.title)}
+            </h4>
+
+            <p class="text-xs text-slate-400 line-clamp-3 leading-relaxed">
+              ${F(t)}
+            </p>
+          </div>
+
+          <div class="pt-3 border-t border-white/5 flex items-center justify-between text-xs">
+            <span class="text-[11px] text-slate-500 font-mono">${F(e.refNo||``)}</span>
+            <div class="flex items-center gap-2">
+              <button class="btn btn-secondary btn-sm py-1 px-2.5 read-notice-trigger" data-id="${F(e.id)}">
+                <span>📄 Read Full</span>
+              </button>
+              <button class="btn btn-primary btn-sm py-1 px-2.5 print-notice-trigger" data-id="${F(e.id)}" title="Print Official Letterhead Document">
+                <span>🖨️ Print</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      `}).join(``),e.querySelectorAll(`.read-notice-trigger`).forEach(e=>{e.addEventListener(`click`,()=>{let t=e.dataset.id,n=r.find(e=>String(e.id)===String(t));n&&T(n)})}),e.querySelectorAll(`.print-notice-trigger`).forEach(e=>{e.addEventListener(`click`,()=>{let n=e.dataset.id,i=r.find(e=>String(e.id)===String(n));i&&Et(i,t)})})};m(),e.querySelectorAll(`.notice-filter-btn`).forEach(t=>{t.addEventListener(`click`,()=>{e.querySelectorAll(`.notice-filter-btn`).forEach(e=>{e.classList.remove(`bg-indigo-600`,`text-white`,`shadow-lg`),e.classList.add(`bg-white/5`,`text-slate-400`)}),t.classList.remove(`bg-white/5`,`text-slate-400`),t.classList.add(`bg-indigo-600`,`text-white`,`shadow-lg`),p=t.dataset.cat,m()})});let h=e.querySelector(`#tabNotices`),g=e.querySelector(`#tabDirectory`),_=e.querySelector(`#panelNotices`),v=e.querySelector(`#panelDirectory`);h?.addEventListener(`click`,()=>{h.classList.add(`bg-indigo-600`,`text-white`,`shadow-lg`),h.classList.remove(`text-slate-400`),g.classList.remove(`bg-indigo-600`,`text-white`,`shadow-lg`),g.classList.add(`text-slate-400`),_.classList.remove(`hidden`),v.classList.add(`hidden`)}),g?.addEventListener(`click`,()=>{g.classList.add(`bg-indigo-600`,`text-white`,`shadow-lg`),g.classList.remove(`text-slate-400`),h.classList.remove(`bg-indigo-600`,`text-white`,`shadow-lg`),h.classList.add(`text-slate-400`),v.classList.remove(`hidden`),_.classList.add(`hidden`)}),e.querySelector(`#btnPrintMasterDir`)?.addEventListener(`click`,()=>{kt(i,t,n)});let y=e.querySelector(`#noticeModal`),b=e.querySelector(`#noticeModalOverlay`),x=e.querySelector(`#modalCloseBtn`),S=e.querySelector(`#modalDismissBtn`),C=e.querySelector(`#modalPrintBtn`),w=null,T=t=>{w=t,e.querySelector(`#modalCategory`).textContent=t.category||`Official Publication`,e.querySelector(`#modalTitle`).textContent=t.title,e.querySelector(`#modalRefDate`).textContent=`${t.refNo?`Ref: ${t.refNo} • `:``}Date: ${t.date||`Today`}`;let n=(t.content||``).split(`
+
+`).map(e=>`<p class="mb-3 leading-relaxed">${F(e).replace(/\n/g,`<br/>`)}</p>`).join(``);e.querySelector(`#modalBody`).innerHTML=n,y.classList.remove(`hidden`)},E=()=>{y.classList.add(`hidden`),w=null};b?.addEventListener(`click`,E),x?.addEventListener(`click`,E),S?.addEventListener(`click`,E),C?.addEventListener(`click`,()=>{w&&Et(w,t)})}async function Pt(e){let t=H();t&&(U(e,`notices`,`
+    <div class="text-center py-16">
+      <span class="spinner" style="width:2.5rem;height:2.5rem;border-width:4px;"></span>
+      <p class="text-slate-400 mt-4 text-sm">Loading notices and polling booth poster center...</p>
+    </div>
+  `),await Ft(e.querySelector(`#adminMain`),t))}async function Ft(e,t){if(e)try{let[n,r]=await Promise.all([C.adminGetNotices(t,!0).catch(()=>({})),C.getNominalRoll().catch(()=>[])]),i=n.settings||{},a=n.schedule||{},o=Array.isArray(n.notices)?n.notices:[],s=Array.isArray(n.booths)?n.booths:[];Array.isArray(n.locations)&&n.locations;let c={};r.forEach(e=>{let t=String(e.CLASS||``).trim(),n=String(e.Dept||``).trim(),r=t.toUpperCase().includes(`RESEARCH`)||t.toUpperCase().includes(`SCHOLAR`)||t.toUpperCase().includes(`PHD`)?`RESEARCH SCHOLAR - ${n}`:t;r&&(c[r]||(c[r]={name:r,dept:n,count:0}),c[r].count++)}),s.forEach(e=>{let t=Array.isArray(e.classes)?e.classes:[];e.totalStudents=0,t.forEach(t=>{c[t]&&(e.totalStudents+=c[t].count)})}),It(e,t,i,a,o,s,c)}catch(t){console.error(`Error loading admin notices:`,t),e.innerHTML=`<div class="alert alert-error">❌ ${F(t.message||`Failed to load notices`)}</div>`}}function It(e,t,r,i,a,o,s){r.collegeName||n.COLLEGE_NAME,r.collegeShortName||n.COLLEGE_SHORT_NAME,r.electionYear||new Date().getFullYear();let c=a.filter(e=>e.isPublished!==!1&&e.isPublished!==`false`).length,l=o.reduce((e,t)=>e+(t.totalStudents||0),0);e.innerHTML=`
+    <div class="page-enter space-y-6">
+      
+      <!-- Top Action Bar -->
+      <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+        <div>
+          <h3 class="text-xl font-bold text-white">Official Notices &amp; Polling Posters Center</h3>
+          <p class="text-slate-400 text-sm">Generate high-contrast door posters, print campus directory banners, and publish formal election circulars.</p>
+        </div>
+        <div class="flex flex-wrap items-center gap-2">
+          <button id="btnDraftNewNotice" class="btn btn-primary btn-sm flex items-center gap-1.5 shadow-lg shadow-indigo-500/20">
+            <span>➕</span> Draft New Notice
+          </button>
+          <button id="btnLoadTemplates" class="btn btn-secondary btn-sm flex items-center gap-1.5" title="Auto-populate official Kerala College Union statutory notices">
+            <span>⚡</span> Load Statutory Templates
+          </button>
+          <button id="btnOpenPublicPortal" class="btn btn-secondary btn-sm flex items-center gap-1.5" title="View student-facing notices board">
+            <span>🌐</span> View Public Board
+          </button>
+        </div>
+      </div>
+
+      <!-- Quick Telemetry Stats Cards -->
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
+        <div class="glass rounded-xl p-4 border border-white/10">
+          <div class="text-[11px] font-bold text-slate-400 uppercase tracking-wider">Total Notices</div>
+          <div class="text-2xl font-bold text-white mt-1">${a.length}</div>
+          <div class="text-xs text-indigo-400 mt-0.5">${c} Live on Portal</div>
+        </div>
+
+        <div class="glass rounded-xl p-4 border border-white/10">
+          <div class="text-[11px] font-bold text-slate-400 uppercase tracking-wider">Configured Booths</div>
+          <div class="text-2xl font-bold text-white mt-1">${o.length}</div>
+          <div class="text-xs text-emerald-400 mt-0.5">${l} Total Electors</div>
+        </div>
+
+        <div class="glass rounded-xl p-4 border border-white/10">
+          <div class="text-[11px] font-bold text-slate-400 uppercase tracking-wider">Door Posters Ready</div>
+          <div class="text-2xl font-bold text-white mt-1">${o.length}</div>
+          <div class="text-xs text-amber-400 mt-0.5">1-Click Batch Printable</div>
+        </div>
+
+        <div class="glass rounded-xl p-4 border border-white/10">
+          <div class="text-[11px] font-bold text-slate-400 uppercase tracking-wider">Public Lookup</div>
+          <div class="text-2xl font-bold text-white mt-1">Active</div>
+          <div class="text-xs text-slate-400 mt-0.5">Find My Booth Widget Live</div>
+        </div>
+      </div>
+
+      <!-- Primary Tabs -->
+      <div class="glass rounded-2xl overflow-hidden border border-white/10">
+        <div class="flex border-b border-white/10 bg-slate-900/60 p-2 gap-2">
+          <button id="adminTabPosters" class="px-5 py-2.5 text-xs font-bold rounded-xl transition bg-indigo-600 text-white shadow-lg">
+            🚪 Polling Booth Posters (${o.length})
+          </button>
+          <button id="adminTabNotices" class="px-5 py-2.5 text-xs font-bold rounded-xl transition text-slate-400 hover:text-white">
+            📢 Official Notifications (${a.length})
+          </button>
+          <button id="adminTabIndex" class="px-5 py-2.5 text-xs font-bold rounded-xl transition text-slate-400 hover:text-white">
+            📋 Class-to-Booth Master Index
+          </button>
+        </div>
+
+        <!-- PANEL 1: POLLING BOOTH POSTERS -->
+        <div id="adminPanelPosters" class="p-6 space-y-6">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-white/5 p-4 rounded-xl border border-white/10">
+            <div>
+              <h4 class="font-bold text-white text-base">Polling Booth Door Posters &amp; Notice Board Banners</h4>
+              <p class="text-slate-400 text-xs mt-0.5">High-contrast, large-format door notices with assigned classes, room numbers, and presiding officer voter rules.</p>
+            </div>
+            <div class="flex flex-wrap items-center gap-2 shrink-0">
+              <button id="btnPrintAllDoorPosters" class="btn btn-primary btn-sm flex items-center gap-2 shadow-lg shadow-indigo-600/30">
+                <span>🖨️</span> Print ALL Door Posters (Batch A4)
+              </button>
+              <button id="btnPrintMasterDirectory" class="btn btn-secondary btn-sm flex items-center gap-1.5">
+                <span>📋</span> Print Master Campus Directory
+              </button>
+            </div>
+          </div>
+
+          <!-- Booths Grid -->
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            ${o.length?o.map(e=>{let t=Array.isArray(e.classes)?e.classes:[];return`
+                <div class="glass p-5 rounded-2xl border border-white/10 hover:border-indigo-500/40 transition flex flex-col justify-between space-y-4">
+                  <div class="space-y-3">
+                    <div class="flex items-center justify-between">
+                      <span class="text-xs font-black text-indigo-300 bg-indigo-500/20 px-2.5 py-1 rounded-lg border border-indigo-500/30">
+                        BOOTH NO. ${F(e.boothNumber)}
+                      </span>
+                      <span class="text-xs font-mono font-bold text-slate-300">
+                        ${e.totalStudents||0} Voters
+                      </span>
+                    </div>
+
+                    <div>
+                      <div class="text-[11px] text-slate-400 font-semibold uppercase">Room / Venue:</div>
+                      <div class="text-base font-bold text-white mt-0.5">📍 ${F(e.roomName||`Room Not Specified`)}</div>
+                    </div>
+
+                    <div>
+                      <div class="text-[11px] text-slate-400 font-semibold uppercase mb-1.5">Allotted Classes (${t.length}):</div>
+                      <div class="flex flex-wrap gap-1 max-h-24 overflow-y-auto pr-1">
+                        ${t.map(e=>`
+                          <span class="px-2 py-0.5 rounded bg-white/5 border border-white/10 text-slate-300 text-[11px] leading-tight">
+                            ${F(e)}
+                          </span>
+                        `).join(``)}
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="pt-3 border-t border-white/10 flex items-center justify-between">
+                    <span class="text-[11px] text-slate-500">Door Poster Ready</span>
+                    <button class="btn btn-secondary btn-sm print-single-booth-btn flex items-center gap-1 text-xs" data-num="${F(e.boothNumber)}">
+                      <span>🖨️</span> Print Door Poster
+                    </button>
+                  </div>
+                </div>
+              `}).join(``):`
+              <div class="col-span-full text-center py-12 text-slate-500 italic">
+                No polling booths found. Please configure booths in <a href="#/admin/booths" class="text-indigo-400 underline">Polling Booths</a> first.
+              </div>
+            `}
+          </div>
+        </div>
+
+        <!-- PANEL 2: OFFICIAL NOTIFICATIONS -->
+        <div id="adminPanelNotices" class="p-6 space-y-6 hidden">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-white/5 p-4 rounded-xl border border-white/10">
+            <div>
+              <h4 class="font-bold text-white text-base">Formal Election Notifications &amp; Circulars</h4>
+              <p class="text-slate-400 text-xs mt-0.5">Publish formal statutory orders, code of conduct, and voter guidelines with official signatures.</p>
+            </div>
+            <button id="btnCreateNoticeSecondary" class="btn btn-primary btn-sm flex items-center gap-1.5">
+              <span>➕</span> Draft New Notice
+            </button>
+          </div>
+
+          <div class="overflow-x-auto">
+            <table class="w-full text-left text-xs border-collapse">
+              <thead>
+                <tr class="border-b border-white/10 bg-slate-900/50 text-slate-300 font-semibold uppercase tracking-wider">
+                  <th class="p-3 w-12 text-center">Pin</th>
+                  <th class="p-3">Title &amp; Reference No.</th>
+                  <th class="p-3 w-40">Category</th>
+                  <th class="p-3 w-28">Date</th>
+                  <th class="p-3 w-28 text-center">Status</th>
+                  <th class="p-3 w-48 text-right">Actions</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-white/5">
+                ${a.length?a.map(e=>{let t=e.isPublished!==!1&&e.isPublished!==`false`;return`
+                    <tr class="hover:bg-white/5 transition">
+                      <td class="p-3 text-center">
+                        ${e.pinned?`<span class="text-amber-400 font-bold" title="Pinned to top">📌</span>`:`<span class="text-slate-600">–</span>`}
+                      </td>
+                      <td class="p-3">
+                        <div class="font-bold text-white text-sm leading-snug">${F(e.title)}</div>
+                        <div class="text-[11px] font-mono text-slate-400 mt-0.5">${F(e.refNo||`N/A`)}</div>
+                      </td>
+                      <td class="p-3">
+                        <span class="px-2.5 py-1 rounded-full text-[10px] font-bold bg-indigo-500/10 text-indigo-300 border border-indigo-500/20">
+                          ${F(e.category||`General`)}
+                        </span>
+                      </td>
+                      <td class="p-3 text-slate-300 font-mono">
+                        ${F(e.date||``)}
+                      </td>
+                      <td class="p-3 text-center">
+                        <span class="badge ${t?`badge-valid`:`badge-pending`} text-[10px]">
+                          ${t?`🟢 Live`:`📝 Draft`}
+                        </span>
+                      </td>
+                      <td class="p-3 text-right">
+                        <div class="flex items-center justify-end gap-1.5">
+                          <button class="btn btn-secondary btn-sm py-1 px-2 print-notice-btn text-xs" data-id="${F(e.id)}" title="Print Official Letterhead">
+                            🖨️
+                          </button>
+                          <button class="btn btn-secondary btn-sm py-1 px-2 edit-notice-btn text-xs" data-id="${F(e.id)}" title="Edit Notice">
+                            ✏️
+                          </button>
+                          <button class="btn btn-secondary btn-sm py-1 px-2 toggle-notice-btn text-xs" data-id="${F(e.id)}" title="${t?`Unpublish from Public Portal`:`Publish to Public Portal`}">
+                            ${t?`🚫`:`📢`}
+                          </button>
+                          <button class="btn btn-sm py-1 px-2 delete-notice-btn text-xs bg-rose-500/20 text-rose-300 hover:bg-rose-500/30" data-id="${F(e.id)}" title="Delete Notice">
+                            🗑️
+                          </button>
+                        </div>
+                      </td>
+                    </tr>
+                  `}).join(``):`
+                  <tr>
+                    <td colspan="6" class="p-8 text-center text-slate-500 italic">
+                      No notices created yet. Click "⚡ Load Statutory Templates" to provision default election circulars.
+                    </td>
+                  </tr>
+                `}
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- PANEL 3: CLASS-TO-BOOTH MASTER INDEX -->
+        <div id="adminPanelIndex" class="p-6 space-y-4 hidden">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-white/10 pb-4">
+            <div>
+              <h4 class="font-bold text-white text-base">Class-to-Booth Alphabetical Quick Reference</h4>
+              <p class="text-slate-400 text-xs mt-0.5">Alphabetical class lookup for campus help desk and entrance queue volunteers.</p>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
+            ${Object.values(s).sort((e,t)=>e.name.localeCompare(t.name)).map(e=>{let t=o.find(t=>(Array.isArray(t.classes)?t.classes:[]).includes(e.name));return`
+                <div class="glass p-3.5 rounded-xl border border-white/10 flex items-center justify-between">
+                  <div>
+                    <div class="font-bold text-white text-xs">${F(e.name)}</div>
+                    <div class="text-[10px] text-slate-400 mt-0.5">${F(e.dept)} • ${e.count} Voters</div>
+                  </div>
+                  <div class="text-right">
+                    ${t?`
+                      <span class="font-black text-indigo-300 text-xs bg-indigo-500/20 px-2 py-1 rounded border border-indigo-500/30">
+                        Booth ${F(t.boothNumber)}
+                      </span>
+                      <div class="text-[10px] text-slate-400 mt-1">📍 ${F(t.roomName||`Hall`)}</div>
+                    `:`
+                      <span class="text-[10px] text-amber-400 font-semibold bg-amber-500/10 px-2 py-0.5 rounded border border-amber-500/20">
+                        Unassigned
+                      </span>
+                    `}
+                  </div>
+                </div>
+              `}).join(``)}
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Draft / Edit Notice Modal -->
+      <div id="noticeEditModal" class="fixed inset-0 z-50 flex items-center justify-center p-4 hidden">
+        <div class="absolute inset-0 bg-slate-900/80 backdrop-blur-sm" id="noticeEditOverlay"></div>
+        <div class="relative bg-slate-800 rounded-2xl border border-slate-700 shadow-2xl w-full max-w-2xl max-h-[92vh] flex flex-col overflow-hidden z-10">
+          <div class="p-5 border-b border-white/10 flex items-center justify-between bg-slate-900/60">
+            <h4 id="editModalHeading" class="font-bold text-white text-base">Draft Official Notice</h4>
+            <button id="editModalCloseBtn" class="text-slate-400 hover:text-white text-xl p-1">&times;</button>
+          </div>
+
+          <form id="formNoticeEdit" class="p-6 overflow-y-auto space-y-4 text-xs">
+            <input type="hidden" id="editNoticeId">
+
+            <div class="space-y-1">
+              <label class="font-semibold text-slate-300 uppercase tracking-wider">Notice Title *</label>
+              <input type="text" id="editNoticeTitle" class="field text-sm w-full py-2" required placeholder="e.g. Polling Booth Allotment Notice">
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div class="space-y-1">
+                <label class="font-semibold text-slate-300 uppercase tracking-wider">Reference / Circular No.</label>
+                <input type="text" id="editNoticeRef" class="field text-xs w-full py-2" placeholder="e.g. GVC/ELEC/2026/NOTIF-01">
+              </div>
+
+              <div class="space-y-1">
+                <label class="font-semibold text-slate-300 uppercase tracking-wider">Issue Date</label>
+                <input type="date" id="editNoticeDate" class="field text-xs w-full py-2">
+              </div>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div class="space-y-1">
+                <label class="font-semibold text-slate-300 uppercase tracking-wider">Notice Category</label>
+                <select id="editNoticeCategory" class="field text-xs w-full py-2">
+                  <option value="Statutory Notification">Statutory Notification</option>
+                  <option value="Polling Booth Info">Polling Booth Info</option>
+                  <option value="Code of Conduct">Code of Conduct</option>
+                  <option value="Voter Instructions">Voter Instructions</option>
+                  <option value="Counting & Results">Counting &amp; Results</option>
+                  <option value="General Announcement">General Announcement</option>
+                </select>
+              </div>
+
+              <div class="space-y-1">
+                <label class="font-semibold text-slate-300 uppercase tracking-wider">Signatory Designation</label>
+                <input type="text" id="editNoticeSignatory" class="field text-xs w-full py-2" placeholder="Returning Officer">
+              </div>
+            </div>
+
+            <div class="space-y-1">
+              <label class="font-semibold text-slate-300 uppercase tracking-wider">Signatory Sub-Title / College</label>
+              <input type="text" id="editNoticeSignTitle" class="field text-xs w-full py-2" placeholder="Returning Officer, Government Victoria College Palakkad">
+            </div>
+
+            <div class="space-y-1">
+              <label class="font-semibold text-slate-300 uppercase tracking-wider">Notice Body (Markdown supported) *</label>
+              <textarea id="editNoticeContent" class="field text-xs w-full p-3 h-48 font-mono leading-relaxed" required placeholder="Type notice content here..."></textarea>
+              <p class="text-[10px] text-slate-500">Supports headers (###), bold (**text**), lists (- or •), and markdown tables (| Col | Col |).</p>
+            </div>
+
+            <div class="flex items-center gap-6 pt-2 border-t border-white/10">
+              <label class="flex items-center gap-2 cursor-pointer">
+                <input type="checkbox" id="editNoticePublished" class="w-4 h-4 rounded text-indigo-600">
+                <span class="text-slate-300 font-semibold">Publish immediately to Student Portal</span>
+              </label>
+
+              <label class="flex items-center gap-2 cursor-pointer">
+                <input type="checkbox" id="editNoticePinned" class="w-4 h-4 rounded text-amber-500">
+                <span class="text-slate-300 font-semibold">Pin to top of list</span>
+              </label>
+            </div>
+
+            <div class="pt-4 border-t border-white/10 flex justify-end gap-2">
+              <button type="button" id="btnCancelNoticeEdit" class="btn btn-secondary btn-sm">Cancel</button>
+              <button type="submit" id="btnSaveNoticeSubmit" class="btn btn-primary btn-sm px-6">Save Notice</button>
+            </div>
+          </form>
+        </div>
+      </div>
+
+    </div>
+  `,Lt(e,t,r,i,a,o)}function Lt(e,t,n,r,i,a){let o=e.querySelector(`#adminTabPosters`),s=e.querySelector(`#adminTabNotices`),c=e.querySelector(`#adminTabIndex`),l=e.querySelector(`#adminPanelPosters`),u=e.querySelector(`#adminPanelNotices`),d=e.querySelector(`#adminPanelIndex`),f=(e,t)=>{[o,s,c].forEach(e=>{e.classList.remove(`bg-indigo-600`,`text-white`,`shadow-lg`),e.classList.add(`text-slate-400`)}),[l,u,d].forEach(e=>e.classList.add(`hidden`)),e.classList.add(`bg-indigo-600`,`text-white`,`shadow-lg`),e.classList.remove(`text-slate-400`),t.classList.remove(`hidden`)};o?.addEventListener(`click`,()=>f(o,l)),s?.addEventListener(`click`,()=>f(s,u)),c?.addEventListener(`click`,()=>f(c,d)),e.querySelector(`#btnPrintAllDoorPosters`)?.addEventListener(`click`,()=>{if(!a.length){alert(`No polling booths configured to print.`);return}Ot(a,n,r)}),e.querySelector(`#btnPrintMasterDirectory`)?.addEventListener(`click`,()=>{if(!a.length){alert(`No polling booths configured to print.`);return}kt(a,n,r)}),e.querySelectorAll(`.print-single-booth-btn`).forEach(e=>{e.addEventListener(`click`,()=>{let t=Number(e.dataset.num),i=a.find(e=>Number(e.boothNumber)===t);i&&Dt(i,n,r)})}),e.querySelectorAll(`.print-notice-btn`).forEach(e=>{e.addEventListener(`click`,()=>{let t=e.dataset.id,r=i.find(e=>String(e.id)===String(t));r&&Et(r,n)})}),e.querySelector(`#btnOpenPublicPortal`)?.addEventListener(`click`,()=>{window.open(`#/notices`,`_blank`)||alert(`Pop-up blocked! Please allow pop-ups for this site to view the public portal.`)}),e.querySelector(`#btnLoadTemplates`)?.addEventListener(`click`,async()=>{let o=At(n,r,a);if(confirm(`Load ${o.length} standard statutory notices (Election Notification, Booth Allotments, Code of Conduct, Voter Guidelines, Counting Notice)? Any existing notices with same IDs will be updated.`))try{I(e.querySelector(`#btnLoadTemplates`),!0,`Loading...`);let n=new Map(i.map(e=>[e.id,e]));o.forEach(e=>{n.set(e.id,e)});let r=Array.from(n.values());await C.adminSaveNotices(t,r),L(`Statutory templates loaded successfully!`,`success`),await Ft(e,t)}catch(t){L(`Error loading templates: `+t.message,`error`),I(e.querySelector(`#btnLoadTemplates`),!1,`⚡ Load Statutory Templates`)}}),e.querySelectorAll(`.toggle-notice-btn`).forEach(n=>{n.addEventListener(`click`,async()=>{let r=n.dataset.id,a=i.find(e=>String(e.id)===String(r));if(!a)return;let o=!(a.isPublished!==!1&&a.isPublished!==`false`);a.isPublished=o;try{await C.adminSaveNotice(t,a),L(`Notice ${o?`published`:`unpublished`}.`,`info`),await Ft(e,t)}catch(e){L(`Error updating status: `+e.message,`error`)}})}),e.querySelectorAll(`.delete-notice-btn`).forEach(n=>{n.addEventListener(`click`,async()=>{let r=n.dataset.id,a=i.find(e=>String(e.id)===String(r));if(a&&confirm(`Delete notice "${a.title}"? This cannot be undone.`))try{await C.adminDeleteNotice(t,r),L(`Notice deleted.`,`info`),await Ft(e,t)}catch(e){L(`Error deleting notice: `+e.message,`error`)}})});let p=e.querySelector(`#noticeEditModal`),m=e.querySelector(`#noticeEditOverlay`),h=e.querySelector(`#editModalCloseBtn`),g=e.querySelector(`#btnCancelNoticeEdit`),_=e.querySelector(`#formNoticeEdit`),v=(t=null)=>{e.querySelector(`#editModalHeading`).textContent=t?`Edit Official Notice`:`Draft New Official Notice`,e.querySelector(`#editNoticeId`).value=t?t.id:``,e.querySelector(`#editNoticeTitle`).value=t?t.title:``,e.querySelector(`#editNoticeRef`).value=t?t.refNo||``:`${n.collegeShortName||`GVC`}/ELEC/${n.electionYear||2026}/NOTIF-${String(i.length+1).padStart(2,`0`)}`,e.querySelector(`#editNoticeDate`).value=t?t.date||``:new Date().toISOString().split(`T`)[0],e.querySelector(`#editNoticeCategory`).value=t&&t.category||`Statutory Notification`,e.querySelector(`#editNoticeSignatory`).value=t?t.signatoryName||``:`Returning Officer`,e.querySelector(`#editNoticeSignTitle`).value=t?t.signatoryTitle||``:`Returning Officer, ${n.collegeName||`Government Victoria College`}`,e.querySelector(`#editNoticeContent`).value=t&&t.content||``,e.querySelector(`#editNoticePublished`).checked=t?t.isPublished!==!1&&t.isPublished!==`false`:!0,e.querySelector(`#editNoticePinned`).checked=t?!!t.pinned:!1,p.classList.remove(`hidden`),e.querySelector(`#editNoticeTitle`).focus()},y=()=>{p.classList.add(`hidden`),_.reset()};e.querySelector(`#btnDraftNewNotice`)?.addEventListener(`click`,()=>v(null)),e.querySelector(`#btnCreateNoticeSecondary`)?.addEventListener(`click`,()=>v(null)),e.querySelectorAll(`.edit-notice-btn`).forEach(e=>{e.addEventListener(`click`,()=>{let t=e.dataset.id,n=i.find(e=>String(e.id)===String(t));n&&v(n)})}),m?.addEventListener(`click`,y),h?.addEventListener(`click`,y),g?.addEventListener(`click`,y),_?.addEventListener(`submit`,async n=>{n.preventDefault();let r=e.querySelector(`#editNoticeId`).value.trim(),i=e.querySelector(`#editNoticeTitle`).value.trim(),a=e.querySelector(`#editNoticeRef`).value.trim(),o=e.querySelector(`#editNoticeDate`).value.trim(),s=e.querySelector(`#editNoticeCategory`).value.trim(),c=e.querySelector(`#editNoticeSignatory`).value.trim(),l=e.querySelector(`#editNoticeSignTitle`).value.trim(),u=e.querySelector(`#editNoticeContent`).value.trim(),d=e.querySelector(`#editNoticePublished`).checked,f=e.querySelector(`#editNoticePinned`).checked;if(!i||!u){alert(`Title and notice content are required.`);return}let p={id:r||`notice_`+Date.now()+`_`+Math.random().toString(36).substr(2,4),title:i,refNo:a,date:o,category:s,signatoryName:c,signatoryTitle:l,content:u,isPublished:d,pinned:f};try{I(e.querySelector(`#btnSaveNoticeSubmit`),!0,`Saving...`),await C.adminSaveNotice(t,p),L(`Notice saved successfully!`,`success`),y(),await Ft(e,t)}catch(t){L(`Error saving notice: `+t.message,`error`),I(e.querySelector(`#btnSaveNoticeSubmit`),!1,`Save Notice`)}})}var Rt=document.getElementById(`app`);document.body.insertAdjacentHTML(`afterbegin`,`
   <div class="bg-blob bg-blob-1"></div>
   <div class="bg-blob bg-blob-2"></div>
   <div class="bg-blob bg-blob-3"></div>
-`),C.getSettings().then(e=>{let t=e.collegeShortName||n.COLLEGE_SHORT_NAME,r=e.electionYear||new Date().getFullYear();document.title=`${t} Election Portal ${r}`}).catch(()=>{});var $=e=>t=>{Tt.innerHTML=``,e(Tt,t)};o.on(`/`,$(te)).on(`/submit`,$(ae)).on(`/find`,$(he)).on(`/valid-list`,$(ve)).on(`/final-list`,$(xe)).on(`/withdraw`,$(we)).on(`/results`,$(dt)).on(`/nominal-roll`,$(pt)).on(`/admin`,$(Me)).on(`/admin/dashboard`,$(Ne)).on(`/admin/verify`,$(Fe)).on(`/admin/withdrawals`,$(Le)).on(`/admin/publish`,$(Ve)).on(`/admin/posts`,$(Ue)).on(`/admin/ballots`,$(it)).on(`/admin/booths`,$(qe)).on(`/admin/counting`,$(Ye)).on(`/admin/results-entry`,$(tt)).on(`/admin/results`,$(ot)).on(`/admin/nominal-roll`,$(ht)).on(`/admin/schedule`,$(_t)).on(`/admin/direct-nomination`,$(bt)).on(`/admin/testing`,$(at)).on(`/admin/audit`,$(xt)).on(`/admin/settings`,$(St)).on(`/admin/backup`,$(Q)).setDefault(`/`),document.addEventListener(`click`,e=>{let t=e.target.closest(`[data-nav]`);if(t){e.preventDefault(),o.navigate(t.dataset.nav);return}let n=e.target.closest(`a[href^="#/"]`);if(n){e.preventDefault();let t=n.getAttribute(`href`).replace(/^#/,``);o.navigate(t)}}),o.start(),document.body.insertAdjacentHTML(`beforeend`,`
+`),C.getSettings().then(e=>{let t=e.collegeShortName||n.COLLEGE_SHORT_NAME,r=e.electionYear||new Date().getFullYear();document.title=`${t} Election Portal ${r}`}).catch(()=>{});var $=e=>t=>{Rt.innerHTML=``,e(Rt,t)};o.on(`/`,$(te)).on(`/submit`,$(ae)).on(`/find`,$(he)).on(`/valid-list`,$(ve)).on(`/final-list`,$(xe)).on(`/withdraw`,$(we)).on(`/results`,$(dt)).on(`/nominal-roll`,$(pt)).on(`/notices`,$(jt)).on(`/admin`,$(Me)).on(`/admin/dashboard`,$(Ne)).on(`/admin/verify`,$(Fe)).on(`/admin/withdrawals`,$(Le)).on(`/admin/publish`,$(Ve)).on(`/admin/posts`,$(Ue)).on(`/admin/ballots`,$(it)).on(`/admin/booths`,$(qe)).on(`/admin/notices`,$(Pt)).on(`/admin/counting`,$(Ye)).on(`/admin/results-entry`,$(tt)).on(`/admin/results`,$(ot)).on(`/admin/nominal-roll`,$(ht)).on(`/admin/schedule`,$(_t)).on(`/admin/direct-nomination`,$(bt)).on(`/admin/testing`,$(at)).on(`/admin/audit`,$(xt)).on(`/admin/settings`,$(St)).on(`/admin/backup`,$(Q)).setDefault(`/`),document.addEventListener(`click`,e=>{let t=e.target.closest(`[data-nav]`);if(t){e.preventDefault(),o.navigate(t.dataset.nav);return}let n=e.target.closest(`a[href^="#/"]`);if(n){e.preventDefault();let t=n.getAttribute(`href`).replace(/^#/,``);o.navigate(t)}}),o.start(),document.body.insertAdjacentHTML(`beforeend`,`
   <div id="sync-status" class="fixed top-4 right-4 z-[9999] bg-black/80 backdrop-blur border border-white/10 rounded-full px-4 py-2 flex items-center gap-2 text-xs font-medium text-white shadow-xl transition-all duration-300 transform translate-y-[-150%] opacity-0">
     <span id="sync-icon" class="animate-spin inline-block">🔄</span>
     <span id="sync-text">Saving changes...</span>
   </div>
-`);var Et=document.getElementById(`sync-status`),Dt=document.getElementById(`sync-icon`),Ot=document.getElementById(`sync-text`);m(e=>{e===`saving`?(Et.classList.remove(`translate-y-[-150%]`,`opacity-0`),Et.classList.add(`translate-y-0`,`opacity-100`),Dt.className=`animate-spin inline-block text-indigo-400`,Dt.innerHTML=`&#8635;`,Ot.innerText=`Saving changes...`):e===`saved`?(Dt.className=`inline-block text-emerald-400`,Dt.innerHTML=`&#10003;`,Ot.innerText=`All changes saved`):e===`idle`&&(Et.classList.remove(`translate-y-0`,`opacity-100`),Et.classList.add(`translate-y-[-150%]`,`opacity-0`))}),C.initPublicData();
+`);var zt=document.getElementById(`sync-status`),Bt=document.getElementById(`sync-icon`),Vt=document.getElementById(`sync-text`);m(e=>{e===`saving`?(zt.classList.remove(`translate-y-[-150%]`,`opacity-0`),zt.classList.add(`translate-y-0`,`opacity-100`),Bt.className=`animate-spin inline-block text-indigo-400`,Bt.innerHTML=`&#8635;`,Vt.innerText=`Saving changes...`):e===`saved`?(Bt.className=`inline-block text-emerald-400`,Bt.innerHTML=`&#10003;`,Vt.innerText=`All changes saved`):e===`idle`&&(zt.classList.remove(`translate-y-0`,`opacity-100`),zt.classList.add(`translate-y-[-150%]`,`opacity-0`))}),C.initPublicData();

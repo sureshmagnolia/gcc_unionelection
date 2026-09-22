@@ -1,4 +1,4 @@
-var e=Object.defineProperty,t=(t,n)=>{let r={};for(var i in t)e(r,i,{get:t[i],enumerable:!0});return n||e(r,Symbol.toStringTag,{value:`Module`}),r};(function(){let e=document.createElement(`link`).relList;if(e&&e.supports&&e.supports(`modulepreload`))return;for(let e of document.querySelectorAll(`link[rel="modulepreload"]`))n(e);new MutationObserver(e=>{for(let t of e)if(t.type===`childList`)for(let e of t.addedNodes)e.tagName===`LINK`&&e.rel===`modulepreload`&&n(e)}).observe(document,{childList:!0,subtree:!0});function t(e){let t={};return e.integrity&&(t.integrity=e.integrity),e.referrerPolicy&&(t.referrerPolicy=e.referrerPolicy),e.crossOrigin===`use-credentials`?t.credentials=`include`:e.crossOrigin===`anonymous`?t.credentials=`omit`:t.credentials=`same-origin`,t}function n(e){if(e.ep)return;e.ep=!0;let n=t(e);fetch(e.href,n)}})();var n={API_BASE_URL:`/api/main`,ELECTION_DATE:`2026-10-12`,COLLEGE_NAME:`Government Victoria College, Palakkad`,COLLEGE_SHORT_NAME:`GVC`,DEFAULT_POSTS:[{post:`The Chairman`,femaleOnly:!1,finalYearIneligible:!1,yearRestriction:``,yearRuleMode:`ALL`,yearRuleYears:[],deptRestriction:!1,restrictedDept:``},{post:`The Vice Chairman`,femaleOnly:!0,finalYearIneligible:!1,yearRestriction:``,yearRuleMode:`ALL`,yearRuleYears:[],deptRestriction:!1,restrictedDept:``},{post:`The Secretary`,femaleOnly:!1,finalYearIneligible:!1,yearRestriction:``,yearRuleMode:`ALL`,yearRuleYears:[],deptRestriction:!1,restrictedDept:``},{post:`The Joint Secretary`,femaleOnly:!0,finalYearIneligible:!1,yearRestriction:``,yearRuleMode:`ALL`,yearRuleYears:[],deptRestriction:!1,restrictedDept:``},{post:`The Chief Student Editor`,femaleOnly:!1,finalYearIneligible:!0,yearRestriction:``,yearRuleMode:`EXCLUDE`,yearRuleYears:[`3_UG`,`2_PG`],deptRestriction:!1,restrictedDept:``},{post:`The Secretary Fine Arts`,femaleOnly:!1,finalYearIneligible:!1,yearRestriction:``,yearRuleMode:`ALL`,yearRuleYears:[],deptRestriction:!1,restrictedDept:``},{post:`The General Captain For Sports And Games`,femaleOnly:!1,finalYearIneligible:!1,yearRestriction:``,yearRuleMode:`ALL`,yearRuleYears:[],deptRestriction:!1,restrictedDept:``},{post:`The University Union Councillor`,femaleOnly:!1,finalYearIneligible:!1,yearRestriction:``,yearRuleMode:`ALL`,yearRuleYears:[],deptRestriction:!1,restrictedDept:``},{post:`I UG Representative`,femaleOnly:!1,finalYearIneligible:!1,yearRestriction:`1`,yearRuleMode:`INCLUDE`,yearRuleYears:[`1_UG`],deptRestriction:!1,restrictedDept:``},{post:`II UG Representative`,femaleOnly:!1,finalYearIneligible:!1,yearRestriction:`2`,yearRuleMode:`INCLUDE`,yearRuleYears:[`2_UG`],deptRestriction:!1,restrictedDept:``},{post:`III UG Representative`,femaleOnly:!1,finalYearIneligible:!1,yearRestriction:`3`,yearRuleMode:`INCLUDE`,yearRuleYears:[`3_UG`],deptRestriction:!1,restrictedDept:``},{post:`PG Representative`,femaleOnly:!1,finalYearIneligible:!1,yearRestriction:`PG`,yearRuleMode:`INCLUDE`,yearRuleYears:[`1_PG`,`2_PG`],deptRestriction:!1,restrictedDept:``},{post:`Association Secretary Botany`,femaleOnly:!1,finalYearIneligible:!1,yearRestriction:``,yearRuleMode:`ALL`,yearRuleYears:[],deptRestriction:!0,restrictedDept:`Botany`},{post:`Association Secretary Chemistry`,femaleOnly:!1,finalYearIneligible:!1,yearRestriction:``,yearRuleMode:`ALL`,yearRuleYears:[],deptRestriction:!0,restrictedDept:`Chemistry`},{post:`Association Secretary Commerce`,femaleOnly:!1,finalYearIneligible:!1,yearRestriction:``,yearRuleMode:`ALL`,yearRuleYears:[],deptRestriction:!0,restrictedDept:`Commerce`},{post:`Association Secretary Computer Science`,femaleOnly:!1,finalYearIneligible:!1,yearRestriction:``,yearRuleMode:`ALL`,yearRuleYears:[],deptRestriction:!0,restrictedDept:`Computer Science`},{post:`Association Secretary Economics`,femaleOnly:!1,finalYearIneligible:!1,yearRestriction:``,yearRuleMode:`ALL`,yearRuleYears:[],deptRestriction:!0,restrictedDept:`Economics`},{post:`Association Secretary English`,femaleOnly:!1,finalYearIneligible:!1,yearRestriction:``,yearRuleMode:`ALL`,yearRuleYears:[],deptRestriction:!0,restrictedDept:`English`},{post:`Association Secretary Hindi`,femaleOnly:!1,finalYearIneligible:!1,yearRestriction:``,yearRuleMode:`ALL`,yearRuleYears:[],deptRestriction:!0,restrictedDept:`Hindi`},{post:`Association Secretary History`,femaleOnly:!1,finalYearIneligible:!1,yearRestriction:``,yearRuleMode:`ALL`,yearRuleYears:[],deptRestriction:!0,restrictedDept:`History`},{post:`Association Secretary Malayalam`,femaleOnly:!1,finalYearIneligible:!1,yearRestriction:``,yearRuleMode:`ALL`,yearRuleYears:[],deptRestriction:!0,restrictedDept:`Malayalam`},{post:`Association Secretary Mathematics`,femaleOnly:!1,finalYearIneligible:!1,yearRestriction:``,yearRuleMode:`ALL`,yearRuleYears:[],deptRestriction:!0,restrictedDept:`Mathematics`},{post:`Association Secretary Physics`,femaleOnly:!1,finalYearIneligible:!1,yearRestriction:``,yearRuleMode:`ALL`,yearRuleYears:[],deptRestriction:!0,restrictedDept:`Physics`},{post:`Association Secretary Psychology`,femaleOnly:!1,finalYearIneligible:!1,yearRestriction:``,yearRuleMode:`ALL`,yearRuleYears:[],deptRestriction:!0,restrictedDept:`Psychology`},{post:`Association Secretary Sanskrit`,femaleOnly:!1,finalYearIneligible:!1,yearRestriction:``,yearRuleMode:`ALL`,yearRuleYears:[],deptRestriction:!0,restrictedDept:`Sanskrit`},{post:`Association Secretary Tamil`,femaleOnly:!1,finalYearIneligible:!1,yearRestriction:``,yearRuleMode:`ALL`,yearRuleYears:[],deptRestriction:!0,restrictedDept:`Tamil`},{post:`Association Secretary Zoology`,femaleOnly:!1,finalYearIneligible:!1,yearRestriction:``,yearRuleMode:`ALL`,yearRuleYears:[],deptRestriction:!0,restrictedDept:`Zoology`}]},r=t({router:()=>o}),i={},a=`/`,o={on(e,t){return i[e]=t,this},setDefault(e){return a=e,this},navigate(e,t={}){window.history.pushState({path:e,params:t},``,`#${e}`),this._resolve(e,t)},start(){let e=(e={})=>{let t=(window.location.hash.replace(/^#/,``).trim()||a).split(`?`)[0]||a;this._resolve(t,e)};window.addEventListener(`popstate`,e=>{let t=window.location.hash.replace(/^#/,``).trim().split(`?`)[0],n=e.state?.path||t||a,r=e.state?.params||{};this._resolve(n,r)}),window.addEventListener(`hashchange`,()=>{e({})}),e({})},_resolve(e,t){let n=i[e]||i[a];n&&n(t)}},s=n.API_BASE_URL,c={},l=[],u=!1,d=null;function f(){return sessionStorage.getItem(`adminSessionToken`)||localStorage.getItem(`adminSessionToken`)}function p(){localStorage.removeItem(`adminPwd`),localStorage.removeItem(`adminLoginDate`),localStorage.removeItem(`adminSessionToken`),sessionStorage.removeItem(`adminSessionToken`),c={},alert(`⚠️ Another admin has logged in from a different device. You have been logged out.`),window.location.hash=`/admin`}function m(e){d=e}function h(e){d&&d(e)}function g(){window._unloadGuardAdded||(window._unloadGuardAdded=!0,window.addEventListener(`beforeunload`,e=>{if(l.length>0||u)return e.returnValue=`Changes are still saving. Are you sure you want to leave?`,e.returnValue}))}async function _(){if(!(u||l.length===0)){for(u=!0,g(),h(`saving`);l.length>0;){let e=l[0];try{let t=await fetch(s,{method:`POST`,headers:{"Content-Type":`application/json`},body:JSON.stringify(e.body)});if(!t.ok){let e=`Network error: ${t.status}`;try{let n=await t.json();n.error&&(e=n.error)}catch{}throw(e.includes(`UNAUTHORIZED_SESSION`)||e===`SESSION_EXPIRED`)&&(p(),l.length=0),Error(e)}let n=await t.json();if(n.error===`SESSION_EXPIRED`||n.error&&n.error.includes(`UNAUTHORIZED_SESSION`)){p(),l.length=0;break}if(n.error)throw Error(n.error);e.resolve&&e.resolve(n)}catch(t){console.error(`Background sync failed for`,e.body.action,t),e.reject&&e.reject(t)}l.shift()}u=!1,h(`saved`),setTimeout(()=>{!u&&l.length===0&&h(`idle`)},3e3)}}async function v(e){let t=f(),n={},r={...e};r.password&&(n[`X-Admin-Password`]=r.password,delete r.password),t&&(n[`X-Session-Token`]=t,delete r.sessionToken);let i=JSON.stringify(e);if(c[i]!==void 0)return c[i];let a=new URL(s,window.location.origin);Object.entries(r).forEach(([e,t])=>a.searchParams.append(e,t));let o=await fetch(a.toString(),{headers:n});if(!o.ok){let e=`Network error: ${o.status}`;try{let t=await o.json();t.error&&(e=t.error)}catch{}throw(e.includes(`UNAUTHORIZED_SESSION`)||e===`SESSION_EXPIRED`)&&p(),Error(e)}let l=await o.json();if(l.error===`SESSION_EXPIRED`||l.error&&l.error.includes(`UNAUTHORIZED_SESSION`))throw p(),Error(`SESSION_EXPIRED`);if(l.error)throw Error(l.error);return c[i]=l,l}async function y(e){let t=f();t&&e.password&&(e={...e,sessionToken:t});let n=await fetch(s,{method:`POST`,headers:{"Content-Type":`application/json`},body:JSON.stringify(e)});if(!n.ok){let e=`Network error: ${n.status}`;try{let t=await n.json();t.error&&(e=t.error)}catch{}throw(e.includes(`UNAUTHORIZED_SESSION`)||e===`SESSION_EXPIRED`)&&p(),Error(e)}let r=await n.json();if(r.error===`SESSION_EXPIRED`||r.error&&r.error.includes(`UNAUTHORIZED_SESSION`))throw p(),Error(`SESSION_EXPIRED`);if(r.error)throw Error(r.error);return r}function b(e){let t=f();return t&&e.password&&(e={...e,sessionToken:t}),new Promise((t,n)=>{l.push({body:e,resolve:t,reject:n}),_()})}function x(e,t){let n=JSON.stringify(e);typeof t==`function`?c[n]!==void 0&&(c[n]=t(c[n])):c[n]=t}function S(e){Object.keys(c).forEach(t=>{t.includes(e)&&delete c[t]})}var C={invalidateCache:S,initPublicData:async()=>{let e=[C.getPublicSchedule().catch(()=>null),C.getSettings().catch(()=>null),C.getPosts().catch(()=>null),C.getResults().catch(()=>null),C.getNominalRoll().catch(()=>null),C.getPublicNominations().catch(()=>null),C.getValidNominations().catch(()=>null),C.getFinalNominations().catch(()=>null)];await Promise.all(e)},initAdminData:async e=>{let t=[C.adminGetNominations(e).catch(()=>null),C.adminGetSettings(e).catch(()=>null),C.adminGetPosts(e).catch(()=>null),C.adminGetBooths(e).catch(()=>null),C.adminGetLocations(e).catch(()=>null),C.adminGetBallotPlan(e).catch(()=>null),C.adminGetCountingMatrix(e).catch(()=>null)];await Promise.all(t)},getNominalRoll:()=>v({action:`getNominalRoll`}),getPosts:()=>v({action:`getPosts`}),getPublicNominations:()=>v({action:`getPublicNominations`}),getNomination:(e,t)=>v({action:`getNomination`,id:e,admissionNo:t}),getValidNominations:()=>v({action:`getValidNominations`}),getFinalNominations:()=>v({action:`getFinalNominations`}),submitNomination:async e=>{let t=await y({action:`submitNomination`,...e});return S(`adminGetNominations`),S(`getPublicNominations`),S(`getValidNominations`),S(`getFinalNominations`),t},submitWithdrawal:async(e,t)=>{let n=await y({action:`submitWithdrawal`,id:e,admissionNo:t});return S(`adminGetNominations`),S(`getPublicNominations`),n},adminLogin:async e=>{let t=await fetch(s,{method:`POST`,headers:{"Content-Type":`application/json`},body:JSON.stringify({action:`adminLogin`,password:e})});if(!t.ok)throw Error(`Network error: ${t.status}`);let n=await t.json();if(n.error)throw Error(n.error);return n.sessionToken&&sessionStorage.setItem(`adminSessionToken`,n.sessionToken),n},adminLogout:e=>y({action:`adminLogout`,password:e}),adminSendOTP:e=>y({action:`adminSendOTP`,password:e}),adminVerifyOTP:(e,t)=>y({action:`adminVerifyOTP`,password:e,otp:t}),adminGetNominations:(e,t=!1)=>(t&&S(`adminGetNominations`),v({action:`adminGetNominations`,password:e})),adminGetFinalNominations:e=>v({action:`adminGetFinalNominations`,password:e}),adminVerifyNomination:(e,t,n,r=null)=>(x({action:`adminGetNominations`,password:e},e=>{let i=e.find(e=>e.id===t);return i&&(i.status=n,r&&(i.rejectionReason=r)),e}),b({action:`adminVerifyNomination`,password:e,id:t,status:n,reason:r}),Promise.resolve({ok:!0})),adminDeleteNomination:async(e,t)=>{let n=await y({action:`adminDeleteNomination`,password:e,confirmPassword:e,id:t});return S(`adminGetNominations`),S(`getPublicNominations`),S(`getValidNominations`),S(`getFinalNominations`),n},adminApproveWithdrawal:(e,t)=>(x({action:`adminGetNominations`,password:e},e=>{let n=e.find(e=>e.id===t);return n&&(n.withdrawalStatus=`Approved`),e}),b({action:`adminApproveWithdrawal`,password:e,id:t}),Promise.resolve({ok:!0})),adminDirectWithdrawal:(e,t)=>(x({action:`adminGetNominations`,password:e},e=>{let n=e.find(e=>e.id===t);return n&&(n.withdrawalStatus=`Approved`),e}),b({action:`adminDirectWithdrawal`,password:e,id:t}),Promise.resolve({ok:!0})),adminRestoreWithdrawal:(e,t,n=`None`)=>(x({action:`adminGetNominations`,password:e},e=>{let r=e.find(e=>e.id===t);return r&&(r.withdrawalStatus=n),e}),b({action:`adminRestoreWithdrawal`,password:e,id:t,targetStatus:n}),S(`getFinalNominations`),S(`adminGetFinalNominations`),Promise.resolve({ok:!0})),adminRejectWithdrawal:(e,t)=>(x({action:`adminGetNominations`,password:e},e=>{let n=e.find(e=>e.id===t);return n&&(n.withdrawalStatus=`Rejected`),e}),b({action:`adminRejectWithdrawal`,password:e,id:t}),S(`getFinalNominations`),S(`adminGetFinalNominations`),Promise.resolve({ok:!0})),adminPublishValidList:async e=>{x({action:`adminGetSettings`,password:e},e=>({...e,validListPublished:`true`}));let t=await y({action:`adminPublishValidList`,password:e});return S(`getValidNominations`),S(`getSettings`),S(`adminGetSettings`),t},adminPublishFinalList:async e=>{x({action:`adminGetSettings`,password:e},e=>({...e,finalListPublished:`true`}));let t=await y({action:`adminPublishFinalList`,password:e});return S(`getFinalNominations`),S(`getSettings`),S(`adminGetSettings`),t},adminUnpublishValidList:async e=>{x({action:`adminGetSettings`,password:e},e=>({...e,validListPublished:`false`,finalListPublished:`false`}));let t=await y({action:`adminUnpublishValidList`,password:e});return S(`getValidNominations`),S(`getFinalNominations`),S(`getSettings`),S(`adminGetSettings`),t},adminUnpublishFinalList:async e=>{x({action:`adminGetSettings`,password:e},e=>({...e,finalListPublished:`false`}));let t=await y({action:`adminUnpublishFinalList`,password:e});return S(`getFinalNominations`),S(`getSettings`),S(`adminGetSettings`),t},adminGetSettings:e=>v({action:`adminGetSettings`,password:e}),adminUpdateSettings:(e,t)=>(x({action:`adminGetSettings`,password:e},e=>({...e,...t})),S(`getSettings`),S(`adminGetSettings`),b({action:`adminUpdateSettings`,password:e,...t}),Promise.resolve({ok:!0})),adminUpdateCredentials:(e,t)=>y({action:`adminUpdateCredentials`,password:e,...t}),getPublicSettings:()=>v({action:`adminGetSettings`,password:`NONE`}),adminGetPosts:e=>v({action:`adminGetPosts`,password:e}),adminAddPost:async(e,t)=>{let n={...t,post:t.post||t.postName};return x({action:`adminGetPosts`,password:e},e=>[...Array.isArray(e)?e:[],n]),await b({action:`adminAddPost`,password:e,...n}),S(`getPosts`),S(`adminGetPosts`),{ok:!0}},adminUpdatePost:async(e,t)=>{let n={...t,post:t.post||t.postName},r=t.originalName||n.post;return x({action:`adminGetPosts`,password:e},e=>{if(!Array.isArray(e))return[n];let t=e.findIndex(e=>e.post===r||e.post===n.post);return t===-1?e.push(n):e[t]=n,e}),await b({action:`adminUpdatePost`,password:e,...n}),S(`getPosts`),S(`adminGetPosts`),{ok:!0}},adminDeletePost:async(e,t)=>(x({action:`adminGetPosts`,password:e},e=>e.filter(e=>e.post!==t)),await b({action:`adminDeletePost`,password:e,postName:t}),S(`getPosts`),{ok:!0}),adminReorderPosts:async(e,t)=>(x({action:`adminGetPosts`,password:e},e=>{let n={};return e.forEach(e=>n[e.post]=e),t.map(e=>n[e]).filter(Boolean)}),await b({action:`adminReorderPosts`,password:e,posts:t}),S(`getPosts`),{ok:!0}),adminGetBooths:(e,t=!1)=>(t&&S(`adminGetBooths`),v({action:`adminGetBooths`,password:e})),adminSaveBooths:async(e,t)=>{let n=await y({action:`adminSaveBooths`,password:e,booths:t});return S(`adminGetBooths`),S(`adminGetBallotPlan`),n},adminGetLocations:(e,t=!1)=>(t&&S(`adminGetLocations`),v({action:`adminGetLocations`,password:e})),adminSaveLocations:async(e,t)=>{let n=await y({action:`adminSaveLocations`,password:e,locations:t});return S(`adminGetLocations`),n},getResults:(e=!1)=>(e&&S(`getResults`),v({action:`getResults`})),adminGetResults:(e,t=!1)=>(t&&S(`adminGetResults`),v({action:`adminGetResults`,password:e})),adminToggleLockResults:async e=>{let t=await y({action:`adminToggleLockResults`,password:e});return x({action:`adminGetSettings`,password:e},e=>({...e,resultsLocked:t.locked?`true`:`false`})),S(`getSettings`),S(`adminGetSettings`),t},adminTogglePublishResults:async e=>{let t=await y({action:`adminTogglePublishResults`,password:e});return x({action:`adminGetSettings`,password:e},e=>({...e,resultsPublished:t.published?`true`:`false`})),S(`getResults`),S(`adminGetResults`),S(`getSettings`),S(`adminGetSettings`),t},adminLockResults:async e=>{let t=await y({action:`adminLockResults`,password:e});return x({action:`adminGetSettings`,password:e},e=>({...e,resultsLocked:`true`})),S(`getSettings`),S(`adminGetSettings`),t},adminUnlockResults:async e=>{let t=await y({action:`adminUnlockResults`,password:e});return x({action:`adminGetSettings`,password:e},e=>({...e,resultsLocked:`false`})),S(`getSettings`),S(`adminGetSettings`),t},adminPublishResults:async e=>{let t=await y({action:`adminPublishResults`,password:e});return x({action:`adminGetSettings`,password:e},e=>({...e,resultsPublished:`true`})),S(`getResults`),S(`adminGetResults`),S(`getSettings`),S(`adminGetSettings`),t},adminUnpublishResults:async e=>{let t=await y({action:`adminUnpublishResults`,password:e});return x({action:`adminGetSettings`,password:e},e=>({...e,resultsPublished:`false`})),S(`getResults`),S(`adminGetResults`),S(`getSettings`),S(`adminGetSettings`),t},adminToggleCounting:async e=>{let t=await y({action:`adminToggleCounting`,password:e});return S(`getResults`),S(`getSettings`),S(`adminGetSettings`),S(`getPublicSchedule`),t},adminSetCountingActive:async(e,t)=>{let n=await y({action:`adminSetCountingActive`,password:e,active:t});return S(`getResults`),S(`getSettings`),S(`adminGetSettings`),S(`getPublicSchedule`),n},adminSaveResults:(e,t)=>b({action:`adminSaveResults`,password:e,results:t}).then(e=>(S(`getResults`),S(`adminGetResults`),e)),adminInjectTestData:e=>(c={},y({action:`adminInjectTestData`,password:e})),adminWipeData:e=>(c={},y({action:`adminWipeData`,password:e})),adminGetCountingMatrix:(e,t=!1)=>(t&&S(`adminGetCountingMatrix`),v({action:`adminGetCountingMatrix`,password:e})),adminSaveCountingMatrix:async(e,t)=>{x({action:`adminGetCountingMatrix`,password:e},t);let n=await y({action:`adminSaveCountingMatrix`,password:e,matrixData:t,matrix:t});return S(`adminGetCountingMatrix`),x({action:`adminGetCountingMatrix`,password:e},t),n},adminGenerateBallotPlan:async e=>{let t=await b({action:`adminGenerateBallotPlan`,password:e});return x({action:`adminGetBallotPlan`,password:e},t.plan),t},adminGetBallotPlan:e=>v({action:`adminGetBallotPlan`,password:e}),adminGetBallotConfig:e=>v({action:`adminGetBallotConfig`,password:e}),adminSaveBallotConfig:async(e,t)=>{let n=await y({action:`adminSaveBallotConfig`,password:e,config:t});return S(`adminGetBallotConfig`),S(`adminGetBallotPlan`),n},adminRunAudit:e=>y({action:`adminRunAudit`,password:e}),adminGetNotices:(e,t=!1)=>(t&&S(`adminGetNotices`),v({action:`adminGetNotices`,password:e})),adminSaveNotices:async(e,t)=>{let n=await y({action:`adminSaveNotices`,password:e,notices:t});return S(`adminGetNotices`),n},adminSaveNotice:async(e,t)=>{let n=await y({action:`adminSaveNotice`,password:e,notice:t});return S(`adminGetNotices`),n},adminDeleteNotice:async(e,t)=>{let n=await y({action:`adminDeleteNotice`,password:e,id:t});return S(`adminGetNotices`),n},getSettings:()=>v({action:`getSettings`}),adminAddStudent:async(e,t)=>(await b({action:`adminAddStudent`,password:e,...t}),S(`getNominalRoll`),{ok:!0}),adminUpdateStudent:async(e,t)=>(await b({action:`adminUpdateStudent`,password:e,...t}),S(`getNominalRoll`),{ok:!0}),adminDeleteStudent:async(e,t)=>(await b({action:`adminDeleteStudent`,password:e,serial:t}),S(`getNominalRoll`),{ok:!0}),adminPublishDraftRoll:async e=>{let t=await y({action:`adminPublishDraftRoll`,password:e});return S(`getSettings`),S(`adminGetSettings`),t},adminUnpublishDraftRoll:async e=>{let t=await y({action:`adminUnpublishDraftRoll`,password:e});return S(`getSettings`),S(`adminGetSettings`),t},submitRollCorrection:e=>y({action:`submitRollCorrection`,...e}),adminGetRollCorrections:e=>v({action:`adminGetRollCorrections`,password:e}),adminUpdateRollCorrection:(e,t,n,r=``)=>y({action:`adminUpdateRollCorrection`,password:e,id:t,status:n,notes:r}),adminFinalizeRoll:async(e,t={})=>{let n=await y({action:`adminFinalizeRoll`,password:e,...t});return n&&n.requiresMatching?n:(S(`getSettings`),S(`adminGetSettings`),S(`getNominalRoll`),n||{ok:!0})},adminUnfinalizeRoll:async e=>{let t=await y({action:`adminUnfinalizeRoll`,password:e,confirmPassword:e});return S(`getSettings`),S(`adminGetSettings`),S(`getNominalRoll`),t||{ok:!0}},adminGetNominalRollTemplate:e=>v({action:`adminGetNominalRollTemplate`,password:e}),adminUploadNominalRoll:async(e,t)=>{let n=await y({action:`adminUploadNominalRoll`,password:e,...t});return S(`getNominalRoll`),S(`adminGetNominations`),S(`getSettings`),S(`adminGetSettings`),S(`getValidNominations`),S(`getFinalNominations`),S(`getPublicNominations`),n},adminClearNominalRoll:async e=>{let t=await y({action:`adminClearNominalRoll`,password:e,confirmPassword:e});return S(`getNominalRoll`),S(`getSettings`),S(`adminGetSettings`),S(`adminGetNominations`),S(`getValidNominations`),S(`getFinalNominations`),S(`getPublicNominations`),t},adminRemapNominations:async e=>{let t=await y({action:`adminRemapNominations`,password:e});return S(`adminGetNominations`),S(`getPublicNominations`),S(`getValidNominations`),S(`getFinalNominations`),t},adminFixSerialNumbersDeptWise:async e=>{let t=await y({action:`adminFixSerialNumbersDeptWise`,password:e});return S(`getNominalRoll`),S(`adminGetNominations`),S(`getSettings`),S(`adminGetSettings`),S(`getValidNominations`),S(`getFinalNominations`),S(`getPublicNominations`),t},getPublicSchedule:()=>v({action:`getPublicSchedule`}),adminSaveSchedule:async(e,t)=>{x({action:`getPublicSchedule`},t);let n=await y({action:`adminSaveSchedule`,password:e,...t});return S(`getPublicSchedule`),S(`getSettings`),S(`adminGetSettings`),S(`getValidNominations`),S(`getFinalNominations`),S(`getResults`),n||{ok:!0}},adminSetStageOverride:async(e,t,n)=>{let r=await y({action:`adminSetStageOverride`,password:e,stage:t,mode:n});return S(`getPublicSchedule`),S(`getSettings`),S(`adminGetSettings`),S(`getValidNominations`),S(`getFinalNominations`),S(`getResults`),r},adminExportBackup:e=>y({action:`adminExportBackup`,password:e}),adminGetSnapshots:e=>v({action:`adminGetSnapshots`,password:e}),adminDownloadSnapshot:(e,t)=>y({action:`adminDownloadSnapshot`,password:e,snapshotId:t}),adminRestoreBackup:async(e,t)=>{let n=await y({action:`adminRestoreBackup`,password:e,...t});return c={},n},adminRevertSnapshot:async(e,t)=>{let n=await y({action:`adminRevertSnapshot`,password:e,snapshotId:t});return c={},n}};function w(e,t=n.ELECTION_DATE){if(!e)return`N/A`;let r;if(typeof e==`string`&&e.includes(`-`)){let t=e.split(`-`);r=t[0].length===4?new Date(parseInt(t[0],10),parseInt(t[1],10)-1,parseInt(t[2],10)):new Date(parseInt(t[2],10),parseInt(t[1],10)-1,parseInt(t[0],10))}else r=new Date(e);if(isNaN(r.getTime()))return`N/A`;let i=new Date(t),a=i.getFullYear()-r.getFullYear(),o=i.getMonth()-r.getMonth(),s=i.getDate()-r.getDate();return s<0&&(o--,s+=new Date(i.getFullYear(),i.getMonth(),0).getDate()),o<0&&(a--,o+=12),`${a} Years, ${o} Months, ${s} Days`}var T=[{id:`1_UG`,label:`1st Year UG (I UG)`,short:`I UG`},{id:`2_UG`,label:`2nd Year UG (II UG)`,short:`II UG`},{id:`3_UG`,label:`3rd Year UG (III UG)`,short:`III UG`},{id:`1_PG`,label:`1st Year PG (I PG)`,short:`I PG`},{id:`2_PG`,label:`2nd Year PG (II PG)`,short:`II PG`},{id:`RS`,label:`Research Scholar (Ph.D)`,short:`RS`}];function E(e){let t=String(e||``).toUpperCase().trim();if(t.includes(`RESEARCH`)||t.includes(`SCHOLAR`)||t.includes(`PHD`))return`RS`;let n=/\b(MA|MSC|MCOM|M\.SC|M\.COM|M\.A|MBA|MCA|MSW)\b/.test(t)||t.includes(`POST GRADUATE`)||t.includes(`PG`);t.includes(`1ST`)||/^\s*(1|1ST|I)\b/.test(t)||/\b1ST\s+YEAR\b/.test(t)||/\bI\s+(YEAR|UG|PG|DC|DEG|BA|BSC|BCOM|MA|MSC|MCOM)\b/.test(t);let r=t.includes(`2ND`)||/^\s*(2|2ND|II)\b/.test(t)||/\b2ND\s+YEAR\b/.test(t)||/\bII\s+(YEAR|UG|PG|DC|DEG|BA|BSC|BCOM|MA|MSC|MCOM)\b/.test(t),i=t.includes(`3RD`)||/^\s*(3|3RD|III)\b/.test(t)||/\b3RD\s+YEAR\b/.test(t)||/\bIII\s+(YEAR|UG|DC|DEG|BA|BSC|BCOM)\b/.test(t);return n?r?`2_PG`:`1_PG`:i?`3_UG`:r?`2_UG`:`1_UG`}function D(e,t){if(!t)return!0;let n=E(e),r=t.yearRuleMode||(t.finalYearIneligible?`EXCLUDE`:t.yearRestriction?`INCLUDE`:`ALL`),i=[];if(Array.isArray(t.yearRuleYears)?i=t.yearRuleYears:typeof t.yearRuleYears==`string`&&t.yearRuleYears.trim()?i=t.yearRuleYears.split(`,`).map(e=>e.trim()).filter(Boolean):t.finalYearIneligible?i=[`3_UG`,`2_PG`]:t.yearRestriction===`1`?i=[`1_UG`]:t.yearRestriction===`2`?i=[`2_UG`]:t.yearRestriction===`3`?i=[`3_UG`]:t.yearRestriction===`PG`?i=[`1_PG`,`2_PG`]:t.yearRestriction===`UG`?i=[`1_UG`,`2_UG`,`3_UG`]:t.yearRestriction===`1,2`&&(i=[`1_UG`,`2_UG`]),r===`ALL`||i.length===0)return!(t.finalYearIneligible&&(n===`3_UG`||n===`2_PG`));let a=(e,t)=>!!(t.includes(e)||e.endsWith(`_UG`)&&t.includes(`UG`)||e.endsWith(`_PG`)&&t.includes(`PG`)||e.startsWith(`1_`)&&t.includes(`1`)||e.startsWith(`2_`)&&t.includes(`2`)||e.startsWith(`3_`)&&t.includes(`3`));return r===`INCLUDE`?a(n,i):r===`EXCLUDE`?!a(n,i):!0}function O(e){if(!e)return`All Years Eligible`;let t=e.yearRuleMode||(e.finalYearIneligible?`EXCLUDE`:e.yearRestriction?`INCLUDE`:`ALL`),n=[];if(Array.isArray(e.yearRuleYears)?n=e.yearRuleYears:typeof e.yearRuleYears==`string`&&e.yearRuleYears.trim()?n=e.yearRuleYears.split(`,`).map(e=>e.trim()).filter(Boolean):e.finalYearIneligible?n=[`3_UG`,`2_PG`]:e.yearRestriction===`1`?n=[`1_UG`]:e.yearRestriction===`2`?n=[`2_UG`]:e.yearRestriction===`3`?n=[`3_UG`]:e.yearRestriction===`PG`?n=[`1_PG`,`2_PG`]:e.yearRestriction===`UG`?n=[`1_UG`,`2_UG`,`3_UG`]:e.yearRestriction===`1,2`&&(n=[`1_UG`,`2_UG`]),t===`ALL`||n.length===0)return e.finalYearIneligible?`Final Years Barred (3rd UG & 2nd PG)`:`All Years Eligible`;let r=n.map(e=>{let t=T.find(t=>t.id===e);return t?t.short:e}).join(`, `);return t===`INCLUDE`?`Only: ${r}`:t===`EXCLUDE`?`Barred: ${r}`:`All Years`}function k(e,t,n,r=null,i=[],a=[]){if(!e)return[];let o=[],s=String(e.CLASS||``).toUpperCase(),c=String(e.Dept||``).toUpperCase(),l=String(e[`Nominal Roll Serial Number`]),u=i.find(e=>e.post===t)||{};if((n===`Proposer`||n===`Seconder`)&&a.some(e=>e.post===t&&e.status!==`Rejected`&&(String(e.proposerSerial)===l||String(e.seconderSerial)===l))&&o.push(`Student #${l} has already proposed or seconded a candidate for "${t}". They cannot endorse multiple candidates for the same post.`),u.deptRestriction){let r=(u.restrictedDept||(t.startsWith(`Association Secretary `)?t.replace(`Association Secretary `,``):``)).trim();if(r){let i=e=>String(e||``).toUpperCase().replace(/[^A-Z0-9]/g,``),a=i(c),s=i(r);a===s||a.includes(s)||s.includes(a)||o.push(`${n} for "${t}" must belong to the ${r} department (current student: ${e.Dept||`N/A`}).`)}}if(!D(s,u)){let e=O(u);o.push(`${n} (${s||`Unspecified`}) is not eligible under year restriction for "${t}" (${e}).`)}return n===`Candidate`&&(E(s)===`RS`&&o.push(`Research Scholars are not eligible to contest in College Union Elections.`),u.femaleOnly&&r&&r!==`Female`&&o.push(`The post of "${t}" is reserved for female candidates only.`)),o}function A(){let e=Math.floor(Math.random()*10)+1,t=Math.floor(Math.random()*10)+1;return{question:`${e} + ${t}`,answer:String(e+t)}}function j(){return new Date().toLocaleDateString(`en-GB`)}function M(e,t,n){if(!e||!t||!n)return;let r=[`January`,`February`,`March`,`April`,`May`,`June`,`July`,`August`,`September`,`October`,`November`,`December`];for(let t=1;t<=31;t++)e.innerHTML+=`<option value="${t}">${t}</option>`;r.forEach((e,n)=>t.innerHTML+=`<option value="${n+1}">${e}</option>`);for(let e=2015;e>=1950;e--)n.innerHTML+=`<option value="${e}">${e}</option>`}function N(e,t,n){return`${n}-${String(t).padStart(2,`0`)}-${String(e).padStart(2,`0`)}`}function ee(e,t,n){return`${String(e).padStart(2,`0`)}/${String(t).padStart(2,`0`)}/${n}`}function te(e,t=`Nomination Form`){let n=window.open(``,`_blank`);if(!n){alert(`Popup blocked! Please allow popups for this site to print.`);return}n.document.write(`
+var e=Object.defineProperty,t=(t,n)=>{let r={};for(var i in t)e(r,i,{get:t[i],enumerable:!0});return n||e(r,Symbol.toStringTag,{value:`Module`}),r};(function(){let e=document.createElement(`link`).relList;if(e&&e.supports&&e.supports(`modulepreload`))return;for(let e of document.querySelectorAll(`link[rel="modulepreload"]`))n(e);new MutationObserver(e=>{for(let t of e)if(t.type===`childList`)for(let e of t.addedNodes)e.tagName===`LINK`&&e.rel===`modulepreload`&&n(e)}).observe(document,{childList:!0,subtree:!0});function t(e){let t={};return e.integrity&&(t.integrity=e.integrity),e.referrerPolicy&&(t.referrerPolicy=e.referrerPolicy),e.crossOrigin===`use-credentials`?t.credentials=`include`:e.crossOrigin===`anonymous`?t.credentials=`omit`:t.credentials=`same-origin`,t}function n(e){if(e.ep)return;e.ep=!0;let n=t(e);fetch(e.href,n)}})();var n={API_BASE_URL:`/api/main`,ELECTION_DATE:`2026-10-12`,COLLEGE_NAME:`Government Victoria College, Palakkad`,COLLEGE_SHORT_NAME:`GVC`,DEFAULT_POSTS:[{post:`The Chairman`,femaleOnly:!1,finalYearIneligible:!1,yearRestriction:``,yearRuleMode:`ALL`,yearRuleYears:[],deptRestriction:!1,restrictedDept:``},{post:`The Vice Chairman`,femaleOnly:!0,finalYearIneligible:!1,yearRestriction:``,yearRuleMode:`ALL`,yearRuleYears:[],deptRestriction:!1,restrictedDept:``},{post:`The Secretary`,femaleOnly:!1,finalYearIneligible:!1,yearRestriction:``,yearRuleMode:`ALL`,yearRuleYears:[],deptRestriction:!1,restrictedDept:``},{post:`The Joint Secretary`,femaleOnly:!0,finalYearIneligible:!1,yearRestriction:``,yearRuleMode:`ALL`,yearRuleYears:[],deptRestriction:!1,restrictedDept:``},{post:`The Chief Student Editor`,femaleOnly:!1,finalYearIneligible:!0,yearRestriction:``,yearRuleMode:`EXCLUDE`,yearRuleYears:[`3_UG`,`2_PG`],deptRestriction:!1,restrictedDept:``},{post:`The Secretary Fine Arts`,femaleOnly:!1,finalYearIneligible:!1,yearRestriction:``,yearRuleMode:`ALL`,yearRuleYears:[],deptRestriction:!1,restrictedDept:``},{post:`The General Captain For Sports And Games`,femaleOnly:!1,finalYearIneligible:!1,yearRestriction:``,yearRuleMode:`ALL`,yearRuleYears:[],deptRestriction:!1,restrictedDept:``},{post:`The University Union Councillor`,femaleOnly:!1,finalYearIneligible:!1,yearRestriction:``,yearRuleMode:`ALL`,yearRuleYears:[],deptRestriction:!1,restrictedDept:``},{post:`I UG Representative`,femaleOnly:!1,finalYearIneligible:!1,yearRestriction:`1`,yearRuleMode:`INCLUDE`,yearRuleYears:[`1_UG`],deptRestriction:!1,restrictedDept:``},{post:`II UG Representative`,femaleOnly:!1,finalYearIneligible:!1,yearRestriction:`2`,yearRuleMode:`INCLUDE`,yearRuleYears:[`2_UG`],deptRestriction:!1,restrictedDept:``},{post:`III UG Representative`,femaleOnly:!1,finalYearIneligible:!1,yearRestriction:`3`,yearRuleMode:`INCLUDE`,yearRuleYears:[`3_UG`],deptRestriction:!1,restrictedDept:``},{post:`PG Representative`,femaleOnly:!1,finalYearIneligible:!1,yearRestriction:`PG`,yearRuleMode:`INCLUDE`,yearRuleYears:[`1_PG`,`2_PG`],deptRestriction:!1,restrictedDept:``},{post:`Association Secretary Botany`,femaleOnly:!1,finalYearIneligible:!1,yearRestriction:``,yearRuleMode:`ALL`,yearRuleYears:[],deptRestriction:!0,restrictedDept:`Botany`},{post:`Association Secretary Chemistry`,femaleOnly:!1,finalYearIneligible:!1,yearRestriction:``,yearRuleMode:`ALL`,yearRuleYears:[],deptRestriction:!0,restrictedDept:`Chemistry`},{post:`Association Secretary Commerce`,femaleOnly:!1,finalYearIneligible:!1,yearRestriction:``,yearRuleMode:`ALL`,yearRuleYears:[],deptRestriction:!0,restrictedDept:`Commerce`},{post:`Association Secretary Computer Science`,femaleOnly:!1,finalYearIneligible:!1,yearRestriction:``,yearRuleMode:`ALL`,yearRuleYears:[],deptRestriction:!0,restrictedDept:`Computer Science`},{post:`Association Secretary Economics`,femaleOnly:!1,finalYearIneligible:!1,yearRestriction:``,yearRuleMode:`ALL`,yearRuleYears:[],deptRestriction:!0,restrictedDept:`Economics`},{post:`Association Secretary English`,femaleOnly:!1,finalYearIneligible:!1,yearRestriction:``,yearRuleMode:`ALL`,yearRuleYears:[],deptRestriction:!0,restrictedDept:`English`},{post:`Association Secretary Hindi`,femaleOnly:!1,finalYearIneligible:!1,yearRestriction:``,yearRuleMode:`ALL`,yearRuleYears:[],deptRestriction:!0,restrictedDept:`Hindi`},{post:`Association Secretary History`,femaleOnly:!1,finalYearIneligible:!1,yearRestriction:``,yearRuleMode:`ALL`,yearRuleYears:[],deptRestriction:!0,restrictedDept:`History`},{post:`Association Secretary Malayalam`,femaleOnly:!1,finalYearIneligible:!1,yearRestriction:``,yearRuleMode:`ALL`,yearRuleYears:[],deptRestriction:!0,restrictedDept:`Malayalam`},{post:`Association Secretary Mathematics`,femaleOnly:!1,finalYearIneligible:!1,yearRestriction:``,yearRuleMode:`ALL`,yearRuleYears:[],deptRestriction:!0,restrictedDept:`Mathematics`},{post:`Association Secretary Physics`,femaleOnly:!1,finalYearIneligible:!1,yearRestriction:``,yearRuleMode:`ALL`,yearRuleYears:[],deptRestriction:!0,restrictedDept:`Physics`},{post:`Association Secretary Psychology`,femaleOnly:!1,finalYearIneligible:!1,yearRestriction:``,yearRuleMode:`ALL`,yearRuleYears:[],deptRestriction:!0,restrictedDept:`Psychology`},{post:`Association Secretary Sanskrit`,femaleOnly:!1,finalYearIneligible:!1,yearRestriction:``,yearRuleMode:`ALL`,yearRuleYears:[],deptRestriction:!0,restrictedDept:`Sanskrit`},{post:`Association Secretary Tamil`,femaleOnly:!1,finalYearIneligible:!1,yearRestriction:``,yearRuleMode:`ALL`,yearRuleYears:[],deptRestriction:!0,restrictedDept:`Tamil`},{post:`Association Secretary Zoology`,femaleOnly:!1,finalYearIneligible:!1,yearRestriction:``,yearRuleMode:`ALL`,yearRuleYears:[],deptRestriction:!0,restrictedDept:`Zoology`}]},r=t({router:()=>o}),i={},a=`/`,o={on(e,t){return i[e]=t,this},setDefault(e){return a=e,this},navigate(e,t={}){window.history.pushState({path:e,params:t},``,`#${e}`),this._resolve(e,t)},start(){let e=(e={})=>{let t=(window.location.hash.replace(/^#/,``).trim()||a).split(`?`)[0]||a;this._resolve(t,e)};window.addEventListener(`popstate`,e=>{let t=window.location.hash.replace(/^#/,``).trim().split(`?`)[0],n=e.state?.path||t||a,r=e.state?.params||{};this._resolve(n,r)}),window.addEventListener(`hashchange`,()=>{e({})}),e({})},_resolve(e,t){let n=i[e]||i[a];n&&n(t)}},s=n.API_BASE_URL,c={},l=[],u=!1,d=null;function f(){return sessionStorage.getItem(`adminSessionToken`)||localStorage.getItem(`adminSessionToken`)}function p(){localStorage.removeItem(`adminPwd`),localStorage.removeItem(`adminLoginDate`),localStorage.removeItem(`adminSessionToken`),sessionStorage.removeItem(`adminSessionToken`),c={},alert(`⚠️ Another admin has logged in from a different device. You have been logged out.`),window.location.hash=`/admin`}function m(e){d=e}function h(e){d&&d(e)}function g(){window._unloadGuardAdded||(window._unloadGuardAdded=!0,window.addEventListener(`beforeunload`,e=>{if(l.length>0||u)return e.returnValue=`Changes are still saving. Are you sure you want to leave?`,e.returnValue}))}async function _(){if(!(u||l.length===0)){for(u=!0,g(),h(`saving`);l.length>0;){let e=l[0];try{let t=await fetch(s,{method:`POST`,headers:{"Content-Type":`application/json`},body:JSON.stringify(e.body)});if(!t.ok){let e=`Network error: ${t.status}`;try{let n=await t.json();n.error&&(e=n.error)}catch{}throw(e.includes(`UNAUTHORIZED_SESSION`)||e===`SESSION_EXPIRED`)&&(p(),l.length=0),Error(e)}let n=await t.json();if(n.error===`SESSION_EXPIRED`||n.error&&n.error.includes(`UNAUTHORIZED_SESSION`)){p(),l.length=0;break}if(n.error)throw Error(n.error);e.resolve&&e.resolve(n)}catch(t){console.error(`Background sync failed for`,e.body.action,t),e.reject&&e.reject(t)}l.shift()}u=!1,h(`saved`),setTimeout(()=>{!u&&l.length===0&&h(`idle`)},3e3)}}async function v(e){let t=f(),n={},r={...e};r.password&&(n[`X-Admin-Password`]=r.password,delete r.password),t&&(n[`X-Session-Token`]=t,delete r.sessionToken);let i=JSON.stringify(e);if(c[i]!==void 0)return c[i];let a=new URL(s,window.location.origin);Object.entries(r).forEach(([e,t])=>a.searchParams.append(e,t));let o=await fetch(a.toString(),{headers:n});if(!o.ok){let e=`Network error: ${o.status}`;try{let t=await o.json();t.error&&(e=t.error)}catch{}throw(e.includes(`UNAUTHORIZED_SESSION`)||e===`SESSION_EXPIRED`)&&p(),Error(e)}let l=await o.json();if(l.error===`SESSION_EXPIRED`||l.error&&l.error.includes(`UNAUTHORIZED_SESSION`))throw p(),Error(`SESSION_EXPIRED`);if(l.error)throw Error(l.error);return c[i]=l,l}async function y(e){let t=f();t&&e.password&&(e={...e,sessionToken:t});let n=await fetch(s,{method:`POST`,headers:{"Content-Type":`application/json`},body:JSON.stringify(e)});if(!n.ok){let e=`Network error: ${n.status}`;try{let t=await n.json();t.error&&(e=t.error)}catch{}throw(e.includes(`UNAUTHORIZED_SESSION`)||e===`SESSION_EXPIRED`)&&p(),Error(e)}let r=await n.json();if(r.error===`SESSION_EXPIRED`||r.error&&r.error.includes(`UNAUTHORIZED_SESSION`))throw p(),Error(`SESSION_EXPIRED`);if(r.error)throw Error(r.error);return r}function b(e){let t=f();return t&&e.password&&(e={...e,sessionToken:t}),new Promise((t,n)=>{l.push({body:e,resolve:t,reject:n}),_()})}function x(e,t){let n=JSON.stringify(e);typeof t==`function`?c[n]!==void 0&&(c[n]=t(c[n])):c[n]=t}function S(e){Object.keys(c).forEach(t=>{t.includes(e)&&delete c[t]})}var C={invalidateCache:S,initPublicData:async()=>{let e=[C.getPublicSchedule().catch(()=>null),C.getSettings().catch(()=>null),C.getPosts().catch(()=>null),C.getResults().catch(()=>null),C.getNominalRoll().catch(()=>null),C.getPublicNominations().catch(()=>null),C.getValidNominations().catch(()=>null),C.getFinalNominations().catch(()=>null)];await Promise.all(e)},initAdminData:async e=>{let t=[C.adminGetNominations(e).catch(()=>null),C.adminGetSettings(e).catch(()=>null),C.adminGetPosts(e).catch(()=>null),C.adminGetBooths(e).catch(()=>null),C.adminGetLocations(e).catch(()=>null),C.adminGetBallotPlan(e).catch(()=>null),C.adminGetCountingMatrix(e).catch(()=>null)];await Promise.all(t)},getNominalRoll:()=>v({action:`getNominalRoll`}),getPosts:()=>v({action:`getPosts`}),getPublicNominations:()=>v({action:`getPublicNominations`}),getNomination:(e,t)=>v({action:`getNomination`,id:e,admissionNo:t}),getValidNominations:()=>v({action:`getValidNominations`}),getFinalNominations:()=>v({action:`getFinalNominations`}),submitNomination:async e=>{let t=await y({action:`submitNomination`,...e});return S(`adminGetNominations`),S(`getPublicNominations`),S(`getValidNominations`),S(`getFinalNominations`),t},submitWithdrawal:async(e,t)=>{let n=await y({action:`submitWithdrawal`,id:e,admissionNo:t});return S(`adminGetNominations`),S(`getPublicNominations`),n},adminLogin:async e=>{let t=await fetch(s,{method:`POST`,headers:{"Content-Type":`application/json`},body:JSON.stringify({action:`adminLogin`,password:e})});if(!t.ok)throw Error(`Network error: ${t.status}`);let n=await t.json();if(n.error)throw Error(n.error);return n.sessionToken&&sessionStorage.setItem(`adminSessionToken`,n.sessionToken),n},adminLogout:e=>y({action:`adminLogout`,password:e}),adminSendOTP:e=>y({action:`adminSendOTP`,password:e}),adminVerifyOTP:(e,t)=>y({action:`adminVerifyOTP`,password:e,otp:t}),adminGetNominations:(e,t=!1)=>(t&&S(`adminGetNominations`),v({action:`adminGetNominations`,password:e})),adminGetFinalNominations:e=>v({action:`adminGetFinalNominations`,password:e}),adminVerifyNomination:(e,t,n,r=null)=>(x({action:`adminGetNominations`,password:e},e=>{let i=e.find(e=>e.id===t);return i&&(i.status=n,r&&(i.rejectionReason=r)),e}),b({action:`adminVerifyNomination`,password:e,id:t,status:n,reason:r}),Promise.resolve({ok:!0})),adminDeleteNomination:async(e,t)=>{let n=await y({action:`adminDeleteNomination`,password:e,confirmPassword:e,id:t});return S(`adminGetNominations`),S(`getPublicNominations`),S(`getValidNominations`),S(`getFinalNominations`),n},adminApproveWithdrawal:(e,t)=>(x({action:`adminGetNominations`,password:e},e=>{let n=e.find(e=>e.id===t);return n&&(n.withdrawalStatus=`Approved`),e}),b({action:`adminApproveWithdrawal`,password:e,id:t}),Promise.resolve({ok:!0})),adminDirectWithdrawal:(e,t)=>(x({action:`adminGetNominations`,password:e},e=>{let n=e.find(e=>e.id===t);return n&&(n.withdrawalStatus=`Approved`),e}),b({action:`adminDirectWithdrawal`,password:e,id:t}),Promise.resolve({ok:!0})),adminRestoreWithdrawal:(e,t,n=`None`)=>(x({action:`adminGetNominations`,password:e},e=>{let r=e.find(e=>e.id===t);return r&&(r.withdrawalStatus=n),e}),b({action:`adminRestoreWithdrawal`,password:e,id:t,targetStatus:n}),S(`getFinalNominations`),S(`adminGetFinalNominations`),Promise.resolve({ok:!0})),adminRejectWithdrawal:(e,t)=>(x({action:`adminGetNominations`,password:e},e=>{let n=e.find(e=>e.id===t);return n&&(n.withdrawalStatus=`Rejected`),e}),b({action:`adminRejectWithdrawal`,password:e,id:t}),S(`getFinalNominations`),S(`adminGetFinalNominations`),Promise.resolve({ok:!0})),adminPublishValidList:async e=>{x({action:`adminGetSettings`,password:e},e=>({...e,validListPublished:`true`}));let t=await y({action:`adminPublishValidList`,password:e});return S(`getValidNominations`),S(`getSettings`),S(`adminGetSettings`),t},adminPublishFinalList:async e=>{x({action:`adminGetSettings`,password:e},e=>({...e,finalListPublished:`true`}));let t=await y({action:`adminPublishFinalList`,password:e});return S(`getFinalNominations`),S(`getSettings`),S(`adminGetSettings`),t},adminUnpublishValidList:async e=>{x({action:`adminGetSettings`,password:e},e=>({...e,validListPublished:`false`,finalListPublished:`false`}));let t=await y({action:`adminUnpublishValidList`,password:e});return S(`getValidNominations`),S(`getFinalNominations`),S(`getSettings`),S(`adminGetSettings`),t},adminUnpublishFinalList:async e=>{x({action:`adminGetSettings`,password:e},e=>({...e,finalListPublished:`false`}));let t=await y({action:`adminUnpublishFinalList`,password:e});return S(`getFinalNominations`),S(`getSettings`),S(`adminGetSettings`),t},adminGetSettings:e=>v({action:`adminGetSettings`,password:e}),adminUpdateSettings:(e,t)=>(x({action:`adminGetSettings`,password:e},e=>({...e,...t})),S(`getSettings`),S(`adminGetSettings`),b({action:`adminUpdateSettings`,password:e,...t}),Promise.resolve({ok:!0})),adminUpdateCredentials:(e,t)=>y({action:`adminUpdateCredentials`,password:e,...t}),getPublicSettings:()=>v({action:`adminGetSettings`,password:`NONE`}),adminGetPosts:e=>v({action:`adminGetPosts`,password:e}),adminAddPost:async(e,t)=>{let n={...t,post:t.post||t.postName};return x({action:`adminGetPosts`,password:e},e=>[...Array.isArray(e)?e:[],n]),await b({action:`adminAddPost`,password:e,...n}),S(`getPosts`),S(`adminGetPosts`),{ok:!0}},adminUpdatePost:async(e,t)=>{let n={...t,post:t.post||t.postName},r=t.originalName||n.post;return x({action:`adminGetPosts`,password:e},e=>{if(!Array.isArray(e))return[n];let t=e.findIndex(e=>e.post===r||e.post===n.post);return t===-1?e.push(n):e[t]=n,e}),await b({action:`adminUpdatePost`,password:e,...n}),S(`getPosts`),S(`adminGetPosts`),{ok:!0}},adminDeletePost:async(e,t)=>(x({action:`adminGetPosts`,password:e},e=>e.filter(e=>e.post!==t)),await b({action:`adminDeletePost`,password:e,postName:t}),S(`getPosts`),{ok:!0}),adminReorderPosts:async(e,t)=>(x({action:`adminGetPosts`,password:e},e=>{let n={};return e.forEach(e=>n[e.post]=e),t.map(e=>n[e]).filter(Boolean)}),await b({action:`adminReorderPosts`,password:e,posts:t}),S(`getPosts`),{ok:!0}),adminGetBooths:(e,t=!1)=>(t&&S(`adminGetBooths`),v({action:`adminGetBooths`,password:e})),adminSaveBooths:async(e,t)=>{let n=await y({action:`adminSaveBooths`,password:e,booths:t});return S(`adminGetBooths`),S(`adminGetBallotPlan`),n},adminGetLocations:(e,t=!1)=>(t&&S(`adminGetLocations`),v({action:`adminGetLocations`,password:e})),adminSaveLocations:async(e,t)=>{let n=await y({action:`adminSaveLocations`,password:e,locations:t});return S(`adminGetLocations`),n},getResults:(e=!1)=>(e&&S(`getResults`),v({action:`getResults`})),adminGetResults:(e,t=!1)=>(t&&S(`adminGetResults`),v({action:`adminGetResults`,password:e})),adminToggleLockResults:async e=>{let t=await y({action:`adminToggleLockResults`,password:e});return x({action:`adminGetSettings`,password:e},e=>({...e,resultsLocked:t.locked?`true`:`false`})),S(`getSettings`),S(`adminGetSettings`),t},adminTogglePublishResults:async e=>{let t=await y({action:`adminTogglePublishResults`,password:e});return x({action:`adminGetSettings`,password:e},e=>({...e,resultsPublished:t.published?`true`:`false`})),S(`getResults`),S(`adminGetResults`),S(`getSettings`),S(`adminGetSettings`),t},adminLockResults:async e=>{let t=await y({action:`adminLockResults`,password:e});return x({action:`adminGetSettings`,password:e},e=>({...e,resultsLocked:`true`})),S(`getSettings`),S(`adminGetSettings`),t},adminUnlockResults:async e=>{let t=await y({action:`adminUnlockResults`,password:e});return x({action:`adminGetSettings`,password:e},e=>({...e,resultsLocked:`false`})),S(`getSettings`),S(`adminGetSettings`),t},adminPublishResults:async e=>{let t=await y({action:`adminPublishResults`,password:e});return x({action:`adminGetSettings`,password:e},e=>({...e,resultsPublished:`true`})),S(`getResults`),S(`adminGetResults`),S(`getSettings`),S(`adminGetSettings`),t},adminUnpublishResults:async e=>{let t=await y({action:`adminUnpublishResults`,password:e});return x({action:`adminGetSettings`,password:e},e=>({...e,resultsPublished:`false`})),S(`getResults`),S(`adminGetResults`),S(`getSettings`),S(`adminGetSettings`),t},adminToggleCounting:async e=>{let t=await y({action:`adminToggleCounting`,password:e});return S(`getResults`),S(`getSettings`),S(`adminGetSettings`),S(`getPublicSchedule`),t},adminSetCountingActive:async(e,t)=>{let n=await y({action:`adminSetCountingActive`,password:e,active:t});return S(`getResults`),S(`getSettings`),S(`adminGetSettings`),S(`getPublicSchedule`),n},adminSaveResults:(e,t)=>b({action:`adminSaveResults`,password:e,results:t}).then(e=>(S(`getResults`),S(`adminGetResults`),e)),adminInjectTestData:e=>(c={},y({action:`adminInjectTestData`,password:e})),adminWipeData:e=>(c={},y({action:`adminWipeData`,password:e})),adminGetCountingMatrix:(e,t=!1)=>(t&&S(`adminGetCountingMatrix`),v({action:`adminGetCountingMatrix`,password:e})),adminSaveCountingMatrix:async(e,t)=>{x({action:`adminGetCountingMatrix`,password:e},t);let n=await y({action:`adminSaveCountingMatrix`,password:e,matrixData:t,matrix:t});return S(`adminGetCountingMatrix`),x({action:`adminGetCountingMatrix`,password:e},t),n},adminGenerateBallotPlan:async e=>{let t=await b({action:`adminGenerateBallotPlan`,password:e});return x({action:`adminGetBallotPlan`,password:e},t.plan),t},adminGetBallotPlan:e=>v({action:`adminGetBallotPlan`,password:e}),adminGetBallotConfig:e=>v({action:`adminGetBallotConfig`,password:e}),adminSaveBallotConfig:async(e,t)=>{let n=await y({action:`adminSaveBallotConfig`,password:e,config:t});return S(`adminGetBallotConfig`),S(`adminGetBallotPlan`),n},adminRunAudit:e=>y({action:`adminRunAudit`,password:e}),adminGetNotices:(e,t=!1)=>(t&&S(`adminGetNotices`),v({action:`adminGetNotices`,password:e})),adminSaveNotices:async(e,t)=>{let n=await y({action:`adminSaveNotices`,password:e,notices:t});return S(`adminGetNotices`),n},adminSaveNotice:async(e,t)=>{let n=await y({action:`adminSaveNotice`,password:e,notice:t});return S(`adminGetNotices`),n},adminDeleteNotice:async(e,t)=>{let n=await y({action:`adminDeleteNotice`,password:e,id:t});return S(`adminGetNotices`),n},getSettings:()=>v({action:`getSettings`}),adminAddStudent:async(e,t)=>(await b({action:`adminAddStudent`,password:e,...t}),S(`getNominalRoll`),{ok:!0}),adminUpdateStudent:async(e,t)=>(await b({action:`adminUpdateStudent`,password:e,...t}),S(`getNominalRoll`),{ok:!0}),adminDeleteStudent:async(e,t)=>(await b({action:`adminDeleteStudent`,password:e,serial:t}),S(`getNominalRoll`),{ok:!0}),adminPublishDraftRoll:async e=>{let t=await y({action:`adminPublishDraftRoll`,password:e});return S(`getSettings`),S(`adminGetSettings`),t},adminUnpublishDraftRoll:async e=>{let t=await y({action:`adminUnpublishDraftRoll`,password:e});return S(`getSettings`),S(`adminGetSettings`),t},submitRollCorrection:e=>y({action:`submitRollCorrection`,...e}),adminGetRollCorrections:e=>v({action:`adminGetRollCorrections`,password:e}),adminUpdateRollCorrection:(e,t,n,r=``)=>y({action:`adminUpdateRollCorrection`,password:e,id:t,status:n,notes:r}),adminFinalizeRoll:async(e,t={})=>{let n=await y({action:`adminFinalizeRoll`,password:e,...t});return n&&n.requiresMatching?n:(S(`getSettings`),S(`adminGetSettings`),S(`getNominalRoll`),n||{ok:!0})},adminUnfinalizeRoll:async e=>{let t=await y({action:`adminUnfinalizeRoll`,password:e,confirmPassword:e});return S(`getSettings`),S(`adminGetSettings`),S(`getNominalRoll`),t||{ok:!0}},adminGetNominalRollTemplate:e=>v({action:`adminGetNominalRollTemplate`,password:e}),adminUploadNominalRoll:async(e,t)=>{let n=await y({action:`adminUploadNominalRoll`,password:e,...t});return S(`getNominalRoll`),S(`adminGetNominations`),S(`getSettings`),S(`adminGetSettings`),S(`getValidNominations`),S(`getFinalNominations`),S(`getPublicNominations`),n},adminClearNominalRoll:async e=>{let t=await y({action:`adminClearNominalRoll`,password:e,confirmPassword:e});return S(`getNominalRoll`),S(`getSettings`),S(`adminGetSettings`),S(`adminGetNominations`),S(`getValidNominations`),S(`getFinalNominations`),S(`getPublicNominations`),t},adminRemapNominations:async e=>{let t=await y({action:`adminRemapNominations`,password:e});return S(`adminGetNominations`),S(`getPublicNominations`),S(`getValidNominations`),S(`getFinalNominations`),t},adminFixSerialNumbersDeptWise:async e=>{let t=await y({action:`adminFixSerialNumbersDeptWise`,password:e});return S(`getNominalRoll`),S(`adminGetNominations`),S(`getSettings`),S(`adminGetSettings`),S(`getValidNominations`),S(`getFinalNominations`),S(`getPublicNominations`),t},getPublicSchedule:()=>v({action:`getPublicSchedule`}),adminSaveSchedule:async(e,t)=>{x({action:`getPublicSchedule`},t);let n=await y({action:`adminSaveSchedule`,password:e,...t});return S(`getPublicSchedule`),S(`getSettings`),S(`adminGetSettings`),S(`getValidNominations`),S(`getFinalNominations`),S(`getResults`),n||{ok:!0}},adminSetStageOverride:async(e,t,n)=>{let r=await y({action:`adminSetStageOverride`,password:e,stage:t,mode:n});return S(`getPublicSchedule`),S(`getSettings`),S(`adminGetSettings`),S(`getValidNominations`),S(`getFinalNominations`),S(`getResults`),r},adminExportBackup:e=>y({action:`adminExportBackup`,password:e}),adminGetSnapshots:e=>v({action:`adminGetSnapshots`,password:e}),adminDownloadSnapshot:(e,t)=>y({action:`adminDownloadSnapshot`,password:e,snapshotId:t}),adminRestoreBackup:async(e,t)=>{let n=await y({action:`adminRestoreBackup`,password:e,...t});return c={},n},adminRevertSnapshot:async(e,t)=>{let n=await y({action:`adminRevertSnapshot`,password:e,snapshotId:t});return c={},n}};function w(e,t=n.ELECTION_DATE){if(!e)return`N/A`;let r;if(typeof e==`string`&&e.includes(`-`)){let t=e.split(`-`);r=t[0].length===4?new Date(parseInt(t[0],10),parseInt(t[1],10)-1,parseInt(t[2],10)):new Date(parseInt(t[2],10),parseInt(t[1],10)-1,parseInt(t[0],10))}else r=new Date(e);if(isNaN(r.getTime()))return`N/A`;let i=new Date(t),a=i.getFullYear()-r.getFullYear(),o=i.getMonth()-r.getMonth(),s=i.getDate()-r.getDate();return s<0&&(o--,s+=new Date(i.getFullYear(),i.getMonth(),0).getDate()),o<0&&(a--,o+=12),`${a} Years, ${o} Months, ${s} Days`}var T=[{id:`1_UG`,label:`1st Year UG (I UG)`,short:`I UG`},{id:`2_UG`,label:`2nd Year UG (II UG)`,short:`II UG`},{id:`3_UG`,label:`3rd Year UG (III UG)`,short:`III UG`},{id:`1_PG`,label:`1st Year PG (I PG)`,short:`I PG`},{id:`2_PG`,label:`2nd Year PG (II PG)`,short:`II PG`},{id:`RS`,label:`Research Scholar (Ph.D)`,short:`RS`}];function E(e){let t=String(e||``).toUpperCase().trim();if(t.includes(`RESEARCH`)||t.includes(`SCHOLAR`)||t.includes(`PHD`))return`RS`;let n=/\b(MA|MSC|MCOM|M\.SC|M\.COM|M\.A|MBA|MCA|MSW)\b/.test(t)||t.includes(`POST GRADUATE`)||t.includes(`PG`);t.includes(`1ST`)||/^\s*(1|1ST|I)\b/.test(t)||/\b1ST\s+YEAR\b/.test(t)||/\bI\s+(YEAR|UG|PG|DC|DEG|BA|BSC|BCOM|MA|MSC|MCOM)\b/.test(t);let r=t.includes(`2ND`)||/^\s*(2|2ND|II)\b/.test(t)||/\b2ND\s+YEAR\b/.test(t)||/\bII\s+(YEAR|UG|PG|DC|DEG|BA|BSC|BCOM|MA|MSC|MCOM)\b/.test(t),i=t.includes(`3RD`)||/^\s*(3|3RD|III)\b/.test(t)||/\b3RD\s+YEAR\b/.test(t)||/\bIII\s+(YEAR|UG|DC|DEG|BA|BSC|BCOM)\b/.test(t);return n?r?`2_PG`:`1_PG`:i?`3_UG`:r?`2_UG`:`1_UG`}function D(e,t){if(!t)return!0;let n=E(e),r=t.yearRuleMode||(t.finalYearIneligible?`EXCLUDE`:t.yearRestriction?`INCLUDE`:`ALL`),i=[];if(Array.isArray(t.yearRuleYears)?i=t.yearRuleYears:typeof t.yearRuleYears==`string`&&t.yearRuleYears.trim()?i=t.yearRuleYears.split(`,`).map(e=>e.trim()).filter(Boolean):t.finalYearIneligible?i=[`3_UG`,`2_PG`]:t.yearRestriction===`1`?i=[`1_UG`]:t.yearRestriction===`2`?i=[`2_UG`]:t.yearRestriction===`3`?i=[`3_UG`]:t.yearRestriction===`PG`?i=[`1_PG`,`2_PG`]:t.yearRestriction===`UG`?i=[`1_UG`,`2_UG`,`3_UG`]:t.yearRestriction===`1,2`&&(i=[`1_UG`,`2_UG`]),r===`ALL`||i.length===0)return!(t.finalYearIneligible&&(n===`3_UG`||n===`2_PG`));let a=(e,t)=>!!(t.includes(e)||e.endsWith(`_UG`)&&t.includes(`UG`)||e.endsWith(`_PG`)&&t.includes(`PG`)||e.startsWith(`1_`)&&t.includes(`1`)||e.startsWith(`2_`)&&t.includes(`2`)||e.startsWith(`3_`)&&t.includes(`3`));return r===`INCLUDE`?a(n,i):r===`EXCLUDE`?!a(n,i):!0}function O(e){if(!e)return`All Years Eligible`;let t=e.yearRuleMode||(e.finalYearIneligible?`EXCLUDE`:e.yearRestriction?`INCLUDE`:`ALL`),n=[];if(Array.isArray(e.yearRuleYears)?n=e.yearRuleYears:typeof e.yearRuleYears==`string`&&e.yearRuleYears.trim()?n=e.yearRuleYears.split(`,`).map(e=>e.trim()).filter(Boolean):e.finalYearIneligible?n=[`3_UG`,`2_PG`]:e.yearRestriction===`1`?n=[`1_UG`]:e.yearRestriction===`2`?n=[`2_UG`]:e.yearRestriction===`3`?n=[`3_UG`]:e.yearRestriction===`PG`?n=[`1_PG`,`2_PG`]:e.yearRestriction===`UG`?n=[`1_UG`,`2_UG`,`3_UG`]:e.yearRestriction===`1,2`&&(n=[`1_UG`,`2_UG`]),t===`ALL`||n.length===0)return e.finalYearIneligible?`Final Years Barred (3rd UG & 2nd PG)`:`All Years Eligible`;let r=n.map(e=>{let t=T.find(t=>t.id===e);return t?t.short:e}).join(`, `);return t===`INCLUDE`?`Only: ${r}`:t===`EXCLUDE`?`Barred: ${r}`:`All Years`}function k(e,t,n,r=null,i=[],a=[]){if(!e)return[];let o=[],s=String(e.CLASS||``).toUpperCase(),c=String(e.Dept||``).toUpperCase(),l=String(e[`Nominal Roll Serial Number`]),u=i.find(e=>e.post===t)||{};if((n===`Proposer`||n===`Seconder`)&&a.some(e=>e.post===t&&e.status!==`Rejected`&&(String(e.proposerSerial)===l||String(e.seconderSerial)===l))&&o.push(`Student #${l} has already proposed or seconded a candidate for "${t}". They cannot endorse multiple candidates for the same post.`),u.deptRestriction){let r=(u.restrictedDept||(t.startsWith(`Association Secretary `)?t.replace(`Association Secretary `,``):``)).trim();if(r){let i=e=>String(e||``).toUpperCase().replace(/[^A-Z0-9]/g,``),a=i(c),s=i(r);a===s||a.includes(s)||s.includes(a)||o.push(`${n} for "${t}" must belong to the ${r} department (current student: ${e.Dept||`N/A`}).`)}}if(!D(s,u)){let e=O(u);o.push(`${n} (${s||`Unspecified`}) is not eligible under year restriction for "${t}" (${e}).`)}return n===`Candidate`&&(E(s)===`RS`&&o.push(`Research Scholars are not eligible to contest in College Union Elections.`),u.femaleOnly&&r&&r!==`Female`&&o.push(`The post of "${t}" is reserved for female candidates only.`)),o}function ee(){let e=Math.floor(Math.random()*10)+1,t=Math.floor(Math.random()*10)+1;return{question:`${e} + ${t}`,answer:String(e+t)}}function A(){return new Date().toLocaleDateString(`en-GB`)}function j(e,t,n){if(!e||!t||!n)return;let r=[`January`,`February`,`March`,`April`,`May`,`June`,`July`,`August`,`September`,`October`,`November`,`December`];for(let t=1;t<=31;t++)e.innerHTML+=`<option value="${t}">${t}</option>`;r.forEach((e,n)=>t.innerHTML+=`<option value="${n+1}">${e}</option>`);for(let e=2015;e>=1950;e--)n.innerHTML+=`<option value="${e}">${e}</option>`}function M(e,t,n){return`${n}-${String(t).padStart(2,`0`)}-${String(e).padStart(2,`0`)}`}function te(e,t,n){return`${String(e).padStart(2,`0`)}/${String(t).padStart(2,`0`)}/${n}`}function ne(e,t=`Nomination Form`){let n=window.open(``,`_blank`);if(!n){alert(`Popup blocked! Please allow popups for this site to print.`);return}n.document.write(`
     <!DOCTYPE html>
     <html>
       <head>
@@ -77,13 +77,13 @@ var e=Object.defineProperty,t=(t,n)=>{let r={};for(var i in t)e(r,i,{get:t[i],en
         <\/script>
       </body>
     </html>
-  `),n.document.close()}function P(e){return String(e??``).replace(/&/g,`&amp;`).replace(/</g,`&lt;`).replace(/>/g,`&gt;`).replace(/"/g,`&quot;`)}function F(e,t,n){t?(e.disabled=!0,e.innerHTML=`<span class="spinner"></span> Please wait...`):(e.disabled=!1,e.innerHTML=n)}function I(e,t=`info`){let n={info:`#6366f1`,success:`#10b981`,error:`#ef4444`,warning:`#f59e0b`},r=document.createElement(`div`);r.style.cssText=`position:fixed;bottom:1.5rem;right:1.5rem;z-index:9999;padding:0.75rem 1.25rem;border-radius:0.5rem;color:white;font-size:0.875rem;font-weight:500;background:${n[t]||n.info};box-shadow:0 10px 40px rgba(0,0,0,0.4);max-width:320px;transition:opacity 0.4s;`,r.textContent=e,document.body.appendChild(r),setTimeout(()=>{r.style.opacity=`0`,setTimeout(()=>r.remove(),400)},3500)}function ne(e){let t=String(e?.[`Nominal Roll Serial Number`]||e?.serial_number||e?.SL_NO||e?.[`SL. NO`]||``).trim(),n=t.replace(/^D/i,``).replace(/[^0-9]/g,``),r=parseInt(n,10),i=t.match(/[a-zA-Z]+$/),a=i?i[0].toLowerCase():``;return{num:isNaN(r)?999999999:r,suffix:a,raw:t.toLowerCase()}}function L(e,t){let n=ne(e),r=ne(t);return n.num===r.num?n.suffix===r.suffix?n.raw.localeCompare(r.raw):n.suffix.localeCompare(r.suffix):n.num-r.num}function R(e){let t=String(e?.CLASS||e?.class||`UNSPECIFIED`).trim(),n=String(e?.Dept||e?.dept||``).trim();return t.toUpperCase().includes(`RESEARCH`)||t.toUpperCase().includes(`SCHOLAR`)||t.toUpperCase().includes(`PHD`)?n?`RESEARCH SCHOLAR - ${n}`:`RESEARCH SCHOLAR`:t}function z(e){let t=String(e||``).toUpperCase().trim();return t.includes(`RESEARCH`)||t.includes(`SCHOLAR`)||t.includes(`PHD`)?6e3:/^I\s+M/i.test(t)||/^I\s+PG/i.test(t)||/1ST\s+YEAR\s+PG/i.test(t)?4e3:/^II\s+M/i.test(t)||/^II\s+PG/i.test(t)||/2ND\s+YEAR\s+PG/i.test(t)?5e3:/^III\s+M/i.test(t)?5500:/^I\s+(B|UG)/i.test(t)||/1ST\s+YEAR/i.test(t)?1e3:/^II\s+(B|UG)/i.test(t)||/2ND\s+YEAR/i.test(t)?2e3:/^III\s+(B|UG)/i.test(t)||/3RD\s+YEAR/i.test(t)?3e3:3500}async function re(e){e.innerHTML=`<div class="min-h-screen flex items-center justify-center"><span class="spinner"></span></div>`;let t=new Date().getFullYear(),r=n.COLLEGE_NAME,i=n.COLLEGE_SHORT_NAME,a={},o={};try{let[e,n]=await Promise.all([C.getPublicSchedule().catch(()=>({})),C.getSettings().catch(()=>({}))]);e&&(a=e),n&&(o=n),a.electionYear&&(t=a.electionYear),o.electionYear&&(t=o.electionYear),o.collegeName&&(r=o.collegeName),o.collegeShortName&&(i=o.collegeShortName)}catch(e){console.warn(`Failed to load schedule or settings for home page:`,e)}try{let n=new Date,s=o.nominalRollFinalized===`true`||o.isRollFinalized===`true`||a.isRollFinalized===`true`,c=!s&&(o.draftRollPublished===`true`||a.draftRollPublished===`true`),l=`<span class="badge bg-slate-500/20 text-slate-400 border border-slate-500/30 text-[10px]">⏳ Unpublished</span>`,u=`View the official voter list for the election.`;s?(l=`<span class="badge bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 text-[10px]">🔒 Final List Live</span>`,u=`Finalized nominal roll verified by Returning Officer.`):c&&(l=`<span class="badge bg-amber-500/20 text-amber-300 border border-amber-500/30 text-[10px]">📋 Draft Published</span>`,u=`Draft nominal roll published for student verification.`);let d=a.nominationStart?new Date(a.nominationStart):null,f=a.nominationDeadline?new Date(a.nominationDeadline):null,p=``,m=`New nomination form with automatic eligibility check.`;s?d&&!isNaN(d.getTime())&&n<d?(p=`<span class="badge bg-indigo-500/20 text-indigo-300 border border-indigo-500/30 text-[10px]">📅 Opens ${d.toLocaleDateString(`en-IN`,{month:`short`,day:`numeric`})}</span>`,m=`Filing begins on ${d.toLocaleString(`en-IN`,{month:`short`,day:`numeric`,hour:`2-digit`,minute:`2-digit`})}.`):f&&!isNaN(f.getTime())&&n>f?(p=`<span class="badge bg-rose-500/20 text-rose-300 border border-rose-500/30 text-[10px]">🔴 Filing Closed</span>`,m=`The official deadline for filing nominations has passed.`):(p=`<span class="badge bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 text-[10px]">🟢 Open Now</span>`,m=`Submit your candidate nomination online.`):(p=`<span class="badge bg-amber-500/20 text-amber-300 border border-amber-500/30 text-[10px]">⏳ Awaiting Final Roll</span>`,m=`Opens only after the Final Nominal Roll is published.`);let h=o.validListPublished===`true`||a.validListPublished===`true`,g=a.withdrawalStart?new Date(a.withdrawalStart):null,_=a.withdrawalEnd?new Date(a.withdrawalEnd):null,v=``,y=`Submit formal withdrawal of your candidature.`;h?g&&!isNaN(g.getTime())&&n<g?(v=`<span class="badge bg-indigo-500/20 text-indigo-300 border border-indigo-500/30 text-[10px]">📅 Opens ${g.toLocaleDateString(`en-IN`,{month:`short`,day:`numeric`})}</span>`,y=`Opens on ${g.toLocaleString(`en-IN`,{month:`short`,day:`numeric`,hour:`2-digit`,minute:`2-digit`})}.`):_&&!isNaN(_.getTime())&&n>_?(v=`<span class="badge bg-rose-500/20 text-rose-300 border border-rose-500/30 text-[10px]">🔴 Closed</span>`,y=`The official deadline for withdrawals has ended.`):(v=`<span class="badge bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 text-[10px]">🟢 Open Now</span>`,y=`Withdraw your nomination with admission number verification.`):(v=`<span class="badge bg-slate-500/20 text-slate-400 border border-slate-500/30 text-[10px]">⏳ Awaiting Scrutiny</span>`,y=`Opens after the Valid Nominations List is published.`);let b=h?`<span class="badge bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 text-[10px]">🟢 Published</span>`:`<span class="badge bg-slate-500/20 text-slate-400 border border-slate-500/30 text-[10px]">⏳ Pending Scrutiny</span>`,x=o.finalListPublished===`true`||a.finalListPublished===`true`?`<span class="badge bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 text-[10px]">🏆 Published</span>`:`<span class="badge bg-slate-500/20 text-slate-400 border border-slate-500/30 text-[10px]">⏳ Pending Final List</span>`,S=o.resultsPublished===`true`||a.resultsPublished===`true`,C=o.countingActive===`true`||a.countingActive===`true`,w=``,T=`View live vote counting and official declarations.`;S?(w=`<span class="badge bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 text-[10px]">📢 Results Declared</span>`,T=`Official election results published and verified.`):C?(w=`<span class="badge bg-amber-500/20 text-amber-300 border border-amber-500/30 text-[10px] animate-pulse">🗳️ Counting in Progress</span>`,T=`Live vote counting is currently underway.`):(w=`<span class="badge bg-slate-500/20 text-slate-400 border border-slate-500/30 text-[10px]">⏳ Awaiting Counting</span>`,T=`Check back when counting commences.`),e.innerHTML=`
+  `),n.document.close()}function N(e){return String(e??``).replace(/&/g,`&amp;`).replace(/</g,`&lt;`).replace(/>/g,`&gt;`).replace(/"/g,`&quot;`)}function P(e,t,n){t?(e.disabled=!0,e.innerHTML=`<span class="spinner"></span> Please wait...`):(e.disabled=!1,e.innerHTML=n)}function F(e,t=`info`){let n={info:`#6366f1`,success:`#10b981`,error:`#ef4444`,warning:`#f59e0b`},r=document.createElement(`div`);r.style.cssText=`position:fixed;bottom:1.5rem;right:1.5rem;z-index:9999;padding:0.75rem 1.25rem;border-radius:0.5rem;color:white;font-size:0.875rem;font-weight:500;background:${n[t]||n.info};box-shadow:0 10px 40px rgba(0,0,0,0.4);max-width:320px;transition:opacity 0.4s;`,r.textContent=e,document.body.appendChild(r),setTimeout(()=>{r.style.opacity=`0`,setTimeout(()=>r.remove(),400)},3500)}function re(e){let t=String(e?.[`Nominal Roll Serial Number`]||e?.serial_number||e?.SL_NO||e?.[`SL. NO`]||``).trim(),n=t.replace(/^D/i,``).replace(/[^0-9]/g,``),r=parseInt(n,10),i=t.match(/[a-zA-Z]+$/),a=i?i[0].toLowerCase():``;return{num:isNaN(r)?999999999:r,suffix:a,raw:t.toLowerCase()}}function I(e,t){let n=re(e),r=re(t);return n.num===r.num?n.suffix===r.suffix?n.raw.localeCompare(r.raw):n.suffix.localeCompare(r.suffix):n.num-r.num}function L(e){let t=String(e?.CLASS||e?.class||`UNSPECIFIED`).trim(),n=String(e?.Dept||e?.dept||``).trim();return t.toUpperCase().includes(`RESEARCH`)||t.toUpperCase().includes(`SCHOLAR`)||t.toUpperCase().includes(`PHD`)?n?`RESEARCH SCHOLAR - ${n}`:`RESEARCH SCHOLAR`:t}function R(e){let t=String(e||``).toUpperCase().trim();return t.includes(`RESEARCH`)||t.includes(`SCHOLAR`)||t.includes(`PHD`)?6e3:/^I\s+M/i.test(t)||/^I\s+PG/i.test(t)||/1ST\s+YEAR\s+PG/i.test(t)?4e3:/^II\s+M/i.test(t)||/^II\s+PG/i.test(t)||/2ND\s+YEAR\s+PG/i.test(t)?5e3:/^III\s+M/i.test(t)?5500:/^I\s+(B|UG)/i.test(t)||/1ST\s+YEAR/i.test(t)?1e3:/^II\s+(B|UG)/i.test(t)||/2ND\s+YEAR/i.test(t)?2e3:/^III\s+(B|UG)/i.test(t)||/3RD\s+YEAR/i.test(t)?3e3:3500}async function ie(e){e.innerHTML=`<div class="min-h-screen flex items-center justify-center"><span class="spinner"></span></div>`;let t=new Date().getFullYear(),r=n.COLLEGE_NAME,i=n.COLLEGE_SHORT_NAME,a={},o={};try{let[e,n]=await Promise.all([C.getPublicSchedule().catch(()=>({})),C.getSettings().catch(()=>({}))]);e&&(a=e),n&&(o=n),a.electionYear&&(t=a.electionYear),o.electionYear&&(t=o.electionYear),o.collegeName&&(r=o.collegeName),o.collegeShortName&&(i=o.collegeShortName)}catch(e){console.warn(`Failed to load schedule or settings for home page:`,e)}try{let n=new Date,s=o.nominalRollFinalized===`true`||o.isRollFinalized===`true`||a.isRollFinalized===`true`,c=!s&&(o.draftRollPublished===`true`||a.draftRollPublished===`true`),l=`<span class="badge bg-slate-500/20 text-slate-400 border border-slate-500/30 text-[10px]">⏳ Unpublished</span>`,u=`View the official voter list for the election.`;s?(l=`<span class="badge bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 text-[10px]">🔒 Final List Live</span>`,u=`Finalized nominal roll verified by Returning Officer.`):c&&(l=`<span class="badge bg-amber-500/20 text-amber-300 border border-amber-500/30 text-[10px]">📋 Draft Published</span>`,u=`Draft nominal roll published for student verification.`);let d=a.nominationStart?new Date(a.nominationStart):null,f=a.nominationDeadline?new Date(a.nominationDeadline):null,p=``,m=`New nomination form with automatic eligibility check.`;s?d&&!isNaN(d.getTime())&&n<d?(p=`<span class="badge bg-indigo-500/20 text-indigo-300 border border-indigo-500/30 text-[10px]">📅 Opens ${d.toLocaleDateString(`en-IN`,{month:`short`,day:`numeric`})}</span>`,m=`Filing begins on ${d.toLocaleString(`en-IN`,{month:`short`,day:`numeric`,hour:`2-digit`,minute:`2-digit`})}.`):f&&!isNaN(f.getTime())&&n>f?(p=`<span class="badge bg-rose-500/20 text-rose-300 border border-rose-500/30 text-[10px]">🔴 Filing Closed</span>`,m=`The official deadline for filing nominations has passed.`):(p=`<span class="badge bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 text-[10px]">🟢 Open Now</span>`,m=`Submit your candidate nomination online.`):(p=`<span class="badge bg-amber-500/20 text-amber-300 border border-amber-500/30 text-[10px]">⏳ Awaiting Final Roll</span>`,m=`Opens only after the Final Nominal Roll is published.`);let h=o.validListPublished===`true`||a.validListPublished===`true`,g=a.withdrawalStart?new Date(a.withdrawalStart):null,_=a.withdrawalEnd?new Date(a.withdrawalEnd):null,v=``,y=`Submit formal withdrawal of your candidature.`;h?g&&!isNaN(g.getTime())&&n<g?(v=`<span class="badge bg-indigo-500/20 text-indigo-300 border border-indigo-500/30 text-[10px]">📅 Opens ${g.toLocaleDateString(`en-IN`,{month:`short`,day:`numeric`})}</span>`,y=`Opens on ${g.toLocaleString(`en-IN`,{month:`short`,day:`numeric`,hour:`2-digit`,minute:`2-digit`})}.`):_&&!isNaN(_.getTime())&&n>_?(v=`<span class="badge bg-rose-500/20 text-rose-300 border border-rose-500/30 text-[10px]">🔴 Closed</span>`,y=`The official deadline for withdrawals has ended.`):(v=`<span class="badge bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 text-[10px]">🟢 Open Now</span>`,y=`Withdraw your nomination with admission number verification.`):(v=`<span class="badge bg-slate-500/20 text-slate-400 border border-slate-500/30 text-[10px]">⏳ Awaiting Scrutiny</span>`,y=`Opens after the Valid Nominations List is published.`);let b=h?`<span class="badge bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 text-[10px]">🟢 Published</span>`:`<span class="badge bg-slate-500/20 text-slate-400 border border-slate-500/30 text-[10px]">⏳ Pending Scrutiny</span>`,x=o.finalListPublished===`true`||a.finalListPublished===`true`?`<span class="badge bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 text-[10px]">🏆 Published</span>`:`<span class="badge bg-slate-500/20 text-slate-400 border border-slate-500/30 text-[10px]">⏳ Pending Final List</span>`,S=o.resultsPublished===`true`||a.resultsPublished===`true`,C=o.countingActive===`true`||a.countingActive===`true`,w=``,T=`View live vote counting and official declarations.`;S?(w=`<span class="badge bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 text-[10px]">📢 Results Declared</span>`,T=`Official election results published and verified.`):C?(w=`<span class="badge bg-amber-500/20 text-amber-300 border border-amber-500/30 text-[10px] animate-pulse">🗳️ Counting in Progress</span>`,T=`Live vote counting is currently underway.`):(w=`<span class="badge bg-slate-500/20 text-slate-400 border border-slate-500/30 text-[10px]">⏳ Awaiting Counting</span>`,T=`Check back when counting commences.`),e.innerHTML=`
     <div class="page-enter min-h-screen flex flex-col">
       <header class="glass sticky top-0 z-50 border-b border-white/10">
         <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
           <div class="flex items-center gap-3">
             <div class="w-8 h-8 bg-indigo-600 rounded-lg flex items-center justify-center text-white font-bold">${i.charAt(0)}</div>
-            <h1 class="text-xl font-bold text-white tracking-tight">${P(i)} Election Portal ${t}</h1>
+            <h1 class="text-xl font-bold text-white tracking-tight">${N(i)} Election Portal ${t}</h1>
           </div>
           <button data-nav="/admin" class="btn btn-secondary btn-sm flex items-center gap-2">
             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg>
@@ -99,19 +99,19 @@ var e=Object.defineProperty,t=(t,n)=>{let r={};for(var i in t)e(r,i,{get:t[i],en
             <span class="gradient-text">Election Management ${t}</span>
           </h2>
           <p class="text-slate-400 text-lg max-w-2xl mx-auto">
-            Welcome to the official election portal of ${P(r)}. 
+            Welcome to the official election portal of ${N(r)}. 
             Submit your nominations, track status, and view the finalized candidate lists for the year ${t}.
           </p>
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          ${B(`/nominal-roll`,`📜`,`Nominal Roll`,u,l)}
-          ${B(`/submit`,`📝`,`Submit Nomination`,m,p)}
-          ${B(`/find`,`🔍`,`Find My Nomination`,`Retrieve and print your submitted nomination form.`,`<span class="badge bg-indigo-500/20 text-indigo-300 border border-indigo-500/30 text-[10px]">🔍 Lookup</span>`)}
-          ${B(`/withdraw`,`↩️`,`Withdraw Nomination`,y,v)}
-          ${B(`/valid-list`,`✅`,`Valid Nominations`,`List of verified candidates before withdrawal.`,b)}
-          ${B(`/final-list`,`🏆`,`Final Candidate List`,`Approved final candidate list for ballot.`,x)}
-          ${B(`/results`,`📊`,`Live Results`,T,w)}
+          ${z(`/nominal-roll`,`📜`,`Nominal Roll`,u,l)}
+          ${z(`/submit`,`📝`,`Submit Nomination`,m,p)}
+          ${z(`/find`,`🔍`,`Find My Nomination`,`Retrieve and print your submitted nomination form.`,`<span class="badge bg-indigo-500/20 text-indigo-300 border border-indigo-500/30 text-[10px]">🔍 Lookup</span>`)}
+          ${z(`/withdraw`,`↩️`,`Withdraw Nomination`,y,v)}
+          ${z(`/valid-list`,`✅`,`Valid Nominations`,`List of verified candidates before withdrawal.`,b)}
+          ${z(`/final-list`,`🏆`,`Final Candidate List`,`Approved final candidate list for ballot.`,x)}
+          ${z(`/results`,`📊`,`Live Results`,T,w)}
         </div>
       </main>
 
@@ -127,26 +127,26 @@ var e=Object.defineProperty,t=(t,n)=>{let r={};for(var i in t)e(r,i,{get:t[i],en
           <button data-nav="/" class="btn btn-primary" onclick="window.location.reload()">Reload</button>
         </div>
       </div>
-    `}}function B(e,t,n,r,i=``){return`
+    `}}function z(e,t,n,r,i=``){return`
   <div data-nav="${e}" class="glass p-6 rounded-2xl hover:bg-white/5 transition group cursor-pointer border border-white/5 hover:border-indigo-500/30 flex flex-col justify-between">
     <div>
       <div class="flex items-center justify-between mb-4">
         <div class="text-3xl transform group-hover:scale-110 transition duration-300">${t}</div>
         ${i?`<div>${i}</div>`:``}
       </div>
-      <h3 class="text-lg font-bold text-white mb-2 group-hover:text-indigo-300 transition">${P(n)}</h3>
-      <p class="text-sm text-slate-400 leading-relaxed">${P(r)}</p>
+      <h3 class="text-lg font-bold text-white mb-2 group-hover:text-indigo-300 transition">${N(n)}</h3>
+      <p class="text-sm text-slate-400 leading-relaxed">${N(r)}</p>
     </div>
     <div class="mt-6 flex items-center gap-2 text-xs font-bold text-indigo-400 uppercase tracking-widest opacity-0 group-hover:opacity-100 transition">
       Continue <span>→</span>
     </div>
-  </div>`}function ie(e){if(!e)return``;let t=P(e);t=t.replace(/^### (.*$)/gim,`<h3 style="font-size:16px;font-weight:bold;margin:14px 0 6px 0;color:#111827;border-bottom:1px solid #e5e7eb;padding-bottom:4px;">$1</h3>`),t=t.replace(/^#### (.*$)/gim,`<h4 style="font-size:14px;font-weight:bold;margin:12px 0 4px 0;color:#374151;">$1</h4>`),t=t.replace(/^## (.*$)/gim,`<h2 style="font-size:18px;font-weight:bold;margin:16px 0 8px 0;color:#111827;">$1</h2>`),t=t.replace(/\*\*(.*?)\*\*/gim,`<strong>$1</strong>`),t=t.replace(/\*(.*?)\*/gim,`<em>$1</em>`),t=t.replace(/^---$/gim,`<hr style="border:none;border-top:1px dashed #d1d5db;margin:12px 0;">`),t=t.replace(/^\s*• (.*$)/gim,`<li style="margin-left:20px;margin-bottom:4px;">$1</li>`),t=t.replace(/^\s*\- (.*$)/gim,`<li style="margin-left:20px;margin-bottom:4px;">$1</li>`),t=t.replace(/^\s*(\d+)\.\s+(.*$)/gim,`<div style="margin-left:15px;margin-bottom:4px;"><strong>$1.</strong> $2</div>`);let n=t.split(`
+  </div>`}function ae(e){if(!e)return``;let t=N(e);t=t.replace(/^### (.*$)/gim,`<h3 style="font-size:16px;font-weight:bold;margin:14px 0 6px 0;color:#111827;border-bottom:1px solid #e5e7eb;padding-bottom:4px;">$1</h3>`),t=t.replace(/^#### (.*$)/gim,`<h4 style="font-size:14px;font-weight:bold;margin:12px 0 4px 0;color:#374151;">$1</h4>`),t=t.replace(/^## (.*$)/gim,`<h2 style="font-size:18px;font-weight:bold;margin:16px 0 8px 0;color:#111827;">$1</h2>`),t=t.replace(/\*\*(.*?)\*\*/gim,`<strong>$1</strong>`),t=t.replace(/\*(.*?)\*/gim,`<em>$1</em>`),t=t.replace(/^---$/gim,`<hr style="border:none;border-top:1px dashed #d1d5db;margin:12px 0;">`),t=t.replace(/^\s*• (.*$)/gim,`<li style="margin-left:20px;margin-bottom:4px;">$1</li>`),t=t.replace(/^\s*\- (.*$)/gim,`<li style="margin-left:20px;margin-bottom:4px;">$1</li>`),t=t.replace(/^\s*(\d+)\.\s+(.*$)/gim,`<div style="margin-left:15px;margin-bottom:4px;"><strong>$1.</strong> $2</div>`);let n=t.split(`
 `),r=!1,i=``,a=[];for(let e=0;e<n.length;e++){let t=n[e].trim();if(t.startsWith(`|`)&&t.endsWith(`|`)){if(r||(r=!0,i=`<table style="width:100%;border-collapse:collapse;margin:12px 0;font-size:12px;">`),t.includes(`:---`)||t.includes(`---:`))continue;let e=t.split(`|`).slice(1,-1).map(e=>e.trim());!i.includes(`<tbody>`)&&!i.includes(`<thead>`)?i+=`<thead><tr style="background:#f3f4f6;border-bottom:1.5px solid #000;">`+e.map(e=>`<th style="border:1px solid #9ca3af;padding:6px 8px;text-align:left;">${e}</th>`).join(``)+`</tr></thead><tbody>`:i+=`<tr style="border-bottom:1px solid #e5e7eb;">`+e.map(e=>`<td style="border:1px solid #d1d5db;padding:5px 8px;">${e}</td>`).join(``)+`</tr>`}else r&&(i+=`</tbody></table>`,a.push(i),r=!1,i=``),a.push(t)}return r&&(i+=`</tbody></table>`,a.push(i)),a.map(e=>e.startsWith(`<h`)||e.startsWith(`<hr`)||e.startsWith(`<li`)||e.startsWith(`<div`)||e.startsWith(`<table`)?e:e.trim()?`<p style="margin:6px 0;line-height:1.5;">${e}</p>`:`<div style="height:8px;"></div>`).join(`
-`)}function ae(e,t={}){let r=t.collegeName||n.COLLEGE_NAME;t.collegeShortName||n.COLLEGE_SHORT_NAME;let i=t.electionYear||new Date().getFullYear(),a=t.collegeLogo||``,o=window.open(``,`_blank`);if(!o){alert(`Pop-up blocker prevented opening the print window. Please allow pop-ups for this site.`);return}let s=ie(e.content||``);o.document.write(`<!DOCTYPE html>
+`)}function oe(e,t={}){let r=t.collegeName||n.COLLEGE_NAME;t.collegeShortName||n.COLLEGE_SHORT_NAME;let i=t.electionYear||new Date().getFullYear(),a=t.collegeLogo||``,o=window.open(``,`_blank`);if(!o){alert(`Pop-up blocker prevented opening the print window. Please allow pop-ups for this site.`);return}let s=ae(e.content||``);o.document.write(`<!DOCTYPE html>
 <html>
 <head>
   <meta charset="utf-8">
-  <title>${P(e.refNo||`Notice`)} - ${P(e.title)}</title>
+  <title>${N(e.refNo||`Notice`)} - ${N(e.title)}</title>
   <style>
     @page { size: A4; margin: 15mm; }
     * { box-sizing: border-box; }
@@ -279,20 +279,20 @@ var e=Object.defineProperty,t=(t,n)=>{let r={};for(var i in t)e(r,i,{get:t[i],en
           </td>
         `:``}
         <td style="vertical-align: middle; text-align: center;">
-          <h1 class="college-name">${P(r)}</h1>
-          <div class="sub-header">Office of the Returning Officer — College Union Elections ${P(i)}</div>
+          <h1 class="college-name">${N(r)}</h1>
+          <div class="sub-header">Office of the Returning Officer — College Union Elections ${N(i)}</div>
         </td>
       </tr>
     </table>
 
     <div class="meta-bar">
-      <div><strong>Ref No:</strong> ${P(e.refNo||`N/A`)}</div>
-      <div><strong>Date of Issue:</strong> ${P(e.date||new Date().toISOString().split(`T`)[0])}</div>
+      <div><strong>Ref No:</strong> ${N(e.refNo||`N/A`)}</div>
+      <div><strong>Date of Issue:</strong> ${N(e.date||new Date().toISOString().split(`T`)[0])}</div>
     </div>
 
     <div class="notice-title-box">
-      <h2 class="notice-title">${P(e.title)}</h2>
-      <div class="category-tag">Official Publication • ${P(e.category||`General Notice`)}</div>
+      <h2 class="notice-title">${N(e.title)}</h2>
+      <div class="category-tag">Official Publication • ${N(e.category||`General Notice`)}</div>
     </div>
 
     <div class="content-area">
@@ -305,8 +305,8 @@ var e=Object.defineProperty,t=(t,n)=>{let r={};for(var i in t)e(r,i,{get:t[i],en
       </div>
       <div class="signatory-box">
         <div style="height: 35px;"></div>
-        <p class="signatory-name">${P(e.signatoryName||`Returning Officer`)}</p>
-        <p class="signatory-title">${P(e.signatoryTitle||`Returning Officer, ${r}`)}</p>
+        <p class="signatory-name">${N(e.signatoryName||`Returning Officer`)}</p>
+        <p class="signatory-title">${N(e.signatoryTitle||`Returning Officer, ${r}`)}</p>
       </div>
     </div>
 
@@ -323,7 +323,7 @@ var e=Object.defineProperty,t=(t,n)=>{let r={};for(var i in t)e(r,i,{get:t[i],en
     };
   <\/script>
 </body>
-</html>`),o.document.close()}function oe(e,t={},n={}){se([e],t,n)}function se(e,t={},r={}){let i=t.collegeName||n.COLLEGE_NAME,a=t.collegeShortName||n.COLLEGE_SHORT_NAME,o=t.electionYear||new Date().getFullYear(),s=t.collegeLogo||``,c=window.open(``,`_blank`);if(!c){alert(`Pop-up blocker prevented opening the print window. Please allow pop-ups for this site.`);return}let l=e=>{if(!e)return``;let t=new Date(e);return isNaN(t.getTime())?``:t.toLocaleTimeString(`en-IN`,{hour:`2-digit`,minute:`2-digit`})},u=l(r.pollingStart)||`9:30 AM`,d=l(r.pollingEnd)||`1:30 PM`,f=e.map((t,n)=>{let r=Array.isArray(t.classes)?t.classes:[],a=t.totalStudents||0;return`
+</html>`),o.document.close()}function se(e,t={},n={}){ce([e],t,n)}function ce(e,t={},r={}){let i=t.collegeName||n.COLLEGE_NAME,a=t.collegeShortName||n.COLLEGE_SHORT_NAME,o=t.electionYear||new Date().getFullYear(),s=t.collegeLogo||``,c=window.open(``,`_blank`);if(!c){alert(`Pop-up blocker prevented opening the print window. Please allow pop-ups for this site.`);return}let l=e=>{if(!e)return``;let t=new Date(e);return isNaN(t.getTime())?``:t.toLocaleTimeString(`en-IN`,{hour:`2-digit`,minute:`2-digit`})},u=l(r.pollingStart)||`9:30 AM`,d=l(r.pollingEnd)||`1:30 PM`,f=e.map((t,n)=>{let r=Array.isArray(t.classes)?t.classes:[],a=t.totalStudents||0;return`
       <div class="poster-page ${n<e.length-1?`page-break`:``}">
         <!-- Outer High-Contrast Border -->
         <div class="poster-border">
@@ -332,22 +332,22 @@ var e=Object.defineProperty,t=(t,n)=>{let r={};for(var i in t)e(r,i,{get:t[i],en
           <div class="poster-header">
             ${s?`<img src="${s}" class="poster-logo" alt="Logo">`:``}
             <div>
-              <div class="college-title">${P(i)}</div>
-              <div class="election-title">College Union Elections ${P(o)} — Official Polling Station</div>
+              <div class="college-title">${N(i)}</div>
+              <div class="election-title">College Union Elections ${N(o)} — Official Polling Station</div>
             </div>
           </div>
 
           <!-- Giant Booth Number Banner -->
           <div class="booth-giant-banner">
             <div class="booth-sub-label">DESIGNATED POLLING BOOTH</div>
-            <div class="booth-main-number">BOOTH NO. ${P(t.boothNumber)}</div>
+            <div class="booth-main-number">BOOTH NO. ${N(t.boothNumber)}</div>
           </div>
 
           <!-- Room Location Callout -->
           <div class="location-banner">
             <span class="location-icon">📍</span>
             <span class="location-label">POLLING STATION VENUE:</span>
-            <span class="location-name">${P(t.roomName||`Classroom / Designated Hall`)}</span>
+            <span class="location-name">${N(t.roomName||`Classroom / Designated Hall`)}</span>
           </div>
 
           <!-- Allotted Classes Section -->
@@ -361,7 +361,7 @@ var e=Object.defineProperty,t=(t,n)=>{let r={};for(var i in t)e(r,i,{get:t[i],en
               ${r.length?r.map(e=>`
                 <div class="class-card">
                   <span class="check-icon">✔</span>
-                  <span class="class-text">${P(e)}</span>
+                  <span class="class-text">${N(e)}</span>
                 </div>
               `).join(``):`
                 <div class="class-card" style="grid-column: 1 / -1; text-align: center; color: #666;">
@@ -386,7 +386,7 @@ var e=Object.defineProperty,t=(t,n)=>{let r={};for(var i in t)e(r,i,{get:t[i],en
             </div>
             <div class="rule-item">
               <span class="rule-icon">⏰</span>
-              <span><strong>POLLING HOURS:</strong> ${P(u)} to ${P(d)} strictly</span>
+              <span><strong>POLLING HOURS:</strong> ${N(u)} to ${N(d)} strictly</span>
             </div>
             <div class="rule-item">
               <span class="rule-icon">🚫</span>
@@ -402,7 +402,7 @@ var e=Object.defineProperty,t=(t,n)=>{let r={};for(var i in t)e(r,i,{get:t[i],en
             <div class="footer-sign">
               <div class="sign-line"></div>
               <div class="sign-text">By Order of the Returning Officer</div>
-              <div class="sign-sub">${P(i)}</div>
+              <div class="sign-sub">${N(i)}</div>
             </div>
           </div>
 
@@ -412,7 +412,7 @@ var e=Object.defineProperty,t=(t,n)=>{let r={};for(var i in t)e(r,i,{get:t[i],en
 <html>
 <head>
   <meta charset="utf-8">
-  <title>Polling Booth Door Posters - ${P(a)} Election ${P(o)}</title>
+  <title>Polling Booth Door Posters - ${N(a)} Election ${N(o)}</title>
   <style>
     @page {
       size: A4 portrait;
@@ -654,18 +654,18 @@ var e=Object.defineProperty,t=(t,n)=>{let r={};for(var i in t)e(r,i,{get:t[i],en
     };
   <\/script>
 </body>
-</html>`),c.document.close()}function ce(e,t={},r={}){let i=t.collegeName||n.COLLEGE_NAME,a=t.collegeShortName||n.COLLEGE_SHORT_NAME,o=t.electionYear||new Date().getFullYear(),s=t.collegeLogo||``,c=window.open(``,`_blank`);if(!c){alert(`Pop-up blocker prevented opening the print window. Please allow pop-ups for this site.`);return}let l=e=>{if(!e)return``;let t=new Date(e);return isNaN(t.getTime())?``:t.toLocaleTimeString(`en-IN`,{hour:`2-digit`,minute:`2-digit`})},u=r.pollingStart?new Date(r.pollingStart).toLocaleDateString(`en-IN`,{weekday:`long`,day:`numeric`,month:`long`,year:`numeric`}):`Election Day`,d=l(r.pollingStart)||`9:30 AM`,f=l(r.pollingEnd)||`1:30 PM`,p=e.reduce((e,t)=>e+(t.totalStudents||0),0),m=e.map(e=>{let t=(Array.isArray(e.classes)?e.classes:[]).join(`, `)||`Classes as designated`;return`
+</html>`),c.document.close()}function le(e,t={},r={}){let i=t.collegeName||n.COLLEGE_NAME,a=t.collegeShortName||n.COLLEGE_SHORT_NAME,o=t.electionYear||new Date().getFullYear(),s=t.collegeLogo||``,c=window.open(``,`_blank`);if(!c){alert(`Pop-up blocker prevented opening the print window. Please allow pop-ups for this site.`);return}let l=e=>{if(!e)return``;let t=new Date(e);return isNaN(t.getTime())?``:t.toLocaleTimeString(`en-IN`,{hour:`2-digit`,minute:`2-digit`})},u=r.pollingStart?new Date(r.pollingStart).toLocaleDateString(`en-IN`,{weekday:`long`,day:`numeric`,month:`long`,year:`numeric`}):`Election Day`,d=l(r.pollingStart)||`9:30 AM`,f=l(r.pollingEnd)||`1:30 PM`,p=e.reduce((e,t)=>e+(t.totalStudents||0),0),m=e.map(e=>{let t=(Array.isArray(e.classes)?e.classes:[]).join(`, `)||`Classes as designated`;return`
       <tr>
         <td style="text-align: center; font-weight: 900; font-size: 14px; background: #f9fafb;">${e.boothNumber}</td>
-        <td style="font-weight: bold; font-size: 13px; text-transform: uppercase;">${P(e.roomName||`Designated Hall`)}</td>
-        <td style="font-size: 12px; line-height: 1.4;">${P(t)}</td>
+        <td style="font-weight: bold; font-size: 13px; text-transform: uppercase;">${N(e.roomName||`Designated Hall`)}</td>
+        <td style="font-size: 12px; line-height: 1.4;">${N(t)}</td>
         <td style="text-align: center; font-weight: bold; font-size: 13px;">${e.totalStudents||`–`}</td>
       </tr>
     `}).join(``);c.document.write(`<!DOCTYPE html>
 <html>
 <head>
   <meta charset="utf-8">
-  <title>Campus Master Polling Directory - ${P(a)} Election ${P(o)}</title>
+  <title>Campus Master Polling Directory - ${N(a)} Election ${N(o)}</title>
   <style>
     @page {
       size: A4 portrait;
@@ -815,8 +815,8 @@ var e=Object.defineProperty,t=(t,n)=>{let r={};for(var i in t)e(r,i,{get:t[i],en
       <div class="master-header">
         ${s?`<img src="${s}" class="master-logo" alt="Logo">`:``}
         <div>
-          <h1 class="college-name">${P(i)}</h1>
-          <div class="election-title">College Union Elections ${P(o)} — Office of the Returning Officer</div>
+          <h1 class="college-name">${N(i)}</h1>
+          <div class="election-title">College Union Elections ${N(o)} — Office of the Returning Officer</div>
         </div>
       </div>
 
@@ -825,8 +825,8 @@ var e=Object.defineProperty,t=(t,n)=>{let r={};for(var i in t)e(r,i,{get:t[i],en
       </div>
 
       <div class="info-bar">
-        <div>📅 <strong>Polling Date:</strong> ${P(u)}</div>
-        <div>⏰ <strong>Polling Hours:</strong> ${P(d)} to ${P(f)}</div>
+        <div>📅 <strong>Polling Date:</strong> ${N(u)}</div>
+        <div>⏰ <strong>Polling Hours:</strong> ${N(d)} to ${N(f)}</div>
         <div>👥 <strong>Total Registered Electors:</strong> ${p?`${p} Students`:`All Bona Fide Students`}</div>
       </div>
 
@@ -861,7 +861,7 @@ var e=Object.defineProperty,t=(t,n)=>{let r={};for(var i in t)e(r,i,{get:t[i],en
         <div class="footer-sign">
           <div class="sign-line"></div>
           <div style="font-weight: bold; font-size: 12px;">Returning Officer</div>
-          <div style="font-size: 10px; color: #444;">${P(i)}</div>
+          <div style="font-size: 10px; color: #444;">${N(i)}</div>
         </div>
       </div>
     </div>
@@ -875,11 +875,11 @@ var e=Object.defineProperty,t=(t,n)=>{let r={};for(var i in t)e(r,i,{get:t[i],en
     };
   <\/script>
 </body>
-</html>`),c.document.close()}function le(e={}){let t=e.collegeName||n.COLLEGE_NAME,r=e.collegeShortName||n.COLLEGE_SHORT_NAME,i=e.electionYear||new Date().getFullYear(),a=e.collegeLogo||``,o=window.open(``,`_blank`);if(!o){alert(`Pop-up blocker prevented opening the print window. Please allow pop-ups for this site.`);return}o.document.write(`<!DOCTYPE html>
+</html>`),c.document.close()}function ue(e={}){let t=e.collegeName||n.COLLEGE_NAME,r=e.collegeShortName||n.COLLEGE_SHORT_NAME,i=e.electionYear||new Date().getFullYear(),a=e.collegeLogo||``,o=window.open(``,`_blank`);if(!o){alert(`Pop-up blocker prevented opening the print window. Please allow pop-ups for this site.`);return}o.document.write(`<!DOCTYPE html>
 <html>
 <head>
   <meta charset="utf-8">
-  <title>Blank Nomination Paper - ${P(r)} Election ${P(i)}</title>
+  <title>Blank Nomination Paper - ${N(r)} Election ${N(i)}</title>
   <style>
     @page {
       size: A4 portrait;
@@ -1029,9 +1029,9 @@ var e=Object.defineProperty,t=(t,n)=>{let r={};for(var i in t)e(r,i,{get:t[i],en
     <div class="header-box">
       ${a?`<img src="${a}" style="max-height:48px;max-width:90px;object-fit:contain;" alt="Logo">`:`<div style="width:50px;"></div>`}
       <div style="flex:1;text-align:center;">
-        <div class="college-name">${P(t)}</div>
+        <div class="college-name">${N(t)}</div>
         <div class="college-sub">(Affiliated to the University of Calicut)</div>
-        <div class="election-title">COLLEGE UNION ELECTIONS ${P(i)}–${Number(i)+1}</div>
+        <div class="election-title">COLLEGE UNION ELECTIONS ${N(i)}–${Number(i)+1}</div>
       </div>
       <div style="width:80px;text-align:right;font-size:8pt;border:1px solid #777;padding:3px;">
         <div>Sl. No:</div>
@@ -1143,7 +1143,7 @@ var e=Object.defineProperty,t=(t,n)=>{let r={};for(var i in t)e(r,i,{get:t[i],en
       <tr>
         <td style="width:35%;">
           <div>Date: _____ / _____ / 2026</div>
-          <div style="font-size:8pt;color:#555;">Place: ${P(r)} Campus</div>
+          <div style="font-size:8pt;color:#555;">Place: ${N(r)} Campus</div>
         </td>
         <td style="width:30%;">
           <div style="height:22px;"></div>
@@ -1161,7 +1161,7 @@ var e=Object.defineProperty,t=(t,n)=>{let r={};for(var i in t)e(r,i,{get:t[i],en
     <!-- 5. RECEIPT SLIP -->
     <div class="receipt-slip">
       <div style="text-align:center;font-size:7.5pt;color:#555;margin-bottom:2px;">✂ &mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash; (Cut along dotted line and hand over to Candidate) &mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;</div>
-      <div class="receipt-header">OFFICIAL RECEIPT &mdash; NOMINATION PAPER (${P(r)} ELECTIONS ${P(i)})</div>
+      <div class="receipt-header">OFFICIAL RECEIPT &mdash; NOMINATION PAPER (${N(r)} ELECTIONS ${N(i)})</div>
       <div style="font-size:8.5pt;line-height:1.35;">
         Received the nomination paper of Sri/Smt <span class="line-fill" style="width:38%;"></span> 
         (Adm. No. <span class="line-fill" style="width:14%;"></span>) 
@@ -1185,11 +1185,11 @@ var e=Object.defineProperty,t=(t,n)=>{let r={};for(var i in t)e(r,i,{get:t[i],en
     };
   <\/script>
 </body>
-</html>`),o.document.close()}function ue(e={}){let t=e.collegeName||n.COLLEGE_NAME,r=e.collegeShortName||n.COLLEGE_SHORT_NAME,i=e.electionYear||new Date().getFullYear(),a=e.collegeLogo||``,o=window.open(``,`_blank`);if(!o){alert(`Pop-up blocker prevented opening the print window. Please allow pop-ups for this site.`);return}o.document.write(`<!DOCTYPE html>
+</html>`),o.document.close()}function de(e={}){let t=e.collegeName||n.COLLEGE_NAME,r=e.collegeShortName||n.COLLEGE_SHORT_NAME,i=e.electionYear||new Date().getFullYear(),a=e.collegeLogo||``,o=window.open(``,`_blank`);if(!o){alert(`Pop-up blocker prevented opening the print window. Please allow pop-ups for this site.`);return}o.document.write(`<!DOCTYPE html>
 <html>
 <head>
   <meta charset="utf-8">
-  <title>Blank Withdrawal Form - ${P(r)} Election ${P(i)}</title>
+  <title>Blank Withdrawal Form - ${N(r)} Election ${N(i)}</title>
   <style>
     @page {
       size: A4 portrait;
@@ -1311,9 +1311,9 @@ var e=Object.defineProperty,t=(t,n)=>{let r={};for(var i in t)e(r,i,{get:t[i],en
     <div class="header-box">
       ${a?`<img src="${a}" style="max-height:48px;max-width:90px;object-fit:contain;" alt="Logo">`:`<div style="width:40px;"></div>`}
       <div style="flex:1;text-align:center;">
-        <div class="college-name">${P(t)}</div>
+        <div class="college-name">${N(t)}</div>
         <div class="college-sub">(Affiliated to the University of Calicut)</div>
-        <div class="election-title">COLLEGE UNION ELECTIONS ${P(i)}–${Number(i)+1}</div>
+        <div class="election-title">COLLEGE UNION ELECTIONS ${N(i)}–${Number(i)+1}</div>
       </div>
       <div style="width:40px;"></div>
     </div>
@@ -1323,8 +1323,8 @@ var e=Object.defineProperty,t=(t,n)=>{let r={};for(var i in t)e(r,i,{get:t[i],en
     <div class="recipient-box">
       <strong>To:</strong><br>
       The Returning Officer,<br>
-      College Union Elections ${P(i)}–${Number(i)+1},<br>
-      ${P(t)}.
+      College Union Elections ${N(i)}–${Number(i)+1},<br>
+      ${N(t)}.
     </div>
 
     <table class="fields-table">
@@ -1355,7 +1355,7 @@ var e=Object.defineProperty,t=(t,n)=>{let r={};for(var i in t)e(r,i,{get:t[i],en
     </table>
 
     <div class="decl-box">
-      I, <span class="line-fill" style="width:45%;"></span>, a validly nominated candidate for the post of <span class="line-fill" style="width:40%;"></span> in the College Union Elections for the academic year ${P(i)}–${Number(i)+1}, do hereby give notice that I voluntarily <strong>WITHDRAW</strong> my candidature for the said post.
+      I, <span class="line-fill" style="width:45%;"></span>, a validly nominated candidate for the post of <span class="line-fill" style="width:40%;"></span> in the College Union Elections for the academic year ${N(i)}–${Number(i)+1}, do hereby give notice that I voluntarily <strong>WITHDRAW</strong> my candidature for the said post.
       <br><br>
       I declare that this decision is taken of my own free will, without any coercion or undue influence.
     </div>
@@ -1410,15 +1410,15 @@ var e=Object.defineProperty,t=(t,n)=>{let r={};for(var i in t)e(r,i,{get:t[i],en
     };
   <\/script>
 </body>
-</html>`),o.document.close()}var V=[],de=[],fe=[],H={},pe=``;async function me(e){let t=new Date().getFullYear(),r=n.COLLEGE_NAME,i=n.COLLEGE_SHORT_NAME;try{let[e,n]=await Promise.all([C.getPublicSchedule().catch(()=>({})),C.getSettings().catch(()=>({}))]);e.electionYear&&(t=e.electionYear),n.electionYear&&(t=n.electionYear),n.collegeName&&(r=n.collegeName),n.collegeShortName&&(i=n.collegeShortName)}catch{}e.innerHTML=we(`Submit Nomination`,`
+</html>`),o.document.close()}var B=[],fe=[],pe=[],V={},me=``;async function he(e){let t=new Date().getFullYear(),r=n.COLLEGE_NAME,i=n.COLLEGE_SHORT_NAME;try{let[e,n]=await Promise.all([C.getPublicSchedule().catch(()=>({})),C.getSettings().catch(()=>({}))]);e.electionYear&&(t=e.electionYear),n.electionYear&&(t=n.electionYear),n.collegeName&&(r=n.collegeName),n.collegeShortName&&(i=n.collegeShortName)}catch{}e.innerHTML=Te(`Submit Nomination`,`
     <div id="loadingState" class="flex flex-col items-center justify-center py-24 gap-4">
       <span class="spinner" style="width:2.5rem;height:2.5rem;border-width:4px;"></span>
       <p class="text-slate-400 text-sm">Loading data...</p>
     </div>
     <div id="formArea" class="hidden"></div>
-  `,t,i),e.querySelector(`#backToHome`).addEventListener(`click`,()=>o.navigate(`/`));try{let[i,a,o,s,c]=await Promise.all([C.getNominalRoll(),C.getPosts().catch(()=>null),C.getPublicNominations().catch(()=>[]),C.getPublicSchedule().catch(()=>({})),C.getSettings().catch(()=>({}))]);if(V=Array.isArray(i)?i:[],fe=Array.isArray(o)?o:[],H=s||{},V.length===0)throw Error(`Nominal roll is empty. Please contact the admin.`);de=Array.isArray(a)&&a.length>0?a:n.DEFAULT_POSTS,he(e,t,r,c||{})}catch(t){e.querySelector(`#loadingState`).innerHTML=`
-      <div class="alert alert-error">${P(t.message)}</div>
-      <button class="btn btn-secondary mt-4" id="backBtn">← Back to Home</button>`,e.querySelector(`#backBtn`).addEventListener(`click`,()=>o.navigate(`/`))}}function he(e,t,n,r={}){let i=A();pe=i.answer,e.querySelector(`#loadingState`).classList.add(`hidden`);let a=e.querySelector(`#formArea`);a.classList.remove(`hidden`);let s=r.nominalRollFinalized===`true`||r.isRollFinalized===`true`,c=!s&&r.draftRollPublished===`true`;if(!window.ADMIN_BYPASS_PWD&&!s){a.innerHTML=`
+  `,t,i),e.querySelector(`#backToHome`).addEventListener(`click`,()=>o.navigate(`/`));try{let[i,a,o,s,c]=await Promise.all([C.getNominalRoll(),C.getPosts().catch(()=>null),C.getPublicNominations().catch(()=>[]),C.getPublicSchedule().catch(()=>({})),C.getSettings().catch(()=>({}))]);if(B=Array.isArray(i)?i:[],pe=Array.isArray(o)?o:[],V=s||{},B.length===0)throw Error(`Nominal roll is empty. Please contact the admin.`);fe=Array.isArray(a)&&a.length>0?a:n.DEFAULT_POSTS,ge(e,t,r,c||{})}catch(t){e.querySelector(`#loadingState`).innerHTML=`
+      <div class="alert alert-error">${N(t.message)}</div>
+      <button class="btn btn-secondary mt-4" id="backBtn">← Back to Home</button>`,e.querySelector(`#backBtn`).addEventListener(`click`,()=>o.navigate(`/`))}}function ge(e,t,n,r={}){let i=ee();me=i.answer,e.querySelector(`#loadingState`).classList.add(`hidden`);let a=e.querySelector(`#formArea`);a.classList.remove(`hidden`);let s=r.nominalRollFinalized===`true`||r.isRollFinalized===`true`,c=!s&&r.draftRollPublished===`true`;if(!window.ADMIN_BYPASS_PWD&&!s){a.innerHTML=`
       <div class="glass p-12 text-center rounded-2xl border border-amber-500/20 max-w-2xl mx-auto page-enter">
         <div class="text-6xl mb-6">📜</div>
         <div class="badge bg-amber-500/20 text-amber-300 border border-amber-500/40 px-3 py-1 text-xs font-bold uppercase tracking-widest mb-3 inline-block">
@@ -1439,7 +1439,7 @@ var e=Object.defineProperty,t=(t,n)=>{let r={};for(var i in t)e(r,i,{get:t[i],en
           </button>
         </div>
       </div>
-    `,a.querySelector(`#viewRollBtn`).onclick=()=>o.navigate(`/nominal-roll`),a.querySelector(`#backBtn`).onclick=()=>o.navigate(`/`),a.querySelectorAll(`.btn-blank-nom-trigger`).forEach(e=>e.onclick=()=>ge(r));return}let l=H.nominationOverride||`AUTO`,u=l===`FORCE_OPEN`,d=l===`FORCE_CLOSED`,f=new Date,p=H.nominationStart?new Date(H.nominationStart):null,m=H.nominationDeadline?new Date(H.nominationDeadline):null;if(!window.ADMIN_BYPASS_PWD&&!u){if(d){a.innerHTML=`
+    `,a.querySelector(`#viewRollBtn`).onclick=()=>o.navigate(`/nominal-roll`),a.querySelector(`#backBtn`).onclick=()=>o.navigate(`/`),a.querySelectorAll(`.btn-blank-nom-trigger`).forEach(e=>e.onclick=()=>_e(r));return}let l=V.nominationOverride||`AUTO`,u=l===`FORCE_OPEN`,d=l===`FORCE_CLOSED`,f=new Date,p=V.nominationStart?new Date(V.nominationStart):null,m=V.nominationDeadline?new Date(V.nominationDeadline):null;if(!window.ADMIN_BYPASS_PWD&&!u){if(d){a.innerHTML=`
         <div class="glass p-12 text-center rounded-2xl border border-rose-500/20 max-w-2xl mx-auto page-enter">
           <div class="text-6xl mb-6">🛑</div>
           <div class="badge bg-rose-500/20 text-rose-300 border border-rose-500/40 px-3 py-1 text-xs font-bold uppercase tracking-widest mb-3 inline-block">
@@ -1454,7 +1454,7 @@ var e=Object.defineProperty,t=(t,n)=>{let r={};for(var i in t)e(r,i,{get:t[i],en
             </button>
           </div>
         </div>
-      `,a.querySelector(`#expiredBackBtn`).onclick=()=>o.navigate(`/`),a.querySelectorAll(`.btn-blank-nom-trigger`).forEach(e=>e.onclick=()=>ge(r));return}if(p&&!isNaN(p.getTime())&&f<p){a.innerHTML=`
+      `,a.querySelector(`#expiredBackBtn`).onclick=()=>o.navigate(`/`),a.querySelectorAll(`.btn-blank-nom-trigger`).forEach(e=>e.onclick=()=>_e(r));return}if(p&&!isNaN(p.getTime())&&f<p){a.innerHTML=`
         <div class="glass p-12 text-center rounded-2xl border border-amber-500/20 max-w-2xl mx-auto page-enter">
           <div class="text-6xl mb-6">📅</div>
           <div class="badge bg-amber-500/20 text-amber-300 border border-amber-500/40 px-3 py-1 text-xs font-bold uppercase tracking-widest mb-3 inline-block">
@@ -1471,7 +1471,7 @@ var e=Object.defineProperty,t=(t,n)=>{let r={};for(var i in t)e(r,i,{get:t[i],en
             </button>
           </div>
         </div>
-      `,a.querySelector(`#pendingBackBtn`).onclick=()=>o.navigate(`/`),a.querySelectorAll(`.btn-blank-nom-trigger`).forEach(e=>e.onclick=()=>ge(r));return}if(m&&!isNaN(m.getTime())&&f>m){a.innerHTML=`
+      `,a.querySelector(`#pendingBackBtn`).onclick=()=>o.navigate(`/`),a.querySelectorAll(`.btn-blank-nom-trigger`).forEach(e=>e.onclick=()=>_e(r));return}if(m&&!isNaN(m.getTime())&&f>m){a.innerHTML=`
         <div class="glass p-12 text-center rounded-2xl border border-rose-500/20 max-w-2xl mx-auto page-enter">
           <div class="text-6xl mb-6">⏳</div>
           <div class="badge bg-rose-500/20 text-rose-300 border border-rose-500/40 px-3 py-1 text-xs font-bold uppercase tracking-widest mb-3 inline-block">
@@ -1486,22 +1486,22 @@ var e=Object.defineProperty,t=(t,n)=>{let r={};for(var i in t)e(r,i,{get:t[i],en
             </button>
           </div>
         </div>
-      `,a.querySelector(`#expiredBackBtn`).onclick=()=>o.navigate(`/`),a.querySelectorAll(`.btn-blank-nom-trigger`).forEach(e=>e.onclick=()=>ge(r));return}}a.innerHTML=`
+      `,a.querySelector(`#expiredBackBtn`).onclick=()=>o.navigate(`/`),a.querySelectorAll(`.btn-blank-nom-trigger`).forEach(e=>e.onclick=()=>_e(r));return}}a.innerHTML=`
     <div id="warningBox" class="hidden alert alert-warning mb-4"></div>
 
     <form id="nomForm" class="space-y-8">
       <!-- Post -->
       <div>
         <label class="block text-sm font-semibold text-slate-300 mb-1">Post Applied For</label>
-        <select id="postSelect" class="field">${de.map(e=>`<option value="${P(e.post)}">${P(e.post)}</option>`).join(``)}</select>
+        <select id="postSelect" class="field">${fe.map(e=>`<option value="${N(e.post)}">${N(e.post)}</option>`).join(``)}</select>
         <div id="postRuleBadgeStrip" class="mt-2.5 flex flex-wrap items-center gap-2"></div>
       </div>
 
       <!-- Three columns: Candidate / Proposer / Seconder -->
       <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-        ${ve(`candidate`,`Candidate`,!0)}
-        ${ve(`proposer`,`Proposer`,!1)}
-        ${ve(`seconder`,`Seconder`,!1)}
+        ${ye(`candidate`,`Candidate`,!0)}
+        ${ye(`proposer`,`Proposer`,!1)}
+        ${ye(`seconder`,`Seconder`,!1)}
       </div>
 
       <!-- Captcha -->
@@ -1539,7 +1539,7 @@ var e=Object.defineProperty,t=(t,n)=>{let r={};for(var i in t)e(r,i,{get:t[i],en
       </div>
       <div id="printZone" class="print-zone"></div>
     </div>
-  `;function h(e){let t=e.querySelector(`#postSelect`)?.value,n=e.querySelector(`#postRuleBadgeStrip`);if(!n||!t)return;let r=de.find(e=>e.post===t)||{},i=[];r.femaleOnly&&i.push(`<span class="badge bg-pink-500/20 text-pink-300 border border-pink-500/30 text-xs">♀ Female Candidates Only</span>`);let a=r.restrictedDept||(r.deptRestriction&&String(r.post||``).startsWith(`Association Secretary `)?r.post.replace(`Association Secretary `,``).trim():``);(r.deptRestriction||a)&&i.push(`<span class="badge bg-amber-500/20 text-amber-300 border border-amber-500/30 text-xs font-semibold">🏢 ${P(a||`Dept`)} Only (Candidate & Supporters)</span>`);let o=O(r);o&&o!==`All Years Eligible`&&o!==`All Years`&&(r.yearRuleMode===`EXCLUDE`||r.finalYearIneligible?i.push(`<span class="badge bg-rose-500/20 text-rose-300 border border-rose-500/30 text-xs font-semibold">🚫 ${P(o)}</span>`):i.push(`<span class="badge bg-indigo-500/20 text-indigo-300 border border-indigo-500/30 text-xs font-semibold">🎓 ${P(o)}</span>`)),i.length===0&&i.push(`<span class="badge bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 text-xs">✓ Open to all eligible students</span>`),n.innerHTML=i.join(``)}M(a.querySelector(`#dob-day`),a.querySelector(`#dob-month`),a.querySelector(`#dob-year`)),[`candidate`,`proposer`,`seconder`].forEach(e=>{let t=a.querySelector(`#serial-${e}`);t&&(t.addEventListener(`input`,()=>ye(a,e)),t.addEventListener(`change`,()=>ye(a,e)))}),a.querySelectorAll(`.find-serial-btn`).forEach(e=>{e.addEventListener(`click`,()=>{let t=e.dataset.role,n=e.dataset.label;_e(t,n,(e,n)=>{let r=a.querySelector(`#serial-${t}`);if(r&&(r.value=e,ye(a,t)),t===`candidate`){let e=a.querySelector(`#auth-candidate`);e&&(!e.value||e.value.trim()===``)&&n&&n!==`–`&&(e.value=n,U(a))}})})});let g=a.querySelector(`#auth-candidate`);g&&(g.addEventListener(`input`,()=>U(a)),g.addEventListener(`change`,()=>U(a))),a.querySelector(`#postSelect`)?.addEventListener(`change`,()=>{h(a),U(a)}),h(a),a.querySelectorAll(`[name="gender"]`).forEach(e=>e.addEventListener(`change`,()=>U(a))),a.querySelectorAll(`.dob-sel`).forEach(e=>e.addEventListener(`change`,()=>U(a))),a.querySelector(`#refreshCaptcha`)?.addEventListener(`click`,()=>{let e=A();pe=e.answer,a.querySelector(`#captchaInput`).value=``,a.querySelector(`#captchaQuestion`).textContent=e.question}),a.querySelector(`#backHomeBtn`)?.addEventListener(`click`,()=>o.navigate(`/`)),a.querySelector(`#nomForm`)?.addEventListener(`submit`,e=>be(e,a,t,n,r?.collegeLogo||``)),a.querySelectorAll(`.btn-blank-nom-trigger`).forEach(e=>{e.addEventListener(`click`,()=>ge(r))})}function ge(e={}){confirm(`⚠️ NOTICE: BLANK NOMINATION FORM
+  `;function h(e){let t=e.querySelector(`#postSelect`)?.value,n=e.querySelector(`#postRuleBadgeStrip`);if(!n||!t)return;let r=fe.find(e=>e.post===t)||{},i=[];r.femaleOnly&&i.push(`<span class="badge bg-pink-500/20 text-pink-300 border border-pink-500/30 text-xs">♀ Female Candidates Only</span>`);let a=r.restrictedDept||(r.deptRestriction&&String(r.post||``).startsWith(`Association Secretary `)?r.post.replace(`Association Secretary `,``).trim():``);(r.deptRestriction||a)&&i.push(`<span class="badge bg-amber-500/20 text-amber-300 border border-amber-500/30 text-xs font-semibold">🏢 ${N(a||`Dept`)} Only (Candidate & Supporters)</span>`);let o=O(r);o&&o!==`All Years Eligible`&&o!==`All Years`&&(r.yearRuleMode===`EXCLUDE`||r.finalYearIneligible?i.push(`<span class="badge bg-rose-500/20 text-rose-300 border border-rose-500/30 text-xs font-semibold">🚫 ${N(o)}</span>`):i.push(`<span class="badge bg-indigo-500/20 text-indigo-300 border border-indigo-500/30 text-xs font-semibold">🎓 ${N(o)}</span>`)),i.length===0&&i.push(`<span class="badge bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 text-xs">✓ Open to all eligible students</span>`),n.innerHTML=i.join(``)}j(a.querySelector(`#dob-day`),a.querySelector(`#dob-month`),a.querySelector(`#dob-year`)),[`candidate`,`proposer`,`seconder`].forEach(e=>{let t=a.querySelector(`#serial-${e}`);t&&(t.addEventListener(`input`,()=>be(a,e)),t.addEventListener(`change`,()=>be(a,e)))}),a.querySelectorAll(`.find-serial-btn`).forEach(e=>{e.addEventListener(`click`,()=>{let t=e.dataset.role,n=e.dataset.label;ve(t,n,(e,n)=>{let r=a.querySelector(`#serial-${t}`);if(r&&(r.value=e,be(a,t)),t===`candidate`){let e=a.querySelector(`#auth-candidate`);e&&(!e.value||e.value.trim()===``)&&n&&n!==`–`&&(e.value=n,H(a))}})})});let g=a.querySelector(`#auth-candidate`);g&&(g.addEventListener(`input`,()=>H(a)),g.addEventListener(`change`,()=>H(a))),a.querySelector(`#postSelect`)?.addEventListener(`change`,()=>{h(a),H(a)}),h(a),a.querySelectorAll(`[name="gender"]`).forEach(e=>e.addEventListener(`change`,()=>H(a))),a.querySelectorAll(`.dob-sel`).forEach(e=>e.addEventListener(`change`,()=>H(a))),a.querySelector(`#refreshCaptcha`)?.addEventListener(`click`,()=>{let e=ee();me=e.answer,a.querySelector(`#captchaInput`).value=``,a.querySelector(`#captchaQuestion`).textContent=e.question}),a.querySelector(`#backHomeBtn`)?.addEventListener(`click`,()=>o.navigate(`/`)),a.querySelector(`#nomForm`)?.addEventListener(`submit`,e=>xe(e,a,t,n,r?.collegeLogo||``)),a.querySelectorAll(`.btn-blank-nom-trigger`).forEach(e=>{e.addEventListener(`click`,()=>_e(r))})}function _e(e={}){confirm(`⚠️ NOTICE: BLANK NOMINATION FORM
 
 You are requesting a BLANK Nomination Form for manual physical submission.
 
@@ -1548,14 +1548,14 @@ You are requesting a BLANK Nomination Form for manual physical submission.
 • The candidate must sign the statutory consent declaration in person before the Returning Officer.
 • Physical submission must be completed before the official deadline.
 
-Do you want to proceed and print the blank form?`)&&le(e)}function _e(e,t,n){let r=document.getElementById(`findSerialModalContainer`);r&&r.remove();let i=document.createElement(`div`);i.id=`findSerialModalContainer`,i.className=`fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/80 backdrop-blur-sm page-enter`,i.innerHTML=`
+Do you want to proceed and print the blank form?`)&&ue(e)}function ve(e,t,n){let r=document.getElementById(`findSerialModalContainer`);r&&r.remove();let i=document.createElement(`div`);i.id=`findSerialModalContainer`,i.className=`fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/80 backdrop-blur-sm page-enter`,i.innerHTML=`
     <div class="relative bg-slate-900 border border-indigo-500/30 rounded-2xl max-w-xl w-full max-h-[85vh] flex flex-col shadow-2xl overflow-hidden">
       <div class="px-6 py-4 border-b border-white/10 flex items-center justify-between bg-indigo-950/40">
         <div>
           <h3 class="font-bold text-white text-base flex items-center gap-2">
             🔍 Find Electoral Roll Serial Number
           </h3>
-          <p class="text-xs text-slate-400">Selecting for: <strong class="text-indigo-300 uppercase">${P(t)}</strong></p>
+          <p class="text-xs text-slate-400">Selecting for: <strong class="text-indigo-300 uppercase">${N(t)}</strong></p>
         </div>
         <button id="closeSerialModalBtn" class="text-slate-400 hover:text-white text-2xl leading-none">&times;</button>
       </div>
@@ -1572,23 +1572,23 @@ Do you want to proceed and print the blank form?`)&&le(e)}function _e(e,t,n){let
       </div>
       
       <div id="serialSearchResults" class="p-4 overflow-y-auto space-y-2 flex-1 max-h-[50vh]">
-        <p class="text-slate-500 text-xs text-center py-6">Type a student name or admission number to search ${V.length} students.</p>
+        <p class="text-slate-500 text-xs text-center py-6">Type a student name or admission number to search ${B.length} students.</p>
       </div>
     </div>
-  `,document.body.appendChild(i);let a=i.querySelector(`#serialSearchInput`),o=i.querySelector(`#serialSearchResults`),s=i.querySelector(`#closeSerialModalBtn`),c=()=>i.remove();s.onclick=c,i.onclick=e=>{e.target===i&&c()},a.oninput=()=>{let t=a.value.trim().toLowerCase();if(!t){o.innerHTML=`<p class="text-slate-500 text-xs text-center py-6">Type a student name or admission number to search ${V.length} students.</p>`;return}let r=V.filter(e=>{let n=String(e.NAME||e.name||``).toLowerCase(),r=String(e[`ADMISION NO`]||e[`ADMISSION NO`]||e.admission_no||e[`Admission No`]||e[`Adm No`]||``).toLowerCase(),i=String(e.CLASS||e.class||``).toLowerCase(),a=String(e.Dept||e.dept||``).toLowerCase(),o=String(e[`Nominal Roll Serial Number`]||e.serial_number||``);return n.includes(t)||r.includes(t)||i.includes(t)||a.includes(t)||o===t||o.includes(t)}).slice(0,30);if(r.length===0){o.innerHTML=`<p class="text-rose-400 text-xs text-center py-6">No matching student found in the published Nominal Roll for "${P(t)}".</p>`;return}o.innerHTML=r.map(t=>{let n=String(t[`Nominal Roll Serial Number`]||t.serial_number||``),r=String(t.NAME||t.name||``),i=String(t[`ADMISION NO`]||t[`ADMISSION NO`]||t.admission_no||t[`Admission No`]||t[`Adm No`]||`–`),a=String(t.CLASS||t.class||``),o=String(t.Dept||t.dept||`N/A`),s=a.toUpperCase().includes(`RESEARCH`)||a.toUpperCase().includes(`SCHOLAR`),c=e===`candidate`&&s;return`
+  `,document.body.appendChild(i);let a=i.querySelector(`#serialSearchInput`),o=i.querySelector(`#serialSearchResults`),s=i.querySelector(`#closeSerialModalBtn`),c=()=>i.remove();s.onclick=c,i.onclick=e=>{e.target===i&&c()},a.oninput=()=>{let t=a.value.trim().toLowerCase();if(!t){o.innerHTML=`<p class="text-slate-500 text-xs text-center py-6">Type a student name or admission number to search ${B.length} students.</p>`;return}let r=B.filter(e=>{let n=String(e.NAME||e.name||``).toLowerCase(),r=String(e[`ADMISION NO`]||e[`ADMISSION NO`]||e.admission_no||e[`Admission No`]||e[`Adm No`]||``).toLowerCase(),i=String(e.CLASS||e.class||``).toLowerCase(),a=String(e.Dept||e.dept||``).toLowerCase(),o=String(e[`Nominal Roll Serial Number`]||e.serial_number||``);return n.includes(t)||r.includes(t)||i.includes(t)||a.includes(t)||o===t||o.includes(t)}).slice(0,30);if(r.length===0){o.innerHTML=`<p class="text-rose-400 text-xs text-center py-6">No matching student found in the published Nominal Roll for "${N(t)}".</p>`;return}o.innerHTML=r.map(t=>{let n=String(t[`Nominal Roll Serial Number`]||t.serial_number||``),r=String(t.NAME||t.name||``),i=String(t[`ADMISION NO`]||t[`ADMISSION NO`]||t.admission_no||t[`Admission No`]||t[`Adm No`]||`–`),a=String(t.CLASS||t.class||``),o=String(t.Dept||t.dept||`N/A`),s=a.toUpperCase().includes(`RESEARCH`)||a.toUpperCase().includes(`SCHOLAR`),c=e===`candidate`&&s;return`
         <div class="glass hover:bg-white/[0.04] p-3 rounded-xl border border-white/5 flex items-center justify-between gap-3 transition-colors ${c?`opacity-70`:``}">
           <div class="min-w-0">
             <div class="flex items-center gap-2">
               <span class="badge bg-indigo-500/20 text-indigo-300 border border-indigo-500/40 font-mono font-bold text-xs px-2 py-0.5">
-                Sl. #${P(n)}
+                Sl. #${N(n)}
               </span>
-              <span class="font-bold text-white text-sm truncate">${P(r)}</span>
+              <span class="font-bold text-white text-sm truncate">${N(r)}</span>
               ${c?`<span class="badge bg-rose-500/20 text-rose-300 border border-rose-500/40 text-[10px] px-1.5 py-0.2">Cannot Contest</span>`:``}
             </div>
             <div class="text-[11px] text-slate-400 mt-1 flex flex-wrap gap-x-3">
-              <span>Adm: <strong class="text-slate-300 font-mono">${P(i)}</strong></span>
-              <span>Class: ${P(a)}</span>
-              <span>Dept: ${P(o)}</span>
+              <span>Adm: <strong class="text-slate-300 font-mono">${N(i)}</strong></span>
+              <span>Class: ${N(a)}</span>
+              <span>Dept: ${N(o)}</span>
             </div>
           </div>
           ${c?`
@@ -1596,12 +1596,12 @@ Do you want to proceed and print the blank form?`)&&le(e)}function _e(e,t,n){let
               Ineligible
             </button>
           `:`
-            <button type="button" class="btn btn-primary btn-xs shrink-0 select-serial-btn px-3 py-1 text-xs font-semibold" data-serial="${P(n)}" data-adm="${P(i)}">
-              Select #${P(n)}
+            <button type="button" class="btn btn-primary btn-xs shrink-0 select-serial-btn px-3 py-1 text-xs font-semibold" data-serial="${N(n)}" data-adm="${N(i)}">
+              Select #${N(n)}
             </button>
           `}
         </div>
-      `}).join(``),o.querySelectorAll(`.select-serial-btn`).forEach(e=>{e.onclick=()=>{n(e.dataset.serial,e.dataset.adm),c()}})},setTimeout(()=>a.focus(),100)}function ve(e,t,n){return`
+      `}).join(``),o.querySelectorAll(`.select-serial-btn`).forEach(e=>{e.onclick=()=>{n(e.dataset.serial,e.dataset.adm),c()}})},setTimeout(()=>a.focus(),100)}function ye(e,t,n){return`
   <div class="glass rounded-xl p-4 space-y-3 border border-white/10 shadow-lg">
     <div class="flex items-center justify-between border-b border-white/10 pb-2">
       <h3 class="font-bold text-white text-sm uppercase tracking-wide flex items-center gap-2">
@@ -1647,40 +1647,40 @@ Do you want to proceed and print the blank form?`)&&le(e)}function _e(e,t,n){let
         <select id="dob-year"  class="field dob-sel"><option value="">Year</option></select>
       </div>
     </div>`:``}
-  </div>`}function ye(e,t){let n=e.querySelector(`#serial-${t}`)?.value.trim(),r=e.querySelector(`#details-${t}`);if(!r)return;let i=V.find(e=>String(e[`Nominal Roll Serial Number`]||e.serial_number||``)===n);if(!i){r.innerHTML=n?`
+  </div>`}function be(e,t){let n=e.querySelector(`#serial-${t}`)?.value.trim(),r=e.querySelector(`#details-${t}`);if(!r)return;let i=B.find(e=>String(e[`Nominal Roll Serial Number`]||e.serial_number||``)===n);if(!i){r.innerHTML=n?`
       <div class="bg-rose-500/10 border border-rose-500/20 text-rose-300 p-2.5 rounded-lg mt-1 text-xs">
-        ⚠️ Serial <strong>#${P(n)}</strong> not found in the published Nominal Roll!
-      </div>`:``,U(e);return}r.innerHTML=`
+        ⚠️ Serial <strong>#${N(n)}</strong> not found in the published Nominal Roll!
+      </div>`:``,H(e);return}r.innerHTML=`
     <div class="bg-indigo-950/40 border border-indigo-500/30 rounded-lg p-2.5 space-y-1 mt-1 text-xs">
       <div class="flex items-center justify-between border-b border-indigo-500/20 pb-1 mb-1">
         <span class="text-slate-400 font-medium">Electoral Roll Sl. No:</span>
         <span class="badge bg-indigo-500/30 text-indigo-200 border border-indigo-400/40 font-mono font-bold text-xs px-2 py-0.5">
-          #${P(i[`Nominal Roll Serial Number`]||i.serial_number)}
+          #${N(i[`Nominal Roll Serial Number`]||i.serial_number)}
         </span>
       </div>
-      <p><span class="text-slate-400">Name:</span> <strong class="text-white">${P(i.NAME||i.name||``)}</strong></p>
-      <p><span class="text-slate-400">Class:</span> <span class="text-slate-200">${P(i.CLASS||i.class||``)}</span></p>
-      <p><span class="text-slate-400">Dept:</span> <span class="text-slate-200">${P(i.Dept||i.dept||`N/A`)}</span></p>
-      <p><span class="text-slate-400">Adm No:</span> <span class="text-indigo-300 font-mono font-semibold">${P(i[`ADMISION NO`]||i[`ADMISSION NO`]||i.admission_no||`–`)}</span></p>
-    </div>`,U(e)}function U(e){let t=[],n=e.querySelector(`#postSelect`)?.value,r=e.querySelector(`[name="gender"]:checked`)?.value||null,i=[`candidate`,`proposer`,`seconder`].map(t=>e.querySelector(`#serial-${t}`)?.value.trim()||``),a=i.map(e=>e?V.find(t=>String(t[`Nominal Roll Serial Number`]||t.serial_number||``)===e):null),[o,s,c]=i;o&&o===s&&t.push(`Candidate and Proposer cannot be the same person.`),o&&o===c&&t.push(`Candidate and Seconder cannot be the same person.`),s&&s===c&&t.push(`Proposer and Seconder cannot be the same person.`);let l=e.querySelector(`#auth-candidate`),u=l?.value.trim().toLowerCase(),d=a[0],f=e.querySelector(`#auth-feedback`);if(d&&u){let e=String(d[`ADMISION NO`]||d[`ADMISSION NO`]||d.admission_no||``).trim().toLowerCase();e&&u!==e?(t.push(`Authentication Failed: Entered Admission Number "${l.value}" does NOT match Electoral Roll Serial #${d[`Nominal Roll Serial Number`]} (${d.NAME}). A mismatched serial number will result in rejection!`),f&&(f.innerHTML=`<span class="text-rose-400 text-xs font-semibold flex items-center gap-1 mt-1">❌ Mismatch with Serial #${P(d[`Nominal Roll Serial Number`])}! Registered Adm No is different.</span>`)):e&&u===e&&f&&(f.innerHTML=`<span class="text-emerald-400 text-xs font-semibold flex items-center gap-1 mt-1">✅ Verified: Admission No matches Electoral Roll Serial #${P(d[`Nominal Roll Serial Number`])}</span>`)}else f&&(f.innerHTML=``);let p=[`Candidate`,`Proposer`,`Seconder`];a.forEach((e,i)=>{e&&t.push(...k(e,n,p[i],i===0?r:null,de,fe))});let m=e.querySelector(`#warningBox`);return m&&(t.length?(m.innerHTML=`<strong class="block mb-1">⚠ Eligibility & Serial Number Warnings</strong>`+t.map(e=>`<p class="text-sm">• ${P(e)}</p>`).join(``),m.classList.remove(`hidden`)):m.classList.add(`hidden`)),t}async function be(e,t,n,r,i=``){if(e.preventDefault(),U(t).length){I(`Please resolve all eligibility warnings first.`,`error`);return}if(t.querySelector(`#captchaInput`)?.value.trim()!==pe){I(`Captcha answer is incorrect.`,`error`);return}let a=t.querySelector(`#postSelect`)?.value,o=t.querySelector(`[name="gender"]:checked`)?.value,s=t.querySelector(`#dob-day`)?.value,c=t.querySelector(`#dob-month`)?.value,l=t.querySelector(`#dob-year`)?.value;if(!o){I(`Please select a gender for the candidate.`,`error`);return}if(!s||!c||!l){I(`Please select a complete Date of Birth (Day, Month, Year).`,`error`);return}let u=[`candidate`,`proposer`,`seconder`].map(e=>t.querySelector(`#serial-${e}`)?.value.trim()||``),d=u.map(e=>V.find(t=>String(t[`Nominal Roll Serial Number`]||t.serial_number||``)===e));if(d.some(e=>!e)){I(`One or more serial numbers are invalid.`,`error`);return}let f=t.querySelector(`#auth-candidate`)?.value.trim();if(!f){I(`Please enter the Candidate Admission Number.`,`error`);return}let p=t.querySelector(`#submitBtn`);F(p,!0,`Generating & Previewing...`);try{let e=N(s,c,l),p={post:a,gender:o,dob:e,candidateSerial:u[0],proposerSerial:u[1],seconderSerial:u[2],candidateAdmission:f};window.ADMIN_BYPASS_PWD&&(p.password=window.ADMIN_BYPASS_PWD);let m=await C.submitNomination(p);xe(t,m.id,{post:a,gender:o,day:s,month:c,year:l,dob:e,students:d},n,r,i),I(`Nomination submitted! ID: ${m.id}`,`success`)}catch(e){I(`Submission failed: ${e.message}`,`error`)}finally{F(p,!1,`Generate &amp; Preview Nomination`)}}function xe(e,t,{post:n,gender:r,day:i,month:a,year:o,dob:s,students:c},l,u,d=``){let[f,p,m]=c,h=ee(i,a,o),g=w(s),_=e.querySelector(`#previewSection`);e.querySelector(`#printZone`).innerHTML=Se(t,n,r,h,g,f,p,m,`Pending`,l,u,d),_.classList.remove(`hidden`),_.scrollIntoView({behavior:`smooth`}),_.querySelector(`#printBtn`)?.addEventListener(`click`,()=>{te(e.querySelector(`#printZone`).innerHTML)}),_.querySelector(`#newNomBtn`)?.addEventListener(`click`,()=>me(e.closest(`#app`)))}function Se(e,t,r,i,a,o,s,c,l=``,u=`2026`,d=null,f=``){let p=j(),m=d||n.COLLEGE_NAME;return`
+      <p><span class="text-slate-400">Name:</span> <strong class="text-white">${N(i.NAME||i.name||``)}</strong></p>
+      <p><span class="text-slate-400">Class:</span> <span class="text-slate-200">${N(i.CLASS||i.class||``)}</span></p>
+      <p><span class="text-slate-400">Dept:</span> <span class="text-slate-200">${N(i.Dept||i.dept||`N/A`)}</span></p>
+      <p><span class="text-slate-400">Adm No:</span> <span class="text-indigo-300 font-mono font-semibold">${N(i[`ADMISION NO`]||i[`ADMISSION NO`]||i.admission_no||`–`)}</span></p>
+    </div>`,H(e)}function H(e){let t=[],n=e.querySelector(`#postSelect`)?.value,r=e.querySelector(`[name="gender"]:checked`)?.value||null,i=[`candidate`,`proposer`,`seconder`].map(t=>e.querySelector(`#serial-${t}`)?.value.trim()||``),a=i.map(e=>e?B.find(t=>String(t[`Nominal Roll Serial Number`]||t.serial_number||``)===e):null),[o,s,c]=i;o&&o===s&&t.push(`Candidate and Proposer cannot be the same person.`),o&&o===c&&t.push(`Candidate and Seconder cannot be the same person.`),s&&s===c&&t.push(`Proposer and Seconder cannot be the same person.`);let l=e.querySelector(`#auth-candidate`),u=l?.value.trim().toLowerCase(),d=a[0],f=e.querySelector(`#auth-feedback`);if(d&&u){let e=String(d[`ADMISION NO`]||d[`ADMISSION NO`]||d.admission_no||``).trim().toLowerCase();e&&u!==e?(t.push(`Authentication Failed: Entered Admission Number "${l.value}" does NOT match Electoral Roll Serial #${d[`Nominal Roll Serial Number`]} (${d.NAME}). A mismatched serial number will result in rejection!`),f&&(f.innerHTML=`<span class="text-rose-400 text-xs font-semibold flex items-center gap-1 mt-1">❌ Mismatch with Serial #${N(d[`Nominal Roll Serial Number`])}! Registered Adm No is different.</span>`)):e&&u===e&&f&&(f.innerHTML=`<span class="text-emerald-400 text-xs font-semibold flex items-center gap-1 mt-1">✅ Verified: Admission No matches Electoral Roll Serial #${N(d[`Nominal Roll Serial Number`])}</span>`)}else f&&(f.innerHTML=``);let p=[`Candidate`,`Proposer`,`Seconder`];a.forEach((e,i)=>{e&&t.push(...k(e,n,p[i],i===0?r:null,fe,pe))});let m=e.querySelector(`#warningBox`);return m&&(t.length?(m.innerHTML=`<strong class="block mb-1">⚠ Eligibility & Serial Number Warnings</strong>`+t.map(e=>`<p class="text-sm">• ${N(e)}</p>`).join(``),m.classList.remove(`hidden`)):m.classList.add(`hidden`)),t}async function xe(e,t,n,r,i=``){if(e.preventDefault(),H(t).length){F(`Please resolve all eligibility warnings first.`,`error`);return}if(t.querySelector(`#captchaInput`)?.value.trim()!==me){F(`Captcha answer is incorrect.`,`error`);return}let a=t.querySelector(`#postSelect`)?.value,o=t.querySelector(`[name="gender"]:checked`)?.value,s=t.querySelector(`#dob-day`)?.value,c=t.querySelector(`#dob-month`)?.value,l=t.querySelector(`#dob-year`)?.value;if(!o){F(`Please select a gender for the candidate.`,`error`);return}if(!s||!c||!l){F(`Please select a complete Date of Birth (Day, Month, Year).`,`error`);return}let u=[`candidate`,`proposer`,`seconder`].map(e=>t.querySelector(`#serial-${e}`)?.value.trim()||``),d=u.map(e=>B.find(t=>String(t[`Nominal Roll Serial Number`]||t.serial_number||``)===e));if(d.some(e=>!e)){F(`One or more serial numbers are invalid.`,`error`);return}let f=t.querySelector(`#auth-candidate`)?.value.trim();if(!f){F(`Please enter the Candidate Admission Number.`,`error`);return}let p=t.querySelector(`#submitBtn`);P(p,!0,`Generating & Previewing...`);try{let e=M(s,c,l),p={post:a,gender:o,dob:e,candidateSerial:u[0],proposerSerial:u[1],seconderSerial:u[2],candidateAdmission:f};window.ADMIN_BYPASS_PWD&&(p.password=window.ADMIN_BYPASS_PWD);let m=await C.submitNomination(p);Se(t,m.id,{post:a,gender:o,day:s,month:c,year:l,dob:e,students:d},n,r,i),F(`Nomination submitted! ID: ${m.id}`,`success`)}catch(e){F(`Submission failed: ${e.message}`,`error`)}finally{P(p,!1,`Generate &amp; Preview Nomination`)}}function Se(e,t,{post:n,gender:r,day:i,month:a,year:o,dob:s,students:c},l,u,d=``){let[f,p,m]=c,h=te(i,a,o),g=w(s),_=e.querySelector(`#previewSection`);e.querySelector(`#printZone`).innerHTML=Ce(t,n,r,h,g,f,p,m,`Pending`,l,u,d),_.classList.remove(`hidden`),_.scrollIntoView({behavior:`smooth`}),_.querySelector(`#printBtn`)?.addEventListener(`click`,()=>{ne(e.querySelector(`#printZone`).innerHTML)}),_.querySelector(`#newNomBtn`)?.addEventListener(`click`,()=>he(e.closest(`#app`)))}function Ce(e,t,r,i,a,o,s,c,l=``,u=`2026`,d=null,f=``){let p=A(),m=d||n.COLLEGE_NAME;return`
   <div class="print-paper border border-slate-700 rounded-xl p-8 bg-slate-900 text-slate-200 space-y-4">
     <div class="flex justify-between items-start text-sm">
       <div>
         ${f?`<img src="${f}" style="max-height:45px;max-width:120px;margin-bottom:4px;display:block;object-fit:contain" alt="College Logo">`:``}
-        <p class="font-bold text-white text-base">${P(m)}</p>
+        <p class="font-bold text-white text-base">${N(m)}</p>
         <p class="text-slate-400">College Union Election ${u}</p>
       </div>
       <div class="text-right">
         <p class="text-slate-400 text-xs">Generated: ${p}</p>
-        ${l?`<span class="badge badge-${l.toLowerCase()}">${P(l)}</span>`:``}
+        ${l?`<span class="badge badge-${l.toLowerCase()}">${N(l)}</span>`:``}
       </div>
     </div>
     <h2 class="text-center font-bold text-xl text-white border-y border-white/10 py-3">NOMINATION PAPER</h2>
-    <p class="text-sm"><span class="font-semibold text-slate-400 w-40 inline-block">Post Applied For:</span> <strong class="text-white">${P(t)}</strong></p>
+    <p class="text-sm"><span class="font-semibold text-slate-400 w-40 inline-block">Post Applied For:</span> <strong class="text-white">${N(t)}</strong></p>
     <div class="space-y-3">
-      ${Ce(`Candidate`,o,r,i,a)}
-      ${Ce(`Proposer`,s)}
-      ${Ce(`Seconder`,c)}
+      ${we(`Candidate`,o,r,i,a)}
+      ${we(`Proposer`,s)}
+      ${we(`Seconder`,c)}
     </div>
     <div class="border-t border-white/10 pt-6 text-center space-y-3">
       <h3 class="font-bold text-white">Consent of Candidate</h3>
@@ -1692,31 +1692,31 @@ Do you want to proceed and print the blank form?`)&&le(e)}function _e(e,t,n){let
       <p class="text-xs text-slate-500 italic mb-4">(To be signed in front of the Returning Officer)</p>
     </div>
     <div class="border-t border-white/10 pt-2 text-right">
-      <p class="text-[10px] text-slate-500 font-mono">Ref ID: ${P(e)}</p>
+      <p class="text-[10px] text-slate-500 font-mono">Ref ID: ${N(e)}</p>
     </div>
-  </div>`}function Ce(e,t,n=null,r=null,i=null){if(!t)return``;let a=t[`Nominal Roll Serial Number`]||t.serial_number||t.SL_NO||``,o=t[`ADMISION NO`]||t[`ADMISSION NO`]||t.admission_no||t.candidateAdmission||t.proposerAdmission||t.seconderAdmission||``;return`
+  </div>`}function we(e,t,n=null,r=null,i=null){if(!t)return``;let a=t[`Nominal Roll Serial Number`]||t.serial_number||t.SL_NO||``,o=t[`ADMISION NO`]||t[`ADMISSION NO`]||t.admission_no||t.candidateAdmission||t.proposerAdmission||t.seconderAdmission||``;return`
   <div class="glass rounded-lg p-4 text-sm space-y-1 border border-white/10">
     <div class="flex items-center justify-between border-b border-white/10 pb-1 mb-2">
       <h3 class="font-bold text-white uppercase text-xs tracking-widest">${e} Details</h3>
       <span class="badge bg-indigo-500/20 text-indigo-300 border border-indigo-500/40 font-mono font-bold text-xs px-2.5 py-0.5">
-        Electoral Roll Sl. #${P(a)}
+        Electoral Roll Sl. #${N(a)}
       </span>
     </div>
     <div class="grid grid-cols-2 gap-x-4 gap-y-1.5 text-xs">
-      <p><span class="text-slate-400">Name:</span> <strong class="text-white text-sm">${P(t.NAME||t.name||``)}</strong></p>
-      <p><span class="text-slate-400">Admission No:</span> <strong class="text-indigo-300 font-mono">${P(o||`–`)}</strong></p>
-      <p><span class="text-slate-400">Class:</span> <span class="text-slate-200">${P(t.CLASS||t.class||``)}</span></p>
-      <p><span class="text-slate-400">Dept:</span> <span class="text-slate-200">${P(t.Dept||t.dept||`N/A`)}</span></p>
-      ${n?`<p><span class="text-slate-400">Gender:</span> <span class="text-slate-200">${P(n)}</span></p>`:``}
-      ${r?`<p><span class="text-slate-400">Date of Birth:</span> <span class="text-slate-200">${P(r)}</span></p>`:``}
-      ${i?`<p class="col-span-2"><span class="text-slate-400">Age as on Notification Date:</span> <strong class="text-emerald-400">${P(i)}</strong></p>`:``}
+      <p><span class="text-slate-400">Name:</span> <strong class="text-white text-sm">${N(t.NAME||t.name||``)}</strong></p>
+      <p><span class="text-slate-400">Admission No:</span> <strong class="text-indigo-300 font-mono">${N(o||`–`)}</strong></p>
+      <p><span class="text-slate-400">Class:</span> <span class="text-slate-200">${N(t.CLASS||t.class||``)}</span></p>
+      <p><span class="text-slate-400">Dept:</span> <span class="text-slate-200">${N(t.Dept||t.dept||`N/A`)}</span></p>
+      ${n?`<p><span class="text-slate-400">Gender:</span> <span class="text-slate-200">${N(n)}</span></p>`:``}
+      ${r?`<p><span class="text-slate-400">Date of Birth:</span> <span class="text-slate-200">${N(r)}</span></p>`:``}
+      ${i?`<p class="col-span-2"><span class="text-slate-400">Age as on Notification Date:</span> <strong class="text-emerald-400">${N(i)}</strong></p>`:``}
     </div>
     ${e===`Candidate`?``:`
     <div class="flex justify-between mt-4 text-slate-500 text-xs pt-2 border-t border-white/5">
       <span>Date: ______ / ______ / ________</span>
       <span>Signature: _______________</span>
     </div>`}
-  </div>`}function we(e,t,r=`2026`,i=null){let a=i||n.COLLEGE_SHORT_NAME;return`
+  </div>`}function Te(e,t,r=`2026`,i=null){let a=i||n.COLLEGE_SHORT_NAME;return`
   <div class="page-enter min-h-screen">
     <header class="no-print sticky top-0 z-50 border-b border-white/10 glass">
       <div class="max-w-4xl mx-auto px-6 py-4 flex items-center justify-between gap-4">
@@ -1725,15 +1725,15 @@ Do you want to proceed and print the blank form?`)&&le(e)}function _e(e,t,n){let
             <span class="text-lg">←</span> Home
           </button>
           <div class="h-6 w-px bg-white/10 mx-2"></div>
-          <h1 class="font-bold text-white text-lg tracking-tight">${P(e)}</h1>
+          <h1 class="font-bold text-white text-lg tracking-tight">${N(e)}</h1>
         </div>
         <div class="text-xs text-slate-500 font-medium hidden md:block uppercase tracking-widest">
-          ${P(a)} Election Portal ${r}
+          ${N(a)} Election Portal ${r}
         </div>
       </div>
     </header>
     <main class="max-w-4xl mx-auto px-4 py-8">${t}</main>
-  </div>`}async function Te(e){let t=new Date().getFullYear(),r=n.COLLEGE_SHORT_NAME,i=n.COLLEGE_NAME,a=``;try{let e=await C.getSettings().catch(()=>({}));e.electionYear&&(t=e.electionYear),e.collegeName&&(i=e.collegeName),e.collegeShortName&&(r=e.collegeShortName),e.collegeLogo&&(a=e.collegeLogo)}catch{}e.innerHTML=De(`Find My Nomination`,`
+  </div>`}async function Ee(e){let t=new Date().getFullYear(),r=n.COLLEGE_SHORT_NAME,i=n.COLLEGE_NAME,a=``;try{let e=await C.getSettings().catch(()=>({}));e.electionYear&&(t=e.electionYear),e.collegeName&&(i=e.collegeName),e.collegeShortName&&(r=e.collegeShortName),e.collegeLogo&&(a=e.collegeLogo)}catch{}e.innerHTML=Oe(`Find My Nomination`,`
     <div class="glass rounded-2xl p-8 max-w-lg mx-auto">
       <div class="text-center mb-8">
         <div class="text-5xl mb-3">🔍</div>
@@ -1749,16 +1749,16 @@ Do you want to proceed and print the blank form?`)&&le(e)}function _e(e,t,n){let
       </div>
       <div id="resultArea" class="mt-8"></div>
     </div>
-  `,t,r),e.querySelector(`#backToHome`).addEventListener(`click`,()=>o.navigate(`/`));let s=e.querySelector(`#searchBtn`);s.addEventListener(`click`,async()=>{let n=e.querySelector(`#searchId`).value.trim();if(n.length!==10||!/^\d+$/.test(n)){I(`Please enter a valid 10-digit numeric ID.`,`error`);return}F(s,!0,`🔍 Find Nomination`);try{let r=await C.getNomination(n);Ee(e.querySelector(`#resultArea`),r,n,t,i,a)}catch(t){e.querySelector(`#resultArea`).innerHTML=`<div class="alert alert-error mt-4">❌ ${P(t.message)}</div>`}finally{F(s,!1,`🔍 Find Nomination`)}})}function Ee(e,t,n,r,i,a=``){let o=t.dob||`N/A`,s=new Date(t.dob);isNaN(s.getTime())||(o=`${String(s.getDate()).padStart(2,`0`)}/${String(s.getMonth()+1).padStart(2,`0`)}/${s.getFullYear()}`);let c=w(t.dob);e.innerHTML=`
+  `,t,r),e.querySelector(`#backToHome`).addEventListener(`click`,()=>o.navigate(`/`));let s=e.querySelector(`#searchBtn`);s.addEventListener(`click`,async()=>{let n=e.querySelector(`#searchId`).value.trim();if(n.length!==10||!/^\d+$/.test(n)){F(`Please enter a valid 10-digit numeric ID.`,`error`);return}P(s,!0,`🔍 Find Nomination`);try{let r=await C.getNomination(n);De(e.querySelector(`#resultArea`),r,n,t,i,a)}catch(t){e.querySelector(`#resultArea`).innerHTML=`<div class="alert alert-error mt-4">❌ ${N(t.message)}</div>`}finally{P(s,!1,`🔍 Find Nomination`)}})}function De(e,t,n,r,i,a=``){let o=t.dob||`N/A`,s=new Date(t.dob);isNaN(s.getTime())||(o=`${String(s.getDate()).padStart(2,`0`)}/${String(s.getMonth()+1).padStart(2,`0`)}/${s.getFullYear()}`);let c=w(t.dob);e.innerHTML=`
     <div class="space-y-4">
-      <div class="alert alert-success">✅ Nomination found! Status: <strong>${P(t.status)}</strong></div>
+      <div class="alert alert-success">✅ Nomination found! Status: <strong>${N(t.status)}</strong></div>
       <div id="printZone" class="print-zone">
-        ${Se(n,t.post,t.gender,o,c,t.candidate,t.proposer,t.seconder,t.status,r,i,a)}
+        ${Ce(n,t.post,t.gender,o,c,t.candidate,t.proposer,t.seconder,t.status,r,i,a)}
       </div>
       <div class="flex gap-3 no-print">
         <button id="printBtn" class="btn btn-success flex-1">🖨️ Print</button>
       </div>
-    </div>`,e.querySelector(`#printBtn`).addEventListener(`click`,()=>{te(e.querySelector(`#printZone`).innerHTML)})}function De(e,t,r=`2026`,i=null){let a=i||n.COLLEGE_SHORT_NAME;return`
+    </div>`,e.querySelector(`#printBtn`).addEventListener(`click`,()=>{ne(e.querySelector(`#printZone`).innerHTML)})}function Oe(e,t,r=`2026`,i=null){let a=i||n.COLLEGE_SHORT_NAME;return`
   <div class="page-enter min-h-screen">
     <header class="no-print sticky top-0 z-50 border-b border-white/10 glass">
       <div class="max-w-4xl mx-auto px-6 py-4 flex items-center justify-between gap-4">
@@ -1767,17 +1767,17 @@ Do you want to proceed and print the blank form?`)&&le(e)}function _e(e,t,n){let
             <span class="text-lg">←</span> Home
           </button>
           <div class="h-6 w-px bg-white/10 mx-2"></div>
-          <h1 class="font-bold text-white text-lg tracking-tight">${P(e)}</h1>
+          <h1 class="font-bold text-white text-lg tracking-tight">${N(e)}</h1>
         </div>
         <div class="text-xs text-slate-500 font-medium hidden md:block uppercase tracking-widest">
-          ${P(a)} Election Portal ${r}
+          ${N(a)} Election Portal ${r}
         </div>
       </div>
     </header>
     <main class="max-w-4xl mx-auto px-4 py-8">${t}</main>
-  </div>`}async function Oe(e){let t=new Date().getFullYear(),r=n.COLLEGE_SHORT_NAME;try{let[e,n]=await Promise.all([C.getPublicSchedule().catch(()=>({})),C.getSettings().catch(()=>({}))]);e.electionYear&&(t=e.electionYear),n.electionYear&&(t=n.electionYear),n.collegeShortName&&(r=n.collegeShortName)}catch{}e.innerHTML=Ae(`Valid Nominations List`,`
+  </div>`}async function ke(e){let t=new Date().getFullYear(),r=n.COLLEGE_SHORT_NAME;try{let[e,n]=await Promise.all([C.getPublicSchedule().catch(()=>({})),C.getSettings().catch(()=>({}))]);e.electionYear&&(t=e.electionYear),n.electionYear&&(t=n.electionYear),n.collegeShortName&&(r=n.collegeShortName)}catch{}e.innerHTML=je(`Valid Nominations List`,`
     <div class="text-center py-20"><span class="spinner" style="width:2.5rem;height:2.5rem;border-width:4px;"></span><p class="text-slate-400 mt-4 text-sm">Loading Valid Nominations...</p></div>
-  `,t,r),e.querySelector(`#backToHome`).addEventListener(`click`,()=>o.navigate(`/`));try{let t=await C.getValidNominations();ke(e.querySelector(`main`),t)}catch{ke(e.querySelector(`main`),[])}}function ke(e,t){if(!t||t.length===0){e.innerHTML=`
+  `,t,r),e.querySelector(`#backToHome`).addEventListener(`click`,()=>o.navigate(`/`));try{let t=await C.getValidNominations();Ae(e.querySelector(`main`),t)}catch{Ae(e.querySelector(`main`),[])}}function Ae(e,t){if(!t||t.length===0){e.innerHTML=`
       <div class="glass rounded-3xl p-20 text-center border-dashed border-white/10">
         <div class="text-6xl mb-6">📋</div>
         <h2 class="text-2xl font-bold text-white mb-2">List Not Published</h2>
@@ -1794,7 +1794,7 @@ Do you want to proceed and print the blank form?`)&&le(e)}function _e(e,t,n){let
         ${Object.entries(n).map(([e,t])=>`
           <div class="glass rounded-2xl overflow-hidden shadow-2xl border border-white/5">
             <div class="px-6 py-4 bg-gradient-to-r from-indigo-500/10 to-purple-500/5 border-b border-white/10 flex justify-between items-center">
-              <h3 class="font-bold text-indigo-300 text-sm uppercase tracking-widest">${P(e)}</h3>
+              <h3 class="font-bold text-indigo-300 text-sm uppercase tracking-widest">${N(e)}</h3>
               <span class="text-[10px] text-slate-500 font-mono">${t.length} Candidate${t.length>1?`s`:``}</span>
             </div>
             <div class="overflow-x-auto">
@@ -1812,15 +1812,15 @@ Do you want to proceed and print the blank form?`)&&le(e)}function _e(e,t,n){let
                       <td class="text-slate-600 font-mono text-xs text-center">${t+1}</td>
                       <td>
                         <div class="font-bold text-white text-base flex items-center gap-2">
-                          <span>${P(e.candidateName)}</span>
-                          ${e.candidateSerial?`<span class="inline-flex items-center px-1.5 py-0.5 rounded text-[10px] font-mono font-semibold bg-indigo-500/20 text-indigo-300 border border-indigo-500/30" title="Electoral Roll Serial Number">Roll Sl. #${P(e.candidateSerial)}</span>`:``}
+                          <span>${N(e.candidateName)}</span>
+                          ${e.candidateSerial?`<span class="inline-flex items-center px-1.5 py-0.5 rounded text-[10px] font-mono font-semibold bg-indigo-500/20 text-indigo-300 border border-indigo-500/30" title="Electoral Roll Serial Number">Roll Sl. #${N(e.candidateSerial)}</span>`:``}
                         </div>
                         <div class="text-xs text-slate-400 mt-0.5 flex items-center gap-2">
-                          <span>${P(e.candidateClass)}</span>
-                          ${e.candidateAdmission?`<span class="text-slate-500 font-mono">Adm: ${P(e.candidateAdmission)}</span>`:``}
+                          <span>${N(e.candidateClass)}</span>
+                          ${e.candidateAdmission?`<span class="text-slate-500 font-mono">Adm: ${N(e.candidateAdmission)}</span>`:``}
                         </div>
                       </td>
-                      <td class="text-sm text-slate-400">${P(e.candidateDept)}</td>
+                      <td class="text-sm text-slate-400">${N(e.candidateDept)}</td>
                     </tr>
                   `).join(``)}
                 </tbody>
@@ -1829,22 +1829,22 @@ Do you want to proceed and print the blank form?`)&&le(e)}function _e(e,t,n){let
           </div>
         `).join(``)}
       </div>
-    </div>`}function Ae(e,t,r=`2026`,i=null){let a=i||n.COLLEGE_SHORT_NAME;return`
+    </div>`}function je(e,t,r=`2026`,i=null){let a=i||n.COLLEGE_SHORT_NAME;return`
   <div class="page-enter min-h-screen">
     <header class="no-print sticky top-0 z-10 border-b border-white/10 glass">
       <div class="max-w-5xl mx-auto px-6 py-3 flex items-center justify-between">
         <div class="flex items-center gap-4">
           <button id="backToHome" class="text-slate-400 hover:text-white transition text-sm">← Home</button>
           <span class="text-slate-600">|</span>
-          <h1 class="font-bold text-white text-sm tracking-tight">${P(e)}</h1>
+          <h1 class="font-bold text-white text-sm tracking-tight">${N(e)}</h1>
         </div>
-        <div class="text-[10px] text-slate-500 font-mono hidden sm:block">${P(a).toUpperCase()} ELECTION PORTAL ${r}</div>
+        <div class="text-[10px] text-slate-500 font-mono hidden sm:block">${N(a).toUpperCase()} ELECTION PORTAL ${r}</div>
       </div>
     </header>
     <main class="max-w-5xl mx-auto px-4 py-12">${t}</main>
-  </div>`}async function je(e){let t=new Date().getFullYear(),r=n.COLLEGE_SHORT_NAME;try{let[e,n]=await Promise.all([C.getPublicSchedule().catch(()=>({})),C.getSettings().catch(()=>({}))]);e.electionYear&&(t=e.electionYear),n.electionYear&&(t=n.electionYear),n.collegeShortName?r=n.collegeShortName:n.shortName&&(r=n.shortName)}catch{}e.innerHTML=Ne(`Final Candidates List`,`
+  </div>`}async function Me(e){let t=new Date().getFullYear(),r=n.COLLEGE_SHORT_NAME;try{let[e,n]=await Promise.all([C.getPublicSchedule().catch(()=>({})),C.getSettings().catch(()=>({}))]);e.electionYear&&(t=e.electionYear),n.electionYear&&(t=n.electionYear),n.collegeShortName?r=n.collegeShortName:n.shortName&&(r=n.shortName)}catch{}e.innerHTML=Pe(`Final Candidates List`,`
     <div class="text-center py-20"><span class="spinner" style="width:2.5rem;height:2.5rem;border-width:4px;"></span><p class="text-slate-400 mt-4 text-sm">Loading Final List...</p></div>
-  `,t,r),e.querySelector(`#backToHome`).addEventListener(`click`,()=>o.navigate(`/`));try{let n=await C.getFinalNominations();Me(e.querySelector(`main`),n?.active||[],t)}catch{Me(e.querySelector(`main`),[],t)}}function Me(e,t,n){if(!t||t.length===0){e.innerHTML=`
+  `,t,r),e.querySelector(`#backToHome`).addEventListener(`click`,()=>o.navigate(`/`));try{let n=await C.getFinalNominations();Ne(e.querySelector(`main`),n?.active||[],t)}catch{Ne(e.querySelector(`main`),[],t)}}function Ne(e,t,n){if(!t||t.length===0){e.innerHTML=`
       <div class="glass rounded-3xl p-20 text-center border-dashed border-white/10">
         <div class="text-6xl mb-6">🏁</div>
         <h2 class="text-2xl font-bold text-white mb-2">Final List Pending</h2>
@@ -1861,7 +1861,7 @@ Do you want to proceed and print the blank form?`)&&le(e)}function _e(e,t,n){let
         ${Object.entries(r).map(([e,t])=>`
           <div class="glass rounded-2xl overflow-hidden shadow-2xl border border-white/5">
             <div class="px-6 py-4 bg-gradient-to-r from-emerald-500/10 to-indigo-500/5 border-b border-white/10 flex justify-between items-center">
-              <h3 class="font-bold text-emerald-400 text-sm uppercase tracking-widest">${P(e)}</h3>
+              <h3 class="font-bold text-emerald-400 text-sm uppercase tracking-widest">${N(e)}</h3>
               <div class="flex items-center gap-3">
                 ${t.length===1?`
                   <span class="badge badge-valid bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 px-3 py-1 text-[10px] animate-pulse">
@@ -1886,15 +1886,15 @@ Do you want to proceed and print the blank form?`)&&le(e)}function _e(e,t,n){let
                       <td class="text-slate-600 font-mono text-xs text-center">${t+1}</td>
                       <td>
                         <div class="font-bold text-white text-base flex items-center gap-2">
-                          <span>${P(e.candidateName)}</span>
-                          ${e.candidateSerial?`<span class="inline-flex items-center px-1.5 py-0.5 rounded text-[10px] font-mono font-semibold bg-emerald-500/20 text-emerald-300 border border-emerald-500/30" title="Electoral Roll Serial Number">Roll Sl. #${P(e.candidateSerial)}</span>`:``}
+                          <span>${N(e.candidateName)}</span>
+                          ${e.candidateSerial?`<span class="inline-flex items-center px-1.5 py-0.5 rounded text-[10px] font-mono font-semibold bg-emerald-500/20 text-emerald-300 border border-emerald-500/30" title="Electoral Roll Serial Number">Roll Sl. #${N(e.candidateSerial)}</span>`:``}
                         </div>
                         <div class="text-xs text-slate-400 mt-0.5 flex items-center gap-2">
-                          <span>${P(e.candidateClass)}</span>
-                          ${e.candidateAdmission?`<span class="text-slate-500 font-mono">Adm: ${P(e.candidateAdmission)}</span>`:``}
+                          <span>${N(e.candidateClass)}</span>
+                          ${e.candidateAdmission?`<span class="text-slate-500 font-mono">Adm: ${N(e.candidateAdmission)}</span>`:``}
                         </div>
                       </td>
-                      <td class="text-sm text-slate-400">${P(e.candidateDept)}</td>
+                      <td class="text-sm text-slate-400">${N(e.candidateDept)}</td>
                     </tr>
                   `).join(``)}
                 </tbody>
@@ -1903,20 +1903,20 @@ Do you want to proceed and print the blank form?`)&&le(e)}function _e(e,t,n){let
           </div>
         `).join(``)}
       </div>
-    </div>`}function Ne(e,t,r=`2026`,i=null){let a=i||n.COLLEGE_SHORT_NAME;return`
+    </div>`}function Pe(e,t,r=`2026`,i=null){let a=i||n.COLLEGE_SHORT_NAME;return`
   <div class="page-enter min-h-screen">
     <header class="no-print sticky top-0 z-10 border-b border-white/10 glass">
       <div class="max-w-5xl mx-auto px-6 py-3 flex items-center justify-between">
         <div class="flex items-center gap-4">
           <button id="backToHome" class="text-slate-400 hover:text-white transition text-sm">← Home</button>
           <span class="text-slate-600">|</span>
-          <h1 class="font-bold text-white text-sm tracking-tight">${P(e)}</h1>
+          <h1 class="font-bold text-white text-sm tracking-tight">${N(e)}</h1>
         </div>
-        <div class="text-[10px] text-slate-500 font-mono hidden sm:block">${P(a).toUpperCase()} ELECTION PORTAL ${r}</div>
+        <div class="text-[10px] text-slate-500 font-mono hidden sm:block">${N(a).toUpperCase()} ELECTION PORTAL ${r}</div>
       </div>
     </header>
     <main class="max-w-5xl mx-auto px-4 py-12">${t}</main>
-  </div>`}async function Pe(e){let t=new Date().getFullYear(),r=n.COLLEGE_SHORT_NAME,i=n.COLLEGE_NAME;try{let[e,n]=await Promise.all([C.getPublicSchedule().catch(()=>({})),C.getSettings().catch(()=>({}))]);e.electionYear&&(t=e.electionYear),n.electionYear&&(t=n.electionYear),n.collegeName&&(i=n.collegeName),n.collegeShortName&&(r=n.collegeShortName)}catch{}e.innerHTML=Re(`Withdrawal Form`,`
+  </div>`}async function Fe(e){let t=new Date().getFullYear(),r=n.COLLEGE_SHORT_NAME,i=n.COLLEGE_NAME;try{let[e,n]=await Promise.all([C.getPublicSchedule().catch(()=>({})),C.getSettings().catch(()=>({}))]);e.electionYear&&(t=e.electionYear),n.electionYear&&(t=n.electionYear),n.collegeName&&(i=n.collegeName),n.collegeShortName&&(r=n.collegeShortName)}catch{}e.innerHTML=ze(`Withdrawal Form`,`
     <div id="loadingState" class="flex flex-col items-center justify-center py-24 gap-4">
       <span class="spinner" style="width:2.5rem;height:2.5rem;border-width:4px;"></span>
       <p class="text-slate-400 text-sm">Checking schedule...</p>
@@ -1939,7 +1939,7 @@ Do you want to proceed and print the blank form?`)&&le(e)}function _e(e,t,n){let
             </button>
           </div>
         </div>
-      `,l.querySelector(`#expiredBackBtn`).onclick=()=>o.navigate(`/`),l.querySelectorAll(`.btn-blank-with-trigger`).forEach(e=>e.onclick=()=>Ie(n));return}let u=t.withdrawalOverride||`AUTO`,d=u===`FORCE_OPEN`,f=u===`FORCE_CLOSED`;if(!d){if(f){l.innerHTML=`
+      `,l.querySelector(`#expiredBackBtn`).onclick=()=>o.navigate(`/`),l.querySelectorAll(`.btn-blank-with-trigger`).forEach(e=>e.onclick=()=>Le(n));return}let u=t.withdrawalOverride||`AUTO`,d=u===`FORCE_OPEN`,f=u===`FORCE_CLOSED`;if(!d){if(f){l.innerHTML=`
           <div class="glass p-12 text-center rounded-2xl border border-rose-500/20 max-w-2xl mx-auto page-enter">
             <div class="text-6xl mb-6">🛑</div>
             <h3 class="text-2xl font-bold text-white mb-3">Withdrawal Window Closed</h3>
@@ -1951,7 +1951,7 @@ Do you want to proceed and print the blank form?`)&&le(e)}function _e(e,t,n){let
               </button>
             </div>
           </div>
-        `,l.querySelector(`#expiredBackBtn`).onclick=()=>o.navigate(`/`),l.querySelectorAll(`.btn-blank-with-trigger`).forEach(e=>e.onclick=()=>Ie(n));return}if(a&&r<a){l.innerHTML=`
+        `,l.querySelector(`#expiredBackBtn`).onclick=()=>o.navigate(`/`),l.querySelectorAll(`.btn-blank-with-trigger`).forEach(e=>e.onclick=()=>Le(n));return}if(a&&r<a){l.innerHTML=`
           <div class="glass p-12 text-center rounded-2xl border border-amber-500/20 max-w-2xl mx-auto page-enter">
             <div class="text-6xl mb-6">📅</div>
             <h3 class="text-2xl font-bold text-white mb-3">Withdrawal Window Pending</h3>
@@ -1963,7 +1963,7 @@ Do you want to proceed and print the blank form?`)&&le(e)}function _e(e,t,n){let
               </button>
             </div>
           </div>
-        `,l.querySelector(`#expiredBackBtn`).onclick=()=>o.navigate(`/`),l.querySelectorAll(`.btn-blank-with-trigger`).forEach(e=>e.onclick=()=>Ie(n));return}if(s&&r>s){l.innerHTML=`
+        `,l.querySelector(`#expiredBackBtn`).onclick=()=>o.navigate(`/`),l.querySelectorAll(`.btn-blank-with-trigger`).forEach(e=>e.onclick=()=>Le(n));return}if(s&&r>s){l.innerHTML=`
           <div class="glass p-12 text-center rounded-2xl border border-rose-500/20 max-w-2xl mx-auto page-enter">
             <div class="text-6xl mb-6">⏳</div>
             <h3 class="text-2xl font-bold text-white mb-3">Withdrawal Window Closed</h3>
@@ -1975,7 +1975,7 @@ Do you want to proceed and print the blank form?`)&&le(e)}function _e(e,t,n){let
               </button>
             </div>
           </div>
-        `,l.querySelector(`#expiredBackBtn`).onclick=()=>o.navigate(`/`),l.querySelectorAll(`.btn-blank-with-trigger`).forEach(e=>e.onclick=()=>Ie(n));return}}l.innerHTML=`
+        `,l.querySelector(`#expiredBackBtn`).onclick=()=>o.navigate(`/`),l.querySelectorAll(`.btn-blank-with-trigger`).forEach(e=>e.onclick=()=>Le(n));return}}l.innerHTML=`
       <div class="glass rounded-2xl p-8 max-w-2xl mx-auto">
         <div class="text-center mb-8">
           <div class="text-5xl mb-3">↩️</div>
@@ -2002,15 +2002,15 @@ Do you want to proceed and print the blank form?`)&&le(e)}function _e(e,t,n){let
           </button>
         </div>
       </div>
-    `,l.querySelectorAll(`.btn-blank-with-trigger`).forEach(e=>e.onclick=()=>Ie(n));let p=l.querySelector(`#fetchBtn`);p.addEventListener(`click`,async()=>{let e=l.querySelector(`#withdrawId`).value.trim(),t=l.querySelector(`#authAdm`).value.trim();if(e.length!==10||!/^\d+$/.test(e)){I(`Please enter a valid 10-digit numeric ID.`,`error`);return}if(!t){I(`Please enter your Admission Number.`,`error`);return}F(p,!0,`Fetch Nomination Details`);try{let n=await C.getNomination(e,t);Fe(l.querySelector(`#nominationDetails`),n,e,t,i)}catch(e){l.querySelector(`#nominationDetails`).innerHTML=`<div class="alert alert-error">❌ ${P(e.message)}</div>`}finally{F(p,!1,`Fetch Nomination Details`)}})}catch(t){e.querySelector(`#loadingState`).innerHTML=`<div class="alert alert-error">❌ ${P(t.message)}</div>`}}function Fe(e,t,n,r,i=null){if(t.status!==`Valid`){e.innerHTML=`<div class="alert alert-warning">⚠ This nomination has status <strong>${P(t.status)}</strong>. Only <strong>Valid</strong> nominations can be withdrawn.</div>`;return}if(t.withdrawalStatus===`Requested`||t.withdrawalStatus===`Pending`||t.withdrawalStatus===`Approved`){e.innerHTML=`<div class="alert alert-info">ℹ A withdrawal request has already been ${t.withdrawalStatus===`Approved`?`approved`:`submitted and is currently under review by the Returning Officer`} for this nomination.</div>`;return}e.innerHTML=`
+    `,l.querySelectorAll(`.btn-blank-with-trigger`).forEach(e=>e.onclick=()=>Le(n));let p=l.querySelector(`#fetchBtn`);p.addEventListener(`click`,async()=>{let e=l.querySelector(`#withdrawId`).value.trim(),t=l.querySelector(`#authAdm`).value.trim();if(e.length!==10||!/^\d+$/.test(e)){F(`Please enter a valid 10-digit numeric ID.`,`error`);return}if(!t){F(`Please enter your Admission Number.`,`error`);return}P(p,!0,`Fetch Nomination Details`);try{let n=await C.getNomination(e,t);Ie(l.querySelector(`#nominationDetails`),n,e,t,i)}catch(e){l.querySelector(`#nominationDetails`).innerHTML=`<div class="alert alert-error">❌ ${N(e.message)}</div>`}finally{P(p,!1,`Fetch Nomination Details`)}})}catch(t){e.querySelector(`#loadingState`).innerHTML=`<div class="alert alert-error">❌ ${N(t.message)}</div>`}}function Ie(e,t,n,r,i=null){if(t.status!==`Valid`){e.innerHTML=`<div class="alert alert-warning">⚠ This nomination has status <strong>${N(t.status)}</strong>. Only <strong>Valid</strong> nominations can be withdrawn.</div>`;return}if(t.withdrawalStatus===`Requested`||t.withdrawalStatus===`Pending`||t.withdrawalStatus===`Approved`){e.innerHTML=`<div class="alert alert-info">ℹ A withdrawal request has already been ${t.withdrawalStatus===`Approved`?`approved`:`submitted and is currently under review by the Returning Officer`} for this nomination.</div>`;return}e.innerHTML=`
     <div class="space-y-4">
       <div class="alert alert-success">✅ Nomination found. Please review the details below before submitting your withdrawal.</div>
       <div class="glass rounded-xl p-5 text-sm space-y-2">
-        <p><span class="text-slate-400 w-36 inline-block">Nomination ID:</span> <strong class="font-mono text-indigo-300">${P(n)}</strong></p>
-        <p><span class="text-slate-400 w-36 inline-block">Post:</span> <strong class="text-white">${P(t.post)}</strong></p>
-        <p><span class="text-slate-400 w-36 inline-block">Candidate:</span> ${P(t.candidate?.NAME||t.candidateName||`N/A`)}</p>
-        <p><span class="text-slate-400 w-36 inline-block">Class:</span> ${P(t.candidate?.CLASS||t.candidateClass||`N/A`)}</p>
-        <p><span class="text-slate-400 w-36 inline-block">Dept:</span> ${P(t.candidate?.Dept||t.candidateDept||`N/A`)}</p>
+        <p><span class="text-slate-400 w-36 inline-block">Nomination ID:</span> <strong class="font-mono text-indigo-300">${N(n)}</strong></p>
+        <p><span class="text-slate-400 w-36 inline-block">Post:</span> <strong class="text-white">${N(t.post)}</strong></p>
+        <p><span class="text-slate-400 w-36 inline-block">Candidate:</span> ${N(t.candidate?.NAME||t.candidateName||`N/A`)}</p>
+        <p><span class="text-slate-400 w-36 inline-block">Class:</span> ${N(t.candidate?.CLASS||t.candidateClass||`N/A`)}</p>
+        <p><span class="text-slate-400 w-36 inline-block">Dept:</span> ${N(t.candidate?.Dept||t.candidateDept||`N/A`)}</p>
       </div>
       <div class="alert alert-warning text-sm">
         ⚠ <strong>Warning:</strong> Submitting this withdrawal is irreversible. The request will be sent to the Returning Officer for final approval.
@@ -2018,14 +2018,14 @@ Do you want to proceed and print the blank form?`)&&le(e)}function _e(e,t,n){let
       <div class="flex gap-3">
         <button id="withdrawBtn" class="btn btn-danger flex-1">Submit Withdrawal Request</button>
       </div>
-    </div>`,e.querySelector(`#withdrawBtn`).addEventListener(`click`,async()=>{let a=e.querySelector(`#withdrawBtn`);F(a,!0,`Submit Withdrawal Request`);try{await C.submitWithdrawal(n,r),e.innerHTML=`
+    </div>`,e.querySelector(`#withdrawBtn`).addEventListener(`click`,async()=>{let a=e.querySelector(`#withdrawBtn`);P(a,!0,`Submit Withdrawal Request`);try{await C.submitWithdrawal(n,r),e.innerHTML=`
         <div class="alert alert-success">✅ Withdrawal request submitted successfully! The Returning Officer will review your request.</div>
         <div class="mt-4 no-print">
           <button id="printWithdrawal" class="btn btn-secondary">🖨️ Print Withdrawal Form</button>
         </div>
         <div class="print-zone mt-4">
-          ${Le(n,t,i)}
-        </div>`,e.querySelector(`#printWithdrawal`).addEventListener(`click`,()=>{te(e.querySelector(`.print-zone`).innerHTML,`Withdrawal Form`)}),I(`Withdrawal request submitted!`,`success`)}catch(e){I(`Failed: ${e.message}`,`error`),F(a,!1,`Submit Withdrawal Request`)}})}function Ie(e={}){confirm(`⚠️ NOTICE: BLANK WITHDRAWAL FORM
+          ${Re(n,t,i)}
+        </div>`,e.querySelector(`#printWithdrawal`).addEventListener(`click`,()=>{ne(e.querySelector(`.print-zone`).innerHTML,`Withdrawal Form`)}),F(`Withdrawal request submitted!`,`success`)}catch(e){F(`Failed: ${e.message}`,`error`),P(a,!1,`Submit Withdrawal Request`)}})}function Le(e={}){confirm(`⚠️ NOTICE: BLANK WITHDRAWAL FORM
 
 You are requesting a BLANK Notice of Withdrawal Form for manual physical submission.
 
@@ -2033,25 +2033,25 @@ You are requesting a BLANK Notice of Withdrawal Form for manual physical submiss
 • It must be submitted in person to the Returning Officer before the withdrawal deadline.
 • Withdrawal of candidature, once accepted by the Returning Officer, is final and irreversible.
 
-Do you want to proceed and print the blank form?`)&&ue(e)}function Le(e,t,r=null){let i=j(),a=t.candidate?.NAME||t.candidateName||`N/A`,o=t.candidate?.CLASS||t.candidateClass||`N/A`,s=t.candidate?.Dept||t.candidateDept||`N/A`;return`
+Do you want to proceed and print the blank form?`)&&de(e)}function Re(e,t,r=null){let i=A(),a=t.candidate?.NAME||t.candidateName||`N/A`,o=t.candidate?.CLASS||t.candidateClass||`N/A`,s=t.candidate?.Dept||t.candidateDept||`N/A`;return`
   <div class="print-paper border border-slate-700 rounded-xl p-8 bg-slate-900 text-slate-200 space-y-5">
     <div class="flex justify-between text-sm">
       <div>
-        <p class="font-bold text-white text-base">${P(r||n.COLLEGE_NAME)}</p>
+        <p class="font-bold text-white text-base">${N(r||n.COLLEGE_NAME)}</p>
         <p class="text-slate-400">College Union Election — Withdrawal Form</p>
       </div>
       <p class="text-slate-400 text-xs">Date: ${i}</p>
     </div>
     <h2 class="text-center font-bold text-xl text-white border-y border-white/10 py-3">WITHDRAWAL OF NOMINATION</h2>
     <div class="space-y-2 text-sm">
-      <p><span class="text-slate-400 w-40 inline-block">Nomination ID:</span> <strong class="font-mono text-indigo-300 text-lg">${P(e)}</strong></p>
-      <p><span class="text-slate-400 w-40 inline-block">Post:</span> <strong class="text-white">${P(t.post)}</strong></p>
-      <p><span class="text-slate-400 w-40 inline-block">Candidate Name:</span> ${P(a)}</p>
-      <p><span class="text-slate-400 w-40 inline-block">Class:</span> ${P(o)}</p>
-      <p><span class="text-slate-400 w-40 inline-block">Department:</span> ${P(s)}</p>
+      <p><span class="text-slate-400 w-40 inline-block">Nomination ID:</span> <strong class="font-mono text-indigo-300 text-lg">${N(e)}</strong></p>
+      <p><span class="text-slate-400 w-40 inline-block">Post:</span> <strong class="text-white">${N(t.post)}</strong></p>
+      <p><span class="text-slate-400 w-40 inline-block">Candidate Name:</span> ${N(a)}</p>
+      <p><span class="text-slate-400 w-40 inline-block">Class:</span> ${N(o)}</p>
+      <p><span class="text-slate-400 w-40 inline-block">Department:</span> ${N(s)}</p>
     </div>
     <p class="text-sm text-slate-300 border border-white/10 rounded-lg p-4">
-      I, <strong>${P(a)}</strong>, hereby withdraw my nomination for the post of <strong>${P(t.post)}</strong> in the College Union Election.
+      I, <strong>${N(a)}</strong>, hereby withdraw my nomination for the post of <strong>${N(t.post)}</strong> in the College Union Election.
     </p>
     <div class="flex justify-around mt-8 text-sm text-slate-400">
       <div class="text-center">
@@ -2067,7 +2067,7 @@ Do you want to proceed and print the blank form?`)&&ue(e)}function Le(e,t,r=null
         <p>Returning Officer</p>
       </div>
     </div>
-  </div>`}function Re(e,t,r=`2026`,i=null){let a=i||n.COLLEGE_SHORT_NAME;return`
+  </div>`}function ze(e,t,r=`2026`,i=null){let a=i||n.COLLEGE_SHORT_NAME;return`
   <div class="page-enter min-h-screen">
     <header class="no-print sticky top-0 z-50 border-b border-white/10 glass">
       <div class="max-w-4xl mx-auto px-6 py-4 flex items-center justify-between gap-4">
@@ -2076,15 +2076,15 @@ Do you want to proceed and print the blank form?`)&&ue(e)}function Le(e,t,r=null
             <span class="text-lg">←</span> Home
           </button>
           <div class="h-6 w-px bg-white/10 mx-2"></div>
-          <h1 class="font-bold text-white text-lg tracking-tight">${P(e)}</h1>
+          <h1 class="font-bold text-white text-lg tracking-tight">${N(e)}</h1>
         </div>
         <div class="text-xs text-slate-500 font-medium hidden md:block uppercase tracking-widest">
-          ${P(a)} Election Portal ${r}
+          ${N(a)} Election Portal ${r}
         </div>
       </div>
     </header>
     <main class="max-w-4xl mx-auto px-4 py-8">${t}</main>
-  </div>`}var ze=`modulepreload`,Be=function(e,t){return new URL(e,t).href},Ve={},He=function(e,t,n){let r=Promise.resolve();if(t&&t.length>0){let e=document.getElementsByTagName(`link`),i=document.querySelector(`meta[property=csp-nonce]`),a=i?.nonce||i?.getAttribute(`nonce`);function o(e){return Promise.all(e.map(e=>Promise.resolve(e).then(e=>({status:`fulfilled`,value:e}),e=>({status:`rejected`,reason:e}))))}r=o(t.map(t=>{if(t=Be(t,n),t in Ve)return;Ve[t]=!0;let r=t.endsWith(`.css`),i=r?`[rel="stylesheet"]`:``;if(n)for(let n=e.length-1;n>=0;n--){let i=e[n];if(i.href===t&&(!r||i.rel===`stylesheet`))return}else if(document.querySelector(`link[href="${t}"]${i}`))return;let o=document.createElement(`link`);if(o.rel=r?`stylesheet`:ze,r||(o.as=`script`),o.crossOrigin=``,o.href=t,a&&o.setAttribute(`nonce`,a),document.head.appendChild(o),r)return new Promise((e,n)=>{o.addEventListener(`load`,e),o.addEventListener(`error`,()=>n(Error(`Unable to preload CSS for ${t}`)))})}))}function i(e){let t=new Event(`vite:preloadError`,{cancelable:!0});if(t.payload=e,window.dispatchEvent(t),!t.defaultPrevented)throw e}return r.then(t=>{for(let e of t||[])e.status===`rejected`&&i(e.reason);return e().catch(i)})};function Ue(e){e.innerHTML=`
+  </div>`}var Be=`modulepreload`,Ve=function(e,t){return new URL(e,t).href},He={},Ue=function(e,t,n){let r=Promise.resolve();if(t&&t.length>0){let e=document.getElementsByTagName(`link`),i=document.querySelector(`meta[property=csp-nonce]`),a=i?.nonce||i?.getAttribute(`nonce`);function o(e){return Promise.all(e.map(e=>Promise.resolve(e).then(e=>({status:`fulfilled`,value:e}),e=>({status:`rejected`,reason:e}))))}r=o(t.map(t=>{if(t=Ve(t,n),t in He)return;He[t]=!0;let r=t.endsWith(`.css`),i=r?`[rel="stylesheet"]`:``;if(n)for(let n=e.length-1;n>=0;n--){let i=e[n];if(i.href===t&&(!r||i.rel===`stylesheet`))return}else if(document.querySelector(`link[href="${t}"]${i}`))return;let o=document.createElement(`link`);if(o.rel=r?`stylesheet`:Be,r||(o.as=`script`),o.crossOrigin=``,o.href=t,a&&o.setAttribute(`nonce`,a),document.head.appendChild(o),r)return new Promise((e,n)=>{o.addEventListener(`load`,e),o.addEventListener(`error`,()=>n(Error(`Unable to preload CSS for ${t}`)))})}))}function i(e){let t=new Event(`vite:preloadError`,{cancelable:!0});if(t.payload=e,window.dispatchEvent(t),!t.defaultPrevented)throw e}return r.then(t=>{for(let e of t||[])e.status===`rejected`&&i(e.reason);return e().catch(i)})};function We(e){e.innerHTML=`
     <div class="glass max-w-md w-full mx-auto p-10 rounded-3xl border border-white/10 shadow-2xl relative overflow-hidden page-enter">
       <!-- Background Glow -->
       <div class="absolute -top-24 -right-24 w-48 h-48 bg-indigo-600/20 rounded-full blur-3xl"></div>
@@ -2137,7 +2137,7 @@ Do you want to proceed and print the blank form?`)&&ue(e)}function Le(e,t,r=null
         </div>
       </form>
     </div>
-  `;let t=e.querySelector(`#loginForm`),n=e.querySelector(`#errorMsg`),i=e.querySelector(`#passwordStep`),a=e.querySelector(`#otpStep`),o=e.querySelector(`#adminPassword`),s=e.querySelector(`#adminOTP`),c=e=>{n.textContent=e,n.classList.remove(`hidden`),n.classList.add(`shake`),setTimeout(()=>n.classList.remove(`shake`),500)};t.onsubmit=async t=>{t.preventDefault();let r=o.value.trim();if(!r)return c(`Please enter the admin password.`);let l=e.querySelector(`#btnRequestOTP`);F(l,!0,`Verifying...`),n.classList.add(`hidden`);try{await C.adminSendOTP(r),i.classList.add(`hidden`),a.classList.remove(`hidden`),a.classList.add(`page-enter`),s.focus(),I(`OTP sent successfully!`,`success`)}catch(e){c(e.message===`Unauthorized`?`Incorrect admin password.`:e.message)}finally{F(l,!1,`Request Secure OTP`)}},e.querySelector(`#btnVerifyLogin`).onclick=async e=>{let t=o.value.trim(),i=s.value.trim();if(!i||i.length!==6)return c(`Please enter a valid 6-digit OTP.`);F(e.target,!0,`Verifying OTP...`),n.classList.add(`hidden`);try{let e=await C.adminVerifyOTP(t,i),n=new Date().toISOString().split(`T`)[0];localStorage.setItem(`adminPwd`,t),localStorage.setItem(`adminLoginDate`,n),e.sessionToken&&(localStorage.setItem(`adminSessionToken`,e.sessionToken),sessionStorage.setItem(`adminSessionToken`,e.sessionToken)),I(`Authentication successful!`,`success`),He(async()=>{let{router:e}=await Promise.resolve().then(()=>r);return{router:e}},void 0,import.meta.url).then(({router:e})=>e.navigate(`/admin/dashboard`))}catch(e){c(e.message)}finally{F(e.target,!1,`Verify & Login`)}},e.querySelector(`#btnBackToPassword`).onclick=()=>{a.classList.add(`hidden`),i.classList.remove(`hidden`),i.classList.add(`page-enter`),n.classList.add(`hidden`)}}function W(){let e=localStorage.getItem(`adminPwd`),t=localStorage.getItem(`adminLoginDate`),n=new Date().toISOString().split(`T`)[0];if(!e||t!==n)return e&&(localStorage.removeItem(`adminPwd`),localStorage.removeItem(`adminLoginDate`),localStorage.removeItem(`adminSessionToken`),sessionStorage.removeItem(`adminSessionToken`),I(`Daily session expired. Please log in again.`,`warning`)),o.navigate(`/admin`),null;let r=localStorage.getItem(`adminSessionToken`);return r&&sessionStorage.setItem(`adminSessionToken`,r),e}function G(e,t,r){let i=W(),a=localStorage.getItem(`cachedCollegeShortName`)||n.COLLEGE_SHORT_NAME;i&&(C.initAdminData(i),C.adminGetSettings(i).then(t=>{let r=t.collegeShortName||n.COLLEGE_SHORT_NAME;localStorage.setItem(`cachedCollegeShortName`,r);let i=e.querySelector(`#layout-college-logo`),a=e.querySelector(`#layout-college-name`);i&&(i.textContent=r.charAt(0)),a&&(a.textContent=r+` Election`)}).catch(()=>{})),e.innerHTML=`
+  `;let t=e.querySelector(`#loginForm`),n=e.querySelector(`#errorMsg`),i=e.querySelector(`#passwordStep`),a=e.querySelector(`#otpStep`),o=e.querySelector(`#adminPassword`),s=e.querySelector(`#adminOTP`),c=e=>{n.textContent=e,n.classList.remove(`hidden`),n.classList.add(`shake`),setTimeout(()=>n.classList.remove(`shake`),500)};t.onsubmit=async t=>{t.preventDefault();let r=o.value.trim();if(!r)return c(`Please enter the admin password.`);let l=e.querySelector(`#btnRequestOTP`);P(l,!0,`Verifying...`),n.classList.add(`hidden`);try{await C.adminSendOTP(r),i.classList.add(`hidden`),a.classList.remove(`hidden`),a.classList.add(`page-enter`),s.focus(),F(`OTP sent successfully!`,`success`)}catch(e){c(e.message===`Unauthorized`?`Incorrect admin password.`:e.message)}finally{P(l,!1,`Request Secure OTP`)}},e.querySelector(`#btnVerifyLogin`).onclick=async e=>{let t=o.value.trim(),i=s.value.trim();if(!i||i.length!==6)return c(`Please enter a valid 6-digit OTP.`);P(e.target,!0,`Verifying OTP...`),n.classList.add(`hidden`);try{let e=await C.adminVerifyOTP(t,i),n=new Date().toISOString().split(`T`)[0];localStorage.setItem(`adminPwd`,t),localStorage.setItem(`adminLoginDate`,n),e.sessionToken&&(localStorage.setItem(`adminSessionToken`,e.sessionToken),sessionStorage.setItem(`adminSessionToken`,e.sessionToken)),F(`Authentication successful!`,`success`),Ue(async()=>{let{router:e}=await Promise.resolve().then(()=>r);return{router:e}},void 0,import.meta.url).then(({router:e})=>e.navigate(`/admin/dashboard`))}catch(e){c(e.message)}finally{P(e.target,!1,`Verify & Login`)}},e.querySelector(`#btnBackToPassword`).onclick=()=>{a.classList.add(`hidden`),i.classList.remove(`hidden`),i.classList.add(`page-enter`),n.classList.add(`hidden`)}}function U(){let e=localStorage.getItem(`adminPwd`),t=localStorage.getItem(`adminLoginDate`),n=new Date().toISOString().split(`T`)[0];if(!e||t!==n)return e&&(localStorage.removeItem(`adminPwd`),localStorage.removeItem(`adminLoginDate`),localStorage.removeItem(`adminSessionToken`),sessionStorage.removeItem(`adminSessionToken`),F(`Daily session expired. Please log in again.`,`warning`)),o.navigate(`/admin`),null;let r=localStorage.getItem(`adminSessionToken`);return r&&sessionStorage.setItem(`adminSessionToken`,r),e}function W(e,t,r){let i=U(),a=localStorage.getItem(`cachedCollegeShortName`)||n.COLLEGE_SHORT_NAME;i&&(C.initAdminData(i),C.adminGetSettings(i).then(t=>{let r=t.collegeShortName||n.COLLEGE_SHORT_NAME;localStorage.setItem(`cachedCollegeShortName`,r);let i=e.querySelector(`#layout-college-logo`),a=e.querySelector(`#layout-college-name`);i&&(i.textContent=r.charAt(0)),a&&(a.textContent=r+` Election`)}).catch(()=>{})),e.innerHTML=`
   <div class="min-h-screen flex">
     <!-- Sidebar -->
     <aside class="no-print w-60 flex-shrink-0 glass border-r border-white/10 flex flex-col">
@@ -2151,28 +2151,28 @@ Do you want to proceed and print the blank form?`)&&ue(e)}function Le(e,t,r=null
         </div>
       </div>
       <nav class="flex-1 p-3 space-y-1">
-        ${K(`dashboard`,`📊`,`Dashboard`,t)}
-        ${K(`schedule`,`📅`,`Election Schedule`,t)}
-        ${K(`nominal-roll`,`📜`,`Nominal Roll`,t)}
-        ${K(`posts`,`📋`,`Manage Posts`,t)}
-        ${K(`direct-nomination`,`📝`,`Direct Entry`,t)}
-        ${K(`verify`,`✅`,`Verify Nominations`,t)}
-        ${K(`withdrawals`,`↩️`,`Withdrawals`,t)}
-        ${K(`publish`,`📢`,`Publish Lists`,t)}
-        ${K(`booths`,`🏫`,`Polling Booths`,t)}
-        ${K(`ballots`,`🗳️`,`Ballot Printing`,t)}
-        ${K(`notices`,`📢`,`Notices & Posters`,t)}
+        ${G(`dashboard`,`📊`,`Dashboard`,t)}
+        ${G(`schedule`,`📅`,`Election Schedule`,t)}
+        ${G(`nominal-roll`,`📜`,`Nominal Roll`,t)}
+        ${G(`posts`,`📋`,`Manage Posts`,t)}
+        ${G(`direct-nomination`,`📝`,`Direct Entry`,t)}
+        ${G(`verify`,`✅`,`Verify Nominations`,t)}
+        ${G(`withdrawals`,`↩️`,`Withdrawals`,t)}
+        ${G(`publish`,`📢`,`Publish Lists`,t)}
+        ${G(`booths`,`🏫`,`Polling Booths`,t)}
+        ${G(`ballots`,`🗳️`,`Ballot Printing`,t)}
+        ${G(`notices`,`📢`,`Notices & Posters`,t)}
         <div class="border-t border-white/10 my-2"></div>
-        ${K(`counting`,`🧮`,`Counting Setup`,t)}
-        ${K(`results-entry`,`📥`,`Results Entry`,t)}
-        ${K(`results`,`🏆`,`Election Results`,t)}
+        ${G(`counting`,`🧮`,`Counting Setup`,t)}
+        ${G(`results-entry`,`📥`,`Results Entry`,t)}
+        ${G(`results`,`🏆`,`Election Results`,t)}
         <div class="border-t border-white/10 my-2"></div>
-        ${K(`settings`,`⚙️`,`Settings`,t)}
-        ${K(`backup`,`💾`,`Backup & Restore`,t)}
-        ${K(`public`,`🌐`,`Public Portal`,t)}
+        ${G(`settings`,`⚙️`,`Settings`,t)}
+        ${G(`backup`,`💾`,`Backup & Restore`,t)}
+        ${G(`public`,`🌐`,`Public Portal`,t)}
         <div class="border-t border-white/10 my-2"></div>
-        ${K(`testing`,`🧪`,`Testing Tools`,t)}
-        ${K(`audit`,`🛡️`,`Internal Audit`,t)}
+        ${G(`testing`,`🧪`,`Testing Tools`,t)}
+        ${G(`audit`,`🛡️`,`Internal Audit`,t)}
       </nav>
       <div class="p-3 border-t border-white/10">
         <button id="logoutBtn" class="sidebar-item text-red-400 hover:text-red-300 hover:bg-red-500/10">
@@ -2191,10 +2191,10 @@ Do you want to proceed and print the blank form?`)&&ue(e)}function Le(e,t,r=null
         ${r}
       </main>
     </div>
-  </div>`,e.querySelectorAll(`[data-admin-nav]`).forEach(e=>{e.addEventListener(`click`,()=>{let t=e.dataset.adminNav;if(t===`public`){o.navigate(`/`);return}o.navigate(`/admin/${t}`)})}),e.querySelector(`#logoutBtn`).addEventListener(`click`,async()=>{try{let e=localStorage.getItem(`adminPwd`);e&&await C.adminLogout(e)}catch(e){console.error(`Logout API failed:`,e)}localStorage.removeItem(`adminPwd`),localStorage.removeItem(`adminLoginDate`),localStorage.removeItem(`adminSessionToken`),sessionStorage.removeItem(`adminSessionToken`),I(`Logged out.`,`info`),o.navigate(`/`)})}function K(e,t,n,r){return`
+  </div>`,e.querySelectorAll(`[data-admin-nav]`).forEach(e=>{e.addEventListener(`click`,()=>{let t=e.dataset.adminNav;if(t===`public`){o.navigate(`/`);return}o.navigate(`/admin/${t}`)})}),e.querySelector(`#logoutBtn`).addEventListener(`click`,async()=>{try{let e=localStorage.getItem(`adminPwd`);e&&await C.adminLogout(e)}catch(e){console.error(`Logout API failed:`,e)}localStorage.removeItem(`adminPwd`),localStorage.removeItem(`adminLoginDate`),localStorage.removeItem(`adminSessionToken`),sessionStorage.removeItem(`adminSessionToken`),F(`Logged out.`,`info`),o.navigate(`/`)})}function G(e,t,n,r){return`
   <button data-admin-nav="${e}" class="sidebar-item ${r===e?`active`:``}">
     <span>${t}</span> ${n}
-  </button>`}async function We(e){let t=W();if(t){G(e,`dashboard`,`
+  </button>`}async function Ge(e){let t=U();if(t){W(e,`dashboard`,`
     <div class="text-center py-16"><span class="spinner" style="width:2.5rem;height:2.5rem;border-width:4px;"></span><p class="text-slate-400 mt-4 text-sm">Loading dashboard...</p></div>
   `);try{let[n,i]=await Promise.all([C.adminGetNominations(t,!0),C.adminGetSettings(t)]),a=n.length,o=n.filter(e=>e.status===`Pending`).length,s=n.filter(e=>e.status===`Valid`).length,c=n.filter(e=>e.status===`Rejected`).length,l=n.filter(e=>e.withdrawalStatus===`Requested`||e.withdrawalStatus===`Pending`).length,u=e.querySelector(`#adminMain`);u.innerHTML=`
       <div class="page-enter space-y-8">
@@ -2211,10 +2211,10 @@ Do you want to proceed and print the blank form?`)&&ue(e)}function Le(e,t,r=null
 
         <!-- Stats Cards -->
         <div class="grid grid-cols-2 lg:grid-cols-4 gap-6">
-          ${Ge(`Total Submissions`,a,`from-indigo-500/20 to-indigo-600/5`,`text-indigo-400`)}
-          ${Ge(`Pending Review`,o,`from-amber-500/20 to-amber-600/5`,`text-amber-400`)}
-          ${Ge(`Valid Nominations`,s,`from-emerald-500/20 to-emerald-600/5`,`text-emerald-400`)}
-          ${Ge(`Rejected`,c,`from-rose-500/20 to-rose-600/5`,`text-rose-400`)}
+          ${Ke(`Total Submissions`,a,`from-indigo-500/20 to-indigo-600/5`,`text-indigo-400`)}
+          ${Ke(`Pending Review`,o,`from-amber-500/20 to-amber-600/5`,`text-amber-400`)}
+          ${Ke(`Valid Nominations`,s,`from-emerald-500/20 to-emerald-600/5`,`text-emerald-400`)}
+          ${Ke(`Rejected`,c,`from-rose-500/20 to-rose-600/5`,`text-rose-400`)}
         </div>
 
         <!-- Secondary Stats & Actions -->
@@ -2260,14 +2260,14 @@ Do you want to proceed and print the blank form?`)&&ue(e)}function Le(e,t,r=null
               <tbody>
                 ${n.slice(-10).reverse().map(e=>`
                   <tr>
-                    <td class="font-mono text-indigo-400 text-xs">${P(e.id)}</td>
+                    <td class="font-mono text-indigo-400 text-xs">${N(e.id)}</td>
                     <td>
-                      <div class="font-semibold text-white">${P(e.candidateName)}</div>
-                      <div class="text-[10px] text-slate-500">${P(e.candidateClass)}</div>
+                      <div class="font-semibold text-white">${N(e.candidateName)}</div>
+                      <div class="text-[10px] text-slate-500">${N(e.candidateClass)}</div>
                     </td>
-                    <td class="text-xs text-slate-300 font-medium">${P(e.post)}</td>
-                    <td class="text-xs text-slate-400">${P(e.candidateDept)}</td>
-                    <td><span class="badge badge-${(e.status||`pending`).toLowerCase()}">${P(e.status)}</span></td>
+                    <td class="text-xs text-slate-300 font-medium">${N(e.post)}</td>
+                    <td class="text-xs text-slate-400">${N(e.candidateDept)}</td>
+                    <td><span class="badge badge-${(e.status||`pending`).toLowerCase()}">${N(e.status)}</span></td>
                   </tr>
                 `).join(``)}
               </tbody>
@@ -2278,17 +2278,17 @@ Do you want to proceed and print the blank form?`)&&ue(e)}function Le(e,t,r=null
             <button class="text-[10px] text-indigo-400 font-bold uppercase tracking-widest hover:text-indigo-300 transition" data-admin-nav="verify">View All Nominations →</button>
           </div>`:``}
         </div>
-      </div>`,e.querySelectorAll(`[data-admin-nav]`).forEach(e=>{e.addEventListener(`click`,()=>{He(async()=>{let{router:e}=await Promise.resolve().then(()=>r);return{router:e}},void 0,import.meta.url).then(({router:t})=>t.navigate(`/admin/${e.dataset.adminNav}`))})})}catch(t){e.querySelector(`#adminMain`).innerHTML=`<div class="alert alert-error">❌ ${P(t.message)}</div>`}}}function Ge(e,t,n,r){return`
+      </div>`,e.querySelectorAll(`[data-admin-nav]`).forEach(e=>{e.addEventListener(`click`,()=>{Ue(async()=>{let{router:e}=await Promise.resolve().then(()=>r);return{router:e}},void 0,import.meta.url).then(({router:t})=>t.navigate(`/admin/${e.dataset.adminNav}`))})})}catch(t){e.querySelector(`#adminMain`).innerHTML=`<div class="alert alert-error">❌ ${N(t.message)}</div>`}}}function Ke(e,t,n,r){return`
   <div class="glass rounded-2xl p-6 relative overflow-hidden group">
     <div class="absolute inset-0 bg-gradient-to-br ${n} opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
     <p class="text-[10px] text-slate-500 uppercase tracking-widest font-bold mb-3 relative z-10">${e}</p>
     <p class="text-3xl font-black ${r} relative z-10">${t}</p>
-  </div>`}async function Ke(e){let t=W();if(t){G(e,`verify`,`
+  </div>`}async function qe(e){let t=U();if(t){W(e,`verify`,`
     <div class="text-center py-16">
       <span class="spinner" style="width:2.5rem;height:2.5rem;border-width:4px;"></span>
       <p class="text-slate-400 mt-4 text-sm">Loading nominations and scrutiny rules...</p>
     </div>
-  `);try{let[r,i,a]=await Promise.all([C.adminGetNominations(t,!0),C.adminGetSettings(t).catch(()=>({})),C.adminGetPosts(t).catch(()=>C.getPosts().catch(()=>n.DEFAULT_POSTS||[]))]);qe(e.querySelector(`#adminMain`),r,t,i,a)}catch(t){e.querySelector(`#adminMain`).innerHTML=`<div class="alert alert-error">❌ ${P(t.message)}</div>`}}}function q(e,t=[],n=[],r={}){let i=[];if(!e)return i;let a=t.find(t=>t.post===e.post)||{},o=String(e.candidateClass||e.candidate?.CLASS||``).toUpperCase(),s=String(e.candidateDept||e.candidate?.Dept||``).toUpperCase(),c=String(e.candidateSerial||e.candidate?.[`Nominal Roll Serial Number`]||``).trim(),l=String(e.candidateAdmission||e.candidate?.[`ADMISION NO`]||``).trim().toLowerCase(),u=e.proposerName||e.proposer?.NAME||``;String(e.proposerClass||e.proposer?.CLASS||``).toUpperCase();let d=String(e.proposerDept||e.proposer?.Dept||``).toUpperCase(),f=String(e.proposerSerial||e.proposer?.[`Nominal Roll Serial Number`]||``).trim(),p=String(e.proposerAdmission||e.proposer?.[`ADMISION NO`]||``).trim().toLowerCase(),m=e.seconderName||e.seconder?.NAME||``;String(e.seconderClass||e.seconder?.CLASS||``).toUpperCase();let h=String(e.seconderDept||e.seconder?.Dept||``).toUpperCase(),g=String(e.seconderSerial||e.seconder?.[`Nominal Roll Serial Number`]||``).trim(),_=String(e.seconderAdmission||e.seconder?.[`ADMISION NO`]||``).trim().toLowerCase(),v=E(o);if((v===`RS`||o.includes(`RESEARCH`)||o.includes(`SCHOLAR`)||o.includes(`PHD`))&&i.push({type:`RESEARCH_SCHOLAR`,severity:`error`,message:`Research Scholars are barred from contesting in College Union Elections under Lyngdoh Committee norms.`}),a.femaleOnly&&e.gender&&e.gender!==`Female`&&i.push({type:`GENDER_MISMATCH`,severity:`error`,message:`The post "${e.post}" is reserved for Female candidates only (Submitted: ${e.gender}).`}),e.dob){let t=new Date(e.dob);if(!isNaN(t.getTime())){let e=r.electionDate?new Date(r.electionDate):new Date,n=e.getFullYear()-t.getFullYear(),a=e.getMonth()-t.getMonth();(a<0||a===0&&e.getDate()<t.getDate())&&n--,(v===`1_UG`||v===`2_UG`||v===`3_UG`)&&n>22?i.push({type:`AGE_LIMIT_UG`,severity:`error`,message:`Candidate age is ${n} years, exceeding the maximum statutory UG age limit of 22 years (Lyngdoh Committee recommendations).`}):(v===`1_PG`||v===`2_PG`)&&n>25?i.push({type:`AGE_LIMIT_PG`,severity:`error`,message:`Candidate age is ${n} years, exceeding the maximum statutory PG age limit of 25 years (Lyngdoh Committee recommendations).`}):v===`RS`&&n>28&&i.push({type:`AGE_LIMIT_RS`,severity:`error`,message:`Candidate age is ${n} years, exceeding the maximum Research Scholar age limit of 28 years.`})}}if(a.deptRestriction){let t=(a.restrictedDept||(String(e.post).startsWith(`Association Secretary `)?e.post.replace(`Association Secretary `,``).trim():``)).trim();if(t){let n=e=>String(e||``).toUpperCase().replace(/[^A-Z0-9]/g,``),r=n(t),a=e=>{let t=n(e);return t===r||t.includes(r)||r.includes(t)};a(s)||i.push({type:`DEPT_CANDIDATE`,severity:`error`,message:`Candidate belongs to department "${e.candidateDept||`N/A`}", but post requires "${t}".`}),a(d)||i.push({type:`DEPT_PROPOSER`,severity:`warning`,message:`Proposer belongs to department "${e.proposerDept||`N/A`}", but post requires "${t}".`}),a(h)||i.push({type:`DEPT_SECONDER`,severity:`warning`,message:`Seconder belongs to department "${e.seconderDept||`N/A`}", but post requires "${t}".`})}}if(a&&!D(o,a)){let t=O(a);i.push({type:`YEAR_ELIGIBILITY`,severity:`error`,message:`Candidate class (${e.candidateClass||`N/A`}) does not meet the year restriction for "${e.post}" (${t}).`})}c&&f&&c===f?i.push({type:`SELF_PROPOSED`,severity:`error`,message:`Candidate cannot propose themselves (Proposer serial matches candidate).`}):l&&p&&l===p&&i.push({type:`SELF_PROPOSED`,severity:`error`,message:`Candidate and Proposer have the same admission number.`}),c&&g&&c===g?i.push({type:`SELF_SECONDED`,severity:`error`,message:`Candidate cannot second themselves (Seconder serial matches candidate).`}):l&&_&&l===_&&i.push({type:`SELF_SECONDED`,severity:`error`,message:`Candidate and Seconder have the same admission number.`}),f&&g&&f===g?i.push({type:`SAME_PROPOSER_SECONDER`,severity:`error`,message:`Proposer and Seconder cannot be the same person.`}):p&&_&&p===_&&i.push({type:`SAME_PROPOSER_SECONDER`,severity:`error`,message:`Proposer and Seconder have the same admission number.`});let y=n.filter(t=>t.id!==e.id&&t.post===e.post&&t.status!==`Rejected`);if(f){let e=y.find(e=>String(e.proposerSerial)===f||String(e.seconderSerial)===f);e&&i.push({type:`DUPLICATE_PROPOSER_ENDORSEMENT`,severity:`error`,message:`Proposer (Sl #${f}, ${u}) has already endorsed nomination #${e.id} (${e.candidateName||`Candidate`}) for this post.`})}if(g){let e=y.find(e=>String(e.proposerSerial)===g||String(e.seconderSerial)===g);e&&i.push({type:`DUPLICATE_SECONDER_ENDORSEMENT`,severity:`error`,message:`Seconder (Sl #${g}, ${m}) has already endorsed nomination #${e.id} (${e.candidateName||`Candidate`}) for this post.`})}let b=n.filter(t=>t.id!==e.id&&t.status!==`Rejected`&&(c&&String(t.candidateSerial)===c||l&&String(t.candidateAdmission).trim().toLowerCase()===l));if(b.length>0){let e=b.map(e=>`"${e.post}" (#${e.id})`).join(`, `);i.push({type:`MULTIPLE_CANDIDACY`,severity:`error`,message:`Candidate has also filed nomination for other post(s): ${e}.`})}return i}function qe(e,t,r,i={},a=[]){let o=Array.isArray(t)?[...t]:[],s=Array.isArray(a)?[...a]:[],c=`cards`;e.innerHTML=`
+  `);try{let[r,i,a]=await Promise.all([C.adminGetNominations(t,!0),C.adminGetSettings(t).catch(()=>({})),C.adminGetPosts(t).catch(()=>C.getPosts().catch(()=>n.DEFAULT_POSTS||[]))]);Ye(e.querySelector(`#adminMain`),r,t,i,a)}catch(t){e.querySelector(`#adminMain`).innerHTML=`<div class="alert alert-error">❌ ${N(t.message)}</div>`}}}function Je(e,t=[],n=[],r={}){let i=[];if(!e)return i;let a=t.find(t=>t.post===e.post)||{},o=String(e.candidateClass||e.candidate?.CLASS||``).toUpperCase(),s=String(e.candidateDept||e.candidate?.Dept||``).toUpperCase(),c=String(e.candidateSerial||e.candidate?.[`Nominal Roll Serial Number`]||``).trim(),l=String(e.candidateAdmission||e.candidate?.[`ADMISION NO`]||``).trim().toLowerCase(),u=e.proposerName||e.proposer?.NAME||``;String(e.proposerClass||e.proposer?.CLASS||``).toUpperCase();let d=String(e.proposerDept||e.proposer?.Dept||``).toUpperCase(),f=String(e.proposerSerial||e.proposer?.[`Nominal Roll Serial Number`]||``).trim(),p=String(e.proposerAdmission||e.proposer?.[`ADMISION NO`]||``).trim().toLowerCase(),m=e.seconderName||e.seconder?.NAME||``;String(e.seconderClass||e.seconder?.CLASS||``).toUpperCase();let h=String(e.seconderDept||e.seconder?.Dept||``).toUpperCase(),g=String(e.seconderSerial||e.seconder?.[`Nominal Roll Serial Number`]||``).trim(),_=String(e.seconderAdmission||e.seconder?.[`ADMISION NO`]||``).trim().toLowerCase(),v=E(o);if((v===`RS`||o.includes(`RESEARCH`)||o.includes(`SCHOLAR`)||o.includes(`PHD`))&&i.push({type:`RESEARCH_SCHOLAR`,severity:`error`,message:`Research Scholars are barred from contesting in College Union Elections under Lyngdoh Committee norms.`}),a.femaleOnly&&e.gender&&e.gender!==`Female`&&i.push({type:`GENDER_MISMATCH`,severity:`error`,message:`The post "${e.post}" is reserved for Female candidates only (Submitted: ${e.gender}).`}),e.dob){let t=new Date(e.dob);if(!isNaN(t.getTime())){let e=r.electionDate?new Date(r.electionDate):new Date,n=e.getFullYear()-t.getFullYear(),a=e.getMonth()-t.getMonth();(a<0||a===0&&e.getDate()<t.getDate())&&n--,(v===`1_UG`||v===`2_UG`||v===`3_UG`)&&n>22?i.push({type:`AGE_LIMIT_UG`,severity:`error`,message:`Candidate age is ${n} years, exceeding the maximum statutory UG age limit of 22 years (Lyngdoh Committee recommendations).`}):(v===`1_PG`||v===`2_PG`)&&n>25?i.push({type:`AGE_LIMIT_PG`,severity:`error`,message:`Candidate age is ${n} years, exceeding the maximum statutory PG age limit of 25 years (Lyngdoh Committee recommendations).`}):v===`RS`&&n>28&&i.push({type:`AGE_LIMIT_RS`,severity:`error`,message:`Candidate age is ${n} years, exceeding the maximum Research Scholar age limit of 28 years.`})}}if(a.deptRestriction){let t=(a.restrictedDept||(String(e.post).startsWith(`Association Secretary `)?e.post.replace(`Association Secretary `,``).trim():``)).trim();if(t){let n=e=>String(e||``).toUpperCase().replace(/[^A-Z0-9]/g,``),r=n(t),a=e=>{let t=n(e);return t===r||t.includes(r)||r.includes(t)};a(s)||i.push({type:`DEPT_CANDIDATE`,severity:`error`,message:`Candidate belongs to department "${e.candidateDept||`N/A`}", but post requires "${t}".`}),a(d)||i.push({type:`DEPT_PROPOSER`,severity:`warning`,message:`Proposer belongs to department "${e.proposerDept||`N/A`}", but post requires "${t}".`}),a(h)||i.push({type:`DEPT_SECONDER`,severity:`warning`,message:`Seconder belongs to department "${e.seconderDept||`N/A`}", but post requires "${t}".`})}}if(a&&!D(o,a)){let t=O(a);i.push({type:`YEAR_ELIGIBILITY`,severity:`error`,message:`Candidate class (${e.candidateClass||`N/A`}) does not meet the year restriction for "${e.post}" (${t}).`})}c&&f&&c===f?i.push({type:`SELF_PROPOSED`,severity:`error`,message:`Candidate cannot propose themselves (Proposer serial matches candidate).`}):l&&p&&l===p&&i.push({type:`SELF_PROPOSED`,severity:`error`,message:`Candidate and Proposer have the same admission number.`}),c&&g&&c===g?i.push({type:`SELF_SECONDED`,severity:`error`,message:`Candidate cannot second themselves (Seconder serial matches candidate).`}):l&&_&&l===_&&i.push({type:`SELF_SECONDED`,severity:`error`,message:`Candidate and Seconder have the same admission number.`}),f&&g&&f===g?i.push({type:`SAME_PROPOSER_SECONDER`,severity:`error`,message:`Proposer and Seconder cannot be the same person.`}):p&&_&&p===_&&i.push({type:`SAME_PROPOSER_SECONDER`,severity:`error`,message:`Proposer and Seconder have the same admission number.`});let y=n.filter(t=>t.id!==e.id&&t.post===e.post&&t.status!==`Rejected`);if(f){let e=y.find(e=>String(e.proposerSerial)===f||String(e.seconderSerial)===f);e&&i.push({type:`DUPLICATE_PROPOSER_ENDORSEMENT`,severity:`error`,message:`Proposer (Sl #${f}, ${u}) has already endorsed nomination #${e.id} (${e.candidateName||`Candidate`}) for this post.`})}if(g){let e=y.find(e=>String(e.proposerSerial)===g||String(e.seconderSerial)===g);e&&i.push({type:`DUPLICATE_SECONDER_ENDORSEMENT`,severity:`error`,message:`Seconder (Sl #${g}, ${m}) has already endorsed nomination #${e.id} (${e.candidateName||`Candidate`}) for this post.`})}let b=n.filter(t=>t.id!==e.id&&t.status!==`Rejected`&&(c&&String(t.candidateSerial)===c||l&&String(t.candidateAdmission).trim().toLowerCase()===l));if(b.length>0){let e=b.map(e=>`"${e.post}" (#${e.id})`).join(`, `);i.push({type:`MULTIPLE_CANDIDACY`,severity:`error`,message:`Candidate has also filed nomination for other post(s): ${e}.`})}return i}function Ye(e,t,r,i={},a=[]){let o=Array.isArray(t)?[...t]:[],s=Array.isArray(a)?[...a]:[],c=`cards`;e.innerHTML=`
     <div class="page-enter space-y-4">
       <!-- Title Bar -->
       <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-4 mb-2">
@@ -2433,54 +2433,54 @@ Do you want to proceed and print the blank form?`)&&ue(e)}function Le(e,t,r=null
         </div>
       </div>
     </div>
-  `;let l=[],u=null,d=e.querySelector(`#nomDetailModal`),f=e.querySelector(`#modalPaperZone`),p=e.querySelector(`#modalScrutinyZone`),m=e.querySelector(`#modalNomIdBadge`),h=e.querySelector(`#modalNomStatusBadge`),g=e.querySelector(`#modalNomTimestamp`),_=e.querySelector(`#modalNomCounter`),v=e.querySelector(`#btnModalPrevNom`),y=e.querySelector(`#btnModalNextNom`),b=e.querySelector(`#btnModalMarkValid`),x=e.querySelector(`#btnModalMarkReject`),S=e.querySelector(`#modalRejectionBanner`),T=e.querySelector(`#modalRejectionText`),E=t=>{let n=e.querySelector(`#nomTableBody`),r=e.querySelector(`#nomCardsContainer`);n.innerHTML=t.length?t.map(e=>{let t=q(e,s,o,i),n=String(e.candidateClass||``).toUpperCase().includes(`RESEARCH`)||String(e.candidateClass||``).toUpperCase().includes(`SCHOLAR`);return`
-      <tr id="row-${P(e.id)}" class="hover:bg-white/[0.02] transition-colors">
+  `;let l=[],u=null,d=e.querySelector(`#nomDetailModal`),f=e.querySelector(`#modalPaperZone`),p=e.querySelector(`#modalScrutinyZone`),m=e.querySelector(`#modalNomIdBadge`),h=e.querySelector(`#modalNomStatusBadge`),g=e.querySelector(`#modalNomTimestamp`),_=e.querySelector(`#modalNomCounter`),v=e.querySelector(`#btnModalPrevNom`),y=e.querySelector(`#btnModalNextNom`),b=e.querySelector(`#btnModalMarkValid`),x=e.querySelector(`#btnModalMarkReject`),S=e.querySelector(`#modalRejectionBanner`),T=e.querySelector(`#modalRejectionText`),E=t=>{let n=e.querySelector(`#nomTableBody`),r=e.querySelector(`#nomCardsContainer`);n.innerHTML=t.length?t.map(e=>{let t=Je(e,s,o,i),n=String(e.candidateClass||``).toUpperCase().includes(`RESEARCH`)||String(e.candidateClass||``).toUpperCase().includes(`SCHOLAR`);return`
+      <tr id="row-${N(e.id)}" class="hover:bg-white/[0.02] transition-colors">
         <td>
-          <button type="button" class="view-nom-btn font-mono text-indigo-300 hover:text-indigo-200 text-xs font-bold hover:underline cursor-pointer flex items-center gap-1" data-id="${P(e.id)}" title="Click to view full form">
-            <span>📄</span> ${P(e.id)}
+          <button type="button" class="view-nom-btn font-mono text-indigo-300 hover:text-indigo-200 text-xs font-bold hover:underline cursor-pointer flex items-center gap-1" data-id="${N(e.id)}" title="Click to view full form">
+            <span>📄</span> ${N(e.id)}
           </button>
         </td>
         <td class="text-xs max-w-[140px] leading-snug font-medium text-slate-200">
-          <div>${P(e.post)}</div>
+          <div>${N(e.post)}</div>
         </td>
         <td>
           <div class="font-bold text-white flex items-center gap-1.5 flex-wrap">
-            <span class="hover:text-indigo-300 cursor-pointer view-nom-btn" data-id="${P(e.id)}">${P(e.candidateName||e.candidate?.NAME||`N/A`)}</span>
+            <span class="hover:text-indigo-300 cursor-pointer view-nom-btn" data-id="${N(e.id)}">${N(e.candidateName||e.candidate?.NAME||`N/A`)}</span>
             <span class="badge bg-indigo-500/20 text-indigo-300 border border-indigo-500/40 font-mono font-bold text-[10px] px-1.5 py-0.2" title="Electoral Roll Serial Number">
-              Sl. #${P(e.candidateSerial||e.candidate?.[`Nominal Roll Serial Number`]||`–`)}
+              Sl. #${N(e.candidateSerial||e.candidate?.[`Nominal Roll Serial Number`]||`–`)}
             </span>
             ${n?`<span class="badge bg-rose-500/20 text-rose-300 border border-rose-500/40 text-[10px] px-1.5 py-0.2 font-semibold">⚠️ Ineligible (RS)</span>`:``}
           </div>
-          <div class="text-[11px] text-slate-400 font-mono">Adm: ${P(e.candidateAdmission||e.candidate?.[`ADMISION NO`]||`–`)}</div>
+          <div class="text-[11px] text-slate-400 font-mono">Adm: ${N(e.candidateAdmission||e.candidate?.[`ADMISION NO`]||`–`)}</div>
         </td>
         <td class="text-xs text-slate-400">
-          <div>${P(e.candidateClass||``)}</div>
-          <div class="text-[10px] opacity-60">${P(e.candidateDept||``)}</div>
+          <div>${N(e.candidateClass||``)}</div>
+          <div class="text-[10px] opacity-60">${N(e.candidateDept||``)}</div>
         </td>
         <td>
           <div class="text-xs font-medium text-slate-300 flex items-center gap-1">
-            <span>${P(e.proposerName||e.proposer?.NAME||`N/A`)}</span>
+            <span>${N(e.proposerName||e.proposer?.NAME||`N/A`)}</span>
             <span class="badge bg-slate-800 text-slate-300 border border-white/10 font-mono text-[10px] px-1 py-0.2" title="Proposer Roll Serial">
-              #${P(e.proposerSerial||e.proposer?.[`Nominal Roll Serial Number`]||`–`)}
+              #${N(e.proposerSerial||e.proposer?.[`Nominal Roll Serial Number`]||`–`)}
             </span>
           </div>
-          <div class="text-[10px] text-slate-500 font-mono">Adm: ${P(e.proposerAdmission||e.proposer?.[`ADMISION NO`]||`–`)}</div>
+          <div class="text-[10px] text-slate-500 font-mono">Adm: ${N(e.proposerAdmission||e.proposer?.[`ADMISION NO`]||`–`)}</div>
         </td>
         <td>
           <div class="text-xs font-medium text-slate-300 flex items-center gap-1">
-            <span>${P(e.seconderName||e.seconder?.NAME||`N/A`)}</span>
+            <span>${N(e.seconderName||e.seconder?.NAME||`N/A`)}</span>
             <span class="badge bg-slate-800 text-slate-300 border border-white/10 font-mono text-[10px] px-1 py-0.2" title="Seconder Roll Serial">
-              #${P(e.seconderSerial||e.seconder?.[`Nominal Roll Serial Number`]||`–`)}
+              #${N(e.seconderSerial||e.seconder?.[`Nominal Roll Serial Number`]||`–`)}
             </span>
           </div>
-          <div class="text-[10px] text-slate-500 font-mono">Adm: ${P(e.seconderAdmission||e.seconder?.[`ADMISION NO`]||`–`)}</div>
+          <div class="text-[10px] text-slate-500 font-mono">Adm: ${N(e.seconderAdmission||e.seconder?.[`ADMISION NO`]||`–`)}</div>
         </td>
         <td>
           <div>
-            <span class="badge badge-${(e.status||`pending`).toLowerCase()} font-bold">${P(e.status)}</span>
+            <span class="badge badge-${(e.status||`pending`).toLowerCase()} font-bold">${N(e.status)}</span>
           </div>
           ${t.length>0?`
-            <button type="button" class="view-nom-btn badge bg-rose-500/20 hover:bg-rose-500/30 text-rose-300 border border-rose-500/40 text-[10px] px-2 py-0.5 mt-1 font-semibold flex items-center gap-1 cursor-pointer transition-colors" data-id="${P(e.id)}" title="${P(t.map(e=>e.message).join(` | `))}">
+            <button type="button" class="view-nom-btn badge bg-rose-500/20 hover:bg-rose-500/30 text-rose-300 border border-rose-500/40 text-[10px] px-2 py-0.5 mt-1 font-semibold flex items-center gap-1 cursor-pointer transition-colors" data-id="${N(e.id)}" title="${N(t.map(e=>e.message).join(` | `))}">
               <span>⚠️ ${t.length} Rule Violation${t.length>1?`s`:``}</span>
             </button>
           `:`
@@ -2489,48 +2489,48 @@ Do you want to proceed and print the blank form?`)&&ue(e)}function Le(e,t,r=null
             </span>
           `}
           ${e.status===`Rejected`&&e.rejectionReason?`
-            <div class="text-[10px] text-rose-400 mt-1 max-w-[150px] leading-tight font-medium" title="${P(e.rejectionReason)}">⚠️ ${P(e.rejectionReason)}</div>
+            <div class="text-[10px] text-rose-400 mt-1 max-w-[150px] leading-tight font-medium" title="${N(e.rejectionReason)}">⚠️ ${N(e.rejectionReason)}</div>
           `:``}
         </td>
         <td>
           <div class="flex items-center gap-1.5 flex-wrap">
-            <button type="button" class="btn btn-secondary btn-xs view-nom-btn bg-indigo-600/20 hover:bg-indigo-600 text-indigo-300 hover:text-white border border-indigo-500/30 px-2 py-1 flex items-center gap-1 font-semibold" data-id="${P(e.id)}" title="View Full Nomination Form and Scrutiny Details">
+            <button type="button" class="btn btn-secondary btn-xs view-nom-btn bg-indigo-600/20 hover:bg-indigo-600 text-indigo-300 hover:text-white border border-indigo-500/30 px-2 py-1 flex items-center gap-1 font-semibold" data-id="${N(e.id)}" title="View Full Nomination Form and Scrutiny Details">
               <span>📄</span> <span>View Form</span>
             </button>
-            <button type="button" class="btn btn-primary btn-xs verify-btn bg-emerald-600/20 hover:bg-emerald-600 text-emerald-400 hover:text-white" data-id="${P(e.id)}" data-action="Valid"
+            <button type="button" class="btn btn-primary btn-xs verify-btn bg-emerald-600/20 hover:bg-emerald-600 text-emerald-400 hover:text-white" data-id="${N(e.id)}" data-action="Valid"
               ${e.status===`Valid`?`disabled`:``}>Valid</button>
-            <button type="button" class="btn btn-secondary btn-xs verify-btn bg-rose-600/20 hover:bg-rose-600 text-rose-400 hover:text-white" data-id="${P(e.id)}" data-action="Rejected"
+            <button type="button" class="btn btn-secondary btn-xs verify-btn bg-rose-600/20 hover:bg-rose-600 text-rose-400 hover:text-white" data-id="${N(e.id)}" data-action="Rejected"
               ${e.status===`Rejected`?`disabled`:``}>Reject</button>
-            <button type="button" class="btn btn-secondary btn-xs delete-nom-btn bg-red-900/20 hover:bg-red-700 text-red-400 hover:text-white border border-red-500/30 px-2" data-id="${P(e.id)}" data-candidate="${P(e.candidateName||e.candidate?.NAME||``)}" data-post="${P(e.post)}" title="Delete Nomination">🗑️</button>
+            <button type="button" class="btn btn-secondary btn-xs delete-nom-btn bg-red-900/20 hover:bg-red-700 text-red-400 hover:text-white border border-red-500/30 px-2" data-id="${N(e.id)}" data-candidate="${N(e.candidateName||e.candidate?.NAME||``)}" data-post="${N(e.post)}" title="Delete Nomination">🗑️</button>
           </div>
         </td>
-      </tr>`}).join(``):`<tr><td colspan="8" class="text-center text-slate-500 py-12">No nominations found matching those criteria.</td></tr>`,r&&(r.innerHTML=t.length?t.map(e=>{let t=q(e,s,o,i),n=String(e.candidateClass||``).toUpperCase().includes(`RESEARCH`)||String(e.candidateClass||``).toUpperCase().includes(`SCHOLAR`);return`
+      </tr>`}).join(``):`<tr><td colspan="8" class="text-center text-slate-500 py-12">No nominations found matching those criteria.</td></tr>`,r&&(r.innerHTML=t.length?t.map(e=>{let t=Je(e,s,o,i),n=String(e.candidateClass||``).toUpperCase().includes(`RESEARCH`)||String(e.candidateClass||``).toUpperCase().includes(`SCHOLAR`);return`
           <div class="bg-slate-900/80 backdrop-blur-md p-4 rounded-xl border ${t.length?`border-rose-500/40 bg-rose-950/10`:`border-white/10`} hover:border-indigo-500/40 transition-all flex flex-col justify-between space-y-3.5 shadow-xl">
             <!-- Top Header: ID, Post, Status -->
             <div class="space-y-2.5">
               <div class="flex items-start justify-between gap-2">
                 <div>
-                  <button type="button" class="view-nom-btn font-mono text-xs text-indigo-300 bg-indigo-500/20 hover:bg-indigo-500/30 px-2 py-0.5 rounded border border-indigo-500/30 font-bold inline-flex items-center gap-1" data-id="${P(e.id)}" title="Click to view full form">
-                    <span>📄</span> #${P(e.id)}
+                  <button type="button" class="view-nom-btn font-mono text-xs text-indigo-300 bg-indigo-500/20 hover:bg-indigo-500/30 px-2 py-0.5 rounded border border-indigo-500/30 font-bold inline-flex items-center gap-1" data-id="${N(e.id)}" title="Click to view full form">
+                    <span>📄</span> #${N(e.id)}
                   </button>
-                  <span class="text-xs font-semibold text-slate-200 ml-1.5">${P(e.post)}</span>
+                  <span class="text-xs font-semibold text-slate-200 ml-1.5">${N(e.post)}</span>
                 </div>
-                <span class="badge badge-${(e.status||`pending`).toLowerCase()} font-bold text-xs shrink-0">${P(e.status)}</span>
+                <span class="badge badge-${(e.status||`pending`).toLowerCase()} font-bold text-xs shrink-0">${N(e.status)}</span>
               </div>
 
               <!-- Candidate Info -->
               <div class="bg-black/30 p-3 rounded-lg border border-white/5 space-y-1">
                 <div class="font-bold text-white text-base flex items-center gap-1.5 flex-wrap">
-                  <span class="hover:text-indigo-300 cursor-pointer view-nom-btn" data-id="${P(e.id)}">${P(e.candidateName||e.candidate?.NAME||`N/A`)}</span>
+                  <span class="hover:text-indigo-300 cursor-pointer view-nom-btn" data-id="${N(e.id)}">${N(e.candidateName||e.candidate?.NAME||`N/A`)}</span>
                   <span class="badge bg-indigo-500/20 text-indigo-300 border border-indigo-500/40 font-mono font-bold text-[10px] px-1.5 py-0.2" title="Electoral Roll Serial Number">
-                    Sl. #${P(e.candidateSerial||e.candidate?.[`Nominal Roll Serial Number`]||`–`)}
+                    Sl. #${N(e.candidateSerial||e.candidate?.[`Nominal Roll Serial Number`]||`–`)}
                   </span>
                   ${n?`<span class="badge bg-rose-500/20 text-rose-300 border border-rose-500/40 text-[10px] px-1.5 py-0.2 font-semibold">⚠️ Ineligible (RS)</span>`:``}
                 </div>
                 <div class="text-xs text-slate-300 flex items-center gap-2 flex-wrap">
-                  <span class="font-mono text-slate-400">Adm: <strong class="text-slate-200">${P(e.candidateAdmission||e.candidate?.[`ADMISION NO`]||`–`)}</strong></span>
+                  <span class="font-mono text-slate-400">Adm: <strong class="text-slate-200">${N(e.candidateAdmission||e.candidate?.[`ADMISION NO`]||`–`)}</strong></span>
                   <span class="text-slate-500">•</span>
-                  <span>${P(e.candidateClass||``)} (${P(e.candidateDept||``)})</span>
+                  <span>${N(e.candidateClass||``)} (${N(e.candidateDept||``)})</span>
                 </div>
               </div>
 
@@ -2538,20 +2538,20 @@ Do you want to proceed and print the blank form?`)&&ue(e)}function Le(e,t,r=null
               <div class="grid grid-cols-2 gap-2 text-xs">
                 <div class="bg-black/20 p-2 rounded border border-white/5 space-y-0.5">
                   <div class="text-[10px] uppercase font-bold text-slate-400">Proposer</div>
-                  <div class="font-medium text-slate-200 truncate">${P(e.proposerName||e.proposer?.NAME||`N/A`)}</div>
-                  <div class="text-[10px] font-mono text-slate-400">Sl. #${P(e.proposerSerial||e.proposer?.[`Nominal Roll Serial Number`]||`–`)} • Adm: ${P(e.proposerAdmission||e.proposer?.[`ADMISION NO`]||`–`)}</div>
+                  <div class="font-medium text-slate-200 truncate">${N(e.proposerName||e.proposer?.NAME||`N/A`)}</div>
+                  <div class="text-[10px] font-mono text-slate-400">Sl. #${N(e.proposerSerial||e.proposer?.[`Nominal Roll Serial Number`]||`–`)} • Adm: ${N(e.proposerAdmission||e.proposer?.[`ADMISION NO`]||`–`)}</div>
                 </div>
                 <div class="bg-black/20 p-2 rounded border border-white/5 space-y-0.5">
                   <div class="text-[10px] uppercase font-bold text-slate-400">Seconder</div>
-                  <div class="font-medium text-slate-200 truncate">${P(e.seconderName||e.seconder?.NAME||`N/A`)}</div>
-                  <div class="text-[10px] font-mono text-slate-400">Sl. #${P(e.seconderSerial||e.seconder?.[`Nominal Roll Serial Number`]||`–`)} • Adm: ${P(e.seconderAdmission||e.seconder?.[`ADMISION NO`]||`–`)}</div>
+                  <div class="font-medium text-slate-200 truncate">${N(e.seconderName||e.seconder?.NAME||`N/A`)}</div>
+                  <div class="text-[10px] font-mono text-slate-400">Sl. #${N(e.seconderSerial||e.seconder?.[`Nominal Roll Serial Number`]||`–`)} • Adm: ${N(e.seconderAdmission||e.seconder?.[`ADMISION NO`]||`–`)}</div>
                 </div>
               </div>
 
               <!-- Scrutiny Audit & Violations -->
               <div>
                 ${t.length>0?`
-                  <button type="button" class="view-nom-btn w-full badge bg-rose-500/20 hover:bg-rose-500/30 text-rose-300 border border-rose-500/40 text-xs px-2.5 py-1.5 font-semibold flex items-center justify-center gap-1.5 cursor-pointer transition-colors" data-id="${P(e.id)}" title="${P(t.map(e=>e.message).join(` | `))}">
+                  <button type="button" class="view-nom-btn w-full badge bg-rose-500/20 hover:bg-rose-500/30 text-rose-300 border border-rose-500/40 text-xs px-2.5 py-1.5 font-semibold flex items-center justify-center gap-1.5 cursor-pointer transition-colors" data-id="${N(e.id)}" title="${N(t.map(e=>e.message).join(` | `))}">
                     <span>⚠️ ${t.length} Rule Violation${t.length>1?`s`:``} Flagged</span>
                   </button>
                 `:`
@@ -2561,7 +2561,7 @@ Do you want to proceed and print the blank form?`)&&ue(e)}function Le(e,t,r=null
                 `}
                 ${e.status===`Rejected`&&e.rejectionReason?`
                   <div class="text-xs text-rose-400 mt-1.5 bg-rose-500/10 border border-rose-500/20 p-2 rounded font-medium">
-                    ⚠️ ${P(e.rejectionReason)}
+                    ⚠️ ${N(e.rejectionReason)}
                   </div>
                 `:``}
               </div>
@@ -2569,17 +2569,17 @@ Do you want to proceed and print the blank form?`)&&ue(e)}function Le(e,t,r=null
 
             <!-- Touch-friendly Action Buttons for Phone -->
             <div class="space-y-2 pt-2 border-t border-white/10">
-              <button type="button" class="btn btn-secondary btn-sm w-full view-nom-btn bg-indigo-600/20 hover:bg-indigo-600 text-indigo-300 hover:text-white border border-indigo-500/30 py-2 flex items-center justify-center gap-1.5 font-bold text-xs" data-id="${P(e.id)}">
+              <button type="button" class="btn btn-secondary btn-sm w-full view-nom-btn bg-indigo-600/20 hover:bg-indigo-600 text-indigo-300 hover:text-white border border-indigo-500/30 py-2 flex items-center justify-center gap-1.5 font-bold text-xs" data-id="${N(e.id)}">
                 <span>📄</span> <span>View Full Nomination Paper</span>
               </button>
               <div class="flex items-center gap-2">
-                <button type="button" class="btn btn-primary btn-sm flex-1 verify-btn bg-emerald-600 hover:bg-emerald-500 text-white font-bold py-2 text-xs" data-id="${P(e.id)}" data-action="Valid" ${e.status===`Valid`?`disabled style="opacity:0.4;cursor:not-allowed;"`:``}>
+                <button type="button" class="btn btn-primary btn-sm flex-1 verify-btn bg-emerald-600 hover:bg-emerald-500 text-white font-bold py-2 text-xs" data-id="${N(e.id)}" data-action="Valid" ${e.status===`Valid`?`disabled style="opacity:0.4;cursor:not-allowed;"`:``}>
                   ✅ Valid
                 </button>
-                <button type="button" class="btn btn-secondary btn-sm flex-1 verify-btn bg-rose-600/20 hover:bg-rose-600 text-rose-300 hover:text-white border border-rose-500/40 font-bold py-2 text-xs" data-id="${P(e.id)}" data-action="Rejected" ${e.status===`Rejected`?`disabled style="opacity:0.4;cursor:not-allowed;"`:``}>
+                <button type="button" class="btn btn-secondary btn-sm flex-1 verify-btn bg-rose-600/20 hover:bg-rose-600 text-rose-300 hover:text-white border border-rose-500/40 font-bold py-2 text-xs" data-id="${N(e.id)}" data-action="Rejected" ${e.status===`Rejected`?`disabled style="opacity:0.4;cursor:not-allowed;"`:``}>
                   ❌ Reject
                 </button>
-                <button type="button" class="btn btn-secondary btn-sm delete-nom-btn bg-red-900/20 hover:bg-red-700 text-red-400 hover:text-white border border-red-500/30 px-3 py-2 text-xs font-bold" data-id="${P(e.id)}" data-candidate="${P(e.candidateName||e.candidate?.NAME||``)}" data-post="${P(e.post)}" title="Delete Nomination">
+                <button type="button" class="btn btn-secondary btn-sm delete-nom-btn bg-red-900/20 hover:bg-red-700 text-red-400 hover:text-white border border-red-500/30 px-3 py-2 text-xs font-bold" data-id="${N(e.id)}" data-candidate="${N(e.candidateName||e.candidate?.NAME||``)}" data-post="${N(e.post)}" title="Delete Nomination">
                   🗑️
                 </button>
               </div>
@@ -2591,7 +2591,7 @@ Do you want to proceed and print the blank form?`)&&ue(e)}function Le(e,t,r=null
           <p class="text-slate-300 font-medium text-sm">No nominations found</p>
           <p class="text-xs text-slate-500 mt-1">Try broadening your search term or filter.</p>
         </div>
-      `)},D=e=>{let t=o.find(t=>String(t.id)===String(e));if(!t)return;u=t.id;let r=l.findIndex(e=>String(e.id)===String(t.id)),a=l.length;_.textContent=a>0?`${r+1} / ${a}`:`1 / 1`,v.disabled=r<=0,y.disabled=r===-1||r>=a-1,m.textContent=`#${t.id}`,h.className=`badge badge-${(t.status||`pending`).toLowerCase()} font-bold`,h.textContent=t.status||`Pending`,g.textContent=t.timestamp?`Submitted: ${new Date(t.timestamp).toLocaleString()}`:``,t.status===`Rejected`&&t.rejectionReason?(T.textContent=t.rejectionReason,S.classList.remove(`hidden`)):S.classList.add(`hidden`);let c=q(t,s,o,i);c.length>0?p.innerHTML=`
+      `)},D=e=>{let t=o.find(t=>String(t.id)===String(e));if(!t)return;u=t.id;let r=l.findIndex(e=>String(e.id)===String(t.id)),a=l.length;_.textContent=a>0?`${r+1} / ${a}`:`1 / 1`,v.disabled=r<=0,y.disabled=r===-1||r>=a-1,m.textContent=`#${t.id}`,h.className=`badge badge-${(t.status||`pending`).toLowerCase()} font-bold`,h.textContent=t.status||`Pending`,g.textContent=t.timestamp?`Submitted: ${new Date(t.timestamp).toLocaleString()}`:``,t.status===`Rejected`&&t.rejectionReason?(T.textContent=t.rejectionReason,S.classList.remove(`hidden`)):S.classList.add(`hidden`);let c=Je(t,s,o,i);c.length>0?p.innerHTML=`
         <div class="rounded-xl border border-rose-500/40 bg-rose-950/40 p-4 space-y-2.5 shadow-lg">
           <div class="flex items-center justify-between border-b border-rose-500/30 pb-2">
             <div class="flex items-center gap-2 text-rose-300 font-bold text-sm">
@@ -2603,7 +2603,7 @@ Do you want to proceed and print the blank form?`)&&ue(e)}function Le(e,t,r=null
             ${c.map(e=>`
               <div class="flex items-start gap-2">
                 <span class="text-rose-400 font-bold text-sm leading-none">•</span>
-                <span>${P(e.message)}</span>
+                <span>${N(e.message)}</span>
               </div>
             `).join(``)}
           </div>
@@ -2614,9 +2614,9 @@ Do you want to proceed and print the blank form?`)&&ue(e)}function Le(e,t,r=null
             <span><strong>Statutory Scrutiny Passed:</strong> Candidate satisfies all eligibility criteria, age limits, gender, year-level, and endorsement rules.</span>
           </div>
           <span class="badge bg-emerald-500/20 text-emerald-300 border border-emerald-500/40 text-[10px] font-bold shrink-0">ALL RULES PASSED</span>
-        </div>`;let b=t.dob||`N/A`,x=new Date(t.dob);isNaN(x.getTime())||(b=`${String(x.getDate()).padStart(2,`0`)}/${String(x.getMonth()+1).padStart(2,`0`)}/${x.getFullYear()}`);let C=w(t.dob),E=i?.electionYear||new Date().getFullYear(),D=i?.collegeName||n.COLLEGE_NAME,O=i?.collegeLogo||``;f.innerHTML=Se(t.id,t.post,t.gender,b,C,t.candidate,t.proposer,t.seconder,t.status,E,D,O),d.classList.remove(`hidden`)},O=()=>{d.classList.add(`hidden`),u=null},k=null,A=e.querySelector(`#deleteNomModal`),j=e.querySelector(`#delNomPwdInput`),M=e.querySelector(`#delNomError`),N=e.querySelector(`#btnConfirmDelNom`),ee=()=>{A?.classList.add(`hidden`),k=null,j&&(j.value=``),M&&(M.textContent=``,M.classList.add(`hidden`))};e.querySelector(`#btnCancelDelNom`)?.addEventListener(`click`,ee),e.querySelector(`#btnConfirmDelNom`)?.addEventListener(`click`,async()=>{let e=(j?.value||``).trim();if(!e){M&&(M.textContent=`❌ Please enter admin password.`,M.classList.remove(`hidden`)),j?.focus();return}if(k){N.disabled=!0,N.textContent=`Deleting...`,M&&M.classList.add(`hidden`);try{await C.adminDeleteNomination(e,k);let t=o.findIndex(e=>e.id===k);t!==-1&&o.splice(t,1),I(`Nomination ${k} permanently deleted.`,`success`),ee(),u===k&&O(),F()}catch(e){let t=e.message.includes(`password`)?`Incorrect admin password.`:e.message;M&&(M.textContent=`❌ ${t}`,M.classList.remove(`hidden`)),I(t,`error`),j?.focus()}finally{N.disabled=!1,N.textContent=`Permanently Delete`}}});let F=()=>{let t=(e.querySelector(`#nomSearch`).value||``).trim().toLowerCase(),n=e.querySelector(`#statusFilter`).value,r=o.filter(e=>{let r=q(e,s,o,i),a=!0;n===`violations`?a=r.length>0:n===`passed`?a=r.length===0:n!==`all`&&(a=e.status===n);let c=!t||String(e.id).toLowerCase().includes(t)||String(e.candidateName||e.candidate?.NAME||``).toLowerCase().includes(t)||String(e.candidateSerial||e.candidate?.[`Nominal Roll Serial Number`]||``).toLowerCase().includes(t)||String(e.candidateAdmission||e.candidate?.[`ADMISION NO`]||``).toLowerCase().includes(t)||String(e.candidateDept||``).toLowerCase().includes(t)||String(e.post).toLowerCase().includes(t);return a&&c});if(r.sort((e,t)=>{let n={Pending:1,Valid:2,Rejected:3},r=n[e.status]||99,i=n[t.status]||99;return r===i?String(t.id).localeCompare(String(e.id)):r-i}),l=r,E(r),u){let e=l.findIndex(e=>String(e.id)===String(u)),t=l.length;_.textContent=t>0?`${e+1} / ${t}`:`1 / 1`,v.disabled=e<=0,y.disabled=e===-1||e>=t-1}};e.querySelector(`#nomSearch`).addEventListener(`input`,F),e.querySelector(`#statusFilter`).addEventListener(`change`,F);let ne=()=>{let t=e.querySelector(`#nomCardsContainer`),n=e.querySelector(`#nomTableContainer`),r=e.querySelector(`#btnNomModeCards`),i=e.querySelector(`#btnNomModeTable`);t&&t.classList.toggle(`hidden`,c!==`cards`),n&&n.classList.toggle(`hidden`,c!==`table`),r&&(r.className=`btn btn-xs py-1.5 px-3 rounded text-xs flex items-center gap-1.5 transition-all ${c===`cards`?`bg-indigo-600 text-white font-bold shadow-md shadow-indigo-900/40`:`text-slate-400 hover:text-white`}`),i&&(i.className=`btn btn-xs py-1.5 px-3 rounded text-xs flex items-center gap-1.5 transition-all ${c===`table`?`bg-indigo-600 text-white font-bold shadow-md shadow-indigo-900/40`:`text-slate-400 hover:text-white`}`)};e.querySelector(`#btnNomModeCards`)?.addEventListener(`click`,()=>{c!==`cards`&&(c=`cards`,ne())}),e.querySelector(`#btnNomModeTable`)?.addEventListener(`click`,()=>{c!==`table`&&(c=`table`,ne())}),e.querySelector(`#btnRefreshVerify`)?.addEventListener(`click`,async()=>{let t=e.querySelector(`#btnRefreshVerify`),n=e.querySelector(`#refreshIcon`);t&&(t.disabled=!0),n&&n.classList.add(`animate-spin`);try{let[e,t]=await Promise.all([C.adminGetNominations(r,!0),C.adminGetPosts(r).catch(()=>s)]);o.length=0,Array.isArray(e)&&o.push(...e),Array.isArray(t)&&(s.length=0,s.push(...t)),F(),I(`Nomination list & rules refreshed.`,`info`)}catch(e){I(`Refresh failed: ${e.message}`,`error`)}finally{t&&(t.disabled=!1),n&&n.classList.remove(`animate-spin`)}}),b.addEventListener(`click`,async()=>{if(!u)return;let e=u;b.disabled=!0;let t=b.innerHTML;b.innerHTML=`<span class="spinner" style="width:1rem;height:1rem;border-width:2px;"></span> Validating...`;try{await C.adminVerifyNomination(r,e,`Valid`);let t=o.find(t=>t.id===e);t&&(t.status=`Valid`,t.rejectionReason=null),I(`Nomination #${e} marked as Valid.`,`success`),F(),D(e)}catch(e){I(`Failed: ${e.message}`,`error`)}finally{b.disabled=!1,b.innerHTML=t}}),x.addEventListener(`click`,async()=>{if(!u)return;let e=u,t=o.find(t=>t.id===e),n=q(t,s,o,i),a=n.length>0?n[0].message:`Serial number or eligibility requirement not met`,c=prompt(`Please enter the statutory reason for rejecting Nomination #${e}:`,a);if(c===null)return;let l=c.trim()||`Scrutiny criteria not satisfied`;x.disabled=!0;let d=x.innerHTML;x.innerHTML=`<span class="spinner" style="width:1rem;height:1rem;border-width:2px;"></span> Rejecting...`;try{await C.adminVerifyNomination(r,e,`Rejected`,l),t&&(t.status=`Rejected`,t.rejectionReason=l),I(`Nomination #${e} marked as Rejected.`,`success`),F(),D(e)}catch(e){I(`Failed: ${e.message}`,`error`)}finally{x.disabled=!1,x.innerHTML=d}}),e.querySelector(`#btnModalPrintPaper`)?.addEventListener(`click`,()=>{te(f.innerHTML)}),v.addEventListener(`click`,()=>{let e=l.findIndex(e=>String(e.id)===String(u));e>0&&D(l[e-1].id)}),y.addEventListener(`click`,()=>{let e=l.findIndex(e=>String(e.id)===String(u));e!==-1&&e<l.length-1&&D(l[e+1].id)}),e.querySelector(`#btnCloseNomDetail`)?.addEventListener(`click`,O),e.querySelector(`#btnModalCloseFooter`)?.addEventListener(`click`,O),window.addEventListener(`keydown`,e=>{d.classList.contains(`hidden`)||(e.key===`Escape`?O():e.key===`ArrowLeft`&&!v.disabled?v.click():e.key===`ArrowRight`&&!y.disabled&&y.click())}),e.querySelector(`#nomListView`)?.addEventListener(`click`,async t=>{let n=t.target.closest(`.view-nom-btn`);if(n){let e=n.dataset.id;e&&D(e);return}let a=t.target.closest(`.delete-nom-btn`);if(a){k=a.dataset.id,e.querySelector(`#delNomCandidate`).textContent=a.dataset.candidate||`Unknown`,e.querySelector(`#delNomPost`).textContent=a.dataset.post||`Unknown`,e.querySelector(`#delNomId`).textContent=k,j&&(j.value=``),M&&(M.textContent=``,M.classList.add(`hidden`)),A?.classList.remove(`hidden`),setTimeout(()=>j?.focus(),50);return}let c=t.target.closest(`.verify-btn`);if(!c)return;let l=c.dataset.id,u=c.dataset.action,d=null;if(u===`Rejected`){let e=q(o.find(e=>String(e.id)===String(l)),s,o,i),t=e.length>0?e[0].message:`Serial number or eligibility requirement not met`;if(d=prompt(`Please enter the statutory reason for rejecting Nomination #${l}:`,t),d===null)return;d=d.trim()||`Scrutiny criteria not satisfied`}c.disabled=!0;let f=c.textContent;c.innerHTML=`<span class="spinner" style="width:1rem;height:1rem;border-width:2px;"></span>`;try{await C.adminVerifyNomination(r,l,u,d);let e=o.find(e=>String(e.id)===String(l));e&&(e.status=u,e.rejectionReason=d),I(`Nomination #${l} marked as ${u}.`,`success`),F()}catch(e){I(`Failed: ${e.message}`,`error`),c.disabled=!1,c.textContent=f}}),F()}async function Je(e){let t=W();if(t){G(e,`withdrawals`,`
+        </div>`;let b=t.dob||`N/A`,x=new Date(t.dob);isNaN(x.getTime())||(b=`${String(x.getDate()).padStart(2,`0`)}/${String(x.getMonth()+1).padStart(2,`0`)}/${x.getFullYear()}`);let C=w(t.dob),E=i?.electionYear||new Date().getFullYear(),D=i?.collegeName||n.COLLEGE_NAME,O=i?.collegeLogo||``;f.innerHTML=Ce(t.id,t.post,t.gender,b,C,t.candidate,t.proposer,t.seconder,t.status,E,D,O),d.classList.remove(`hidden`)},O=()=>{d.classList.add(`hidden`),u=null},k=null,ee=e.querySelector(`#deleteNomModal`),A=e.querySelector(`#delNomPwdInput`),j=e.querySelector(`#delNomError`),M=e.querySelector(`#btnConfirmDelNom`),te=()=>{ee?.classList.add(`hidden`),k=null,A&&(A.value=``),j&&(j.textContent=``,j.classList.add(`hidden`))};e.querySelector(`#btnCancelDelNom`)?.addEventListener(`click`,te),e.querySelector(`#btnConfirmDelNom`)?.addEventListener(`click`,async()=>{let e=(A?.value||``).trim();if(!e){j&&(j.textContent=`❌ Please enter admin password.`,j.classList.remove(`hidden`)),A?.focus();return}if(k){M.disabled=!0,M.textContent=`Deleting...`,j&&j.classList.add(`hidden`);try{await C.adminDeleteNomination(e,k);let t=o.findIndex(e=>e.id===k);t!==-1&&o.splice(t,1),F(`Nomination ${k} permanently deleted.`,`success`),te(),u===k&&O(),P()}catch(e){let t=e.message.includes(`password`)?`Incorrect admin password.`:e.message;j&&(j.textContent=`❌ ${t}`,j.classList.remove(`hidden`)),F(t,`error`),A?.focus()}finally{M.disabled=!1,M.textContent=`Permanently Delete`}}});let P=()=>{let t=(e.querySelector(`#nomSearch`).value||``).trim().toLowerCase(),n=e.querySelector(`#statusFilter`).value,r=o.filter(e=>{let r=Je(e,s,o,i),a=!0;n===`violations`?a=r.length>0:n===`passed`?a=r.length===0:n!==`all`&&(a=e.status===n);let c=!t||String(e.id).toLowerCase().includes(t)||String(e.candidateName||e.candidate?.NAME||``).toLowerCase().includes(t)||String(e.candidateSerial||e.candidate?.[`Nominal Roll Serial Number`]||``).toLowerCase().includes(t)||String(e.candidateAdmission||e.candidate?.[`ADMISION NO`]||``).toLowerCase().includes(t)||String(e.candidateDept||``).toLowerCase().includes(t)||String(e.post).toLowerCase().includes(t);return a&&c});if(r.sort((e,t)=>{let n={Pending:1,Valid:2,Rejected:3},r=n[e.status]||99,i=n[t.status]||99;return r===i?String(t.id).localeCompare(String(e.id)):r-i}),l=r,E(r),u){let e=l.findIndex(e=>String(e.id)===String(u)),t=l.length;_.textContent=t>0?`${e+1} / ${t}`:`1 / 1`,v.disabled=e<=0,y.disabled=e===-1||e>=t-1}};e.querySelector(`#nomSearch`).addEventListener(`input`,P),e.querySelector(`#statusFilter`).addEventListener(`change`,P);let re=()=>{let t=e.querySelector(`#nomCardsContainer`),n=e.querySelector(`#nomTableContainer`),r=e.querySelector(`#btnNomModeCards`),i=e.querySelector(`#btnNomModeTable`);t&&t.classList.toggle(`hidden`,c!==`cards`),n&&n.classList.toggle(`hidden`,c!==`table`),r&&(r.className=`btn btn-xs py-1.5 px-3 rounded text-xs flex items-center gap-1.5 transition-all ${c===`cards`?`bg-indigo-600 text-white font-bold shadow-md shadow-indigo-900/40`:`text-slate-400 hover:text-white`}`),i&&(i.className=`btn btn-xs py-1.5 px-3 rounded text-xs flex items-center gap-1.5 transition-all ${c===`table`?`bg-indigo-600 text-white font-bold shadow-md shadow-indigo-900/40`:`text-slate-400 hover:text-white`}`)};e.querySelector(`#btnNomModeCards`)?.addEventListener(`click`,()=>{c!==`cards`&&(c=`cards`,re())}),e.querySelector(`#btnNomModeTable`)?.addEventListener(`click`,()=>{c!==`table`&&(c=`table`,re())}),e.querySelector(`#btnRefreshVerify`)?.addEventListener(`click`,async()=>{let t=e.querySelector(`#btnRefreshVerify`),n=e.querySelector(`#refreshIcon`);t&&(t.disabled=!0),n&&n.classList.add(`animate-spin`);try{let[e,t]=await Promise.all([C.adminGetNominations(r,!0),C.adminGetPosts(r).catch(()=>s)]);o.length=0,Array.isArray(e)&&o.push(...e),Array.isArray(t)&&(s.length=0,s.push(...t)),P(),F(`Nomination list & rules refreshed.`,`info`)}catch(e){F(`Refresh failed: ${e.message}`,`error`)}finally{t&&(t.disabled=!1),n&&n.classList.remove(`animate-spin`)}}),b.addEventListener(`click`,async()=>{if(!u)return;let e=u;b.disabled=!0;let t=b.innerHTML;b.innerHTML=`<span class="spinner" style="width:1rem;height:1rem;border-width:2px;"></span> Validating...`;try{await C.adminVerifyNomination(r,e,`Valid`);let t=o.find(t=>t.id===e);t&&(t.status=`Valid`,t.rejectionReason=null),F(`Nomination #${e} marked as Valid.`,`success`),P(),D(e)}catch(e){F(`Failed: ${e.message}`,`error`)}finally{b.disabled=!1,b.innerHTML=t}}),x.addEventListener(`click`,async()=>{if(!u)return;let e=u,t=o.find(t=>t.id===e),n=Je(t,s,o,i),a=n.length>0?n[0].message:`Serial number or eligibility requirement not met`,c=prompt(`Please enter the statutory reason for rejecting Nomination #${e}:`,a);if(c===null)return;let l=c.trim()||`Scrutiny criteria not satisfied`;x.disabled=!0;let d=x.innerHTML;x.innerHTML=`<span class="spinner" style="width:1rem;height:1rem;border-width:2px;"></span> Rejecting...`;try{await C.adminVerifyNomination(r,e,`Rejected`,l),t&&(t.status=`Rejected`,t.rejectionReason=l),F(`Nomination #${e} marked as Rejected.`,`success`),P(),D(e)}catch(e){F(`Failed: ${e.message}`,`error`)}finally{x.disabled=!1,x.innerHTML=d}}),e.querySelector(`#btnModalPrintPaper`)?.addEventListener(`click`,()=>{ne(f.innerHTML)}),v.addEventListener(`click`,()=>{let e=l.findIndex(e=>String(e.id)===String(u));e>0&&D(l[e-1].id)}),y.addEventListener(`click`,()=>{let e=l.findIndex(e=>String(e.id)===String(u));e!==-1&&e<l.length-1&&D(l[e+1].id)}),e.querySelector(`#btnCloseNomDetail`)?.addEventListener(`click`,O),e.querySelector(`#btnModalCloseFooter`)?.addEventListener(`click`,O),window.addEventListener(`keydown`,e=>{d.classList.contains(`hidden`)||(e.key===`Escape`?O():e.key===`ArrowLeft`&&!v.disabled?v.click():e.key===`ArrowRight`&&!y.disabled&&y.click())}),e.querySelector(`#nomListView`)?.addEventListener(`click`,async t=>{let n=t.target.closest(`.view-nom-btn`);if(n){let e=n.dataset.id;e&&D(e);return}let a=t.target.closest(`.delete-nom-btn`);if(a){k=a.dataset.id,e.querySelector(`#delNomCandidate`).textContent=a.dataset.candidate||`Unknown`,e.querySelector(`#delNomPost`).textContent=a.dataset.post||`Unknown`,e.querySelector(`#delNomId`).textContent=k,A&&(A.value=``),j&&(j.textContent=``,j.classList.add(`hidden`)),ee?.classList.remove(`hidden`),setTimeout(()=>A?.focus(),50);return}let c=t.target.closest(`.verify-btn`);if(!c)return;let l=c.dataset.id,u=c.dataset.action,d=null;if(u===`Rejected`){let e=Je(o.find(e=>String(e.id)===String(l)),s,o,i),t=e.length>0?e[0].message:`Serial number or eligibility requirement not met`;if(d=prompt(`Please enter the statutory reason for rejecting Nomination #${l}:`,t),d===null)return;d=d.trim()||`Scrutiny criteria not satisfied`}c.disabled=!0;let f=c.textContent;c.innerHTML=`<span class="spinner" style="width:1rem;height:1rem;border-width:2px;"></span>`;try{await C.adminVerifyNomination(r,l,u,d);let e=o.find(e=>String(e.id)===String(l));e&&(e.status=u,e.rejectionReason=d),F(`Nomination #${l} marked as ${u}.`,`success`),P()}catch(e){F(`Failed: ${e.message}`,`error`),c.disabled=!1,c.textContent=f}}),P()}async function Xe(e){let t=U();if(t){W(e,`withdrawals`,`
     <div class="text-center py-16"><span class="spinner" style="width:2.5rem;height:2.5rem;border-width:4px;"></span><p class="text-slate-400 mt-4 text-sm">Loading withdrawals...</p></div>
-  `);try{let n=await C.adminGetNominations(t,!0);Ye(e.querySelector(`#adminMain`),n,t)}catch(t){e.querySelector(`#adminMain`).innerHTML=`<div class="alert alert-error">❌ ${P(t.message)}</div>`}}}function Ye(e,t,n){let r=Array.isArray(t)?t:[],i=r.filter(e=>e.withdrawalStatus&&e.withdrawalStatus!==`None`),a=r.filter(e=>e.status===`Valid`&&e.withdrawalStatus!==`Approved`),o=r.filter(e=>e.withdrawalStatus===`Approved`);e.innerHTML=`
+  `);try{let n=await C.adminGetNominations(t,!0);Ze(e.querySelector(`#adminMain`),n,t)}catch(t){e.querySelector(`#adminMain`).innerHTML=`<div class="alert alert-error">❌ ${N(t.message)}</div>`}}}function Ze(e,t,n){let r=Array.isArray(t)?t:[],i=r.filter(e=>e.withdrawalStatus&&e.withdrawalStatus!==`None`),a=r.filter(e=>e.status===`Valid`&&e.withdrawalStatus!==`Approved`),o=r.filter(e=>e.withdrawalStatus===`Approved`);e.innerHTML=`
     <div class="page-enter space-y-4">
       <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-4 mb-2">
         <div>
@@ -2738,36 +2738,36 @@ Do you want to proceed and print the blank form?`)&&ue(e)}function Le(e,t,r=null
         </div>
       </div>
     </div>`;let s=e.querySelector(`#tabRequests`),c=e.querySelector(`#tabDirect`),l=e.querySelector(`#panelRequests`),u=e.querySelector(`#panelDirect`),d=e=>{[s,c].forEach(e=>{e.classList.remove(`border-indigo-400`,`text-white`,`bg-white/5`),e.classList.add(`border-transparent`,`text-slate-400`)}),e.classList.add(`border-indigo-400`,`text-white`,`bg-white/5`),e.classList.remove(`border-transparent`,`text-slate-400`),l.classList.toggle(`hidden`,e!==s),u.classList.toggle(`hidden`,e!==c)};s.onclick=()=>d(s),c.onclick=()=>d(c);let f=()=>{let t=e.querySelector(`#reqCountBadge`);t&&(t.textContent=i.length);let n=e.querySelector(`#activeCountBadge`);n&&(n.textContent=a.length);let r=e.querySelector(`#withdrawnCountBadge`);r&&(r.textContent=o.length)},p=t=>{let n=e.querySelector(`#withdrawalTableBody`);n.innerHTML=t.length?t.map(e=>{let t=e.withdrawalStatus===`Approved`,n=e.withdrawalStatus===`Pending`||e.withdrawalStatus===`Requested`,r=e.withdrawalStatus===`Rejected`,i=`<span class="badge badge-pending">Pending</span>`;return t?i=`<span class="badge badge-valid">Approved (Withdrawn)</span>`:r&&(i=`<span class="badge bg-rose-500/20 text-rose-300 border border-rose-500/30">Rejected (Active)</span>`),`
-      <tr id="wrow-${P(e.id)}">
-        <td class="font-mono text-indigo-300 text-xs">${P(e.id)}</td>
-        <td class="text-xs font-medium text-slate-300">${P(e.post)}</td>
+      <tr id="wrow-${N(e.id)}">
+        <td class="font-mono text-indigo-300 text-xs">${N(e.id)}</td>
+        <td class="text-xs font-medium text-slate-300">${N(e.post)}</td>
         <td class="font-bold text-white">
           <div class="flex items-center gap-1.5 flex-wrap">
-            <span>${P(e.candidateName||`N/A`)}</span>
-            ${e.candidateSerial||e.candidate?.[`Nominal Roll Serial Number`]?`<span class="badge bg-indigo-500/20 text-indigo-300 font-mono text-[10px]">Sl. #${P(e.candidateSerial||e.candidate?.[`Nominal Roll Serial Number`])}</span>`:``}
+            <span>${N(e.candidateName||`N/A`)}</span>
+            ${e.candidateSerial||e.candidate?.[`Nominal Roll Serial Number`]?`<span class="badge bg-indigo-500/20 text-indigo-300 font-mono text-[10px]">Sl. #${N(e.candidateSerial||e.candidate?.[`Nominal Roll Serial Number`])}</span>`:``}
           </div>
         </td>
-        <td class="text-xs text-slate-400">${P(e.candidateClass||``)} / ${P(e.candidateDept||``)}</td>
+        <td class="text-xs text-slate-400">${N(e.candidateClass||``)} / ${N(e.candidateDept||``)}</td>
         <td>${i}</td>
         <td>
           ${t?`
-            <button class="btn btn-sm unapprove-btn" data-id="${P(e.id)}"
+            <button class="btn btn-sm unapprove-btn" data-id="${N(e.id)}"
               style="background:rgba(245,158,11,0.15); color:#fbbf24; border:1px solid rgba(245,158,11,0.4);"
               title="Undo approval and restore candidate to active Valid list">
               ↺ Restore Approval
             </button>
           `:n?`
             <div class="flex items-center gap-1.5">
-              <button class="btn btn-primary btn-sm approve-btn bg-emerald-600/20 hover:bg-emerald-600 text-emerald-400 hover:text-white" data-id="${P(e.id)}" title="Approve withdrawal and withdraw candidate">
+              <button class="btn btn-primary btn-sm approve-btn bg-emerald-600/20 hover:bg-emerald-600 text-emerald-400 hover:text-white" data-id="${N(e.id)}" title="Approve withdrawal and withdraw candidate">
                 ✅ Approve
               </button>
-              <button class="btn btn-sm reject-btn" data-id="${P(e.id)}"
+              <button class="btn btn-sm reject-btn" data-id="${N(e.id)}"
                 style="background:rgba(239,68,68,0.15); color:#f87171; border:1px solid rgba(239,68,68,0.3);" title="Reject request; keep candidate active">
                 ❌ Reject
               </button>
             </div>
           `:`
-            <button class="btn btn-sm approve-btn text-xs bg-slate-700/50 hover:bg-emerald-600/30 text-slate-300 hover:text-emerald-300 border border-white/10" data-id="${P(e.id)}" title="Re-evaluate and approve withdrawal">
+            <button class="btn btn-sm approve-btn text-xs bg-slate-700/50 hover:bg-emerald-600/30 text-slate-300 hover:text-emerald-300 border border-white/10" data-id="${N(e.id)}" title="Re-evaluate and approve withdrawal">
               Approve
             </button>
           `}
@@ -2775,54 +2775,54 @@ Do you want to proceed and print the blank form?`)&&ue(e)}function Le(e,t,r=null
       </tr>`}).join(``):`<tr><td colspan="6" class="text-center text-slate-500 py-12">No withdrawal requests found.</td></tr>`;let r=e.querySelector(`#withdrawalCardsContainer`);r&&(r.innerHTML=t.length?t.map(e=>{let t=e.withdrawalStatus===`Approved`,n=e.withdrawalStatus===`Pending`||e.withdrawalStatus===`Requested`,r=e.withdrawalStatus===`Rejected`,i=`<span class="badge badge-pending">Pending</span>`;return t?i=`<span class="badge badge-valid">Approved (Withdrawn)</span>`:r&&(i=`<span class="badge bg-rose-500/20 text-rose-300 border border-rose-500/30">Rejected (Active)</span>`),`
           <div class="glass p-3.5 rounded-xl border border-white/10 space-y-2 bg-slate-900/80">
             <div class="flex items-center justify-between gap-2">
-              <span class="font-mono text-xs text-indigo-300 font-bold bg-indigo-500/20 px-2 py-0.5 rounded border border-indigo-500/30">#${P(e.id)}</span>
+              <span class="font-mono text-xs text-indigo-300 font-bold bg-indigo-500/20 px-2 py-0.5 rounded border border-indigo-500/30">#${N(e.id)}</span>
               ${i}
             </div>
             <div>
-              <div class="font-bold text-white text-base">${P(e.candidateName||`N/A`)}</div>
-              <div class="text-xs text-indigo-300 font-semibold">${P(e.post)}</div>
-              <div class="text-xs text-slate-400 mt-0.5">${P(e.candidateClass||``)} / ${P(e.candidateDept||``)}</div>
+              <div class="font-bold text-white text-base">${N(e.candidateName||`N/A`)}</div>
+              <div class="text-xs text-indigo-300 font-semibold">${N(e.post)}</div>
+              <div class="text-xs text-slate-400 mt-0.5">${N(e.candidateClass||``)} / ${N(e.candidateDept||``)}</div>
             </div>
             <div class="pt-2 border-t border-white/10">
               ${t?`
-                <button class="btn btn-sm w-full unapprove-btn py-1.5 text-xs font-semibold" data-id="${P(e.id)}"
+                <button class="btn btn-sm w-full unapprove-btn py-1.5 text-xs font-semibold" data-id="${N(e.id)}"
                   style="background:rgba(245,158,11,0.15); color:#fbbf24; border:1px solid rgba(245,158,11,0.4);"
                   title="Undo approval and restore candidate to active Valid list">
                   ↺ Restore Approval
                 </button>
               `:n?`
                 <div class="flex gap-2">
-                  <button class="btn btn-primary btn-sm flex-1 approve-btn bg-emerald-600 hover:bg-emerald-500 text-white font-bold py-1.5 text-xs" data-id="${P(e.id)}">
+                  <button class="btn btn-primary btn-sm flex-1 approve-btn bg-emerald-600 hover:bg-emerald-500 text-white font-bold py-1.5 text-xs" data-id="${N(e.id)}">
                     ✅ Approve
                   </button>
-                  <button class="btn btn-sm flex-1 reject-btn bg-rose-600/20 hover:bg-rose-600 text-rose-300 hover:text-white border border-rose-500/30 font-bold py-1.5 text-xs" data-id="${P(e.id)}">
+                  <button class="btn btn-sm flex-1 reject-btn bg-rose-600/20 hover:bg-rose-600 text-rose-300 hover:text-white border border-rose-500/30 font-bold py-1.5 text-xs" data-id="${N(e.id)}">
                     ❌ Reject
                   </button>
                 </div>
               `:`
-                <button class="btn btn-sm w-full approve-btn text-xs bg-slate-700/50 hover:bg-emerald-600/30 text-slate-300 hover:text-emerald-300 border border-white/10 py-1.5" data-id="${P(e.id)}">
+                <button class="btn btn-sm w-full approve-btn text-xs bg-slate-700/50 hover:bg-emerald-600/30 text-slate-300 hover:text-emerald-300 border border-white/10 py-1.5" data-id="${N(e.id)}">
                   Approve
                 </button>
               `}
             </div>
           </div>
-        `}).join(``):`<div class="text-center text-slate-500 py-8">No withdrawal requests found.</div>`)},m=()=>{let t=e.querySelector(`#withSearch`).value.toLowerCase();p(i.filter(e=>!t||String(e.id).toLowerCase().includes(t)||String(e.candidateName||``).toLowerCase().includes(t)||String(e.post).toLowerCase().includes(t)))};e.querySelector(`#withSearch`).addEventListener(`input`,m),p(i),e.querySelector(`#panelRequests`).addEventListener(`click`,async e=>{let t=e.target.closest(`.approve-btn`);if(t){let e=t.dataset.id;t.disabled=!0,t.innerHTML=`<span class="spinner" style="width:1rem;height:1rem;border-width:2px;"></span>`;try{await C.adminApproveWithdrawal(n,e),I(`Withdrawal request approved.`,`success`);let t=i.find(t=>t.id===e);t&&(t.withdrawalStatus=`Approved`);let s=r.find(t=>t.id===e)||t;s&&(s.withdrawalStatus=`Approved`,a=a.filter(t=>t.id!==e),o.some(t=>t.id===e)||o.unshift(s)),f(),m(),_(),v()}catch(e){I(`Failed: ${e.message}`,`error`),t.disabled=!1,t.innerHTML=`✅ Approve`}return}let s=e.target.closest(`.reject-btn`);if(s){let e=s.dataset.id,t=i.find(t=>t.id===e);if(!confirm(`REJECT WITHDRAWAL REQUEST\n\nCandidate: ${t?.candidateName||e}\nPost: ${t?.post||``}\n\nRejecting this request will keep the candidate active on the Valid List. Proceed?`))return;s.disabled=!0,s.innerHTML=`<span class="spinner" style="width:1rem;height:1rem;border-width:2px;"></span>`;try{await C.adminRejectWithdrawal(n,e),I(`Withdrawal request for ${t?.candidateName||e} rejected. Candidate remains active.`,`info`),t&&(t.withdrawalStatus=`Rejected`);let i=r.find(t=>t.id===e)||t;i&&(i.withdrawalStatus=`Rejected`,o=o.filter(t=>t.id!==e),a.some(t=>t.id===e)||a.unshift(i)),f(),m(),_(),v()}catch(e){I(`Failed: ${e.message}`,`error`),s.disabled=!1,s.innerHTML=`❌ Reject`}return}let c=e.target.closest(`.unapprove-btn`);if(c){let e=c.dataset.id,t=i.find(t=>t.id===e);if(!confirm(`RESTORE STUDENT WITHDRAWAL APPROVAL\n\nCandidate: ${t?.candidateName||e}\nPost: ${t?.post||``}\n\nThis will undo the approved withdrawal, restore the candidate to the active Valid List, and return this request to 'Pending'.\n\nProceed?`))return;c.disabled=!0,c.innerHTML=`<span class="spinner" style="width:1rem;height:1rem;border-width:2px;"></span>`;try{await C.adminRestoreWithdrawal(n,e,`Pending`),I(`✅ Withdrawal approval undone! ${t?.candidateName||e} restored to Valid list.`,`success`),t&&(t.withdrawalStatus=`Pending`);let i=r.find(t=>t.id===e)||t;i&&(i.withdrawalStatus=`Pending`,o=o.filter(t=>t.id!==e),a.some(t=>t.id===e)||a.unshift(i)),f(),m(),_(),v()}catch(e){I(`Restore Failed: ${e.message}`,`error`),c.disabled=!1,c.innerHTML=`↺ Restore Approval`}return}});let h=t=>{let n=e.querySelector(`#directTableBody`);n.innerHTML=t.length?t.map(e=>`
-      <tr id="drow-${P(e.id)}">
-        <td class="font-mono text-indigo-300 text-xs">${P(e.id)}</td>
-        <td class="text-xs font-medium text-slate-300">${P(e.post)}</td>
+        `}).join(``):`<div class="text-center text-slate-500 py-8">No withdrawal requests found.</div>`)},m=()=>{let t=e.querySelector(`#withSearch`).value.toLowerCase();p(i.filter(e=>!t||String(e.id).toLowerCase().includes(t)||String(e.candidateName||``).toLowerCase().includes(t)||String(e.post).toLowerCase().includes(t)))};e.querySelector(`#withSearch`).addEventListener(`input`,m),p(i),e.querySelector(`#panelRequests`).addEventListener(`click`,async e=>{let t=e.target.closest(`.approve-btn`);if(t){let e=t.dataset.id;t.disabled=!0,t.innerHTML=`<span class="spinner" style="width:1rem;height:1rem;border-width:2px;"></span>`;try{await C.adminApproveWithdrawal(n,e),F(`Withdrawal request approved.`,`success`);let t=i.find(t=>t.id===e);t&&(t.withdrawalStatus=`Approved`);let s=r.find(t=>t.id===e)||t;s&&(s.withdrawalStatus=`Approved`,a=a.filter(t=>t.id!==e),o.some(t=>t.id===e)||o.unshift(s)),f(),m(),_(),v()}catch(e){F(`Failed: ${e.message}`,`error`),t.disabled=!1,t.innerHTML=`✅ Approve`}return}let s=e.target.closest(`.reject-btn`);if(s){let e=s.dataset.id,t=i.find(t=>t.id===e);if(!confirm(`REJECT WITHDRAWAL REQUEST\n\nCandidate: ${t?.candidateName||e}\nPost: ${t?.post||``}\n\nRejecting this request will keep the candidate active on the Valid List. Proceed?`))return;s.disabled=!0,s.innerHTML=`<span class="spinner" style="width:1rem;height:1rem;border-width:2px;"></span>`;try{await C.adminRejectWithdrawal(n,e),F(`Withdrawal request for ${t?.candidateName||e} rejected. Candidate remains active.`,`info`),t&&(t.withdrawalStatus=`Rejected`);let i=r.find(t=>t.id===e)||t;i&&(i.withdrawalStatus=`Rejected`,o=o.filter(t=>t.id!==e),a.some(t=>t.id===e)||a.unshift(i)),f(),m(),_(),v()}catch(e){F(`Failed: ${e.message}`,`error`),s.disabled=!1,s.innerHTML=`❌ Reject`}return}let c=e.target.closest(`.unapprove-btn`);if(c){let e=c.dataset.id,t=i.find(t=>t.id===e);if(!confirm(`RESTORE STUDENT WITHDRAWAL APPROVAL\n\nCandidate: ${t?.candidateName||e}\nPost: ${t?.post||``}\n\nThis will undo the approved withdrawal, restore the candidate to the active Valid List, and return this request to 'Pending'.\n\nProceed?`))return;c.disabled=!0,c.innerHTML=`<span class="spinner" style="width:1rem;height:1rem;border-width:2px;"></span>`;try{await C.adminRestoreWithdrawal(n,e,`Pending`),F(`✅ Withdrawal approval undone! ${t?.candidateName||e} restored to Valid list.`,`success`),t&&(t.withdrawalStatus=`Pending`);let i=r.find(t=>t.id===e)||t;i&&(i.withdrawalStatus=`Pending`,o=o.filter(t=>t.id!==e),a.some(t=>t.id===e)||a.unshift(i)),f(),m(),_(),v()}catch(e){F(`Restore Failed: ${e.message}`,`error`),c.disabled=!1,c.innerHTML=`↺ Restore Approval`}return}});let h=t=>{let n=e.querySelector(`#directTableBody`);n.innerHTML=t.length?t.map(e=>`
+      <tr id="drow-${N(e.id)}">
+        <td class="font-mono text-indigo-300 text-xs">${N(e.id)}</td>
+        <td class="text-xs font-medium text-slate-300">${N(e.post)}</td>
         <td class="font-bold text-white">
           <div class="flex items-center gap-1.5 flex-wrap">
-            <span>${P(e.candidateName||`N/A`)}</span>
-            ${e.candidateSerial||e.candidate?.[`Nominal Roll Serial Number`]?`<span class="badge bg-indigo-500/20 text-indigo-300 font-mono text-[10px]">Sl. #${P(e.candidateSerial||e.candidate?.[`Nominal Roll Serial Number`])}</span>`:``}
+            <span>${N(e.candidateName||`N/A`)}</span>
+            ${e.candidateSerial||e.candidate?.[`Nominal Roll Serial Number`]?`<span class="badge bg-indigo-500/20 text-indigo-300 font-mono text-[10px]">Sl. #${N(e.candidateSerial||e.candidate?.[`Nominal Roll Serial Number`])}</span>`:``}
           </div>
         </td>
-        <td class="text-xs text-slate-400">${P(e.candidateClass||``)} / ${P(e.candidateDept||``)}</td>
+        <td class="text-xs text-slate-400">${N(e.candidateClass||``)} / ${N(e.candidateDept||``)}</td>
         <td>
-          <span class="badge badge-valid">${P(e.status)}</span>
-          ${e.withdrawalStatus&&e.withdrawalStatus!==`None`?`<span class="badge badge-pending ml-1">${P(e.withdrawalStatus)}</span>`:``}
+          <span class="badge badge-valid">${N(e.status)}</span>
+          ${e.withdrawalStatus&&e.withdrawalStatus!==`None`?`<span class="badge badge-pending ml-1">${N(e.withdrawalStatus)}</span>`:``}
         </td>
         <td>
-          <button class="btn btn-sm direct-withdraw-btn" data-id="${P(e.id)}"
+          <button class="btn btn-sm direct-withdraw-btn" data-id="${N(e.id)}"
             style="background:rgba(239,68,68,0.15); color:#f87171; border:1px solid rgba(239,68,68,0.3);"
             onmouseover="this.style.background='rgba(239,68,68,0.8)';this.style.color='white';"
             onmouseout="this.style.background='rgba(239,68,68,0.15)';this.style.color='#f87171';">
@@ -2832,39 +2832,39 @@ Do you want to proceed and print the blank form?`)&&ue(e)}function Le(e,t,r=null
       </tr>`).join(``):`<tr><td colspan="6" class="text-center text-slate-500 py-8">No active valid nominations found.</td></tr>`;let r=e.querySelector(`#directCardsContainer`);r&&(r.innerHTML=t.length?t.map(e=>`
         <div class="glass p-3.5 rounded-xl border border-white/10 space-y-2 bg-slate-900/80">
           <div class="flex items-center justify-between gap-2">
-            <span class="font-mono text-xs text-indigo-300 font-bold bg-indigo-500/20 px-2 py-0.5 rounded border border-indigo-500/30">#${P(e.id)}</span>
-            <span class="badge badge-valid">${P(e.status)}</span>
+            <span class="font-mono text-xs text-indigo-300 font-bold bg-indigo-500/20 px-2 py-0.5 rounded border border-indigo-500/30">#${N(e.id)}</span>
+            <span class="badge badge-valid">${N(e.status)}</span>
           </div>
           <div>
-            <div class="font-bold text-white text-base">${P(e.candidateName||`N/A`)}</div>
-            <div class="text-xs text-indigo-300 font-semibold">${P(e.post)}</div>
-            <div class="text-xs text-slate-400 mt-0.5">${P(e.candidateClass||``)} / ${P(e.candidateDept||``)}</div>
+            <div class="font-bold text-white text-base">${N(e.candidateName||`N/A`)}</div>
+            <div class="text-xs text-indigo-300 font-semibold">${N(e.post)}</div>
+            <div class="text-xs text-slate-400 mt-0.5">${N(e.candidateClass||``)} / ${N(e.candidateDept||``)}</div>
           </div>
           <div class="pt-2 border-t border-white/10">
-            <button class="btn btn-sm w-full direct-withdraw-btn py-1.5 text-xs font-bold" data-id="${P(e.id)}"
+            <button class="btn btn-sm w-full direct-withdraw-btn py-1.5 text-xs font-bold" data-id="${N(e.id)}"
               style="background:rgba(239,68,68,0.15); color:#f87171; border:1px solid rgba(239,68,68,0.3);">
               ⚡ Withdraw Now
             </button>
           </div>
         </div>
       `).join(``):`<div class="text-center text-slate-500 py-8">No active valid nominations found.</div>`)},g=t=>{let n=e.querySelector(`#withdrawnTableBody`);n.innerHTML=t.length?t.map(e=>{let t=i.some(t=>t.id===e.id);return`
-      <tr id="rrow-${P(e.id)}" class="bg-amber-950/10">
-        <td class="font-mono text-indigo-300 text-xs">${P(e.id)}</td>
-        <td class="text-xs font-medium text-slate-300">${P(e.post)}</td>
+      <tr id="rrow-${N(e.id)}" class="bg-amber-950/10">
+        <td class="font-mono text-indigo-300 text-xs">${N(e.id)}</td>
+        <td class="text-xs font-medium text-slate-300">${N(e.post)}</td>
         <td class="font-bold text-white">
           <div class="flex items-center gap-1.5 flex-wrap">
-            <span>${P(e.candidateName||`N/A`)}</span>
-            ${e.candidateSerial||e.candidate?.[`Nominal Roll Serial Number`]?`<span class="badge bg-amber-500/20 text-amber-300 font-mono text-[10px]">Sl. #${P(e.candidateSerial||e.candidate?.[`Nominal Roll Serial Number`])}</span>`:``}
+            <span>${N(e.candidateName||`N/A`)}</span>
+            ${e.candidateSerial||e.candidate?.[`Nominal Roll Serial Number`]?`<span class="badge bg-amber-500/20 text-amber-300 font-mono text-[10px]">Sl. #${N(e.candidateSerial||e.candidate?.[`Nominal Roll Serial Number`])}</span>`:``}
           </div>
         </td>
-        <td class="text-xs text-slate-400">${P(e.candidateClass||``)} / ${P(e.candidateDept||``)}</td>
+        <td class="text-xs text-slate-400">${N(e.candidateClass||``)} / ${N(e.candidateDept||``)}</td>
         <td>
           <span class="badge ${t?`bg-indigo-500/20 text-indigo-300 border border-indigo-500/30`:`bg-amber-500/20 text-amber-300 border border-amber-500/30`} text-xs">
             ${t?`Student Request`:`Admin Direct`}
           </span>
         </td>
         <td>
-          <button class="btn btn-sm restore-withdraw-btn flex items-center gap-1.5" data-id="${P(e.id)}"
+          <button class="btn btn-sm restore-withdraw-btn flex items-center gap-1.5" data-id="${N(e.id)}"
             style="background:rgba(16,185,129,0.15); color:#34d399; border:1px solid rgba(16,185,129,0.35);"
             onmouseover="this.style.background='rgba(16,185,129,0.8)';this.style.color='white';"
             onmouseout="this.style.background='rgba(16,185,129,0.15)';this.style.color='#34d399';"
@@ -2875,24 +2875,24 @@ Do you want to proceed and print the blank form?`)&&ue(e)}function Le(e,t,r=null
       </tr>`}).join(``):`<tr><td colspan="6" class="text-center text-slate-500 py-8">No withdrawn nominations found.</td></tr>`;let r=e.querySelector(`#restoreCardsContainer`);r&&(r.innerHTML=t.length?t.map(e=>{let t=i.some(t=>t.id===e.id);return`
           <div class="glass p-3.5 rounded-xl border border-amber-500/30 space-y-2 bg-slate-900/80">
             <div class="flex items-center justify-between gap-2">
-              <span class="font-mono text-xs text-indigo-300 font-bold bg-indigo-500/20 px-2 py-0.5 rounded border border-indigo-500/30">#${P(e.id)}</span>
+              <span class="font-mono text-xs text-indigo-300 font-bold bg-indigo-500/20 px-2 py-0.5 rounded border border-indigo-500/30">#${N(e.id)}</span>
               <span class="badge ${t?`bg-indigo-500/20 text-indigo-300 border border-indigo-500/30`:`bg-amber-500/20 text-amber-300 border border-amber-500/30`} text-xs">
                 ${t?`Student Request`:`Admin Direct`}
               </span>
             </div>
             <div>
-              <div class="font-bold text-white text-base">${P(e.candidateName||`N/A`)}</div>
-              <div class="text-xs text-amber-300 font-semibold">${P(e.post)}</div>
-              <div class="text-xs text-slate-400 mt-0.5">${P(e.candidateClass||``)} / ${P(e.candidateDept||``)}</div>
+              <div class="font-bold text-white text-base">${N(e.candidateName||`N/A`)}</div>
+              <div class="text-xs text-amber-300 font-semibold">${N(e.post)}</div>
+              <div class="text-xs text-slate-400 mt-0.5">${N(e.candidateClass||``)} / ${N(e.candidateDept||``)}</div>
             </div>
             <div class="pt-2 border-t border-white/10">
-              <button class="btn btn-sm w-full restore-withdraw-btn flex items-center justify-center gap-1.5 py-1.5 text-xs font-bold" data-id="${P(e.id)}"
+              <button class="btn btn-sm w-full restore-withdraw-btn flex items-center justify-center gap-1.5 py-1.5 text-xs font-bold" data-id="${N(e.id)}"
                 style="background:rgba(16,185,129,0.15); color:#34d399; border:1px solid rgba(16,185,129,0.35);">
                 ↺ Restore Candidate
               </button>
             </div>
           </div>
-        `}).join(``):`<div class="text-center text-slate-500 py-8">No withdrawn candidates to restore.</div>`)},_=()=>{let t=(e.querySelector(`#directSearch`)?.value||``).toLowerCase();h(a.filter(e=>!t||String(e.id).toLowerCase().includes(t)||String(e.candidateName||``).toLowerCase().includes(t)||String(e.post).toLowerCase().includes(t)))},v=()=>{let t=(e.querySelector(`#restoreSearch`)?.value||``).toLowerCase();g(o.filter(e=>!t||String(e.id).toLowerCase().includes(t)||String(e.candidateName||``).toLowerCase().includes(t)||String(e.post).toLowerCase().includes(t)))};e.querySelector(`#directSearch`).addEventListener(`input`,_),e.querySelector(`#restoreSearch`).addEventListener(`input`,v),h(a),g(o),e.querySelector(`#panelDirect`).addEventListener(`click`,async e=>{let t=e.target.closest(`.direct-withdraw-btn`);if(t){let e=t.dataset.id,r=a.find(t=>t.id===e);if(!confirm(`CONFIRM DIRECT WITHDRAWAL\n\nCandidate: ${r?.candidateName||e}\nPost: ${r?.post||``}\n\nThis will mark this nomination as Withdrawn.\n(Note: You can easily restore it below at any time if done accidentally).\n\nProceed?`))return;t.disabled=!0,t.innerHTML=`<span class="spinner" style="width:1rem;height:1rem;border-width:2px;"></span>`;try{await C.adminDirectWithdrawal(n,e),I(`Nomination ${e} marked as Withdrawn.`,`success`),r&&(r.withdrawalStatus=`Approved`,a=a.filter(t=>t.id!==e),o.some(t=>t.id===e)||o.unshift(r)),f(),_(),v()}catch(e){I(`Failed: ${e.message}`,`error`),t.disabled=!1,t.innerHTML=`⚡ Withdraw Now`}return}let r=e.target.closest(`.restore-withdraw-btn`);if(r){let e=r.dataset.id,t=o.find(t=>t.id===e);if(!confirm(`CONFIRM RESTORE NOMINATION\n\nCandidate: ${t?.candidateName||e}\nPost: ${t?.post||``}\n\nThis will undo the withdrawal and immediately return this candidate to the active Valid List.\n\nProceed?`))return;r.disabled=!0,r.innerHTML=`<span class="spinner" style="width:1rem;height:1rem;border-width:2px;"></span>`;let s=i.some(t=>t.id===e)?`Pending`:`None`;try{await C.adminRestoreWithdrawal(n,e,s),I(`✅ Nomination ${e} (${t?.candidateName||``}) successfully restored to Valid List!`,`success`),t&&(t.withdrawalStatus=s,o=o.filter(t=>t.id!==e),a.some(t=>t.id===e)||a.unshift(t));let r=i.find(t=>t.id===e);r&&(r.withdrawalStatus=`Pending`),f(),_(),v(),m()}catch(e){I(`Restore Failed: ${e.message}`,`error`),r.disabled=!1,r.innerHTML=`↺ Restore to Valid List`}return}})}function Xe({students:e,isFinal:t,isDraft:r,collegeName:i,collegeLogo:a=``,electionYear:o=``,initialDept:s=``,initialClass:c=``,initialSort:l=`dept-class`}){let u=document.getElementById(`printRollModalContainer`);u&&u.remove();let d=i||n.COLLEGE_NAME||`College Union Election`,f=Array.from(new Set(e.map(e=>(e.Dept||e.DEPT||e.department||``).trim()).filter(Boolean))).sort((e,t)=>e.localeCompare(t)),p=t=>Array.from(new Set(e.filter(e=>!t||(e.Dept||``).trim().toLowerCase()===t.toLowerCase()).map(e=>R(e)).filter(Boolean))).sort((e,t)=>{let n=z(e),r=z(t);return n===r?e.localeCompare(t):n-r}),m=`all`;c?m=`class`:s&&(m=`dept`);let h=s||f[0]||``,g=c||p(h)[0]||``,_=l||`dept-class`,v=`1`,y=!0,b=document.createElement(`div`);b.id=`printRollModalContainer`,b.className=`fixed inset-0 z-50 flex items-center justify-center p-4`;let x=()=>{let n=p(m===`dept`?h:h||``);n.includes(g)||(g=n[0]||``);let i=[],s=``;m===`all`?(i=e,s=`Entire College (${e.length} students across ${f.length} departments)`):m===`dept`?(i=e.filter(e=>(e.Dept||``).trim().toLowerCase()===h.toLowerCase()),s=`Department of ${h} (${i.length} students)`):m===`class`&&(i=e.filter(e=>R(e).toLowerCase()===g.toLowerCase()),s=`Class: ${g} (${i.length} students)`),b.innerHTML=`
+        `}).join(``):`<div class="text-center text-slate-500 py-8">No withdrawn candidates to restore.</div>`)},_=()=>{let t=(e.querySelector(`#directSearch`)?.value||``).toLowerCase();h(a.filter(e=>!t||String(e.id).toLowerCase().includes(t)||String(e.candidateName||``).toLowerCase().includes(t)||String(e.post).toLowerCase().includes(t)))},v=()=>{let t=(e.querySelector(`#restoreSearch`)?.value||``).toLowerCase();g(o.filter(e=>!t||String(e.id).toLowerCase().includes(t)||String(e.candidateName||``).toLowerCase().includes(t)||String(e.post).toLowerCase().includes(t)))};e.querySelector(`#directSearch`).addEventListener(`input`,_),e.querySelector(`#restoreSearch`).addEventListener(`input`,v),h(a),g(o),e.querySelector(`#panelDirect`).addEventListener(`click`,async e=>{let t=e.target.closest(`.direct-withdraw-btn`);if(t){let e=t.dataset.id,r=a.find(t=>t.id===e);if(!confirm(`CONFIRM DIRECT WITHDRAWAL\n\nCandidate: ${r?.candidateName||e}\nPost: ${r?.post||``}\n\nThis will mark this nomination as Withdrawn.\n(Note: You can easily restore it below at any time if done accidentally).\n\nProceed?`))return;t.disabled=!0,t.innerHTML=`<span class="spinner" style="width:1rem;height:1rem;border-width:2px;"></span>`;try{await C.adminDirectWithdrawal(n,e),F(`Nomination ${e} marked as Withdrawn.`,`success`),r&&(r.withdrawalStatus=`Approved`,a=a.filter(t=>t.id!==e),o.some(t=>t.id===e)||o.unshift(r)),f(),_(),v()}catch(e){F(`Failed: ${e.message}`,`error`),t.disabled=!1,t.innerHTML=`⚡ Withdraw Now`}return}let r=e.target.closest(`.restore-withdraw-btn`);if(r){let e=r.dataset.id,t=o.find(t=>t.id===e);if(!confirm(`CONFIRM RESTORE NOMINATION\n\nCandidate: ${t?.candidateName||e}\nPost: ${t?.post||``}\n\nThis will undo the withdrawal and immediately return this candidate to the active Valid List.\n\nProceed?`))return;r.disabled=!0,r.innerHTML=`<span class="spinner" style="width:1rem;height:1rem;border-width:2px;"></span>`;let s=i.some(t=>t.id===e)?`Pending`:`None`;try{await C.adminRestoreWithdrawal(n,e,s),F(`✅ Nomination ${e} (${t?.candidateName||``}) successfully restored to Valid List!`,`success`),t&&(t.withdrawalStatus=s,o=o.filter(t=>t.id!==e),a.some(t=>t.id===e)||a.unshift(t));let r=i.find(t=>t.id===e);r&&(r.withdrawalStatus=`Pending`),f(),_(),v(),m()}catch(e){F(`Restore Failed: ${e.message}`,`error`),r.disabled=!1,r.innerHTML=`↺ Restore to Valid List`}return}})}var Qe=`gcc_nominal_roll_last_print_options`;function $e(){try{let e=typeof localStorage<`u`&&localStorage.getItem(Qe)||typeof sessionStorage<`u`&&sessionStorage.getItem(Qe);if(e)return JSON.parse(e)}catch{}return{scope:null,dept:null,className:null,sortBy:null,columns:null,pageBreakPerClass:null}}var K=$e();function q(e){Object.assign(K,e);try{typeof localStorage<`u`&&localStorage.setItem(Qe,JSON.stringify(K))}catch{try{typeof sessionStorage<`u`&&sessionStorage.setItem(Qe,JSON.stringify(K))}catch{}}}function et({students:e,isFinal:t,isDraft:r,collegeName:i,collegeLogo:a=``,electionYear:o=``,initialDept:s=``,initialClass:c=``,initialSort:l=`dept-class`}){let u=document.getElementById(`printRollModalContainer`);u&&u.remove();let d=i||n.COLLEGE_NAME||`College Union Election`,f=Array.from(new Set(e.map(e=>(e.Dept||e.DEPT||e.department||``).trim()).filter(Boolean))).sort((e,t)=>e.localeCompare(t)),p=t=>Array.from(new Set(e.filter(e=>!t||(e.Dept||``).trim().toLowerCase()===t.toLowerCase()).map(e=>L(e)).filter(Boolean))).sort((e,t)=>{let n=R(e),r=R(t);return n===r?e.localeCompare(t):n-r}),m=c?`class`:s?`dept`:K.scope||`all`,h=s||(K.dept&&f.includes(K.dept)?K.dept:f[0]||``),g=p(m===`dept`?h:h||``),_=c||(K.className&&g.includes(K.className)?K.className:g[0]||``),v=K.sortBy||l||`dept-class`,y=K.columns||`1`,b=K.pageBreakPerClass!==null&&K.pageBreakPerClass!==void 0?K.pageBreakPerClass:!0,x=document.createElement(`div`);x.id=`printRollModalContainer`,x.className=`fixed inset-0 z-50 flex items-center justify-center p-4`;let S=()=>{window.removeEventListener(`keydown`,C),x.remove()},C=e=>{e.key===`Escape`&&S()};window.addEventListener(`keydown`,C);let w=()=>{let n=p(m===`dept`?h:h||``);n.includes(_)||(_=n[0]||``,q({className:_}));let i=[],s=``;m===`all`?(i=e,s=`Entire College (${e.length} students across ${f.length} departments)`):m===`dept`?(i=e.filter(e=>(e.Dept||``).trim().toLowerCase()===h.toLowerCase()),s=`Department of ${h} (${i.length} students)`):m===`class`&&(i=e.filter(e=>L(e).toLowerCase()===_.toLowerCase()),s=`Class: ${_} (${i.length} students)`),x.innerHTML=`
       <!-- Backdrop -->
       <div class="absolute inset-0 bg-slate-950/85 backdrop-blur-md" id="printModalBackdrop"></div>
 
@@ -2944,7 +2944,7 @@ Do you want to proceed and print the blank form?`)&&ue(e)}function Le(e,t,r=null
             <div>
               <label class="block text-xs font-semibold text-slate-300 mb-1.5">Choose Department</label>
               <select id="printDeptSelect" class="field text-sm bg-slate-800 border-white/10 text-white w-full">
-                ${f.map(t=>{let n=e.filter(e=>(e.Dept||``).trim().toLowerCase()===t.toLowerCase()).length;return`<option value="${P(t)}" ${t===h?`selected`:``}>${P(t)} (${n} students)</option>`}).join(``)}
+                ${f.map(t=>{let n=e.filter(e=>(e.Dept||``).trim().toLowerCase()===t.toLowerCase()).length;return`<option value="${N(t)}" ${t===h?`selected`:``}>${N(t)} (${n} students)</option>`}).join(``)}
               </select>
             </div>
           `:``}
@@ -2955,14 +2955,14 @@ Do you want to proceed and print the blank form?`)&&ue(e)}function Le(e,t,r=null
                 <label class="block text-xs font-semibold text-slate-300 mb-1.5">Filter by Department (Optional)</label>
                 <select id="printClassDeptFilter" class="field text-sm bg-slate-800 border-white/10 text-white w-full">
                   <option value="">All Departments</option>
-                  ${f.map(e=>`<option value="${P(e)}" ${e===h?`selected`:``}>${P(e)}</option>`).join(``)}
+                  ${f.map(e=>`<option value="${N(e)}" ${e===h?`selected`:``}>${N(e)}</option>`).join(``)}
                 </select>
               </div>
 
               <div>
                 <label class="block text-xs font-semibold text-slate-300 mb-1.5">Choose Class</label>
                 <select id="printClassSelect" class="field text-sm bg-slate-800 border-white/10 text-white w-full">
-                  ${n.map(t=>{let n=e.filter(e=>(e.CLASS||``).trim().toLowerCase()===t.toLowerCase()).length;return`<option value="${P(t)}" ${t===g?`selected`:``}>${P(t)} (${n} students)</option>`}).join(``)}
+                  ${n.map(t=>{let n=e.filter(e=>(e.CLASS||``).trim().toLowerCase()===t.toLowerCase()).length;return`<option value="${N(t)}" ${t===_?`selected`:``}>${N(t)} (${n} students)</option>`}).join(``)}
                 </select>
               </div>
             </div>
@@ -2981,17 +2981,17 @@ Do you want to proceed and print the blank form?`)&&ue(e)}function Le(e,t,r=null
           <div>
             <label class="block text-xs font-semibold text-slate-300 mb-1.5">2. Sort Order</label>
             <select id="printSortSelect" class="field text-xs bg-slate-800 border-white/10 text-white w-full py-2">
-              <option value="dept-class" ${_===`dept-class`?`selected`:``}>🏢 Dept ➔ Class ➔ Name (A-Z)</option>
-              <option value="serial" ${_===`serial`?`selected`:``}>🔢 By Serial Number</option>
-              <option value="class" ${_===`class`?`selected`:``}>🎓 By Class & Alphabetical</option>
+              <option value="dept-class" ${v===`dept-class`?`selected`:``}>🏢 Dept ➔ Class ➔ Name (A-Z)</option>
+              <option value="serial" ${v===`serial`?`selected`:``}>🔢 By Serial Number</option>
+              <option value="class" ${v===`class`?`selected`:``}>🎓 By Class & Alphabetical</option>
             </select>
           </div>
 
           <div>
             <label class="block text-xs font-semibold text-slate-300 mb-1.5">3. Column Layout</label>
             <select id="printColumnsSelect" class="field text-xs bg-slate-800 border-white/10 text-white w-full py-2">
-              <option value="1" ${v===`1`?`selected`:``}>1 Column (Standard)</option>
-              <option value="2" ${v===`2`?`selected`:``}>2 Columns (Saves Space / Paper)</option>
+              <option value="1" ${y===`1`?`selected`:``}>1 Column (Standard)</option>
+              <option value="2" ${y===`2`?`selected`:``}>2 Columns (Saves Space / Paper)</option>
             </select>
           </div>
 
@@ -3003,7 +3003,7 @@ Do you want to proceed and print the blank form?`)&&ue(e)}function Le(e,t,r=null
               </div>
             `:`
               <label class="flex items-center gap-2 p-2 rounded-lg bg-slate-800/60 border border-white/5 cursor-pointer hover:bg-slate-800 h-[38px]">
-                <input type="checkbox" id="pageBreakCheckbox" class="rounded text-indigo-600" ${y?`checked`:``}>
+                <input type="checkbox" id="pageBreakCheckbox" class="rounded text-indigo-600" ${b?`checked`:``}>
                 <span class="text-xs text-slate-300">New page per class</span>
               </label>
             `}
@@ -3016,7 +3016,7 @@ Do you want to proceed and print the blank form?`)&&ue(e)}function Le(e,t,r=null
             <span class="text-base">📋</span>
             <div>
               <strong class="text-white block">Ready to Print: ${i.length} Students</strong>
-              <span>${P(s)}</span>
+              <span>${N(s)}</span>
             </div>
           </div>
           <div class="text-right font-mono text-[11px] text-indigo-300">
@@ -3034,17 +3034,17 @@ Do you want to proceed and print the blank form?`)&&ue(e)}function Le(e,t,r=null
         </div>
 
       </div>
-    `,b.querySelector(`#btnClosePrintModal`).onclick=()=>b.remove(),b.querySelector(`#btnCancelPrintModal`).onclick=()=>b.remove(),b.querySelector(`#printModalBackdrop`).onclick=()=>b.remove(),b.querySelectorAll(`.scope-btn`).forEach(e=>{e.onclick=()=>{m=e.dataset.scope,x()}});let c=b.querySelector(`#printDeptSelect`);c&&(c.onchange=e=>{h=e.target.value,x()});let l=b.querySelector(`#printClassDeptFilter`);l&&(l.onchange=e=>{h=e.target.value,x()});let u=b.querySelector(`#printClassSelect`);u&&(u.onchange=e=>{g=e.target.value,x()});let S=b.querySelector(`#printSortSelect`);S&&(S.onchange=e=>{_=e.target.value});let C=b.querySelector(`#printColumnsSelect`);C&&(C.onchange=e=>{v=e.target.value});let w=b.querySelector(`#pageBreakCheckbox`);w&&(w.onchange=e=>{y=e.target.checked}),b.querySelector(`#btnExecutePrint`).onclick=()=>{Ze({students:e,isFinal:t,isDraft:r,collegeName:d,collegeLogo:a,electionYear:o,scope:m,dept:h,className:g,sortBy:_,pageBreakPerClass:y,columns:v}),b.remove()}};x(),document.body.appendChild(b)}function Ze({students:e,isFinal:t,isDraft:n,collegeName:r,collegeLogo:i=``,electionYear:a=``,scope:o=`all`,dept:s=``,className:c=``,sortBy:l=`serial`,pageBreakPerClass:u=!0,columns:d=`1`}){let f=a||new Date().getFullYear().toString(),p=[...e],m=`Master Nominal Roll`;if(o===`dept`&&s?(p=p.filter(e=>(e.Dept||``).trim().toLowerCase()===s.toLowerCase()),m=`Department of ${s}`):o===`class`&&c&&(p=p.filter(e=>R(e).toLowerCase()===c.toLowerCase()),m=`Class: ${c}`),p.length===0){alert(`No students found for the selected print criteria.`);return}l===`dept-class`?p.sort((e,t)=>{let n=String(e.Dept||e.DEPT||``).trim().toUpperCase(),r=String(t.Dept||t.DEPT||``).trim().toUpperCase();if(n!==r)return n.localeCompare(r);let i=R(e).toUpperCase(),a=R(t).toUpperCase(),o=z(i),s=z(a);if(o!==s)return o-s;if(i!==a)return i.localeCompare(a);let c=String(e.NAME||``).trim().toUpperCase(),l=String(t.NAME||``).trim().toUpperCase();return c===l?L(e,t):c.localeCompare(l)}):l===`class`?p.sort((e,t)=>{let n=String(e.Dept||``).toUpperCase(),r=String(t.Dept||``).toUpperCase();if(n!==r)return n.localeCompare(r);let i=R(e).toUpperCase(),a=R(t).toUpperCase();if(i!==a){let e=z(i),t=z(a);return e===t?i.localeCompare(a):e-t}let o=String(e.NAME||``).toUpperCase(),s=String(t.NAME||``).toUpperCase();return o===s?L(e,t):o.localeCompare(s)}):p.sort((e,t)=>L(e,t));let h=t?`FINAL NOMINAL ROLL`:`DRAFT NOMINAL ROLL`,g=new Date().toLocaleString(),_=e=>n?`D${e}`:e,v=``;if(o===`class`||u&&o!==`single_table`){let e={},t=[];p.forEach(n=>{let r=String(n.Dept||n.DEPT||`GENERAL`).trim(),i=R(n),a=`${r}___${i}`;e[a]||(e[a]={dept:r,clsName:i,students:[]},t.push(a)),e[a].students.push(n)}),(l===`dept-class`||l===`class`)&&t.sort((t,n)=>{let r=e[t],i=e[n];if(r.dept.toUpperCase()!==i.dept.toUpperCase())return r.dept.toUpperCase().localeCompare(i.dept.toUpperCase());let a=z(r.clsName),o=z(i.clsName);return a===o?r.clsName.localeCompare(i.clsName):a-o}),t.forEach((a,c)=>{let u=e[a],p=u.students,m=u.clsName,y=u.dept||(o===`dept`?s:`–`),b=c===t.length-1;if(p.sort((e,t)=>{let n=String(e.NAME||``).trim().toUpperCase(),r=String(t.NAME||``).trim().toUpperCase();return n===r?L(e,t):n.localeCompare(r)}),d===`2`){let e=Math.max(1,Math.ceil(p.length/70));for(let t=0;t<e;t++){let a=p.slice(t*70,(t+1)*70),o=Math.ceil(a.length/2),s=a.slice(0,o),c=a.slice(o),u=t===e-1;v+=`
+    `,x.querySelector(`#btnClosePrintModal`).onclick=S,x.querySelector(`#btnCancelPrintModal`).onclick=S,x.querySelector(`#printModalBackdrop`).onclick=S,x.querySelectorAll(`.scope-btn`).forEach(e=>{e.onclick=()=>{m=e.dataset.scope,q({scope:m}),w()}});let c=x.querySelector(`#printDeptSelect`);c&&(c.onchange=e=>{h=e.target.value,q({dept:h}),w()});let l=x.querySelector(`#printClassDeptFilter`);l&&(l.onchange=e=>{h=e.target.value,q({dept:h}),w()});let u=x.querySelector(`#printClassSelect`);u&&(u.onchange=e=>{_=e.target.value,q({className:_}),w()});let g=x.querySelector(`#printSortSelect`);g&&(g.onchange=e=>{v=e.target.value,q({sortBy:v})});let C=x.querySelector(`#printColumnsSelect`);C&&(C.onchange=e=>{y=e.target.value,q({columns:y})});let T=x.querySelector(`#pageBreakCheckbox`);T&&(T.onchange=e=>{b=e.target.checked,q({pageBreakPerClass:b})});let E=x.querySelector(`#btnExecutePrint`);E&&(E.onclick=()=>{q({scope:m,dept:h,className:_,sortBy:v,columns:y,pageBreakPerClass:b}),tt({students:e,isFinal:t,isDraft:r,collegeName:d,collegeLogo:a,electionYear:o,scope:m,dept:h,className:_,sortBy:v,pageBreakPerClass:b,columns:y});let n=E.innerHTML;E.innerHTML=`<span>✅ Print View Opened!</span><span class="badge bg-white/20 text-white text-[10px] px-1.5">${i.length}</span>`,E.classList.remove(`bg-indigo-600`,`hover:bg-indigo-500`),E.classList.add(`bg-emerald-600`,`hover:bg-emerald-500`),setTimeout(()=>{document.body.contains(E)&&(E.innerHTML=n,E.classList.remove(`bg-emerald-600`,`hover:bg-emerald-500`),E.classList.add(`bg-indigo-600`,`hover:bg-indigo-500`))},2200)})};w(),document.body.appendChild(x)}function tt({students:e,isFinal:t,isDraft:n,collegeName:r,collegeLogo:i=``,electionYear:a=``,scope:o=`all`,dept:s=``,className:c=``,sortBy:l=`serial`,pageBreakPerClass:u=!0,columns:d=`1`}){let f=a||new Date().getFullYear().toString(),p=[...e],m=`Master Nominal Roll`;if(o===`dept`&&s?(p=p.filter(e=>(e.Dept||``).trim().toLowerCase()===s.toLowerCase()),m=`Department of ${s}`):o===`class`&&c&&(p=p.filter(e=>L(e).toLowerCase()===c.toLowerCase()),m=`Class: ${c}`),p.length===0){alert(`No students found for the selected print criteria.`);return}l===`dept-class`?p.sort((e,t)=>{let n=String(e.Dept||e.DEPT||``).trim().toUpperCase(),r=String(t.Dept||t.DEPT||``).trim().toUpperCase();if(n!==r)return n.localeCompare(r);let i=L(e).toUpperCase(),a=L(t).toUpperCase(),o=R(i),s=R(a);if(o!==s)return o-s;if(i!==a)return i.localeCompare(a);let c=String(e.NAME||``).trim().toUpperCase(),l=String(t.NAME||``).trim().toUpperCase();return c===l?I(e,t):c.localeCompare(l)}):l===`class`?p.sort((e,t)=>{let n=String(e.Dept||``).toUpperCase(),r=String(t.Dept||``).toUpperCase();if(n!==r)return n.localeCompare(r);let i=L(e).toUpperCase(),a=L(t).toUpperCase();if(i!==a){let e=R(i),t=R(a);return e===t?i.localeCompare(a):e-t}let o=String(e.NAME||``).toUpperCase(),s=String(t.NAME||``).toUpperCase();return o===s?I(e,t):o.localeCompare(s)}):p.sort((e,t)=>I(e,t));let h=t?`FINAL NOMINAL ROLL`:`DRAFT NOMINAL ROLL`,g=new Date().toLocaleString(),_=e=>n?`D${e}`:e,v=``;if(o===`class`||u&&o!==`single_table`){let e={},t=[];p.forEach(n=>{let r=String(n.Dept||n.DEPT||`GENERAL`).trim(),i=L(n),a=`${r}___${i}`;e[a]||(e[a]={dept:r,clsName:i,students:[]},t.push(a)),e[a].students.push(n)}),(l===`dept-class`||l===`class`)&&t.sort((t,n)=>{let r=e[t],i=e[n];if(r.dept.toUpperCase()!==i.dept.toUpperCase())return r.dept.toUpperCase().localeCompare(i.dept.toUpperCase());let a=R(r.clsName),o=R(i.clsName);return a===o?r.clsName.localeCompare(i.clsName):a-o}),t.forEach((a,c)=>{let u=e[a],p=u.students,m=u.clsName,y=u.dept||(o===`dept`?s:`–`),b=c===t.length-1;if(p.sort((e,t)=>{let n=String(e.NAME||``).trim().toUpperCase(),r=String(t.NAME||``).trim().toUpperCase();return n===r?I(e,t):n.localeCompare(r)}),d===`2`){let e=Math.max(1,Math.ceil(p.length/70));for(let t=0;t<e;t++){let a=p.slice(t*70,(t+1)*70),o=Math.ceil(a.length/2),s=a.slice(0,o),c=a.slice(o),u=t===e-1;v+=`
             <div class="page-container ${b&&u?``:`page-break`}">
               <div class="watermark">${h}</div>
               
               <div class="print-header">
                 ${i?`<img src="${i}" class="college-logo" alt="College Logo">`:``}
-                <div class="college-name">${P(r)}</div>
-                <div class="election-title">College Union Election ${P(f)} — ${h}</div>
+                <div class="college-name">${N(r)}</div>
+                <div class="election-title">College Union Election ${N(f)} — ${h}</div>
                 <div class="class-header">
-                  <span class="badge-tag">CLASS: ${P(m)}</span>
-                  <span class="badge-tag">DEPARTMENT: ${P(y)}</span>
+                  <span class="badge-tag">CLASS: ${N(m)}</span>
+                  <span class="badge-tag">DEPARTMENT: ${N(y)}</span>
                   ${e>1?`<span class="badge-tag">PAGE ${t+1} OF ${e}</span>`:``}
                 </div>
                 <div class="meta-bar">
@@ -3067,9 +3067,9 @@ Do you want to proceed and print the blank form?`)&&ue(e)}function Le(e,t,r=null
                     <tbody>
                       ${s.map(e=>`
                         <tr>
-                          <td class="col-sl font-mono font-bold">${_(P(e[`Nominal Roll Serial Number`]))}</td>
-                          <td class="col-adm font-mono">${P(e[`ADMISION NO`]||e[`ADMISSION NO`]||`–`)}</td>
-                          <td class="font-semibold">${P(e.NAME)}</td>
+                          <td class="col-sl font-mono font-bold">${_(N(e[`Nominal Roll Serial Number`]))}</td>
+                          <td class="col-adm font-mono">${N(e[`ADMISION NO`]||e[`ADMISSION NO`]||`–`)}</td>
+                          <td class="font-semibold">${N(e.NAME)}</td>
                         </tr>
                       `).join(``)}
                     </tbody>
@@ -3088,9 +3088,9 @@ Do you want to proceed and print the blank form?`)&&ue(e)}function Le(e,t,r=null
                     <tbody>
                       ${c.map(e=>`
                         <tr>
-                          <td class="col-sl font-mono font-bold">${_(P(e[`Nominal Roll Serial Number`]))}</td>
-                          <td class="col-adm font-mono">${P(e[`ADMISION NO`]||e[`ADMISSION NO`]||`–`)}</td>
-                          <td class="font-semibold">${P(e.NAME)}</td>
+                          <td class="col-sl font-mono font-bold">${_(N(e[`Nominal Roll Serial Number`]))}</td>
+                          <td class="col-adm font-mono">${N(e[`ADMISION NO`]||e[`ADMISSION NO`]||`–`)}</td>
+                          <td class="font-semibold">${N(e.NAME)}</td>
                         </tr>
                       `).join(``)}
                     </tbody>
@@ -3113,11 +3113,11 @@ Do you want to proceed and print the blank form?`)&&ue(e)}function Le(e,t,r=null
             
             <div class="print-header">
               ${i?`<img src="${i}" class="college-logo" alt="College Logo">`:``}
-              <div class="college-name">${P(r)}</div>
-              <div class="election-title">College Union Election ${P(f)} — ${h}</div>
+              <div class="college-name">${N(r)}</div>
+              <div class="election-title">College Union Election ${N(f)} — ${h}</div>
               <div class="class-header">
-                <span class="badge-tag">CLASS: ${P(m)}</span>
-                <span class="badge-tag">DEPARTMENT: ${P(y)}</span>
+                <span class="badge-tag">CLASS: ${N(m)}</span>
+                <span class="badge-tag">DEPARTMENT: ${N(y)}</span>
               </div>
               <div class="meta-bar">
                 <div>Students in Class: <strong>${p.length}</strong></div>
@@ -3137,9 +3137,9 @@ Do you want to proceed and print the blank form?`)&&ue(e)}function Le(e,t,r=null
               <tbody>
                 ${p.map(e=>`
                   <tr>
-                    <td class="col-sl font-mono font-bold">${_(P(e[`Nominal Roll Serial Number`]))}</td>
-                    <td class="col-adm font-mono">${P(e[`ADMISION NO`]||e[`ADMISSION NO`]||`–`)}</td>
-                    <td class="font-semibold">${P(e.NAME)}</td>
+                    <td class="col-sl font-mono font-bold">${_(N(e[`Nominal Roll Serial Number`]))}</td>
+                    <td class="col-adm font-mono">${N(e[`ADMISION NO`]||e[`ADMISSION NO`]||`–`)}</td>
+                    <td class="font-semibold">${N(e.NAME)}</td>
                   </tr>
                 `).join(``)}
               </tbody>
@@ -3158,10 +3158,10 @@ Do you want to proceed and print the blank form?`)&&ue(e)}function Le(e,t,r=null
 
             <div class="print-header">
               ${i?`<img src="${i}" class="college-logo" alt="College Logo">`:``}
-              <div class="college-name">${P(r)}</div>
-              <div class="election-title">College Union Election ${P(f)} — ${h}</div>
+              <div class="college-name">${N(r)}</div>
+              <div class="election-title">College Union Election ${N(f)} — ${h}</div>
               <div class="class-header">
-                <span class="badge-tag">${P(m.toUpperCase())}</span>
+                <span class="badge-tag">${N(m.toUpperCase())}</span>
                 ${e>1?`<span class="badge-tag">PAGE ${t+1} OF ${e}</span>`:``}
               </div>
               <div class="meta-bar">
@@ -3185,10 +3185,10 @@ Do you want to proceed and print the blank form?`)&&ue(e)}function Le(e,t,r=null
                   <tbody>
                     ${s.map(e=>`
                       <tr>
-                        <td class="col-sl font-mono font-bold">${_(P(e[`Nominal Roll Serial Number`]))}</td>
-                        <td class="col-adm font-mono">${P(e[`ADMISION NO`]||e[`ADMISSION NO`]||`–`)}</td>
-                        <td class="font-semibold">${P(e.NAME)}</td>
-                        <td class="text-xs">${P(R(e))}</td>
+                        <td class="col-sl font-mono font-bold">${_(N(e[`Nominal Roll Serial Number`]))}</td>
+                        <td class="col-adm font-mono">${N(e[`ADMISION NO`]||e[`ADMISSION NO`]||`–`)}</td>
+                        <td class="font-semibold">${N(e.NAME)}</td>
+                        <td class="text-xs">${N(L(e))}</td>
                       </tr>
                     `).join(``)}
                   </tbody>
@@ -3208,10 +3208,10 @@ Do you want to proceed and print the blank form?`)&&ue(e)}function Le(e,t,r=null
                   <tbody>
                     ${c.map(e=>`
                       <tr>
-                        <td class="col-sl font-mono font-bold">${_(P(e[`Nominal Roll Serial Number`]))}</td>
-                        <td class="col-adm font-mono">${P(e[`ADMISION NO`]||e[`ADMISSION NO`]||`–`)}</td>
-                        <td class="font-semibold">${P(e.NAME)}</td>
-                        <td class="text-xs">${P(R(e))}</td>
+                        <td class="col-sl font-mono font-bold">${_(N(e[`Nominal Roll Serial Number`]))}</td>
+                        <td class="col-adm font-mono">${N(e[`ADMISION NO`]||e[`ADMISSION NO`]||`–`)}</td>
+                        <td class="font-semibold">${N(e.NAME)}</td>
+                        <td class="text-xs">${N(L(e))}</td>
                       </tr>
                     `).join(``)}
                   </tbody>
@@ -3234,10 +3234,10 @@ Do you want to proceed and print the blank form?`)&&ue(e)}function Le(e,t,r=null
 
           <div class="print-header">
             ${i?`<img src="${i}" class="college-logo" alt="College Logo">`:``}
-            <div class="college-name">${P(r)}</div>
-            <div class="election-title">College Union Election ${P(f)} — ${h}</div>
+            <div class="college-name">${N(r)}</div>
+            <div class="election-title">College Union Election ${N(f)} — ${h}</div>
             <div class="class-header">
-              <span class="badge-tag">${P(m.toUpperCase())}</span>
+              <span class="badge-tag">${N(m.toUpperCase())}</span>
             </div>
             <div class="meta-bar">
               <div>Total Students: <strong>${p.length}</strong></div>
@@ -3259,11 +3259,11 @@ Do you want to proceed and print the blank form?`)&&ue(e)}function Le(e,t,r=null
             <tbody>
               ${p.map(e=>`
                 <tr>
-                  <td class="col-sl font-mono font-bold">${_(P(e[`Nominal Roll Serial Number`]))}</td>
-                  <td class="col-adm font-mono">${P(e[`ADMISION NO`]||e[`ADMISSION NO`]||`–`)}</td>
-                  <td class="font-semibold">${P(e.NAME)}</td>
-                  <td>${P(R(e))}</td>
-                  <td>${P(e.Dept||`–`)}</td>
+                  <td class="col-sl font-mono font-bold">${_(N(e[`Nominal Roll Serial Number`]))}</td>
+                  <td class="col-adm font-mono">${N(e[`ADMISION NO`]||e[`ADMISSION NO`]||`–`)}</td>
+                  <td class="font-semibold">${N(e.NAME)}</td>
+                  <td>${N(L(e))}</td>
+                  <td>${N(e.Dept||`–`)}</td>
                 </tr>
               `).join(``)}
             </tbody>
@@ -3447,11 +3447,11 @@ Do you want to proceed and print the blank form?`)&&ue(e)}function Le(e,t,r=null
         <\/script>
       </body>
     </html>
-  `),y.document.close()}async function Qe(e){let t=W();t&&(G(e,`publish`,`
+  `),y.document.close()}async function nt(e){let t=U();t&&(W(e,`publish`,`
     <div class="text-center py-16"><span class="spinner" style="width:2.5rem;height:2.5rem;border-width:4px;"></span><p class="text-slate-400 mt-4 text-sm">Loading election lists & settings...</p></div>
   `),await J(e.querySelector(`#adminMain`),t))}async function J(e,t){if(e){e.innerHTML=`
     <div class="text-center py-16"><span class="spinner" style="width:2.5rem;height:2.5rem;border-width:4px;"></span><p class="text-slate-400 mt-4 text-sm">Loading election lists & settings...</p></div>
-  `;try{let[n,r,i,a,o]=await Promise.all([C.adminGetSettings(t),C.adminGetNominations(t).catch(()=>[]),C.getPosts().catch(()=>[]),C.getNominalRoll().catch(()=>[]),C.adminGetResults(t).catch(()=>({results:[]}))]);$e(e,n,r,i,a,o?.results||[],t)}catch(t){e.innerHTML=`<div class="alert alert-error">❌ ${P(t.message)}</div>`}}}function $e(e,t,r,i,a,o,s){let c=t.nominalRollFinalized===`true`||t.isRollFinalized===`true`,l=!c&&t.draftRollPublished===`true`,u=!c&&!l,d=t.validListPublished===`true`,f=t.finalListPublished===`true`,p=t.resultsPublished===`true`,m=t.resultsLocked===`true`,h=t.countingActive===`true`,g=t.electionYear||new Date().getFullYear(),_=t.collegeName||n.COLLEGE_NAME,v=t.collegeShortName||n.COLLEGE_SHORT_NAME,y=t.collegeLogo||``,b=r.filter(e=>e.status===`Valid`),x=r.filter(e=>e.status===`Valid`&&e.withdrawalStatus!==`Approved`),S=r.filter(e=>e.status===`Valid`&&e.withdrawalStatus===`Approved`),w=new Set(b.map(e=>e.post)).size,T=new Set(x.map(e=>e.post)).size,E={};x.forEach(e=>{E[e.post]=(E[e.post]||0)+1});let D=Object.keys(E).filter(e=>E[e]===1);e.innerHTML=`
+  `;try{let[n,r,i,a,o]=await Promise.all([C.adminGetSettings(t),C.adminGetNominations(t).catch(()=>[]),C.getPosts().catch(()=>[]),C.getNominalRoll().catch(()=>[]),C.adminGetResults(t).catch(()=>({results:[]}))]);rt(e,n,r,i,a,o?.results||[],t)}catch(t){e.innerHTML=`<div class="alert alert-error">❌ ${N(t.message)}</div>`}}}function rt(e,t,r,i,a,o,s){let c=t.nominalRollFinalized===`true`||t.isRollFinalized===`true`,l=!c&&t.draftRollPublished===`true`,u=!c&&!l,d=t.validListPublished===`true`,f=t.finalListPublished===`true`,p=t.resultsPublished===`true`,m=t.resultsLocked===`true`,h=t.countingActive===`true`,g=t.electionYear||new Date().getFullYear(),_=t.collegeName||n.COLLEGE_NAME,v=t.collegeShortName||n.COLLEGE_SHORT_NAME,y=t.collegeLogo||``,b=r.filter(e=>e.status===`Valid`),x=r.filter(e=>e.status===`Valid`&&e.withdrawalStatus!==`Approved`),S=r.filter(e=>e.status===`Valid`&&e.withdrawalStatus===`Approved`),w=new Set(b.map(e=>e.post)).size,T=new Set(x.map(e=>e.post)).size,E={};x.forEach(e=>{E[e.post]=(E[e.post]||0)+1});let D=Object.keys(E).filter(e=>E[e]===1);e.innerHTML=`
     <div class="page-enter space-y-6">
       <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
         <div>
@@ -3662,11 +3662,11 @@ Do you want to proceed and print the blank form?`)&&ue(e)}function Le(e,t,r=null
           </button>
         </div>
       </div>
-    </div>`,e.querySelector(`#btnPrintNominalRoll`)?.addEventListener(`click`,()=>{if(a.length===0){I(`Nominal Roll is empty. Add students before printing.`,`error`);return}Xe({students:a,isFinal:c,isDraft:l,collegeName:_,collegeLogo:y,electionYear:g})});let O=e=>{let t=e===`final`,n=t?x:b;if(n.length===0){alert(t?`No approved contesting candidates found to print.`:`No valid nominations found to print.`);return}let r={};n.forEach(e=>{r[e.post]||(r[e.post]=[]),r[e.post].push(e)});let a=i.map(e=>e.post||e.name).filter(e=>r[e]);Object.keys(r).forEach(e=>{a.includes(e)||a.push(e)}),a.forEach(e=>{r[e]&&r[e].sort((e,t)=>String(e.candidateName||``).localeCompare(String(t.candidateName||``)))});let o=`
+    </div>`,e.querySelector(`#btnPrintNominalRoll`)?.addEventListener(`click`,()=>{if(a.length===0){F(`Nominal Roll is empty. Add students before printing.`,`error`);return}et({students:a,isFinal:c,isDraft:l,collegeName:_,collegeLogo:y,electionYear:g})});let O=e=>{let t=e===`final`,n=t?x:b;if(n.length===0){alert(t?`No approved contesting candidates found to print.`:`No valid nominations found to print.`);return}let r={};n.forEach(e=>{r[e.post]||(r[e.post]=[]),r[e.post].push(e)});let a=i.map(e=>e.post||e.name).filter(e=>r[e]);Object.keys(r).forEach(e=>{a.includes(e)||a.push(e)}),a.forEach(e=>{r[e]&&r[e].sort((e,t)=>String(e.candidateName||``).localeCompare(String(t.candidateName||``)))});let o=`
       <div style="text-align:center;margin-bottom:25px;border-bottom:2px solid #000;padding-bottom:12px">
         ${y?`<img src="${y}" style="max-height:55px;max-width:140px;margin:0 auto 6px auto;display:block;object-fit:contain" alt="College Logo">`:``}
-        <div style="font-size:13px;font-weight:600;color:#333;text-transform:uppercase;letter-spacing:0.5px">${P(_)}</div>
-        <h1 style="margin:4px 0;font-size:20px;text-transform:uppercase;font-weight:800;letter-spacing:0.5px">College Union Election ${P(g)}</h1>
+        <div style="font-size:13px;font-weight:600;color:#333;text-transform:uppercase;letter-spacing:0.5px">${N(_)}</div>
+        <h1 style="margin:4px 0;font-size:20px;text-transform:uppercase;font-weight:800;letter-spacing:0.5px">College Union Election ${N(g)}</h1>
         <h2 style="margin:4px 0 0 0;font-size:15px;color:#111;text-transform:uppercase;font-weight:700">
           ${t?`FINAL LIST OF ELIGIBLE CONTESTING CANDIDATES`:`LIST OF VALID NOMINATIONS`}
         </h2>
@@ -3687,7 +3687,7 @@ Do you want to proceed and print the blank form?`)&&ue(e)}function Le(e,t,r=null
     `;a.forEach(e=>{let n=r[e],i=t&&n.length===1;o+=`
         <tr>
           <td colspan="${t?`7`:`6`}" style="border:1px solid #000;padding:8px;background:#f3f4f6;font-weight:bold;text-transform:uppercase;font-size:13px">
-            POST: ${P(e)}
+            POST: ${N(e)}
             <span style="font-size:11px;font-weight:normal;float:right">
               ${n.length} Candidate${n.length>1?`s`:``} ${i?`— (UNCONTESTED)`:``}
             </span>
@@ -3696,11 +3696,11 @@ Do you want to proceed and print the blank form?`)&&ue(e)}function Le(e,t,r=null
       `,n.forEach((e,n)=>{let r=e.candidateSerial||e.candidate?.[`Nominal Roll Serial Number`]||e.candidate?.serial_number||`–`,a=e.candidate?.[`ADMISION NO`]||e.candidateAdmission||e.candidate?.admission_no||`–`;o+=`
           <tr>
             <td style="border:1px solid #000;padding:6px;text-align:center;font-weight:bold">${n+1}</td>
-            <td style="border:1px solid #000;padding:6px 8px;font-weight:bold">${P(e.candidateName)}</td>
-            <td style="border:1px solid #000;padding:6px 8px;text-align:center;font-family:monospace;font-weight:bold">${P(r)}</td>
-            <td style="border:1px solid #000;padding:6px 8px;text-align:center;font-family:monospace">${P(a)}</td>
-            <td style="border:1px solid #000;padding:6px 8px">${P(e.candidateClass)}</td>
-            <td style="border:1px solid #000;padding:6px 8px">${P(e.candidateDept)}</td>
+            <td style="border:1px solid #000;padding:6px 8px;font-weight:bold">${N(e.candidateName)}</td>
+            <td style="border:1px solid #000;padding:6px 8px;text-align:center;font-family:monospace;font-weight:bold">${N(r)}</td>
+            <td style="border:1px solid #000;padding:6px 8px;text-align:center;font-family:monospace">${N(a)}</td>
+            <td style="border:1px solid #000;padding:6px 8px">${N(e.candidateClass)}</td>
+            <td style="border:1px solid #000;padding:6px 8px">${N(e.candidateDept)}</td>
             ${t?`
               <td style="border:1px solid #000;padding:6px 8px;text-align:center;font-weight:bold;font-size:11px">
                 ${i?`<span style="color:#047857">ELECTED UNOPPOSED</span>`:`<span style="color:#1d4ed8">CONTESTING</span>`}
@@ -3720,7 +3720,7 @@ Do you want to proceed and print the blank form?`)&&ue(e)}function Le(e,t,r=null
           <div style="font-size:10px;color:#555">Signature & Official Seal</div>
         </div>
       </div>
-    `;let s=window.open(``,`_blank`);if(!s){I(`Popup blocked! Please allow popups to print.`,`error`);return}s.document.write(`<!DOCTYPE html><html><head><title>${t?`Final List`:`Valid List`} - ${P(v)} Election ${P(g)}</title><style>
+    `;let s=window.open(``,`_blank`);if(!s){F(`Popup blocked! Please allow popups to print.`,`error`);return}s.document.write(`<!DOCTYPE html><html><head><title>${t?`Final List`:`Valid List`} - ${N(v)} Election ${N(g)}</title><style>
       @page{size:A4;margin:15mm}
       body{font-family:Arial,sans-serif;line-height:1.4;margin:0;padding:10px;}
     </style></head><body>${o}<script>window.onload=()=>setTimeout(()=>window.print(),500)<\/script></body></html>`),s.document.close()};e.querySelector(`#btnPrintValid`)?.addEventListener(`click`,()=>O(`valid`)),e.querySelector(`#btnPrintFinal`)?.addEventListener(`click`,()=>O(`final`)),e.querySelector(`#btnPrintResults`)?.addEventListener(`click`,()=>{let e={};(o||[]).forEach(t=>{let n=t.Post||t.post,r=t.CandidateId||t.candidateId;e[n]||(e[n]={}),e[n][r]||(e[n][r]=0),e[n][r]+=Number(t.Votes||t.votes)||0});let t=i.map(t=>{let n=t.post||t.name,r=x.filter(e=>e.post===n);if(r.length===0)return{post:n,type:`no-candidates`,candidates:[]};if(r.length===1)return{post:n,type:`unanimous`,candidates:r,winner:r[0]};let i=e[n]||{},a=r.map(e=>({...e,votes:i[e.id]||0})).sort((e,t)=>t.votes-e.votes),o=n.toUpperCase().includes(`UUC`)||n.toUpperCase().includes(`UNIVERSITY`)?2:1;return{post:n,type:`election`,candidates:a,winners:a.slice(0,o),totalVotes:Object.values(i).reduce((e,t)=>e+t,0)}}),n=`
@@ -3747,13 +3747,13 @@ Do you want to proceed and print the blank form?`)&&ue(e)}function Le(e,t,r=null
       <div class="official-sheet">
         <div class="header">
           ${y?`<img src="${y}" style="max-height:60px;max-width:140px;margin:0 auto 8px auto;display:block;object-fit:contain" alt="College Logo">`:``}
-          <h2>${P(_)}</h2>
-          <h1>College Union Election ${P(g)}</h1>
+          <h2>${N(_)}</h2>
+          <h1>College Union Election ${N(g)}</h1>
           <div style="font-size: 16px; margin-top: 12px; font-weight: 900; text-decoration: underline;">OFFICIAL RESULT DECLARATION NOTIFICATION</div>
         </div>
 
         <p style="font-size: 13px; margin-bottom: 20px; text-align: justify;">
-          The following candidates are hereby declared to have been duly elected to the respective offices of the College Union for the academic year ${P(g)}, 
+          The following candidates are hereby declared to have been duly elected to the respective offices of the College Union for the academic year ${N(g)}, 
           based on the scrutiny, uncontested nominations, and counting of votes held on ${new Date().toLocaleDateString(`en-IN`,{day:`numeric`,month:`long`,year:`numeric`})}.
         </p>
 
@@ -3771,14 +3771,14 @@ Do you want to proceed and print the blank form?`)&&ue(e)}function Le(e,t,r=null
             ${t.map(e=>e.type===`no-candidates`?``:`
                 <tr class="post-header">
                   <td colspan="5" style="background: #eaeaea; padding: 10px 8px; border-bottom: 2px solid #000;">
-                    POST: ${P(e.post)}
+                    POST: ${N(e.post)}
                   </td>
                 </tr>
                 ${e.candidates.map((t,n)=>{let r=e.type===`unanimous`||e.winners&&e.winners.some(e=>e.id===t.id);return`
                     <tr class="${r?`winner-row`:``}">
                       <td style="text-align: center; font-size: 11px;">${n+1}</td>
-                      <td style="font-weight: ${r?`bold`:`normal`};">${P(t.candidateName)} ${t.candidateSerial?`<span style="font-size: 10px; font-weight: normal; color: #555;">(Roll Sl. #${P(t.candidateSerial)})</span>`:``}</td>
-                      <td style="color: #444;">${P(t.candidateClass)}</td>
+                      <td style="font-weight: ${r?`bold`:`normal`};">${N(t.candidateName)} ${t.candidateSerial?`<span style="font-size: 10px; font-weight: normal; color: #555;">(Roll Sl. #${N(t.candidateSerial)})</span>`:``}</td>
+                      <td style="color: #444;">${N(t.candidateClass)}</td>
                       <td style="text-align: center; font-weight: bold;">${e.type===`unanimous`?`—`:t.votes||0}</td>
                       <td style="font-size: 11px; font-weight: bold; text-align: center; color: ${r?`#047857`:`#555`};">
                         ${r?e.type===`unanimous`?`ELECTED UNOPPOSED`:`✓ ELECTED`:`CONTESTING`}
@@ -3796,29 +3796,29 @@ Do you want to proceed and print the blank form?`)&&ue(e)}function Le(e,t,r=null
           </div>
           <div class="sig-box">
             RETURNING OFFICER<br>
-            <span style="font-weight: normal; font-size: 10px;">College Union Election ${P(g)}</span>
+            <span style="font-weight: normal; font-size: 10px;">College Union Election ${N(g)}</span>
           </div>
         </div>
       </div>
-    `,r=window.open(``,`_blank`);if(!r){I(`Popup blocked! Please allow popups to print.`,`error`);return}r.document.write(`
+    `,r=window.open(``,`_blank`);if(!r){F(`Popup blocked! Please allow popups to print.`,`error`);return}r.document.write(`
       <!DOCTYPE html>
       <html>
-        <head><title>Official Results Declaration - ${P(v)} Election ${P(g)}</title></head>
+        <head><title>Official Results Declaration - ${N(v)} Election ${N(g)}</title></head>
         <body>
           ${n}
           <script>window.addEventListener('load', () => setTimeout(() => window.print(), 500));<\/script>
         </body>
       </html>
-    `),r.document.close()}),e.querySelector(`#btnRefreshPublish`)?.addEventListener(`click`,()=>J(e,s)),e.querySelector(`#publishDraftRollBtn`)?.addEventListener(`click`,async t=>{let n=t.currentTarget;F(n,!0,`Publishing Draft...`);try{await C.adminPublishDraftRoll(s),I(`Draft Nominal Roll published! Serial numbers are set to D1, D2...`,`success`),await J(e,s)}catch(e){I(`Failed: ${e.message}`,`error`),F(n,!1,`📢 Publish Draft Roll`)}}),e.querySelector(`#unpublishDraftRollBtn`)?.addEventListener(`click`,async t=>{let n=t.currentTarget;if(confirm(`Unpublish the Draft Nominal Roll? Students will no longer be able to view it.`)){F(n,!0,`Unpublishing...`);try{await C.adminUnpublishDraftRoll(s),I(`Draft Nominal Roll unpublished.`,`success`),await J(e,s)}catch(e){I(`Failed: ${e.message}`,`error`),F(n,!1,`🚫 Unpublish Draft`)}}}),e.querySelector(`#publishValidBtn`)?.addEventListener(`click`,async t=>{let n=t.currentTarget;if(confirm(`Are you sure you want to publish the valid nominations list? This will be visible to all students.`)){F(n,!0,`Publishing...`);try{await C.adminPublishValidList(s),I(`Valid nominations list published successfully!`,`success`),await J(e,s)}catch(e){I(`Failed: ${e.message}`,`error`),F(n,!1,`📢 Publish Valid Nominations List`)}}}),e.querySelector(`#unpublishValidBtn`)?.addEventListener(`click`,async t=>{let n=t.currentTarget;if(confirm(`Unpublish Valid List?
+    `),r.document.close()}),e.querySelector(`#btnRefreshPublish`)?.addEventListener(`click`,()=>J(e,s)),e.querySelector(`#publishDraftRollBtn`)?.addEventListener(`click`,async t=>{let n=t.currentTarget;P(n,!0,`Publishing Draft...`);try{await C.adminPublishDraftRoll(s),F(`Draft Nominal Roll published! Serial numbers are set to D1, D2...`,`success`),await J(e,s)}catch(e){F(`Failed: ${e.message}`,`error`),P(n,!1,`📢 Publish Draft Roll`)}}),e.querySelector(`#unpublishDraftRollBtn`)?.addEventListener(`click`,async t=>{let n=t.currentTarget;if(confirm(`Unpublish the Draft Nominal Roll? Students will no longer be able to view it.`)){P(n,!0,`Unpublishing...`);try{await C.adminUnpublishDraftRoll(s),F(`Draft Nominal Roll unpublished.`,`success`),await J(e,s)}catch(e){F(`Failed: ${e.message}`,`error`),P(n,!1,`🚫 Unpublish Draft`)}}}),e.querySelector(`#publishValidBtn`)?.addEventListener(`click`,async t=>{let n=t.currentTarget;if(confirm(`Are you sure you want to publish the valid nominations list? This will be visible to all students.`)){P(n,!0,`Publishing...`);try{await C.adminPublishValidList(s),F(`Valid nominations list published successfully!`,`success`),await J(e,s)}catch(e){F(`Failed: ${e.message}`,`error`),P(n,!1,`📢 Publish Valid Nominations List`)}}}),e.querySelector(`#unpublishValidBtn`)?.addEventListener(`click`,async t=>{let n=t.currentTarget;if(confirm(`Unpublish Valid List?
 
-This will remove it from public view. The Final List will also be unpublished.`)){F(n,!0,`Unpublishing...`);try{await C.adminUnpublishValidList(s),I(`Valid list unpublished.`,`success`),await J(e,s)}catch(e){I(`Failed: ${e.message}`,`error`),F(n,!1,`🚫 Unpublish Valid List`)}}}),e.querySelector(`#publishFinalBtn`)?.addEventListener(`click`,async t=>{let n=t.currentTarget;if(confirm(`Are you sure you want to publish the final nominations list?`)){F(n,!0,`Publishing...`);try{await C.adminPublishFinalList(s),I(`Final nominations list published successfully!`,`success`),await J(e,s)}catch(e){I(`Failed: ${e.message}`,`error`),F(n,!1,`📢 Publish Final Nominations List`)}}}),e.querySelector(`#unpublishFinalBtn`)?.addEventListener(`click`,async t=>{let n=t.currentTarget;if(confirm(`Unpublish Final List?
+This will remove it from public view. The Final List will also be unpublished.`)){P(n,!0,`Unpublishing...`);try{await C.adminUnpublishValidList(s),F(`Valid list unpublished.`,`success`),await J(e,s)}catch(e){F(`Failed: ${e.message}`,`error`),P(n,!1,`🚫 Unpublish Valid List`)}}}),e.querySelector(`#publishFinalBtn`)?.addEventListener(`click`,async t=>{let n=t.currentTarget;if(confirm(`Are you sure you want to publish the final nominations list?`)){P(n,!0,`Publishing...`);try{await C.adminPublishFinalList(s),F(`Final nominations list published successfully!`,`success`),await J(e,s)}catch(e){F(`Failed: ${e.message}`,`error`),P(n,!1,`📢 Publish Final Nominations List`)}}}),e.querySelector(`#unpublishFinalBtn`)?.addEventListener(`click`,async t=>{let n=t.currentTarget;if(confirm(`Unpublish Final List?
 
-This will remove the final candidate list from public view.`)){F(n,!0,`Unpublishing...`);try{await C.adminUnpublishFinalList(s),I(`Final list unpublished.`,`success`),await J(e,s)}catch(e){I(`Failed: ${e.message}`,`error`),F(n,!1,`🚫 Unpublish Final List`)}}}),e.querySelector(`#toggleResultsPublishBtn`)?.addEventListener(`click`,async t=>{let n=t.currentTarget,r=p;if(confirm(r?`Hide election results from public view? Public visitors will see counting in progress.`:`Publish election results to the public portal? Results will be immediately visible to all visitors.`)){F(n,!0,`Updating...`);try{I((await C.adminTogglePublishResults(s)).published?`📢 Results published to public view!`:`👁️‍🗨️ Results hidden from public view.`,`success`),await J(e,s)}catch(e){I(`Failed: ${e.message}`,`error`),F(n,!1,r?`🚫 Hide Results from Public`:`📢 Publish Results to Public`)}}}),e.querySelector(`#toggleResultsLockBtn`)?.addEventListener(`click`,async t=>{let n=t.currentTarget,r=m;if(confirm(r?`Unlock election results? Vote entry modifications will be re-enabled.`:`Freeze and lock election results? Further vote entries will be blocked.`)){F(n,!0,`Updating...`);try{I((await C.adminToggleLockResults(s)).locked?`🔒 Results locked and frozen.`:`🔓 Results unlocked for live entry.`,`success`),await J(e,s)}catch(e){I(`Failed: ${e.message}`,`error`),F(n,!1,r?`🔓 Unlock Results`:`🔒 Freeze / Lock Results`)}}}),e.querySelector(`#toggleCountingBtn`)?.addEventListener(`click`,async t=>{let n=t.currentTarget,r=h;if(confirm(r?`Deactivate Counting Mode? Public visitors to the results page will be asked to wait.`:`Activate Counting Mode? Public visitors will see "Counting in Progress".`)){F(n,!0,`Updating...`);try{I((await C.adminToggleCounting(s)).active?`⚡ Live counting mode active!`:`⏳ Counting mode inactive.`,`success`),await J(e,s)}catch(e){I(`Failed: ${e.message}`,`error`),F(n,!1,r?`⏸️ Stop Counting Mode`:`⚡ Set Counting Active`)}}})}async function et(e){let t=W();if(t){G(e,`posts`,`
+This will remove the final candidate list from public view.`)){P(n,!0,`Unpublishing...`);try{await C.adminUnpublishFinalList(s),F(`Final list unpublished.`,`success`),await J(e,s)}catch(e){F(`Failed: ${e.message}`,`error`),P(n,!1,`🚫 Unpublish Final List`)}}}),e.querySelector(`#toggleResultsPublishBtn`)?.addEventListener(`click`,async t=>{let n=t.currentTarget,r=p;if(confirm(r?`Hide election results from public view? Public visitors will see counting in progress.`:`Publish election results to the public portal? Results will be immediately visible to all visitors.`)){P(n,!0,`Updating...`);try{F((await C.adminTogglePublishResults(s)).published?`📢 Results published to public view!`:`👁️‍🗨️ Results hidden from public view.`,`success`),await J(e,s)}catch(e){F(`Failed: ${e.message}`,`error`),P(n,!1,r?`🚫 Hide Results from Public`:`📢 Publish Results to Public`)}}}),e.querySelector(`#toggleResultsLockBtn`)?.addEventListener(`click`,async t=>{let n=t.currentTarget,r=m;if(confirm(r?`Unlock election results? Vote entry modifications will be re-enabled.`:`Freeze and lock election results? Further vote entries will be blocked.`)){P(n,!0,`Updating...`);try{F((await C.adminToggleLockResults(s)).locked?`🔒 Results locked and frozen.`:`🔓 Results unlocked for live entry.`,`success`),await J(e,s)}catch(e){F(`Failed: ${e.message}`,`error`),P(n,!1,r?`🔓 Unlock Results`:`🔒 Freeze / Lock Results`)}}}),e.querySelector(`#toggleCountingBtn`)?.addEventListener(`click`,async t=>{let n=t.currentTarget,r=h;if(confirm(r?`Deactivate Counting Mode? Public visitors to the results page will be asked to wait.`:`Activate Counting Mode? Public visitors will see "Counting in Progress".`)){P(n,!0,`Updating...`);try{F((await C.adminToggleCounting(s)).active?`⚡ Live counting mode active!`:`⏳ Counting mode inactive.`,`success`),await J(e,s)}catch(e){F(`Failed: ${e.message}`,`error`),P(n,!1,r?`⏸️ Stop Counting Mode`:`⚡ Set Counting Active`)}}})}async function it(e){let t=U();if(t){W(e,`posts`,`
     <div class="text-center py-16">
       <span class="spinner" style="width:2.5rem;height:2.5rem;border-width:4px;"></span>
       <p class="text-slate-400 mt-4 text-sm">Loading posts and departments...</p>
     </div>
-  `);try{let[r,i]=await Promise.all([C.adminGetPosts(t).catch(()=>null),C.getNominalRoll().catch(()=>[])]),a=Array.isArray(r)&&r.length>0?r:n.DEFAULT_POSTS,o=new Set;Array.isArray(i)&&i.forEach(e=>{let t=String(e.Dept||e.dept||e.DEPARTMENT||e.Department||``).trim();t&&t!==`-`&&t!==`–`&&o.add(t)});let s=new Set;Array.isArray(a)&&a.forEach(e=>{let t=(e.restrictedDept||(e.deptRestriction&&String(e.post||``).startsWith(`Association Secretary `)?e.post.replace(`Association Secretary `,``).trim():``)).trim();t&&t!==`-`&&t!==`–`&&s.add(t)});let c=[`Botany`,`Chemistry`,`Commerce`,`Computer Science`,`Economics`,`English`,`Hindi`,`History`,`Malayalam`,`Mathematics`,`Physics`,`Psychology`,`Sanskrit`,`Tamil`,`Zoology`],l=o.size>0,u=l?Array.from(o).sort():c,d=Array.from(s).filter(e=>!o.has(e)&&(l?!0:!c.includes(e))).sort(),f=Array.from(new Set([...u,...d])).sort();tt(e.querySelector(`#adminMain`),a,{nominalDepts:u,otherDepts:d,allDepartments:f,hasNominalRoll:l},t)}catch(t){e.querySelector(`#adminMain`).innerHTML=`<div class="alert alert-error">❌ ${P(t.message)}</div>`}}}function tt(e,t,n,r){e.innerHTML=`
+  `);try{let[r,i]=await Promise.all([C.adminGetPosts(t).catch(()=>null),C.getNominalRoll().catch(()=>[])]),a=Array.isArray(r)&&r.length>0?r:n.DEFAULT_POSTS,o=new Set;Array.isArray(i)&&i.forEach(e=>{let t=String(e.Dept||e.dept||e.DEPARTMENT||e.Department||``).trim();t&&t!==`-`&&t!==`–`&&o.add(t)});let s=new Set;Array.isArray(a)&&a.forEach(e=>{let t=(e.restrictedDept||(e.deptRestriction&&String(e.post||``).startsWith(`Association Secretary `)?e.post.replace(`Association Secretary `,``).trim():``)).trim();t&&t!==`-`&&t!==`–`&&s.add(t)});let c=[`Botany`,`Chemistry`,`Commerce`,`Computer Science`,`Economics`,`English`,`Hindi`,`History`,`Malayalam`,`Mathematics`,`Physics`,`Psychology`,`Sanskrit`,`Tamil`,`Zoology`],l=o.size>0,u=l?Array.from(o).sort():c,d=Array.from(s).filter(e=>!o.has(e)&&(l?!0:!c.includes(e))).sort(),f=Array.from(new Set([...u,...d])).sort();at(e.querySelector(`#adminMain`),a,{nominalDepts:u,otherDepts:d,allDepartments:f,hasNominalRoll:l},t)}catch(t){e.querySelector(`#adminMain`).innerHTML=`<div class="alert alert-error">❌ ${N(t.message)}</div>`}}}function at(e,t,n,r){e.innerHTML=`
     <div class="page-enter space-y-6">
       <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
         <div>
@@ -3899,7 +3899,7 @@ This will remove the final candidate list from public view.`)){F(n,!0,`Unpublish
             ${T.map(e=>`
               <label class="year-card flex items-center gap-2 p-2.5 rounded-xl border border-white/10 bg-white/[0.03] hover:border-indigo-500/40 cursor-pointer transition-all">
                 <input type="checkbox" value="${e.id}" class="pf-year-cb accent-indigo-500 w-4 h-4 rounded cursor-pointer" />
-                <span class="text-xs font-semibold text-slate-200">${P(e.label)}</span>
+                <span class="text-xs font-semibold text-slate-200">${N(e.label)}</span>
               </label>
             `).join(``)}
           </div>
@@ -3965,14 +3965,14 @@ This will remove the final candidate list from public view.`)){F(n,!0,`Unpublish
                 <option value="">-- Choose Department --</option>
                 ${n.hasNominalRoll?`
                   <optgroup label="📋 Departments from Nominal Roll (${n.nominalDepts.length})">
-                    ${n.nominalDepts.map(e=>`<option value="${P(e)}">${P(e)}</option>`).join(``)}
+                    ${n.nominalDepts.map(e=>`<option value="${N(e)}">${N(e)}</option>`).join(``)}
                   </optgroup>
                   ${n.otherDepts.length>0?`
                   <optgroup label="🏢 Other Configured Departments">
-                    ${n.otherDepts.map(e=>`<option value="${P(e)}">${P(e)}</option>`).join(``)}
+                    ${n.otherDepts.map(e=>`<option value="${N(e)}">${N(e)}</option>`).join(``)}
                   </optgroup>`:``}
                 `:`
-                  ${n.allDepartments.map(e=>`<option value="${P(e)}">${P(e)}</option>`).join(``)}
+                  ${n.allDepartments.map(e=>`<option value="${N(e)}">${N(e)}</option>`).join(``)}
                 `}
                 <option value="__custom__">✏️ Custom / Other Department...</option>
               </select>
@@ -4031,27 +4031,27 @@ This will remove the final candidate list from public view.`)){F(n,!0,`Unpublish
         <span>ℹ️</span>
         <span>All changes apply directly to live nomination validation, ballot generation, booth assignments, and the counting matrix.</span>
       </p>
-    </div>`,nt(e,t,r),it(e,t,n.allDepartments,r)}function nt(e,t,n,r=``){let i=e.querySelector(`#postsBody`),a=r.toLowerCase().trim(),o=a?t.filter(e=>{let t=String(e.post||``).toLowerCase(),n=String(e.restrictedDept||``).toLowerCase();return t.includes(a)||n.includes(a)}):t;if(e.querySelector(`#postCountBadge`).textContent=o.length,!o.length){i.innerHTML=`<tr><td colspan="6" class="text-center text-slate-500 py-10">No matching posts found.</td></tr>`;return}i.innerHTML=o.map((e,t)=>{let n=O(e),r=`<span class="text-slate-500 text-xs">— All Years —</span>`,i=e.yearRuleMode===`EXCLUDE`||e.finalYearIneligible,a=e.yearRuleMode===`INCLUDE`||!e.yearRuleMode&&e.yearRestriction;i?r=`<span class="badge bg-rose-500/20 text-rose-300 border border-rose-500/30 text-xs font-medium">🚫 ${P(n)}</span>`:a&&(r=`<span class="badge bg-indigo-500/20 text-indigo-300 border border-indigo-500/30 text-xs font-medium">🎓 ${P(n)}</span>`);let o=e.femaleOnly?`<span class="badge bg-pink-500/20 text-pink-300 border border-pink-500/30 text-xs font-semibold">♀ Female Only</span>`:`<span class="text-slate-400 text-xs">All Genders</span>`,s=e.restrictedDept||(e.deptRestriction&&String(e.post||``).startsWith(`Association Secretary `)?e.post.replace(`Association Secretary `,``).trim():``),c=e.deptRestriction||s?`<span class="badge bg-amber-500/20 text-amber-300 border border-amber-500/30 text-xs font-medium">🏢 ${P(s||`Restricted`)}</span>`:`<span class="text-slate-400 text-xs">All Departments</span>`;return`
+    </div>`,ot(e,t,r),ct(e,t,n.allDepartments,r)}function ot(e,t,n,r=``){let i=e.querySelector(`#postsBody`),a=r.toLowerCase().trim(),o=a?t.filter(e=>{let t=String(e.post||``).toLowerCase(),n=String(e.restrictedDept||``).toLowerCase();return t.includes(a)||n.includes(a)}):t;if(e.querySelector(`#postCountBadge`).textContent=o.length,!o.length){i.innerHTML=`<tr><td colspan="6" class="text-center text-slate-500 py-10">No matching posts found.</td></tr>`;return}i.innerHTML=o.map((e,t)=>{let n=O(e),r=`<span class="text-slate-500 text-xs">— All Years —</span>`,i=e.yearRuleMode===`EXCLUDE`||e.finalYearIneligible,a=e.yearRuleMode===`INCLUDE`||!e.yearRuleMode&&e.yearRestriction;i?r=`<span class="badge bg-rose-500/20 text-rose-300 border border-rose-500/30 text-xs font-medium">🚫 ${N(n)}</span>`:a&&(r=`<span class="badge bg-indigo-500/20 text-indigo-300 border border-indigo-500/30 text-xs font-medium">🎓 ${N(n)}</span>`);let o=e.femaleOnly?`<span class="badge bg-pink-500/20 text-pink-300 border border-pink-500/30 text-xs font-semibold">♀ Female Only</span>`:`<span class="text-slate-400 text-xs">All Genders</span>`,s=e.restrictedDept||(e.deptRestriction&&String(e.post||``).startsWith(`Association Secretary `)?e.post.replace(`Association Secretary `,``).trim():``),c=e.deptRestriction||s?`<span class="badge bg-amber-500/20 text-amber-300 border border-amber-500/30 text-xs font-medium">🏢 ${N(s||`Restricted`)}</span>`:`<span class="text-slate-400 text-xs">All Departments</span>`;return`
       <tr class="hover:bg-white/[0.02] transition-colors">
         <td class="text-slate-500 text-xs text-center">${t+1}</td>
         <td>
-          <span class="font-semibold text-white text-sm">${P(e.post)}</span>
+          <span class="font-semibold text-white text-sm">${N(e.post)}</span>
         </td>
         <td>${o}</td>
         <td>${r}</td>
         <td>${c}</td>
         <td class="text-right">
           <div class="flex items-center justify-end gap-2">
-            <button class="btn btn-secondary btn-sm edit-post-btn" data-name="${P(e.post)}">
+            <button class="btn btn-secondary btn-sm edit-post-btn" data-name="${N(e.post)}">
               ✏️ Edit
             </button>
-            <button class="btn btn-danger btn-sm delete-post-btn" data-name="${P(e.post)}">
+            <button class="btn btn-danger btn-sm delete-post-btn" data-name="${N(e.post)}">
               🗑️
             </button>
           </div>
         </td>
       </tr>
-    `}).join(``),i.querySelectorAll(`.delete-post-btn`).forEach(r=>{r.addEventListener(`click`,async()=>{let i=r.dataset.name;if(confirm(`Delete post "${i}"?\n\nThis cannot be undone. Are you sure?`)){r.disabled=!0;try{await C.adminDeletePost(n,i),I(`Post "${i}" deleted.`,`success`);let r=await C.adminGetPosts(n);t.length=0,t.push(...r),nt(e,t,n,e.querySelector(`#filterPostsInput`).value)}catch(e){I(`Failed: ${e.message}`,`error`),r.disabled=!1}}})}),i.querySelectorAll(`.edit-post-btn`).forEach(n=>{n.addEventListener(`click`,()=>{let r=n.dataset.name,i=t.find(e=>e.post===r);if(!i)return;let a=e.querySelector(`#postFormWrap`);e.querySelector(`#postFormTitle`).textContent=`Edit Post`,e.querySelector(`#postFormIcon`).textContent=`✏️`,e.querySelector(`#pfPost`).value=i.post,e.querySelector(`#pfFemale`).checked=!!i.femaleOnly,e.querySelector(`#pfDept`).checked=!!i.deptRestriction||!!i.restrictedDept;let o=i.yearRuleMode,s=Array.isArray(i.yearRuleYears)?i.yearRuleYears:i.yearRuleYears?String(i.yearRuleYears).split(`,`).map(e=>e.trim()).filter(Boolean):[];o||(i.finalYearIneligible?(o=`EXCLUDE`,s=[`3_UG`,`2_PG`]):i.yearRestriction?(o=`INCLUDE`,i.yearRestriction===`1`?s=[`1_UG`]:i.yearRestriction===`2`?s=[`2_UG`]:i.yearRestriction===`3`?s=[`3_UG`]:i.yearRestriction===`PG`?s=[`1_PG`,`2_PG`]:i.yearRestriction===`UG`?s=[`1_UG`,`2_UG`,`3_UG`]:i.yearRestriction===`1,2`&&(s=[`1_UG`,`2_UG`])):(o=`ALL`,s=[])),window._setPostYearPolicy(o,s);let c=i.restrictedDept||(i.deptRestriction&&String(i.post||``).startsWith(`Association Secretary `)?i.post.replace(`Association Secretary `,``).trim():``),l=e.querySelector(`#pfDeptSelect`),u=e.querySelector(`#pfDeptCustom`);if(c){u.value=c;let e=Array.from(l.options).find(e=>e.value.toLowerCase()===c.toLowerCase());e?l.value=e.value:l.value=`__custom__`}else l.value=``,u.value=``;e.querySelector(`#pfOriginalName`).value=i.post,rt(e),Y(e),a.classList.remove(`hidden`),a.scrollIntoView({behavior:`smooth`})})})}function rt(e){let t=e.querySelector(`#pfDept`).checked,n=e.querySelector(`#deptChooserWrap`);t?n.classList.remove(`hidden`):n.classList.add(`hidden`)}function Y(e){let t=e.querySelector(`input[name="pfYearMode"]:checked`)?.value||`ALL`,n=Array.from(e.querySelectorAll(`.pf-year-cb:checked`)).map(e=>e.value),r=e.querySelector(`#pfFemale`).checked,i=e.querySelector(`#pfDept`).checked,a=e.querySelector(`#pfDeptCustom`).value.trim(),o=[];o.push(`<strong>Candidate:</strong> ${r?`Female students only`:`Any gender`}.`),i?a?o.push(`<strong>Department:</strong> Candidate, Proposer & Seconder must all belong to <strong>${P(a)}</strong>.`):o.push(`<strong>Department:</strong> Department restricted (select a department above).`):o.push(`<strong>Department:</strong> Open across all college departments.`);let s=O({yearRuleMode:t,yearRuleYears:n});t===`ALL`||n.length===0?o.push(`<strong>Year Level:</strong> All year levels eligible (UG &amp; PG).`):t===`INCLUDE`?o.push(`<strong>Year Level:</strong> <span class="text-indigo-300 font-semibold">Strictly restricted to ${P(s.replace(`Only: `,``))}</span> (Candidate &amp; Supporters).`):t===`EXCLUDE`&&o.push(`<strong>Year Level:</strong> <span class="text-rose-400 font-semibold">Ineligible / Barred: ${P(s.replace(`Barred: `,``))}</span> (Cannot contest or support).`),e.querySelector(`#ruleSummaryText`).innerHTML=o.join(` • `)}function it(e,t,n,r){let i=e.querySelector(`#postFormWrap`),a=e.querySelector(`#addPostBtn`),o=e.querySelector(`#cancelPostBtn`),s=e.querySelector(`#closePostFormBtn`),c=e.querySelector(`#savePostBtn`),l=e.querySelector(`#filterPostsInput`),u=e.querySelector(`#pfPost`),d=e.querySelector(`#pfFemale`),f=e.querySelector(`#pfDept`),p=e.querySelector(`#pfDeptSelect`),m=e.querySelector(`#pfDeptCustom`),h=e.querySelector(`#yearPolicyHint`),g=e.querySelectorAll(`input[name="pfYearMode"]`),_=e.querySelectorAll(`.year-card`),v=e.querySelectorAll(`.pf-year-cb`),y=t=>{let n=e.querySelector(`#lblModeAll`),r=e.querySelector(`#lblModeInclude`),i=e.querySelector(`#lblModeExclude`);[n,r,i].forEach(e=>{e.className=`px-2.5 py-1 rounded-md cursor-pointer transition-all flex items-center gap-1.5 text-slate-300 hover:text-white`}),t===`ALL`?(n.className=`px-2.5 py-1 rounded-md cursor-pointer transition-all flex items-center gap-1.5 text-white bg-indigo-600 font-semibold shadow`,h.textContent=`Students from any year level (I UG through II PG) can contest, propose, or second.`,_.forEach(e=>{e.classList.add(`opacity-50`,`pointer-events-none`)})):t===`INCLUDE`?(r.className=`px-2.5 py-1 rounded-md cursor-pointer transition-all flex items-center gap-1.5 text-white bg-emerald-600 font-semibold shadow`,h.textContent=`ONLY students in the checked year levels below can contest, propose, or second.`,_.forEach(e=>{e.classList.remove(`opacity-50`,`pointer-events-none`)})):t===`EXCLUDE`&&(i.className=`px-2.5 py-1 rounded-md cursor-pointer transition-all flex items-center gap-1.5 text-white bg-rose-600 font-semibold shadow`,h.textContent=`Students in the checked year levels below are BARRED from contesting or endorsing nominations.`,_.forEach(e=>{e.classList.remove(`opacity-50`,`pointer-events-none`)}))},b=(t,n=[])=>{let r=e.querySelector(`input[name="pfYearMode"][value="${t}"]`);r&&(r.checked=!0),y(t),v.forEach(e=>{e.checked=n.includes(e.value);let t=e.closest(`.year-card`);e.checked?t?.classList.add(`border-indigo-500`,`bg-indigo-500/10`):t?.classList.remove(`border-indigo-500`,`bg-indigo-500/10`)}),Y(e)};window._setPostYearPolicy=b,g.forEach(t=>{t.addEventListener(`change`,()=>{y(t.value),Y(e)})}),v.forEach(t=>{t.addEventListener(`change`,()=>{let n=t.closest(`.year-card`);t.checked?n?.classList.add(`border-indigo-500`,`bg-indigo-500/10`):n?.classList.remove(`border-indigo-500`,`bg-indigo-500/10`),Y(e)})}),e.querySelectorAll(`.preset-btn`).forEach(e=>{e.addEventListener(`click`,()=>{let t=e.dataset.preset;t===`all`?b(`ALL`,[]):t===`ug`?b(`INCLUDE`,[`1_UG`,`2_UG`,`3_UG`]):t===`pg`?b(`INCLUDE`,[`1_PG`,`2_PG`]):t===`bar-final`?b(`EXCLUDE`,[`3_UG`,`2_PG`]):t===`1_ug`?b(`INCLUDE`,[`1_UG`]):t===`2_ug`?b(`INCLUDE`,[`2_UG`]):t===`3_ug`&&b(`INCLUDE`,[`3_UG`])})}),l.addEventListener(`input`,()=>{nt(e,t,r,l.value)}),p.addEventListener(`change`,()=>{p.value&&p.value!==`__custom__`?m.value=p.value:p.value===`__custom__`&&m.focus(),Y(e)}),m.addEventListener(`input`,()=>{let t=m.value.trim(),n=Array.from(p.options).find(e=>e.value.toLowerCase()===t.toLowerCase());n?p.value=n.value:t?p.value=`__custom__`:p.value=``,Y(e)}),f.addEventListener(`change`,()=>{rt(e),Y(e)}),u.addEventListener(`input`,()=>{let t=u.value,r=`Association Secretary `;if(t.startsWith(r)){let n=t.replace(r,``).trim();if(f.checked=!0,rt(e),n){m.value=n;let e=Array.from(p.options).find(e=>e.value.toLowerCase()===n.toLowerCase());e?p.value=e.value:p.value=`__custom__`}}else for(let r of n)if(t.toLowerCase().includes(r.toLowerCase())){f.checked=!0,rt(e),m.value=r,p.value=r;break}t.includes(`I UG`)||t.includes(`1st Year`)||t.includes(`1st UG`)?b(`INCLUDE`,[`1_UG`]):t.includes(`II UG`)||t.includes(`2nd Year`)||t.includes(`2nd UG`)?b(`INCLUDE`,[`2_UG`]):t.includes(`III UG`)||t.includes(`3rd Year`)||t.includes(`3rd UG`)?b(`INCLUDE`,[`3_UG`]):t.includes(`PG Rep`)?b(`INCLUDE`,[`1_PG`,`2_PG`]):t.toLowerCase().includes(`chief student editor`)&&b(`EXCLUDE`,[`3_UG`,`2_PG`]),(t.includes(`Vice Chairman`)||t.includes(`Joint Secretary`)||t.toLowerCase().includes(`lady`)||t.toLowerCase().includes(`female`))&&(d.checked=!0),Y(e)}),d.addEventListener(`change`,()=>Y(e)),a.addEventListener(`click`,()=>{e.querySelector(`#postFormTitle`).textContent=`Add New Post`,e.querySelector(`#postFormIcon`).textContent=`✨`,u.value=``,d.checked=!1,f.checked=!1,p.value=``,m.value=``,e.querySelector(`#pfOriginalName`).value=``,b(`ALL`,[]),rt(e),Y(e),i.classList.remove(`hidden`),i.scrollIntoView({behavior:`smooth`}),u.focus()}),o.addEventListener(`click`,()=>i.classList.add(`hidden`)),s.addEventListener(`click`,()=>i.classList.add(`hidden`)),c.addEventListener(`click`,async()=>{let n=u.value.trim(),a=e.querySelector(`input[name="pfYearMode"]:checked`)?.value||`ALL`,o=Array.from(e.querySelectorAll(`.pf-year-cb:checked`)).map(e=>e.value),s=d.checked,l=f.checked,p=l?m.value.trim():``,h=e.querySelector(`#pfOriginalName`).value.trim();if(!n){I(`Post name is required.`,`error`),u.focus();return}if(l&&!p){I(`Please select or specify the restricted department.`,`warning`),m.focus();return}let g=a===`EXCLUDE`&&o.includes(`3_UG`)&&o.includes(`2_PG`),_=``;if(a===`INCLUDE`){let e=o.join(`,`);e===`1_UG`?_=`1`:e===`2_UG`?_=`2`:e===`3_UG`?_=`3`:e===`1_PG,2_PG`||e===`2_PG,1_PG`?_=`PG`:o.length===3&&o.includes(`1_UG`)&&o.includes(`2_UG`)&&o.includes(`3_UG`)?_=`UG`:o.length===2&&o.includes(`1_UG`)&&o.includes(`2_UG`)&&(_=`1,2`)}let v={post:n,postName:n,yearRuleMode:a,yearRuleYears:o,yearRestriction:_,femaleOnly:s,finalYearIneligible:g,deptRestriction:l,restrictedDept:p,originalName:h};F(c,!0,`💾 Saving...`);try{h?(await C.adminUpdatePost(r,v),I(`Post "${n}" updated successfully!`,`success`)):(await C.adminAddPost(r,v),I(`Post "${n}" created successfully!`,`success`)),i.classList.add(`hidden`);let a=await C.adminGetPosts(r);t.length=0,t.push(...a);let o=e.querySelector(`#filterPostsInput`);o&&(o.value=``),nt(e,t,r,``);let s=Array.from(e.querySelectorAll(`#postsBody tr`)).find(e=>{let t=e.querySelector(`td:nth-child(2) span`);return t&&t.textContent.trim().toLowerCase()===n.toLowerCase()});s&&(s.scrollIntoView({behavior:`smooth`,block:`center`}),s.classList.add(`bg-indigo-500/30`,`transition-all`,`duration-500`),setTimeout(()=>{s.classList.remove(`bg-indigo-500/30`)},3500))}catch(e){I(`Failed: ${e.message}`,`error`)}finally{F(c,!1,`💾 Save Post`)}})}async function at(e){let t=W();if(t){G(e,`booths`,`
+    `}).join(``),i.querySelectorAll(`.delete-post-btn`).forEach(r=>{r.addEventListener(`click`,async()=>{let i=r.dataset.name;if(confirm(`Delete post "${i}"?\n\nThis cannot be undone. Are you sure?`)){r.disabled=!0;try{await C.adminDeletePost(n,i),F(`Post "${i}" deleted.`,`success`);let r=await C.adminGetPosts(n);t.length=0,t.push(...r),ot(e,t,n,e.querySelector(`#filterPostsInput`).value)}catch(e){F(`Failed: ${e.message}`,`error`),r.disabled=!1}}})}),i.querySelectorAll(`.edit-post-btn`).forEach(n=>{n.addEventListener(`click`,()=>{let r=n.dataset.name,i=t.find(e=>e.post===r);if(!i)return;let a=e.querySelector(`#postFormWrap`);e.querySelector(`#postFormTitle`).textContent=`Edit Post`,e.querySelector(`#postFormIcon`).textContent=`✏️`,e.querySelector(`#pfPost`).value=i.post,e.querySelector(`#pfFemale`).checked=!!i.femaleOnly,e.querySelector(`#pfDept`).checked=!!i.deptRestriction||!!i.restrictedDept;let o=i.yearRuleMode,s=Array.isArray(i.yearRuleYears)?i.yearRuleYears:i.yearRuleYears?String(i.yearRuleYears).split(`,`).map(e=>e.trim()).filter(Boolean):[];o||(i.finalYearIneligible?(o=`EXCLUDE`,s=[`3_UG`,`2_PG`]):i.yearRestriction?(o=`INCLUDE`,i.yearRestriction===`1`?s=[`1_UG`]:i.yearRestriction===`2`?s=[`2_UG`]:i.yearRestriction===`3`?s=[`3_UG`]:i.yearRestriction===`PG`?s=[`1_PG`,`2_PG`]:i.yearRestriction===`UG`?s=[`1_UG`,`2_UG`,`3_UG`]:i.yearRestriction===`1,2`&&(s=[`1_UG`,`2_UG`])):(o=`ALL`,s=[])),window._setPostYearPolicy(o,s);let c=i.restrictedDept||(i.deptRestriction&&String(i.post||``).startsWith(`Association Secretary `)?i.post.replace(`Association Secretary `,``).trim():``),l=e.querySelector(`#pfDeptSelect`),u=e.querySelector(`#pfDeptCustom`);if(c){u.value=c;let e=Array.from(l.options).find(e=>e.value.toLowerCase()===c.toLowerCase());e?l.value=e.value:l.value=`__custom__`}else l.value=``,u.value=``;e.querySelector(`#pfOriginalName`).value=i.post,st(e),Y(e),a.classList.remove(`hidden`),a.scrollIntoView({behavior:`smooth`})})})}function st(e){let t=e.querySelector(`#pfDept`).checked,n=e.querySelector(`#deptChooserWrap`);t?n.classList.remove(`hidden`):n.classList.add(`hidden`)}function Y(e){let t=e.querySelector(`input[name="pfYearMode"]:checked`)?.value||`ALL`,n=Array.from(e.querySelectorAll(`.pf-year-cb:checked`)).map(e=>e.value),r=e.querySelector(`#pfFemale`).checked,i=e.querySelector(`#pfDept`).checked,a=e.querySelector(`#pfDeptCustom`).value.trim(),o=[];o.push(`<strong>Candidate:</strong> ${r?`Female students only`:`Any gender`}.`),i?a?o.push(`<strong>Department:</strong> Candidate, Proposer & Seconder must all belong to <strong>${N(a)}</strong>.`):o.push(`<strong>Department:</strong> Department restricted (select a department above).`):o.push(`<strong>Department:</strong> Open across all college departments.`);let s=O({yearRuleMode:t,yearRuleYears:n});t===`ALL`||n.length===0?o.push(`<strong>Year Level:</strong> All year levels eligible (UG &amp; PG).`):t===`INCLUDE`?o.push(`<strong>Year Level:</strong> <span class="text-indigo-300 font-semibold">Strictly restricted to ${N(s.replace(`Only: `,``))}</span> (Candidate &amp; Supporters).`):t===`EXCLUDE`&&o.push(`<strong>Year Level:</strong> <span class="text-rose-400 font-semibold">Ineligible / Barred: ${N(s.replace(`Barred: `,``))}</span> (Cannot contest or support).`),e.querySelector(`#ruleSummaryText`).innerHTML=o.join(` • `)}function ct(e,t,n,r){let i=e.querySelector(`#postFormWrap`),a=e.querySelector(`#addPostBtn`),o=e.querySelector(`#cancelPostBtn`),s=e.querySelector(`#closePostFormBtn`),c=e.querySelector(`#savePostBtn`),l=e.querySelector(`#filterPostsInput`),u=e.querySelector(`#pfPost`),d=e.querySelector(`#pfFemale`),f=e.querySelector(`#pfDept`),p=e.querySelector(`#pfDeptSelect`),m=e.querySelector(`#pfDeptCustom`),h=e.querySelector(`#yearPolicyHint`),g=e.querySelectorAll(`input[name="pfYearMode"]`),_=e.querySelectorAll(`.year-card`),v=e.querySelectorAll(`.pf-year-cb`),y=t=>{let n=e.querySelector(`#lblModeAll`),r=e.querySelector(`#lblModeInclude`),i=e.querySelector(`#lblModeExclude`);[n,r,i].forEach(e=>{e.className=`px-2.5 py-1 rounded-md cursor-pointer transition-all flex items-center gap-1.5 text-slate-300 hover:text-white`}),t===`ALL`?(n.className=`px-2.5 py-1 rounded-md cursor-pointer transition-all flex items-center gap-1.5 text-white bg-indigo-600 font-semibold shadow`,h.textContent=`Students from any year level (I UG through II PG) can contest, propose, or second.`,_.forEach(e=>{e.classList.add(`opacity-50`,`pointer-events-none`)})):t===`INCLUDE`?(r.className=`px-2.5 py-1 rounded-md cursor-pointer transition-all flex items-center gap-1.5 text-white bg-emerald-600 font-semibold shadow`,h.textContent=`ONLY students in the checked year levels below can contest, propose, or second.`,_.forEach(e=>{e.classList.remove(`opacity-50`,`pointer-events-none`)})):t===`EXCLUDE`&&(i.className=`px-2.5 py-1 rounded-md cursor-pointer transition-all flex items-center gap-1.5 text-white bg-rose-600 font-semibold shadow`,h.textContent=`Students in the checked year levels below are BARRED from contesting or endorsing nominations.`,_.forEach(e=>{e.classList.remove(`opacity-50`,`pointer-events-none`)}))},b=(t,n=[])=>{let r=e.querySelector(`input[name="pfYearMode"][value="${t}"]`);r&&(r.checked=!0),y(t),v.forEach(e=>{e.checked=n.includes(e.value);let t=e.closest(`.year-card`);e.checked?t?.classList.add(`border-indigo-500`,`bg-indigo-500/10`):t?.classList.remove(`border-indigo-500`,`bg-indigo-500/10`)}),Y(e)};window._setPostYearPolicy=b,g.forEach(t=>{t.addEventListener(`change`,()=>{y(t.value),Y(e)})}),v.forEach(t=>{t.addEventListener(`change`,()=>{let n=t.closest(`.year-card`);t.checked?n?.classList.add(`border-indigo-500`,`bg-indigo-500/10`):n?.classList.remove(`border-indigo-500`,`bg-indigo-500/10`),Y(e)})}),e.querySelectorAll(`.preset-btn`).forEach(e=>{e.addEventListener(`click`,()=>{let t=e.dataset.preset;t===`all`?b(`ALL`,[]):t===`ug`?b(`INCLUDE`,[`1_UG`,`2_UG`,`3_UG`]):t===`pg`?b(`INCLUDE`,[`1_PG`,`2_PG`]):t===`bar-final`?b(`EXCLUDE`,[`3_UG`,`2_PG`]):t===`1_ug`?b(`INCLUDE`,[`1_UG`]):t===`2_ug`?b(`INCLUDE`,[`2_UG`]):t===`3_ug`&&b(`INCLUDE`,[`3_UG`])})}),l.addEventListener(`input`,()=>{ot(e,t,r,l.value)}),p.addEventListener(`change`,()=>{p.value&&p.value!==`__custom__`?m.value=p.value:p.value===`__custom__`&&m.focus(),Y(e)}),m.addEventListener(`input`,()=>{let t=m.value.trim(),n=Array.from(p.options).find(e=>e.value.toLowerCase()===t.toLowerCase());n?p.value=n.value:t?p.value=`__custom__`:p.value=``,Y(e)}),f.addEventListener(`change`,()=>{st(e),Y(e)}),u.addEventListener(`input`,()=>{let t=u.value,r=`Association Secretary `;if(t.startsWith(r)){let n=t.replace(r,``).trim();if(f.checked=!0,st(e),n){m.value=n;let e=Array.from(p.options).find(e=>e.value.toLowerCase()===n.toLowerCase());e?p.value=e.value:p.value=`__custom__`}}else for(let r of n)if(t.toLowerCase().includes(r.toLowerCase())){f.checked=!0,st(e),m.value=r,p.value=r;break}t.includes(`I UG`)||t.includes(`1st Year`)||t.includes(`1st UG`)?b(`INCLUDE`,[`1_UG`]):t.includes(`II UG`)||t.includes(`2nd Year`)||t.includes(`2nd UG`)?b(`INCLUDE`,[`2_UG`]):t.includes(`III UG`)||t.includes(`3rd Year`)||t.includes(`3rd UG`)?b(`INCLUDE`,[`3_UG`]):t.includes(`PG Rep`)?b(`INCLUDE`,[`1_PG`,`2_PG`]):t.toLowerCase().includes(`chief student editor`)&&b(`EXCLUDE`,[`3_UG`,`2_PG`]),(t.includes(`Vice Chairman`)||t.includes(`Joint Secretary`)||t.toLowerCase().includes(`lady`)||t.toLowerCase().includes(`female`))&&(d.checked=!0),Y(e)}),d.addEventListener(`change`,()=>Y(e)),a.addEventListener(`click`,()=>{e.querySelector(`#postFormTitle`).textContent=`Add New Post`,e.querySelector(`#postFormIcon`).textContent=`✨`,u.value=``,d.checked=!1,f.checked=!1,p.value=``,m.value=``,e.querySelector(`#pfOriginalName`).value=``,b(`ALL`,[]),st(e),Y(e),i.classList.remove(`hidden`),i.scrollIntoView({behavior:`smooth`}),u.focus()}),o.addEventListener(`click`,()=>i.classList.add(`hidden`)),s.addEventListener(`click`,()=>i.classList.add(`hidden`)),c.addEventListener(`click`,async()=>{let n=u.value.trim(),a=e.querySelector(`input[name="pfYearMode"]:checked`)?.value||`ALL`,o=Array.from(e.querySelectorAll(`.pf-year-cb:checked`)).map(e=>e.value),s=d.checked,l=f.checked,p=l?m.value.trim():``,h=e.querySelector(`#pfOriginalName`).value.trim();if(!n){F(`Post name is required.`,`error`),u.focus();return}if(l&&!p){F(`Please select or specify the restricted department.`,`warning`),m.focus();return}let g=a===`EXCLUDE`&&o.includes(`3_UG`)&&o.includes(`2_PG`),_=``;if(a===`INCLUDE`){let e=o.join(`,`);e===`1_UG`?_=`1`:e===`2_UG`?_=`2`:e===`3_UG`?_=`3`:e===`1_PG,2_PG`||e===`2_PG,1_PG`?_=`PG`:o.length===3&&o.includes(`1_UG`)&&o.includes(`2_UG`)&&o.includes(`3_UG`)?_=`UG`:o.length===2&&o.includes(`1_UG`)&&o.includes(`2_UG`)&&(_=`1,2`)}let v={post:n,postName:n,yearRuleMode:a,yearRuleYears:o,yearRestriction:_,femaleOnly:s,finalYearIneligible:g,deptRestriction:l,restrictedDept:p,originalName:h};P(c,!0,`💾 Saving...`);try{h?(await C.adminUpdatePost(r,v),F(`Post "${n}" updated successfully!`,`success`)):(await C.adminAddPost(r,v),F(`Post "${n}" created successfully!`,`success`)),i.classList.add(`hidden`);let a=await C.adminGetPosts(r);t.length=0,t.push(...a);let o=e.querySelector(`#filterPostsInput`);o&&(o.value=``),ot(e,t,r,``);let s=Array.from(e.querySelectorAll(`#postsBody tr`)).find(e=>{let t=e.querySelector(`td:nth-child(2) span`);return t&&t.textContent.trim().toLowerCase()===n.toLowerCase()});s&&(s.scrollIntoView({behavior:`smooth`,block:`center`}),s.classList.add(`bg-indigo-500/30`,`transition-all`,`duration-500`),setTimeout(()=>{s.classList.remove(`bg-indigo-500/30`)},3500))}catch(e){F(`Failed: ${e.message}`,`error`)}finally{P(c,!1,`💾 Save Post`)}})}async function lt(e){let t=U();if(t){W(e,`booths`,`
     <div class="text-center py-16"><span class="spinner" style="width:2.5rem;height:2.5rem;border-width:4px;"></span><p class="text-slate-400 mt-4 text-sm">Loading booth data...</p></div>
   `);try{let[n,r,i,a,o,s,c]=await Promise.all([C.getNominalRoll(),C.adminGetBooths(t,!0).catch(e=>(console.error(`GetBooths error:`,e),null)),C.adminGetLocations(t,!0).catch(e=>(console.error(`GetLocations error:`,e),null)),C.adminGetPosts(t).catch(()=>[]),C.adminGetFinalNominations(t).catch(()=>C.getFinalNominations()).catch(()=>({active:[]})),C.adminGetBallotPlan(t).catch(()=>null),C.adminGetSettings(t).catch(()=>({}))]);if(r===null||i===null){e.querySelector(`#adminMain`).innerHTML=`
         <div class="alert alert-error max-w-xl mx-auto my-8 p-6 text-center">
@@ -4059,7 +4059,7 @@ This will remove the final candidate list from public view.`)){F(n,!0,`Unpublish
           <p class="text-sm text-slate-300 mb-4">Could not retrieve existing polling booth and location data from the server. To protect your data from being overwritten, interface initialization has been paused.</p>
           <button id="btnRetryLoadBooths" class="btn btn-primary px-6">🔄 Retry Connection</button>
         </div>
-      `,e.querySelector(`#btnRetryLoadBooths`)?.addEventListener(`click`,()=>at(e));return}ot(e.querySelector(`#adminMain`),t,n,r,i,a,o,s,c)}catch(t){e.querySelector(`#adminMain`).innerHTML=`<div class="alert alert-error">❌ ${P(t.message)}</div>`}}}function ot(e,t,r,i,a,o,s,c,l){let u=e=>{let t=String(e.CLASS||`Unknown`).trim(),n=String(e.Dept||`Unknown`).trim(),r=t.toUpperCase();return r.includes(`RESEARCH`)||r.includes(`SCHOLAR`)||r.includes(`PH.D`)||r.includes(`PHD`)?`RESEARCH SCHOLAR - ${n}`:t},d=(e,t)=>{if(!t||!t.length)return!1;let n=u(e),r=String(e.CLASS||``).trim();return t.includes(n)||t.includes(r)},f={};r.forEach(e=>{let t=u(e),n=String(e.Dept||`Unknown`).trim();f[t]||(f[t]={name:t,dept:n,count:0}),f[t].count++});let p=Object.values(f).sort((e,t)=>e.dept.localeCompare(t.dept)||e.name.localeCompare(t.name)),m=i.length?[...i]:[{boothNumber:1,roomName:``,classes:[]}];m.forEach(e=>{if(e.classes&&e.classes.includes(`RESEARCH SCHOLAR`)){e.classes=e.classes.filter(e=>e!==`RESEARCH SCHOLAR`);let t=new Set(e.classes.map(e=>f[e]?.dept).filter(Boolean));Object.keys(f).filter(e=>e.startsWith(`RESEARCH SCHOLAR - `)).forEach(n=>{t.has(f[n].dept)&&e.classes.push(n)})}});let h=[...a],g=null,_=!0,v=()=>{m.forEach(e=>e.totalStudents=0);let n=[];p.forEach(e=>{let t=m.find(t=>t.classes&&t.classes.includes(e.name));t?t.totalStudents+=e.count:n.push(e)});let i=window.scrollY;e.innerHTML=`
+      `,e.querySelector(`#btnRetryLoadBooths`)?.addEventListener(`click`,()=>lt(e));return}ut(e.querySelector(`#adminMain`),t,n,r,i,a,o,s,c)}catch(t){e.querySelector(`#adminMain`).innerHTML=`<div class="alert alert-error">❌ ${N(t.message)}</div>`}}}function ut(e,t,r,i,a,o,s,c,l){let u=e=>{let t=String(e.CLASS||`Unknown`).trim(),n=String(e.Dept||`Unknown`).trim(),r=t.toUpperCase();return r.includes(`RESEARCH`)||r.includes(`SCHOLAR`)||r.includes(`PH.D`)||r.includes(`PHD`)?`RESEARCH SCHOLAR - ${n}`:t},d=(e,t)=>{if(!t||!t.length)return!1;let n=u(e),r=String(e.CLASS||``).trim();return t.includes(n)||t.includes(r)},f={};r.forEach(e=>{let t=u(e),n=String(e.Dept||`Unknown`).trim();f[t]||(f[t]={name:t,dept:n,count:0}),f[t].count++});let p=Object.values(f).sort((e,t)=>e.dept.localeCompare(t.dept)||e.name.localeCompare(t.name)),m=i.length?[...i]:[{boothNumber:1,roomName:``,classes:[]}];m.forEach(e=>{if(e.classes&&e.classes.includes(`RESEARCH SCHOLAR`)){e.classes=e.classes.filter(e=>e!==`RESEARCH SCHOLAR`);let t=new Set(e.classes.map(e=>f[e]?.dept).filter(Boolean));Object.keys(f).filter(e=>e.startsWith(`RESEARCH SCHOLAR - `)).forEach(n=>{t.has(f[n].dept)&&e.classes.push(n)})}});let h=[...a],g=null,_=!0,v=()=>{m.forEach(e=>e.totalStudents=0);let n=[];p.forEach(e=>{let t=m.find(t=>t.classes&&t.classes.includes(e.name));t?t.totalStudents+=e.count:n.push(e)});let i=window.scrollY;e.innerHTML=`
         <!-- Locations Modal -->
         <div id="locationsModal" class="fixed inset-0 z-50 flex items-center justify-center hidden">
           <div class="absolute inset-0 bg-slate-900/80" id="locationsModalOverlay"></div>
@@ -4144,21 +4144,21 @@ This will remove the final candidate list from public view.`)){F(n,!0,`Unpublish
                   <select class="field text-sm py-1 flex-1 room-name-select" data-idx="${t}">
                     <option value="">-- Assign Location --</option>
                     ${h.map(n=>`
-                      <option value="${P(n)}" 
+                      <option value="${N(n)}" 
                         ${e.roomName===n?`selected`:``}
                         ${m.some((e,r)=>r!==t&&e.roomName===n)?`disabled`:``}
-                      >${P(n)}</option>
+                      >${N(n)}</option>
                     `).join(``)}
                     <option value="__ADD_NEW__">➕ Add / Manage Locations...</option>
                   </select>
                   ${e.roomName?`
-                    <button type="button" class="btn btn-secondary btn-xs py-1.5 px-2 text-slate-300 hover:text-white border-white/10 quick-edit-loc-btn" data-idx="${t}" title="Edit / Rename '${P(e.roomName)}'">
+                    <button type="button" class="btn btn-secondary btn-xs py-1.5 px-2 text-slate-300 hover:text-white border-white/10 quick-edit-loc-btn" data-idx="${t}" title="Edit / Rename '${N(e.roomName)}'">
                       ✏️
                     </button>
                   `:``}
                 </div>
                 <div class="text-xs text-slate-500 h-16 overflow-y-auto bg-black/20 rounded p-1">
-                  ${e.classes.length?e.classes.map(e=>`<div class="whitespace-nowrap overflow-hidden text-ellipsis">• ${P(e)} (${f[e]?.count||0})</div>`).join(``):`<em class="opacity-30">No classes assigned</em>`}
+                  ${e.classes.length?e.classes.map(e=>`<div class="whitespace-nowrap overflow-hidden text-ellipsis">• ${N(e)} (${f[e]?.count||0})</div>`).join(``):`<em class="opacity-30">No classes assigned</em>`}
                 </div>
               </div>
             `).join(``)}
@@ -4185,11 +4185,11 @@ This will remove the final candidate list from public view.`)){F(n,!0,`Unpublish
               <tbody>
                 ${p.map(e=>{let t=m.find(t=>t.classes.includes(e.name));return`
                     <tr>
-                      <td class="text-xs text-slate-400">${P(e.dept)}</td>
-                      <td class="font-medium text-sm text-white">${P(e.name)}</td>
+                      <td class="text-xs text-slate-400">${N(e.dept)}</td>
+                      <td class="font-medium text-sm text-white">${N(e.name)}</td>
                       <td class="font-mono text-indigo-300">${e.count}</td>
                       <td>
-                        <select class="field w-full md:w-44 py-1 text-xs class-booth-select" data-class="${P(e.name)}">
+                        <select class="field w-full md:w-44 py-1 text-xs class-booth-select" data-class="${N(e.name)}">
                           <option value="">-- Unassigned --</option>
                           ${m.map((e,n)=>`
                             <option value="${n}" ${t===e?`selected`:``}>Booth ${n+1}</option>
@@ -4203,7 +4203,7 @@ This will remove the final candidate list from public view.`)){F(n,!0,`Unpublish
           </div>
         </div>
       </div>
-    `,_||window.scrollTo(0,i),_=!1,e.querySelector(`#btnClearAll`).addEventListener(`click`,async()=>{let e=m.reduce((e,t)=>e+(t.classes?t.classes.length:0),0);if(e===0){I(`All classes are already unassigned.`,`info`);return}if(confirm(`⚠️ CONFIRM CLEAR ALL CLASS ALLOTMENTS\n\nAre you sure you want to unassign all ${e} class allotment(s) across all booths?\n\nRoom locations and booth counts will be kept intact.\n\nProceed?`)){m.forEach(e=>e.classes=[]);try{await C.adminSaveBooths(t,m),I(`✅ All class allotments cleared and saved to database.`,`success`)}catch(e){I(`Failed to update database: ${e.message}`,`error`)}v()}}),e.querySelector(`#btnPrintRolls`).addEventListener(`click`,()=>{let t=e.querySelector(`#printArea`);t.innerHTML=y(m,r,o,f,s,c);let n=window.open(``,`_blank`);if(!n){alert(`Popup blocked! Please allow popups for this site to print.`);return}n.document.write(`
+    `,_||window.scrollTo(0,i),_=!1,e.querySelector(`#btnClearAll`).addEventListener(`click`,async()=>{let e=m.reduce((e,t)=>e+(t.classes?t.classes.length:0),0);if(e===0){F(`All classes are already unassigned.`,`info`);return}if(confirm(`⚠️ CONFIRM CLEAR ALL CLASS ALLOTMENTS\n\nAre you sure you want to unassign all ${e} class allotment(s) across all booths?\n\nRoom locations and booth counts will be kept intact.\n\nProceed?`)){m.forEach(e=>e.classes=[]);try{await C.adminSaveBooths(t,m),F(`✅ All class allotments cleared and saved to database.`,`success`)}catch(e){F(`Failed to update database: ${e.message}`,`error`)}v()}}),e.querySelector(`#btnPrintRolls`).addEventListener(`click`,()=>{let t=e.querySelector(`#printArea`);t.innerHTML=y(m,r,o,f,s,c);let n=window.open(``,`_blank`);if(!n){alert(`Popup blocked! Please allow popups for this site to print.`);return}n.document.write(`
         <html>
           <head>
             <title>Electoral Rolls - Booth Allotment</title>
@@ -4262,10 +4262,10 @@ This will remove the final candidate list from public view.`)){F(n,!0,`Unpublish
           </head>
           <body>${t.innerHTML}</body>
         </html>
-      `),n.document.close(),n.focus(),setTimeout(()=>{n.print()},500)}),e.querySelector(`#btnUpdateBoothCount`).addEventListener(`click`,async()=>{let n=parseInt(e.querySelector(`#numBoothsInput`).value,10);if(isNaN(n)||n<1||n>50){I(`Please enter a valid booth count between 1 and 50.`,`error`);return}if(n===m.length){I(`Booth count is already set to ${n}.`,`info`);return}if(n<m.length){let e=m.slice(n),t=e.some(e=>e.classes&&e.classes.length>0),r=e.some(e=>e.roomName&&e.roomName.trim()),i=`⚠️ CONFIRM BOOTH COUNT REDUCTION\n\nYou are reducing total booths from ${m.length} to ${n}.\n`;if((t||r)&&(i+=`\nWarning: Booth(s) ${n+1} to ${m.length} will be removed. Any assigned classes will return to unallocated status.\n`),i+=`
-Do you want to proceed and save this change to the database?`,!confirm(i))return}else if(!confirm(`Confirm setting total polling booths to ${n} and saving to database?`))return;if(n>m.length)for(let e=m.length;e<n;e++)m.push({boothNumber:e+1,roomName:``,classes:[]});else n<m.length&&(m=m.slice(0,n));try{await C.adminSaveBooths(t,m),await C.adminSaveLocations(t,h),I(`✅ Total booths updated to ${n} and saved to database!`,`success`)}catch(e){I(`Failed to persist to database: ${e.message}`,`error`)}v()}),e.querySelectorAll(`.room-name-select`).forEach(e=>{e.addEventListener(`change`,async e=>{let n=e.target.value,r=parseInt(e.target.dataset.idx,10);if(n===`__ADD_NEW__`){e.target.value=m[r].roomName||``,u();let t=a.querySelector(`#newLocationInput`);t&&t.focus();return}if(!n&&m[r].roomName){let t=m[r].roomName;if(!confirm(`Remove assigned room location "${t}" from Booth ${r+1}?`)){e.target.value=t;return}}m[r].roomName=n;try{await C.adminSaveBooths(t,m),await C.adminSaveLocations(t,h),I(`✅ Booth ${r+1} location saved as "${n||`Unassigned`}".`,`success`)}catch(e){I(`Failed to save location: ${e.message}`,`error`)}v()})}),e.querySelectorAll(`.quick-edit-loc-btn`).forEach(e=>{e.addEventListener(`click`,e=>{let t=parseInt(e.currentTarget.dataset.idx,10),n=m[t]?.roomName;if(!n)return;let r=h.indexOf(n);if(u(),r!==-1){g=r,S();let e=a.querySelector(`.loc-edit-input[data-idx="${r}"]`);e&&(e.focus(),e.select())}})});let a=e.querySelector(`#locationsModal`),l=()=>{let e=a.querySelector(`#newLocationInput`);e&&e.value.trim()&&!confirm(`You have entered an unadded location. Discard it?`)||(g=null,a.classList.add(`hidden`),v())},u=()=>{a.classList.remove(`hidden`),S()},d=async e=>{let n=a.querySelector(`.loc-edit-input[data-idx="${e}"]`);if(!n)return;let r=n.value.trim();if(!r){I(`Location name cannot be blank.`,`error`),n.focus();return}let i=h[e];if(r===i){g=null,S();return}if(h.some((t,n)=>n!==e&&t.toLowerCase()===r.toLowerCase())){I(`Location "${r}" already exists.`,`error`),n.focus();return}let o=m.filter(e=>e.roomName===i).length;if(o>0&&!confirm(`Confirm renaming location "${i}" to "${r}"?\n\nThis will update ${o} booth assignment(s).`)){n.value=i;return}h[e]=r,m.forEach(e=>{e.roomName===i&&(e.roomName=r)}),g=null,S();try{await C.adminSaveLocations(t,h),o>0&&await C.adminSaveBooths(t,m),I(`✅ Renamed to "${r}" and saved to database.`,`success`)}catch(e){I(`Failed to save rename: ${e.message}`,`error`)}},S=()=>{let e=a.querySelector(`#locationsCountBadge`);e&&(e.textContent=`${h.length} Locations`);let n=a.querySelector(`#locationsList`);if(!h.length){n.innerHTML=`<div class="p-6 text-center text-slate-500 text-sm italic bg-black/20 rounded-xl border border-white/5">No locations added yet. Add your rooms and halls above.</div>`;return}n.innerHTML=h.map((e,t)=>{let n=m.filter(t=>t.roomName===e);return g===t?`
+      `),n.document.close(),n.focus(),setTimeout(()=>{n.print()},500)}),e.querySelector(`#btnUpdateBoothCount`).addEventListener(`click`,async()=>{let n=parseInt(e.querySelector(`#numBoothsInput`).value,10);if(isNaN(n)||n<1||n>50){F(`Please enter a valid booth count between 1 and 50.`,`error`);return}if(n===m.length){F(`Booth count is already set to ${n}.`,`info`);return}if(n<m.length){let e=m.slice(n),t=e.some(e=>e.classes&&e.classes.length>0),r=e.some(e=>e.roomName&&e.roomName.trim()),i=`⚠️ CONFIRM BOOTH COUNT REDUCTION\n\nYou are reducing total booths from ${m.length} to ${n}.\n`;if((t||r)&&(i+=`\nWarning: Booth(s) ${n+1} to ${m.length} will be removed. Any assigned classes will return to unallocated status.\n`),i+=`
+Do you want to proceed and save this change to the database?`,!confirm(i))return}else if(!confirm(`Confirm setting total polling booths to ${n} and saving to database?`))return;if(n>m.length)for(let e=m.length;e<n;e++)m.push({boothNumber:e+1,roomName:``,classes:[]});else n<m.length&&(m=m.slice(0,n));try{await C.adminSaveBooths(t,m),await C.adminSaveLocations(t,h),F(`✅ Total booths updated to ${n} and saved to database!`,`success`)}catch(e){F(`Failed to persist to database: ${e.message}`,`error`)}v()}),e.querySelectorAll(`.room-name-select`).forEach(e=>{e.addEventListener(`change`,async e=>{let n=e.target.value,r=parseInt(e.target.dataset.idx,10);if(n===`__ADD_NEW__`){e.target.value=m[r].roomName||``,u();let t=a.querySelector(`#newLocationInput`);t&&t.focus();return}if(!n&&m[r].roomName){let t=m[r].roomName;if(!confirm(`Remove assigned room location "${t}" from Booth ${r+1}?`)){e.target.value=t;return}}m[r].roomName=n;try{await C.adminSaveBooths(t,m),await C.adminSaveLocations(t,h),F(`✅ Booth ${r+1} location saved as "${n||`Unassigned`}".`,`success`)}catch(e){F(`Failed to save location: ${e.message}`,`error`)}v()})}),e.querySelectorAll(`.quick-edit-loc-btn`).forEach(e=>{e.addEventListener(`click`,e=>{let t=parseInt(e.currentTarget.dataset.idx,10),n=m[t]?.roomName;if(!n)return;let r=h.indexOf(n);if(u(),r!==-1){g=r,S();let e=a.querySelector(`.loc-edit-input[data-idx="${r}"]`);e&&(e.focus(),e.select())}})});let a=e.querySelector(`#locationsModal`),l=()=>{let e=a.querySelector(`#newLocationInput`);e&&e.value.trim()&&!confirm(`You have entered an unadded location. Discard it?`)||(g=null,a.classList.add(`hidden`),v())},u=()=>{a.classList.remove(`hidden`),S()},d=async e=>{let n=a.querySelector(`.loc-edit-input[data-idx="${e}"]`);if(!n)return;let r=n.value.trim();if(!r){F(`Location name cannot be blank.`,`error`),n.focus();return}let i=h[e];if(r===i){g=null,S();return}if(h.some((t,n)=>n!==e&&t.toLowerCase()===r.toLowerCase())){F(`Location "${r}" already exists.`,`error`),n.focus();return}let o=m.filter(e=>e.roomName===i).length;if(o>0&&!confirm(`Confirm renaming location "${i}" to "${r}"?\n\nThis will update ${o} booth assignment(s).`)){n.value=i;return}h[e]=r,m.forEach(e=>{e.roomName===i&&(e.roomName=r)}),g=null,S();try{await C.adminSaveLocations(t,h),o>0&&await C.adminSaveBooths(t,m),F(`✅ Renamed to "${r}" and saved to database.`,`success`)}catch(e){F(`Failed to save rename: ${e.message}`,`error`)}},S=()=>{let e=a.querySelector(`#locationsCountBadge`);e&&(e.textContent=`${h.length} Locations`);let n=a.querySelector(`#locationsList`);if(!h.length){n.innerHTML=`<div class="p-6 text-center text-slate-500 text-sm italic bg-black/20 rounded-xl border border-white/5">No locations added yet. Add your rooms and halls above.</div>`;return}n.innerHTML=h.map((e,t)=>{let n=m.filter(t=>t.roomName===e);return g===t?`
             <div class="p-2.5 rounded-lg bg-indigo-950/50 border border-indigo-500/50 flex items-center gap-2">
-              <input type="text" class="field text-sm py-1 flex-1 loc-edit-input" data-idx="${t}" value="${P(e)}">
+              <input type="text" class="field text-sm py-1 flex-1 loc-edit-input" data-idx="${t}" value="${N(e)}">
               <button type="button" class="btn btn-primary btn-xs py-1 px-2.5 save-loc-edit" data-idx="${t}" title="Save rename">✓ Save</button>
               <button type="button" class="btn btn-secondary btn-xs py-1 px-2 cancel-loc-edit" data-idx="${t}" title="Cancel">✕</button>
             </div>
@@ -4273,7 +4273,7 @@ Do you want to proceed and save this change to the database?`,!confirm(i))return
           <div class="p-2.5 rounded-lg bg-white/5 border border-white/10 hover:border-white/20 flex items-center justify-between gap-3 transition-colors loc-item-row" data-idx="${t}">
             <div class="flex items-center gap-2 min-w-0 flex-1 cursor-pointer loc-label-wrap" data-idx="${t}" title="Double-click to edit">
               <span class="text-base text-slate-400 flex-shrink-0">📍</span>
-              <span class="text-sm font-medium text-white truncate loc-text">${P(e)}</span>
+              <span class="text-sm font-medium text-white truncate loc-text">${N(e)}</span>
               ${n.length?n.map(e=>`
                 <span class="text-[10px] uppercase font-bold tracking-wider px-2 py-0.5 rounded-full bg-indigo-500/20 text-indigo-300 border border-indigo-500/30 flex-shrink-0">
                   Booth ${e.boothNumber}
@@ -4289,18 +4289,18 @@ Do you want to proceed and save this change to the database?`,!confirm(i))return
               </button>
             </div>
           </div>
-        `}).join(``),n.querySelectorAll(`.edit-location`).forEach(e=>{e.addEventListener(`click`,e=>{g=parseInt(e.currentTarget.dataset.idx,10),S();let t=a.querySelector(`.loc-edit-input[data-idx="${g}"]`);t&&(t.focus(),t.select())})}),n.querySelectorAll(`.loc-label-wrap`).forEach(e=>{e.addEventListener(`dblclick`,e=>{g=parseInt(e.currentTarget.dataset.idx,10),S();let t=a.querySelector(`.loc-edit-input[data-idx="${g}"]`);t&&(t.focus(),t.select())})}),n.querySelectorAll(`.save-loc-edit`).forEach(e=>{e.addEventListener(`click`,e=>{d(parseInt(e.currentTarget.dataset.idx,10))})}),n.querySelectorAll(`.cancel-loc-edit`).forEach(e=>{e.addEventListener(`click`,()=>{g=null,S()})}),n.querySelectorAll(`.loc-edit-input`).forEach(e=>{e.addEventListener(`keydown`,e=>{let t=parseInt(e.currentTarget.dataset.idx,10);e.key===`Enter`?(e.preventDefault(),d(t)):e.key===`Escape`&&(e.preventDefault(),g=null,S())})}),n.querySelectorAll(`.delete-location`).forEach(e=>{e.addEventListener(`click`,async e=>{let n=parseInt(e.currentTarget.dataset.idx,10),r=h[n],i=m.filter(e=>e.roomName===r),a=`Delete location "${r}"?`;if(i.length>0&&(a=`⚠️ WARNING: "${r}" is currently assigned to ${i.map(e=>`Booth ${e.boothNumber}`).join(`, `)}.\n\nDeleting it will remove the room assignment from these booths.\n\nAre you sure you want to delete "${r}"?`),confirm(a)){h.splice(n,1),m.forEach(e=>{e.roomName===r&&(e.roomName=``)}),g===n?g=null:g>n&&g--,S();try{await C.adminSaveLocations(t,h),i.length>0&&await C.adminSaveBooths(t,m),I(`🗑️ Location "${r}" deleted and updated in database.`,`success`)}catch(e){I(`Failed to delete location: ${e.message}`,`error`)}}})})};e.querySelector(`#btnManageLocations`).addEventListener(`click`,u),e.querySelector(`#btnCloseLocationsModal`).addEventListener(`click`,l),e.querySelector(`#btnCloseLocationsModal2`).addEventListener(`click`,l),e.querySelector(`#locationsModalOverlay`).addEventListener(`click`,l),e.querySelector(`#btnAddLocation`).addEventListener(`click`,async()=>{let n=e.querySelector(`#newLocationInput`),r=n.value.trim();if(!r)return;if(h.some(e=>e.toLowerCase()===r.toLowerCase())){I(`Location "${r}" already exists.`,`error`),n.focus();return}h.push(r),n.value=``,S();try{await C.adminSaveLocations(t,h),I(`✅ Added "${r}" and saved to database.`,`success`)}catch(e){I(`Failed to save location: ${e.message}`,`error`)}let i=a.querySelector(`#locationsListContainer`);i&&(i.scrollTop=i.scrollHeight)}),e.querySelector(`#newLocationInput`).addEventListener(`keydown`,t=>{t.key===`Enter`&&(t.preventDefault(),e.querySelector(`#btnAddLocation`).click())}),S(),e.querySelector(`#btnSaveLocations`).addEventListener(`click`,async e=>{g!==null&&await d(g);let n=e.target;F(n,!0,`💾 Save Locations`);try{await C.adminSaveLocations(t,h),await C.adminSaveBooths(t,m),I(`✅ Locations and booth assignments saved to database successfully!`,`success`),l(),v()}catch(e){I(`Failed to save: ${e.message}`,`error`)}finally{F(n,!1,`💾 Save Locations`)}}),e.querySelectorAll(`.class-booth-select`).forEach(e=>{e.addEventListener(`change`,async e=>{let n=e.target.dataset.class,r=e.target.value,i=m.find(e=>e.classes&&e.classes.includes(n));if(r===``&&i&&!confirm(`Unassign class "${n}" from Booth ${i.boothNumber}?`)){e.target.value=String(m.indexOf(i));return}m.forEach(e=>{e.classes=e.classes.filter(e=>e!==n)}),r!==``&&m[parseInt(r,10)].classes.push(n);try{await C.adminSaveBooths(t,m),I(`Class "${n}" assigned to ${r===``?`Unassigned`:`Booth ${parseInt(r,10)+1}`} and saved.`,`info`)}catch(e){I(`Failed to save class assignment: ${e.message}`,`error`)}v()})}),e.querySelector(`#btnSaveBooths`).addEventListener(`click`,async e=>{if(!confirm(`💾 CONFIRM SAVE CONFIGURATION\n\nSave ${m.length} Polling Booth(s) and ${h.length} Location(s) to the database?`))return;let n=e.target;F(n,!0,`💾 Save Configuration`);try{await C.adminSaveLocations(t,h),await C.adminSaveBooths(t,m),I(`✅ Booth and location configuration saved to database successfully!`,`success`)}catch(e){I(`Failed to save: ${e.message}`,`error`)}finally{F(n,!1,`💾 Save Configuration`)}}),e.querySelector(`#btnRegenPlan`).addEventListener(`click`,async e=>{let n=e.target,r=`🔄 Finalize Master Plan`;try{F(n,!0,r),I(`Calculating and saving Master Plan on server...`,`info`),await C.adminGenerateBallotPlan(t),I(`Master Plan finalized successfully! You can now print documents.`,`success`),c=await C.adminGetBallotPlan(t).catch(()=>null)}catch(e){I(e.message,`error`)}finally{F(n,!1,r)}}),e.querySelector(`#btnAutoAllot`).addEventListener(`click`,async()=>{let e=m.reduce((e,t)=>e+(t.classes?t.classes.length:0),0),n=`⚡ CONFIRM AUTO ALLOTMENT\n\nThis will automatically distribute classes across Booths 1 to ${m.length}, keeping departments intact and attaching Research Scholars to their respective departments.\n\nProceed?`;if(e>0&&(n=`⚠️ CONFIRM AUTO ALLOTMENT OVERWRITE\n\n${e} class allotment(s) are currently configured.\nAuto-allotment will replace current assignments to keep each department together and align Research Scholars with their department.\n\nAre you sure you want to proceed?`),confirm(n)){x();try{await C.adminSaveBooths(t,m),I(`✅ Auto allotment complete and saved to database!`,`success`)}catch(e){I(`Auto allotted in memory (Failed to save to database: ${e.message})`,`error`)}v()}})},y=(e,t,r,i,a,o)=>{let s=l?.collegeName||n.COLLEGE_NAME||`COLLEGE UNION ELECTION`,c=l?.electionYear||new Date().getFullYear().toString(),u=l?.collegeLogo||``,f=``;return o?([...e].sort((e,t)=>e.boothNumber-t.boothNumber).forEach(e=>{if(!e.classes||e.classes.length===0)return;let n=t.filter(t=>d(t,e.classes)).length,r=e.classes.map(e=>i[e]).filter(Boolean),a=o.boothAssignments[e.boothNumber]||{general:null,reps:[],assocs:[]};f+=`
+        `}).join(``),n.querySelectorAll(`.edit-location`).forEach(e=>{e.addEventListener(`click`,e=>{g=parseInt(e.currentTarget.dataset.idx,10),S();let t=a.querySelector(`.loc-edit-input[data-idx="${g}"]`);t&&(t.focus(),t.select())})}),n.querySelectorAll(`.loc-label-wrap`).forEach(e=>{e.addEventListener(`dblclick`,e=>{g=parseInt(e.currentTarget.dataset.idx,10),S();let t=a.querySelector(`.loc-edit-input[data-idx="${g}"]`);t&&(t.focus(),t.select())})}),n.querySelectorAll(`.save-loc-edit`).forEach(e=>{e.addEventListener(`click`,e=>{d(parseInt(e.currentTarget.dataset.idx,10))})}),n.querySelectorAll(`.cancel-loc-edit`).forEach(e=>{e.addEventListener(`click`,()=>{g=null,S()})}),n.querySelectorAll(`.loc-edit-input`).forEach(e=>{e.addEventListener(`keydown`,e=>{let t=parseInt(e.currentTarget.dataset.idx,10);e.key===`Enter`?(e.preventDefault(),d(t)):e.key===`Escape`&&(e.preventDefault(),g=null,S())})}),n.querySelectorAll(`.delete-location`).forEach(e=>{e.addEventListener(`click`,async e=>{let n=parseInt(e.currentTarget.dataset.idx,10),r=h[n],i=m.filter(e=>e.roomName===r),a=`Delete location "${r}"?`;if(i.length>0&&(a=`⚠️ WARNING: "${r}" is currently assigned to ${i.map(e=>`Booth ${e.boothNumber}`).join(`, `)}.\n\nDeleting it will remove the room assignment from these booths.\n\nAre you sure you want to delete "${r}"?`),confirm(a)){h.splice(n,1),m.forEach(e=>{e.roomName===r&&(e.roomName=``)}),g===n?g=null:g>n&&g--,S();try{await C.adminSaveLocations(t,h),i.length>0&&await C.adminSaveBooths(t,m),F(`🗑️ Location "${r}" deleted and updated in database.`,`success`)}catch(e){F(`Failed to delete location: ${e.message}`,`error`)}}})})};e.querySelector(`#btnManageLocations`).addEventListener(`click`,u),e.querySelector(`#btnCloseLocationsModal`).addEventListener(`click`,l),e.querySelector(`#btnCloseLocationsModal2`).addEventListener(`click`,l),e.querySelector(`#locationsModalOverlay`).addEventListener(`click`,l),e.querySelector(`#btnAddLocation`).addEventListener(`click`,async()=>{let n=e.querySelector(`#newLocationInput`),r=n.value.trim();if(!r)return;if(h.some(e=>e.toLowerCase()===r.toLowerCase())){F(`Location "${r}" already exists.`,`error`),n.focus();return}h.push(r),n.value=``,S();try{await C.adminSaveLocations(t,h),F(`✅ Added "${r}" and saved to database.`,`success`)}catch(e){F(`Failed to save location: ${e.message}`,`error`)}let i=a.querySelector(`#locationsListContainer`);i&&(i.scrollTop=i.scrollHeight)}),e.querySelector(`#newLocationInput`).addEventListener(`keydown`,t=>{t.key===`Enter`&&(t.preventDefault(),e.querySelector(`#btnAddLocation`).click())}),S(),e.querySelector(`#btnSaveLocations`).addEventListener(`click`,async e=>{g!==null&&await d(g);let n=e.target;P(n,!0,`💾 Save Locations`);try{await C.adminSaveLocations(t,h),await C.adminSaveBooths(t,m),F(`✅ Locations and booth assignments saved to database successfully!`,`success`),l(),v()}catch(e){F(`Failed to save: ${e.message}`,`error`)}finally{P(n,!1,`💾 Save Locations`)}}),e.querySelectorAll(`.class-booth-select`).forEach(e=>{e.addEventListener(`change`,async e=>{let n=e.target.dataset.class,r=e.target.value,i=m.find(e=>e.classes&&e.classes.includes(n));if(r===``&&i&&!confirm(`Unassign class "${n}" from Booth ${i.boothNumber}?`)){e.target.value=String(m.indexOf(i));return}m.forEach(e=>{e.classes=e.classes.filter(e=>e!==n)}),r!==``&&m[parseInt(r,10)].classes.push(n);try{await C.adminSaveBooths(t,m),F(`Class "${n}" assigned to ${r===``?`Unassigned`:`Booth ${parseInt(r,10)+1}`} and saved.`,`info`)}catch(e){F(`Failed to save class assignment: ${e.message}`,`error`)}v()})}),e.querySelector(`#btnSaveBooths`).addEventListener(`click`,async e=>{if(!confirm(`💾 CONFIRM SAVE CONFIGURATION\n\nSave ${m.length} Polling Booth(s) and ${h.length} Location(s) to the database?`))return;let n=e.target;P(n,!0,`💾 Save Configuration`);try{await C.adminSaveLocations(t,h),await C.adminSaveBooths(t,m),F(`✅ Booth and location configuration saved to database successfully!`,`success`)}catch(e){F(`Failed to save: ${e.message}`,`error`)}finally{P(n,!1,`💾 Save Configuration`)}}),e.querySelector(`#btnRegenPlan`).addEventListener(`click`,async e=>{let n=e.target,r=`🔄 Finalize Master Plan`;try{P(n,!0,r),F(`Calculating and saving Master Plan on server...`,`info`),await C.adminGenerateBallotPlan(t),F(`Master Plan finalized successfully! You can now print documents.`,`success`),c=await C.adminGetBallotPlan(t).catch(()=>null)}catch(e){F(e.message,`error`)}finally{P(n,!1,r)}}),e.querySelector(`#btnAutoAllot`).addEventListener(`click`,async()=>{let e=m.reduce((e,t)=>e+(t.classes?t.classes.length:0),0),n=`⚡ CONFIRM AUTO ALLOTMENT\n\nThis will automatically distribute classes across Booths 1 to ${m.length}, keeping departments intact and attaching Research Scholars to their respective departments.\n\nProceed?`;if(e>0&&(n=`⚠️ CONFIRM AUTO ALLOTMENT OVERWRITE\n\n${e} class allotment(s) are currently configured.\nAuto-allotment will replace current assignments to keep each department together and align Research Scholars with their department.\n\nAre you sure you want to proceed?`),confirm(n)){x();try{await C.adminSaveBooths(t,m),F(`✅ Auto allotment complete and saved to database!`,`success`)}catch(e){F(`Auto allotted in memory (Failed to save to database: ${e.message})`,`error`)}v()}})},y=(e,t,r,i,a,o)=>{let s=l?.collegeName||n.COLLEGE_NAME||`COLLEGE UNION ELECTION`,c=l?.electionYear||new Date().getFullYear().toString(),u=l?.collegeLogo||``,f=``;return o?([...e].sort((e,t)=>e.boothNumber-t.boothNumber).forEach(e=>{if(!e.classes||e.classes.length===0)return;let n=t.filter(t=>d(t,e.classes)).length,r=e.classes.map(e=>i[e]).filter(Boolean),a=o.boothAssignments[e.boothNumber]||{general:null,reps:[],assocs:[]};f+=`
       <div class="facing-sheet">
           <div class="header">
             ${u?`<img src="${u}" style="max-height:50px;max-width:130px;margin:0 auto 6px auto;display:block;object-fit:contain" alt="College Logo">`:``}
-            <div class="college-name">${P(s)}</div>
-            <div class="title">College Union Election ${P(c)} — Booth Facing Sheet</div>
+            <div class="college-name">${N(s)}</div>
+            <div class="title">College Union Election ${N(c)} — Booth Facing Sheet</div>
           </div>
           
           <div style="font-size: 14px; margin-bottom: 12px; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px dashed #ccc; padding-bottom: 8px;">
             <div>
               <strong>BOOTH:</strong> <span style="font-size: 20px; border: 2px solid #000; padding: 2px 12px; margin-left: 5px;">${e.boothNumber}</span>
-              <span style="margin-left: 20px;"><strong>LOCATION:</strong> ${P(e.roomName||`UNSPECIFIED`)}</span>
+              <span style="margin-left: 20px;"><strong>LOCATION:</strong> ${N(e.roomName||`UNSPECIFIED`)}</span>
             </div>
             <div style="text-align: right; font-size: 10px; color: #666;">
               Ref: ${new Date().getFullYear()} Election
@@ -4319,7 +4319,7 @@ Do you want to proceed and save this change to the database?`,!confirm(i))return
               </thead>
               <tbody>
                 ${r.map(e=>`
-                  <tr><td style="font-size:13px; font-weight:bold;">${P(e.dept)}</td><td style="font-size:13px;">${P(e.name)}</td><td style="text-align:right; font-size:13px; font-weight:bold;">${e.count}</td></tr>
+                  <tr><td style="font-size:13px; font-weight:bold;">${N(e.dept)}</td><td style="font-size:13px;">${N(e.name)}</td><td style="text-align:right; font-size:13px; font-weight:bold;">${e.count}</td></tr>
                 `).join(``)}
                 <tr style="font-weight:bold; background:#eee">
                   <td colspan="2" style="font-size:12px;">TOTAL VOTERS ALLOTTED TO THIS BOOTH</td>
@@ -4346,7 +4346,7 @@ Do you want to proceed and save this change to the database?`,!confirm(i))return
               <tbody>
                 ${a.generalParts&&a.generalParts.length>1?a.generalParts.map(e=>`
                   <tr style="font-weight:bold">
-                    <td style="font-size:12px;">${P(e.title||`General Union Posts`)}</td>
+                    <td style="font-size:12px;">${N(e.title||`General Union Posts`)}</td>
                     <td style="font-size:12px;">${e.prefix===`G`?`G`:e.prefix+`-`}${e.start} - ${e.prefix===`G`?`G`:e.prefix+`-`}${e.end}</td>
                     <td style="text-align:center; font-size:13px;">${e.count}</td>
                     <td style="font-size:11px;">${e.bookIds}</td>
@@ -4354,7 +4354,7 @@ Do you want to proceed and save this change to the database?`,!confirm(i))return
                   </tr>
                 `).join(``):a.general?`
                   <tr style="font-weight:bold">
-                    <td style="font-size:12px;">${P(a.general.title||`General Union Posts`)}</td>
+                    <td style="font-size:12px;">${N(a.general.title||`General Union Posts`)}</td>
                     <td style="font-size:12px;">${a.general.prefix&&a.general.prefix!==`G`?a.general.prefix+`-`:`G`}${a.general.start} - ${a.general.prefix&&a.general.prefix!==`G`?a.general.prefix+`-`:`G`}${a.general.end}</td>
                     <td style="text-align:center; font-size:13px;">${a.general.count}</td>
                     <td style="font-size:11px;">${a.general.bookIds}</td>
@@ -4363,7 +4363,7 @@ Do you want to proceed and save this change to the database?`,!confirm(i))return
                 `:``}
                 ${a.reps.map(e=>`
                   <tr>
-                    <td style="font-size:12px; font-weight:bold;">${P(e.post)}</td>
+                    <td style="font-size:12px; font-weight:bold;">${N(e.post)}</td>
                     <td style="font-size:12px;">R${e.start} - R${e.end}</td>
                     <td style="text-align:center; font-size:13px;">${e.count}</td>
                     <td style="font-size:11px;">${e.bookIds}</td>
@@ -4372,7 +4372,7 @@ Do you want to proceed and save this change to the database?`,!confirm(i))return
                 `).join(``)}
                 ${a.assocs.map(e=>`
                   <tr>
-                    <td style="font-size:12px; font-weight:bold;">${P(e.post)}</td>
+                    <td style="font-size:12px; font-weight:bold;">${N(e.post)}</td>
                     <td style="font-size:12px;">A${e.start} - A${e.end}</td>
                     <td style="text-align:center; font-size:13px;">${e.count}</td>
                     <td style="font-size:11px;">${e.bookIds}</td>
@@ -4390,9 +4390,9 @@ Do you want to proceed and save this change to the database?`,!confirm(i))return
         </div>`,r.forEach(n=>{let r=t.filter(e=>String(e.CLASS).trim()===n.name);r.sort((e,t)=>String(e.NAME).localeCompare(String(t.NAME))),f+=`
         <div class="roll-page">
           <div class="roll-header">
-            <div><strong>BOOTH ${e.boothNumber}</strong> | ${P(e.roomName||`No Room`)}</div>
-            <div style="text-align:center; flex-grow:1; font-weight:bold; font-size:13px;">College Union Election ${P(c)} — MARKED COPY (${P(n.name)})</div>
-            <div>Dept: ${P(n.dept)}</div>
+            <div><strong>BOOTH ${e.boothNumber}</strong> | ${N(e.roomName||`No Room`)}</div>
+            <div style="text-align:center; flex-grow:1; font-weight:bold; font-size:13px;">College Union Election ${N(c)} — MARKED COPY (${N(n.name)})</div>
+            <div>Dept: ${N(n.dept)}</div>
           </div>
           <table class="roll-table">
             <thead>
@@ -4407,10 +4407,10 @@ Do you want to proceed and save this change to the database?`,!confirm(i))return
             <tbody>
               ${r.map(e=>`
                 <tr>
-                  <td style="text-align:center; font-weight:bold;">${P(String(e[`Nominal Roll Serial Number`]||e.SL_NO||e[`SL NO`]||e[`Serial Number`]||e.serial_number||`–`))}</td>
-                  <td style="font-family:monospace; font-size:9px; white-space:nowrap;">${P(e[`ADMISION NO`]||e[`ADMISSION NO`]||`–`)}</td>
-                  <td style="font-weight:bold; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">${P(e.NAME)}</td>
-                  <td style="font-size:9px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">${P(e.CLASS)}</td>
+                  <td style="text-align:center; font-weight:bold;">${N(String(e[`Nominal Roll Serial Number`]||e.SL_NO||e[`SL NO`]||e[`Serial Number`]||e.serial_number||`–`))}</td>
+                  <td style="font-family:monospace; font-size:9px; white-space:nowrap;">${N(e[`ADMISION NO`]||e[`ADMISSION NO`]||`–`)}</td>
+                  <td style="font-weight:bold; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">${N(e.NAME)}</td>
+                  <td style="font-size:9px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">${N(e.CLASS)}</td>
                   <td></td>
                 </tr>
               `).join(``)}
@@ -4426,13 +4426,13 @@ Do you want to proceed and save this change to the database?`,!confirm(i))return
           <div>
             <div class="header">
               ${u?`<img src="${u}" style="max-height:50px;max-width:130px;margin:0 auto 6px auto;display:block;object-fit:contain" alt="College Logo">`:``}
-              <div class="college-name">${P(s)}</div>
-              <div class="title">College Union Election ${P(c)} — Ballots &amp; Books Account</div>
+              <div class="college-name">${N(s)}</div>
+              <div class="title">College Union Election ${N(c)} — Ballots &amp; Books Account</div>
             </div>
             
             <div style="font-size: 16px; margin-bottom: 15px; display: flex; justify-content: space-between; align-items: center; background: #f9f9f9; padding: 10px; border: 1px solid #ddd;">
               <div><strong>BOOTH NUMBER:</strong> <span style="font-size: 22px; font-weight: bold; margin-left: 10px;">${e.boothNumber}</span></div>
-              <div style="text-align: right;"><strong>LOCATION:</strong> ${P(e.roomName||`UNSPECIFIED`)}</div>
+              <div style="text-align: right;"><strong>LOCATION:</strong> ${N(e.roomName||`UNSPECIFIED`)}</div>
             </div>
 
           <div style="flex: 1; display: flex; flex-direction: column; margin-top: 10px; margin-bottom: 20px;">
@@ -4451,36 +4451,36 @@ Do you want to proceed and save this change to the database?`,!confirm(i))return
               <tbody>
                 ${t.generalParts&&t.generalParts.length>1?t.generalParts.map(e=>`
                   <tr style="font-weight:bold;">
-                    <td style="font-size:13px;">${P(e.title||`General Union Posts`)}</td>
+                    <td style="font-size:13px;">${N(e.title||`General Union Posts`)}</td>
                     <td style="font-size:13px;">${e.prefix===`G`?`G`:e.prefix+`-`}${e.start} - ${e.prefix===`G`?`G`:e.prefix+`-`}${e.end}</td>
                     <td style="text-align:center; font-size:14px;">${e.count}</td>
-                    <td style="font-size:11px;">${P(e.bookIds||`-`)}</td>
+                    <td style="font-size:11px;">${N(e.bookIds||`-`)}</td>
                     <td></td><td></td><td></td>
                   </tr>
                 `).join(``):t.general?`
                   <tr style="font-weight:bold;">
-                    <td style="font-size:13px;">${P(t.general.title||`General Union Posts`)}</td>
+                    <td style="font-size:13px;">${N(t.general.title||`General Union Posts`)}</td>
                     <td style="font-size:13px;">${t.general.prefix&&t.general.prefix!==`G`?t.general.prefix+`-`:`G`}${t.general.start} - ${t.general.prefix&&t.general.prefix!==`G`?t.general.prefix+`-`:`G`}${t.general.end}</td>
                     <td style="text-align:center; font-size:14px;">${t.general.count}</td>
-                    <td style="font-size:11px;">${P(t.general.bookIds||`-`)}</td>
+                    <td style="font-size:11px;">${N(t.general.bookIds||`-`)}</td>
                     <td></td><td></td><td></td>
                   </tr>
                 `:``}
                 ${t.reps.map(e=>`
                   <tr>
-                    <td style="font-size:13px; font-weight:bold;">${P(e.post)}</td>
+                    <td style="font-size:13px; font-weight:bold;">${N(e.post)}</td>
                     <td style="font-size:13px;">R${e.start} - R${e.end}</td>
                     <td style="text-align:center; font-size:14px;">${e.count}</td>
-                    <td style="font-size:11px;">${P(e.bookIds||`-`)}</td>
+                    <td style="font-size:11px;">${N(e.bookIds||`-`)}</td>
                     <td></td><td></td><td></td>
                   </tr>
                 `).join(``)}
                 ${t.assocs.map(e=>`
                   <tr>
-                    <td style="font-size:13px; font-weight:bold;">${P(e.post)}</td>
+                    <td style="font-size:13px; font-weight:bold;">${N(e.post)}</td>
                     <td style="font-size:13px;">A${e.start} - A${e.end}</td>
                     <td style="text-align:center; font-size:14px;">${e.count}</td>
-                    <td style="font-size:11px;">${P(e.bookIds||`-`)}</td>
+                    <td style="font-size:11px;">${N(e.bookIds||`-`)}</td>
                     <td></td><td></td><td></td>
                   </tr>
                 `).join(``)}
@@ -4506,7 +4506,7 @@ Do you want to proceed and save this change to the database?`,!confirm(i))return
               <tbody>
                 ${a.map(e=>`
                   <tr>
-                    <td style="font-size: 13px; font-weight: bold;">${P(e.name)}</td>
+                    <td style="font-size: 13px; font-weight: bold;">${N(e.name)}</td>
                     <td style="text-align:center; font-weight:bold; font-size:14px;">${e.count}</td>
                     <td></td>
                     <td></td>
@@ -4521,9 +4521,9 @@ Do you want to proceed and save this change to the database?`,!confirm(i))return
             <div class="sig-line">Presiding Officer</div>
           </div>
         </div>
-      </div>`}),d):`<div class="alert alert-error">❌ Master Ballot Plan not generated.</div>`},x=()=>{m.forEach(e=>{e.classes=[],e.totalStudents=0});let e=m.length;if(e===0)return;let t={};p.forEach(e=>{t[e.dept]||(t[e.dept]={name:e.dept,total:0,classes:[]}),t[e.dept].classes.push(e),t[e.dept].total+=e.count});let n=r.length/e,i=Math.max(n*1.35,120);Object.values(t).sort((e,t)=>t.total-e.total).forEach(t=>{m.sort((e,t)=>e.totalStudents-t.totalStudents);let n=m[0];e>1&&t.total>i?[...t.classes].sort((e,t)=>t.count-e.count).forEach(e=>{m.sort((e,t)=>e.totalStudents-t.totalStudents),m[0].classes.push(e.name),m[0].totalStudents+=e.count}):(t.classes.forEach(e=>n.classes.push(e.name)),n.totalStudents+=t.total)}),m.sort((e,t)=>e.boothNumber-t.boothNumber)};v()}async function st(e){let t=W();if(t){G(e,`counting`,`
+      </div>`}),d):`<div class="alert alert-error">❌ Master Ballot Plan not generated.</div>`},x=()=>{m.forEach(e=>{e.classes=[],e.totalStudents=0});let e=m.length;if(e===0)return;let t={};p.forEach(e=>{t[e.dept]||(t[e.dept]={name:e.dept,total:0,classes:[]}),t[e.dept].classes.push(e),t[e.dept].total+=e.count});let n=r.length/e,i=Math.max(n*1.35,120);Object.values(t).sort((e,t)=>t.total-e.total).forEach(t=>{m.sort((e,t)=>e.totalStudents-t.totalStudents);let n=m[0];e>1&&t.total>i?[...t.classes].sort((e,t)=>t.count-e.count).forEach(e=>{m.sort((e,t)=>e.totalStudents-t.totalStudents),m[0].classes.push(e.name),m[0].totalStudents+=e.count}):(t.classes.forEach(e=>n.classes.push(e.name)),n.totalStudents+=t.total)}),m.sort((e,t)=>e.boothNumber-t.boothNumber)};v()}async function dt(e){let t=U();if(t){W(e,`counting`,`
     <div class="text-center py-16"><span class="spinner" style="width:2.5rem;height:2.5rem;border-width:4px;"></span><p class="text-slate-400 mt-4 text-sm">Loading Counting Setup...</p></div>
-  `);try{let[n,r,i,a,o,s]=await Promise.all([C.adminGetCountingMatrix(t,!0).catch(()=>null),C.getPosts(),C.adminGetNominations(t).catch(()=>[]),C.adminGetBooths(t),C.getNominalRoll(),C.adminGetSettings(t).catch(()=>({}))]),c=(Array.isArray(i)?i:[]).filter(e=>e.status===`Valid`&&e.withdrawalStatus!==`Approved`);ct(e.querySelector(`#adminMain`),t,n,r,c,a,o,s)}catch(t){e.querySelector(`#adminMain`).innerHTML=`<div class="alert alert-error">❌ ${P(t.message)}</div>`}}}function ct(e,t,r,i,a,o,s,c={}){let l=c?.collegeName||n.COLLEGE_NAME||`Government Victoria College Palakkad`,u=c?.electionYear||new Date().getFullYear().toString(),d=c?.collegeLogo||``;if(!o.length){e.innerHTML=`<div class="alert alert-error">❌ No booths configured.</div>`;return}if(!i.length){e.innerHTML=`<div class="alert alert-error">❌ No posts configured.</div>`;return}let f=e=>String(e.post||e.name||``),p=t=>{let{matrix:n,formSerials:r,totalRounds:s,roundLabels:c}=t,p=o.length;e.innerHTML=`
+  `);try{let[n,r,i,a,o,s]=await Promise.all([C.adminGetCountingMatrix(t,!0).catch(()=>null),C.getPosts(),C.adminGetNominations(t).catch(()=>[]),C.adminGetBooths(t),C.getNominalRoll(),C.adminGetSettings(t).catch(()=>({}))]),c=(Array.isArray(i)?i:[]).filter(e=>e.status===`Valid`&&e.withdrawalStatus!==`Approved`);ft(e.querySelector(`#adminMain`),t,n,r,c,a,o,s)}catch(t){e.querySelector(`#adminMain`).innerHTML=`<div class="alert alert-error">❌ ${N(t.message)}</div>`}}}function ft(e,t,r,i,a,o,s,c={}){let l=c?.collegeName||n.COLLEGE_NAME||`Government Victoria College Palakkad`,u=c?.electionYear||new Date().getFullYear().toString(),d=c?.collegeLogo||``;if(!o.length){e.innerHTML=`<div class="alert alert-error">❌ No booths configured.</div>`;return}if(!i.length){e.innerHTML=`<div class="alert alert-error">❌ No posts configured.</div>`;return}let f=e=>String(e.post||e.name||``),p=t=>{let{matrix:n,formSerials:r,totalRounds:s,roundLabels:c}=t,p=o.length;e.innerHTML=`
       <div class="page-enter space-y-6">
         <div class="flex items-center justify-between no-print">
           <div>
@@ -4541,56 +4541,56 @@ Do you want to proceed and save this change to the database?`,!confirm(i))return
             <table class="data-table text-xs">
               <thead><tr>
                 <th>Table</th>
-                ${c.map(e=>`<th>${P(e)}</th>`).join(``)}
+                ${c.map(e=>`<th>${N(e)}</th>`).join(``)}
               </tr></thead>
               <tbody>
                 ${o.map((e,t)=>`
                   <tr>
                     <td class="font-bold text-indigo-300 whitespace-nowrap">
                       Table ${e.boothNumber}<br>
-                      <span class="text-xs text-slate-500 font-normal">${P(e.roomName||``)}</span>
+                      <span class="text-xs text-slate-500 font-normal">${N(e.roomName||``)}</span>
                     </td>
                     ${n[t].map((e,n)=>`
                       <td class="align-top py-2 min-w-[100px]">
                         ${e?`<div class="text-[10px] text-slate-500 mb-0.5 font-mono">#${r[`${t}-${n}`]}</div>
-                             <div class="badge badge-valid block text-left" title="${P(f(e))}">${P(f(e))}</div>`:`<span class="text-slate-600">–</span>`}
+                             <div class="badge badge-valid block text-left" title="${N(f(e))}">${N(f(e))}</div>`:`<span class="text-slate-600">–</span>`}
                       </td>`).join(``)}
                   </tr>`).join(``)}
               </tbody>
             </table>
           </div>
         </div>
-      </div>`,e.querySelector(`#btnRegenerate`).addEventListener(`click`,()=>{confirm(`Are you sure? This will discard the current matrix and generate a new one based on current Booths and Posts. Results entry serial numbers may change!`)&&m()}),e.querySelector(`#btnPrintForms`).addEventListener(`click`,()=>{let e=``,t=0;for(let i=0;i<s;i++)for(let s=0;s<p;s++){let c=n[s][i];if(!c)continue;let p=f(c),m=r[`${s}-${i}`],h=a.filter(e=>e.post===p).sort((e,t)=>String(e.candidateName||``).localeCompare(String(t.candidateName||``)));e+=lt(o[s].boothNumber,i+1,p,h,m,l,u,d),t++}if(!t){alert(`No forms generated.`);return}let i=window.open(``,`_blank`);if(!i){alert(`Pop-up blocked.`);return}i.document.write(`<!DOCTYPE html><html><head><title>Counting Forms</title><style>
+      </div>`,e.querySelector(`#btnRegenerate`).addEventListener(`click`,()=>{confirm(`Are you sure? This will discard the current matrix and generate a new one based on current Booths and Posts. Results entry serial numbers may change!`)&&m()}),e.querySelector(`#btnPrintForms`).addEventListener(`click`,()=>{let e=``,t=0;for(let i=0;i<s;i++)for(let s=0;s<p;s++){let c=n[s][i];if(!c)continue;let p=f(c),m=r[`${s}-${i}`],h=a.filter(e=>e.post===p).sort((e,t)=>String(e.candidateName||``).localeCompare(String(t.candidateName||``)));e+=pt(o[s].boothNumber,i+1,p,h,m,l,u,d),t++}if(!t){alert(`No forms generated.`);return}let i=window.open(``,`_blank`);if(!i){alert(`Pop-up blocked.`);return}i.document.write(`<!DOCTYPE html><html><head><title>Counting Forms</title><style>
         @page{size:A4;margin:12mm}*{box-sizing:border-box}
         body{margin:0;font-family:Arial,sans-serif;background:#fff;color:#000}
         .pg{page-break-after:always;padding:10px;position:relative}.pg:last-child{page-break-after:avoid}
         .serial-tag{position:absolute;top:10px;right:10px;border:2px solid #000;padding:5px 12px;font-family:monospace;font-size:18px;font-weight:bold}
         table{width:100%;border-collapse:collapse;margin-bottom:18px}
         th,td{border:1.5px solid #000;padding:8px}th{background:#eee}
-      </style></head><body>${e}<script>window.onload=()=>setTimeout(()=>window.print(),400)<\/script></body></html>`),i.document.close()})},m=async()=>{let n=o.length,r=e=>{if(e.restrictedDept)return String(e.restrictedDept).toUpperCase().trim();let t=f(e);return t.toUpperCase().startsWith(`ASSOCIATION SECRETARY `)?t.substring(22).toUpperCase().trim():null},c={};s.forEach(e=>{let t=String(e.CLASS||``).trim(),n=String(e.Dept||``).trim().toUpperCase();if(t&&n){c[t]=n;let r=t.toUpperCase();(r.includes(`RESEARCH`)||r.includes(`SCHOLAR`)||r.includes(`PHD`)||r.includes(`PH.D`))&&(c[`RESEARCH SCHOLAR - ${e.Dept}`]=n)}});let l=o.map(e=>new Set((e.classes||[]).map(e=>c[e]||``).filter(Boolean)));o.map(e=>{let t=new Set;return(e.classes||[]).forEach(e=>{let n=e.toUpperCase();[`MA`,`MSC`,`MCOM`,`M.SC`,`M.COM`,`M.A`].some(e=>n.includes(e))?t.add(`PG`):((n.includes(`1ST YEAR`)||/^\s*(1|1ST|I)\b/.test(n)||/\b1ST\b/.test(n))&&t.add(`1`),(n.includes(`2ND YEAR`)||/^\s*(2|2ND|II)\b/.test(n)||/\b2ND\b/.test(n))&&t.add(`2`),(n.includes(`3RD YEAR`)||/^\s*(3|3RD|III)\b/.test(n)||/\b3RD\b/.test(n))&&t.add(`3`))}),t});let u=i.filter(e=>a.filter(t=>t.post===f(e)).length>1),d=a.length>0&&u.length>0?u:i,m=d.filter(e=>{let t=f(e).toUpperCase();return t.includes(`UUC`)||t.includes(`UNIVERSITY UNION COUNCILLOR`)}),h=d.filter(e=>!m.includes(e)&&(f(e).toUpperCase().includes(`ASSOCIATION`)||!!e.deptRestriction)),g=d.filter(e=>!m.includes(e)&&!h.includes(e)&&(f(e).toUpperCase().includes(`REPRESENTATIVE`)||f(e).toUpperCase().includes(`REP`))),_=d.filter(e=>!m.includes(e)&&!h.includes(e)&&!g.includes(e)),v=_.length,y=Array.from({length:n},(e,t)=>{let n=[];h.forEach(e=>{let i=r(e);i&&l[t].has(i)&&n.push(e)}),g.forEach(e=>{(o[t].classes||[]).some(t=>D(t,e))&&n.push(e)});for(let e=0;e<v;e++)n.push(_[(t+e)%v]);return m.forEach(e=>n.push(e)),n}),b=Math.max(...y.map(e=>e.length),0);y.forEach(e=>{for(;e.length<b;)e.push(null)});let x={},S=1;for(let e=0;e<b;e++)for(let t=0;t<n;t++)y[t][e]&&(x[`${t}-${e}`]=S++);let w=[];for(let e=0;e<b;e++)w.push(`Round ${e+1}`);let T={matrix:y,formSerials:x,totalRounds:b,roundLabels:w};try{e.innerHTML=`<div class="text-center py-20"><span class="spinner"></span><p class="mt-4 text-slate-400">Saving Matrix...</p></div>`,await C.adminSaveCountingMatrix(t,T),I(`Counting Matrix saved successfully!`,`success`),p(T)}catch(e){I(`Error saving matrix: `+e.message,`error`),p(T)}};r?p(r):(e.innerHTML=`
+      </style></head><body>${e}<script>window.onload=()=>setTimeout(()=>window.print(),400)<\/script></body></html>`),i.document.close()})},m=async()=>{let n=o.length,r=e=>{if(e.restrictedDept)return String(e.restrictedDept).toUpperCase().trim();let t=f(e);return t.toUpperCase().startsWith(`ASSOCIATION SECRETARY `)?t.substring(22).toUpperCase().trim():null},c={};s.forEach(e=>{let t=String(e.CLASS||``).trim(),n=String(e.Dept||``).trim().toUpperCase();if(t&&n){c[t]=n;let r=t.toUpperCase();(r.includes(`RESEARCH`)||r.includes(`SCHOLAR`)||r.includes(`PHD`)||r.includes(`PH.D`))&&(c[`RESEARCH SCHOLAR - ${e.Dept}`]=n)}});let l=o.map(e=>new Set((e.classes||[]).map(e=>c[e]||``).filter(Boolean)));o.map(e=>{let t=new Set;return(e.classes||[]).forEach(e=>{let n=e.toUpperCase();[`MA`,`MSC`,`MCOM`,`M.SC`,`M.COM`,`M.A`].some(e=>n.includes(e))?t.add(`PG`):((n.includes(`1ST YEAR`)||/^\s*(1|1ST|I)\b/.test(n)||/\b1ST\b/.test(n))&&t.add(`1`),(n.includes(`2ND YEAR`)||/^\s*(2|2ND|II)\b/.test(n)||/\b2ND\b/.test(n))&&t.add(`2`),(n.includes(`3RD YEAR`)||/^\s*(3|3RD|III)\b/.test(n)||/\b3RD\b/.test(n))&&t.add(`3`))}),t});let u=i.filter(e=>a.filter(t=>t.post===f(e)).length>1),d=a.length>0&&u.length>0?u:i,m=d.filter(e=>{let t=f(e).toUpperCase();return t.includes(`UUC`)||t.includes(`UNIVERSITY UNION COUNCILLOR`)}),h=d.filter(e=>!m.includes(e)&&(f(e).toUpperCase().includes(`ASSOCIATION`)||!!e.deptRestriction)),g=d.filter(e=>!m.includes(e)&&!h.includes(e)&&(f(e).toUpperCase().includes(`REPRESENTATIVE`)||f(e).toUpperCase().includes(`REP`))),_=d.filter(e=>!m.includes(e)&&!h.includes(e)&&!g.includes(e)),v=_.length,y=Array.from({length:n},(e,t)=>{let n=[];h.forEach(e=>{let i=r(e);i&&l[t].has(i)&&n.push(e)}),g.forEach(e=>{(o[t].classes||[]).some(t=>D(t,e))&&n.push(e)});for(let e=0;e<v;e++)n.push(_[(t+e)%v]);return m.forEach(e=>n.push(e)),n}),b=Math.max(...y.map(e=>e.length),0);y.forEach(e=>{for(;e.length<b;)e.push(null)});let x={},S=1;for(let e=0;e<b;e++)for(let t=0;t<n;t++)y[t][e]&&(x[`${t}-${e}`]=S++);let w=[];for(let e=0;e<b;e++)w.push(`Round ${e+1}`);let T={matrix:y,formSerials:x,totalRounds:b,roundLabels:w};try{e.innerHTML=`<div class="text-center py-20"><span class="spinner"></span><p class="mt-4 text-slate-400">Saving Matrix...</p></div>`,await C.adminSaveCountingMatrix(t,T),F(`Counting Matrix saved successfully!`,`success`),p(T)}catch(e){F(`Error saving matrix: `+e.message,`error`),p(T)}};r?p(r):(e.innerHTML=`
       <div class="text-center py-20 bg-white/5 rounded-2xl border border-dashed border-white/10">
         <div class="text-5xl mb-4">🧩</div>
         <h3 class="text-xl font-bold text-white mb-2">No Matrix Found</h3>
         <p class="text-slate-400 mb-6">The counting matrix has not been generated and saved yet.</p>
         <button id="btnInitialGenerate" class="btn btn-primary px-10">Generate Matrix Now</button>
       </div>
-    `,e.querySelector(`#btnInitialGenerate`).addEventListener(`click`,m))}function lt(e,t,r,i,a,o=n.COLLEGE_NAME||`Government Victoria College Palakkad`,s=``,c=``){let l=s||new Date().getFullYear().toString(),u=i.length?i.map((e,t)=>`<tr>
+    `,e.querySelector(`#btnInitialGenerate`).addEventListener(`click`,m))}function pt(e,t,r,i,a,o=n.COLLEGE_NAME||`Government Victoria College Palakkad`,s=``,c=``){let l=s||new Date().getFullYear().toString(),u=i.length?i.map((e,t)=>`<tr>
         <td style="text-align:center;padding:18px 8px;font-weight:bold">${t+1}</td>
         <td style="padding:18px 8px;font-size:15px;font-weight:bold">
-          ${P(e.candidateName||``)}
-          <div style="font-size:11px;font-weight:normal;color:#333;margin-top:2px;">${P(e.candidateClass||``)}</div>
+          ${N(e.candidateName||``)}
+          <div style="font-size:11px;font-weight:normal;color:#333;margin-top:2px;">${N(e.candidateClass||``)}</div>
         </td>
         <td style="padding:18px 8px"></td></tr>`).join(``):`<tr><td colspan="3" style="padding:14px;text-align:center;color:#555">No Candidates Found</td></tr>`;return`<div class="pg">
     <div class="serial-tag">FORM #${a}</div>
     <div style="text-align:center;border-bottom:2px solid #000;padding-bottom:10px;margin-bottom:16px;padding-right:100px;">
       ${c?`<img src="${c}" style="max-height:45px;max-width:120px;margin:0 auto 4px auto;display:block;object-fit:contain" alt="College Logo">`:``}
-      <div style="font-size:13px;font-weight:bold;color:#111;text-transform:uppercase;">${P(o)}</div>
-      <div style="font-size:12px;font-weight:bold;color:#444;margin-top:2px;">College Union Election ${P(l)}</div>
+      <div style="font-size:13px;font-weight:bold;color:#111;text-transform:uppercase;">${N(o)}</div>
+      <div style="font-size:12px;font-weight:bold;color:#444;margin-top:2px;">College Union Election ${N(l)}</div>
       <h2 style="margin:6px 0 0;font-size:20px;text-transform:uppercase;letter-spacing:2px">Counting Form</h2>
       <div style="display:flex;justify-content:space-between;margin-top:12px;font-size:15px;font-weight:bold">
         <span>TABLE: <u>${e}</u></span><span>ROUND: <u>${t}</u></span>
       </div>
-      <h3 style="margin:10px 0 0;font-size:15px;text-decoration:underline;text-transform:uppercase">POST: ${P(r)}</h3>
+      <h3 style="margin:10px 0 0;font-size:15px;text-decoration:underline;text-transform:uppercase">POST: ${N(r)}</h3>
     </div>
     <table>
       <thead><tr>
@@ -4609,9 +4609,9 @@ Do you want to proceed and save this change to the database?`,!confirm(i))return
       <div><div style="border-top:1.5px solid #000;width:200px;margin-bottom:5px"></div><div style="font-size:11px">Signature of the Agents</div></div>
       <div><div style="border-top:1.5px solid #000;width:200px;margin-bottom:5px"></div><div style="font-size:11px">Counting Supervisor Signature</div></div>
     </div>
-  </div>`}var X=[],ut=!1,dt=null;window.addEventListener(`beforeunload`,e=>{X.some(e=>e.status===`pending`||e.status===`syncing`||e.status===`retry`)&&(e.preventDefault(),e.returnValue=`You have unsaved forms syncing in the background. Are you sure you want to leave?`)});function ft(e){X.forEach(t=>{t.payload&&t.payload.forEach(t=>{let n=e.findIndex(e=>String(e.TableNumber)===String(t.TableNumber)&&String(e.Post)===t.Post&&e.CandidateId===t.CandidateId);n>=0?(e[n].Votes=t.Votes,e[n].RoundNumber=t.RoundNumber,e[n].FormSerial=t.FormSerial):e.push({...t})})})}async function pt(e){let t=W();if(t){G(e,`results-entry`,`
+  </div>`}var X=[],mt=!1,ht=null;window.addEventListener(`beforeunload`,e=>{X.some(e=>e.status===`pending`||e.status===`syncing`||e.status===`retry`)&&(e.preventDefault(),e.returnValue=`You have unsaved forms syncing in the background. Are you sure you want to leave?`)});function gt(e){X.forEach(t=>{t.payload&&t.payload.forEach(t=>{let n=e.findIndex(e=>String(e.TableNumber)===String(t.TableNumber)&&String(e.Post)===t.Post&&e.CandidateId===t.CandidateId);n>=0?(e[n].Votes=t.Votes,e[n].RoundNumber=t.RoundNumber,e[n].FormSerial=t.FormSerial):e.push({...t})})})}async function _t(e){let t=U();if(t){W(e,`results-entry`,`
     <div class="text-center py-16"><span class="spinner" style="width:2.5rem;height:2.5rem;border-width:4px;"></span><p class="text-slate-400 mt-4 text-sm">Loading data...</p></div>
-  `);try{let[n,r,i,a,o,s]=await Promise.all([C.adminGetBooths(t).catch(()=>[]),C.getPosts(),C.adminGetNominations(t).catch(()=>[]),C.adminGetResults(t,!0).catch(()=>[]),C.adminGetCountingMatrix(t,!0).catch(()=>null),C.adminGetSettings(t,!0).catch(()=>({}))]),c=(Array.isArray(i)?i:[]).filter(e=>e.status===`Valid`&&e.withdrawalStatus!==`Approved`);mt(e.querySelector(`#adminMain`),t,n,r,c,a,o,s)}catch(t){e.querySelector(`#adminMain`).innerHTML=`<div class="alert alert-error">❌ ${P(t.message)}</div>`}}}function mt(e,t,n,r,i,a,o,s={}){let c=s.resultsLocked===`true`,l=e=>String(e.post||e.name||``);if(!o){e.innerHTML=`
+  `);try{let[n,r,i,a,o,s]=await Promise.all([C.adminGetBooths(t).catch(()=>[]),C.getPosts(),C.adminGetNominations(t).catch(()=>[]),C.adminGetResults(t,!0).catch(()=>[]),C.adminGetCountingMatrix(t,!0).catch(()=>null),C.adminGetSettings(t,!0).catch(()=>({}))]),c=(Array.isArray(i)?i:[]).filter(e=>e.status===`Valid`&&e.withdrawalStatus!==`Approved`);vt(e.querySelector(`#adminMain`),t,n,r,c,a,o,s)}catch(t){e.querySelector(`#adminMain`).innerHTML=`<div class="alert alert-error">❌ ${N(t.message)}</div>`}}}function vt(e,t,n,r,i,a,o,s={}){let c=s.resultsLocked===`true`,l=e=>String(e.post||e.name||``);if(!o){e.innerHTML=`
       <div class="text-center py-20 bg-white/5 rounded-2xl border border-white/10">
         <div class="text-5xl mb-4">⚠️</div>
         <h3 class="text-xl font-bold text-white mb-2">Matrix Not Set</h3>
@@ -4653,7 +4653,7 @@ Do you want to proceed and save this change to the database?`,!confirm(i))return
                 </select>
                 <select id="selPost" class="field text-xs">
                   <option value="">Post...</option>
-                  ${r.map(e=>`<option value="${P(e.post||e.name)}">${P(e.post||e.name)}</option>`).join(``)}
+                  ${r.map(e=>`<option value="${N(e.post||e.name)}">${N(e.post||e.name)}</option>`).join(``)}
                 </select>
                 <button id="btnLoadForm" class="btn btn-secondary px-4 text-xs">Load</button>
               </div>
@@ -4710,18 +4710,18 @@ Do you want to proceed and save this change to the database?`,!confirm(i))return
 
       </div>
     </div>
-  `;let m=e.querySelector(`#txtSerial`),h=e.querySelector(`#btnLoadBySerial`),g=async()=>{let r=m.value.trim();if(!r)return;let i=f[r];if(!i){I(`Invalid Serial Number: ${r}`,`error`);return}try{F(h,!0,`Loading...`),C.invalidateCache(`adminGetResults`);let o=await C.adminGetResults(t,!0).catch(()=>[]);a.length=0,a.push(...o),ft(a),_(n[i.t].boothNumber,i.postName,r,i.r+1),Z(e,a,p)}catch{ft(a),_(n[i.t].boothNumber,i.postName,r,i.r+1),Z(e,a,p)}finally{F(h,!1,`Load Form`)}};h.addEventListener(`click`,g),m.addEventListener(`keydown`,e=>{e.key===`Enter`&&(e.preventDefault(),g())}),m.addEventListener(`keypress`,e=>{e.key===`Enter`&&g()}),e.querySelector(`#btnLoadForm`).addEventListener(`click`,async()=>{let r=e.querySelector(`#selTable`).value,i=e.querySelector(`#selPost`).value;if(!r||!i){I(`Select Table and Post`,`warning`);return}let o=n.findIndex(e=>String(e.boothNumber)===String(r)),s=null,c=null;if(o>=0){for(let e=0;e<u[o].length;e++)if(l(u[o][e])===i){c=e+1,s=d[`${o}-${e}`];break}}try{F(e.querySelector(`#btnLoadForm`),!0,`...`),C.invalidateCache(`adminGetResults`);let n=await C.adminGetResults(t,!0).catch(()=>[]);a.length=0,a.push(...n),ft(a),_(r,i,s,c),Z(e,a,p)}catch{ft(a),_(r,i,s,c),Z(e,a,p)}finally{F(e.querySelector(`#btnLoadForm`),!1,`Load`)}});let _=(n,r,o,s)=>{let l=e.querySelector(`#entryFormArea`),u=i.filter(e=>e.post===r).sort((e,t)=>String(e.candidateName||``).localeCompare(String(t.candidateName||``)));if(u.length===0){l.innerHTML=`<div class="alert alert-warning">No candidates found for ${P(r)}.</div>`;return}if(u.length===1){l.innerHTML=`
+  `;let m=e.querySelector(`#txtSerial`),h=e.querySelector(`#btnLoadBySerial`),g=async()=>{let r=m.value.trim();if(!r)return;let i=f[r];if(!i){F(`Invalid Serial Number: ${r}`,`error`);return}try{P(h,!0,`Loading...`),C.invalidateCache(`adminGetResults`);let o=await C.adminGetResults(t,!0).catch(()=>[]);a.length=0,a.push(...o),gt(a),_(n[i.t].boothNumber,i.postName,r,i.r+1),Z(e,a,p)}catch{gt(a),_(n[i.t].boothNumber,i.postName,r,i.r+1),Z(e,a,p)}finally{P(h,!1,`Load Form`)}};h.addEventListener(`click`,g),m.addEventListener(`keydown`,e=>{e.key===`Enter`&&(e.preventDefault(),g())}),m.addEventListener(`keypress`,e=>{e.key===`Enter`&&g()}),e.querySelector(`#btnLoadForm`).addEventListener(`click`,async()=>{let r=e.querySelector(`#selTable`).value,i=e.querySelector(`#selPost`).value;if(!r||!i){F(`Select Table and Post`,`warning`);return}let o=n.findIndex(e=>String(e.boothNumber)===String(r)),s=null,c=null;if(o>=0){for(let e=0;e<u[o].length;e++)if(l(u[o][e])===i){c=e+1,s=d[`${o}-${e}`];break}}try{P(e.querySelector(`#btnLoadForm`),!0,`...`),C.invalidateCache(`adminGetResults`);let n=await C.adminGetResults(t,!0).catch(()=>[]);a.length=0,a.push(...n),gt(a),_(r,i,s,c),Z(e,a,p)}catch{gt(a),_(r,i,s,c),Z(e,a,p)}finally{P(e.querySelector(`#btnLoadForm`),!1,`Load`)}});let _=(n,r,o,s)=>{let l=e.querySelector(`#entryFormArea`),u=i.filter(e=>e.post===r).sort((e,t)=>String(e.candidateName||``).localeCompare(String(t.candidateName||``)));if(u.length===0){l.innerHTML=`<div class="alert alert-warning">No candidates found for ${N(r)}.</div>`;return}if(u.length===1){l.innerHTML=`
         <div class="glass p-8 rounded-2xl border border-emerald-500/30 text-center page-enter">
           <div class="text-4xl mb-3">🏆</div>
           <h3 class="text-lg font-bold text-emerald-400">Elected Unanimously (Unopposed)</h3>
-          <p class="text-sm text-slate-300 mt-1"><strong>${P(u[0].candidateName)}</strong> (${P(u[0].candidateClass||``)}) is returned unopposed for <strong>${P(r)}</strong>.</p>
+          <p class="text-sm text-slate-300 mt-1"><strong>${N(u[0].candidateName)}</strong> (${N(u[0].candidateClass||``)}) is returned unopposed for <strong>${N(r)}</strong>.</p>
           <p class="text-xs text-slate-500 mt-2">No ballot voting or vote entry was conducted for this post.</p>
         </div>
       `;return}let d=a.filter(e=>String(e.TableNumber)===String(n)&&String(e.Post)===r),f=e=>d.find(t=>t.CandidateId===e)?.Votes||``;l.innerHTML=`
       <div class="glass rounded-xl overflow-hidden page-enter">
         <div class="bg-indigo-500/10 p-4 border-b border-indigo-500/20 flex justify-between items-center">
           <div>
-            <h4 class="font-bold text-indigo-300">Table ${n} • Round ${s||`N/A`} • ${P(r)}</h4>
+            <h4 class="font-bold text-indigo-300">Table ${n} • Round ${s||`N/A`} • ${N(r)}</h4>
             <p class="text-[10px] text-slate-400 mt-1">Form Serial: #${o||`Manual`}</p>
           </div>
           ${o?`<div class="bg-indigo-500 text-white text-xs px-2 py-1 rounded font-bold">FORM #${o}</div>`:``}
@@ -4733,14 +4733,14 @@ Do you want to proceed and save this change to the database?`,!confirm(i))return
                 <div class="w-8 h-8 rounded-full bg-slate-800 flex items-center justify-center text-slate-400 font-bold">${t+1}</div>
                 <div>
                   <div class="font-bold text-white flex items-center gap-2">
-                    <span>${P(e.candidateName)}</span>
-                    ${e.candidateSerial?`<span class="badge bg-indigo-500/20 text-indigo-300 font-mono text-xs">Sl. #${P(e.candidateSerial)}</span>`:``}
+                    <span>${N(e.candidateName)}</span>
+                    ${e.candidateSerial?`<span class="badge bg-indigo-500/20 text-indigo-300 font-mono text-xs">Sl. #${N(e.candidateSerial)}</span>`:``}
                   </div>
-                  <div class="text-xs text-slate-400 mt-0.5">${P(e.candidateClass)}</div>
+                  <div class="text-xs text-slate-400 mt-0.5">${N(e.candidateClass)}</div>
                 </div>
               </div>
               <div class="w-32">
-                <input type="number" class="field text-center text-lg font-bold vote-input" data-cid="${P(e.id)}" data-cname="${P(e.candidateName)}" placeholder="0" value="${f(e.id)}" min="0" ${c?`disabled`:``}>
+                <input type="number" class="field text-center text-lg font-bold vote-input" data-cid="${N(e.id)}" data-cname="${N(e.candidateName)}" placeholder="0" value="${f(e.id)}" min="0" ${c?`disabled`:``}>
               </div>
             </div>
           `).join(``)}
@@ -4773,7 +4773,7 @@ Do you want to proceed and save this change to the database?`,!confirm(i))return
           </button>
         </div>
       </div>
-    `;let h=()=>{let e=0;l.querySelectorAll(`.vote-input`).forEach(t=>{e+=parseInt(t.value,10)||0});let t=l.querySelector(`#totalVotesDisplay`);t&&(t.textContent=e)};l.querySelectorAll(`.vote-input`).forEach(e=>{e.addEventListener(`input`,h)}),h(),l.querySelector(`#btnSaveVotes`).addEventListener(`click`,async()=>{if(c){I(`Results are locked and frozen. No further vote entries are allowed.`,`error`);return}let i=l.querySelectorAll(`.vote-input`),u=[];if(i.forEach(e=>{u.push({TableNumber:n,RoundNumber:s,Post:r,CandidateId:e.dataset.cid,CandidateName:e.dataset.cname,Votes:parseInt(e.value.trim(),10)||0,FormSerial:o||`N/A`})}),u.every(e=>e.Votes===0)&&!confirm(`All votes are 0. Are you sure you want to save?`))return;u.forEach(e=>{let t=a.findIndex(t=>String(t.TableNumber)===String(n)&&String(t.Post)===r&&t.CandidateId===e.CandidateId);t>=0?(a[t].Votes=e.Votes,a[t].RoundNumber=e.RoundNumber,a[t].FormSerial=e.FormSerial):a.push(e)});let d=Date.now().toString()+Math.random().toString(36).substr(2,5);X.push({id:d,serial:o||`Manual`,tableNum:n,postName:r,roundNum:s,payload:u,status:`pending`}),I(`Form #${o||`Manual`} queued!`,`info`),l.innerHTML=``,m.value=``,m.focus(),dt=t,Z(e,a,p),ht(e,a,p)})};Z(e,a,p),X.some(e=>e.status===`pending`||e.status===`retry`)&&ht(e,a,p)}async function ht(e,t,n){if(!ut){for(ut=!0;X.some(e=>e.status===`pending`||e.status===`retry`);){let r=X.find(e=>e.status===`pending`||e.status===`retry`);r.status=`syncing`,Z(e,t,n);try{await C.adminSaveResults(dt,r.payload),r.status=`success`}catch(e){r.status=`error`,r.errorMsg=e.message}Z(e,t,n)}ut=!1}}function Z(e,t,n){let r=e.querySelector(`#ledgerGrid`),i=e.querySelector(`#ledgerCount`),a=e.querySelector(`#ledgerSummary`);if(!r)return;let o={};Object.keys(n).forEach(e=>{o[String(e)]=`pending`}),t.forEach(e=>{e.FormSerial&&e.FormSerial!==`N/A`&&(o[String(e.FormSerial)]=`server`)}),X.forEach(e=>{o[String(e.serial)]=e.status});let s=Object.keys(n).map(Number).sort((e,t)=>e-t),c=s.length,l=0,u=0,d=0,f=0;s.forEach(e=>{let t=o[String(e)]||`pending`;t===`server`||t===`success`?l++:t===`pending`?f++:t===`error`?d++:u++}),i&&(i.textContent=`${l}/${c} done`),a&&(a.innerHTML=`
+    `;let h=()=>{let e=0;l.querySelectorAll(`.vote-input`).forEach(t=>{e+=parseInt(t.value,10)||0});let t=l.querySelector(`#totalVotesDisplay`);t&&(t.textContent=e)};l.querySelectorAll(`.vote-input`).forEach(e=>{e.addEventListener(`input`,h)}),h(),l.querySelector(`#btnSaveVotes`).addEventListener(`click`,async()=>{if(c){F(`Results are locked and frozen. No further vote entries are allowed.`,`error`);return}let i=l.querySelectorAll(`.vote-input`),u=[];if(i.forEach(e=>{u.push({TableNumber:n,RoundNumber:s,Post:r,CandidateId:e.dataset.cid,CandidateName:e.dataset.cname,Votes:parseInt(e.value.trim(),10)||0,FormSerial:o||`N/A`})}),u.every(e=>e.Votes===0)&&!confirm(`All votes are 0. Are you sure you want to save?`))return;u.forEach(e=>{let t=a.findIndex(t=>String(t.TableNumber)===String(n)&&String(t.Post)===r&&t.CandidateId===e.CandidateId);t>=0?(a[t].Votes=e.Votes,a[t].RoundNumber=e.RoundNumber,a[t].FormSerial=e.FormSerial):a.push(e)});let d=Date.now().toString()+Math.random().toString(36).substr(2,5);X.push({id:d,serial:o||`Manual`,tableNum:n,postName:r,roundNum:s,payload:u,status:`pending`}),F(`Form #${o||`Manual`} queued!`,`info`),l.innerHTML=``,m.value=``,m.focus(),ht=t,Z(e,a,p),yt(e,a,p)})};Z(e,a,p),X.some(e=>e.status===`pending`||e.status===`retry`)&&yt(e,a,p)}async function yt(e,t,n){if(!mt){for(mt=!0;X.some(e=>e.status===`pending`||e.status===`retry`);){let r=X.find(e=>e.status===`pending`||e.status===`retry`);r.status=`syncing`,Z(e,t,n);try{await C.adminSaveResults(ht,r.payload),r.status=`success`}catch(e){r.status=`error`,r.errorMsg=e.message}Z(e,t,n)}mt=!1}}function Z(e,t,n){let r=e.querySelector(`#ledgerGrid`),i=e.querySelector(`#ledgerCount`),a=e.querySelector(`#ledgerSummary`);if(!r)return;let o={};Object.keys(n).forEach(e=>{o[String(e)]=`pending`}),t.forEach(e=>{e.FormSerial&&e.FormSerial!==`N/A`&&(o[String(e.FormSerial)]=`server`)}),X.forEach(e=>{o[String(e.serial)]=e.status});let s=Object.keys(n).map(Number).sort((e,t)=>e-t),c=s.length,l=0,u=0,d=0,f=0;s.forEach(e=>{let t=o[String(e)]||`pending`;t===`server`||t===`success`?l++:t===`pending`?f++:t===`error`?d++:u++}),i&&(i.textContent=`${l}/${c} done`),a&&(a.innerHTML=`
       <span class="flex items-center gap-1"><span class="w-2 h-2 rounded-full bg-green-500 inline-block"></span>${l} Done</span>
       <span class="flex items-center gap-1"><span class="w-2 h-2 rounded-full bg-slate-500 inline-block"></span>${f} Pending</span>
       ${u>0?`<span class="flex items-center gap-1"><span class="w-2 h-2 rounded-full bg-amber-400 inline-block"></span>${u} Queued</span>`:``}
@@ -4782,13 +4782,13 @@ Do you want to proceed and save this change to the database?`,!confirm(i))return
       title="${h(e,t,n)}"
       data-serial="${e}"
       ${t===`error`&&r?`data-id="${r.id}"`:``}
-    >${e}</button>`}).join(``),r.querySelectorAll(`button[data-serial]`).forEach(r=>{r.addEventListener(`click`,()=>{let i=r.dataset.id;if(i){let r=X.find(e=>e.id===i);r&&(r.status=`retry`,Z(e,t,n),ht(e,t,n))}let a=r.dataset.serial,o=e.querySelector(`#txtSerial`),s=e.querySelector(`#btnLoadBySerial`);o&&a&&(o.value=a,s?s.click():o.dispatchEvent(new KeyboardEvent(`keypress`,{key:`Enter`,bubbles:!0})),e.querySelector(`#entryFormArea`)?.scrollIntoView({behavior:`smooth`,block:`start`}))})});let g=e.querySelector(`#pendingList`),_=e.querySelector(`#pendingTabCount`),v=s.filter(e=>(o[String(e)]||`pending`)===`pending`);if(_&&(_.textContent=v.length),g&&(v.length===0?g.innerHTML=`<tr><td colspan="3" class="px-3 py-8 text-center text-slate-500 italic text-sm">🎉 All forms entered!</td></tr>`:(g.innerHTML=v.map(e=>{let t=n[String(e)]||{};return`
+    >${e}</button>`}).join(``),r.querySelectorAll(`button[data-serial]`).forEach(r=>{r.addEventListener(`click`,()=>{let i=r.dataset.id;if(i){let r=X.find(e=>e.id===i);r&&(r.status=`retry`,Z(e,t,n),yt(e,t,n))}let a=r.dataset.serial,o=e.querySelector(`#txtSerial`),s=e.querySelector(`#btnLoadBySerial`);o&&a&&(o.value=a,s?s.click():o.dispatchEvent(new KeyboardEvent(`keypress`,{key:`Enter`,bubbles:!0})),e.querySelector(`#entryFormArea`)?.scrollIntoView({behavior:`smooth`,block:`start`}))})});let g=e.querySelector(`#pendingList`),_=e.querySelector(`#pendingTabCount`),v=s.filter(e=>(o[String(e)]||`pending`)===`pending`);if(_&&(_.textContent=v.length),g&&(v.length===0?g.innerHTML=`<tr><td colspan="3" class="px-3 py-8 text-center text-slate-500 italic text-sm">🎉 All forms entered!</td></tr>`:(g.innerHTML=v.map(e=>{let t=n[String(e)]||{};return`
           <tr class="border-b border-white/5 hover:bg-white/5 transition cursor-pointer pending-row" data-serial="${e}">
             <td class="px-3 py-2 font-bold text-slate-300 text-xs">#${e}</td>
             <td class="px-3 py-2 text-slate-400 text-xs">T-${t.tableNum||`?`}</td>
-            <td class="px-3 py-2 text-slate-300 text-xs leading-tight">${P(t.postName||`?`)}</td>
+            <td class="px-3 py-2 text-slate-300 text-xs leading-tight">${N(t.postName||`?`)}</td>
           </tr>
-        `}).join(``),g.querySelectorAll(`.pending-row`).forEach(t=>{t.addEventListener(`click`,()=>{let n=t.dataset.serial,r=e.querySelector(`#txtSerial`),i=e.querySelector(`#btnLoadBySerial`);r&&n&&(r.value=n,i?i.click():r.dispatchEvent(new KeyboardEvent(`keypress`,{key:`Enter`,bubbles:!0})),e.querySelector(`#entryFormArea`)?.scrollIntoView({behavior:`smooth`,block:`start`}))})}))),!e.dataset.tabsInit){e.dataset.tabsInit=`1`;let t=e.querySelector(`#tabChips`),n=e.querySelector(`#tabPending`),r=e.querySelector(`#panelChips`),i=e.querySelector(`#panelPending`);t?.addEventListener(`click`,()=>{t.classList.add(`text-white`,`border-indigo-400`),t.classList.remove(`text-slate-400`,`border-transparent`),n.classList.remove(`text-white`,`border-indigo-400`),n.classList.add(`text-slate-400`,`border-transparent`),r.classList.remove(`hidden`),i.classList.add(`hidden`)}),n?.addEventListener(`click`,()=>{n.classList.add(`text-white`,`border-indigo-400`),n.classList.remove(`text-slate-400`,`border-transparent`),t.classList.remove(`text-white`,`border-indigo-400`),t.classList.add(`text-slate-400`,`border-transparent`),i.classList.remove(`hidden`),r.classList.add(`hidden`)})}}async function gt(e){let t=W();if(!t)return;G(e,`Ballot Printing`,`
+        `}).join(``),g.querySelectorAll(`.pending-row`).forEach(t=>{t.addEventListener(`click`,()=>{let n=t.dataset.serial,r=e.querySelector(`#txtSerial`),i=e.querySelector(`#btnLoadBySerial`);r&&n&&(r.value=n,i?i.click():r.dispatchEvent(new KeyboardEvent(`keypress`,{key:`Enter`,bubbles:!0})),e.querySelector(`#entryFormArea`)?.scrollIntoView({behavior:`smooth`,block:`start`}))})}))),!e.dataset.tabsInit){e.dataset.tabsInit=`1`;let t=e.querySelector(`#tabChips`),n=e.querySelector(`#tabPending`),r=e.querySelector(`#panelChips`),i=e.querySelector(`#panelPending`);t?.addEventListener(`click`,()=>{t.classList.add(`text-white`,`border-indigo-400`),t.classList.remove(`text-slate-400`,`border-transparent`),n.classList.remove(`text-white`,`border-indigo-400`),n.classList.add(`text-slate-400`,`border-transparent`),r.classList.remove(`hidden`),i.classList.add(`hidden`)}),n?.addEventListener(`click`,()=>{n.classList.add(`text-white`,`border-indigo-400`),n.classList.remove(`text-slate-400`,`border-transparent`),t.classList.remove(`text-white`,`border-indigo-400`),t.classList.add(`text-slate-400`,`border-transparent`),i.classList.remove(`hidden`),r.classList.add(`hidden`)})}}async function bt(e){let t=U();if(!t)return;W(e,`Ballot Printing`,`
     <div class="text-center py-16">
       <span class="spinner" style="width:2.5rem;height:2.5rem;border-width:4px;"></span>
       <p class="text-slate-400 mt-4 text-sm">Preparing ballot generator...</p>
@@ -4862,13 +4862,13 @@ Do you want to proceed and save this change to the database?`,!confirm(i))return
 
             <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
               ${u.map(e=>{let t=m.has(e.post),n=d(e.post);return`
-                  <div class="p-3.5 rounded-xl border transition-all cursor-pointer post-select-card flex items-center justify-between select-none ${t?`bg-gradient-to-r from-emerald-950/40 via-slate-900 to-slate-900 border-emerald-500/50 ring-1 ring-emerald-500/30 shadow-lg shadow-emerald-950/20`:`bg-slate-900/60 border-white/5 hover:border-white/20 hover:bg-slate-900/90`}" data-post-name="${P(e.post)}">
+                  <div class="p-3.5 rounded-xl border transition-all cursor-pointer post-select-card flex items-center justify-between select-none ${t?`bg-gradient-to-r from-emerald-950/40 via-slate-900 to-slate-900 border-emerald-500/50 ring-1 ring-emerald-500/30 shadow-lg shadow-emerald-950/20`:`bg-slate-900/60 border-white/5 hover:border-white/20 hover:bg-slate-900/90`}" data-post-name="${N(e.post)}">
                     <div class="flex items-center gap-3 min-w-0">
                       <input type="checkbox" class="w-5 h-5 rounded cursor-pointer accent-emerald-500 post-checkbox pointer-events-none" ${t?`checked`:``} />
                       <div class="min-w-0">
                         <div class="font-bold text-sm text-white flex items-center gap-2 truncate">
                           <span>${n}</span>
-                          <span class="truncate">${P(e.post)}</span>
+                          <span class="truncate">${N(e.post)}</span>
                         </div>
                         <div class="text-[11px] text-slate-400 mt-0.5">
                           ${t?`Split off to Additional Ballot (Part 2)`:`Included on Main Ballot (Part 1)`}
@@ -4921,7 +4921,7 @@ Do you want to proceed and save this change to the database?`,!confirm(i))return
 
                 <div>
                   <label class="text-[11px] font-semibold text-slate-400 block mb-1">Printed Title on Ballot:</label>
-                  <input type="text" id="inputPart1Title" class="input input-sm w-full bg-slate-800 border-white/10 text-xs text-white" value="${P(p.ballots[0].title)}" placeholder="e.g. General Union Posts - Main" />
+                  <input type="text" id="inputPart1Title" class="input input-sm w-full bg-slate-800 border-white/10 text-xs text-white" value="${N(p.ballots[0].title)}" placeholder="e.g. General Union Posts - Main" />
                 </div>
 
                 <div class="flex items-center justify-between text-xs">
@@ -4942,7 +4942,7 @@ Do you want to proceed and save this change to the database?`,!confirm(i))return
                   <div class="flex flex-wrap gap-1.5 max-h-28 overflow-y-auto pr-1">
                     ${t.map(e=>`
                       <span class="px-2 py-0.5 rounded bg-slate-800 border border-white/10 text-[11px] text-slate-200 flex items-center gap-1">
-                        <span>${d(e)}</span> ${P(e)}
+                        <span>${d(e)}</span> ${N(e)}
                       </span>
                     `).join(``)}
                     ${t.length===0?`<span class="text-xs text-amber-400 italic">No posts assigned to Part 1.</span>`:``}
@@ -4969,7 +4969,7 @@ Do you want to proceed and save this change to the database?`,!confirm(i))return
                 ${e?`
                   <div>
                     <label class="text-[11px] font-semibold text-slate-400 block mb-1">Printed Title on Ballot:</label>
-                    <input type="text" id="inputPart2Title" class="input input-sm w-full bg-slate-800 border-white/10 text-xs text-white" value="${P(p.ballots[1]?.title||`Additional General Ballot`)}" placeholder="e.g. Additional General Ballot" />
+                    <input type="text" id="inputPart2Title" class="input input-sm w-full bg-slate-800 border-white/10 text-xs text-white" value="${N(p.ballots[1]?.title||`Additional General Ballot`)}" placeholder="e.g. Additional General Ballot" />
                   </div>
 
                   <div class="flex items-center justify-between text-xs">
@@ -4991,7 +4991,7 @@ Do you want to proceed and save this change to the database?`,!confirm(i))return
                     <div class="flex flex-wrap gap-1.5 max-h-28 overflow-y-auto pr-1">
                       ${n.map(e=>`
                         <span class="px-2 py-0.5 rounded bg-emerald-950/40 border border-emerald-500/30 text-[11px] text-emerald-200 flex items-center gap-1">
-                          <span>${d(e)}</span> ${P(e)}
+                          <span>${d(e)}</span> ${N(e)}
                         </span>
                       `).join(``)}
                     </div>
@@ -5032,11 +5032,11 @@ Do you want to proceed and save this change to the database?`,!confirm(i))return
                   <span class="flex items-center gap-2"><span>🏆</span> Part 1 (G1)</span>
                   <span class="text-[10px] px-2 py-0.5 rounded bg-indigo-500/20 text-indigo-300 font-mono">${p.ballots[0].paperSize||`A3`}</span>
                 </div>
-                <p class="text-xs text-slate-400 leading-relaxed truncate" title="${P(p.ballots[0].title)}">
-                  ${P(p.ballots[0].title)}
+                <p class="text-xs text-slate-400 leading-relaxed truncate" title="${N(p.ballots[0].title)}">
+                  ${N(p.ballots[0].title)}
                 </p>
                 <div class="text-[11px] text-slate-500">
-                  ${t.length} Posts (${P(t.slice(0,2).join(`, `)+(t.length>2?`...`:``))})
+                  ${t.length} Posts (${N(t.slice(0,2).join(`, `)+(t.length>2?`...`:``))})
                 </div>
                 <button data-type="general_part:gen_1" class="btn btn-primary w-full py-2.5 text-xs preview-btn">
                   🖨️ Generate Part 1 (G1)
@@ -5049,11 +5049,11 @@ Do you want to proceed and save this change to the database?`,!confirm(i))return
                   <span class="flex items-center gap-2"><span>📑</span> Part 2 (G2)</span>
                   <span class="text-[10px] px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-300 font-mono">${p.ballots[1]?.paperSize||`A3`}</span>
                 </div>
-                <p class="text-xs text-slate-400 leading-relaxed truncate" title="${P(p.ballots[1]?.title||`Additional General Ballot`)}">
-                  ${P(p.ballots[1]?.title||`Additional General Ballot`)}
+                <p class="text-xs text-slate-400 leading-relaxed truncate" title="${N(p.ballots[1]?.title||`Additional General Ballot`)}">
+                  ${N(p.ballots[1]?.title||`Additional General Ballot`)}
                 </p>
                 <div class="text-[11px] text-slate-500">
-                  ${n.length} Posts (${P(n.slice(0,2).join(`, `)+(n.length>2?`...`:``))})
+                  ${n.length} Posts (${N(n.slice(0,2).join(`, `)+(n.length>2?`...`:``))})
                 </div>
                 <button data-type="general_part:gen_2" class="btn btn-primary w-full py-2.5 text-xs preview-btn">
                   🖨️ Generate Part 2 (G2)
@@ -5126,7 +5126,7 @@ Do you want to proceed and save this change to the database?`,!confirm(i))return
           </div>
         </div>
       </div>
-    `,_()},_=()=>{r.querySelectorAll(`.post-select-card`).forEach(e=>{e.onclick=()=>{let t=e.dataset.postName;t&&(m.has(t)?m.delete(t):m.add(t),h(),g())}});let e=r.querySelector(`#btnQuickArtsSports`);e&&(e.onclick=()=>{m.clear(),u.forEach(e=>{let t=e.post.toLowerCase();(t.includes(`editor`)||t.includes(`arts`)||t.includes(`captain`)||t.includes(`sports`))&&m.add(e.post)}),h(),g(),I(`Selected Arts, Sports & Editorial for Additional Ballot`,`info`)});let n=r.querySelector(`#btnQuickCouncil`);n&&(n.onclick=()=>{m.clear(),u.forEach(e=>{let t=e.post.toLowerCase();(t.includes(`uuc`)||t.includes(`councillor`)||t.includes(`editor`)||t.includes(`arts`)||t.includes(`captain`)||t.includes(`sports`))&&m.add(e.post)}),h(),g(),I(`Selected Council & Activities for Additional Ballot`,`info`)});let i=r.querySelector(`#btnInvertSelect`);i&&(i.onclick=()=>{u.forEach(e=>{m.has(e.post)?m.delete(e.post):m.add(e.post)}),h(),g()});let a=r.querySelector(`#btnClearSplit`);a&&(a.onclick=()=>{m.clear(),h(),g(),I(`Selection cleared. Reset to Single Unified Ballot.`,`info`)});let o=r.querySelector(`#inputPart1Title`);o&&(o.onchange=()=>{p.ballots[0].title=o.value.trim()||`General Union Posts - Main`});let s=r.querySelector(`#selectPart1Size`);s&&(s.onchange=()=>{p.ballots[0].paperSize=s.value});let c=r.querySelector(`#inputPart2Title`);c&&(c.onchange=()=>{p.ballots[1]&&(p.ballots[1].title=c.value.trim()||`Additional General Ballot`)});let l=r.querySelector(`#selectPart2Size`);l&&(l.onchange=()=>{p.ballots[1]&&(p.ballots[1].paperSize=l.value)});let d=r.querySelector(`#btnSaveConfig`);d&&(d.onclick=async()=>{let e=d.innerHTML;try{F(d,!0,e),I(`Saving ballot selection & calculating Master Plan...`,`info`),await C.adminSaveBallotConfig(t,p),(await C.adminGenerateBallotPlan(t)).plan,I(`Ballot selection saved & Master Plan finalized!`,`success`),g()}catch(e){I(`Error: ${e.message}`,`error`)}finally{F(d,!1,e)}});let f=r.querySelector(`#btnRegenPlanTop`);f&&(f.onclick=async()=>{let e=`🔄 Finalize Master Plan`;try{F(f,!0,e),I(`Calculating and saving Master Plan on server...`,`info`),await C.adminGenerateBallotPlan(t),await C.adminGetBallotPlan(t).catch(()=>null),I(`Master Plan finalized successfully!`,`success`)}catch(e){I(e.message,`error`)}finally{F(f,!1,e)}});let _=r.querySelector(`#btnGenSummary`);_&&(_.onclick=x),r.querySelectorAll(`.preview-btn`).forEach(e=>{e.onclick=()=>b(e.dataset.type)})},v=e=>{let t=window.open(``,`_blank`);if(!t){alert(`Popup blocked! Please allow popups for this site to print.`);return}t.document.write(`
+    `,_()},_=()=>{r.querySelectorAll(`.post-select-card`).forEach(e=>{e.onclick=()=>{let t=e.dataset.postName;t&&(m.has(t)?m.delete(t):m.add(t),h(),g())}});let e=r.querySelector(`#btnQuickArtsSports`);e&&(e.onclick=()=>{m.clear(),u.forEach(e=>{let t=e.post.toLowerCase();(t.includes(`editor`)||t.includes(`arts`)||t.includes(`captain`)||t.includes(`sports`))&&m.add(e.post)}),h(),g(),F(`Selected Arts, Sports & Editorial for Additional Ballot`,`info`)});let n=r.querySelector(`#btnQuickCouncil`);n&&(n.onclick=()=>{m.clear(),u.forEach(e=>{let t=e.post.toLowerCase();(t.includes(`uuc`)||t.includes(`councillor`)||t.includes(`editor`)||t.includes(`arts`)||t.includes(`captain`)||t.includes(`sports`))&&m.add(e.post)}),h(),g(),F(`Selected Council & Activities for Additional Ballot`,`info`)});let i=r.querySelector(`#btnInvertSelect`);i&&(i.onclick=()=>{u.forEach(e=>{m.has(e.post)?m.delete(e.post):m.add(e.post)}),h(),g()});let a=r.querySelector(`#btnClearSplit`);a&&(a.onclick=()=>{m.clear(),h(),g(),F(`Selection cleared. Reset to Single Unified Ballot.`,`info`)});let o=r.querySelector(`#inputPart1Title`);o&&(o.onchange=()=>{p.ballots[0].title=o.value.trim()||`General Union Posts - Main`});let s=r.querySelector(`#selectPart1Size`);s&&(s.onchange=()=>{p.ballots[0].paperSize=s.value});let c=r.querySelector(`#inputPart2Title`);c&&(c.onchange=()=>{p.ballots[1]&&(p.ballots[1].title=c.value.trim()||`Additional General Ballot`)});let l=r.querySelector(`#selectPart2Size`);l&&(l.onchange=()=>{p.ballots[1]&&(p.ballots[1].paperSize=l.value)});let d=r.querySelector(`#btnSaveConfig`);d&&(d.onclick=async()=>{let e=d.innerHTML;try{P(d,!0,e),F(`Saving ballot selection & calculating Master Plan...`,`info`),await C.adminSaveBallotConfig(t,p),(await C.adminGenerateBallotPlan(t)).plan,F(`Ballot selection saved & Master Plan finalized!`,`success`),g()}catch(e){F(`Error: ${e.message}`,`error`)}finally{P(d,!1,e)}});let f=r.querySelector(`#btnRegenPlanTop`);f&&(f.onclick=async()=>{let e=`🔄 Finalize Master Plan`;try{P(f,!0,e),F(`Calculating and saving Master Plan on server...`,`info`),await C.adminGenerateBallotPlan(t),await C.adminGetBallotPlan(t).catch(()=>null),F(`Master Plan finalized successfully!`,`success`)}catch(e){F(e.message,`error`)}finally{P(f,!1,e)}});let _=r.querySelector(`#btnGenSummary`);_&&(_.onclick=x),r.querySelectorAll(`.preview-btn`).forEach(e=>{e.onclick=()=>b(e.dataset.type)})},v=e=>{let t=window.open(``,`_blank`);if(!t){alert(`Popup blocked! Please allow popups for this site to print.`);return}t.document.write(`
       <html>
         <head>
           <title>Official Ballots - ${n.COLLEGE_SHORT_NAME} Election</title>
@@ -5204,13 +5204,13 @@ Do you want to proceed and save this change to the database?`,!confirm(i))return
       </html>
     `),t.document.close()},y=async(e=`all`)=>{let r,i,a,s;try{[r,i,a,s]=await Promise.all([C.adminGetPosts(t),C.adminGetFinalNominations(t).catch(async()=>{let e=await C.adminGetNominations(t).catch(()=>[]);return{active:e.filter(e=>e.status!==`Rejected`&&e.withdrawalStatus!==`Approved`),withdrawn:e.filter(e=>e.withdrawalStatus===`Approved`),isPublished:!1}}),C.getPublicSchedule(),C.adminGetSettings(t).catch(()=>({}))])}catch(e){throw Error(e.message.includes(`not published`)?`Final List Not Published. Please finalize and publish the list first.`:e.message)}let u=s.collegeName||n.COLLEGE_NAME;s.collegeShortName||n.COLLEGE_SHORT_NAME;let d=s.collegeLogo||``,f=s.electionYear||a.electionYear||new Date().getFullYear().toString(),m=Array.isArray(i)?i:i?.active||[];if(m.length===0)throw Error(`No active candidates found. Please ensure candidates are nominated and verified.`);let h=r.filter(e=>m.filter(t=>t.post===e.post).length>1),g=!!p.isSplit,_=``,v=(e,t)=>{if(!t||t.length===0)return``;let n=(e.paperSize||`A3`).toLowerCase(),r=e.shortCode===`G`?`G`:(e.shortCode||`G1`)+`-`,i=e.title||`OFFICIAL BALLOT PAPER (GENERAL)`,a=[...t].sort((e,t)=>{let n=e.post.toLowerCase(),r=t.post.toLowerCase();return n.includes(`chairman`)&&!n.includes(`vice`)?-1:r.includes(`chairman`)&&!r.includes(`vice`)?1:n.includes(`vice chairman`)?-1:r.includes(`vice chairman`)||n.includes(`university union councillor`)||n.includes(`uuc`)?1:r.includes(`university union councillor`)||r.includes(`uuc`)?-1:0}),o=``,s=``;return a.forEach((e,t)=>{let n=m.filter(t=>t.post===e.post).sort((e,t)=>String(e.candidateName||``).localeCompare(String(t.candidateName||``))),r=`
           <div class="post-box">
-            <div class="post-title">${P(e.post.toUpperCase())}</div>
+            <div class="post-title">${N(e.post.toUpperCase())}</div>
             ${n.map((e,t)=>`
               <div class="candidate-row">
                 <div class="sl-no">${t+1}</div>
                 <div class="c-name">
-                  <div style="font-size: 13px; text-transform: uppercase;">${P(e.candidateName)}</div>
-                  <div style="font-size: 10px; font-weight: normal; color: #444;">${P(e.candidateClass)}</div>
+                  <div style="font-size: 13px; text-transform: uppercase;">${N(e.candidateName)}</div>
+                  <div style="font-size: 10px; font-weight: normal; color: #444;">${N(e.candidateClass)}</div>
                 </div>
                 <div class="stamp-box"></div>
               </div>
@@ -5222,9 +5222,9 @@ Do you want to proceed and save this change to the database?`,!confirm(i))return
           <!-- Counterfoil -->
           <div style="border-bottom: 2px dotted #000; padding-bottom: 18px; margin-bottom: 25px; text-align: center;">
             ${d?`<img src="${d}" style="max-height:40px;max-width:110px;margin:0 auto 4px auto;display:block;object-fit:contain" alt="College Logo">`:``}
-            <h1 style="font-size: 16px; margin: 2px 0; text-transform: uppercase;">${P(u)}</h1>
+            <h1 style="font-size: 16px; margin: 2px 0; text-transform: uppercase;">${N(u)}</h1>
             <h2 style="font-size: 14px; margin: 2px 0; font-weight: bold;">COLLEGE UNION ELECTION ${f}</h2>
-            <h3 style="font-size: 13px; margin: 2px 0 0 0;">${P(i.toUpperCase())} - COUNTERFOIL</h3>
+            <h3 style="font-size: 13px; margin: 2px 0 0 0;">${N(i.toUpperCase())} - COUNTERFOIL</h3>
             <div style="margin-top: 12px; font-weight: bold; text-align: left; display: flex; flex-direction: column; gap: 6px;">
               <div style="display: flex; justify-content: space-between;">
                 <span>SL.NO. ${r}____________</span>
@@ -5236,9 +5236,9 @@ Do you want to proceed and save this change to the database?`,!confirm(i))return
 
           <div class="ballot-header">
             ${d?`<img src="${d}" style="max-height:45px;max-width:120px;margin:0 auto 4px auto;display:block;object-fit:contain" alt="College Logo">`:``}
-            <h1>${P(u)}</h1>
+            <h1>${N(u)}</h1>
             <h2>COLLEGE UNION ELECTION ${f}</h2>
-            <h3>${P(i.toUpperCase())}</h3>
+            <h3>${N(i.toUpperCase())}</h3>
           </div>
           <div class="meta-row"><div>SL.NO. ${r}____________</div><div>Signature of PRO</div></div>
           <div class="instr-box">MARK THE VOTER'S CHOICE WITH THE MARKING SEAL IN THE SPACE PROVIDED</div>
@@ -5252,7 +5252,7 @@ Do you want to proceed and save this change to the database?`,!confirm(i))return
             <!-- Counterfoil -->
             <div style="border-bottom: 2px dotted #000; padding-bottom: 15px; margin-bottom: 20px; text-align: center;">
               ${d?`<img src="${d}" style="max-height:35px;max-width:90px;margin:0 auto 4px auto;display:block;object-fit:contain" alt="College Logo">`:``}
-              <h1 style="font-size: 15px; margin: 2px 0;">${P(u)}</h1>
+              <h1 style="font-size: 15px; margin: 2px 0;">${N(u)}</h1>
               <h2 style="font-size: 13px; margin: 0; font-weight: bold;">COLLEGE UNION ELECTION ${f}</h2>
               <h3 style="font-size: 11px; margin: 2px 0 0 0;">OFFICIAL BALLOT (${n}) - COUNTERFOIL</h3>
               <div style="margin-top: 10px; font-weight: bold; text-align: left; display: flex; flex-direction: column; gap: 5px; font-size: 11px;">
@@ -5266,19 +5266,19 @@ Do you want to proceed and save this change to the database?`,!confirm(i))return
 
             <div class="ballot-header">
               ${d?`<img src="${d}" style="max-height:40px;max-width:100px;margin:0 auto 4px auto;display:block;object-fit:contain" alt="College Logo">`:``}
-              <h1>${P(u)}</h1>
+              <h1>${N(u)}</h1>
               <h2 style="font-size: 14px; margin: 2px 0; font-weight: bold;">COLLEGE UNION ELECTION ${f}</h2>
               <h3 style="font-size: 15px; margin-top: 5px; font-weight: bold;">BALLOT PAPER (${n})</h3>
             </div>
             <div class="meta-row" style="font-size: 12px;"><div>SL.NO. ${n}____________</div><div>PRO Sign</div></div>
             <div class="post-box">
-              <div class="post-title">${P(e.post.toUpperCase())}</div>
+              <div class="post-title">${N(e.post.toUpperCase())}</div>
               ${t.map((e,t)=>`
                 <div class="candidate-row">
                   <div class="sl-no">${t+1}</div>
                   <div class="c-name">
-                    <div style="font-size: 13px; text-transform: uppercase;">${P(e.candidateName)}</div>
-                    <div style="font-size: 10px; font-weight: normal; color: #444;">${P(e.candidateClass)}</div>
+                    <div style="font-size: 13px; text-transform: uppercase;">${N(e.candidateName)}</div>
+                    <div style="font-size: 10px; font-weight: normal; color: #444;">${N(e.candidateClass)}</div>
                   </div>
                   <div class="stamp-box"></div>
                 </div>
@@ -5286,7 +5286,7 @@ Do you want to proceed and save this change to the database?`,!confirm(i))return
               <div class="candidate-row"><div class="sl-no">${t.length+1}</div><div class="c-name">NOTA</div><div class="stamp-box"></div></div>
             </div>
           </div>
-        `}),_},b=async e=>{try{I(`Generating ballots...`,`info`),v(await y(e))}catch(e){I(e.message,`error`)}},x=async()=>{try{I(`Calculating Master Plan...`,`info`);let[e,r,i]=await Promise.all([C.getPublicSchedule(),C.adminGetSettings(t).catch(()=>({})),C.adminGetBallotPlan(t).catch(()=>null)]),a=i;if(!a)if(confirm(`No Master Plan found. Generate it now based on current final list and booths?`))await C.adminGenerateBallotPlan(t),a=await C.adminGetBallotPlan(t).catch(()=>null);else return;let o=r.electionYear||e.electionYear||new Date().getFullYear().toString(),s=r.collegeName||n.COLLEGE_NAME,c=r.collegeLogo||``,l=e=>!e||Array.isArray(e)&&e.length===0?`-`:typeof e==`string`?e:`
+        `}),_},b=async e=>{try{F(`Generating ballots...`,`info`),v(await y(e))}catch(e){F(e.message,`error`)}},x=async()=>{try{F(`Calculating Master Plan...`,`info`);let[e,r,i]=await Promise.all([C.getPublicSchedule(),C.adminGetSettings(t).catch(()=>({})),C.adminGetBallotPlan(t).catch(()=>null)]),a=i;if(!a)if(confirm(`No Master Plan found. Generate it now based on current final list and booths?`))await C.adminGenerateBallotPlan(t),a=await C.adminGetBallotPlan(t).catch(()=>null);else return;let o=r.electionYear||e.electionYear||new Date().getFullYear().toString(),s=r.collegeName||n.COLLEGE_NAME,c=r.collegeLogo||``,l=e=>!e||Array.isArray(e)&&e.length===0?`-`:typeof e==`string`?e:`
           <table style="width:100%; border-collapse:collapse; font-size:10px; background:rgba(0,0,0,0.02);">
             ${e.map(e=>`
               <tr>
@@ -5301,7 +5301,7 @@ Do you want to proceed and save this change to the database?`,!confirm(i))return
         <div style="padding: 40px; font-family: sans-serif; color: #333;">
           <div style="text-align: center; border-bottom: 2px solid #000; padding-bottom: 20px; margin-bottom: 30px;">
             ${c?`<img src="${c}" style="max-height:55px;max-width:130px;margin:0 auto 6px auto;display:block;object-fit:contain" alt="College Logo">`:``}
-            <h2 style="margin: 0; font-size: 18px; color: #333; font-weight: bold;">${P(s)}</h2>
+            <h2 style="margin: 0; font-size: 18px; color: #333; font-weight: bold;">${N(s)}</h2>
             <h1 style="margin: 6px 0 0 0; font-size: 22px;">College Union Election ${o} — Ballot Printing Summary</h1>
           </div>
 
@@ -5314,10 +5314,10 @@ Do you want to proceed and save this change to the database?`,!confirm(i))return
             <!-- Split General Parts Tables -->
             ${a.generalParts.map((e,t)=>`
               <h3 style="background: #eee; padding: 8px 15px; border-left: 5px solid #4f46e5; margin-top: 25px;">
-                1.${t+1} ${P(e.title)} (Series: ${e.shortCode}-1, ${e.shortCode}-2... / Books: ${e.bookPrefix}1...)
+                1.${t+1} ${N(e.title)} (Series: ${e.shortCode}-1, ${e.shortCode}-2... / Books: ${e.bookPrefix}1...)
               </h3>
               <div style="font-size: 12px; margin-bottom: 8px; color: #555;">
-                <strong>Assigned Posts:</strong> ${(e.posts||[]).map(e=>P(e)).join(`, `)}
+                <strong>Assigned Posts:</strong> ${(e.posts||[]).map(e=>N(e)).join(`, `)}
               </div>
               <table style="width: 100%; border-collapse: collapse; margin-bottom: 25px; border: 2px solid #000;">
                 <thead>
@@ -5398,7 +5398,7 @@ Do you want to proceed and save this change to the database?`,!confirm(i))return
             <tbody>
               ${(a.reps?.results||[]).map(e=>`
                 <tr>
-                  <td style="border: 1px solid #ddd; padding: 10px; font-size: 11px;">${P(e.post)}</td>
+                  <td style="border: 1px solid #ddd; padding: 10px; font-size: 11px;">${N(e.post)}</td>
                   <td style="border: 1px solid #ddd; padding: 10px; text-align: center;">B${e.booth}</td>
                   <td style="border: 1px solid #ddd; padding: 10px; text-align: center;">${e.count}</td>
                   <td style="border: 1px solid #ddd; padding: 10px; text-align: center; font-weight: bold;">R${e.start}</td>
@@ -5431,7 +5431,7 @@ Do you want to proceed and save this change to the database?`,!confirm(i))return
             <tbody>
               ${(a.assocs?.results||[]).map(e=>`
                 <tr>
-                  <td style="border: 1px solid #ddd; padding: 10px; font-size: 11px;">${P(e.post)}</td>
+                  <td style="border: 1px solid #ddd; padding: 10px; font-size: 11px;">${N(e.post)}</td>
                   <td style="border: 1px solid #ddd; padding: 10px; text-align: center;">B${e.booth}</td>
                   <td style="border: 1px solid #ddd; padding: 10px; text-align: center;">${e.count}</td>
                   <td style="border: 1px solid #ddd; padding: 10px; text-align: center; font-weight: bold;">A${e.start}</td>
@@ -5453,7 +5453,7 @@ Do you want to proceed and save this change to the database?`,!confirm(i))return
             Generated on ${new Date().toLocaleString()} | Official ${n.COLLEGE_SHORT_NAME} Election Portal
           </div>
         </div>
-      `)}catch(e){I(e.message,`error`)}};g()}function _t(e){let t=W();if(!t)return;G(e,`testing`,`
+      `)}catch(e){F(e.message,`error`)}};g()}function xt(e){let t=U();if(!t)return;W(e,`testing`,`
     <div class="page-enter space-y-8 max-w-3xl mx-auto">
 
       <!-- Warning Banner -->
@@ -5531,10 +5531,10 @@ Do you want to proceed and save this change to the database?`,!confirm(i))return
     </div>
   `);let n=e.querySelector(`#adminMain`);n.querySelector(`#btnInjectData`).addEventListener(`click`,async e=>{let r=e.target;if(!confirm(`This will inject test nominations for ALL configured posts.
 
-Proceed?`))return;F(r,!0,`🧪 Inject Test Nominations`);let i=n.querySelector(`#injectStatus`);i.innerHTML=``;try{let e=await C.adminInjectTestData(t),n=e.skipped>0?`<br><span class="text-amber-400 text-xs mt-1 block">⚠️ ${e.skipped} post(s) skipped — not enough eligible students in NominalRoll: <em>${e.skippedPosts.join(`, `)}</em></span>`:``;i.innerHTML=`
+Proceed?`))return;P(r,!0,`🧪 Inject Test Nominations`);let i=n.querySelector(`#injectStatus`);i.innerHTML=``;try{let e=await C.adminInjectTestData(t),n=e.skipped>0?`<br><span class="text-amber-400 text-xs mt-1 block">⚠️ ${e.skipped} post(s) skipped — not enough eligible students in NominalRoll: <em>${e.skippedPosts.join(`, `)}</em></span>`:``;i.innerHTML=`
         <div class="alert mt-3" style="background: rgba(16,185,129,0.1); border-color: rgba(16,185,129,0.3); color: #6ee7b7;">
           ✅ Successfully injected <strong>${e.injected}</strong> test nominations across posts. All rules (gender, year, dept) were respected.${n}
-        </div>`,I(`Injected ${e.injected} test nominations!`,`success`)}catch(e){i.innerHTML=`<div class="alert alert-error mt-3">❌ ${P(e.message)}</div>`,I(`Failed: ${e.message}`,`error`)}finally{F(r,!1,`🧪 Inject Test Nominations`)}}),n.querySelector(`#btnWipeData`).addEventListener(`click`,async e=>{let t=e.target,r=n.querySelector(`#wipePasswordInput`).value.trim();if(!r){I(`Please enter the admin password to confirm the wipe.`,`warning`),n.querySelector(`#wipePasswordInput`).focus();return}if(!confirm(`⚠️ DANGER ZONE ⚠️
+        </div>`,F(`Injected ${e.injected} test nominations!`,`success`)}catch(e){i.innerHTML=`<div class="alert alert-error mt-3">❌ ${N(e.message)}</div>`,F(`Failed: ${e.message}`,`error`)}finally{P(r,!1,`🧪 Inject Test Nominations`)}}),n.querySelector(`#btnWipeData`).addEventListener(`click`,async e=>{let t=e.target,r=n.querySelector(`#wipePasswordInput`).value.trim();if(!r){F(`Please enter the admin password to confirm the wipe.`,`warning`),n.querySelector(`#wipePasswordInput`).focus();return}if(!confirm(`⚠️ DANGER ZONE ⚠️
 
 This will PERMANENTLY DELETE:
 • All Nominations
@@ -5544,12 +5544,12 @@ This will PERMANENTLY DELETE:
 
 This action CANNOT be undone.
 
-Are you absolutely sure?`))return;F(t,!0,`🗑️ Wiping...`);let i=n.querySelector(`#wipeStatus`);i.innerHTML=``;try{await C.adminWipeData(r),n.querySelector(`#wipePasswordInput`).value=``,i.innerHTML=`
+Are you absolutely sure?`))return;P(t,!0,`🗑️ Wiping...`);let i=n.querySelector(`#wipeStatus`);i.innerHTML=``;try{await C.adminWipeData(r),n.querySelector(`#wipePasswordInput`).value=``,i.innerHTML=`
         <div class="alert mt-3" style="background: rgba(239,68,68,0.1); border-color: rgba(239,68,68,0.3); color: #fca5a5;">
           ✅ All transactional data has been wiped. Publish flags reset to false.
-        </div>`,I(`All data wiped successfully.`,`success`)}catch(e){i.innerHTML=`<div class="alert alert-error mt-3">❌ ${P(e.message)}</div>`,I(`Failed: ${e.message}`,`error`)}finally{F(t,!1,`🗑️ Permanently Wipe All Data`)}})}async function vt(e){let t=W();if(!t)return;G(e,`results`,`
+        </div>`,F(`All data wiped successfully.`,`success`)}catch(e){i.innerHTML=`<div class="alert alert-error mt-3">❌ ${N(e.message)}</div>`,F(`Failed: ${e.message}`,`error`)}finally{P(t,!1,`🗑️ Permanently Wipe All Data`)}})}async function St(e){let t=U();if(!t)return;W(e,`results`,`
     <div class="text-center py-16"><span class="spinner" style="width:2.5rem;height:2.5rem;border-width:4px;"></span><p class="text-slate-400 mt-4 text-sm">Aggregating results...</p></div>
-  `);async function n(r=!1){let i=e.querySelector(`#adminMain`);if(i){r&&(C.invalidateCache(`adminGetResults`),C.invalidateCache(`getResults`),C.invalidateCache(`adminGetFinalNominations`),C.invalidateCache(`adminGetNominations`),C.invalidateCache(`adminGetSettings`),C.invalidateCache(`getSettings`),C.invalidateCache(`getPosts`),C.invalidateCache(`getPublicSchedule`));try{let[e,a,o,s,c]=await Promise.all([C.getPosts(),C.adminGetFinalNominations(t).catch(async()=>{let e=await C.adminGetNominations(t).catch(()=>[]);return{active:e.filter(e=>e.status!==`Rejected`&&e.withdrawalStatus!==`Approved`),withdrawn:e.filter(e=>e.withdrawalStatus===`Approved`),isPublished:!1}}),C.adminGetResults(t,r).catch(()=>C.getResults(r).catch(()=>[])),C.getPublicSchedule().catch(()=>({})),C.adminGetSettings(t).catch(()=>({}))]);yt(i,t,e,a.active||[],o,s,c,a.isPublished,n)}catch(e){i.innerHTML=`<div class="alert alert-error">❌ ${P(e.message)}</div>`}}}await n(!1)}function yt(e,t,n,r,i,a,o,s=!1,c=null){let l=o.electionYear||a.electionYear||new Date().getFullYear(),u=o.collegeName||`GOVERNMENT VICTORIA COLLEGE PALAKKAD`;o.collegeShortName;let d=o.collegeLogo||``,f=o.resultsLocked===`true`,p=o.resultsPublished===`true`,m=o.countingActive===`true`||a.countingActive===`true`,h={};i.forEach(e=>{h[e.Post]||(h[e.Post]={}),h[e.Post][e.CandidateId]||(h[e.Post][e.CandidateId]=0),h[e.Post][e.CandidateId]+=Number(e.Votes)||0});let g=n.map(e=>{let t=r.filter(t=>t.post===e.post),n=h[e.post]||{};if(t.length===1)return{post:e.post,type:`unanimous`,winner:t[0],candidates:t};if(t.length===0)return{post:e.post,type:`no-candidates`};let i=t.map(e=>({...e,votes:n[e.id]||0}));i.sort((e,t)=>t.votes-e.votes);let a=i[0].votes,o=i.filter(e=>e.votes===a&&e.votes>0),s=o.length>1;return{post:e.post,type:`election`,candidates:i,winner:s?null:o[0],isTie:s,totalVotes:Object.values(n).reduce((e,t)=>e+t,0),nota:n.NOTA||0,invalid:n.INVALID||0}});e.innerHTML=`
+  `);async function n(r=!1){let i=e.querySelector(`#adminMain`);if(i){r&&(C.invalidateCache(`adminGetResults`),C.invalidateCache(`getResults`),C.invalidateCache(`adminGetFinalNominations`),C.invalidateCache(`adminGetNominations`),C.invalidateCache(`adminGetSettings`),C.invalidateCache(`getSettings`),C.invalidateCache(`getPosts`),C.invalidateCache(`getPublicSchedule`));try{let[e,a,o,s,c]=await Promise.all([C.getPosts(),C.adminGetFinalNominations(t).catch(async()=>{let e=await C.adminGetNominations(t).catch(()=>[]);return{active:e.filter(e=>e.status!==`Rejected`&&e.withdrawalStatus!==`Approved`),withdrawn:e.filter(e=>e.withdrawalStatus===`Approved`),isPublished:!1}}),C.adminGetResults(t,r).catch(()=>C.getResults(r).catch(()=>[])),C.getPublicSchedule().catch(()=>({})),C.adminGetSettings(t).catch(()=>({}))]);Ct(i,t,e,a.active||[],o,s,c,a.isPublished,n)}catch(e){i.innerHTML=`<div class="alert alert-error">❌ ${N(e.message)}</div>`}}}await n(!1)}function Ct(e,t,n,r,i,a,o,s=!1,c=null){let l=o.electionYear||a.electionYear||new Date().getFullYear(),u=o.collegeName||`GOVERNMENT VICTORIA COLLEGE PALAKKAD`;o.collegeShortName;let d=o.collegeLogo||``,f=o.resultsLocked===`true`,p=o.resultsPublished===`true`,m=o.countingActive===`true`||a.countingActive===`true`,h={};i.forEach(e=>{h[e.Post]||(h[e.Post]={}),h[e.Post][e.CandidateId]||(h[e.Post][e.CandidateId]=0),h[e.Post][e.CandidateId]+=Number(e.Votes)||0});let g=n.map(e=>{let t=r.filter(t=>t.post===e.post),n=h[e.post]||{};if(t.length===1)return{post:e.post,type:`unanimous`,winner:t[0],candidates:t};if(t.length===0)return{post:e.post,type:`no-candidates`};let i=t.map(e=>({...e,votes:n[e.id]||0}));i.sort((e,t)=>t.votes-e.votes);let a=i[0].votes,o=i.filter(e=>e.votes===a&&e.votes>0),s=o.length>1;return{post:e.post,type:`election`,candidates:i,winner:s?null:o[0],isTie:s,totalVotes:Object.values(n).reduce((e,t)=>e+t,0),nota:n.NOTA||0,invalid:n.INVALID||0}});e.innerHTML=`
     <div class="page-enter space-y-6">
       ${s?``:`
         <div class="alert alert-warning text-xs flex items-center justify-between">
@@ -5619,7 +5619,7 @@ Are you absolutely sure?`))return;F(t,!0,`🗑️ Wiping...`);let i=n.querySelec
         ${g.map(e=>{let t=e.post.toUpperCase().includes(`UUC`)||e.post.toUpperCase().includes(`UNIVERSITY`)?2:1,n=0;return e.type===`election`&&e.candidates.length>t&&(n=e.candidates[t].votes),`
             <div class="glass rounded-2xl overflow-hidden border border-white/5 page-enter shadow-lg">
               <div class="px-6 py-4 bg-white/5 border-b border-white/10 flex justify-between items-center">
-                <h4 class="font-bold text-indigo-400 uppercase tracking-wider text-sm">${P(e.post)}</h4>
+                <h4 class="font-bold text-indigo-400 uppercase tracking-wider text-sm">${N(e.post)}</h4>
                 ${e.type===`unanimous`?`<span class="badge bg-emerald-500/20 text-emerald-400 border border-emerald-500/30">ELECTED UNANIMOUSLY</span>`:`<span class="text-[10px] text-slate-500 font-bold uppercase tracking-widest">${e.isTie?`⚖️ TIE DETECTED`:`CONTESTED ELECTION`}</span>`}
               </div>
               <div class="p-6">
@@ -5638,12 +5638,12 @@ Are you absolutely sure?`))return;F(t,!0,`🗑️ Wiping...`);let i=n.querySelec
                           <tr class="${a?`bg-white/[0.02]`:``}">
                             <td class="py-4">
                               <div class="flex items-center gap-2">
-                                <span class="font-bold text-white">${P(r.candidateName)}</span>
-                                ${r.candidateSerial?`<span class="badge bg-indigo-500/20 text-indigo-300 font-mono text-[9px]">Sl. #${P(r.candidateSerial)}</span>`:``}
+                                <span class="font-bold text-white">${N(r.candidateName)}</span>
+                                ${r.candidateSerial?`<span class="badge bg-indigo-500/20 text-indigo-300 font-mono text-[9px]">Sl. #${N(r.candidateSerial)}</span>`:``}
                                 ${o>0?`<span class="bg-green-500/20 text-green-400 text-[9px] px-1.5 py-0.5 rounded font-black border border-green-500/30">LEAD: ${o}</span>`:``}
                               </div>
                             </td>
-                            <td class="py-4 text-slate-400 text-center text-[11px]">${P(r.candidateClass)}</td>
+                            <td class="py-4 text-slate-400 text-center text-[11px]">${N(r.candidateClass)}</td>
                             <td class="py-4 text-right font-mono text-lg ${a?`text-amber-400`:`text-slate-300`}">
                               ${e.type===`unanimous`?`—`:r.votes}
                             </td>
@@ -5705,7 +5705,7 @@ Are you absolutely sure?`))return;F(t,!0,`🗑️ Wiping...`);let i=n.querySelec
       <div class="official-sheet">
         <div class="header">
           ${d?`<img src="${d}" style="max-height:60px;max-width:140px;margin:0 auto 8px auto;display:block;object-fit:contain" alt="College Logo">`:``}
-          <h2>${P(u)}</h2>
+          <h2>${N(u)}</h2>
           <h1>College Union Election ${l}</h1>
           <div style="font-size: 18px; margin-top: 15px; font-weight: 900; text-decoration: underline;">OFFICIAL RESULT NOTIFICATION</div>
         </div>
@@ -5728,14 +5728,14 @@ Are you absolutely sure?`))return;F(t,!0,`🗑️ Wiping...`);let i=n.querySelec
             ${g.map(e=>e.type===`no-candidates`?``:`
                 <tr class="post-header">
                   <td colspan="4" style="background: #eaeaea; padding: 15px 10px; border-bottom: 2px solid #000;">
-                    ${P(e.post)}
+                    ${N(e.post)}
                   </td>
                 </tr>
                 ${e.candidates.map((t,n)=>{let r=e.winner&&e.winner.id===t.id;return`
                     <tr class="${r?`winner-row`:``}">
                       <td style="text-align: center; color: #555; font-size: 12px;">${n+1}</td>
                       <td style="font-weight: ${r?`bold`:`normal`}; font-size: 14px;">
-                        ${P(t.candidateName)} ${t.candidateSerial?`<span style="font-size: 11px; font-weight: normal; color: #555;">(Roll Sl. #${P(t.candidateSerial)})</span>`:``}
+                        ${N(t.candidateName)} ${t.candidateSerial?`<span style="font-size: 11px; font-weight: normal; color: #555;">(Roll Sl. #${N(t.candidateSerial)})</span>`:``}
                       </td>
                       <td style="text-align: center; font-weight: bold; font-size: 14px;">${e.type===`unanimous`?`—`:t.votes||0}</td>
                       <td style="font-size: 12px; font-weight: bold;">
@@ -5758,7 +5758,7 @@ Are you absolutely sure?`))return;F(t,!0,`🗑️ Wiping...`);let i=n.querySelec
           </div>
         </div>
       </div>
-    `,t=window.open(``,`_blank`);if(!t){I(`Popup blocked! Please allow popups to print.`,`error`);return}t.document.write(`
+    `,t=window.open(``,`_blank`);if(!t){F(`Popup blocked! Please allow popups to print.`,`error`);return}t.document.write(`
       <html>
         <head><title>Election Results ${l}</title></head>
         <body>
@@ -5772,7 +5772,7 @@ Are you absolutely sure?`))return;F(t,!0,`🗑️ Wiping...`);let i=n.querySelec
           <\/script>
         </body>
       </html>
-    `),t.document.close()});let _=e.querySelector(`#btnAdminRefreshResults`);_&&c&&(_.onclick=async()=>{_.disabled=!0,_.innerHTML=`<span>⏳</span> Refreshing...`;try{await c(!0),I(`Election results refreshed with latest counts.`,`success`)}catch(e){I(`Refresh failed: ${e.message}`,`error`),_.disabled=!1,_.innerHTML=`<span>🔄</span> Refresh Results`}});let v=e.querySelector(`#btnToggleCounting`);v&&(v.onclick=async()=>{if(confirm(m?`Set Counting Mode Inactive? Visitors to the public portal will be asked to wait for counting to begin.`:`Set Counting Mode Active? Visitors to the public portal will see "Counting in Progress".`)){v.disabled=!0,v.textContent=`Please wait...`;try{m=(await C.adminToggleCounting(t)).active,o.countingActive=m?`true`:`false`,I(m?`⚡ Counting mode active! Public sees "Counting in Progress".`:`⏳ Counting mode inactive. Public asked to wait.`,`success`),yt(e,t,n,r,i,a,o,s,c)}catch(e){I(e.message,`error`),v.disabled=!1,v.textContent=m?`⏸️ Stop Counting`:`⚡ Set Counting Active`}}});let y=e.querySelector(`#btnToggleLock`);y&&(y.onclick=async()=>{if(confirm(f?`Unlock election results? Vote entries will be re-enabled.`:`Lock and freeze election results? No further vote entries will be allowed.`)){y.disabled=!0,y.textContent=`Please wait...`;try{f=(await C.adminToggleLockResults(t)).locked,o.resultsLocked=f?`true`:`false`,I(f?`🔒 Results locked and frozen.`:`🔓 Results unlocked for editing.`,`success`),yt(e,t,n,r,i,a,o,s,c)}catch(e){I(e.message,`error`),y.disabled=!1,y.textContent=f?`🔓 Unlock Results`:`🔒 Freeze / Lock`}}});let b=e.querySelector(`#btnTogglePublic`);b&&(b.onclick=async()=>{if(confirm(p?`Hide election results from public view? The public portal will show counting in progress.`:`Publish election results to the public portal? Anyone visiting the site will see live results.`)){b.disabled=!0,b.textContent=`Please wait...`;try{p=(await C.adminTogglePublishResults(t)).published,o.resultsPublished=p?`true`:`false`,I(p?`📢 Results published to public portal!`:`👁️‍🗨️ Results hidden from public view.`,`success`),yt(e,t,n,r,i,a,o,s,c)}catch(e){I(e.message,`error`),b.disabled=!1,b.textContent=p?`👁️‍🗨️ Hide Public View`:`📢 Publish to Public`}}})}var bt=`election_results_cache`,xt=`election_results_last_fetch`,St=300*1e3;async function Ct(e){e.innerHTML=`
+    `),t.document.close()});let _=e.querySelector(`#btnAdminRefreshResults`);_&&c&&(_.onclick=async()=>{_.disabled=!0,_.innerHTML=`<span>⏳</span> Refreshing...`;try{await c(!0),F(`Election results refreshed with latest counts.`,`success`)}catch(e){F(`Refresh failed: ${e.message}`,`error`),_.disabled=!1,_.innerHTML=`<span>🔄</span> Refresh Results`}});let v=e.querySelector(`#btnToggleCounting`);v&&(v.onclick=async()=>{if(confirm(m?`Set Counting Mode Inactive? Visitors to the public portal will be asked to wait for counting to begin.`:`Set Counting Mode Active? Visitors to the public portal will see "Counting in Progress".`)){v.disabled=!0,v.textContent=`Please wait...`;try{m=(await C.adminToggleCounting(t)).active,o.countingActive=m?`true`:`false`,F(m?`⚡ Counting mode active! Public sees "Counting in Progress".`:`⏳ Counting mode inactive. Public asked to wait.`,`success`),Ct(e,t,n,r,i,a,o,s,c)}catch(e){F(e.message,`error`),v.disabled=!1,v.textContent=m?`⏸️ Stop Counting`:`⚡ Set Counting Active`}}});let y=e.querySelector(`#btnToggleLock`);y&&(y.onclick=async()=>{if(confirm(f?`Unlock election results? Vote entries will be re-enabled.`:`Lock and freeze election results? No further vote entries will be allowed.`)){y.disabled=!0,y.textContent=`Please wait...`;try{f=(await C.adminToggleLockResults(t)).locked,o.resultsLocked=f?`true`:`false`,F(f?`🔒 Results locked and frozen.`:`🔓 Results unlocked for editing.`,`success`),Ct(e,t,n,r,i,a,o,s,c)}catch(e){F(e.message,`error`),y.disabled=!1,y.textContent=f?`🔓 Unlock Results`:`🔒 Freeze / Lock`}}});let b=e.querySelector(`#btnTogglePublic`);b&&(b.onclick=async()=>{if(confirm(p?`Hide election results from public view? The public portal will show counting in progress.`:`Publish election results to the public portal? Anyone visiting the site will see live results.`)){b.disabled=!0,b.textContent=`Please wait...`;try{p=(await C.adminTogglePublishResults(t)).published,o.resultsPublished=p?`true`:`false`,F(p?`📢 Results published to public portal!`:`👁️‍🗨️ Results hidden from public view.`,`success`),Ct(e,t,n,r,i,a,o,s,c)}catch(e){F(e.message,`error`),b.disabled=!1,b.textContent=p?`👁️‍🗨️ Hide Public View`:`📢 Publish to Public`}}})}var wt=`election_results_cache`,Tt=`election_results_last_fetch`,Et=300*1e3;async function Dt(e){e.innerHTML=`
     <div class="page-enter min-h-screen">
       <header class="no-print sticky top-0 z-10 border-b border-white/10 glass">
         <div class="max-w-5xl mx-auto px-6 py-3 flex items-center justify-between">
@@ -5791,9 +5791,9 @@ Are you absolutely sure?`))return;F(t,!0,`🗑️ Wiping...`);let i=n.querySelec
         <div class="text-center py-16"><span class="spinner" style="width:2.5rem;height:2.5rem;border-width:4px;"></span><p class="text-slate-400 mt-4 text-sm">Fetching Live Results...</p></div>
       </main>
     </div>
-  `;let t=e.querySelector(`#cacheTimer`),n=e.querySelector(`#btnRefresh`),r=()=>{let e=localStorage.getItem(xt);if(!e){t.textContent=``,n.disabled=!1,n.classList.remove(`opacity-50`,`cursor-not-allowed`);return}let r=parseInt(e,10)+St,i=Math.max(0,r-Date.now());i<=0?(t.textContent=`Live Update Available`,t.classList.add(`text-green-400`),n.disabled=!1,n.classList.remove(`opacity-50`,`cursor-not-allowed`,`pointer-events-none`)):(t.textContent=`Update in ${Math.floor(i/6e4)}:${Math.floor(i%6e4/1e3).toString().padStart(2,`0`)}`,t.classList.remove(`text-green-400`),n.disabled=!0,n.classList.add(`opacity-50`,`cursor-not-allowed`,`pointer-events-none`))};setInterval(r,1e3),r(),e.querySelector(`#backToHome`).addEventListener(`click`,()=>o.navigate(`/`)),n.addEventListener(`click`,t=>{if(n.disabled||n.classList.contains(`pointer-events-none`)){t.preventDefault();return}wt(e.querySelector(`#resultsMain`),!0)}),await wt(e.querySelector(`#resultsMain`))}async function wt(e,t=!1){try{let n=localStorage.getItem(xt),r=localStorage.getItem(bt),i,a,s=!1,c=!1,l=!1;if(!t&&n&&r&&Date.now()-parseInt(n,10)<St)try{let t=JSON.parse(r);i=t.posts,a=t.results;let n=t.schedule||{};s=t.isCountingActive||n.countingActive===`true`,c=t.isResultsPublished||n.resultsPublished===`true`,l=t.isResultsLocked||!1,u(e,n.electionYear||new Date().getFullYear())}catch{localStorage.removeItem(bt),localStorage.removeItem(xt),i=null}if(!i){e.innerHTML=`
+  `;let t=e.querySelector(`#cacheTimer`),n=e.querySelector(`#btnRefresh`),r=()=>{let e=localStorage.getItem(Tt);if(!e){t.textContent=``,n.disabled=!1,n.classList.remove(`opacity-50`,`cursor-not-allowed`);return}let r=parseInt(e,10)+Et,i=Math.max(0,r-Date.now());i<=0?(t.textContent=`Live Update Available`,t.classList.add(`text-green-400`),n.disabled=!1,n.classList.remove(`opacity-50`,`cursor-not-allowed`,`pointer-events-none`)):(t.textContent=`Update in ${Math.floor(i/6e4)}:${Math.floor(i%6e4/1e3).toString().padStart(2,`0`)}`,t.classList.remove(`text-green-400`),n.disabled=!0,n.classList.add(`opacity-50`,`cursor-not-allowed`,`pointer-events-none`))};setInterval(r,1e3),r(),e.querySelector(`#backToHome`).addEventListener(`click`,()=>o.navigate(`/`)),n.addEventListener(`click`,t=>{if(n.disabled||n.classList.contains(`pointer-events-none`)){t.preventDefault();return}Ot(e.querySelector(`#resultsMain`),!0)}),await Ot(e.querySelector(`#resultsMain`))}async function Ot(e,t=!1){try{let n=localStorage.getItem(Tt),r=localStorage.getItem(wt),i,a,s=!1,c=!1,l=!1;if(!t&&n&&r&&Date.now()-parseInt(n,10)<Et)try{let t=JSON.parse(r);i=t.posts,a=t.results;let n=t.schedule||{};s=t.isCountingActive||n.countingActive===`true`,c=t.isResultsPublished||n.resultsPublished===`true`,l=t.isResultsLocked||!1,u(e,n.electionYear||new Date().getFullYear())}catch{localStorage.removeItem(wt),localStorage.removeItem(Tt),i=null}if(!i){e.innerHTML=`
         <div class="text-center py-16"><span class="spinner" style="width:2.5rem;height:2.5rem;border-width:4px;"></span><p class="text-slate-400 mt-4 text-sm">Fetching Live Results...</p></div>
-      `,t&&(C.invalidateCache(`getResults`),C.invalidateCache(`getPosts`),C.invalidateCache(`getPublicSchedule`),C.invalidateCache(`getSettings`));let n,r,o;[i,r,n,o]=await Promise.all([C.getPosts(),C.getResults(t).catch(()=>({results:[],published:!1,countingActive:!1})),C.getPublicSchedule().catch(()=>({})),C.getSettings().catch(()=>({}))]),a=Array.isArray(r)?r:r?.results||[],s=r&&r.countingActive===!0||n?.countingActive===`true`||o?.countingActive===`true`,c=r&&r.published===!0||n?.resultsPublished===`true`||o?.resultsPublished===`true`,l=r&&r.locked===!0||o?.resultsLocked===`true`,localStorage.setItem(xt,Date.now().toString()),localStorage.setItem(bt,JSON.stringify({posts:i,results:a,schedule:n,isCountingActive:s,isResultsPublished:c,isResultsLocked:l})),u(e,n?.electionYear||o?.electionYear||new Date().getFullYear())}function u(e,t){let n=e.closest(`.page-enter`)?.querySelector(`h1`);n&&(n.textContent=`Live Election Results ${t}`)}if(a.length===0||!c){s?(e.innerHTML=`
+      `,t&&(C.invalidateCache(`getResults`),C.invalidateCache(`getPosts`),C.invalidateCache(`getPublicSchedule`),C.invalidateCache(`getSettings`));let n,r,o;[i,r,n,o]=await Promise.all([C.getPosts(),C.getResults(t).catch(()=>({results:[],published:!1,countingActive:!1})),C.getPublicSchedule().catch(()=>({})),C.getSettings().catch(()=>({}))]),a=Array.isArray(r)?r:r?.results||[],s=r&&r.countingActive===!0||n?.countingActive===`true`||o?.countingActive===`true`,c=r&&r.published===!0||n?.resultsPublished===`true`||o?.resultsPublished===`true`,l=r&&r.locked===!0||o?.resultsLocked===`true`,localStorage.setItem(Tt,Date.now().toString()),localStorage.setItem(wt,JSON.stringify({posts:i,results:a,schedule:n,isCountingActive:s,isResultsPublished:c,isResultsLocked:l})),u(e,n?.electionYear||o?.electionYear||new Date().getFullYear())}function u(e,t){let n=e.closest(`.page-enter`)?.querySelector(`h1`);n&&(n.textContent=`Live Election Results ${t}`)}if(a.length===0||!c){s?(e.innerHTML=`
           <div class="text-center py-20 bg-amber-500/10 rounded-2xl border border-amber-500/30 page-enter shadow-2xl">
             <div class="text-6xl mb-4 animate-bounce">🗳️</div>
             <div class="inline-flex items-center gap-2 bg-amber-500/20 text-amber-300 border border-amber-500/40 px-3.5 py-1 rounded-full text-xs font-bold uppercase tracking-widest mb-3">
@@ -5806,7 +5806,7 @@ Are you absolutely sure?`))return;F(t,!0,`🗑️ Wiping...`);let i=n.querySelec
             </p>
             <button id="btnCountingRefresh" class="btn btn-primary px-6">🔄 Check for Updates</button>
           </div>
-        `,e.querySelector(`#btnCountingRefresh`)?.addEventListener(`click`,()=>wt(e,!0))):(e.innerHTML=`
+        `,e.querySelector(`#btnCountingRefresh`)?.addEventListener(`click`,()=>Ot(e,!0))):(e.innerHTML=`
           <div class="text-center py-20 bg-white/5 rounded-2xl border border-white/10 page-enter shadow-xl">
             <div class="text-6xl mb-4">⏳</div>
             <div class="inline-block bg-slate-500/20 text-slate-400 border border-slate-500/40 px-3.5 py-1 rounded-full text-xs font-bold uppercase tracking-widest mb-3">
@@ -5821,13 +5821,13 @@ Are you absolutely sure?`))return;F(t,!0,`🗑️ Wiping...`);let i=n.querySelec
               <button id="btnWaitRefresh" class="btn btn-secondary bg-white/5 border-white/10 hover:bg-white/10">🔄 Refresh</button>
             </div>
           </div>
-        `,e.querySelector(`#btnWaitHome`)?.addEventListener(`click`,()=>o.navigate(`/`)),e.querySelector(`#btnWaitRefresh`)?.addEventListener(`click`,()=>wt(e,!0)));return}let d={};i.forEach(e=>{let t=e.post||e.name;d[t]={}}),a.forEach(e=>{let t=e.Post;d[t]||(d[t]={}),d[t][e.CandidateId]||(d[t][e.CandidateId]={name:e.CandidateName,votes:0}),d[t][e.CandidateId].votes+=Number(e.Votes)||0});let f=``,p=i.filter(e=>{let t=e.post||e.name;return!e.deptRestriction&&!t.toUpperCase().includes(`ASSOCIATION`)});if(p.length>0){let e=``;p.forEach(t=>{let n=t.post||t.name,r=d[n];if(!r)return;let i=Object.keys(r).filter(e=>e!==`INVALID`&&e!==`NOTA`);if(i.length===0)return;let a=i.map(e=>r[e]);a.sort((e,t)=>t.votes-e.votes);let o=n.toUpperCase().includes(`UUC`)||n.toUpperCase().includes(`UNIVERSITY`)?2:1,s=0;a.length>o&&(s=a[o].votes);let c=a.filter((e,t)=>t<o&&e.votes>0),l=c.length>0?c.map(e=>{let t=e.votes-s;return`<div class="flex flex-wrap items-center gap-1.5 mb-1.5 last:mb-0">
-                        <span class="whitespace-nowrap">${P(e.name)}</span>
+        `,e.querySelector(`#btnWaitHome`)?.addEventListener(`click`,()=>o.navigate(`/`)),e.querySelector(`#btnWaitRefresh`)?.addEventListener(`click`,()=>Ot(e,!0)));return}let d={};i.forEach(e=>{let t=e.post||e.name;d[t]={}}),a.forEach(e=>{let t=e.Post;d[t]||(d[t]={}),d[t][e.CandidateId]||(d[t][e.CandidateId]={name:e.CandidateName,votes:0}),d[t][e.CandidateId].votes+=Number(e.Votes)||0});let f=``,p=i.filter(e=>{let t=e.post||e.name;return!e.deptRestriction&&!t.toUpperCase().includes(`ASSOCIATION`)});if(p.length>0){let e=``;p.forEach(t=>{let n=t.post||t.name,r=d[n];if(!r)return;let i=Object.keys(r).filter(e=>e!==`INVALID`&&e!==`NOTA`);if(i.length===0)return;let a=i.map(e=>r[e]);a.sort((e,t)=>t.votes-e.votes);let o=n.toUpperCase().includes(`UUC`)||n.toUpperCase().includes(`UNIVERSITY`)?2:1,s=0;a.length>o&&(s=a[o].votes);let c=a.filter((e,t)=>t<o&&e.votes>0),l=c.length>0?c.map(e=>{let t=e.votes-s;return`<div class="flex flex-wrap items-center gap-1.5 mb-1.5 last:mb-0">
+                        <span class="whitespace-nowrap">${N(e.name)}</span>
                         <span class="bg-amber-500/20 text-amber-300 text-[10px] px-1.5 py-0.5 rounded font-bold whitespace-nowrap">${e.votes} votes</span>
                         ${t>0?`<span class="bg-green-500/20 text-green-400 text-[10px] px-1.5 py-0.5 rounded font-bold border border-green-500/30 whitespace-nowrap">Lead: ${t}</span>`:``}
                       </div>`}).join(``):`<span class="text-slate-500 italic text-xs font-normal">Awaiting Results</span>`;e+=`
           <tr class="border-b border-white/5 hover:bg-white/5 transition">
-            <td class="py-3 px-4 font-bold text-slate-300 text-xs sm:text-sm leading-tight w-1/2">${P(n)}</td>
+            <td class="py-3 px-4 font-bold text-slate-300 text-xs sm:text-sm leading-tight w-1/2">${N(n)}</td>
             <td class="py-3 px-4 text-amber-400 font-bold text-sm leading-tight w-1/2">${l}</td>
           </tr>
         `}),e&&(f+=`
@@ -5847,7 +5847,7 @@ Are you absolutely sure?`))return;F(t,!0,`🗑️ Wiping...`);let i=n.querySelec
         `)}f+=`<div class="space-y-12">`,i.forEach(e=>{let t=e.post||e.name,n=d[t];if(!n)return;let r=Object.keys(n);if(r.length===0)return;let i=r.filter(e=>e!==`INVALID`&&e!==`NOTA`).map(e=>n[e]),a=n.INVALID,o=n.NOTA,s=t.toUpperCase().includes(`UUC`)||t.toUpperCase().includes(`UNIVERSITY`)?2:1;i.sort((e,t)=>t.votes-e.votes);let c=i.length?i[0].votes:0,u=i.reduce((e,t)=>e+t.votes,0)+(o?o.votes:0),p=u+(a?a.votes:0),m=0;i.length>s?m=i[s].votes:i.length>0&&(m=0),f+=`
         <div class="glass rounded-2xl overflow-hidden border border-white/10 page-enter shadow-2xl">
           <div class="bg-gradient-to-r from-slate-900/80 to-indigo-900/80 p-6 border-b border-white/10">
-            <h2 class="text-2xl font-bold text-white tracking-tight">${P(t)}</h2>
+            <h2 class="text-2xl font-bold text-white tracking-tight">${N(t)}</h2>
           </div>
           <div class="p-6 space-y-6 bg-slate-900/20">
             ${i.map((e,t)=>{let n=p>0?(e.votes/p*100).toFixed(1):0,r=c>0?e.votes/c*100:0,i=t<s&&e.votes>0,a=i?e.votes-m:0;return`
@@ -5859,7 +5859,7 @@ Are you absolutely sure?`))return;F(t,!0,`🗑️ Wiping...`);let i=n.querySelec
                       </div>
                       <div>
                         <div class="flex items-center gap-2">
-                          <span class="font-bold text-white text-lg">${P(e.name)}</span>
+                          <span class="font-bold text-white text-lg">${N(e.name)}</span>
                           ${i?l?`<span class="bg-emerald-500/20 text-emerald-300 text-[10px] px-2 py-0.5 rounded-full font-black border border-emerald-500/30 tracking-wider">ELECTED</span>`:`<span class="bg-amber-500/20 text-amber-300 text-[10px] px-2 py-0.5 rounded-full font-black border border-amber-500/30 tracking-wider">LEADING</span>`:``}
                           ${a>0?`<span class="bg-green-500/20 text-green-400 text-[10px] px-2 py-0.5 rounded-full font-bold border border-green-500/30">LEAD: ${a}</span>`:``}
                         </div>
@@ -5905,15 +5905,15 @@ Are you absolutely sure?`))return;F(t,!0,`🗑️ Wiping...`);let i=n.querySelec
         </div>
       `}),f+=`</div>`,f===`<div class="space-y-12"></div>`?e.innerHTML=`
         <div class="alert alert-info text-center">Results backend is initialized, but no votes have been aggregated for the configured posts yet.</div>
-      `:e.innerHTML=f}catch(t){e.innerHTML=`<div class="alert alert-error">❌ Failed to load results: ${P(t.message)}</div>`}}async function Tt(e){e.innerHTML=`
+      `:e.innerHTML=f}catch(t){e.innerHTML=`<div class="alert alert-error">❌ Failed to load results: ${N(t.message)}</div>`}}async function kt(e){e.innerHTML=`
     <div class="text-center py-16"><span class="spinner" style="width:2.5rem;height:2.5rem;border-width:4px;"></span><p class="text-slate-400 mt-4 text-sm">Loading nominal roll...</p></div>
-  `;try{let[t,n]=await Promise.all([C.getNominalRoll().catch(()=>[]),C.getSettings().catch(()=>({}))]);Et(e,t,n)}catch(t){e.innerHTML=`<div class="alert alert-error">❌ ${P(t.message)}</div>`}}function Et(e,t,r){let i=r.nominalRollFinalized===`true`||r.isRollFinalized===`true`,a=!i&&r.draftRollPublished===`true`,o=i||a,s=r.collegeName||n.COLLEGE_NAME;if(!o){e.innerHTML=`
+  `;try{let[t,n]=await Promise.all([C.getNominalRoll().catch(()=>[]),C.getSettings().catch(()=>({}))]);At(e,t,n)}catch(t){e.innerHTML=`<div class="alert alert-error">❌ ${N(t.message)}</div>`}}function At(e,t,r){let i=r.nominalRollFinalized===`true`||r.isRollFinalized===`true`,a=!i&&r.draftRollPublished===`true`,o=i||a,s=r.collegeName||n.COLLEGE_NAME;if(!o){e.innerHTML=`
       <div class="page-enter min-h-[75vh] flex items-center justify-center p-4">
         <div class="glass rounded-2xl p-10 max-w-md w-full text-center space-y-5 border border-white/10 shadow-2xl">
           <div class="w-16 h-16 bg-amber-500/10 text-amber-400 rounded-2xl flex items-center justify-center mx-auto text-3xl shadow-inner">⏳</div>
           <h3 class="text-2xl font-bold text-white tracking-tight">Nominal Roll Not Published</h3>
           <p class="text-slate-400 text-sm leading-relaxed">
-            The voter list / nominal roll has not yet been published by the election authorities of <strong class="text-slate-300">${P(s)}</strong>. Please check back later or view the election schedule.
+            The voter list / nominal roll has not yet been published by the election authorities of <strong class="text-slate-300">${N(s)}</strong>. Please check back later or view the election schedule.
           </p>
           <div class="pt-2">
             <button data-nav="/" class="btn btn-secondary w-full flex items-center justify-center gap-2">
@@ -5923,7 +5923,7 @@ Are you absolutely sure?`))return;F(t,!0,`🗑️ Wiping...`);let i=n.querySelec
           </div>
         </div>
       </div>
-    `;return}let c=Array.isArray(t)?[...t]:[];c.sort((e,t)=>L(e,t));let l=Array.from(new Set(c.map(e=>(e.Dept||e.DEPT||e.department||``).trim()).filter(Boolean))).sort((e,t)=>e.localeCompare(t)),u=e=>Array.from(new Set(c.filter(t=>!e||(t.Dept||``).trim().toLowerCase()===e.toLowerCase()).map(e=>R(e)).filter(Boolean))).sort((e,t)=>{let n=z(e),r=z(t);return n===r?e.localeCompare(t):n-r}),d=``,f=``,p=``,m=`dept-class`,h=1,g=e=>{let t=String(e||``);return a?`D${t}`:t},_=()=>{let e=c.filter(e=>{if(f&&(e.Dept||``).trim().toLowerCase()!==f.toLowerCase()||p&&R(e).toLowerCase()!==p.toLowerCase())return!1;if(d){let t=d.toLowerCase();if(![e.NAME,e.CLASS,R(e),e[`ADMISION NO`]||e[`ADMISSION NO`],e[`Nominal Roll Serial Number`],e.Dept].some(e=>String(e||``).toLowerCase().includes(t)))return!1}return!0});return m===`dept-class`?e.sort((e,t)=>{let n=String(e.Dept||``).trim().toUpperCase(),r=String(t.Dept||``).trim().toUpperCase();if(n!==r)return n.localeCompare(r);let i=R(e).toUpperCase(),a=R(t).toUpperCase(),o=z(i),s=z(a);if(o!==s)return o-s;if(i!==a)return i.localeCompare(a);let c=String(e.NAME||``).trim().toUpperCase(),l=String(t.NAME||``).trim().toUpperCase();return c===l?L(e,t):c.localeCompare(l)}):m===`name`?e.sort((e,t)=>{let n=String(e.NAME||``).trim().toUpperCase(),r=String(t.NAME||``).trim().toUpperCase();return n===r?L(e,t):n.localeCompare(r)}):e.sort((e,t)=>L(e,t)),e};e.innerHTML=`
+    `;return}let c=Array.isArray(t)?[...t]:[];c.sort((e,t)=>I(e,t));let l=Array.from(new Set(c.map(e=>(e.Dept||e.DEPT||e.department||``).trim()).filter(Boolean))).sort((e,t)=>e.localeCompare(t)),u=e=>Array.from(new Set(c.filter(t=>!e||(t.Dept||``).trim().toLowerCase()===e.toLowerCase()).map(e=>L(e)).filter(Boolean))).sort((e,t)=>{let n=R(e),r=R(t);return n===r?e.localeCompare(t):n-r}),d=``,f=``,p=``,m=`dept-class`,h=1,g=e=>{let t=String(e||``);return a?`D${t}`:t},_=()=>{let e=c.filter(e=>{if(f&&(e.Dept||``).trim().toLowerCase()!==f.toLowerCase()||p&&L(e).toLowerCase()!==p.toLowerCase())return!1;if(d){let t=d.toLowerCase();if(![e.NAME,e.CLASS,L(e),e[`ADMISION NO`]||e[`ADMISSION NO`],e[`Nominal Roll Serial Number`],e.Dept].some(e=>String(e||``).toLowerCase().includes(t)))return!1}return!0});return m===`dept-class`?e.sort((e,t)=>{let n=String(e.Dept||``).trim().toUpperCase(),r=String(t.Dept||``).trim().toUpperCase();if(n!==r)return n.localeCompare(r);let i=L(e).toUpperCase(),a=L(t).toUpperCase(),o=R(i),s=R(a);if(o!==s)return o-s;if(i!==a)return i.localeCompare(a);let c=String(e.NAME||``).trim().toUpperCase(),l=String(t.NAME||``).trim().toUpperCase();return c===l?I(e,t):c.localeCompare(l)}):m===`name`?e.sort((e,t)=>{let n=String(e.NAME||``).trim().toUpperCase(),r=String(t.NAME||``).trim().toUpperCase();return n===r?I(e,t):n.localeCompare(r)}):e.sort((e,t)=>I(e,t)),e};e.innerHTML=`
     <div class="page-enter space-y-6">
       <!-- Header -->
       <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
@@ -5936,7 +5936,7 @@ Are you absolutely sure?`))return;F(t,!0,`🗑️ Wiping...`);let i=n.querySelec
             <h3 class="text-2xl font-bold text-white">Nominal Roll</h3>
             ${a?`<span class="badge badge-pending text-xs py-1.5 px-3 border border-amber-500/30 text-amber-300">📋 DRAFT LIST (SUBJECT TO CORRECTION)</span>`:`<span class="badge badge-valid text-xs py-1.5 px-3">✅ FINALIZED VOTER LIST</span>`}
           </div>
-          <p class="text-slate-400 text-sm mt-0.5">${P(s)} — College Union Election</p>
+          <p class="text-slate-400 text-sm mt-0.5">${N(s)} — College Union Election</p>
         </div>
       </div>
 
@@ -5973,7 +5973,7 @@ Are you absolutely sure?`))return;F(t,!0,`🗑️ Wiping...`);let i=n.querySelec
           <div class="md:col-span-2">
             <select id="deptFilter" class="field text-xs sm:text-sm py-2 w-full bg-slate-900 border-white/10 text-white">
               <option value="">All Depts (${l.length})</option>
-              ${l.map(e=>`<option value="${P(e)}">${P(e)}</option>`).join(``)}
+              ${l.map(e=>`<option value="${N(e)}">${N(e)}</option>`).join(``)}
             </select>
           </div>
 
@@ -6027,7 +6027,7 @@ Are you absolutely sure?`))return;F(t,!0,`🗑️ Wiping...`);let i=n.querySelec
     </div>
   `;let v=t=>{let n=e.querySelector(`#classFilter`),r=u(t);r.includes(p)||(p=``),n.innerHTML=`
       <option value="">🎓 All Classes (${r.length})</option>
-      ${r.map(e=>`<option value="${P(e)}" ${e===p?`selected`:``}>${P(e)}</option>`).join(``)}
+      ${r.map(e=>`<option value="${N(e)}" ${e===p?`selected`:``}>${N(e)}</option>`).join(``)}
     `};v(``);let y=()=>{let t=_(),n=Math.max(1,Math.ceil(t.length/50));h>n&&(h=n),h<1&&(h=1);let r=(h-1)*50,i=Math.min(r+50,t.length),o=t.slice(r,i),s=e.querySelector(`#rollTableBody`);o.length===0?s.innerHTML=`
         <tr>
           <td colspan="5" class="text-center py-12 text-slate-500">
@@ -6037,13 +6037,13 @@ Are you absolutely sure?`))return;F(t,!0,`🗑️ Wiping...`);let i=n.querySelec
           </td>
         </tr>`:s.innerHTML=o.map(e=>`
         <tr>
-          <td class="text-center font-bold font-mono ${a?`text-amber-400`:`text-indigo-400`}">${P(g(e[`Nominal Roll Serial Number`]))}</td>
-          <td class="font-mono text-xs text-slate-300">${P(e[`ADMISION NO`]||e[`ADMISSION NO`]||`–`)}</td>
-          <td class="text-white font-medium">${P(e.NAME)}</td>
-          <td class="text-slate-300 text-sm">${P(R(e))}</td>
-          <td class="text-slate-400 text-xs">${P(e.Dept||`–`)}</td>
+          <td class="text-center font-bold font-mono ${a?`text-amber-400`:`text-indigo-400`}">${N(g(e[`Nominal Roll Serial Number`]))}</td>
+          <td class="font-mono text-xs text-slate-300">${N(e[`ADMISION NO`]||e[`ADMISSION NO`]||`–`)}</td>
+          <td class="text-white font-medium">${N(e.NAME)}</td>
+          <td class="text-slate-300 text-sm">${N(L(e))}</td>
+          <td class="text-slate-400 text-xs">${N(e.Dept||`–`)}</td>
         </tr>
-      `).join(``);let c=e.querySelector(`#filterSummaryText`),l=!!(d||f||p),u=[];f&&u.push(`Dept: <strong>${P(f)}</strong>`),p&&u.push(`Class: <strong>${P(p)}</strong>`),d&&u.push(`Search: "<strong>${P(d)}</strong>"`),c.innerHTML=`
+      `).join(``);let c=e.querySelector(`#filterSummaryText`),l=!!(d||f||p),u=[];f&&u.push(`Dept: <strong>${N(f)}</strong>`),p&&u.push(`Class: <strong>${N(p)}</strong>`),d&&u.push(`Search: "<strong>${N(d)}</strong>"`),c.innerHTML=`
       Showing <strong class="text-white">${t.length?r+1:0}</strong> to <strong class="text-white">${i}</strong> of <strong class="text-white">${t.length}</strong> students
       ${l?`<span class="text-indigo-300/80 ml-1">(${u.join(`, `)})</span>`:``}
     `;let m=e.querySelector(`#paginationInfo`);m.innerHTML=`Page <strong class="text-white">${h}</strong> of <strong class="text-white">${n}</strong> (${t.length} total students)`;let v=e.querySelector(`#paginationControls`);if(n<=1){v.innerHTML=``;return}let y=`
@@ -6056,11 +6056,11 @@ Are you absolutely sure?`))return;F(t,!0,`🗑️ Wiping...`);let i=n.querySelec
       `,x=e}),y+=`
       <button class="btn btn-sm btn-secondary px-2.5 py-1 text-xs pg-btn" data-page="${h+1}" ${h===n?`disabled style="opacity:0.35;cursor:not-allowed;"`:``} title="Next Page">Next ›</button>
       <button class="btn btn-sm btn-secondary px-2.5 py-1 text-xs pg-btn" data-page="${n}" ${h===n?`disabled style="opacity:0.35;cursor:not-allowed;"`:``} title="Last Page">Last »</button>
-    `,v.innerHTML=y};y();let b=e.querySelector(`#searchInput`);b.addEventListener(`input`,e=>{d=e.target.value.trim(),h=1,y()});let x=e.querySelector(`#deptFilter`);x.addEventListener(`change`,e=>{f=e.target.value,v(f),h=1,y()}),e.querySelector(`#classFilter`).addEventListener(`change`,e=>{p=e.target.value,h=1,y()});let S=e.querySelector(`#arrangeSelect`);S&&S.addEventListener(`change`,e=>{m=e.target.value,h=1,y()}),e.querySelector(`#btnClearFilters`).addEventListener(`click`,()=>{d=``,f=``,p=``,m=`dept-class`,h=1,b.value=``,x.value=``,S&&(S.value=`dept-class`),v(``),y(),I(`Filters reset.`,`info`)}),e.querySelector(`#paginationControls`).addEventListener(`click`,t=>{let n=t.target.closest(`.pg-btn`);if(!n||n.disabled)return;let r=Number(n.dataset.page);r&&r!==h&&(h=r,y(),e.querySelector(`#rollTableBody`).scrollIntoView({behavior:`smooth`,block:`nearest`}))})}async function Dt(e){let t=W();t&&(G(e,`nominal-roll`,`
+    `,v.innerHTML=y};y();let b=e.querySelector(`#searchInput`);b.addEventListener(`input`,e=>{d=e.target.value.trim(),h=1,y()});let x=e.querySelector(`#deptFilter`);x.addEventListener(`change`,e=>{f=e.target.value,v(f),h=1,y()}),e.querySelector(`#classFilter`).addEventListener(`change`,e=>{p=e.target.value,h=1,y()});let S=e.querySelector(`#arrangeSelect`);S&&S.addEventListener(`change`,e=>{m=e.target.value,h=1,y()}),e.querySelector(`#btnClearFilters`).addEventListener(`click`,()=>{d=``,f=``,p=``,m=`dept-class`,h=1,b.value=``,x.value=``,S&&(S.value=`dept-class`),v(``),y(),F(`Filters reset.`,`info`)}),e.querySelector(`#paginationControls`).addEventListener(`click`,t=>{let n=t.target.closest(`.pg-btn`);if(!n||n.disabled)return;let r=Number(n.dataset.page);r&&r!==h&&(h=r,y(),e.querySelector(`#rollTableBody`).scrollIntoView({behavior:`smooth`,block:`nearest`}))})}async function jt(e){let t=U();t&&(W(e,`nominal-roll`,`
     <div class="text-center py-16"><span class="spinner" style="width:2.5rem;height:2.5rem;border-width:4px;"></span><p class="text-slate-400 mt-4 text-sm">Loading nominal roll...</p></div>
   `),await Q(e.querySelector(`#adminMain`),t))}async function Q(e,t){if(e){e.innerHTML=`
     <div class="text-center py-16"><span class="spinner" style="width:2.5rem;height:2.5rem;border-width:4px;"></span><p class="text-slate-400 mt-4 text-sm">Loading nominal roll...</p></div>
-  `;try{let[n,r,i]=await Promise.all([C.getNominalRoll().catch(()=>[]),C.adminGetSettings(t),C.adminGetRollCorrections(t).catch(()=>[])]);Ot(e,t,n,r,i)}catch(t){e.innerHTML=`<div class="alert alert-error">❌ ${P(t.message)}</div>`}}}function Ot(e,t,n,r,i=[]){let a=r.nominalRollFinalized===`true`||r.isRollFinalized===`true`,o=!a&&r.draftRollPublished===`true`,s=!a&&!o,c=[...n];c.sort((e,t)=>L(e,t));let l=``,u=`dept-class`,d=1,f=`cards`,p=[...new Set(n.map(e=>R(e)).filter(Boolean))].sort((e,t)=>{let n=z(e),r=z(t);return n===r?e.localeCompare(t):n-r}),m=[...new Set(n.map(e=>String(e.Dept||``).trim()).filter(e=>e&&e!==`-`&&e!==`–`))].sort(),h=a?`
+  `;try{let[n,r,i]=await Promise.all([C.getNominalRoll().catch(()=>[]),C.adminGetSettings(t),C.adminGetRollCorrections(t).catch(()=>[])]);Mt(e,t,n,r,i)}catch(t){e.innerHTML=`<div class="alert alert-error">❌ ${N(t.message)}</div>`}}}function Mt(e,t,n,r,i=[]){let a=r.nominalRollFinalized===`true`||r.isRollFinalized===`true`,o=!a&&r.draftRollPublished===`true`,s=!a&&!o,c=[...n];c.sort((e,t)=>I(e,t));let l=``,u=`dept-class`,d=1,f=`cards`,p=[...new Set(n.map(e=>L(e)).filter(Boolean))].sort((e,t)=>{let n=R(e),r=R(t);return n===r?e.localeCompare(t):n-r}),m=[...new Set(n.map(e=>String(e.Dept||``).trim()).filter(e=>e&&e!==`-`&&e!==`–`))].sort(),h=a?`
     <div id="uploadPanel" class="glass rounded-2xl border border-white/10 shadow-2xl overflow-hidden">
       <div class="w-full flex items-center justify-between px-6 py-4 bg-white/5 opacity-80 cursor-not-allowed">
         <div class="flex items-center gap-3">
@@ -6154,7 +6154,7 @@ Are you absolutely sure?`))return;F(t,!0,`🗑️ Wiping...`);let i=n.querySelec
         </div>
       </div>
     </div>
-  `,g=()=>{let n=c.filter(e=>[e.NAME,e.CLASS,e[`ADMISION NO`]||e[`ADMISSION NO`],e[`Nominal Roll Serial Number`],e.Dept].some(e=>String(e||``).toLowerCase().includes(l.toLowerCase())));u===`dept-class`?n.sort((e,t)=>{let n=String(e.Dept||``).trim().toUpperCase(),r=String(t.Dept||``).trim().toUpperCase();if(n!==r)return n.localeCompare(r);let i=R(e).toUpperCase(),a=R(t).toUpperCase(),o=z(i),s=z(a);if(o!==s)return o-s;if(i!==a)return i.localeCompare(a);let c=String(e.NAME||``).trim().toUpperCase(),l=String(t.NAME||``).trim().toUpperCase();return c===l?L(e,t):c.localeCompare(l)}):u===`name`?n.sort((e,t)=>{let n=String(e.NAME||``).trim().toUpperCase(),r=String(t.NAME||``).trim().toUpperCase();return n===r?L(e,t):n.localeCompare(r)}):n.sort((e,t)=>L(e,t));let _=Math.max(1,Math.ceil(n.length/50));d>_&&(d=_),d<1&&(d=1);let v=(d-1)*50,y=Math.min(v+50,n.length),b=n.slice(v,y),x=``;if(_>1){x=`
+  `,g=()=>{let n=c.filter(e=>[e.NAME,e.CLASS,e[`ADMISION NO`]||e[`ADMISSION NO`],e[`Nominal Roll Serial Number`],e.Dept].some(e=>String(e||``).toLowerCase().includes(l.toLowerCase())));u===`dept-class`?n.sort((e,t)=>{let n=String(e.Dept||``).trim().toUpperCase(),r=String(t.Dept||``).trim().toUpperCase();if(n!==r)return n.localeCompare(r);let i=L(e).toUpperCase(),a=L(t).toUpperCase(),o=R(i),s=R(a);if(o!==s)return o-s;if(i!==a)return i.localeCompare(a);let c=String(e.NAME||``).trim().toUpperCase(),l=String(t.NAME||``).trim().toUpperCase();return c===l?I(e,t):c.localeCompare(l)}):u===`name`?n.sort((e,t)=>{let n=String(e.NAME||``).trim().toUpperCase(),r=String(t.NAME||``).trim().toUpperCase();return n===r?I(e,t):n.localeCompare(r)}):n.sort((e,t)=>I(e,t));let _=Math.max(1,Math.ceil(n.length/50));d>_&&(d=_),d<1&&(d=1);let v=(d-1)*50,y=Math.min(v+50,n.length),b=n.slice(v,y),x=``;if(_>1){x=`
         <button class="btn btn-sm btn-secondary px-2.5 py-1 text-xs pg-btn" data-page="1" ${d===1?`disabled style="opacity:0.35;cursor:not-allowed;"`:``} title="First Page">« First</button>
         <button class="btn btn-sm btn-secondary px-2.5 py-1 text-xs pg-btn" data-page="${d-1}" ${d===1?`disabled style="opacity:0.35;cursor:not-allowed;"`:``} title="Previous Page">‹ Prev</button>
       `;let e=[];for(let t=1;t<=_;t++)(t===1||t===_||t>=d-2&&t<=d+2)&&e.push(t);let t=0;e.forEach(e=>{t&&e-t>1&&(x+=`<span class="px-1 text-slate-500 font-bold">…</span>`),x+=`
@@ -6217,22 +6217,22 @@ Are you absolutely sure?`))return;F(t,!0,`🗑️ Wiping...`);let i=n.querySelec
                   <div class="glass p-3.5 rounded-xl border border-amber-500/30 space-y-2 bg-slate-900/80">
                     <div class="flex items-center justify-between gap-2">
                       <span class="badge ${e.status===`Resolved`?`badge-valid`:e.status===`Dismissed`?`bg-slate-700 text-slate-400`:`badge-pending`} text-[10px]">
-                        ${P(e.status)}
+                        ${N(e.status)}
                       </span>
                       <span class="text-slate-400 font-mono text-[10px]">${e.timestamp?new Date(e.timestamp).toLocaleDateString():`–`}</span>
                     </div>
                     <div>
-                      <div class="font-bold text-white text-sm">${P(e.student_name)}</div>
-                      <div class="text-xs text-indigo-300 font-mono mt-0.5">Adm: <strong>${P(e.admission_no)}</strong> • ${P(e.class_name||`–`)} (${P(e.department||`–`)})</div>
+                      <div class="font-bold text-white text-sm">${N(e.student_name)}</div>
+                      <div class="text-xs text-indigo-300 font-mono mt-0.5">Adm: <strong>${N(e.admission_no)}</strong> • ${N(e.class_name||`–`)} (${N(e.department||`–`)})</div>
                     </div>
                     <div class="text-xs bg-black/40 p-2.5 rounded-lg border border-white/10 space-y-1">
-                      <div class="text-amber-300 font-semibold text-[11px]">📝 ${P(e.correction_type)}</div>
-                      <div class="text-slate-300 leading-relaxed">${P(e.details)}</div>
+                      <div class="text-amber-300 font-semibold text-[11px]">📝 ${N(e.correction_type)}</div>
+                      <div class="text-slate-300 leading-relaxed">${N(e.details)}</div>
                     </div>
-                    ${e.contact_info?`<div class="text-[11px] text-slate-400">📞 Contact: ${P(e.contact_info)}</div>`:``}
+                    ${e.contact_info?`<div class="text-[11px] text-slate-400">📞 Contact: ${N(e.contact_info)}</div>`:``}
                     <div class="flex gap-2 pt-1.5 border-t border-white/10">
-                      ${e.status===`Resolved`?``:`<button class="btn btn-xs btn-success flex-1 resolve-corr py-1.5 font-medium" data-id="${P(e.id)}">✅ Resolve</button>`}
-                      ${e.status===`Dismissed`?``:`<button class="btn btn-xs btn-secondary flex-1 dismiss-corr py-1.5 font-medium" data-id="${P(e.id)}">✕ Dismiss</button>`}
+                      ${e.status===`Resolved`?``:`<button class="btn btn-xs btn-success flex-1 resolve-corr py-1.5 font-medium" data-id="${N(e.id)}">✅ Resolve</button>`}
+                      ${e.status===`Dismissed`?``:`<button class="btn btn-xs btn-secondary flex-1 dismiss-corr py-1.5 font-medium" data-id="${N(e.id)}">✕ Dismiss</button>`}
                     </div>
                   </div>
                 `).join(``)}
@@ -6256,17 +6256,17 @@ Are you absolutely sure?`))return;F(t,!0,`🗑️ Wiping...`);let i=n.querySelec
                     ${i.map(e=>`
                       <tr>
                         <td class="whitespace-nowrap text-slate-400 font-mono text-[10px]">${e.timestamp?new Date(e.timestamp).toLocaleDateString():`–`}</td>
-                        <td class="font-mono text-indigo-300 font-bold">${P(e.admission_no)}</td>
-                        <td class="font-bold text-white">${P(e.student_name)}</td>
-                        <td class="text-slate-300">${P(e.class_name||`–`)} / ${P(e.department||`–`)}</td>
-                        <td><span class="badge badge-pending text-[10px]">${P(e.correction_type)}</span></td>
-                        <td class="max-w-xs text-slate-300">${P(e.details)}</td>
-                        <td class="text-slate-400 text-[10px]">${P(e.contact_info||`–`)}</td>
-                        <td><span class="badge ${e.status===`Resolved`?`badge-valid`:e.status===`Dismissed`?`bg-slate-700 text-slate-400`:`badge-pending`} text-[10px]">${P(e.status)}</span></td>
+                        <td class="font-mono text-indigo-300 font-bold">${N(e.admission_no)}</td>
+                        <td class="font-bold text-white">${N(e.student_name)}</td>
+                        <td class="text-slate-300">${N(e.class_name||`–`)} / ${N(e.department||`–`)}</td>
+                        <td><span class="badge badge-pending text-[10px]">${N(e.correction_type)}</span></td>
+                        <td class="max-w-xs text-slate-300">${N(e.details)}</td>
+                        <td class="text-slate-400 text-[10px]">${N(e.contact_info||`–`)}</td>
+                        <td><span class="badge ${e.status===`Resolved`?`badge-valid`:e.status===`Dismissed`?`bg-slate-700 text-slate-400`:`badge-pending`} text-[10px]">${N(e.status)}</span></td>
                         <td>
                           <div class="flex gap-1.5">
-                            ${e.status===`Resolved`?``:`<button class="btn btn-xs btn-success resolve-corr" data-id="${P(e.id)}">Resolve</button>`}
-                            ${e.status===`Dismissed`?``:`<button class="btn btn-xs btn-secondary dismiss-corr" data-id="${P(e.id)}">Dismiss</button>`}
+                            ${e.status===`Resolved`?``:`<button class="btn btn-xs btn-success resolve-corr" data-id="${N(e.id)}">Resolve</button>`}
+                            ${e.status===`Dismissed`?``:`<button class="btn btn-xs btn-secondary dismiss-corr" data-id="${N(e.id)}">Dismiss</button>`}
                           </div>
                         </td>
                       </tr>
@@ -6304,7 +6304,7 @@ Are you absolutely sure?`))return;F(t,!0,`🗑️ Wiping...`);let i=n.querySelec
         <div class="glass rounded-xl p-4 flex flex-col md:flex-row gap-3 items-center w-full shadow-lg mb-2">
           <div class="relative flex-1 w-full">
             <span class="absolute left-3 top-1/2 -translate-y-1/2 text-slate-500">🔍</span>
-            <input type="text" id="searchInput" class="field w-full pl-10 bg-black/20 focus:bg-black/40 transition-colors text-sm" placeholder="Search by student name, class, admission no, or serial..." value="${P(l)}">
+            <input type="text" id="searchInput" class="field w-full pl-10 bg-black/20 focus:bg-black/40 transition-colors text-sm" placeholder="Search by student name, class, admission no, or serial..." value="${N(l)}">
           </div>
           <div class="w-full md:w-60 shrink-0">
             <select id="adminArrangeSelect" class="field text-xs bg-slate-900 border-white/10 text-white w-full py-2">
@@ -6335,23 +6335,23 @@ Are you absolutely sure?`))return;F(t,!0,`🗑️ Wiping...`);let i=n.querySelec
                   <div class="space-y-2.5">
                     <div class="flex items-center justify-between gap-2">
                       <span class="badge ${o?`badge-pending text-amber-300 border border-amber-500/30`:`bg-indigo-500/20 text-indigo-300 border border-indigo-500/40`} font-mono font-bold text-xs py-1 px-2.5">
-                        ${o?`Draft Sl. D`:`Sl. #`}${P(e[`Nominal Roll Serial Number`])}
+                        ${o?`Draft Sl. D`:`Sl. #`}${N(e[`Nominal Roll Serial Number`])}
                       </span>
                       <span class="font-mono text-xs text-slate-300 bg-black/40 px-2 py-0.5 rounded border border-white/10">
-                        Adm: <strong class="text-indigo-300">${P(e[`ADMISION NO`]||e[`ADMISSION NO`]||`–`)}</strong>
+                        Adm: <strong class="text-indigo-300">${N(e[`ADMISION NO`]||e[`ADMISSION NO`]||`–`)}</strong>
                       </span>
                     </div>
                     
                     <div>
-                      <h4 class="text-white font-bold text-base leading-snug break-words">${P(e.NAME)}</h4>
+                      <h4 class="text-white font-bold text-base leading-snug break-words">${N(e.NAME)}</h4>
                       <div class="text-slate-300 text-xs mt-2 space-y-1">
                         <div class="flex items-center gap-1.5 flex-wrap">
                           <span class="text-slate-400 font-medium">🎓 Class:</span>
-                          <span class="text-slate-200 font-medium">${P(e.CLASS)}</span>
+                          <span class="text-slate-200 font-medium">${N(e.CLASS)}</span>
                         </div>
                         <div class="flex items-center gap-1.5 flex-wrap">
                           <span class="text-slate-400 font-medium">🏢 Dept:</span>
-                          <span class="text-slate-300">${P(e.Dept||`–`)}</span>
+                          <span class="text-slate-300">${N(e.Dept||`–`)}</span>
                         </div>
                       </div>
                     </div>
@@ -6359,16 +6359,16 @@ Are you absolutely sure?`))return;F(t,!0,`🗑️ Wiping...`);let i=n.querySelec
 
                     <div class="flex items-center gap-2 pt-2.5 border-t border-white/10">
                       <button type="button" class="btn btn-sm btn-secondary text-indigo-300 hover:text-white edit-student flex-1 py-1.5 text-xs flex items-center justify-center gap-1.5 font-medium border-indigo-500/30 hover:border-indigo-400"
-                        data-serial="${P(e[`Nominal Roll Serial Number`])}"
-                        data-name="${P(e.NAME)}"
-                        data-class="${P(e.CLASS)}"
-                        data-adm="${P(e[`ADMISION NO`]||e[`ADMISSION NO`]||``)}"
-                        data-dept="${P(e.Dept||``)}">
+                        data-serial="${N(e[`Nominal Roll Serial Number`])}"
+                        data-name="${N(e.NAME)}"
+                        data-class="${N(e.CLASS)}"
+                        data-adm="${N(e[`ADMISION NO`]||e[`ADMISSION NO`]||``)}"
+                        data-dept="${N(e.Dept||``)}">
                         ✏️ Edit
                       </button>
                       <button type="button" class="btn btn-sm bg-rose-500/15 text-rose-300 hover:bg-rose-600 hover:text-white border border-rose-500/30 delete-student flex-1 py-1.5 text-xs flex items-center justify-center gap-1.5 font-medium"
                         data-serial="${e[`Nominal Roll Serial Number`]}"
-                        data-name="${P(e.NAME)}">
+                        data-name="${N(e.NAME)}">
                         🗑️ Delete
                       </button>
                     </div>
@@ -6396,14 +6396,14 @@ Are you absolutely sure?`))return;F(t,!0,`🗑️ Wiping...`);let i=n.querySelec
                 <tbody id="adminRollTableBody">
                   ${b.length?b.map(e=>`
                     <tr>
-                      <td class="text-center font-bold font-mono ${o?`text-amber-400`:`text-indigo-400`}">${o?`D`:``}${P(e[`Nominal Roll Serial Number`])}</td>
-                      <td class="font-mono text-xs">${P(e[`ADMISION NO`]||e[`ADMISSION NO`]||`–`)}</td>
-                      <td class="text-white font-medium">${P(e.NAME)}</td>
-                      <td class="text-slate-300 text-sm">${P(e.CLASS)}</td>
-                      <td class="text-slate-400 text-xs">${P(e.Dept||`–`)}</td>
+                      <td class="text-center font-bold font-mono ${o?`text-amber-400`:`text-indigo-400`}">${o?`D`:``}${N(e[`Nominal Roll Serial Number`])}</td>
+                      <td class="font-mono text-xs">${N(e[`ADMISION NO`]||e[`ADMISSION NO`]||`–`)}</td>
+                      <td class="text-white font-medium">${N(e.NAME)}</td>
+                      <td class="text-slate-300 text-sm">${N(e.CLASS)}</td>
+                      <td class="text-slate-400 text-xs">${N(e.Dept||`–`)}</td>
                       <td>
-                        <button class="text-indigo-400 hover:text-indigo-300 edit-student mr-3" data-serial="${P(e[`Nominal Roll Serial Number`])}" data-name="${P(e.NAME)}" data-class="${P(e.CLASS)}" data-adm="${P(e[`ADMISION NO`]||e[`ADMISSION NO`]||``)}" data-dept="${P(e.Dept||``)}">Edit</button>
-                        <button class="text-rose-400 hover:text-rose-300 delete-student" data-serial="${e[`Nominal Roll Serial Number`]}" data-name="${P(e.NAME)}">Delete</button>
+                        <button class="text-indigo-400 hover:text-indigo-300 edit-student mr-3" data-serial="${N(e[`Nominal Roll Serial Number`])}" data-name="${N(e.NAME)}" data-class="${N(e.CLASS)}" data-adm="${N(e[`ADMISION NO`]||e[`ADMISSION NO`]||``)}" data-dept="${N(e.Dept||``)}">Edit</button>
+                        <button class="text-rose-400 hover:text-rose-300 delete-student" data-serial="${e[`Nominal Roll Serial Number`]}" data-name="${N(e.NAME)}">Delete</button>
                       </td>
                     </tr>
                   `).join(``):`<tr><td colspan="6" class="text-center py-10 text-slate-500">No students found matching your search.</td></tr>`}
@@ -6441,7 +6441,7 @@ Are you absolutely sure?`))return;F(t,!0,`🗑️ Wiping...`);let i=n.querySelec
               <label class="block text-xs font-bold text-slate-400 uppercase mb-1">Class Name</label>
               <select id="addClass" class="field">
                 <option value="">-- Select Class --</option>
-                ${p.map(e=>`<option value="${P(e)}">${P(e)}</option>`).join(``)}
+                ${p.map(e=>`<option value="${N(e)}">${N(e)}</option>`).join(``)}
               </select>
             </div>
             <div>
@@ -6452,7 +6452,7 @@ Are you absolutely sure?`))return;F(t,!0,`🗑️ Wiping...`);let i=n.querySelec
               <label class="block text-xs font-bold text-slate-400 uppercase mb-1">Department</label>
               <select id="addDept" class="field">
                 <option value="">-- Select Department --</option>
-                ${m.map(e=>`<option value="${P(e)}">${P(e)}</option>`).join(``)}
+                ${m.map(e=>`<option value="${N(e)}">${N(e)}</option>`).join(``)}
               </select>
             </div>
           </div>
@@ -6529,15 +6529,15 @@ Are you absolutely sure?`))return;F(t,!0,`🗑️ Wiping...`);let i=n.querySelec
           </div>
         </div>
       </div>
-    `,e.querySelector(`#searchInput`).oninput=t=>{l=t.target.value,d=1,g(),e.querySelector(`#searchInput`).focus();let n=e.querySelector(`#searchInput`).value;e.querySelector(`#searchInput`).value=``,e.querySelector(`#searchInput`).value=n};let S=e.querySelector(`#adminArrangeSelect`);S&&(S.onchange=e=>{u=e.target.value,d=1,g()});let w=e.querySelector(`#btnModeCards`);w&&(w.onclick=()=>{f!==`cards`&&(f=`cards`,g())});let T=e.querySelector(`#btnModeTable`);T&&(T.onclick=()=>{f!==`table`&&(f=`table`,g())});let E=e.querySelector(`#adminPaginationControls`);E&&(E.onclick=t=>{let n=t.target.closest(`.pg-btn`);if(!n||n.disabled)return;let r=Number(n.dataset.page);r&&r!==d&&(d=r,g(),e.querySelector(`#adminRollListView`)?.scrollIntoView({behavior:`smooth`,block:`nearest`}))});let D=(t,n={})=>{e.querySelector(`#modalTitle`).textContent=t?`Edit Student`:a?`Add Voter (Final Roll)`:`Add New Student`,e.querySelector(`#editOldSerial`).value=t?n.serial:``,e.querySelector(`#addName`).value=n.name||``,e.querySelector(`#addClass`).value=n.class||``,e.querySelector(`#addAdm`).value=n.adm||``,e.querySelector(`#addDept`).value=n.dept||``,e.querySelector(`#addModal`).classList.remove(`hidden`)};if(e.querySelector(`#btnAddNew`)&&(e.querySelector(`#btnAddNew`).onclick=()=>D(!1)),e.querySelector(`#btnCancelAdd`)&&(e.querySelector(`#btnCancelAdd`).onclick=()=>e.querySelector(`#addModal`).classList.add(`hidden`)),e.querySelector(`#btnConfirmAdd`)&&(e.querySelector(`#btnConfirmAdd`).onclick=async n=>{let r={old_serial:e.querySelector(`#editOldSerial`).value,name:e.querySelector(`#addName`).value,class:e.querySelector(`#addClass`).value,admission_no:e.querySelector(`#addAdm`).value,dept:e.querySelector(`#addDept`).value};if(!r.name||!r.class)return I(`Please fill required fields.`,`warning`);F(n.target,!0,`Save Student`);try{if(r.old_serial)await C.adminUpdateStudent(t,r),I(`Student updated successfully.`,`success`);else{let e=await C.adminAddStudent(t,r);e&&e.serial?I(`Student added with Serial #${e.serial}${e.isFinalAddition?` (Suffix Addition on Final Roll)`:``}.`,`success`):I(`Student added successfully.`,`success`)}e.querySelector(`#addModal`).classList.add(`hidden`),await Q(e,t)}catch(e){I(e.message,`error`),F(n.target,!1,`Save Student`)}}),e.querySelectorAll(`.edit-student`).forEach(e=>{e.onclick=()=>{D(!0,{serial:e.dataset.serial,name:e.dataset.name,class:e.dataset.class,adm:e.dataset.adm,dept:e.dataset.dept})}}),e.querySelectorAll(`.delete-student`).forEach(n=>{n.onclick=async()=>{let r=n.dataset.serial,i=n.dataset.name||``,o=a?`⚠️ Delete student #${r} (${i}) from the FINAL Electoral Roll?\n\nThe student will be removed. All other students' serial numbers will remain strictly UNCHANGED.`:`Delete student #${r} (${i}) from the Draft Roll?`;if(confirm(o))try{await C.adminDeleteStudent(t,r),I(`Student #${r} removed successfully.`,`success`),await Q(e,t)}catch(e){I(e.message,`error`)}}}),!a){e.querySelector(`#toggleUploadPanel`)&&(e.querySelector(`#toggleUploadPanel`).onclick=()=>{let t=e.querySelector(`#uploadPanelBody`),n=e.querySelector(`#uploadChevron`);t&&t.classList.toggle(`hidden`),n&&(n.style.transform=t&&t.classList.contains(`hidden`)?``:`rotate(180deg)`)}),e.querySelector(`#btnDownloadTemplate`)&&(e.querySelector(`#btnDownloadTemplate`).onclick=async e=>{let n=e.currentTarget;F(n,!0,`Downloading...`);try{let e=await C.adminGetNominalRollTemplate(t),n=[e.headers.join(`,`)];e.rows.forEach(e=>{n.push(e.map(e=>{let t=String(e??``);return t.includes(`,`)||t.includes(`"`)?`"${t.replace(/"/g,`""`)}"`:t}).join(`,`))});let r=new Blob([n.join(`\r
-`)],{type:`text/csv;charset=utf-8;`}),i=URL.createObjectURL(r),a=document.createElement(`a`);a.href=i,a.download=`NominalRoll_Template.csv`,a.click(),URL.revokeObjectURL(i),I(`Template downloaded!`,`success`)}catch(e){I(e.message,`error`)}finally{F(n,!1,`⬇️ Download Template`)}});let n=null,r=[],i=[`Nominal Roll Serial Number`,`NAME`,`CLASS`,`ADMISION NO`,`Dept`],a=[`Nominal Roll Serial Number`,`NAME`,`YEAR`,`STREAM`,`ADMISION NO`,`Dept`];e.querySelector(`#csvFileInput`)&&(e.querySelector(`#csvFileInput`).onchange=t=>{let s=t.target.files[0];if(!s)return;e.querySelector(`#filePickerLabel`).textContent=`📄 ${s.name}`;let c=new FileReader;c.onload=t=>{let s=t.target.result.replace(/\r\n/g,`
+    `,e.querySelector(`#searchInput`).oninput=t=>{l=t.target.value,d=1,g(),e.querySelector(`#searchInput`).focus();let n=e.querySelector(`#searchInput`).value;e.querySelector(`#searchInput`).value=``,e.querySelector(`#searchInput`).value=n};let S=e.querySelector(`#adminArrangeSelect`);S&&(S.onchange=e=>{u=e.target.value,d=1,g()});let w=e.querySelector(`#btnModeCards`);w&&(w.onclick=()=>{f!==`cards`&&(f=`cards`,g())});let T=e.querySelector(`#btnModeTable`);T&&(T.onclick=()=>{f!==`table`&&(f=`table`,g())});let E=e.querySelector(`#adminPaginationControls`);E&&(E.onclick=t=>{let n=t.target.closest(`.pg-btn`);if(!n||n.disabled)return;let r=Number(n.dataset.page);r&&r!==d&&(d=r,g(),e.querySelector(`#adminRollListView`)?.scrollIntoView({behavior:`smooth`,block:`nearest`}))});let D=(t,n={})=>{e.querySelector(`#modalTitle`).textContent=t?`Edit Student`:a?`Add Voter (Final Roll)`:`Add New Student`,e.querySelector(`#editOldSerial`).value=t?n.serial:``,e.querySelector(`#addName`).value=n.name||``,e.querySelector(`#addClass`).value=n.class||``,e.querySelector(`#addAdm`).value=n.adm||``,e.querySelector(`#addDept`).value=n.dept||``,e.querySelector(`#addModal`).classList.remove(`hidden`)};if(e.querySelector(`#btnAddNew`)&&(e.querySelector(`#btnAddNew`).onclick=()=>D(!1)),e.querySelector(`#btnCancelAdd`)&&(e.querySelector(`#btnCancelAdd`).onclick=()=>e.querySelector(`#addModal`).classList.add(`hidden`)),e.querySelector(`#btnConfirmAdd`)&&(e.querySelector(`#btnConfirmAdd`).onclick=async n=>{let r={old_serial:e.querySelector(`#editOldSerial`).value,name:e.querySelector(`#addName`).value,class:e.querySelector(`#addClass`).value,admission_no:e.querySelector(`#addAdm`).value,dept:e.querySelector(`#addDept`).value};if(!r.name||!r.class)return F(`Please fill required fields.`,`warning`);P(n.target,!0,`Save Student`);try{if(r.old_serial)await C.adminUpdateStudent(t,r),F(`Student updated successfully.`,`success`);else{let e=await C.adminAddStudent(t,r);e&&e.serial?F(`Student added with Serial #${e.serial}${e.isFinalAddition?` (Suffix Addition on Final Roll)`:``}.`,`success`):F(`Student added successfully.`,`success`)}e.querySelector(`#addModal`).classList.add(`hidden`),await Q(e,t)}catch(e){F(e.message,`error`),P(n.target,!1,`Save Student`)}}),e.querySelectorAll(`.edit-student`).forEach(e=>{e.onclick=()=>{D(!0,{serial:e.dataset.serial,name:e.dataset.name,class:e.dataset.class,adm:e.dataset.adm,dept:e.dataset.dept})}}),e.querySelectorAll(`.delete-student`).forEach(n=>{n.onclick=async()=>{let r=n.dataset.serial,i=n.dataset.name||``,o=a?`⚠️ Delete student #${r} (${i}) from the FINAL Electoral Roll?\n\nThe student will be removed. All other students' serial numbers will remain strictly UNCHANGED.`:`Delete student #${r} (${i}) from the Draft Roll?`;if(confirm(o))try{await C.adminDeleteStudent(t,r),F(`Student #${r} removed successfully.`,`success`),await Q(e,t)}catch(e){F(e.message,`error`)}}}),!a){e.querySelector(`#toggleUploadPanel`)&&(e.querySelector(`#toggleUploadPanel`).onclick=()=>{let t=e.querySelector(`#uploadPanelBody`),n=e.querySelector(`#uploadChevron`);t&&t.classList.toggle(`hidden`),n&&(n.style.transform=t&&t.classList.contains(`hidden`)?``:`rotate(180deg)`)}),e.querySelector(`#btnDownloadTemplate`)&&(e.querySelector(`#btnDownloadTemplate`).onclick=async e=>{let n=e.currentTarget;P(n,!0,`Downloading...`);try{let e=await C.adminGetNominalRollTemplate(t),n=[e.headers.join(`,`)];e.rows.forEach(e=>{n.push(e.map(e=>{let t=String(e??``);return t.includes(`,`)||t.includes(`"`)?`"${t.replace(/"/g,`""`)}"`:t}).join(`,`))});let r=new Blob([n.join(`\r
+`)],{type:`text/csv;charset=utf-8;`}),i=URL.createObjectURL(r),a=document.createElement(`a`);a.href=i,a.download=`NominalRoll_Template.csv`,a.click(),URL.revokeObjectURL(i),F(`Template downloaded!`,`success`)}catch(e){F(e.message,`error`)}finally{P(n,!1,`⬇️ Download Template`)}});let n=null,r=[],i=[`Nominal Roll Serial Number`,`NAME`,`CLASS`,`ADMISION NO`,`Dept`],a=[`Nominal Roll Serial Number`,`NAME`,`YEAR`,`STREAM`,`ADMISION NO`,`Dept`];e.querySelector(`#csvFileInput`)&&(e.querySelector(`#csvFileInput`).onchange=t=>{let s=t.target.files[0];if(!s)return;e.querySelector(`#filePickerLabel`).textContent=`📄 ${s.name}`;let c=new FileReader;c.onload=t=>{let s=t.target.result.replace(/\r\n/g,`
 `).replace(/\r/g,`
 `).split(`
-`).filter(e=>e.trim());if(s.length<2){I(`CSV file appears empty.`,`error`);return}let c=-1,l=`,`,u=e=>String(e||``).trim().replace(/^"|"$/g,``).toUpperCase().replace(/\s+/g,` `),d=e=>{let t=u(e);return t===`ADMISION NO`||t===`ADMISSION NO`||t===`ADMISION NUMBER`||t===`ADMISSION NUMBER`||t===`ADM NO`};for(let e=0;e<Math.min(s.length,20);e++){let t=s[e].includes(`	`)&&!s[e].includes(`,`)?`	`:`,`,n=s[e].split(t).map(u),o=n.some(e=>e===`NOMINAL ROLL SERIAL NUMBER`||e===`SERIAL NUMBER`||e===`SL. NO`||e===`SL NO`),f=n.includes(`NAME`),p=n.includes(`DEPT`)||n.includes(`DEPARTMENT`),m=n.some(d);n.includes(`CLASS`);let h=n.includes(`YEAR`),g=n.includes(`STREAM`);if(o&&f&&p&&m){c=e,l=t,r=h&&g?a:i;break}}if(c===-1){I(`Missing required columns. Please use one of the standard templates.`,`error`),e.querySelector(`#csvPreview`)?.classList.add(`hidden`);return}let f=s[c].split(l).map(e=>e.trim().replace(/^"|"$/g,``)).map(u),p;p=r===a?[f.findIndex(e=>e===`NOMINAL ROLL SERIAL NUMBER`||e===`SERIAL NUMBER`||e===`SL. NO`||e===`SL NO`),f.indexOf(`NAME`),f.indexOf(`YEAR`),f.indexOf(`STREAM`),f.findIndex(d),f.findIndex(e=>e===`DEPT`||e===`DEPARTMENT`)]:[f.findIndex(e=>e===`NOMINAL ROLL SERIAL NUMBER`||e===`SERIAL NUMBER`||e===`SL. NO`||e===`SL NO`),f.indexOf(`NAME`),f.indexOf(`CLASS`),f.findIndex(d),f.findIndex(e=>e===`DEPT`||e===`DEPARTMENT`)],n=s.slice(c+1).map(e=>{let t=[],n=``,r=!1;for(let i of e+l)i===`"`?r=!r:i===l&&!r?(t.push(n.trim()),n=``):n+=i;return p.map(e=>e>=0?t[e]??``:``)}).filter(e=>e[1]&&e[1].trim()!==``&&e[1].toUpperCase()!==`NAME`);let m=r.indexOf(`Dept`),h=[];if(r===i)h=[...new Set(n.map(e=>e[r.indexOf(`CLASS`)]))].sort();else{let e=e=>{let t=String(e||``).trim().toUpperCase();return t===`1`||t===`1ST`||t===`I`?`1ST YEAR`:t===`2`||t===`2ND`||t===`II`?`2ND YEAR`:t===`3`||t===`3RD`||t===`III`?`3RD YEAR`:t&&!t.includes(`YEAR`)?`${t} YEAR`:t};h=[...new Set(n.map(t=>`${e(t[r.indexOf(`YEAR`)])} ${t[r.indexOf(`STREAM`)]} ${t[m]}`.replace(/\s+/g,` `).trim()))].sort()}let g=[...new Set(n.map(e=>e[m]))].sort();e.querySelector(`#csvSummary`).innerHTML=`
+`).filter(e=>e.trim());if(s.length<2){F(`CSV file appears empty.`,`error`);return}let c=-1,l=`,`,u=e=>String(e||``).trim().replace(/^"|"$/g,``).toUpperCase().replace(/\s+/g,` `),d=e=>{let t=u(e);return t===`ADMISION NO`||t===`ADMISSION NO`||t===`ADMISION NUMBER`||t===`ADMISSION NUMBER`||t===`ADM NO`};for(let e=0;e<Math.min(s.length,20);e++){let t=s[e].includes(`	`)&&!s[e].includes(`,`)?`	`:`,`,n=s[e].split(t).map(u),o=n.some(e=>e===`NOMINAL ROLL SERIAL NUMBER`||e===`SERIAL NUMBER`||e===`SL. NO`||e===`SL NO`),f=n.includes(`NAME`),p=n.includes(`DEPT`)||n.includes(`DEPARTMENT`),m=n.some(d);n.includes(`CLASS`);let h=n.includes(`YEAR`),g=n.includes(`STREAM`);if(o&&f&&p&&m){c=e,l=t,r=h&&g?a:i;break}}if(c===-1){F(`Missing required columns. Please use one of the standard templates.`,`error`),e.querySelector(`#csvPreview`)?.classList.add(`hidden`);return}let f=s[c].split(l).map(e=>e.trim().replace(/^"|"$/g,``)).map(u),p;p=r===a?[f.findIndex(e=>e===`NOMINAL ROLL SERIAL NUMBER`||e===`SERIAL NUMBER`||e===`SL. NO`||e===`SL NO`),f.indexOf(`NAME`),f.indexOf(`YEAR`),f.indexOf(`STREAM`),f.findIndex(d),f.findIndex(e=>e===`DEPT`||e===`DEPARTMENT`)]:[f.findIndex(e=>e===`NOMINAL ROLL SERIAL NUMBER`||e===`SERIAL NUMBER`||e===`SL. NO`||e===`SL NO`),f.indexOf(`NAME`),f.indexOf(`CLASS`),f.findIndex(d),f.findIndex(e=>e===`DEPT`||e===`DEPARTMENT`)],n=s.slice(c+1).map(e=>{let t=[],n=``,r=!1;for(let i of e+l)i===`"`?r=!r:i===l&&!r?(t.push(n.trim()),n=``):n+=i;return p.map(e=>e>=0?t[e]??``:``)}).filter(e=>e[1]&&e[1].trim()!==``&&e[1].toUpperCase()!==`NAME`);let m=r.indexOf(`Dept`),h=[];if(r===i)h=[...new Set(n.map(e=>e[r.indexOf(`CLASS`)]))].sort();else{let e=e=>{let t=String(e||``).trim().toUpperCase();return t===`1`||t===`1ST`||t===`I`?`1ST YEAR`:t===`2`||t===`2ND`||t===`II`?`2ND YEAR`:t===`3`||t===`3RD`||t===`III`?`3RD YEAR`:t&&!t.includes(`YEAR`)?`${t} YEAR`:t};h=[...new Set(n.map(t=>`${e(t[r.indexOf(`YEAR`)])} ${t[r.indexOf(`STREAM`)]} ${t[m]}`.replace(/\s+/g,` `).trim()))].sort()}let g=[...new Set(n.map(e=>e[m]))].sort();e.querySelector(`#csvSummary`).innerHTML=`
               <div>👥 <strong class="text-white">${n.length}</strong> students detected using <strong>${r===i?`Legacy Format`:`Explicit Format`}</strong></div>
-              <div>🏛️ <strong class="text-white">${g.length}</strong> departments: ${g.map(e=>`<span class="text-indigo-300">${P(e)}</span>`).join(`, `)}</div>
+              <div>🏛️ <strong class="text-white">${g.length}</strong> departments: ${g.map(e=>`<span class="text-indigo-300">${N(e)}</span>`).join(`, `)}</div>
               <div>📚 <strong class="text-white">${h.length}</strong> unique classes found</div>
-            `,e.querySelector(`#csvPreview`)?.classList.remove(`hidden`),o()},c.readAsText(s)});let o=()=>{let t=e.querySelector(`#confirmResetText`)?.value.trim().toUpperCase()||``,r=t===`RESET`||t===`CONFIRM`,i=(e.querySelector(`#confirmPwd`)?.value.trim()||``)!==``,a=e.querySelector(`#btnUploadRoll`);if(!a)return;let o=r&&i&&n&&n.length>0;a.disabled=!o,a.classList.toggle(`opacity-50`,!o),a.classList.toggle(`cursor-not-allowed`,!o)};e.querySelector(`#confirmResetText`)?.addEventListener(`input`,o),e.querySelector(`#confirmPwd`)?.addEventListener(`input`,o),e.querySelector(`#btnUploadRoll`)&&(e.querySelector(`#btnUploadRoll`).onclick=async i=>{let a=e.querySelector(`#confirmPwd`).value.trim();if(!n||n.length===0)return I(`No data to upload.`,`error`);if(confirm(`CONFIRMATION\n\nYou are about to update the Nominal Roll with ${n.length} students.\nExisting nominations will be preserved and automatically re-mapped by Admission Number.\n\nProceed?`)){F(i.target,!0,`Uploading & Re-mapping...`);try{let i=await C.adminUploadNominalRoll(a,{headers:r,rows:n}),o=i.remappedNominations===void 0?``:` Re-mapped ${i.remappedNominations} existing nominations.`;I(`✅ Nominal Roll updated with ${i.count||n.length} students.${o}`,`success`),await Q(e,t)}catch(e){I(e.message,`error`),F(i.target,!1,`📤 Upload Roll & Auto-Remap Nominations`)}}});let s=()=>{let t=e.querySelector(`#clearRollModal`),n=e.querySelector(`#clearRollConfirmText`),r=e.querySelector(`#clearRollPwdInput`),i=e.querySelector(`#clearRollError`);n&&(n.value=``),r&&(r.value=``),i&&(i.textContent=``,i.classList.add(`hidden`)),t&&(t.classList.remove(`hidden`),n&&setTimeout(()=>n.focus(),50))};e.querySelector(`#btnClearRoll`)&&(e.querySelector(`#btnClearRoll`).onclick=s),e.querySelector(`#btnCancelClearRoll`)&&(e.querySelector(`#btnCancelClearRoll`).onclick=()=>{e.querySelector(`#clearRollModal`)?.classList.add(`hidden`)}),e.querySelector(`#btnConfirmClearRoll`)&&(e.querySelector(`#btnConfirmClearRoll`).onclick=async n=>{let r=(e.querySelector(`#clearRollConfirmText`)?.value||``).trim().toUpperCase(),i=(e.querySelector(`#clearRollPwdInput`)?.value||``).trim(),a=e.querySelector(`#clearRollError`),o=n.target;if(r!==`CLEAR`){a&&(a.textContent=`❌ Please type CLEAR to confirm deletion.`,a.classList.remove(`hidden`)),e.querySelector(`#clearRollConfirmText`)?.focus();return}if(!i){a&&(a.textContent=`❌ Please enter your admin password.`,a.classList.remove(`hidden`)),e.querySelector(`#clearRollPwdInput`)?.focus();return}F(o,!0,`Clearing Roll Data...`),a&&a.classList.add(`hidden`);try{let n=await C.adminClearNominalRoll(i);I(`🗑️ Cleared ${n.clearedCount} students from Nominal Roll. ${n.preservedNominations||0} nominations remain preserved.`,`success`),e.querySelector(`#clearRollModal`)?.classList.add(`hidden`),await Q(e,t)}catch(e){a&&(a.textContent=`❌ ${e.message}`,a.classList.remove(`hidden`)),F(o,!1,`🗑️ Clear Roll Data`)}}),e.querySelector(`#btnFixSerialsDept`)&&(e.querySelector(`#btnFixSerialsDept`).onclick=async n=>{let r=n.currentTarget;if(confirm(`🔢 Re-serialise Draft Electoral Roll?
+            `,e.querySelector(`#csvPreview`)?.classList.remove(`hidden`),o()},c.readAsText(s)});let o=()=>{let t=e.querySelector(`#confirmResetText`)?.value.trim().toUpperCase()||``,r=t===`RESET`||t===`CONFIRM`,i=(e.querySelector(`#confirmPwd`)?.value.trim()||``)!==``,a=e.querySelector(`#btnUploadRoll`);if(!a)return;let o=r&&i&&n&&n.length>0;a.disabled=!o,a.classList.toggle(`opacity-50`,!o),a.classList.toggle(`cursor-not-allowed`,!o)};e.querySelector(`#confirmResetText`)?.addEventListener(`input`,o),e.querySelector(`#confirmPwd`)?.addEventListener(`input`,o),e.querySelector(`#btnUploadRoll`)&&(e.querySelector(`#btnUploadRoll`).onclick=async i=>{let a=e.querySelector(`#confirmPwd`).value.trim();if(!n||n.length===0)return F(`No data to upload.`,`error`);if(confirm(`CONFIRMATION\n\nYou are about to update the Nominal Roll with ${n.length} students.\nExisting nominations will be preserved and automatically re-mapped by Admission Number.\n\nProceed?`)){P(i.target,!0,`Uploading & Re-mapping...`);try{let i=await C.adminUploadNominalRoll(a,{headers:r,rows:n}),o=i.remappedNominations===void 0?``:` Re-mapped ${i.remappedNominations} existing nominations.`;F(`✅ Nominal Roll updated with ${i.count||n.length} students.${o}`,`success`),await Q(e,t)}catch(e){F(e.message,`error`),P(i.target,!1,`📤 Upload Roll & Auto-Remap Nominations`)}}});let s=()=>{let t=e.querySelector(`#clearRollModal`),n=e.querySelector(`#clearRollConfirmText`),r=e.querySelector(`#clearRollPwdInput`),i=e.querySelector(`#clearRollError`);n&&(n.value=``),r&&(r.value=``),i&&(i.textContent=``,i.classList.add(`hidden`)),t&&(t.classList.remove(`hidden`),n&&setTimeout(()=>n.focus(),50))};e.querySelector(`#btnClearRoll`)&&(e.querySelector(`#btnClearRoll`).onclick=s),e.querySelector(`#btnCancelClearRoll`)&&(e.querySelector(`#btnCancelClearRoll`).onclick=()=>{e.querySelector(`#clearRollModal`)?.classList.add(`hidden`)}),e.querySelector(`#btnConfirmClearRoll`)&&(e.querySelector(`#btnConfirmClearRoll`).onclick=async n=>{let r=(e.querySelector(`#clearRollConfirmText`)?.value||``).trim().toUpperCase(),i=(e.querySelector(`#clearRollPwdInput`)?.value||``).trim(),a=e.querySelector(`#clearRollError`),o=n.target;if(r!==`CLEAR`){a&&(a.textContent=`❌ Please type CLEAR to confirm deletion.`,a.classList.remove(`hidden`)),e.querySelector(`#clearRollConfirmText`)?.focus();return}if(!i){a&&(a.textContent=`❌ Please enter your admin password.`,a.classList.remove(`hidden`)),e.querySelector(`#clearRollPwdInput`)?.focus();return}P(o,!0,`Clearing Roll Data...`),a&&a.classList.add(`hidden`);try{let n=await C.adminClearNominalRoll(i);F(`🗑️ Cleared ${n.clearedCount} students from Nominal Roll. ${n.preservedNominations||0} nominations remain preserved.`,`success`),e.querySelector(`#clearRollModal`)?.classList.add(`hidden`),await Q(e,t)}catch(e){a&&(a.textContent=`❌ ${e.message}`,a.classList.remove(`hidden`)),P(o,!1,`🗑️ Clear Roll Data`)}}),e.querySelector(`#btnFixSerialsDept`)&&(e.querySelector(`#btnFixSerialsDept`).onclick=async n=>{let r=n.currentTarget;if(confirm(`🔢 Re-serialise Draft Electoral Roll?
 
 This will reassign contiguous sequential 1..N serial numbers:
 • Department A-Z (Botany -> Chemistry -> ... -> Zoology)
@@ -6548,14 +6548,14 @@ Existing nominations will be automatically remapped using Admission Numbers.
 
 NOTE: This action is strictly prohibited on the Final Electoral Roll.
 
-Do you want to proceed?`)){F(r,!0,`Re-serialising...`);try{let n=await C.adminFixSerialNumbersDeptWise(t);I(`🔢 Sequential Sl. No successfully assigned for ${n.count} students across all departments! ${n.remappedNominations||0} nominations re-mapped.`,`success`),await Q(e,t)}catch(e){I(e.message,`error`),F(r,!1,`🔢 Re-serialise Draft Roll`)}}}),e.querySelector(`#btnRemapNoms`)&&(e.querySelector(`#btnRemapNoms`).onclick=async n=>{F(n.target,!0,`Re-mapping...`);try{let n=await C.adminRemapNominations(t);I(`🔄 Re-mapping complete: ${n.remapped||0} of ${n.total||0} nominations re-linked to Nominal Roll.`,`success`),await Q(e,t)}catch(e){I(e.message,`error`),F(n.target,!1,`🔄 Re-map Nominations`)}})}let O=async n=>{F(n.target,!0,`Publishing Draft...`);try{await C.adminPublishDraftRoll(t),I(`Draft Nominal Roll published! Serial numbers are set to D1, D2...`,`success`),await Q(e,t)}catch(e){I(e.message,`error`),F(n.target,!1,`📢 Publish Draft Roll`)}};e.querySelector(`#btnPublishDraft`)&&(e.querySelector(`#btnPublishDraft`).onclick=O),e.querySelector(`#btnPublishDraftTop`)&&(e.querySelector(`#btnPublishDraftTop`).onclick=O);let k=async n=>{if(confirm(`Unpublish the Draft Nominal Roll? Public visitors will no longer be able to see it.`)){F(n.target,!0,`Unpublishing...`);try{await C.adminUnpublishDraftRoll(t),I(`Draft Nominal Roll unpublished.`,`success`),await Q(e,t)}catch(e){I(e.message,`error`),F(n.target,!1,`🚫 Unpublish Draft`)}}};e.querySelector(`#btnUnpublishDraft`)&&(e.querySelector(`#btnUnpublishDraft`).onclick=k),e.querySelector(`#btnUnpublishDraftTop`)&&(e.querySelector(`#btnUnpublishDraftTop`).onclick=k);let A=e.querySelector(`#toggleCorrectionsPanel`);A&&(A.onclick=()=>{let t=e.querySelector(`#correctionsPanelBody`),n=e.querySelector(`#corrChevron`);if(t){let e=t.classList.toggle(`hidden`);n&&(n.textContent=e?`▼ View Requests`:`▲ Hide Requests`)}}),e.querySelectorAll(`.resolve-corr`).forEach(n=>{n.onclick=async()=>{let r=n.dataset.id;try{await C.adminUpdateRollCorrection(t,r,`Resolved`),I(`Correction marked as Resolved.`,`success`),await Q(e,t)}catch(e){I(e.message,`error`)}}}),e.querySelectorAll(`.dismiss-corr`).forEach(n=>{n.onclick=async()=>{let r=n.dataset.id;try{await C.adminUpdateRollCorrection(t,r,`Dismissed`),I(`Correction marked as Dismissed.`,`success`),await Q(e,t)}catch(e){I(e.message,`error`)}}});let j=async n=>{if(!confirm(`Are you sure you want to finalize the Nominal Roll?
+Do you want to proceed?`)){P(r,!0,`Re-serialising...`);try{let n=await C.adminFixSerialNumbersDeptWise(t);F(`🔢 Sequential Sl. No successfully assigned for ${n.count} students across all departments! ${n.remappedNominations||0} nominations re-mapped.`,`success`),await Q(e,t)}catch(e){F(e.message,`error`),P(r,!1,`🔢 Re-serialise Draft Roll`)}}}),e.querySelector(`#btnRemapNoms`)&&(e.querySelector(`#btnRemapNoms`).onclick=async n=>{P(n.target,!0,`Re-mapping...`);try{let n=await C.adminRemapNominations(t);F(`🔄 Re-mapping complete: ${n.remapped||0} of ${n.total||0} nominations re-linked to Nominal Roll.`,`success`),await Q(e,t)}catch(e){F(e.message,`error`),P(n.target,!1,`🔄 Re-map Nominations`)}})}let O=async n=>{P(n.target,!0,`Publishing Draft...`);try{await C.adminPublishDraftRoll(t),F(`Draft Nominal Roll published! Serial numbers are set to D1, D2...`,`success`),await Q(e,t)}catch(e){F(e.message,`error`),P(n.target,!1,`📢 Publish Draft Roll`)}};e.querySelector(`#btnPublishDraft`)&&(e.querySelector(`#btnPublishDraft`).onclick=O),e.querySelector(`#btnPublishDraftTop`)&&(e.querySelector(`#btnPublishDraftTop`).onclick=O);let k=async n=>{if(confirm(`Unpublish the Draft Nominal Roll? Public visitors will no longer be able to see it.`)){P(n.target,!0,`Unpublishing...`);try{await C.adminUnpublishDraftRoll(t),F(`Draft Nominal Roll unpublished.`,`success`),await Q(e,t)}catch(e){F(e.message,`error`),P(n.target,!1,`🚫 Unpublish Draft`)}}};e.querySelector(`#btnUnpublishDraft`)&&(e.querySelector(`#btnUnpublishDraft`).onclick=k),e.querySelector(`#btnUnpublishDraftTop`)&&(e.querySelector(`#btnUnpublishDraftTop`).onclick=k);let ee=e.querySelector(`#toggleCorrectionsPanel`);ee&&(ee.onclick=()=>{let t=e.querySelector(`#correctionsPanelBody`),n=e.querySelector(`#corrChevron`);if(t){let e=t.classList.toggle(`hidden`);n&&(n.textContent=e?`▼ View Requests`:`▲ Hide Requests`)}}),e.querySelectorAll(`.resolve-corr`).forEach(n=>{n.onclick=async()=>{let r=n.dataset.id;try{await C.adminUpdateRollCorrection(t,r,`Resolved`),F(`Correction marked as Resolved.`,`success`),await Q(e,t)}catch(e){F(e.message,`error`)}}}),e.querySelectorAll(`.dismiss-corr`).forEach(n=>{n.onclick=async()=>{let r=n.dataset.id;try{await C.adminUpdateRollCorrection(t,r,`Dismissed`),F(`Correction marked as Dismissed.`,`success`),await Q(e,t)}catch(e){F(e.message,`error`)}}});let A=async n=>{if(!confirm(`Are you sure you want to finalize the Nominal Roll?
 
-This will lock the list and prevent any further additions, edits, or deletions.`))return;let r=async(i=!1)=>{F(n.target,!0,`Finalizing...`);try{let a=await C.adminFinalizeRoll(t,{matchNominations:i});if(a&&a.requiresMatching)return F(n.target,!1,`🔒 Finalize & Lock Roll`),confirm(`⚠️ ${a.count} existing nominations found!\n\nBecause you edited the Nominal Roll, their Serial Numbers have shifted.\n\nWould you like the system to automatically remap them using their Admission Numbers?`)?await r(!0):void 0;I(`Nominal Roll Finalized & Locked Successfully!`,`success`),await Q(e,t)}catch(e){I(e.message,`error`),F(n.target,!1,`🔒 Finalize & Lock Roll`)}};await r(!1)};e.querySelector(`#btnFinalize`)&&(e.querySelector(`#btnFinalize`).onclick=j),e.querySelector(`#btnFinalizeTop`)&&(e.querySelector(`#btnFinalizeTop`).onclick=j);let M=()=>{let t=e.querySelector(`#unfinalizeModal`),n=e.querySelector(`#unfinalizePwdInput`),r=e.querySelector(`#unfinalizeError`);n&&(n.value=``),r&&(r.textContent=``,r.classList.add(`hidden`)),t&&(t.classList.remove(`hidden`),n&&setTimeout(()=>n.focus(),50))};e.querySelector(`#btnUnfinalize`)&&(e.querySelector(`#btnUnfinalize`).onclick=M),e.querySelector(`#btnUnfinalizeBanner`)&&(e.querySelector(`#btnUnfinalizeBanner`).onclick=M),e.querySelector(`#btnCancelUnfinalize`)&&(e.querySelector(`#btnCancelUnfinalize`).onclick=()=>{e.querySelector(`#unfinalizeModal`)?.classList.add(`hidden`)});let N=async()=>{let n=e.querySelector(`#unfinalizePwdInput`),r=(n?.value||``).trim(),i=e.querySelector(`#unfinalizeError`),a=e.querySelector(`#btnConfirmUnfinalize`);if(!r){i&&(i.textContent=`❌ Please enter your admin password.`,i.classList.remove(`hidden`)),n?.focus();return}F(a,!0,`Unlocking...`),i&&i.classList.add(`hidden`);try{await C.adminUnfinalizeRoll(r),I(`Nominal Roll Unlocked! You can now add, edit, or delete students.`,`success`),e.querySelector(`#unfinalizeModal`)?.classList.add(`hidden`),await Q(e,t)}catch(e){let t=e.message&&(e.message.includes(`UNAUTHORIZED`)||e.message.includes(`password`))?`Incorrect admin password. Please try again.`:e.message||`Incorrect password`;i&&(i.textContent=`❌ ${t}`,i.classList.remove(`hidden`)),I(t,`error`),F(a,!1,`Confirm & Unlock`),n?.focus()}};e.querySelector(`#btnConfirmUnfinalize`)&&(e.querySelector(`#btnConfirmUnfinalize`).onclick=N),e.querySelector(`#unfinalizePwdInput`)&&(e.querySelector(`#unfinalizePwdInput`).onkeydown=e=>{e.key===`Enter`&&N()}),e.querySelector(`#btnPrintRoll`)&&(e.querySelector(`#btnPrintRoll`).onclick=()=>{Xe({students:c,isFinal:a,isDraft:o,collegeName:r.collegeName,collegeLogo:r.collegeLogo,electionYear:r.electionYear,initialSort:u===`dept-class`?`dept-class`:u===`name`?`class`:`serial`})})};g()}async function kt(e){let t=W();t&&(G(e,`schedule`,`
+This will lock the list and prevent any further additions, edits, or deletions.`))return;let r=async(i=!1)=>{P(n.target,!0,`Finalizing...`);try{let a=await C.adminFinalizeRoll(t,{matchNominations:i});if(a&&a.requiresMatching)return P(n.target,!1,`🔒 Finalize & Lock Roll`),confirm(`⚠️ ${a.count} existing nominations found!\n\nBecause you edited the Nominal Roll, their Serial Numbers have shifted.\n\nWould you like the system to automatically remap them using their Admission Numbers?`)?await r(!0):void 0;F(`Nominal Roll Finalized & Locked Successfully!`,`success`),await Q(e,t)}catch(e){F(e.message,`error`),P(n.target,!1,`🔒 Finalize & Lock Roll`)}};await r(!1)};e.querySelector(`#btnFinalize`)&&(e.querySelector(`#btnFinalize`).onclick=A),e.querySelector(`#btnFinalizeTop`)&&(e.querySelector(`#btnFinalizeTop`).onclick=A);let j=()=>{let t=e.querySelector(`#unfinalizeModal`),n=e.querySelector(`#unfinalizePwdInput`),r=e.querySelector(`#unfinalizeError`);n&&(n.value=``),r&&(r.textContent=``,r.classList.add(`hidden`)),t&&(t.classList.remove(`hidden`),n&&setTimeout(()=>n.focus(),50))};e.querySelector(`#btnUnfinalize`)&&(e.querySelector(`#btnUnfinalize`).onclick=j),e.querySelector(`#btnUnfinalizeBanner`)&&(e.querySelector(`#btnUnfinalizeBanner`).onclick=j),e.querySelector(`#btnCancelUnfinalize`)&&(e.querySelector(`#btnCancelUnfinalize`).onclick=()=>{e.querySelector(`#unfinalizeModal`)?.classList.add(`hidden`)});let M=async()=>{let n=e.querySelector(`#unfinalizePwdInput`),r=(n?.value||``).trim(),i=e.querySelector(`#unfinalizeError`),a=e.querySelector(`#btnConfirmUnfinalize`);if(!r){i&&(i.textContent=`❌ Please enter your admin password.`,i.classList.remove(`hidden`)),n?.focus();return}P(a,!0,`Unlocking...`),i&&i.classList.add(`hidden`);try{await C.adminUnfinalizeRoll(r),F(`Nominal Roll Unlocked! You can now add, edit, or delete students.`,`success`),e.querySelector(`#unfinalizeModal`)?.classList.add(`hidden`),await Q(e,t)}catch(e){let t=e.message&&(e.message.includes(`UNAUTHORIZED`)||e.message.includes(`password`))?`Incorrect admin password. Please try again.`:e.message||`Incorrect password`;i&&(i.textContent=`❌ ${t}`,i.classList.remove(`hidden`)),F(t,`error`),P(a,!1,`Confirm & Unlock`),n?.focus()}};e.querySelector(`#btnConfirmUnfinalize`)&&(e.querySelector(`#btnConfirmUnfinalize`).onclick=M),e.querySelector(`#unfinalizePwdInput`)&&(e.querySelector(`#unfinalizePwdInput`).onkeydown=e=>{e.key===`Enter`&&M()}),e.querySelector(`#btnPrintRoll`)&&(e.querySelector(`#btnPrintRoll`).onclick=()=>{et({students:c,isFinal:a,isDraft:o,collegeName:r.collegeName,collegeLogo:r.collegeLogo,electionYear:r.electionYear,initialSort:u===`dept-class`?`dept-class`:u===`name`?`class`:`serial`})})};g()}async function Nt(e){let t=U();t&&(W(e,`schedule`,`
     <div class="text-center py-16">
       <span class="spinner" style="width:2.5rem;height:2.5rem;border-width:4px;"></span>
       <p class="text-slate-400 mt-4 text-sm">Loading election lifecycle & operational schedule...</p>
     </div>
-  `),await At(e.querySelector(`#adminMain`),t))}async function At(e,t){if(e)try{jt(e,t,await C.getPublicSchedule())}catch(t){e.innerHTML=`<div class="alert alert-error">❌ ${P(t.message)}</div>`}}function jt(e,t,n){let r=e=>{if(!e)return``;let t=new Date(e);if(isNaN(t.getTime()))return``;let n=e=>String(e).padStart(2,`0`);return`${t.getFullYear()}-${n(t.getMonth()+1)}-${n(t.getDate())}T${n(t.getHours())}:${n(t.getMinutes())}`},i=e=>{if(!e)return``;let t=new Date(e);return isNaN(t.getTime())?``:t.toISOString()},a=(e,t,n,r)=>{let i=new Date,a=t?new Date(t):null,s=n?new Date(n):null,c=a&&!isNaN(a.getTime()),l=s&&!isNaN(s.getTime());return e===`FORCE_OPEN`?{badge:`<span class="badge bg-emerald-500/20 text-emerald-300 border border-emerald-500/40 text-xs font-bold animate-pulse">⚡ MANUAL OVERRIDE (FORCED OPEN / LIVE)</span>`,statusText:`Active immediately via Administrator Manual Override (Schedule bypassed)`,color:`emerald`,isActive:!0}:e===`FORCE_CLOSED`?{badge:`<span class="badge bg-rose-500/20 text-rose-300 border border-rose-500/40 text-xs font-bold">🛑 MANUAL OVERRIDE (FORCED CLOSED)</span>`,statusText:`Closed / Hidden immediately via Administrator Manual Override`,color:`rose`,isActive:!1}:c&&l?i<a?{badge:`<span class="badge bg-amber-500/20 text-amber-300 border border-amber-500/40 text-xs font-bold">🟡 SCHEDULED (Opens ${a.toLocaleDateString(`en-IN`,{month:`short`,day:`numeric`})} at ${a.toLocaleTimeString(`en-IN`,{hour:`2-digit`,minute:`2-digit`})})</span>`,statusText:`Opens in ${o(a-i)} (Auto-Schedule)`,color:`amber`,isActive:!1}:i>s?{badge:`<span class="badge bg-slate-700 text-slate-300 border border-slate-600 text-xs font-bold">🔴 CLOSED (Schedule ended)</span>`,statusText:`Window expired on ${s.toLocaleString(`en-IN`,{month:`short`,day:`numeric`,hour:`2-digit`,minute:`2-digit`})}`,color:`slate`,isActive:!1}:{badge:`<span class="badge bg-emerald-500/20 text-emerald-300 border border-emerald-500/40 text-xs font-bold">🟢 ACTIVE (Auto Schedule)</span>`,statusText:`Currently live until ${s.toLocaleString(`en-IN`,{month:`short`,day:`numeric`,hour:`2-digit`,minute:`2-digit`})}`,color:`emerald`,isActive:!0}:c?i<a?{badge:`<span class="badge bg-amber-500/20 text-amber-300 border border-amber-500/40 text-xs font-bold">🟡 SCHEDULED (Opens ${a.toLocaleDateString(`en-IN`,{month:`short`,day:`numeric`})})</span>`,statusText:`Opens in ${o(a-i)} (Auto-Schedule)`,color:`amber`,isActive:!1}:{badge:`<span class="badge bg-emerald-500/20 text-emerald-300 border border-emerald-500/40 text-xs font-bold">🟢 ACTIVE (Published via Schedule)</span>`,statusText:`Published on ${a.toLocaleString(`en-IN`,{month:`short`,day:`numeric`,hour:`2-digit`,minute:`2-digit`})}`,color:`emerald`,isActive:!0}:r===!0||r===`true`?{badge:`<span class="badge bg-emerald-500/20 text-emerald-300 border border-emerald-500/40 text-xs font-bold">🟢 ACTIVE (Flag Active)</span>`,statusText:`Active (No timed schedule configured; follow manual flag)`,color:`emerald`,isActive:!0}:{badge:`<span class="badge bg-slate-800 text-slate-400 border border-slate-700 text-xs">⚪ NOT SET / INACTIVE</span>`,statusText:`Schedule timing not set (Set dates or force manual override)`,color:`slate`,isActive:!1}};function o(e){if(e<=0)return`0m`;let t=Math.floor(e/(1e3*60)),n=Math.floor(t/60),r=Math.floor(n/24);return r>0?`${r}d ${n%24}h`:n>0?`${n}h ${t%60}m`:`${t}m`}e.innerHTML=`
+  `),await Pt(e.querySelector(`#adminMain`),t))}async function Pt(e,t){if(e)try{Ft(e,t,await C.getPublicSchedule())}catch(t){e.innerHTML=`<div class="alert alert-error">❌ ${N(t.message)}</div>`}}function Ft(e,t,n){let r=e=>{if(!e)return``;let t=new Date(e);if(isNaN(t.getTime()))return``;let n=e=>String(e).padStart(2,`0`);return`${t.getFullYear()}-${n(t.getMonth()+1)}-${n(t.getDate())}T${n(t.getHours())}:${n(t.getMinutes())}`},i=e=>{if(!e)return``;let t=new Date(e);return isNaN(t.getTime())?``:t.toISOString()},a=(e,t,n,r)=>{let i=new Date,a=t?new Date(t):null,s=n?new Date(n):null,c=a&&!isNaN(a.getTime()),l=s&&!isNaN(s.getTime());return e===`FORCE_OPEN`?{badge:`<span class="badge bg-emerald-500/20 text-emerald-300 border border-emerald-500/40 text-xs font-bold animate-pulse">⚡ MANUAL OVERRIDE (FORCED OPEN / LIVE)</span>`,statusText:`Active immediately via Administrator Manual Override (Schedule bypassed)`,color:`emerald`,isActive:!0}:e===`FORCE_CLOSED`?{badge:`<span class="badge bg-rose-500/20 text-rose-300 border border-rose-500/40 text-xs font-bold">🛑 MANUAL OVERRIDE (FORCED CLOSED)</span>`,statusText:`Closed / Hidden immediately via Administrator Manual Override`,color:`rose`,isActive:!1}:c&&l?i<a?{badge:`<span class="badge bg-amber-500/20 text-amber-300 border border-amber-500/40 text-xs font-bold">🟡 SCHEDULED (Opens ${a.toLocaleDateString(`en-IN`,{month:`short`,day:`numeric`})} at ${a.toLocaleTimeString(`en-IN`,{hour:`2-digit`,minute:`2-digit`})})</span>`,statusText:`Opens in ${o(a-i)} (Auto-Schedule)`,color:`amber`,isActive:!1}:i>s?{badge:`<span class="badge bg-slate-700 text-slate-300 border border-slate-600 text-xs font-bold">🔴 CLOSED (Schedule ended)</span>`,statusText:`Window expired on ${s.toLocaleString(`en-IN`,{month:`short`,day:`numeric`,hour:`2-digit`,minute:`2-digit`})}`,color:`slate`,isActive:!1}:{badge:`<span class="badge bg-emerald-500/20 text-emerald-300 border border-emerald-500/40 text-xs font-bold">🟢 ACTIVE (Auto Schedule)</span>`,statusText:`Currently live until ${s.toLocaleString(`en-IN`,{month:`short`,day:`numeric`,hour:`2-digit`,minute:`2-digit`})}`,color:`emerald`,isActive:!0}:c?i<a?{badge:`<span class="badge bg-amber-500/20 text-amber-300 border border-amber-500/40 text-xs font-bold">🟡 SCHEDULED (Opens ${a.toLocaleDateString(`en-IN`,{month:`short`,day:`numeric`})})</span>`,statusText:`Opens in ${o(a-i)} (Auto-Schedule)`,color:`amber`,isActive:!1}:{badge:`<span class="badge bg-emerald-500/20 text-emerald-300 border border-emerald-500/40 text-xs font-bold">🟢 ACTIVE (Published via Schedule)</span>`,statusText:`Published on ${a.toLocaleString(`en-IN`,{month:`short`,day:`numeric`,hour:`2-digit`,minute:`2-digit`})}`,color:`emerald`,isActive:!0}:r===!0||r===`true`?{badge:`<span class="badge bg-emerald-500/20 text-emerald-300 border border-emerald-500/40 text-xs font-bold">🟢 ACTIVE (Flag Active)</span>`,statusText:`Active (No timed schedule configured; follow manual flag)`,color:`emerald`,isActive:!0}:{badge:`<span class="badge bg-slate-800 text-slate-400 border border-slate-700 text-xs">⚪ NOT SET / INACTIVE</span>`,statusText:`Schedule timing not set (Set dates or force manual override)`,color:`slate`,isActive:!1}};function o(e){if(e<=0)return`0m`;let t=Math.floor(e/(1e3*60)),n=Math.floor(t/60),r=Math.floor(n/24);return r>0?`${r}d ${n%24}h`:n>0?`${n}h ${t%60}m`:`${t}m`}e.innerHTML=`
     <div class="page-enter space-y-8 max-w-5xl mx-auto pb-16">
       <!-- Header Banner -->
       <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 border-b border-white/10 pb-5">
@@ -6951,20 +6951,20 @@ This will lock the list and prevent any further additions, edits, or deletions.`
   `;let s={draftRoll:n.draftRollOverride||`AUTO`,finalRoll:n.finalRollOverride||`AUTO`,nomination:n.nominationOverride||`AUTO`,validList:n.validListOverride||`AUTO`,withdrawal:n.withdrawalOverride||`AUTO`,finalList:n.finalListOverride||`AUTO`,polling:n.pollingOverride||`AUTO`,results:n.resultsOverride||`AUTO`},c=()=>{let t=[{id:`draftRoll`,name:`Draft Roll`,icon:`📜`,start:i(e.querySelector(`#draftRollStart`)?.value),end:i(e.querySelector(`#draftRollEnd`)?.value),override:s.draftRoll,legacy:n.draftRollPublished},{id:`finalRoll`,name:`Final Roll`,icon:`🔒`,start:i(e.querySelector(`#finalRollStart`)?.value),end:null,override:s.finalRoll,legacy:n.isRollFinalized},{id:`nomination`,name:`Nominations`,icon:`📝`,start:i(e.querySelector(`#nominationStart`)?.value),end:i(e.querySelector(`#nominationDeadline`)?.value),override:s.nomination,legacy:!1},{id:`validList`,name:`Valid List`,icon:`📋`,start:i(e.querySelector(`#validListStart`)?.value),end:null,override:s.validList,legacy:n.validListPublished},{id:`withdrawal`,name:`Withdrawals`,icon:`↩️`,start:i(e.querySelector(`#withdrawalStart`)?.value),end:i(e.querySelector(`#withdrawalEnd`)?.value),override:s.withdrawal,legacy:!1},{id:`finalList`,name:`Final List`,icon:`🏁`,start:i(e.querySelector(`#finalListStart`)?.value),end:null,override:s.finalList,legacy:n.finalListPublished},{id:`polling`,name:`Polling`,icon:`🗳️`,start:i(e.querySelector(`#pollingStart`)?.value),end:i(e.querySelector(`#pollingEnd`)?.value),override:s.polling,legacy:!1},{id:`results`,name:`Results`,icon:`📊`,start:i(e.querySelector(`#resultsStart`)?.value),end:null,override:s.results,legacy:n.resultsPublished}];t.forEach(t=>{let n=a(t.override,t.start,t.end,t.legacy),r=e.querySelector(`#badge_${t.id}`);r&&(r.innerHTML=n.badge);let i=e.querySelector(`#card_${t.id}`);i&&i.querySelectorAll(`.btn-override`).forEach(e=>{let n=e.dataset.mode;n===t.override?e.className=`btn btn-sm btn-override ${n===`FORCE_OPEN`?`bg-emerald-600 text-white font-bold`:n===`FORCE_CLOSED`?`bg-rose-600 text-white font-bold`:`bg-indigo-600 text-white font-bold`}`:e.className=`btn btn-sm btn-override btn-secondary text-xs`})});let r=e.querySelector(`#quickPipelineGrid`);r&&(r.innerHTML=t.map((e,t)=>{let n=a(e.override,e.start,e.end,e.legacy),r=n.isActive?`border-emerald-500/30 bg-emerald-500/10`:`border-white/10 bg-white/5`,i=n.isActive?`text-emerald-400`:`text-slate-400`;return`
           <div class="glass rounded-xl p-3 border ${r} transition-all">
             <div class="flex items-center justify-between">
-              <span class="text-[10px] font-bold uppercase tracking-wider text-slate-400">${t+1}. ${P(e.name)}</span>
+              <span class="text-[10px] font-bold uppercase tracking-wider text-slate-400">${t+1}. ${N(e.name)}</span>
               <span>${e.icon}</span>
             </div>
             <div class="text-xs font-bold ${i} mt-1 truncate">${n.isActive?`● Live`:`○ Inactive`}</div>
-            <div class="text-[10px] text-slate-500 truncate mt-0.5">${P(n.statusText)}</div>
+            <div class="text-[10px] text-slate-500 truncate mt-0.5">${N(n.statusText)}</div>
           </div>
-        `}).join(``))};c(),e.querySelectorAll(`input`).forEach(e=>{e.addEventListener(`input`,c),e.addEventListener(`change`,c)}),e.querySelectorAll(`.btn-override`).forEach(e=>{e.addEventListener(`click`,async n=>{let r=e.dataset.stage,i=e.dataset.mode;if(!(!r||!i)){F(e,!0,`...`);try{await C.adminSetStageOverride(t,r,i),s[r]=i,I(`${r.toUpperCase()} override updated to ${i}!`,`success`),c()}catch(e){I(`Override failed: ${e.message}`,`error`)}finally{F(e,!1),c()}}})});let l=async n=>{F(n,!0,`Saving...`);let r={electionYear:e.querySelector(`#electionYear`)?.value||new Date().getFullYear().toString(),notificationDate:e.querySelector(`#notificationDate`)?.value||``,draftRollStart:i(e.querySelector(`#draftRollStart`)?.value),draftRollEnd:i(e.querySelector(`#draftRollEnd`)?.value),draftRollOverride:s.draftRoll,finalRollStart:i(e.querySelector(`#finalRollStart`)?.value),finalRollOverride:s.finalRoll,nominationStart:i(e.querySelector(`#nominationStart`)?.value),nominationDeadline:i(e.querySelector(`#nominationDeadline`)?.value),nominationOverride:s.nomination,validListStart:i(e.querySelector(`#validListStart`)?.value),validListOverride:s.validList,withdrawalStart:i(e.querySelector(`#withdrawalStart`)?.value),withdrawalEnd:i(e.querySelector(`#withdrawalEnd`)?.value),withdrawalOverride:s.withdrawal,finalListStart:i(e.querySelector(`#finalListStart`)?.value),finalListOverride:s.finalList,pollingStart:i(e.querySelector(`#pollingStart`)?.value),pollingEnd:i(e.querySelector(`#pollingEnd`)?.value),pollingOverride:s.polling,resultsStart:i(e.querySelector(`#resultsStart`)?.value),resultsOverride:s.results,countingActive:e.querySelector(`#countingActiveCheckbox`)?.checked?`true`:`false`};try{await C.adminSaveSchedule(t,r),I(`Election schedule & operational rules saved successfully!`,`success`),await At(e,t)}catch(e){I(`Save failed: ${e.message}`,`error`),F(n,!1,`💾 Save All Schedules`)}};e.querySelector(`#btnSaveScheduleTop`)?.addEventListener(`click`,e=>l(e.currentTarget)),e.querySelector(`#btnSaveScheduleBottom`)?.addEventListener(`click`,e=>l(e.currentTarget)),e.querySelector(`#btnRefreshSchedule`)?.addEventListener(`click`,()=>At(e,t))}async function Mt(e){let t=W();t&&(window.ADMIN_BYPASS_PWD=t,G(e,`direct-nomination`,`
+        `}).join(``))};c(),e.querySelectorAll(`input`).forEach(e=>{e.addEventListener(`input`,c),e.addEventListener(`change`,c)}),e.querySelectorAll(`.btn-override`).forEach(e=>{e.addEventListener(`click`,async n=>{let r=e.dataset.stage,i=e.dataset.mode;if(!(!r||!i)){P(e,!0,`...`);try{await C.adminSetStageOverride(t,r,i),s[r]=i,F(`${r.toUpperCase()} override updated to ${i}!`,`success`),c()}catch(e){F(`Override failed: ${e.message}`,`error`)}finally{P(e,!1),c()}}})});let l=async n=>{P(n,!0,`Saving...`);let r={electionYear:e.querySelector(`#electionYear`)?.value||new Date().getFullYear().toString(),notificationDate:e.querySelector(`#notificationDate`)?.value||``,draftRollStart:i(e.querySelector(`#draftRollStart`)?.value),draftRollEnd:i(e.querySelector(`#draftRollEnd`)?.value),draftRollOverride:s.draftRoll,finalRollStart:i(e.querySelector(`#finalRollStart`)?.value),finalRollOverride:s.finalRoll,nominationStart:i(e.querySelector(`#nominationStart`)?.value),nominationDeadline:i(e.querySelector(`#nominationDeadline`)?.value),nominationOverride:s.nomination,validListStart:i(e.querySelector(`#validListStart`)?.value),validListOverride:s.validList,withdrawalStart:i(e.querySelector(`#withdrawalStart`)?.value),withdrawalEnd:i(e.querySelector(`#withdrawalEnd`)?.value),withdrawalOverride:s.withdrawal,finalListStart:i(e.querySelector(`#finalListStart`)?.value),finalListOverride:s.finalList,pollingStart:i(e.querySelector(`#pollingStart`)?.value),pollingEnd:i(e.querySelector(`#pollingEnd`)?.value),pollingOverride:s.polling,resultsStart:i(e.querySelector(`#resultsStart`)?.value),resultsOverride:s.results,countingActive:e.querySelector(`#countingActiveCheckbox`)?.checked?`true`:`false`};try{await C.adminSaveSchedule(t,r),F(`Election schedule & operational rules saved successfully!`,`success`),await Pt(e,t)}catch(e){F(`Save failed: ${e.message}`,`error`),P(n,!1,`💾 Save All Schedules`)}};e.querySelector(`#btnSaveScheduleTop`)?.addEventListener(`click`,e=>l(e.currentTarget)),e.querySelector(`#btnSaveScheduleBottom`)?.addEventListener(`click`,e=>l(e.currentTarget)),e.querySelector(`#btnRefreshSchedule`)?.addEventListener(`click`,()=>Pt(e,t))}async function It(e){let t=U();t&&(window.ADMIN_BYPASS_PWD=t,W(e,`direct-nomination`,`
     <div id="adminFormContainer" class="p-6">
        <div class="alert alert-info mb-6">
          🛡️ <strong>Admin Direct Entry Mode:</strong> Deadlines and window restrictions are bypassed.
        </div>
        <div id="nominationWrapper"></div>
     </div>
-  `),await me(e.querySelector(`#nominationWrapper`)))}async function Nt(e){let t=W();if(!t)return;G(e,`audit`,`
+  `),await he(e.querySelector(`#nominationWrapper`)))}async function Lt(e){let t=U();if(!t)return;W(e,`audit`,`
     <div class="page-enter space-y-8">
       <div class="flex items-end justify-between">
         <div>
@@ -6992,17 +6992,17 @@ This will lock the list and prevent any further additions, edits, or deletions.`
     `;try{let e=(await C.adminRunAudit(t)).report,n=(e,t)=>t.pass?`
             <div class="glass rounded-2xl p-6 border-l-4 border-emerald-500 bg-emerald-500/5">
               <div class="flex items-center text-emerald-400 font-bold mb-2">
-                <span class="mr-2">✅</span> ${P(e)}
+                <span class="mr-2">✅</span> ${N(e)}
               </div>
               <p class="text-xs text-slate-400">All data points passed the integrity check perfectly.</p>
             </div>
           `:`
             <div class="glass rounded-2xl p-6 border-l-4 border-rose-500 bg-rose-500/5">
               <div class="flex items-center text-rose-400 font-bold mb-4">
-                <span class="mr-2">❌</span> ${P(e)}
+                <span class="mr-2">❌</span> ${N(e)}
               </div>
               <ul class="list-disc pl-5 space-y-2 text-xs text-rose-300">
-                ${t.details.map(e=>`<li>${P(e)}</li>`).join(``)}
+                ${t.details.map(e=>`<li>${N(e)}</li>`).join(``)}
               </ul>
             </div>
           `;r.innerHTML=`
@@ -7024,7 +7024,7 @@ This will lock the list and prevent any further additions, edits, or deletions.`
              <h3 class="text-xl font-bold text-rose-400">Discrepancies Found</h3>
              <p class="text-sm text-slate-300 mt-2">Please review the failed checks below and resolve the inconsistencies.</p>
            </div>
-         `+r.innerHTML,I(`Audit completed.`,`info`)}catch(e){r.innerHTML=`<div class="alert alert-error">❌ Audit failed: ${P(e.message)}</div>`,I(e.message,`error`)}finally{n.disabled=!1,n.innerHTML=`<span class="mr-2">🔍</span> Run Full System Audit`}})}async function Pt(e){let t=W();if(t){G(e,`settings`,`
+         `+r.innerHTML,F(`Audit completed.`,`info`)}catch(e){r.innerHTML=`<div class="alert alert-error">❌ Audit failed: ${N(e.message)}</div>`,F(e.message,`error`)}finally{n.disabled=!1,n.innerHTML=`<span class="mr-2">🔍</span> Run Full System Audit`}})}async function Rt(e){let t=U();if(t){W(e,`settings`,`
     <div class="text-center py-16"><span class="spinner" style="width:2.5rem;height:2.5rem;border-width:4px;"></span><p class="text-slate-400 mt-4 text-sm">Loading settings...</p></div>
   `);try{let n=await C.adminGetSettings(t),r=e.querySelector(`#adminMain`);r.innerHTML=`
       <div class="page-enter space-y-8 max-w-4xl mx-auto">
@@ -7066,16 +7066,16 @@ This will lock the list and prevent any further additions, edits, or deletions.`
 
               <div>
                 <label class="text-xs text-slate-400 uppercase tracking-wider block mb-2">Full College Name</label>
-                <input type="text" id="inputCollegeName" class="field text-sm py-2.5" value="${P(n.collegeName)}">
+                <input type="text" id="inputCollegeName" class="field text-sm py-2.5" value="${N(n.collegeName)}">
               </div>
               <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
                   <label class="text-xs text-slate-400 uppercase tracking-wider block mb-2">Short Form (Abbreviation)</label>
-                  <input type="text" id="inputCollegeShort" class="field text-sm py-2.5" value="${P(n.collegeShortName)}">
+                  <input type="text" id="inputCollegeShort" class="field text-sm py-2.5" value="${N(n.collegeShortName)}">
                 </div>
                 <div>
                   <label class="text-xs text-slate-400 uppercase tracking-wider block mb-2">Election Year</label>
-                  <input type="text" id="inputElectionYear" class="field text-sm py-2.5" value="${P(n.electionYear||new Date().getFullYear().toString())}" placeholder="e.g. 2026">
+                  <input type="text" id="inputElectionYear" class="field text-sm py-2.5" value="${N(n.electionYear||new Date().getFullYear().toString())}" placeholder="e.g. 2026">
                 </div>
               </div>
               <button id="btnUpdateBranding" class="btn btn-primary w-full py-3 mt-2">Save Branding</button>
@@ -7096,7 +7096,7 @@ This will lock the list and prevent any further additions, edits, or deletions.`
               </div>
               <div>
                 <label class="text-xs text-slate-400 uppercase tracking-wider block mb-2">Admin Email (For OTP)</label>
-                <input type="email" id="inputAdminEmail" class="field text-sm py-2.5" value="${P(n.adminEmail||``)}" placeholder="admin@college.edu">
+                <input type="email" id="inputAdminEmail" class="field text-sm py-2.5" value="${N(n.adminEmail||``)}" placeholder="admin@college.edu">
               </div>
               <button id="btnUpdateSecurity" class="btn bg-rose-500/20 text-rose-300 hover:bg-rose-500/30 w-full py-3 mt-2">Update Credentials</button>
             </div>
@@ -7148,9 +7148,9 @@ This will lock the list and prevent any further additions, edits, or deletions.`
           </div>
         </div>
       </div>
-    `;let i=n.collegeLogo||``,a=e.querySelector(`#inputCollegeLogo`),o=e.querySelector(`#logoPreviewBox`),s=e.querySelector(`#btnRemoveLogo`);a?.addEventListener(`change`,e=>{let t=e.target.files?.[0];if(!t)return;if(!t.type.startsWith(`image/`))return I(`Please select a valid image file.`,`error`);let n=new FileReader;n.onload=e=>{let t=new Image;t.onload=()=>{let e=t.width,n=t.height;e>n?e>260&&(n=Math.round(260/e*n),e=260):n>130&&(e=Math.round(130/n*e),n=130);let r=document.createElement(`canvas`);r.width=e,r.height=n,r.getContext(`2d`).drawImage(t,0,0,e,n),i=r.toDataURL(`image/png`),o.innerHTML=`<img id="logoPreviewImg" src="${i}" class="w-full h-full object-contain" alt="College Logo">`,s?.classList.remove(`hidden`),I(`Logo image selected and ready to save!`,`info`)},t.onerror=()=>I(`Failed to parse selected image.`,`error`),t.src=e.target.result},n.readAsDataURL(t)}),s?.addEventListener(`click`,()=>{i=``,o.innerHTML=`<span id="logoPlaceholder" class="text-xs text-slate-500 text-center px-1">No Logo</span>`,s.classList.add(`hidden`),a&&(a.value=``),I(`Logo cleared. Click "Save Branding" to apply.`,`info`)}),e.querySelector(`#btnUpdateBranding`).addEventListener(`click`,async n=>{let r=e.querySelector(`#inputCollegeName`).value.trim(),a=e.querySelector(`#inputCollegeShort`).value.trim(),o=e.querySelector(`#inputElectionYear`).value.trim()||new Date().getFullYear().toString();if(!r||!a)return I(`Please fill all branding fields.`,`error`);let s=n.currentTarget;F(s,!0,`Saving...`);try{await C.adminUpdateSettings(t,{collegeName:r,collegeShortName:a,electionYear:o,collegeLogo:i}),I(`College branding & logo updated successfully! Refresh to see changes system-wide.`,`success`)}catch(e){I(e.message,`error`)}finally{F(s,!1,`Save Branding`)}}),e.querySelector(`#btnUpdateSecurity`).addEventListener(`click`,async()=>{let n=e.querySelector(`#inputAdminPassword`).value.trim(),r=e.querySelector(`#inputAdminEmail`).value.trim();try{await C.adminUpdateCredentials(t,{newPassword:n,newEmail:r}),I(`Security credentials updated successfully!`,`success`),e.querySelector(`#inputAdminPassword`).value=``}catch(e){I(e.message,`error`)}});let c=e.querySelector(`#btnInitReset`),l=e.querySelector(`#resetFlow`),u=e.querySelector(`#resetStep1`),d=e.querySelector(`#resetStep2`);c.addEventListener(`click`,()=>{l.classList.remove(`hidden`),c.classList.add(`hidden`)}),e.querySelector(`#btnResetSendOTP`).addEventListener(`click`,async t=>{let n=e.querySelector(`#resetPwd`).value;if(!n)return I(`Password required`,`error`);let r=t.target,i=r.textContent;r.textContent=`Sending...`,r.disabled=!0;try{await C.post({action:`adminSendOTP`,password:n}),I(`OTP sent to your admin email!`,`success`),u.classList.add(`hidden`),d.classList.remove(`hidden`)}catch(e){I(e.message,`error`),r.textContent=i,r.disabled=!1}}),e.querySelector(`#btnResetConfirm`).addEventListener(`click`,async t=>{let n=e.querySelector(`#resetPwd`).value,r=e.querySelector(`#resetOTP`).value.trim(),i=e.querySelector(`#resetConfirmText`).value.trim().toUpperCase();if(!r||r.length!==6)return I(`Enter 6-digit OTP`,`error`);if(i!==`RESET`)return I(`Type RESET to confirm`,`error`);let a=t.target;a.textContent=`WIPING DATA...`,a.disabled=!0;try{await C.post({action:`adminFactoryReset`,password:n,otp:r}),I(`✅ System Reset Successful! Reloading...`,`success`),setTimeout(()=>window.location.reload(),2e3)}catch(e){I(e.message,`error`),a.textContent=`PERMANENTLY WIPE DATA`,a.disabled=!1}})}catch(t){e.querySelector(`#adminMain`).innerHTML=`<div class="alert alert-error">❌ ${P(t.message)}</div>`}}}async function Ft(e){let t=W();if(t){G(e,`backup`,`
+    `;let i=n.collegeLogo||``,a=e.querySelector(`#inputCollegeLogo`),o=e.querySelector(`#logoPreviewBox`),s=e.querySelector(`#btnRemoveLogo`);a?.addEventListener(`change`,e=>{let t=e.target.files?.[0];if(!t)return;if(!t.type.startsWith(`image/`))return F(`Please select a valid image file.`,`error`);let n=new FileReader;n.onload=e=>{let t=new Image;t.onload=()=>{let e=t.width,n=t.height;e>n?e>260&&(n=Math.round(260/e*n),e=260):n>130&&(e=Math.round(130/n*e),n=130);let r=document.createElement(`canvas`);r.width=e,r.height=n,r.getContext(`2d`).drawImage(t,0,0,e,n),i=r.toDataURL(`image/png`),o.innerHTML=`<img id="logoPreviewImg" src="${i}" class="w-full h-full object-contain" alt="College Logo">`,s?.classList.remove(`hidden`),F(`Logo image selected and ready to save!`,`info`)},t.onerror=()=>F(`Failed to parse selected image.`,`error`),t.src=e.target.result},n.readAsDataURL(t)}),s?.addEventListener(`click`,()=>{i=``,o.innerHTML=`<span id="logoPlaceholder" class="text-xs text-slate-500 text-center px-1">No Logo</span>`,s.classList.add(`hidden`),a&&(a.value=``),F(`Logo cleared. Click "Save Branding" to apply.`,`info`)}),e.querySelector(`#btnUpdateBranding`).addEventListener(`click`,async n=>{let r=e.querySelector(`#inputCollegeName`).value.trim(),a=e.querySelector(`#inputCollegeShort`).value.trim(),o=e.querySelector(`#inputElectionYear`).value.trim()||new Date().getFullYear().toString();if(!r||!a)return F(`Please fill all branding fields.`,`error`);let s=n.currentTarget;P(s,!0,`Saving...`);try{await C.adminUpdateSettings(t,{collegeName:r,collegeShortName:a,electionYear:o,collegeLogo:i}),F(`College branding & logo updated successfully! Refresh to see changes system-wide.`,`success`)}catch(e){F(e.message,`error`)}finally{P(s,!1,`Save Branding`)}}),e.querySelector(`#btnUpdateSecurity`).addEventListener(`click`,async()=>{let n=e.querySelector(`#inputAdminPassword`).value.trim(),r=e.querySelector(`#inputAdminEmail`).value.trim();try{await C.adminUpdateCredentials(t,{newPassword:n,newEmail:r}),F(`Security credentials updated successfully!`,`success`),e.querySelector(`#inputAdminPassword`).value=``}catch(e){F(e.message,`error`)}});let c=e.querySelector(`#btnInitReset`),l=e.querySelector(`#resetFlow`),u=e.querySelector(`#resetStep1`),d=e.querySelector(`#resetStep2`);c.addEventListener(`click`,()=>{l.classList.remove(`hidden`),c.classList.add(`hidden`)}),e.querySelector(`#btnResetSendOTP`).addEventListener(`click`,async t=>{let n=e.querySelector(`#resetPwd`).value;if(!n)return F(`Password required`,`error`);let r=t.target,i=r.textContent;r.textContent=`Sending...`,r.disabled=!0;try{await C.post({action:`adminSendOTP`,password:n}),F(`OTP sent to your admin email!`,`success`),u.classList.add(`hidden`),d.classList.remove(`hidden`)}catch(e){F(e.message,`error`),r.textContent=i,r.disabled=!1}}),e.querySelector(`#btnResetConfirm`).addEventListener(`click`,async t=>{let n=e.querySelector(`#resetPwd`).value,r=e.querySelector(`#resetOTP`).value.trim(),i=e.querySelector(`#resetConfirmText`).value.trim().toUpperCase();if(!r||r.length!==6)return F(`Enter 6-digit OTP`,`error`);if(i!==`RESET`)return F(`Type RESET to confirm`,`error`);let a=t.target;a.textContent=`WIPING DATA...`,a.disabled=!0;try{await C.post({action:`adminFactoryReset`,password:n,otp:r}),F(`✅ System Reset Successful! Reloading...`,`success`),setTimeout(()=>window.location.reload(),2e3)}catch(e){F(e.message,`error`),a.textContent=`PERMANENTLY WIPE DATA`,a.disabled=!1}})}catch(t){e.querySelector(`#adminMain`).innerHTML=`<div class="alert alert-error">❌ ${N(t.message)}</div>`}}}async function zt(e){let t=U();if(t){W(e,`backup`,`
     <div class="text-center py-16"><span class="spinner" style="width:2.5rem;height:2.5rem;border-width:4px;"></span><p class="text-slate-400 mt-4 text-sm">Loading backup & recovery system...</p></div>
-  `);try{let[n,r,i,a,o]=await Promise.all([C.adminGetSettings(t).catch(()=>({})),C.getNominalRoll().catch(()=>[]),C.getPosts().catch(()=>[]),C.adminGetNominations(t).catch(()=>[]),C.adminGetSnapshots(t).catch(()=>[])]);It(e.querySelector(`#adminMain`),t,{settings:n,rollCount:r.length,postsCount:i.length,nomsCount:a.length,snapshots:o})}catch(t){e.querySelector(`#adminMain`).innerHTML=`<div class="alert alert-error">❌ ${P(t.message)}</div>`}}}function It(e,t,{settings:r,rollCount:i,postsCount:a,nomsCount:o,snapshots:s}){let c=r.collegeName||n.COLLEGE_NAME,l=r.collegeShortName||n.COLLEGE_SHORT_NAME,u=r.electionYear||new Date().getFullYear(),d=r.nominalRollFinalized===`true`||r.isRollFinalized===`true`,f=r.resultsPublished===`true`;e.innerHTML=`
+  `);try{let[n,r,i,a,o]=await Promise.all([C.adminGetSettings(t).catch(()=>({})),C.getNominalRoll().catch(()=>[]),C.getPosts().catch(()=>[]),C.adminGetNominations(t).catch(()=>[]),C.adminGetSnapshots(t).catch(()=>[])]);Bt(e.querySelector(`#adminMain`),t,{settings:n,rollCount:r.length,postsCount:i.length,nomsCount:a.length,snapshots:o})}catch(t){e.querySelector(`#adminMain`).innerHTML=`<div class="alert alert-error">❌ ${N(t.message)}</div>`}}}function Bt(e,t,{settings:r,rollCount:i,postsCount:a,nomsCount:o,snapshots:s}){let c=r.collegeName||n.COLLEGE_NAME,l=r.collegeShortName||n.COLLEGE_SHORT_NAME,u=r.electionYear||new Date().getFullYear(),d=r.nominalRollFinalized===`true`||r.isRollFinalized===`true`,f=r.resultsPublished===`true`;e.innerHTML=`
     <div class="page-enter space-y-8 max-w-5xl mx-auto pb-12">
       <!-- Header -->
       <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-white/10 pb-6">
@@ -7247,7 +7247,7 @@ This will lock the list and prevent any further additions, edits, or deletions.`
                   ELECTION_BACKUP_${l.toUpperCase()}_${u}_${new Date().toISOString().slice(0,10)}.json
                 </p>
                 <p class="text-slate-400 text-xs mt-2">
-                  Source: <strong>${P(c)}</strong> (Year: ${u})
+                  Source: <strong>${N(c)}</strong> (Year: ${u})
                 </p>
               </div>
               <button id="btnExportFullBackup" class="btn btn-primary w-full py-3.5 flex items-center justify-center gap-2 text-base font-bold shadow-lg shadow-indigo-600/30">
@@ -7421,8 +7421,8 @@ This will lock the list and prevent any further additions, edits, or deletions.`
                   ${s.map(e=>{let t=e.summary||{},n=e.triggerType===`pre_restore`;return`
                       <tr class="hover:bg-white/[0.02] transition">
                         <td>
-                          <div class="font-bold text-white text-sm">${P(e.snapshotName)}</div>
-                          <div class="text-[10px] text-slate-500 font-mono">${P(e.id)}</div>
+                          <div class="font-bold text-white text-sm">${N(e.snapshotName)}</div>
+                          <div class="text-[10px] text-slate-500 font-mono">${N(e.id)}</div>
                         </td>
                         <td>
                           <span class="badge ${n?`badge-valid`:`badge-pending`} text-[10px]">
@@ -7439,10 +7439,10 @@ This will lock the list and prevent any further additions, edits, or deletions.`
                         </td>
                         <td class="text-right">
                           <div class="flex items-center justify-end gap-2">
-                            <button data-download-snap="${P(e.id)}" class="btn btn-secondary btn-xs">
+                            <button data-download-snap="${N(e.id)}" class="btn btn-secondary btn-xs">
                               📥 Download
                             </button>
-                            <button data-revert-snap="${P(e.id)}" data-name="${P(e.snapshotName)}" class="btn btn-danger btn-xs">
+                            <button data-revert-snap="${N(e.id)}" data-name="${N(e.snapshotName)}" class="btn btn-danger btn-xs">
                               🔄 Revert
                             </button>
                           </div>
@@ -7456,7 +7456,7 @@ This will lock the list and prevent any further additions, edits, or deletions.`
         </div>
       </div>
     </div>
-  `,Lt(e,t,{settings:r,rollCount:i,postsCount:a,nomsCount:o})}function Lt(e,t,n){e.querySelector(`#btnRefreshSnapshots`)?.addEventListener(`click`,()=>{Ft(e.closest(`#app`))});let r=e.querySelector(`#btnExportFullBackup`);r?.addEventListener(`click`,async()=>{F(r,!0,`Generating Archive...`);try{let n=await C.adminExportBackup(t),r=n.metadata||{},i=`ELECTION_BACKUP_${r.collegeShortName||`GVC`}_${r.electionYear||`2026`}_${new Date().toISOString().slice(0,10)}.json`,a=new Blob([JSON.stringify(n,null,2)],{type:`application/json`}),o=URL.createObjectURL(a),s=document.createElement(`a`);s.href=o,s.download=i,document.body.appendChild(s),s.click(),document.body.removeChild(s),URL.revokeObjectURL(o),I(`Backup exported successfully! File: ${i}`,`success`),setTimeout(()=>Ft(e.closest(`#app`)),1200)}catch(e){I(`Export failed: ${e.message}`,`error`)}finally{F(r,!1,`💾 Download Full System Backup (.JSON)`)}});let i=e.querySelector(`#backupFileInput`),a=e.querySelector(`#btnBrowseFile`),o=e.querySelector(`#restoreUploadArea`),s=e.querySelector(`#inspectionSection`),c=null;a?.addEventListener(`click`,()=>i.click()),o?.addEventListener(`click`,e=>{e.target!==a&&i.click()}),o?.addEventListener(`dragover`,e=>{e.preventDefault(),o.classList.add(`border-indigo-400`,`bg-indigo-950/20`)}),o?.addEventListener(`dragleave`,()=>{o.classList.remove(`border-indigo-400`,`bg-indigo-950/20`)}),o?.addEventListener(`drop`,e=>{e.preventDefault(),o.classList.remove(`border-indigo-400`,`bg-indigo-950/20`),e.dataTransfer.files?.length&&l(e.dataTransfer.files[0])}),i?.addEventListener(`change`,e=>{e.target.files?.length&&l(e.target.files[0])});let l=e=>{if(!e.name.endsWith(`.json`)){I(`Please select a valid JSON backup file.`,`error`);return}let t=new FileReader;t.onload=e=>{try{let t=JSON.parse(e.target.result);if(!t.data||!t.metadata)throw Error(`Invalid election backup format: Missing data or metadata blocks.`);c=t,u(t)}catch(e){I(`Failed to parse backup file: ${e.message}`,`error`)}},t.readAsText(e)},u=t=>{o.classList.add(`hidden`),s.classList.remove(`hidden`);let r=t.metadata||{},i=t.data||{};e.querySelector(`#inspectMetaDetails`).textContent=`Source: ${r.collegeName||`Unknown`} (${r.collegeShortName||``}) | Year: ${r.electionYear||`N/A`} | Exported: ${new Date(r.exportedAt||Date.now()).toLocaleString()}`;let a=Array.isArray(i.nominal_roll)?i.nominal_roll.length:0,c=Array.isArray(i.posts)?i.posts.length:0,l=Array.isArray(i.nominations)?i.nominations.length:0,u=Array.isArray(i.roll_corrections)?i.roll_corrections.length:0,d=Array.isArray(i.settings)?i.settings.length:0,f=[{name:`Nominal Roll (Voters)`,id:`modRoll`,live:n.rollCount,backup:a},{name:`Student Correction Requests`,id:`modCorr`,live:`—`,backup:u},{name:`Election Posts & Rules`,id:`modPosts`,live:n.postsCount,backup:c},{name:`Nominations & Verification`,id:`modNoms`,live:n.nomsCount,backup:l},{name:`Settings, Booths, Ballots & Results`,id:`modSets`,live:`Configured`,backup:d}],p=e.querySelector(`#inventoryComparisonTbody`);p.innerHTML=f.map(e=>{let t=typeof e.live==`number`?e.backup-e.live:0,n=t>0?`+${t}`:`${t}`;return`
+  `,Vt(e,t,{settings:r,rollCount:i,postsCount:a,nomsCount:o})}function Vt(e,t,n){e.querySelector(`#btnRefreshSnapshots`)?.addEventListener(`click`,()=>{zt(e.closest(`#app`))});let r=e.querySelector(`#btnExportFullBackup`);r?.addEventListener(`click`,async()=>{P(r,!0,`Generating Archive...`);try{let n=await C.adminExportBackup(t),r=n.metadata||{},i=`ELECTION_BACKUP_${r.collegeShortName||`GVC`}_${r.electionYear||`2026`}_${new Date().toISOString().slice(0,10)}.json`,a=new Blob([JSON.stringify(n,null,2)],{type:`application/json`}),o=URL.createObjectURL(a),s=document.createElement(`a`);s.href=o,s.download=i,document.body.appendChild(s),s.click(),document.body.removeChild(s),URL.revokeObjectURL(o),F(`Backup exported successfully! File: ${i}`,`success`),setTimeout(()=>zt(e.closest(`#app`)),1200)}catch(e){F(`Export failed: ${e.message}`,`error`)}finally{P(r,!1,`💾 Download Full System Backup (.JSON)`)}});let i=e.querySelector(`#backupFileInput`),a=e.querySelector(`#btnBrowseFile`),o=e.querySelector(`#restoreUploadArea`),s=e.querySelector(`#inspectionSection`),c=null;a?.addEventListener(`click`,()=>i.click()),o?.addEventListener(`click`,e=>{e.target!==a&&i.click()}),o?.addEventListener(`dragover`,e=>{e.preventDefault(),o.classList.add(`border-indigo-400`,`bg-indigo-950/20`)}),o?.addEventListener(`dragleave`,()=>{o.classList.remove(`border-indigo-400`,`bg-indigo-950/20`)}),o?.addEventListener(`drop`,e=>{e.preventDefault(),o.classList.remove(`border-indigo-400`,`bg-indigo-950/20`),e.dataTransfer.files?.length&&l(e.dataTransfer.files[0])}),i?.addEventListener(`change`,e=>{e.target.files?.length&&l(e.target.files[0])});let l=e=>{if(!e.name.endsWith(`.json`)){F(`Please select a valid JSON backup file.`,`error`);return}let t=new FileReader;t.onload=e=>{try{let t=JSON.parse(e.target.result);if(!t.data||!t.metadata)throw Error(`Invalid election backup format: Missing data or metadata blocks.`);c=t,u(t)}catch(e){F(`Failed to parse backup file: ${e.message}`,`error`)}},t.readAsText(e)},u=t=>{o.classList.add(`hidden`),s.classList.remove(`hidden`);let r=t.metadata||{},i=t.data||{};e.querySelector(`#inspectMetaDetails`).textContent=`Source: ${r.collegeName||`Unknown`} (${r.collegeShortName||``}) | Year: ${r.electionYear||`N/A`} | Exported: ${new Date(r.exportedAt||Date.now()).toLocaleString()}`;let a=Array.isArray(i.nominal_roll)?i.nominal_roll.length:0,c=Array.isArray(i.posts)?i.posts.length:0,l=Array.isArray(i.nominations)?i.nominations.length:0,u=Array.isArray(i.roll_corrections)?i.roll_corrections.length:0,d=Array.isArray(i.settings)?i.settings.length:0,f=[{name:`Nominal Roll (Voters)`,id:`modRoll`,live:n.rollCount,backup:a},{name:`Student Correction Requests`,id:`modCorr`,live:`—`,backup:u},{name:`Election Posts & Rules`,id:`modPosts`,live:n.postsCount,backup:c},{name:`Nominations & Verification`,id:`modNoms`,live:n.nomsCount,backup:l},{name:`Settings, Booths, Ballots & Results`,id:`modSets`,live:`Configured`,backup:d}],p=e.querySelector(`#inventoryComparisonTbody`);p.innerHTML=f.map(e=>{let t=typeof e.live==`number`?e.backup-e.live:0,n=t>0?`+${t}`:`${t}`;return`
         <tr>
           <td class="font-bold text-white">${e.name}</td>
           <td class="font-mono text-slate-300">${e.live}</td>
@@ -7468,7 +7468,7 @@ This will lock the list and prevent any further additions, edits, or deletions.`
             <input type="checkbox" id="${e.id}" checked class="accent-indigo-500 w-4 h-4 cursor-pointer" />
           </td>
         </tr>
-      `}).join(``)};e.querySelector(`#btnRemoveFile`)?.addEventListener(`click`,()=>{c=null,i.value=``,s.classList.add(`hidden`),o.classList.remove(`hidden`)});let d=e.querySelector(`#btnExecuteRestore`);d?.addEventListener(`click`,async()=>{if(!c){I(`No backup file loaded.`,`error`);return}let t=e.querySelector(`#restoreAdminPwd`).value.trim(),n=e.querySelector(`#restoreConfirmPhrase`).value.trim();if(!t){I(`Please enter your Admin Password.`,`error`);return}if(n!==`CONFIRM RESTORE`){I(`Please type "CONFIRM RESTORE" exactly to verify safety.`,`error`);return}let r={nominalRoll:e.querySelector(`#modRoll`)?.checked??!0,rollCorrections:e.querySelector(`#modCorr`)?.checked??!0,posts:e.querySelector(`#modPosts`)?.checked??!0,nominations:e.querySelector(`#modNoms`)?.checked??!0,settings:e.querySelector(`#modSets`)?.checked??!0},i=e.querySelector(`[name="restoreMode"]:checked`)?.value||`full_wipe_and_replace`;F(d,!0,`Restoring System State...`);try{let a=await C.adminRestoreBackup(t,{confirmPhrase:n,restoreMode:i,selectedModules:r,backupData:c});I(`🎉 System restore completed successfully!`,`success`),alert(`System restore successful!\n\nRestored:\n• Voters: ${a.restoredCounts?.nominalRoll||0}\n• Posts: ${a.restoredCounts?.posts||0}\n• Nominations: ${a.restoredCounts?.nominations||0}\n• Settings: ${a.restoredCounts?.settings||0}\n\nPre-Restore snapshot saved: ${a.preRestoreSnapshotId}`),Ft(e.closest(`#app`))}catch(e){I(`Restore failed: ${e.message}`,`error`),F(d,!1,`⚠️ Execute System Restore`)}}),e.querySelectorAll(`[data-download-snap]`).forEach(e=>{e.addEventListener(`click`,async()=>{let n=e.getAttribute(`data-download-snap`);F(e,!0,`...`);try{let e=await C.adminDownloadSnapshot(t,n),r=new Blob([JSON.stringify(e,null,2)],{type:`application/json`}),i=URL.createObjectURL(r),a=document.createElement(`a`);a.href=i,a.download=`${n}.json`,document.body.appendChild(a),a.click(),document.body.removeChild(a),URL.revokeObjectURL(i),I(`Snapshot downloaded!`,`success`)}catch(e){I(`Download failed: ${e.message}`,`error`)}finally{F(e,!1,`📥 Download`)}})}),e.querySelectorAll(`[data-revert-snap]`).forEach(t=>{t.addEventListener(`click`,async()=>{let n=t.getAttribute(`data-revert-snap`),r=t.getAttribute(`data-name`);if(!confirm(`Are you sure you want to REVERT the database to:\n"${r}"?\n\nThis will restore all records to this checkpoint.`))return;let i=prompt(`Please enter your Admin Password to confirm reversion:`);if(i){F(t,!0,`Reverting...`);try{await C.adminRevertSnapshot(i,n),I(`Database reverted to snapshot successfully!`,`success`),alert(`System successfully reverted to checkpoint:\n${r}`),Ft(e.closest(`#app`))}catch(e){I(`Revert failed: ${e.message}`,`error`),F(t,!1,`🔄 Revert`)}}})})}function Rt(e={},t={},r=[],i=[]){let a=String(e.electionYear||``).trim()||t&&t.electionYear||new Date().getFullYear().toString(),o=(parseInt(a,10)+1).toString(),s=String(e.collegeName||``).trim()||n.COLLEGE_NAME||`College Union`,c=String(e.collegeShortName||``).trim()||n.COLLEGE_SHORT_NAME||`CUE`,l=new Date().toISOString().split(`T`)[0],u=Array.isArray(i)&&i.length>0?i:n.DEFAULT_POSTS||[],d=u.filter(e=>{let t=String(e.post||``).trim().toLowerCase();return t.startsWith(`association secretary`)||e.deptRestriction&&t.includes(`secretary`)||e.deptRestriction||e.restrictedDept}),f=u.filter(e=>{let t=String(e.post||``).trim().toLowerCase();return!d.includes(e)&&(t.includes(`representative`)||t.includes(`rep`)||e.yearRestriction)}),p=u.filter(e=>!d.includes(e)&&!f.includes(e)),m=e=>{let t=String(e.post||``).trim().toUpperCase(),n=[];return t.includes(`UNIVERSITY UNION COUNCILLOR`)&&!t.includes(`POST`)&&n.push(`2 Posts`),e.femaleOnly&&!t.includes(`WOMEN`)&&!t.includes(`FEMALE`)&&!t.includes(`LADY`)&&n.push(`Reserved for Women`),e.finalYearIneligible&&n.push(`Final Year Ineligible`),e.deptRestriction&&e.restrictedDept&&!t.includes(e.restrictedDept.toUpperCase())&&n.push(`Dept: ${e.restrictedDept}`),`- **${t}**${n.length>0?` *(${n.join(`, `)})*`:``}`},h=p.length>0?p.map(m).join(`
+      `}).join(``)};e.querySelector(`#btnRemoveFile`)?.addEventListener(`click`,()=>{c=null,i.value=``,s.classList.add(`hidden`),o.classList.remove(`hidden`)});let d=e.querySelector(`#btnExecuteRestore`);d?.addEventListener(`click`,async()=>{if(!c){F(`No backup file loaded.`,`error`);return}let t=e.querySelector(`#restoreAdminPwd`).value.trim(),n=e.querySelector(`#restoreConfirmPhrase`).value.trim();if(!t){F(`Please enter your Admin Password.`,`error`);return}if(n!==`CONFIRM RESTORE`){F(`Please type "CONFIRM RESTORE" exactly to verify safety.`,`error`);return}let r={nominalRoll:e.querySelector(`#modRoll`)?.checked??!0,rollCorrections:e.querySelector(`#modCorr`)?.checked??!0,posts:e.querySelector(`#modPosts`)?.checked??!0,nominations:e.querySelector(`#modNoms`)?.checked??!0,settings:e.querySelector(`#modSets`)?.checked??!0},i=e.querySelector(`[name="restoreMode"]:checked`)?.value||`full_wipe_and_replace`;P(d,!0,`Restoring System State...`);try{let a=await C.adminRestoreBackup(t,{confirmPhrase:n,restoreMode:i,selectedModules:r,backupData:c});F(`🎉 System restore completed successfully!`,`success`),alert(`System restore successful!\n\nRestored:\n• Voters: ${a.restoredCounts?.nominalRoll||0}\n• Posts: ${a.restoredCounts?.posts||0}\n• Nominations: ${a.restoredCounts?.nominations||0}\n• Settings: ${a.restoredCounts?.settings||0}\n\nPre-Restore snapshot saved: ${a.preRestoreSnapshotId}`),zt(e.closest(`#app`))}catch(e){F(`Restore failed: ${e.message}`,`error`),P(d,!1,`⚠️ Execute System Restore`)}}),e.querySelectorAll(`[data-download-snap]`).forEach(e=>{e.addEventListener(`click`,async()=>{let n=e.getAttribute(`data-download-snap`);P(e,!0,`...`);try{let e=await C.adminDownloadSnapshot(t,n),r=new Blob([JSON.stringify(e,null,2)],{type:`application/json`}),i=URL.createObjectURL(r),a=document.createElement(`a`);a.href=i,a.download=`${n}.json`,document.body.appendChild(a),a.click(),document.body.removeChild(a),URL.revokeObjectURL(i),F(`Snapshot downloaded!`,`success`)}catch(e){F(`Download failed: ${e.message}`,`error`)}finally{P(e,!1,`📥 Download`)}})}),e.querySelectorAll(`[data-revert-snap]`).forEach(t=>{t.addEventListener(`click`,async()=>{let n=t.getAttribute(`data-revert-snap`),r=t.getAttribute(`data-name`);if(!confirm(`Are you sure you want to REVERT the database to:\n"${r}"?\n\nThis will restore all records to this checkpoint.`))return;let i=prompt(`Please enter your Admin Password to confirm reversion:`);if(i){P(t,!0,`Reverting...`);try{await C.adminRevertSnapshot(i,n),F(`Database reverted to snapshot successfully!`,`success`),alert(`System successfully reverted to checkpoint:\n${r}`),zt(e.closest(`#app`))}catch(e){F(`Revert failed: ${e.message}`,`error`),P(t,!1,`🔄 Revert`)}}})})}function Ht(e={},t={},r=[],i=[]){let a=String(e.electionYear||``).trim()||t&&t.electionYear||new Date().getFullYear().toString(),o=(parseInt(a,10)+1).toString(),s=String(e.collegeName||``).trim()||n.COLLEGE_NAME||`College Union`,c=String(e.collegeShortName||``).trim()||n.COLLEGE_SHORT_NAME||`CUE`,l=new Date().toISOString().split(`T`)[0],u=Array.isArray(i)&&i.length>0?i:n.DEFAULT_POSTS||[],d=u.filter(e=>{let t=String(e.post||``).trim().toLowerCase();return t.startsWith(`association secretary`)||e.deptRestriction&&t.includes(`secretary`)||e.deptRestriction||e.restrictedDept}),f=u.filter(e=>{let t=String(e.post||``).trim().toLowerCase();return!d.includes(e)&&(t.includes(`representative`)||t.includes(`rep`)||e.yearRestriction)}),p=u.filter(e=>!d.includes(e)&&!f.includes(e)),m=e=>{let t=String(e.post||``).trim().toUpperCase(),n=[];return t.includes(`UNIVERSITY UNION COUNCILLOR`)&&!t.includes(`POST`)&&n.push(`2 Posts`),e.femaleOnly&&!t.includes(`WOMEN`)&&!t.includes(`FEMALE`)&&!t.includes(`LADY`)&&n.push(`Reserved for Women`),e.finalYearIneligible&&n.push(`Final Year Ineligible`),e.deptRestriction&&e.restrictedDept&&!t.includes(e.restrictedDept.toUpperCase())&&n.push(`Dept: ${e.restrictedDept}`),`- **${t}**${n.length>0?` *(${n.join(`, `)})*`:``}`},h=p.length>0?p.map(m).join(`
 `):`- **THE CHAIRMAN**
 - **THE VICE CHAIRMAN** *(Reserved for Women)*
 - **THE SECRETARY**
@@ -7611,12 +7611,12 @@ Notice is hereby given that the scrutiny and counting of votes polled in the Col
 2. Mobile phones and electronic communication devices are completely prohibited inside the counting hall.
 3. The Returning Officer will announce the booth-wise round tally and the final combined score upon completion of each post.
 4. The candidate securing the highest number of valid votes will be declared elected and presented with the Certificate of Election.
-5. In the event of an equality of votes between two candidates, the result shall be decided by the Returning Officer drawing lots in the presence of the candidates.`}]}async function zt(e){let t=W();t&&(G(e,`notices`,`
+5. In the event of an equality of votes between two candidates, the result shall be decided by the Returning Officer drawing lots in the presence of the candidates.`}]}async function Ut(e){let t=U();t&&(W(e,`notices`,`
     <div class="text-center py-16">
       <span class="spinner" style="width:2.5rem;height:2.5rem;border-width:4px;"></span>
       <p class="text-slate-400 mt-4 text-sm">Loading notices and polling booth poster center...</p>
     </div>
-  `),await Bt(e.querySelector(`#adminMain`),t))}async function Bt(e,t){if(e)try{let[r,i]=await Promise.all([C.adminGetNotices(t,!0).catch(()=>({})),C.getNominalRoll().catch(()=>[])]),a=r.settings||{},o=r.schedule||{},s=Array.isArray(r.booths)?r.booths:[];Array.isArray(r.locations)&&r.locations;let c=Array.isArray(r.posts)&&r.posts.length>0?r.posts:n.DEFAULT_POSTS||[],l=Array.isArray(r.notices)?r.notices:[];if(l.length===0)l=Rt(a,o,s,c);else{let e=l.find(e=>e.id===`statutory_notice_election_notification`);if(e){let n=String(e.content||``),r=n.toLowerCase().includes(`lyngdoh`),i=!n.includes(`Main Office Bearers`)&&!n.includes(`Class Representatives`);if(r||i){let n=Rt(a,o,s,c).find(e=>e.id===`statutory_notice_election_notification`);n&&(Object.assign(e,n),C.adminSaveNotice(t,e).catch(console.error))}}}let u={};i.forEach(e=>{let t=String(e.CLASS||``).trim(),n=String(e.Dept||``).trim(),r=t.toUpperCase().includes(`RESEARCH`)||t.toUpperCase().includes(`SCHOLAR`)||t.toUpperCase().includes(`PHD`)?`RESEARCH SCHOLAR - ${n}`:t;r&&(u[r]||(u[r]={name:r,dept:n,count:0}),u[r].count++)}),s.forEach(e=>{let t=Array.isArray(e.classes)?e.classes:[];e.totalStudents=0,t.forEach(t=>{u[t]&&(e.totalStudents+=u[t].count)})}),Vt(e,t,a,o,l,s,u,c)}catch(t){console.error(`Error loading admin notices:`,t),e.innerHTML=`<div class="alert alert-error">❌ ${P(t.message||`Failed to load notices`)}</div>`}}function Vt(e,t,r,i,a,o,s,c=[]){r.collegeName||n.COLLEGE_NAME,r.collegeShortName||n.COLLEGE_SHORT_NAME,r.electionYear||new Date().getFullYear();let l=a.filter(e=>e.isPublished!==!1&&e.isPublished!==`false`).length,u=o.reduce((e,t)=>e+(t.totalStudents||0),0);e.innerHTML=`
+  `),await Wt(e.querySelector(`#adminMain`),t))}async function Wt(e,t){if(e)try{let[r,i]=await Promise.all([C.adminGetNotices(t,!0).catch(()=>({})),C.getNominalRoll().catch(()=>[])]),a=r.settings||{},o=r.schedule||{},s=Array.isArray(r.booths)?r.booths:[];Array.isArray(r.locations)&&r.locations;let c=Array.isArray(r.posts)&&r.posts.length>0?r.posts:n.DEFAULT_POSTS||[],l=Array.isArray(r.notices)?r.notices:[];if(l.length===0)l=Ht(a,o,s,c);else{let e=l.find(e=>e.id===`statutory_notice_election_notification`);if(e){let n=String(e.content||``),r=n.toLowerCase().includes(`lyngdoh`),i=!n.includes(`Main Office Bearers`)&&!n.includes(`Class Representatives`);if(r||i){let n=Ht(a,o,s,c).find(e=>e.id===`statutory_notice_election_notification`);n&&(Object.assign(e,n),C.adminSaveNotice(t,e).catch(console.error))}}}let u={};i.forEach(e=>{let t=String(e.CLASS||``).trim(),n=String(e.Dept||``).trim(),r=t.toUpperCase().includes(`RESEARCH`)||t.toUpperCase().includes(`SCHOLAR`)||t.toUpperCase().includes(`PHD`)?`RESEARCH SCHOLAR - ${n}`:t;r&&(u[r]||(u[r]={name:r,dept:n,count:0}),u[r].count++)}),s.forEach(e=>{let t=Array.isArray(e.classes)?e.classes:[];e.totalStudents=0,t.forEach(t=>{u[t]&&(e.totalStudents+=u[t].count)})}),Gt(e,t,a,o,l,s,u,c)}catch(t){console.error(`Error loading admin notices:`,t),e.innerHTML=`<div class="alert alert-error">❌ ${N(t.message||`Failed to load notices`)}</div>`}}function Gt(e,t,r,i,a,o,s,c=[]){r.collegeName||n.COLLEGE_NAME,r.collegeShortName||n.COLLEGE_SHORT_NAME,r.electionYear||new Date().getFullYear();let l=a.filter(e=>e.isPublished!==!1&&e.isPublished!==`false`).length,u=o.reduce((e,t)=>e+(t.totalStudents||0),0);e.innerHTML=`
     <div class="page-enter space-y-6">
       
       <!-- Top Action Bar -->
@@ -7703,7 +7703,7 @@ Notice is hereby given that the scrutiny and counting of votes polled in the Col
                   <div class="space-y-3">
                     <div class="flex items-center justify-between">
                       <span class="text-xs font-black text-indigo-300 bg-indigo-500/20 px-2.5 py-1 rounded-lg border border-indigo-500/30">
-                        BOOTH NO. ${P(e.boothNumber)}
+                        BOOTH NO. ${N(e.boothNumber)}
                       </span>
                       <span class="text-xs font-mono font-bold text-slate-300">
                         ${e.totalStudents||0} Voters
@@ -7712,7 +7712,7 @@ Notice is hereby given that the scrutiny and counting of votes polled in the Col
 
                     <div>
                       <div class="text-[11px] text-slate-400 font-semibold uppercase">Room / Venue:</div>
-                      <div class="text-base font-bold text-white mt-0.5">📍 ${P(e.roomName||`Room Not Specified`)}</div>
+                      <div class="text-base font-bold text-white mt-0.5">📍 ${N(e.roomName||`Room Not Specified`)}</div>
                     </div>
 
                     <div>
@@ -7720,7 +7720,7 @@ Notice is hereby given that the scrutiny and counting of votes polled in the Col
                       <div class="flex flex-wrap gap-1 max-h-24 overflow-y-auto pr-1">
                         ${t.map(e=>`
                           <span class="px-2 py-0.5 rounded bg-white/5 border border-white/10 text-slate-300 text-[11px] leading-tight">
-                            ${P(e)}
+                            ${N(e)}
                           </span>
                         `).join(``)}
                       </div>
@@ -7729,7 +7729,7 @@ Notice is hereby given that the scrutiny and counting of votes polled in the Col
 
                   <div class="pt-3 border-t border-white/10 flex items-center justify-between">
                     <span class="text-[11px] text-slate-500">Door Poster Ready</span>
-                    <button class="btn btn-secondary btn-sm print-single-booth-btn flex items-center gap-1 text-xs" data-num="${P(e.boothNumber)}">
+                    <button class="btn btn-secondary btn-sm print-single-booth-btn flex items-center gap-1 text-xs" data-num="${N(e.boothNumber)}">
                       <span>🖨️</span> Print Door Poster
                     </button>
                   </div>
@@ -7773,16 +7773,16 @@ Notice is hereby given that the scrutiny and counting of votes polled in the Col
                         ${e.pinned?`<span class="text-amber-400 font-bold" title="Pinned to top">📌</span>`:`<span class="text-slate-600">–</span>`}
                       </td>
                       <td class="p-3">
-                        <div class="font-bold text-white text-sm leading-snug">${P(e.title)}</div>
-                        <div class="text-[11px] font-mono text-slate-400 mt-0.5">${P(e.refNo||`N/A`)}</div>
+                        <div class="font-bold text-white text-sm leading-snug">${N(e.title)}</div>
+                        <div class="text-[11px] font-mono text-slate-400 mt-0.5">${N(e.refNo||`N/A`)}</div>
                       </td>
                       <td class="p-3">
                         <span class="px-2.5 py-1 rounded-full text-[10px] font-bold bg-indigo-500/10 text-indigo-300 border border-indigo-500/20">
-                          ${P(e.category||`General`)}
+                          ${N(e.category||`General`)}
                         </span>
                       </td>
                       <td class="p-3 text-slate-300 font-mono">
-                        ${P(e.date||``)}
+                        ${N(e.date||``)}
                       </td>
                       <td class="p-3 text-center">
                         <span class="badge ${t?`badge-valid`:`badge-pending`} text-[10px]">
@@ -7791,16 +7791,16 @@ Notice is hereby given that the scrutiny and counting of votes polled in the Col
                       </td>
                       <td class="p-3 text-right">
                         <div class="flex items-center justify-end gap-1.5">
-                          <button class="btn btn-secondary btn-sm py-1 px-2 print-notice-btn text-xs" data-id="${P(e.id)}" title="Print Official Letterhead">
+                          <button class="btn btn-secondary btn-sm py-1 px-2 print-notice-btn text-xs" data-id="${N(e.id)}" title="Print Official Letterhead">
                             🖨️
                           </button>
-                          <button class="btn btn-secondary btn-sm py-1 px-2 edit-notice-btn text-xs" data-id="${P(e.id)}" title="Edit Notice">
+                          <button class="btn btn-secondary btn-sm py-1 px-2 edit-notice-btn text-xs" data-id="${N(e.id)}" title="Edit Notice">
                             ✏️
                           </button>
-                          <button class="btn btn-secondary btn-sm py-1 px-2 toggle-notice-btn text-xs" data-id="${P(e.id)}" title="${t?`Unpublish from Public Portal`:`Publish to Public Portal`}">
+                          <button class="btn btn-secondary btn-sm py-1 px-2 toggle-notice-btn text-xs" data-id="${N(e.id)}" title="${t?`Unpublish from Public Portal`:`Publish to Public Portal`}">
                             ${t?`🚫`:`📢`}
                           </button>
-                          <button class="btn btn-sm py-1 px-2 delete-notice-btn text-xs bg-rose-500/20 text-rose-300 hover:bg-rose-500/30" data-id="${P(e.id)}" title="Delete Notice">
+                          <button class="btn btn-sm py-1 px-2 delete-notice-btn text-xs bg-rose-500/20 text-rose-300 hover:bg-rose-500/30" data-id="${N(e.id)}" title="Delete Notice">
                             🗑️
                           </button>
                         </div>
@@ -7833,19 +7833,19 @@ Notice is hereby given that the scrutiny and counting of votes polled in the Col
           <div id="classIndexGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
             ${Object.values(s).sort((e,t)=>e.name.localeCompare(t.name)).map(e=>{let t=o.find(t=>(Array.isArray(t.classes)?t.classes:[]).includes(e.name)),n=t?t.boothNumber:``;return`
                 <div class="glass p-3.5 rounded-xl border border-white/10 flex items-center justify-between class-index-card" 
-                     data-name="${P(e.name)}" 
-                     data-dept="${P(e.dept)}"
-                     data-booth="${P(n)}">
+                     data-name="${N(e.name)}" 
+                     data-dept="${N(e.dept)}"
+                     data-booth="${N(n)}">
                   <div>
-                    <div class="font-bold text-white text-xs">${P(e.name)}</div>
-                    <div class="text-[10px] text-slate-400 mt-0.5">${P(e.dept)} • ${e.count} Voters</div>
+                    <div class="font-bold text-white text-xs">${N(e.name)}</div>
+                    <div class="text-[10px] text-slate-400 mt-0.5">${N(e.dept)} • ${e.count} Voters</div>
                   </div>
                   <div class="text-right">
                     ${t?`
                       <span class="font-black text-indigo-300 text-xs bg-indigo-500/20 px-2 py-1 rounded border border-indigo-500/30">
-                        Booth ${P(t.boothNumber)}
+                        Booth ${N(t.boothNumber)}
                       </span>
-                      <div class="text-[10px] text-slate-400 mt-1">📍 ${P(t.roomName||`Hall`)}</div>
+                      <div class="text-[10px] text-slate-400 mt-1">📍 ${N(t.roomName||`Hall`)}</div>
                     `:`
                       <span class="text-[10px] text-amber-400 font-semibold bg-amber-500/10 px-2 py-0.5 rounded border border-amber-500/20">
                         Unassigned
@@ -7942,13 +7942,13 @@ Notice is hereby given that the scrutiny and counting of votes polled in the Col
       </div>
 
     </div>
-  `,Ht(e,t,r,i,a,o,c)}function Ht(e,t,r,i,a,o,s=[]){let c=e.querySelector(`#adminTabPosters`),l=e.querySelector(`#adminTabNotices`),u=e.querySelector(`#adminTabIndex`),d=e.querySelector(`#adminPanelPosters`),f=e.querySelector(`#adminPanelNotices`),p=e.querySelector(`#adminPanelIndex`),m=(e,t)=>{[c,l,u].forEach(e=>{e.classList.remove(`bg-indigo-600`,`text-white`,`shadow-lg`),e.classList.add(`text-slate-400`)}),[d,f,p].forEach(e=>e.classList.add(`hidden`)),e.classList.add(`bg-indigo-600`,`text-white`,`shadow-lg`),e.classList.remove(`text-slate-400`),t.classList.remove(`hidden`)};c?.addEventListener(`click`,()=>m(c,d)),l?.addEventListener(`click`,()=>m(l,f)),u?.addEventListener(`click`,()=>m(u,p)),e.querySelector(`#btnPrintAllDoorPosters`)?.addEventListener(`click`,()=>{if(!o.length){alert(`No polling booths configured to print.`);return}se(o,r,i)}),e.querySelector(`#btnPrintMasterDirectory`)?.addEventListener(`click`,()=>{if(!o.length){alert(`No polling booths configured to print.`);return}ce(o,r,i)}),e.querySelectorAll(`.print-single-booth-btn`).forEach(e=>{e.addEventListener(`click`,()=>{let t=Number(e.dataset.num),n=o.find(e=>Number(e.boothNumber)===t);n&&oe(n,r,i)})}),e.querySelectorAll(`.print-notice-btn`).forEach(e=>{e.addEventListener(`click`,()=>{let t=e.dataset.id,n=a.find(e=>String(e.id)===String(t));n&&ae(n,r)})}),e.querySelector(`#classIndexSearch`)?.addEventListener(`input`,t=>{let n=(t.target.value||``).toLowerCase().trim(),r=0;e.querySelectorAll(`.class-index-card`).forEach(e=>{let t=(e.dataset.name||``).toLowerCase(),i=(e.dataset.dept||``).toLowerCase(),a=(e.dataset.booth||``).toLowerCase(),o=!n||t.includes(n)||i.includes(n)||a.includes(n);e.style.display=o?``:`none`,o&&r++});let i=e.querySelector(`#classIndexNoResults`);i&&i.classList.toggle(`hidden`,r>0)}),e.querySelector(`#btnLoadTemplates`)?.addEventListener(`click`,async()=>{let n=Rt(r,i,o,s);if(confirm(`Load ${n.length} standard statutory notices (Election Notification, Booth Allotments, Code of Conduct, Voter Guidelines, Counting Notice)? Any existing notices with same IDs will be updated.`))try{F(e.querySelector(`#btnLoadTemplates`),!0,`Loading...`);let r=new Map(a.map(e=>[e.id,e]));n.forEach(e=>{r.set(e.id,e)});let i=Array.from(r.values());await C.adminSaveNotices(t,i),I(`Statutory templates loaded successfully!`,`success`),await Bt(e,t)}catch(t){I(`Error loading templates: `+t.message,`error`),F(e.querySelector(`#btnLoadTemplates`),!1,`⚡ Load Statutory Templates`)}}),e.querySelector(`#btnRefreshNoticeOne`)?.addEventListener(`click`,async()=>{try{F(e.querySelector(`#btnRefreshNoticeOne`),!0,`Refreshing...`);let n=Rt(r,i,o,s).find(e=>e.id===`statutory_notice_election_notification`);n&&(await C.adminSaveNotice(t,n),I(`Election Notification #1 refreshed with latest posts and University Regulation!`,`success`),await Bt(e,t))}catch(t){I(`Error refreshing notice: `+t.message,`error`),F(e.querySelector(`#btnRefreshNoticeOne`),!1,`🔄 Refresh Notification Posts`)}}),e.querySelectorAll(`.toggle-notice-btn`).forEach(n=>{n.addEventListener(`click`,async()=>{let r=n.dataset.id,i=a.find(e=>String(e.id)===String(r));if(!i)return;let o=!(i.isPublished!==!1&&i.isPublished!==`false`);i.isPublished=o;try{await C.adminSaveNotice(t,i),I(`Notice ${o?`published`:`unpublished`}.`,`info`),await Bt(e,t)}catch(e){I(`Error updating status: `+e.message,`error`)}})}),e.querySelectorAll(`.delete-notice-btn`).forEach(n=>{n.addEventListener(`click`,async()=>{let r=n.dataset.id,i=a.find(e=>String(e.id)===String(r));if(i&&confirm(`Delete notice "${i.title}"? This cannot be undone.`))try{await C.adminDeleteNotice(t,r),I(`Notice deleted.`,`info`),await Bt(e,t)}catch(e){I(`Error deleting notice: `+e.message,`error`)}})});let h=e.querySelector(`#noticeEditModal`),g=e.querySelector(`#noticeEditOverlay`),_=e.querySelector(`#editModalCloseBtn`),v=e.querySelector(`#btnCancelNoticeEdit`),y=e.querySelector(`#formNoticeEdit`),b=(t=null)=>{e.querySelector(`#editModalHeading`).textContent=t?`Edit Official Notice`:`Draft New Official Notice`,e.querySelector(`#editNoticeId`).value=t?t.id:``,e.querySelector(`#editNoticeTitle`).value=t?t.title:``,e.querySelector(`#editNoticeRef`).value=t?t.refNo||``:`${r.collegeShortName||n.COLLEGE_SHORT_NAME||`CUE`}/ELEC/${r.electionYear||new Date().getFullYear()}/NOTIF-${String(a.length+1).padStart(2,`0`)}`,e.querySelector(`#editNoticeDate`).value=t?t.date||``:new Date().toISOString().split(`T`)[0],e.querySelector(`#editNoticeCategory`).value=t&&t.category||`Statutory Notification`,e.querySelector(`#editNoticeSignatory`).value=t?t.signatoryName||``:r.returningOfficerName||`Returning Officer`,e.querySelector(`#editNoticeSignTitle`).value=t?t.signatoryTitle||``:r.returningOfficerDesignation||`Returning Officer, ${r.collegeName||n.COLLEGE_NAME||`College Union`}`,e.querySelector(`#editNoticeContent`).value=t&&t.content||``,e.querySelector(`#editNoticePublished`).checked=t?t.isPublished!==!1&&t.isPublished!==`false`:!0,e.querySelector(`#editNoticePinned`).checked=t?!!t.pinned:!1,h.classList.remove(`hidden`),e.querySelector(`#editNoticeTitle`).focus()},x=()=>{h.classList.add(`hidden`),y.reset()};e.querySelector(`#btnDraftNewNotice`)?.addEventListener(`click`,()=>b(null)),e.querySelector(`#btnCreateNoticeSecondary`)?.addEventListener(`click`,()=>b(null)),e.querySelectorAll(`.edit-notice-btn`).forEach(e=>{e.addEventListener(`click`,()=>{let t=e.dataset.id,n=a.find(e=>String(e.id)===String(t));n&&b(n)})}),g?.addEventListener(`click`,x),_?.addEventListener(`click`,x),v?.addEventListener(`click`,x),y?.addEventListener(`submit`,async n=>{n.preventDefault();let r=e.querySelector(`#editNoticeId`).value.trim(),i=e.querySelector(`#editNoticeTitle`).value.trim(),a=e.querySelector(`#editNoticeRef`).value.trim(),o=e.querySelector(`#editNoticeDate`).value.trim(),s=e.querySelector(`#editNoticeCategory`).value.trim(),c=e.querySelector(`#editNoticeSignatory`).value.trim(),l=e.querySelector(`#editNoticeSignTitle`).value.trim(),u=e.querySelector(`#editNoticeContent`).value.trim(),d=e.querySelector(`#editNoticePublished`).checked,f=e.querySelector(`#editNoticePinned`).checked;if(!i||!u){alert(`Title and notice content are required.`);return}let p={id:r||`notice_`+Date.now()+`_`+Math.random().toString(36).substr(2,4),title:i,refNo:a,date:o,category:s,signatoryName:c,signatoryTitle:l,content:u,isPublished:d,pinned:f};try{F(e.querySelector(`#btnSaveNoticeSubmit`),!0,`Saving...`),await C.adminSaveNotice(t,p),I(`Notice saved successfully!`,`success`),x(),await Bt(e,t)}catch(t){I(`Error saving notice: `+t.message,`error`),F(e.querySelector(`#btnSaveNoticeSubmit`),!1,`Save Notice`)}})}var Ut=document.getElementById(`app`);document.body.insertAdjacentHTML(`afterbegin`,`
+  `,Kt(e,t,r,i,a,o,c)}function Kt(e,t,r,i,a,o,s=[]){let c=e.querySelector(`#adminTabPosters`),l=e.querySelector(`#adminTabNotices`),u=e.querySelector(`#adminTabIndex`),d=e.querySelector(`#adminPanelPosters`),f=e.querySelector(`#adminPanelNotices`),p=e.querySelector(`#adminPanelIndex`),m=(e,t)=>{[c,l,u].forEach(e=>{e.classList.remove(`bg-indigo-600`,`text-white`,`shadow-lg`),e.classList.add(`text-slate-400`)}),[d,f,p].forEach(e=>e.classList.add(`hidden`)),e.classList.add(`bg-indigo-600`,`text-white`,`shadow-lg`),e.classList.remove(`text-slate-400`),t.classList.remove(`hidden`)};c?.addEventListener(`click`,()=>m(c,d)),l?.addEventListener(`click`,()=>m(l,f)),u?.addEventListener(`click`,()=>m(u,p)),e.querySelector(`#btnPrintAllDoorPosters`)?.addEventListener(`click`,()=>{if(!o.length){alert(`No polling booths configured to print.`);return}ce(o,r,i)}),e.querySelector(`#btnPrintMasterDirectory`)?.addEventListener(`click`,()=>{if(!o.length){alert(`No polling booths configured to print.`);return}le(o,r,i)}),e.querySelectorAll(`.print-single-booth-btn`).forEach(e=>{e.addEventListener(`click`,()=>{let t=Number(e.dataset.num),n=o.find(e=>Number(e.boothNumber)===t);n&&se(n,r,i)})}),e.querySelectorAll(`.print-notice-btn`).forEach(e=>{e.addEventListener(`click`,()=>{let t=e.dataset.id,n=a.find(e=>String(e.id)===String(t));n&&oe(n,r)})}),e.querySelector(`#classIndexSearch`)?.addEventListener(`input`,t=>{let n=(t.target.value||``).toLowerCase().trim(),r=0;e.querySelectorAll(`.class-index-card`).forEach(e=>{let t=(e.dataset.name||``).toLowerCase(),i=(e.dataset.dept||``).toLowerCase(),a=(e.dataset.booth||``).toLowerCase(),o=!n||t.includes(n)||i.includes(n)||a.includes(n);e.style.display=o?``:`none`,o&&r++});let i=e.querySelector(`#classIndexNoResults`);i&&i.classList.toggle(`hidden`,r>0)}),e.querySelector(`#btnLoadTemplates`)?.addEventListener(`click`,async()=>{let n=Ht(r,i,o,s);if(confirm(`Load ${n.length} standard statutory notices (Election Notification, Booth Allotments, Code of Conduct, Voter Guidelines, Counting Notice)? Any existing notices with same IDs will be updated.`))try{P(e.querySelector(`#btnLoadTemplates`),!0,`Loading...`);let r=new Map(a.map(e=>[e.id,e]));n.forEach(e=>{r.set(e.id,e)});let i=Array.from(r.values());await C.adminSaveNotices(t,i),F(`Statutory templates loaded successfully!`,`success`),await Wt(e,t)}catch(t){F(`Error loading templates: `+t.message,`error`),P(e.querySelector(`#btnLoadTemplates`),!1,`⚡ Load Statutory Templates`)}}),e.querySelector(`#btnRefreshNoticeOne`)?.addEventListener(`click`,async()=>{try{P(e.querySelector(`#btnRefreshNoticeOne`),!0,`Refreshing...`);let n=Ht(r,i,o,s).find(e=>e.id===`statutory_notice_election_notification`);n&&(await C.adminSaveNotice(t,n),F(`Election Notification #1 refreshed with latest posts and University Regulation!`,`success`),await Wt(e,t))}catch(t){F(`Error refreshing notice: `+t.message,`error`),P(e.querySelector(`#btnRefreshNoticeOne`),!1,`🔄 Refresh Notification Posts`)}}),e.querySelectorAll(`.toggle-notice-btn`).forEach(n=>{n.addEventListener(`click`,async()=>{let r=n.dataset.id,i=a.find(e=>String(e.id)===String(r));if(!i)return;let o=!(i.isPublished!==!1&&i.isPublished!==`false`);i.isPublished=o;try{await C.adminSaveNotice(t,i),F(`Notice ${o?`published`:`unpublished`}.`,`info`),await Wt(e,t)}catch(e){F(`Error updating status: `+e.message,`error`)}})}),e.querySelectorAll(`.delete-notice-btn`).forEach(n=>{n.addEventListener(`click`,async()=>{let r=n.dataset.id,i=a.find(e=>String(e.id)===String(r));if(i&&confirm(`Delete notice "${i.title}"? This cannot be undone.`))try{await C.adminDeleteNotice(t,r),F(`Notice deleted.`,`info`),await Wt(e,t)}catch(e){F(`Error deleting notice: `+e.message,`error`)}})});let h=e.querySelector(`#noticeEditModal`),g=e.querySelector(`#noticeEditOverlay`),_=e.querySelector(`#editModalCloseBtn`),v=e.querySelector(`#btnCancelNoticeEdit`),y=e.querySelector(`#formNoticeEdit`),b=(t=null)=>{e.querySelector(`#editModalHeading`).textContent=t?`Edit Official Notice`:`Draft New Official Notice`,e.querySelector(`#editNoticeId`).value=t?t.id:``,e.querySelector(`#editNoticeTitle`).value=t?t.title:``,e.querySelector(`#editNoticeRef`).value=t?t.refNo||``:`${r.collegeShortName||n.COLLEGE_SHORT_NAME||`CUE`}/ELEC/${r.electionYear||new Date().getFullYear()}/NOTIF-${String(a.length+1).padStart(2,`0`)}`,e.querySelector(`#editNoticeDate`).value=t?t.date||``:new Date().toISOString().split(`T`)[0],e.querySelector(`#editNoticeCategory`).value=t&&t.category||`Statutory Notification`,e.querySelector(`#editNoticeSignatory`).value=t?t.signatoryName||``:r.returningOfficerName||`Returning Officer`,e.querySelector(`#editNoticeSignTitle`).value=t?t.signatoryTitle||``:r.returningOfficerDesignation||`Returning Officer, ${r.collegeName||n.COLLEGE_NAME||`College Union`}`,e.querySelector(`#editNoticeContent`).value=t&&t.content||``,e.querySelector(`#editNoticePublished`).checked=t?t.isPublished!==!1&&t.isPublished!==`false`:!0,e.querySelector(`#editNoticePinned`).checked=t?!!t.pinned:!1,h.classList.remove(`hidden`),e.querySelector(`#editNoticeTitle`).focus()},x=()=>{h.classList.add(`hidden`),y.reset()};e.querySelector(`#btnDraftNewNotice`)?.addEventListener(`click`,()=>b(null)),e.querySelector(`#btnCreateNoticeSecondary`)?.addEventListener(`click`,()=>b(null)),e.querySelectorAll(`.edit-notice-btn`).forEach(e=>{e.addEventListener(`click`,()=>{let t=e.dataset.id,n=a.find(e=>String(e.id)===String(t));n&&b(n)})}),g?.addEventListener(`click`,x),_?.addEventListener(`click`,x),v?.addEventListener(`click`,x),y?.addEventListener(`submit`,async n=>{n.preventDefault();let r=e.querySelector(`#editNoticeId`).value.trim(),i=e.querySelector(`#editNoticeTitle`).value.trim(),a=e.querySelector(`#editNoticeRef`).value.trim(),o=e.querySelector(`#editNoticeDate`).value.trim(),s=e.querySelector(`#editNoticeCategory`).value.trim(),c=e.querySelector(`#editNoticeSignatory`).value.trim(),l=e.querySelector(`#editNoticeSignTitle`).value.trim(),u=e.querySelector(`#editNoticeContent`).value.trim(),d=e.querySelector(`#editNoticePublished`).checked,f=e.querySelector(`#editNoticePinned`).checked;if(!i||!u){alert(`Title and notice content are required.`);return}let p={id:r||`notice_`+Date.now()+`_`+Math.random().toString(36).substr(2,4),title:i,refNo:a,date:o,category:s,signatoryName:c,signatoryTitle:l,content:u,isPublished:d,pinned:f};try{P(e.querySelector(`#btnSaveNoticeSubmit`),!0,`Saving...`),await C.adminSaveNotice(t,p),F(`Notice saved successfully!`,`success`),x(),await Wt(e,t)}catch(t){F(`Error saving notice: `+t.message,`error`),P(e.querySelector(`#btnSaveNoticeSubmit`),!1,`Save Notice`)}})}var qt=document.getElementById(`app`);document.body.insertAdjacentHTML(`afterbegin`,`
   <div class="bg-blob bg-blob-1"></div>
   <div class="bg-blob bg-blob-2"></div>
   <div class="bg-blob bg-blob-3"></div>
-`),C.getSettings().then(e=>{let t=e.collegeShortName||n.COLLEGE_SHORT_NAME,r=e.electionYear||new Date().getFullYear();document.title=`${t} Election Portal ${r}`}).catch(()=>{});var $=e=>t=>{Ut.innerHTML=``,e(Ut,t)};o.on(`/`,$(re)).on(`/submit`,$(me)).on(`/find`,$(Te)).on(`/valid-list`,$(Oe)).on(`/final-list`,$(je)).on(`/withdraw`,$(Pe)).on(`/results`,$(Ct)).on(`/nominal-roll`,$(Tt)).on(`/notices`,()=>{let e=sessionStorage.getItem(`adminPassword`);o.navigate(e?`/admin/notices`:`/admin`)}).on(`/admin`,$(Ue)).on(`/admin/dashboard`,$(We)).on(`/admin/verify`,$(Ke)).on(`/admin/withdrawals`,$(Je)).on(`/admin/publish`,$(Qe)).on(`/admin/posts`,$(et)).on(`/admin/ballots`,$(gt)).on(`/admin/booths`,$(at)).on(`/admin/notices`,$(zt)).on(`/admin/counting`,$(st)).on(`/admin/results-entry`,$(pt)).on(`/admin/results`,$(vt)).on(`/admin/nominal-roll`,$(Dt)).on(`/admin/schedule`,$(kt)).on(`/admin/direct-nomination`,$(Mt)).on(`/admin/testing`,$(_t)).on(`/admin/audit`,$(Nt)).on(`/admin/settings`,$(Pt)).on(`/admin/backup`,$(Ft)).setDefault(`/`),document.addEventListener(`click`,e=>{let t=e.target.closest(`[data-nav]`);if(t){e.preventDefault(),o.navigate(t.dataset.nav);return}let n=e.target.closest(`a[href^="#/"]`);if(n){e.preventDefault();let t=n.getAttribute(`href`).replace(/^#/,``);o.navigate(t)}}),o.start(),document.body.insertAdjacentHTML(`beforeend`,`
+`),C.getSettings().then(e=>{let t=e.collegeShortName||n.COLLEGE_SHORT_NAME,r=e.electionYear||new Date().getFullYear();document.title=`${t} Election Portal ${r}`}).catch(()=>{});var $=e=>t=>{qt.innerHTML=``,e(qt,t)};o.on(`/`,$(ie)).on(`/submit`,$(he)).on(`/find`,$(Ee)).on(`/valid-list`,$(ke)).on(`/final-list`,$(Me)).on(`/withdraw`,$(Fe)).on(`/results`,$(Dt)).on(`/nominal-roll`,$(kt)).on(`/notices`,()=>{let e=sessionStorage.getItem(`adminPassword`);o.navigate(e?`/admin/notices`:`/admin`)}).on(`/admin`,$(We)).on(`/admin/dashboard`,$(Ge)).on(`/admin/verify`,$(qe)).on(`/admin/withdrawals`,$(Xe)).on(`/admin/publish`,$(nt)).on(`/admin/posts`,$(it)).on(`/admin/ballots`,$(bt)).on(`/admin/booths`,$(lt)).on(`/admin/notices`,$(Ut)).on(`/admin/counting`,$(dt)).on(`/admin/results-entry`,$(_t)).on(`/admin/results`,$(St)).on(`/admin/nominal-roll`,$(jt)).on(`/admin/schedule`,$(Nt)).on(`/admin/direct-nomination`,$(It)).on(`/admin/testing`,$(xt)).on(`/admin/audit`,$(Lt)).on(`/admin/settings`,$(Rt)).on(`/admin/backup`,$(zt)).setDefault(`/`),document.addEventListener(`click`,e=>{let t=e.target.closest(`[data-nav]`);if(t){e.preventDefault(),o.navigate(t.dataset.nav);return}let n=e.target.closest(`a[href^="#/"]`);if(n){e.preventDefault();let t=n.getAttribute(`href`).replace(/^#/,``);o.navigate(t)}}),o.start(),document.body.insertAdjacentHTML(`beforeend`,`
   <div id="sync-status" class="fixed top-4 right-4 z-[9999] bg-black/80 backdrop-blur border border-white/10 rounded-full px-4 py-2 flex items-center gap-2 text-xs font-medium text-white shadow-xl transition-all duration-300 transform translate-y-[-150%] opacity-0">
     <span id="sync-icon" class="animate-spin inline-block">🔄</span>
     <span id="sync-text">Saving changes...</span>
   </div>
-`);var Wt=document.getElementById(`sync-status`),Gt=document.getElementById(`sync-icon`),Kt=document.getElementById(`sync-text`);m(e=>{e===`saving`?(Wt.classList.remove(`translate-y-[-150%]`,`opacity-0`),Wt.classList.add(`translate-y-0`,`opacity-100`),Gt.className=`animate-spin inline-block text-indigo-400`,Gt.innerHTML=`&#8635;`,Kt.innerText=`Saving changes...`):e===`saved`?(Gt.className=`inline-block text-emerald-400`,Gt.innerHTML=`&#10003;`,Kt.innerText=`All changes saved`):e===`idle`&&(Wt.classList.remove(`translate-y-0`,`opacity-100`),Wt.classList.add(`translate-y-[-150%]`,`opacity-0`))}),C.initPublicData();
+`);var Jt=document.getElementById(`sync-status`),Yt=document.getElementById(`sync-icon`),Xt=document.getElementById(`sync-text`);m(e=>{e===`saving`?(Jt.classList.remove(`translate-y-[-150%]`,`opacity-0`),Jt.classList.add(`translate-y-0`,`opacity-100`),Yt.className=`animate-spin inline-block text-indigo-400`,Yt.innerHTML=`&#8635;`,Xt.innerText=`Saving changes...`):e===`saved`?(Yt.className=`inline-block text-emerald-400`,Yt.innerHTML=`&#10003;`,Xt.innerText=`All changes saved`):e===`idle`&&(Jt.classList.remove(`translate-y-0`,`opacity-100`),Jt.classList.add(`translate-y-[-150%]`,`opacity-0`))}),C.initPublicData();

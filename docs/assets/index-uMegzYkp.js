@@ -140,15 +140,15 @@ var e=Object.defineProperty,t=(t,n)=>{let r={};for(var i in t)e(r,i,{get:t[i],en
     <div class="mt-6 flex items-center gap-2 text-xs font-bold text-indigo-400 uppercase tracking-widest opacity-0 group-hover:opacity-100 transition">
       Continue <span>→</span>
     </div>
-  </div>`}function de(e){if(!e)return``;let t=N(e);t=t.replace(/^### (.*$)/gim,`<h3 style="font-size:16px;font-weight:bold;margin:14px 0 6px 0;color:#111827;border-bottom:1px solid #e5e7eb;padding-bottom:4px;">$1</h3>`),t=t.replace(/^#### (.*$)/gim,`<h4 style="font-size:14px;font-weight:bold;margin:12px 0 4px 0;color:#374151;">$1</h4>`),t=t.replace(/^## (.*$)/gim,`<h2 style="font-size:18px;font-weight:bold;margin:16px 0 8px 0;color:#111827;">$1</h2>`),t=t.replace(/\*\*(.*?)\*\*/gim,`<strong>$1</strong>`),t=t.replace(/\*(.*?)\*/gim,`<em>$1</em>`),t=t.replace(/^---$/gim,`<hr style="border:none;border-top:1px dashed #d1d5db;margin:12px 0;">`),t=t.replace(/^\s*• (.*$)/gim,`<li style="margin-left:20px;margin-bottom:4px;">$1</li>`),t=t.replace(/^\s*\- (.*$)/gim,`<li style="margin-left:20px;margin-bottom:4px;">$1</li>`),t=t.replace(/^\s*(\d+)\.\s+(.*$)/gim,`<div style="margin-left:15px;margin-bottom:4px;"><strong>$1.</strong> $2</div>`);let n=t.split(`
-`),r=!1,i=``,a=[];for(let e=0;e<n.length;e++){let t=n[e].trim();if(t.startsWith(`|`)&&t.endsWith(`|`)){if(r||(r=!0,i=`<table style="width:100%;border-collapse:collapse;margin:12px 0;font-size:12px;">`),t.includes(`:---`)||t.includes(`---:`))continue;let e=t.split(`|`).slice(1,-1).map(e=>e.trim());!i.includes(`<tbody>`)&&!i.includes(`<thead>`)?i+=`<thead><tr style="background:#f3f4f6;border-bottom:1.5px solid #000;">`+e.map(e=>`<th style="border:1px solid #9ca3af;padding:6px 8px;text-align:left;">${e}</th>`).join(``)+`</tr></thead><tbody>`:i+=`<tr style="border-bottom:1px solid #e5e7eb;">`+e.map(e=>`<td style="border:1px solid #d1d5db;padding:5px 8px;">${e}</td>`).join(``)+`</tr>`}else r&&(i+=`</tbody></table>`,a.push(i),r=!1,i=``),a.push(t)}return r&&(i+=`</tbody></table>`,a.push(i)),a.map(e=>e.startsWith(`<h`)||e.startsWith(`<hr`)||e.startsWith(`<li`)||e.startsWith(`<div`)||e.startsWith(`<table`)?e:e.trim()?`<p style="margin:6px 0;line-height:1.5;">${e}</p>`:`<div style="height:8px;"></div>`).join(`
+  </div>`}function de(e){if(!e)return``;let t=N(e);!t.includes(`:::columns`)&&t.includes(`### Main Office Bearers`)&&t.includes(`### Association Secretaries`)&&(t=t.replace(/(### Main Office Bearers[\s\S]*?)(### Association Secretaries[\s\S]*?)(?=(?:\n---|\n\||$))/i,(e,t,n)=>`:::columns\n${t.trim()}\n:::split:::\n${n.trim()}\n:::\n`)),t=t.replace(/^### (.*$)/gim,`<h3 style="font-size:11.5px;font-weight:bold;margin:4px 0 2px 0;color:#111827;border-bottom:1px solid #e5e7eb;padding-bottom:1px;text-transform:uppercase;">$1</h3>`),t=t.replace(/^#### (.*$)/gim,`<h4 style="font-size:10.5px;font-weight:bold;margin:3px 0 2px 0;color:#374151;">$1</h4>`),t=t.replace(/^## (.*$)/gim,`<h2 style="font-size:12.5px;font-weight:bold;margin:5px 0 2px 0;color:#111827;">$1</h2>`),t=t.replace(/\*\*(.*?)\*\*/gim,`<strong>$1</strong>`),t=t.replace(/\*(.*?)\*/gim,`<em>$1</em>`),t=t.replace(/^---$/gim,`<hr style="border:none;border-top:1px dashed #d1d5db;margin:5px 0;">`),t=t.replace(/^\s*• (.*$)/gim,`<li style="margin-left:14px;margin-bottom:1.5px;font-size:9.5px;line-height:1.25;">$1</li>`),t=t.replace(/^\s*\- (.*$)/gim,`<li style="margin-left:14px;margin-bottom:1.5px;font-size:9.5px;line-height:1.25;">$1</li>`),t=t.replace(/^\s*(\d+)\.\s+(.*$)/gim,`<div style="margin-left:12px;margin-bottom:2px;font-size:10px;"><strong>$1.</strong> $2</div>`),t.includes(`:::columns`)&&(t=t.replace(/:::columns([\s\S]*?):::split:::([\s\S]*?):::/gi,(e,t,n)=>`<div class="notice-two-columns" style="display:flex;gap:14px;margin:3px 0;align-items:flex-start;">\n<div style="flex:1;min-width:0;">\n${t.trim()}\n</div>\n<div style="flex:1;min-width:0;">\n${n.trim()}\n</div>\n</div>`));let n=t.split(`
+`),r=!1,i=``,a=[];for(let e=0;e<n.length;e++){let t=n[e].trim();if(t.startsWith(`|`)&&t.endsWith(`|`)){if(r||(r=!0,i=`<table style="width:100%;border-collapse:collapse;margin:4px 0;font-size:9px;">`),t.includes(`:---`)||t.includes(`---:`))continue;let e=t.split(`|`).slice(1,-1).map(e=>e.trim());!i.includes(`<tbody>`)&&!i.includes(`<thead>`)?i+=`<thead><tr style="background:#f3f4f6;border-bottom:1.5px solid #000;">`+e.map(e=>`<th style="border:1px solid #9ca3af;padding:2px 5px;text-align:left;font-size:9.5px;">${e}</th>`).join(``)+`</tr></thead><tbody>`:i+=`<tr style="border-bottom:1px solid #e5e7eb;">`+e.map(e=>`<td style="border:1px solid #d1d5db;padding:1.5px 5px;line-height:1.2;">${e}</td>`).join(``)+`</tr>`}else r&&(i+=`</tbody></table>`,a.push(i),r=!1,i=``),a.push(t)}return r&&(i+=`</tbody></table>`,a.push(i)),a.map(e=>e.startsWith(`<h`)||e.startsWith(`<hr`)||e.startsWith(`<li`)||e.startsWith(`<div`)||e.startsWith(`</div`)||e.startsWith(`<table`)||e.startsWith(`</table`)||e.startsWith(`<thead`)||e.startsWith(`<tbody`)||e.startsWith(`<tr`)?e:e.trim()?`<p style="margin:2.5px 0;line-height:1.32;">${e}</p>`:`<div style="height:3px;"></div>`).join(`
 `)}function fe(e,t={}){let r=t.collegeName||n.COLLEGE_NAME;t.collegeShortName||n.COLLEGE_SHORT_NAME;let i=t.electionYear||new Date().getFullYear(),a=t.collegeLogo||``,o=window.open(``,`_blank`);if(!o){alert(`Pop-up blocker prevented opening the print window. Please allow pop-ups for this site.`);return}let s=de(e.content||``);o.document.write(`<!DOCTYPE html>
 <html>
 <head>
   <meta charset="utf-8">
   <title>${N(e.refNo||`Notice`)} - ${N(e.title)}</title>
   <style>
-    @page { size: A4; margin: 15mm; }
+    @page { size: A4 portrait; margin: 8mm 12mm 6mm 12mm; }
     * { box-sizing: border-box; }
     body {
       margin: 0;
@@ -156,23 +156,23 @@ var e=Object.defineProperty,t=(t,n)=>{let r={};for(var i in t)e(r,i,{get:t[i],en
       font-family: 'Times New Roman', Times, Georgia, serif;
       color: #111;
       background: #fff;
-      font-size: 13px;
-      line-height: 1.5;
+      font-size: 11px;
+      line-height: 1.35;
     }
     .page-container {
       max-width: 800px;
       margin: 0 auto;
-      padding: 10px;
+      padding: 0;
     }
     .header-table {
       width: 100%;
       border-collapse: collapse;
-      border-bottom: 2px solid #000;
-      padding-bottom: 8px;
-      margin-bottom: 12px;
+      border-bottom: 1.5px solid #000;
+      padding-bottom: 4px;
+      margin-bottom: 5px;
     }
     .college-name {
-      font-size: 19px;
+      font-size: 16px;
       font-weight: bold;
       text-transform: uppercase;
       letter-spacing: 0.5px;
@@ -180,32 +180,32 @@ var e=Object.defineProperty,t=(t,n)=>{let r={};for(var i in t)e(r,i,{get:t[i],en
       color: #000;
     }
     .sub-header {
-      font-size: 12px;
+      font-size: 10.5px;
       font-weight: bold;
       letter-spacing: 0.5px;
       text-transform: uppercase;
       color: #374151;
-      margin-top: 3px;
+      margin-top: 1px;
     }
     .meta-bar {
       display: flex;
       justify-content: space-between;
-      border-bottom: 1px solid #ccc;
-      padding: 6px 0;
-      margin-bottom: 14px;
+      border-bottom: 1px solid #ddd;
+      padding: 2.5px 0;
+      margin-bottom: 5px;
       font-family: Arial, sans-serif;
-      font-size: 11px;
+      font-size: 9.5px;
       color: #333;
     }
     .notice-title-box {
       text-align: center;
-      margin: 14px 0 18px 0;
+      margin: 5px 0 6px 0;
       border: 1.5px solid #000;
-      padding: 8px 12px;
+      padding: 4px 8px;
       background: #fafafa;
     }
     .notice-title {
-      font-size: 15px;
+      font-size: 12.5px;
       font-weight: bold;
       text-transform: uppercase;
       margin: 0;
@@ -213,33 +213,34 @@ var e=Object.defineProperty,t=(t,n)=>{let r={};for(var i in t)e(r,i,{get:t[i],en
     }
     .category-tag {
       font-family: Arial, sans-serif;
-      font-size: 10px;
+      font-size: 8.5px;
       font-weight: bold;
       text-transform: uppercase;
       color: #4b5563;
-      margin-top: 3px;
+      margin-top: 1px;
     }
     .content-area {
-      font-size: 13px;
+      font-size: 11px;
       text-align: justify;
-      margin-bottom: 30px;
+      margin-bottom: 6px;
+      line-height: 1.35;
     }
     .signature-area {
-      margin-top: 40px;
+      margin-top: 8px;
       display: flex;
       justify-content: space-between;
       align-items: flex-end;
       page-break-inside: avoid;
     }
     .seal-box {
-      width: 130px;
-      height: 80px;
+      width: 100px;
+      height: 42px;
       border: 1px dashed #999;
       display: flex;
       align-items: center;
       justify-content: center;
       font-family: Arial, sans-serif;
-      font-size: 10px;
+      font-size: 8.5px;
       color: #777;
       text-align: center;
     }
@@ -248,24 +249,29 @@ var e=Object.defineProperty,t=(t,n)=>{let r={};for(var i in t)e(r,i,{get:t[i],en
       font-family: 'Times New Roman', Times, serif;
     }
     .signatory-name {
-      font-size: 14px;
+      font-size: 11.5px;
       font-weight: bold;
       margin: 0;
     }
     .signatory-title {
-      font-size: 12px;
+      font-size: 10px;
       color: #333;
-      margin-top: 3px;
+      margin-top: 1px;
       max-width: 320px;
     }
     .footer-note {
-      margin-top: 25px;
+      margin-top: 6px;
       border-top: 1px solid #e5e7eb;
-      padding-top: 6px;
+      padding-top: 2px;
       font-family: Arial, sans-serif;
-      font-size: 9px;
+      font-size: 8px;
       color: #6b7280;
       text-align: center;
+    }
+    @media print {
+      body { margin: 0; padding: 0; }
+      .page-container { max-width: 100%; margin: 0; padding: 0; }
+      .signature-area { page-break-inside: avoid; }
     }
   </style>
 </head>
@@ -7488,24 +7494,20 @@ This will lock the list and prevent any further additions, edits, or deletions.`
 - **ASSOCIATION SECRETARY TAMIL**
 - **ASSOCIATION SECRETARY ZOOLOGY**`,v=(e,t=`To be notified`)=>{if(!e)return t;let n=new Date(e);return isNaN(n.getTime())?t:n.toLocaleDateString(`en-IN`,{weekday:`short`,day:`numeric`,month:`short`,year:`numeric`,hour:`2-digit`,minute:`2-digit`})},y=``;return y=r&&r.length?r.map(e=>{let t=(e.classes||[]).join(`, `)||`Classes as designated`;return`• **Polling Booth No. ${e.boothNumber}** [Location: ${e.roomName||`Designated Hall`}]\n  Allotted Classes: ${t}`}).join(`
 
-`):`• Polling Booths and Station allotments will be published as per the official booth allocation chart.`,[{id:`statutory_notice_election_notification`,title:`ELECTION NOTIFICATION ${a}`,refNo:`U.O.No. 12646/2026/Admn (File Ref.No.190115/DSW-ASST-2/2026/Admn)`,date:`29-09-2026`,category:`Statutory Notification`,pinned:!0,isPublished:!0,signatoryName:e.returningOfficerName||`Returning Officer`,signatoryTitle:e.returningOfficerDesignation||`Returning Officer, ${s}`,content:`### UNIVERSITY REGULATION & ELECTION NOTIFICATION
-**Reference:** University of Calicut Order **U.O.No. 12646/2026/Admn** dated **11.09.2026** (File Ref.No. **190115/DSW-ASST-2/2026/Admn**), Department of Students' Welfare.  
-**Read:** Orders of the Hon'ble Vice-Chancellor dated 11.09.2026 approving the College Union Election Schedule for the Academic Year ${a}–${o}.
-
----
-
-In pursuance of the University of Calicut Order cited above and in accordance with the provisions of the Calicut University Act and College Union Election Statutes, it is hereby notified for the information of all students and electors of **${s}** that the election to the College Union for the Academic Year **${a}–${o}** will be conducted as per the statutory schedule mandated by the University.
+`):`• Polling Booths and Station allotments will be published as per the official booth allocation chart.`,[{id:`statutory_notice_election_notification`,title:`ELECTION NOTIFICATION ${a}`,refNo:`${c}/ELEC/${a}/NOTIF-01`,date:`29-09-2026`,category:`Statutory Notification`,pinned:!0,isPublished:!0,signatoryName:e.returningOfficerName||`Returning Officer`,signatoryTitle:e.returningOfficerDesignation||`Returning Officer, ${s}`,content:`In accordance with the provisions of the Calicut University Act and College Union Election Statutes, it is hereby notified for the information of all students and electors of **${s}** that the election to the College Union for the Academic Year **${a}–${o}** will be conducted as per the statutory schedule mandated by the University.
 
 The election will be held for the following posts:
 
+:::columns
 ### Main Office Bearers
 ${h}
 
 ### Class Representatives
 ${g}
-
+:::split:::
 ### Association Secretaries
 ${_}
+:::
 
 ---
 
@@ -7607,7 +7609,7 @@ Notice is hereby given that the scrutiny and counting of votes polled in the Col
       <span class="spinner" style="width:2.5rem;height:2.5rem;border-width:4px;"></span>
       <p class="text-slate-400 mt-4 text-sm">Loading notices and polling booth poster center...</p>
     </div>
-  `),await Xt(e.querySelector(`#adminMain`),t))}async function Xt(e,t){if(e)try{let[r,i]=await Promise.all([C.adminGetNotices(t,!0).catch(()=>({})),C.getNominalRoll().catch(()=>[])]),a=r.settings||{},o=r.schedule||{},s=Array.isArray(r.booths)?r.booths:[];Array.isArray(r.locations)&&r.locations;let c=Array.isArray(r.posts)&&r.posts.length>0?r.posts:n.DEFAULT_POSTS||[],l=Array.isArray(r.notices)?r.notices:[];if(l.length===0)l=Jt(a,o,s,c);else{let e=l.find(e=>e.id===`statutory_notice_election_notification`);if(e){let n=String(e.content||``),r=n.toLowerCase().includes(`lyngdoh`),i=!n.includes(`Main Office Bearers`)&&!n.includes(`Class Representatives`);if(r||i){let n=Jt(a,o,s,c).find(e=>e.id===`statutory_notice_election_notification`);n&&(Object.assign(e,n),C.adminSaveNotice(t,e).catch(console.error))}}}let u={};i.forEach(e=>{let t=String(e.CLASS||``).trim(),n=String(e.Dept||``).trim(),r=t.toUpperCase().includes(`RESEARCH`)||t.toUpperCase().includes(`SCHOLAR`)||t.toUpperCase().includes(`PHD`)?`RESEARCH SCHOLAR - ${n}`:t;r&&(u[r]||(u[r]={name:r,dept:n,count:0}),u[r].count++)}),s.forEach(e=>{let t=Array.isArray(e.classes)?e.classes:[];e.totalStudents=0,t.forEach(t=>{u[t]&&(e.totalStudents+=u[t].count)})}),Zt(e,t,a,o,l,s,u,c)}catch(t){console.error(`Error loading admin notices:`,t),e.innerHTML=`<div class="alert alert-error">❌ ${N(t.message||`Failed to load notices`)}</div>`}}function Zt(e,t,r,i,a,o,s,c=[]){r.collegeName||n.COLLEGE_NAME,r.collegeShortName||n.COLLEGE_SHORT_NAME,r.electionYear||new Date().getFullYear();let l=a.filter(e=>e.isPublished!==!1&&e.isPublished!==`false`).length,u=o.reduce((e,t)=>e+(t.totalStudents||0),0);e.innerHTML=`
+  `),await Xt(e.querySelector(`#adminMain`),t))}async function Xt(e,t){if(e)try{let[r,i]=await Promise.all([C.adminGetNotices(t,!0).catch(()=>({})),C.getNominalRoll().catch(()=>[])]),a=r.settings||{},o=r.schedule||{},s=Array.isArray(r.booths)?r.booths:[];Array.isArray(r.locations)&&r.locations;let c=Array.isArray(r.posts)&&r.posts.length>0?r.posts:n.DEFAULT_POSTS||[],l=Array.isArray(r.notices)?r.notices:[];if(l.length===0)l=Jt(a,o,s,c);else{let e=l.find(e=>e.id===`statutory_notice_election_notification`);if(e){let n=String(e.content||``),r=n.toLowerCase().includes(`lyngdoh`),i=n.includes(`UNIVERSITY REGULATION & ELECTION NOTIFICATION`)||n.includes(`Reference: University of Calicut Order`),l=!n.includes(`Main Office Bearers`)&&!n.includes(`Class Representatives`),u=!n.includes(`:::columns`);if(r||i||l||u){let n=Jt(a,o,s,c).find(e=>e.id===`statutory_notice_election_notification`);n&&(Object.assign(e,n),C.adminSaveNotice(t,e).catch(console.error))}}}let u={};i.forEach(e=>{let t=String(e.CLASS||``).trim(),n=String(e.Dept||``).trim(),r=t.toUpperCase().includes(`RESEARCH`)||t.toUpperCase().includes(`SCHOLAR`)||t.toUpperCase().includes(`PHD`)?`RESEARCH SCHOLAR - ${n}`:t;r&&(u[r]||(u[r]={name:r,dept:n,count:0}),u[r].count++)}),s.forEach(e=>{let t=Array.isArray(e.classes)?e.classes:[];e.totalStudents=0,t.forEach(t=>{u[t]&&(e.totalStudents+=u[t].count)})}),Zt(e,t,a,o,l,s,u,c)}catch(t){console.error(`Error loading admin notices:`,t),e.innerHTML=`<div class="alert alert-error">❌ ${N(t.message||`Failed to load notices`)}</div>`}}function Zt(e,t,r,i,a,o,s,c=[]){r.collegeName||n.COLLEGE_NAME,r.collegeShortName||n.COLLEGE_SHORT_NAME,r.electionYear||new Date().getFullYear();let l=a.filter(e=>e.isPublished!==!1&&e.isPublished!==`false`).length,u=o.reduce((e,t)=>e+(t.totalStudents||0),0);e.innerHTML=`
     <div class="page-enter space-y-6">
       
       <!-- Top Action Bar -->

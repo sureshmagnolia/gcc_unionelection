@@ -4,20 +4,20 @@ var e=Object.defineProperty,t=(t,n)=>{let r={};for(var i in t)e(r,i,{get:t[i],en
       <head>
         <title>${t}</title>
         <style>
-          @page { size: A4 portrait; margin: 10mm 14mm; }
+          @page { size: A4 portrait; margin: 6mm 10mm; }
           * { box-sizing: border-box; }
           body {
             font-family: Arial, sans-serif;
             color: black !important;
             background: white !important;
             font-size: 11pt;
-            line-height: 1.45;
+            line-height: 1.4;
             margin: 0;
             padding: 0;
           }
           /* Reset dark theme classes to clean B&W for printing */
           * { color: black !important; background: transparent !important; border-color: #333 !important; }
-          .print-paper { width: 100%; margin: 0 auto; padding: 14px 18px; }
+          .print-paper { width: 100%; margin: 0 auto; padding: 15px 18px 18px 18px; }
           .border { border: 1px solid #333; }
           .border-b { border-bottom: 1px solid #333; }
           .border-y { border-top: 1px solid #333; border-bottom: 1px solid #333; }
@@ -26,7 +26,7 @@ var e=Object.defineProperty,t=(t,n)=>{let r={};for(var i in t)e(r,i,{get:t[i],en
           .p-8 { padding: 1.25rem 1.5rem; }
           .p-4 { padding: 0.85rem 1rem; }
           .p-3 { padding: 0.65rem 0.85rem; }
-          .p-3\.5 { padding: 0.75rem 1rem; }
+          .p-3\.5 { padding: 11px 15px 13px 15px; }
           .pt-6 { padding-top: 1.25rem; }
           .pb-1 { padding-bottom: 0.25rem; }
           .pb-1\.5 { padding-bottom: 0.35rem; }
@@ -42,9 +42,9 @@ var e=Object.defineProperty,t=(t,n)=>{let r={};for(var i in t)e(r,i,{get:t[i],en
           .mb-1\.5 { margin-bottom: 0.35rem; }
           .mb-2 { margin-bottom: 0.5rem; }
           .space-y-4 > * + * { margin-top: 0.85rem; }
-          .space-y-3 > * + * { margin-top: 0.65rem; }
-          .space-y-2\.5 > * + * { margin-top: 0.55rem; }
-          .space-y-2 > * + * { margin-top: 0.45rem; }
+          .space-y-3 > * + * { margin-top: 0.8rem; }
+          .space-y-2\.5 > * + * { margin-top: 0.7rem; }
+          .space-y-2 > * + * { margin-top: 0.55rem; }
           .space-y-1 > * + * { margin-top: 0.25rem; }
           .flex { display: flex; }
           .flex-1 { flex: 1 1 0%; }
@@ -80,10 +80,10 @@ var e=Object.defineProperty,t=(t,n)=>{let r={};for(var i in t)e(r,i,{get:t[i],en
           .gap-y-1\.5 { row-gap: 0.375rem; }
           .gap-y-2 { row-gap: 0.5rem; }
           .gap-y-2\.5 { row-gap: 0.65rem; }
-          .gap-y-3 { row-gap: 0.75rem; }
+          .gap-y-3 { row-gap: 0.82rem; }
           .italic { font-style: italic; }
           .badge { border: 1px solid #000; padding: 2px 6px; border-radius: 4px; font-size: 0.75rem; font-weight: bold; }
-          .dotted-line { display: inline-block; border-bottom: 1px dotted #000 !important; height: 18px; vertical-align: bottom; }
+          .dotted-line { display: inline-block; border-bottom: 1.5px dotted #000 !important; height: 24px; vertical-align: bottom; }
           h2, h3, p { margin: 0; }
           @media print {
             .print-paper { page-break-inside: avoid !important; break-inside: avoid !important; }
@@ -903,17 +903,17 @@ var e=Object.defineProperty,t=(t,n)=>{let r={};for(var i in t)e(r,i,{get:t[i],en
     };
   <\/script>
 </body>
-</html>`),c.document.close()}function ge(e={}){let t=e.collegeName||n.COLLEGE_NAME,r=e.collegeShortName||n.COLLEGE_SHORT_NAME,i=e.electionYear||new Date().getFullYear(),a=e.collegeLogo||``,o=()=>`<span class="dotted-line" style="flex:1;display:inline-block;border-bottom:1px dotted #000;height:18px;vertical-align:bottom;margin-left:6px;"></span>`;ne(`
-  <div class="print-paper border border-slate-700 rounded-xl p-6 bg-slate-900 text-slate-200 space-y-3">
+</html>`),c.document.close()}function ge(e={}){let t=e.collegeName||n.COLLEGE_NAME,r=e.collegeShortName||n.COLLEGE_SHORT_NAME,i=e.electionYear||new Date().getFullYear(),a=e.collegeLogo||``,o=()=>`<span class="dotted-line" style="flex:1;display:inline-block;border-bottom:1.5px dotted #000;height:24px;vertical-align:bottom;margin-left:8px;"></span>`;ne(`
+  <div class="print-paper border border-slate-700 rounded-xl p-4 bg-slate-900 text-slate-200 space-y-3">
     <div class="flex justify-between items-start text-sm pb-2 border-b border-white/10">
       <div>
-        ${a?`<img src="${a}" style="max-height:45px;max-width:120px;margin-bottom:4px;display:block;object-fit:contain" alt="College Logo">`:``}
+        ${a?`<img src="${a}" style="max-height:48px;max-width:120px;margin-bottom:4px;display:block;object-fit:contain" alt="College Logo">`:``}
         <p class="font-bold text-white text-base">${N(t)}</p>
         <p class="text-slate-400 text-xs">College Union Election ${N(i)}</p>
       </div>
       <div class="text-right space-y-1">
         <p class="text-slate-400 text-xs">Date: _____ / _____ / 202___</p>
-        <span class="badge border border-slate-500 font-mono text-xs px-2 py-0.5">NOMINATION PAPER</span>
+        <span class="badge border border-slate-500 font-mono text-xs px-2.5 py-0.5">NOMINATION PAPER</span>
       </div>
     </div>
     <h2 class="text-center font-bold text-lg text-white border-y border-white/10 py-1.5 uppercase tracking-widest">NOMINATION PAPER</h2>
@@ -923,13 +923,13 @@ var e=Object.defineProperty,t=(t,n)=>{let r={};for(var i in t)e(r,i,{get:t[i],en
       ${o()}
     </div>
 
-    <div class="space-y-2.5">
+    <div class="space-y-3">
       <!-- Candidate Details -->
       <div class="glass rounded-lg p-3.5 text-xs space-y-2 border border-white/10">
         <div class="flex items-center justify-between border-b border-white/10 pb-1.5 mb-2">
           <h3 class="font-bold text-white uppercase text-xs tracking-widest">Candidate Details</h3>
           <span class="badge bg-indigo-500/20 text-indigo-300 border border-indigo-500/40 font-mono font-bold text-xs px-2.5 py-0.5">
-            Electoral Roll Sl. #: <span class="dotted-line" style="display:inline-block;width:90px;height:14px;border-bottom:1px dotted #000;margin-left:4px;">&nbsp;</span>
+            Electoral Roll Sl. #: <span class="dotted-line" style="display:inline-block;width:110px;height:18px;border-bottom:1.5px dotted #000;margin-left:4px;">&nbsp;</span>
           </span>
         </div>
         <div class="grid grid-cols-2 gap-x-8 gap-y-3">
@@ -954,9 +954,8 @@ var e=Object.defineProperty,t=(t,n)=>{let r={};for(var i in t)e(r,i,{get:t[i],en
             ${o()}
           </div>
           <div class="col-span-2 flex items-baseline">
-            <span class="text-slate-400 font-semibold shrink-0">Date of Birth:</span>
-            <span class="dotted-line" style="width:180px;display:inline-block;border-bottom:1px dotted #000;height:18px;margin-left:6px;"></span>
-            <span class="text-slate-500 text-[11px] ml-2">(DD / MM / YYYY)</span>
+            <span class="text-slate-400 font-semibold shrink-0">Date of Birth (DD / MM / YYYY):</span>
+            <span class="dotted-line" style="width:230px;display:inline-block;border-bottom:1.5px dotted #000;height:24px;margin-left:8px;"></span>
           </div>
         </div>
       </div>
@@ -966,7 +965,7 @@ var e=Object.defineProperty,t=(t,n)=>{let r={};for(var i in t)e(r,i,{get:t[i],en
         <div class="flex items-center justify-between border-b border-white/10 pb-1.5 mb-2">
           <h3 class="font-bold text-white uppercase text-xs tracking-widest">Proposer Details</h3>
           <span class="badge bg-indigo-500/20 text-indigo-300 border border-indigo-500/40 font-mono font-bold text-xs px-2.5 py-0.5">
-            Electoral Roll Sl. #: <span class="dotted-line" style="display:inline-block;width:90px;height:14px;border-bottom:1px dotted #000;margin-left:4px;">&nbsp;</span>
+            Electoral Roll Sl. #: <span class="dotted-line" style="display:inline-block;width:110px;height:18px;border-bottom:1.5px dotted #000;margin-left:4px;">&nbsp;</span>
           </span>
         </div>
         <div class="grid grid-cols-2 gap-x-8 gap-y-3">
@@ -988,8 +987,8 @@ var e=Object.defineProperty,t=(t,n)=>{let r={};for(var i in t)e(r,i,{get:t[i],en
           </div>
         </div>
         <div class="flex justify-between mt-3.5 pt-2 text-slate-500 text-xs border-t border-white/5">
-          <span>Date: _____ / _____ / 202___</span>
-          <span>Signature: _________________________________________</span>
+          <span><strong>Date:</strong> _____ / _____ / 202___</span>
+          <span><strong>Signature of Proposer:</strong> <span class="dotted-line" style="width:240px;border-bottom:1.5px solid #000;height:24px;margin-left:4px;">&nbsp;</span></span>
         </div>
       </div>
 
@@ -998,7 +997,7 @@ var e=Object.defineProperty,t=(t,n)=>{let r={};for(var i in t)e(r,i,{get:t[i],en
         <div class="flex items-center justify-between border-b border-white/10 pb-1.5 mb-2">
           <h3 class="font-bold text-white uppercase text-xs tracking-widest">Seconder Details</h3>
           <span class="badge bg-indigo-500/20 text-indigo-300 border border-indigo-500/40 font-mono font-bold text-xs px-2.5 py-0.5">
-            Electoral Roll Sl. #: <span class="dotted-line" style="display:inline-block;width:90px;height:14px;border-bottom:1px dotted #000;margin-left:4px;">&nbsp;</span>
+            Electoral Roll Sl. #: <span class="dotted-line" style="display:inline-block;width:110px;height:18px;border-bottom:1.5px dotted #000;margin-left:4px;">&nbsp;</span>
           </span>
         </div>
         <div class="grid grid-cols-2 gap-x-8 gap-y-3">
@@ -1020,8 +1019,8 @@ var e=Object.defineProperty,t=(t,n)=>{let r={};for(var i in t)e(r,i,{get:t[i],en
           </div>
         </div>
         <div class="flex justify-between mt-3.5 pt-2 text-slate-500 text-xs border-t border-white/5">
-          <span>Date: _____ / _____ / 202___</span>
-          <span>Signature: _________________________________________</span>
+          <span><strong>Date:</strong> _____ / _____ / 202___</span>
+          <span><strong>Signature of Seconder:</strong> <span class="dotted-line" style="width:240px;border-bottom:1.5px solid #000;height:24px;margin-left:4px;">&nbsp;</span></span>
         </div>
       </div>
     </div>
@@ -1031,8 +1030,8 @@ var e=Object.defineProperty,t=(t,n)=>{let r={};for(var i in t)e(r,i,{get:t[i],en
       <h3 class="font-bold text-white uppercase text-xs tracking-wider">Consent of Candidate</h3>
       <p class="text-xs text-slate-400">I agree, if elected, to serve on the body to which I am proposed as a candidate.</p>
       <div class="flex justify-around mt-4 text-xs text-slate-400">
-        <span>Signature of Candidate: _________________________________</span>
-        <span>Date: _____ / _____ / 202___</span>
+        <span><strong>Signature of Candidate:</strong> <span class="dotted-line" style="width:250px;border-bottom:1.5px solid #000;height:24px;margin-left:4px;">&nbsp;</span></span>
+        <span><strong>Date:</strong> _____ / _____ / 202___</span>
       </div>
       <p class="text-xs text-slate-500 italic mt-2">(To be signed in front of the Returning Officer)</p>
     </div>
